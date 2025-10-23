@@ -2,24 +2,6 @@
 @import '@shohojdhara/atomix/styles';
 
 /* CSS Custom Properties for theming */
-:root {
-
-  /* Spacing */
-  --atomix-spacing-xs: 0.25rem;
-  --atomix-spacing-sm: 0.5rem;
-  --atomix-spacing-md: 1rem;
-  --atomix-spacing-lg: 1.5rem;
-  --atomix-spacing-xl: 2rem;
-
-  /* Typography */
-  --atomix-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  --atomix-font-size-sm: 0.875rem;
-  --atomix-font-size-md: 1rem;
-  --atomix-font-size-lg: 1.125rem;
-  --atomix-line-height: 1.5;
-}
-
-
 
 .atomix-docs-header .docs-nav {
   display: flex;
@@ -35,7 +17,7 @@
 
 .atomix-docs-header .brand-link {
   text-decoration: none;
-  color: var(--atomix-text-primary);
+  color: var(--atomix-primary-text-emphasis);
   font-weight: 600;
   font-size: var(--atomix-font-size-lg);
   transition: color 0.2s ease;
@@ -66,6 +48,7 @@
   padding-top: var(--atomix-spacing-lg);
   overflow-y: auto;
   transition: transform 0.3s ease;
+  background-color: var(--atomix-body-bg);
 }
 
 .atomix-docs-sidebar .sidebar-content {
@@ -100,7 +83,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: var(--atomix-spacing-sm);
-  color: var(--atomix-text-primary);
+  color: var(--atomix-primary-text-emphasis);
   line-height: 1.2;
 }
 
@@ -120,7 +103,7 @@
 
 /* Code example styles */
 .code-example {
-  background-color: var(--atomix-bg-tertiary);
+  background-color: var(--atomix-tertiary-bg-subtle);
   border-radius: 8px;
   overflow: hidden;
   margin: var(--atomix-spacing-md) 0;
@@ -131,14 +114,14 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--atomix-spacing-sm) var(--atomix-spacing-md);
-  background-color: var(--atomix-bg-secondary);
+  background-color: var(--atomix-secondary-bg-subtle);
   border-bottom: 1px solid var(--atomix-border);
 }
 
 .code-title {
   font-size: var(--atomix-font-size-sm);
   font-weight: 500;
-  color: var(--atomix-text-secondary);
+  color: var(--atomix-secondary-text-emphasis);
 }
 
 
@@ -221,6 +204,107 @@
   }
 }
 
+/* Footer styles */
+.atomix-docs-footer {
+  background-color: var(--atomix-secondary-bg-subtle);
+  border-top: 1px solid var(--atomix-border);
+  margin-left: 280px;
+  transition: margin-left 0.3s ease;
+}
+
+.atomix-docs-footer .footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 3rem;
+}
+
+.atomix-docs-footer .footer-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.atomix-docs-footer .footer-social {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.atomix-docs-footer .footer-social a {
+  transition: transform 0.2s ease;
+}
+
+.atomix-docs-footer .footer-social a:hover {
+  transform: translateY(-2px);
+}
+
+.atomix-docs-footer .footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.atomix-docs-footer .footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.atomix-docs-footer .section-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.atomix-docs-footer .footer-link {
+  color: var(--atomix-secondary-text-emphasis);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  padding: 0.25rem 0;
+}
+
+.atomix-docs-footer .footer-link:hover {
+  color: var(--atomix-primary);
+  padding-left: 0.25rem;
+}
+
+.atomix-docs-footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--atomix-border);
+}
+
+@media (max-width: 1024px) {
+  .atomix-docs-footer {
+    margin-left: 0;
+  }
+
+  .atomix-docs-footer .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--atomix-spacing-2xl);
+  }
+
+  .atomix-docs-footer .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .atomix-docs-footer {
+    padding: var(--atomix-spacing-2xl) 0 var(--atomix-spacing-lg);
+  }
+
+  .atomix-docs-footer .footer-links {
+    grid-template-columns: 1fr;
+    gap: var(--atomix-spacing-lg);
+  }
+
+  .atomix-docs-footer .footer-bottom {
+    flex-direction: column;
+    gap: var(--atomix-spacing-sm);
+    text-align: center;
+  }
+}
+
 /* Utility classes */
 .desktop-only {
   display: block;
@@ -238,18 +322,4 @@
   .mobile-only {
     display: block;
   }
-}
-
-/* Loading states */
-.loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--atomix-spacing-xl);
-}
-
-/* Focus styles for accessibility */
-.atomix-docs-app:focus-within .nav-link:focus {
-  outline: 2px solid var(--atomix-primary);
-  outline-offset: 2px;
 }

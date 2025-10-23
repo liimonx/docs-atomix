@@ -1,17 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Badge,
   Icon,
   Input,
   Button,
-  Progress,
   SideMenu,
   SideMenuList,
   SideMenuItem
 } from '@shohojdhara/atomix';
-import { navigationData } from '../../data/navigation';
-import { useSearch } from '../../hooks/useSearch';
+import { navigationData, searchNavigation } from '../../data/navigation';
 import { useKeyboardShortcuts } from '../../hooks/useKeyboardShortcuts';
 import type { NavigationSection, NavigationItem } from '../../types';
 
@@ -20,63 +18,45 @@ interface DocumentationSidebarProps {
   onClose: () => void;
 }
 
+const getBadgeVariant = (variant: string): 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' => {
+  switch (variant) {
+    case 'new': return 'success';
+    case 'beta': return 'warning';
+    case 'updated': return 'info';
+    case 'deprecated': return 'danger';
+    default: return 'secondary';
+  }
+};
+
 export const DocumentationSidebar: React.FC<DocumentationSidebarProps> = ({
   isOpen,
   onClose
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredNavigation, setFilteredNavigation] = useState<NavigationSection[]>(navigationData);
-  const [expandedSections, setExpandedSections] = useState<string[]>(['components']);
+  const [filteredItems, setFilteredItems] = useState<NavigationItem[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
   
   const location = useLocation();
   const navigate = useNavigate();
-  const { searchResults } = useSearch();
 
   // Filter navigation based on search
   useEffect(() => {
-    if (!searchTerm) {
-      setFilteredNavigation(navigationData);
+    if (!searchTerm.trim()) {
+      setFilteredItems([]);
+      setIsSearching(false);
       return;
     }
 
-    const filtered = navigationData.map(section => ({
-      ...section,
-      items: section.items.filter(item =>
-        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.searchTerms?.some(term => term.toLowerCase().includes(searchTerm.toLowerCase()))
-      )
-    })).filter(section => section.items.length > 0);
-
-    setFilteredNavigation(filtered);
+    setIsSearching(true);
+    const results = searchNavigation(searchTerm);
+    setFilteredItems(results);
   }, [searchTerm]);
 
-  // Keyboard shortcuts
   useKeyboardShortcuts({
-    'Escape': () => onClose(),
-    'Cmd+K': (e) => {
-      e.preventDefault();
-      const searchInput = document.querySelector('.sidebar-search input') as HTMLInputElement;
-      searchInput?.focus();
-    }
+    'Escape': () => onClose()
   });
 
   const isActive = (path: string) => location.pathname === path;
-
-
-
-  const totalComponents = useMemo(() => 
-    navigationData.reduce((acc, section) => acc + section.items.length, 0),
-    []
-  );
-
-  const completedComponents = useMemo(() => 
-    navigationData.reduce((acc, section) => 
-      acc + section.items.filter(item => item.badge?.variant === 'deprecated').length, 0
-    ), []
-  );
-
-  const completionPercentage = (completedComponents / totalComponents) * 100;
 
   return (
     <aside
@@ -85,92 +65,107 @@ export const DocumentationSidebar: React.FC<DocumentationSidebarProps> = ({
       aria-label="Documentation navigation"
       aria-hidden={!isOpen}
     >
-      <div className="sidebar-header">
-        <div className="sidebar-search">
-          <Input
-            placeholder="Search navigation... (Ctrl+K)"
-            value={searchTerm}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
-            icon="Search"
-            size="sm"
-            aria-label="Search navigation"
-            className="search-input"
-          />
-        </div>
-        
-        {completionPercentage > 0 && (
-          <div className="completion-progress">
-            <div className="progress-info">
-              <span className="progress-label">Documentation Progress</span>
-              <span className="progress-value">{Math.round(completionPercentage)}%</span>
-            </div>
-            <Progress 
-              value={completionPercentage} 
+      <div className="u-d-flex u-flex-column u-h-100">
+        <SideMenu>
+          {/* Search inside SideMenu */}
+          <div className="u-px-3 u-py-3">
+            <Input
+              placeholder="Search navigation..."
+              value={searchTerm}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
               size="sm"
-              aria-label={`${completedComponents} of ${totalComponents} components documented`}
+              aria-label="Search navigation"
             />
-          </div>
-        )}
-      </div>
-
-      <SideMenu>
-        {filteredNavigation.map((section) => (
-          <SideMenuList key={section.id}>
-            {section.items.map((item) => (
-              <SideMenuItem
-                key={item.id}
-                href={item.path}
-                active={isActive(item.path)}
-                icon={item.icon && <Icon name={item.icon as any} size="sm" />}
-                onClick={() => {
-                  navigate(item.path);
-                  onClose();
-                }}
+            {searchTerm && (
+              <Button
+                variant="ghost"
+                size="xs"
+                onClick={() => setSearchTerm('')}
+                className="u-mt-2 u-w-100"
               >
-                {item.title}
-                {item.badge && (
-                  <Badge
-                    color={item.badge.variant === 'new' ? 'primary' : 
-                           item.badge.variant === 'updated' ? 'secondary' : 
-                           item.badge.variant === 'beta' ? 'warning' : 'danger'}
-                    size="sm"
-                  >
-                    {item.badge.text}
-                  </Badge>
-                )}
-              </SideMenuItem>
-            ))}
-          </SideMenuList>
-        ))}
-      </SideMenu>
+                Clear
+              </Button>
+            )}
+          </div>
 
-      <div className="sidebar-footer">
-        <div className="sidebar-info">
-          <p className="info-text">
-            Built with <Icon name="Heart" size="xs" aria-hidden="true" /> using Atomix
-          </p>
-          <p className="version-info">v1.0.0</p>
-          
-          <div className="quick-actions">
+          {/* Navigation Items */}
+          {isSearching && searchTerm ? (
+            <div className="u-px-3">
+              <div className="u-py-2 u-fs-xs u-fw-semibold u-text-body-secondary u-text-uppercase">
+                {filteredItems.length} result{filteredItems.length !== 1 ? 's' : ''}
+              </div>
+              <SideMenuList>
+                {filteredItems.map((item) => (
+                  <SideMenuItem
+                    key={item.id}
+                    href={item.path}
+                    active={isActive(item.path)}
+                    onClick={() => {
+                      navigate(item.path);
+                      onClose();
+                    }}
+                  >
+                    {item.icon && <Icon name={item.icon as any} size="sm" />}
+                    {item.title}
+                    {item.badge && (
+                        
+                      <Badge variant={getBadgeVariant(item.badge.variant) as any} size="sm" label={item.badge.text}/>
+                    )}
+                  </SideMenuItem>
+                ))}
+              </SideMenuList>
+            </div>
+          ) : (
+            navigationData.map((section) => (
+              <SideMenuList key={section.id}>
+                {section.items.map((item) => (
+                  <SideMenuItem
+                    key={item.id}
+                    href={item.path}
+                    active={isActive(item.path)}
+                    onClick={() => {
+                      navigate(item.path);
+                      onClose();
+                    }}
+                  >
+                    {item.icon && <Icon name={item.icon as any} size="sm" />}
+                    {item.title}
+                    {item.badge && (
+                      <Badge variant={getBadgeVariant(item.badge.variant) as any} size="sm" label={item.badge.text}/>
+                    )}
+                  </SideMenuItem>
+                ))}
+              </SideMenuList>
+            ))
+          )}
+        </SideMenu>
+
+        {/* Footer */}
+        <div className="u-mt-auto u-p-3 u-border-top">
+          <div className="u-d-flex u-flex-column u-gap-2 u-mb-3">
             <Button
-              variant="ghost"
-              size="xs"
+              variant="outline"
+              size="sm"
               onClick={() => navigate('/getting-started')}
-              aria-label="View getting started guide"
+              className="u-w-100"
             >
-              <Icon name="BookOpen" size="xs" />
-              Quick Start
+              <Icon name="BookOpen" size="sm" />
+              <span>Quick Start</span>
             </Button>
-            
             <Button
-              variant="ghost"
-              size="xs"
-              onClick={() => navigate('/examples')}
-              aria-label="View examples"
+              variant="outline"
+              size="sm"
+              onClick={() => window.open('https://github.com/shohojdhara/atomix', '_blank')}
+              className="u-w-100"
             >
-              <Icon name="Code" size="xs" />
-              Examples
+              <Icon name="GithubLogo" size="sm" />
+              <span>GitHub</span>
             </Button>
+          </div>
+          <div className="u-text-center u-pt-2 u-border-top">
+            <p className="u-fs-xs u-text-body-secondary u-mb-0">
+              Atomix v1.0.0
+            </p>
           </div>
         </div>
       </div>

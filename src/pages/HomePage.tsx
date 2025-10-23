@@ -7,7 +7,9 @@ import {
   Icon,
   Hero,
   SectionIntro,
-  River,
+  GridCol,
+  Row,
+  Block,
 } from "@shohojdhara/atomix";
 
 const HomePage: React.FC = () => {
@@ -66,192 +68,141 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <>
-      <Helmet>
-        <title>Atomix - Modern React Component Library</title>
-        <meta
-          name="description"
-          content="A comprehensive, accessible React component library built with TypeScript. Fast, customizable, and developer-friendly."
-        />
-      </Helmet>
+    <div className="u-min-vh-100">
+      <main>
+        <Helmet>
+          <title>Atomix - Modern React Component Library</title>
+          <meta
+            name="description"
+            content="A comprehensive, accessible React component library built with TypeScript. Fast, customizable, and developer-friendly."
+          />
+        </Helmet>
 
-      <div className="home-page">
-        {/* Hero Section */}
-        <Hero
-          subtitle="A Comprehensive Design system"
-          title="Build Beautiful UIs with Atomix"
-          text="A modern React component library that helps you build accessible, customizable, and performant user interfaces with ease."
-          alignment="center"
-          backgroundImageSrc="https://images.unsplash.com/photo-1760976180663-946ff68fa64c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1034"
-          actions={
-            <>
-              <Link to="/docs/introduction">
-                <Button
-                  glass
-                  asChild
-                  label="Get Started"
-                  icon={<Icon name="ArrowRight" size="sm" />}
-                ></Button>
-              </Link>
-              <Link to="/docs/components/button">
-                <Button
-                  glass
-                  variant="secondary"
-                  asChild
-                  label="Explore Components"
-                />
-              </Link>
-            </>
-          }
-          contentWidth="600px"
-          glass
-        />
+        <div className="home-page">
+          {/* Hero Section */}
+          <Hero
+            subtitle="A Comprehensive Design system"
+            title="Build Beautiful UIs with Atomix"
+            text="A modern React component library that helps you build accessible, customizable, and performant user interfaces with ease."
+            alignment="center"
+            backgroundImageSrc="https://images.unsplash.com/photo-1760976180663-946ff68fa64c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1034"
+            actions={
+              <>
+                <Link to="/docs/introduction">
+                  <Button
+                    glass
+                    asChild
+                    label="Get Started"
+                    icon={<Icon name="ArrowRight" size="sm" />}
+                  ></Button>
+                </Link>
+                <Link to="/docs/components/button">
+                  <Button
+                    glass
+                    variant="secondary"
+                    asChild
+                    label="Explore Components"
+                  />
+                </Link>
+              </>
+            }
+            contentWidth="600px"
+            glass
+          />
 
-        {/* Features Section */}
-        <SectionIntro title="Why Choose Atomix?" alignment="center" size="lg" />
-        <section style={{ padding: "0 2rem 4rem" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                gap: "2rem",
-              }}
-            >
+          {/* Features Section */}
+          <Block spacing="sm">
+            <SectionIntro
+              title="Why Choose Atomix?"
+              alignment="center"
+            />
+
+            <Row>
               {features.map((feature, index) => (
-                <Card key={index}>
-                  <div
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: "60px",
-                      height: "60px",
-                      borderRadius: "50%",
-                      backgroundColor: "var(--atomix-primary-light)",
-                      color: "var(--atomix-primary)",
-                      marginBottom: "1.5rem",
-                    }}
-                  >
-                    {feature.icon}
-                  </div>
-                  <h3
-                    style={{
-                      fontSize: "1.25rem",
-                      fontWeight: "600",
-                      marginBottom: "1rem",
-                      color: "var(--atomix-text-primary)",
-                    }}
-                  >
-                    {feature.title}
-                  </h3>
-                  <p
-                    style={{
-                      color: "var(--atomix-text-secondary)",
-                      lineHeight: "1.6",
-                    }}
-                  >
-                    {feature.description}
-                  </p>
-                </Card>
+                <GridCol key={index} md={6} lg={3} className="u-mb-8">
+                  <Card>
+                    <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-2">
+                      {feature.icon}
+                    </div>
+                    <h3 className="u-fs-lg u-fw-600 u-mb-2 u-text-primary-emphasis">
+                      {feature.title}
+                    </h3>
+                    <p className="u-text-secondary-emphasis u-lh-lg">
+                      {feature.description}
+                    </p>
+                  </Card>
+                </GridCol>
               ))}
-            </div>
-          </div>
-        </section>
+            </Row>
+          </Block>
 
-        {/* Quick Links Section */}
-        <section style={{ backgroundColor: "var(--atomix-bg-secondary)" }}>
-          <SectionIntro title="Quick Start" alignment="center" size="lg" />
-          <div
-            style={{
-              maxWidth: "1200px",
-              margin: "0 auto",
-              padding: "0 2rem 4rem",
-            }}
-          >
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                gap: "1.5rem",
-              }}
-            >
+          {/* Quick Links Section */}
+          <Block background="secondary" spacing="sm">
+            <SectionIntro title="Quick Start" alignment="center" />
+            <Row>
               {quickLinks.map((link, index) => (
-                <Card
-                  key={index}
-                  className="p-6 border border-solid transition-transform duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg cursor-pointer bg-[var(--atomix-bg-primary)]"
-                >
-                  {link.external ? (
-                    <a
-                      href={link.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                        display: "block",
-                      }}
-                    >
-                      <LinkContent
-                        title={link.title}
-                        description={link.description}
-                        external={link.external}
-                      />
-                    </a>
-                  ) : (
-                    <Link
-                      to={link.path}
-                      style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                        display: "block",
-                      }}
-                    >
-                      <LinkContent
-                        title={link.title}
-                        description={link.description}
-                        external={link.external}
-                      />
-                    </Link>
-                  )}
-                </Card>
+                <GridCol key={index} sm={6} lg={3} className="u-mb-6">
+                  <Card className="u-p-6 u-border u-border-solid u-transition u-transform u-duration-200 u-ease-in-out hover:u-translate-y--1 hover:u-shadow-lg u-cursor-pointer u-bg-primary-subtle">
+                    {link.external ? (
+                      <a
+                        href={link.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="u-d-block u-link-none"
+                      >
+                        <LinkContent
+                          title={link.title}
+                          description={link.description}
+                          external={link.external}
+                        />
+                      </a>
+                    ) : (
+                      <Link to={link.path} className="u-d-block u-link-none">
+                        <LinkContent
+                          title={link.title}
+                          description={link.description}
+                          external={link.external}
+                        />
+                      </Link>
+                    )}
+                  </Card>
+                </GridCol>
               ))}
-            </div>
-          </div>
-        </section>
+            </Row>
+          </Block>
 
-        {/* CTA Section */}
-        <River
-          title="Ready to get started?"
-          text="Install Atomix in your React project and start building amazing user interfaces today."
-          center
-          actions={
-            <>
-              <div
-                style={{
-                  backgroundColor: "var(--atomix-bg-tertiary)",
-                  borderRadius: "8px",
-                  padding: "1rem",
-                  marginBottom: "2rem",
-                  fontFamily: "monospace",
-                  fontSize: "0.875rem",
-                }}
-              >
-                <code style={{ color: "var(--atomix-text-primary)" }}>
-                  npm install @shohojdhara/atomix
-                </code>
-              </div>
-              <Link to="/docs/installation">
-                <Button asChild>
-                  View Installation Guide
-                  <Icon name="ArrowRight" size={16} className="ml-2" />
-                </Button>
-              </Link>
-            </>
-          }
-        />
-      </div>
-    </>
+          {/* CTA Section */}
+          <Block spacing="sm">
+              <Row justifyContent="center">
+                <GridCol lg={8}>
+                  <Card className="u-bg-brand-subtle">
+                    <h2 className="u-text-primary-emphasis">
+                      Ready to get started?
+                    </h2>
+                    <p className="u-text-secondary-emphasis u-mb-6 u-lh-lg">
+                      Install Atomix in your React project and start building
+                      amazing user interfaces today.
+                    </p>
+                    <div className="u-d-flex u-gap-4">
+                      <Card className="u-bg-tertiary-subtle">
+                        <code className="u-font-mono u-fs-sm u-text-primary-emphasis">
+                          npm install @shohojdhara/atomix
+                        </code>
+                      </Card>
+                      <Link to="/docs/installation">
+                        <Button
+                          label="View Installation Guide"
+                          icon={<Icon name="ArrowRight" size={16} />}
+                        />
+                      </Link>
+                    </div>
+                  </Card>
+                </GridCol>
+              </Row>
+          </Block>
+        </div>
+      </main>
+    </div>
   );
 };
 
@@ -262,41 +213,16 @@ const LinkContent: React.FC<{
   icon?: React.ReactNode;
 }> = ({ title, description, external, icon }) => (
   <div>
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginBottom: "0.5rem",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        {icon || <Icon name="FileText" size={20} className="mr-2" />}
-        <h3
-          style={{
-            fontSize: "1.125rem",
-            fontWeight: "600",
-            margin: "0 0 0 0.5rem",
-            color: "var(--atomix-text-primary)",
-          }}
-        >
+    <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-2">
+      <div className="u-d-flex u-align-items-center">
+        {icon || <Icon name="FileText" size={20} className="u-me-2" />}
+        <h3 className="u-fs-lg u-fw-600 u-ms-2 u-m-0 u-text-primary-emphasis">
           {title}
         </h3>
       </div>
-      {external && <Icon name="ArrowRight" size={16} />}
+      {external && <Icon name="Link" size={16} className="u-opacity-60" />}
     </div>
-    <p
-      style={{
-        margin: "0 0 0 2.5rem",
-        color: "var(--atomix-text-secondary)",
-        lineHeight: "1.5",
-      }}
-    >
+    <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-ms-10">
       {description}
     </p>
   </div>

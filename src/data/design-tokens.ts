@@ -7,70 +7,106 @@ export interface DesignToken {
 }
 
 export const designTokens: DesignToken[] = [
-  // Colors
-  { name: '--atomix-primary', value: '#3b82f6', description: 'Primary brand color', category: 'colors', type: 'color' },
-  { name: '--atomix-primary-dark', value: '#2563eb', description: 'Primary color (dark variant)', category: 'colors', type: 'color' },
-  { name: '--atomix-primary-light', value: '#93c5fd', description: 'Primary color (light variant)', category: 'colors', type: 'color' },
-  { name: '--atomix-secondary', value: '#8b5cf6', description: 'Secondary brand color', category: 'colors', type: 'color' },
-  { name: '--atomix-success', value: '#10b981', description: 'Success state color', category: 'colors', type: 'color' },
-  { name: '--atomix-warning', value: '#f59e0b', description: 'Warning state color', category: 'colors', type: 'color' },
-  { name: '--atomix-error', value: '#ef4444', description: 'Error state color', category: 'colors', type: 'color' },
-  { name: '--atomix-info', value: '#06b6d4', description: 'Info state color', category: 'colors', type: 'color' },
+  // Primary Colors
+  { name: '$primary-6', value: '#7c3aed', description: 'Balanced primary purple', category: 'colors', type: 'color' },
+  { name: '$primary-5', value: '#9c63e9', description: 'Primary purple light', category: 'colors', type: 'color' },
+  { name: '$primary-4', value: '#b88cef', description: 'Primary purple lighter', category: 'colors', type: 'color' },
+  { name: '$primary-7', value: '#6425ca', description: 'Primary purple dark', category: 'colors', type: 'color' },
+  { name: '$primary-8', value: '#501ba6', description: 'Primary purple darker', category: 'colors', type: 'color' },
   
-  // Background colors
-  { name: '--atomix-bg-primary', value: '#ffffff', description: 'Primary background color', category: 'colors', type: 'color' },
-  { name: '--atomix-bg-secondary', value: '#f9fafb', description: 'Secondary background color', category: 'colors', type: 'color' },
-  { name: '--atomix-bg-tertiary', value: '#f3f4f6', description: 'Tertiary background color', category: 'colors', type: 'color' },
+  // Semantic Colors
+  { name: '$success', value: '#22c55e', description: 'Success state color', category: 'colors', type: 'color' },
+  { name: '$error', value: '#ef4444', description: 'Error state color', category: 'colors', type: 'color' },
+  { name: '$warning', value: '#eab308', description: 'Warning state color', category: 'colors', type: 'color' },
+  { name: '$info', value: '#3b82f6', description: 'Info state color', category: 'colors', type: 'color' },
   
-  // Text colors
-  { name: '--atomix-text-primary', value: '#111827', description: 'Primary text color', category: 'colors', type: 'color' },
-  { name: '--atomix-text-secondary', value: '#6b7280', description: 'Secondary text color', category: 'colors', type: 'color' },
-  { name: '--atomix-text-tertiary', value: '#9ca3af', description: 'Tertiary text color', category: 'colors', type: 'color' },
+  // Gray Scale
+  { name: '$gray-1', value: '#f9fafb', description: 'Lightest gray', category: 'colors', type: 'color' },
+  { name: '$gray-2', value: '#f3f4f6', description: 'Very light gray', category: 'colors', type: 'color' },
+  { name: '$gray-3', value: '#e5e7eb', description: 'Light gray', category: 'colors', type: 'color' },
+  { name: '$gray-5', value: '#9ca3af', description: 'Medium gray', category: 'colors', type: 'color' },
+  { name: '$gray-6', value: '#6b7280', description: 'Dark gray', category: 'colors', type: 'color' },
+  { name: '$gray-8', value: '#374151', description: 'Darker gray', category: 'colors', type: 'color' },
+  { name: '$gray-9', value: '#1f2937', description: 'Very dark gray', category: 'colors', type: 'color' },
+  { name: '$gray-10', value: '#111827', description: 'Darkest gray', category: 'colors', type: 'color' },
   
-  // Border colors
-  { name: '--atomix-border', value: '#e5e7eb', description: 'Default border color', category: 'colors', type: 'color' },
-  { name: '--atomix-border-light', value: '#f3f4f6', description: 'Light border color', category: 'colors', type: 'color' },
-  { name: '--atomix-border-dark', value: '#d1d5db', description: 'Dark border color', category: 'colors', type: 'color' },
+  // Text Colors
+  { name: '$primary-text', value: '#111827', description: 'Primary text color', category: 'colors', type: 'color' },
+  { name: '$secondary-text', value: '#374151', description: 'Secondary text color', category: 'colors', type: 'color' },
+  { name: '$tertiary-text', value: '#6b7280', description: 'Tertiary text color', category: 'colors', type: 'color' },
+  { name: '$disabled-text', value: '#9ca3af', description: 'Disabled text color', category: 'colors', type: 'color' },
   
-  // Spacing
-  { name: '--atomix-spacing-xs', value: '0.25rem', description: 'Extra small spacing', category: 'spacing', type: 'spacing' },
-  { name: '--atomix-spacing-sm', value: '0.5rem', description: 'Small spacing', category: 'spacing', type: 'spacing' },
-  { name: '--atomix-spacing-md', value: '1rem', description: 'Medium spacing', category: 'spacing', type: 'spacing' },
-  { name: '--atomix-spacing-lg', value: '1.5rem', description: 'Large spacing', category: 'spacing', type: 'spacing' },
-  { name: '--atomix-spacing-xl', value: '2rem', description: 'Extra large spacing', category: 'spacing', type: 'spacing' },
-  { name: '--atomix-spacing-2xl', value: '3rem', description: '2x extra large spacing', category: 'spacing', type: 'spacing' },
-  { name: '--atomix-spacing-3xl', value: '4rem', description: '3x extra large spacing', category: 'spacing', type: 'spacing' },
+  // Background Colors
+  { name: '$primary-bg', value: '#ffffff', description: 'Primary background', category: 'colors', type: 'color' },
+  { name: '$secondary-bg', value: '#e5e7eb', description: 'Secondary background', category: 'colors', type: 'color' },
+  { name: '$tertiary-bg', value: '#d1d5db', description: 'Tertiary background', category: 'colors', type: 'color' },
   
-  // Typography
-  { name: '--atomix-font-family', value: 'Inter, system-ui, sans-serif', description: 'Primary font family', category: 'typography', type: 'typography' },
-  { name: '--atomix-font-family-mono', value: 'JetBrains Mono, Consolas, monospace', description: 'Monospace font family', category: 'typography', type: 'typography' },
-  { name: '--atomix-font-size-xs', value: '0.75rem', description: 'Extra small font size', category: 'typography', type: 'typography' },
-  { name: '--atomix-font-size-sm', value: '0.875rem', description: 'Small font size', category: 'typography', type: 'typography' },
-  { name: '--atomix-font-size-base', value: '1rem', description: 'Base font size', category: 'typography', type: 'typography' },
-  { name: '--atomix-font-size-lg', value: '1.125rem', description: 'Large font size', category: 'typography', type: 'typography' },
-  { name: '--atomix-font-size-xl', value: '1.25rem', description: 'Extra large font size', category: 'typography', type: 'typography' },
-  { name: '--atomix-font-size-2xl', value: '1.5rem', description: '2x extra large font size', category: 'typography', type: 'typography' },
-  { name: '--atomix-font-size-3xl', value: '1.875rem', description: '3x extra large font size', category: 'typography', type: 'typography' },
-  { name: '--atomix-font-size-4xl', value: '2.25rem', description: '4x extra large font size', category: 'typography', type: 'typography' },
+  // Spacing Scale
+  { name: 'spacing-0', value: '0rem', description: 'No spacing (0px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-1', value: '0.25rem', description: 'Tiny spacing (4px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-2', value: '0.5rem', description: 'Extra small spacing (8px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-3', value: '0.75rem', description: 'Small spacing (12px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-4', value: '1rem', description: 'Base spacing (16px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-5', value: '1.25rem', description: 'Medium spacing (20px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-6', value: '1.5rem', description: 'Large spacing (24px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-8', value: '2rem', description: 'Extra large spacing (32px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-10', value: '2.5rem', description: '2XL spacing (40px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-12', value: '3rem', description: '3XL spacing (48px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-16', value: '4rem', description: '4XL spacing (64px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-20', value: '5rem', description: '5XL spacing (80px)', category: 'spacing', type: 'spacing' },
+  { name: 'spacing-24', value: '6rem', description: '6XL spacing (96px)', category: 'spacing', type: 'spacing' },
   
-  // Border radius
-  { name: '--atomix-border-radius-sm', value: '0.125rem', description: 'Small border radius', category: 'border', type: 'border' },
-  { name: '--atomix-border-radius-md', value: '0.375rem', description: 'Medium border radius', category: 'border', type: 'border' },
-  { name: '--atomix-border-radius-lg', value: '0.5rem', description: 'Large border radius', category: 'border', type: 'border' },
-  { name: '--atomix-border-radius-xl', value: '0.75rem', description: 'Extra large border radius', category: 'border', type: 'border' },
-  { name: '--atomix-border-radius-2xl', value: '1rem', description: '2x extra large border radius', category: 'border', type: 'border' },
-  { name: '--atomix-border-radius-full', value: '9999px', description: 'Full border radius (pill)', category: 'border', type: 'border' },
+  // Typography - Font Families
+  { name: '$font-family-base', value: 'Roboto, sans-serif', description: 'Base font family', category: 'typography', type: 'typography' },
+  { name: '$font-family-monospace', value: 'SFMono-Regular, Menlo, Monaco, Consolas, monospace', description: 'Monospace font family', category: 'typography', type: 'typography' },
   
-  // Shadows
-  { name: '--atomix-shadow-sm', value: '0 1px 2px 0 rgb(0 0 0 / 0.05)', description: 'Small shadow', category: 'shadow', type: 'shadow' },
-  { name: '--atomix-shadow-md', value: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)', description: 'Medium shadow', category: 'shadow', type: 'shadow' },
-  { name: '--atomix-shadow-lg', value: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)', description: 'Large shadow', category: 'shadow', type: 'shadow' },
-  { name: '--atomix-shadow-xl', value: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)', description: 'Extra large shadow', category: 'shadow', type: 'shadow' },
+  // Typography - Font Sizes
+  { name: '$font-size-xs', value: '0.75rem', description: 'Extra small (12px)', category: 'typography', type: 'typography' },
+  { name: '$font-size-sm', value: '0.875rem', description: 'Small (14px)', category: 'typography', type: 'typography' },
+  { name: '$font-size-base', value: '1rem', description: 'Base (16px)', category: 'typography', type: 'typography' },
+  { name: '$font-size-md', value: '1.125rem', description: 'Medium (18px)', category: 'typography', type: 'typography' },
+  { name: '$font-size-lg', value: '1.25rem', description: 'Large (20px)', category: 'typography', type: 'typography' },
+  { name: '$font-size-xl', value: '1.5rem', description: 'Extra large (24px)', category: 'typography', type: 'typography' },
+  { name: '$font-size-2xl', value: '2rem', description: '2XL (32px)', category: 'typography', type: 'typography' },
+  
+  // Typography - Headings
+  { name: '$h1-font-size', value: '2.5rem', description: 'H1 heading (40px)', category: 'typography', type: 'typography' },
+  { name: '$h2-font-size', value: '2rem', description: 'H2 heading (32px)', category: 'typography', type: 'typography' },
+  { name: '$h3-font-size', value: '1.5rem', description: 'H3 heading (24px)', category: 'typography', type: 'typography' },
+  { name: '$h4-font-size', value: '1.25rem', description: 'H4 heading (20px)', category: 'typography', type: 'typography' },
+  { name: '$h5-font-size', value: '1.125rem', description: 'H5 heading (18px)', category: 'typography', type: 'typography' },
+  { name: '$h6-font-size', value: '1rem', description: 'H6 heading (16px)', category: 'typography', type: 'typography' },
+  
+  // Typography - Font Weights
+  { name: '$font-weight-light', value: '300', description: 'Light weight', category: 'typography', type: 'typography' },
+  { name: '$font-weight-normal', value: '400', description: 'Normal weight', category: 'typography', type: 'typography' },
+  { name: '$font-weight-medium', value: '500', description: 'Medium weight', category: 'typography', type: 'typography' },
+  { name: '$font-weight-semibold', value: '600', description: 'Semibold weight', category: 'typography', type: 'typography' },
+  { name: '$font-weight-bold', value: '700', description: 'Bold weight', category: 'typography', type: 'typography' },
+  
+  // Border Radius
+  { name: '$border-radius-sm', value: '0.25rem', description: 'Small radius (4px)', category: 'border', type: 'border' },
+  { name: '$border-radius', value: '0.5rem', description: 'Default radius (8px)', category: 'border', type: 'border' },
+  { name: '$border-radius-lg', value: '0.625rem', description: 'Large radius (10px)', category: 'border', type: 'border' },
+  { name: '$border-radius-xl', value: '0.75rem', description: 'Extra large radius (12px)', category: 'border', type: 'border' },
+  { name: '$border-radius-xxl', value: '1rem', description: '2XL radius (16px)', category: 'border', type: 'border' },
+  { name: '$border-radius-3xl', value: '1.5rem', description: '3XL radius (24px)', category: 'border', type: 'border' },
+  { name: '$border-radius-4xl', value: '2rem', description: '4XL radius (32px)', category: 'border', type: 'border' },
+  { name: '$border-radius-pill', value: '50rem', description: 'Pill shape (800px)', category: 'border', type: 'border' },
+  
+  // Box Shadows
+  { name: '$box-shadow-xs', value: '0px 1px 2px 0px rgba(45, 54, 67, 0.04), 0px 2px 4px 0px rgba(45, 54, 67, 0.08)', description: 'Extra small shadow', category: 'shadow', type: 'shadow' },
+  { name: '$box-shadow-sm', value: '0 2px 4px rgba(0, 0, 0, 0.075)', description: 'Small shadow', category: 'shadow', type: 'shadow' },
+  { name: '$box-shadow-md', value: '0 4px 8px rgba(0, 0, 0, 0.1)', description: 'Medium shadow', category: 'shadow', type: 'shadow' },
+  { name: '$box-shadow', value: '0 8px 16px rgba(0, 0, 0, 0.15)', description: 'Default shadow', category: 'shadow', type: 'shadow' },
+  { name: '$box-shadow-lg', value: '0 16px 48px rgba(0, 0, 0, 0.175)', description: 'Large shadow', category: 'shadow', type: 'shadow' },
+  { name: '$box-shadow-xl', value: '0px 16px 64px -8px rgba(45, 54, 67, 0.14)', description: 'Extra large shadow', category: 'shadow', type: 'shadow' },
   
   // Breakpoints
-  { name: '--atomix-breakpoint-sm', value: '640px', description: 'Small breakpoint', category: 'breakpoint', type: 'breakpoint' },
-  { name: '--atomix-breakpoint-md', value: '768px', description: 'Medium breakpoint', category: 'breakpoint', type: 'breakpoint' },
-  { name: '--atomix-breakpoint-lg', value: '1024px', description: 'Large breakpoint', category: 'breakpoint', type: 'breakpoint' },
-  { name: '--atomix-breakpoint-xl', value: '1280px', description: 'Extra large breakpoint', category: 'breakpoint', type: 'breakpoint' },
-  { name: '--atomix-breakpoint-2xl', value: '1536px', description: '2x extra large breakpoint', category: 'breakpoint', type: 'breakpoint' }
+  { name: 'breakpoint-xs', value: '0px', description: 'Extra small devices', category: 'breakpoint', type: 'breakpoint' },
+  { name: 'breakpoint-sm', value: '576px', description: 'Small devices', category: 'breakpoint', type: 'breakpoint' },
+  { name: 'breakpoint-md', value: '768px', description: 'Medium devices', category: 'breakpoint', type: 'breakpoint' },
+  { name: 'breakpoint-lg', value: '992px', description: 'Large devices', category: 'breakpoint', type: 'breakpoint' },
+  { name: 'breakpoint-xl', value: '1200px', description: 'Extra large devices', category: 'breakpoint', type: 'breakpoint' },
+  { name: 'breakpoint-xxl', value: '1440px', description: '2XL devices', category: 'breakpoint', type: 'breakpoint' }
 ];

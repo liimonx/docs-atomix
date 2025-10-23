@@ -53,10 +53,10 @@ const ComponentDetailPage: React.FC = () => {
 
   if (!componentId || !componentDoc) {
     return (
-      <div className="component-page" style={{ padding: '2rem', textAlign: 'center' }}>
-        <AlertCircle size={48} style={{ color: 'var(--atomix-text-secondary)', marginBottom: '1rem' }} />
+      <div className="component-page u-p-8 u-text-center">
+        <AlertCircle size={48} className="u-text-secondary-emphasis u-mb-4" />
         <h1>Component Not Found</h1>
-        <p style={{ color: 'var(--atomix-text-secondary)', marginBottom: '2rem' }}>
+        <p className="u-text-secondary-emphasis u-mb-8">
           The component "{componentId}" could not be found.
         </p>
         <Button asChild>
@@ -86,23 +86,18 @@ const ComponentDetailPage: React.FC = () => {
                   <Badge label={componentDoc.category} />
                 </div>
               </div>
-                <p style={{
-                  fontSize: '1.125rem',
-                  color: 'var(--atomix-text-secondary)',
-                  margin: '1rem 0',
-                  lineHeight: '1.6'
-                }}>
+                <p className="u-fs-lg u-text-secondary-emphasis u-my-4 u-lh-lg">
                   {componentDoc.description}
                 </p>
               </div>
               <div className="header-actions">
                 <Button variant="outline" size="sm">
                   <Github size={16} />
-                  <span style={{ marginLeft: '0.5rem' }}>Source</span>
+                  <span className="u-ml-2">Source</span>
                 </Button>
                 <Button variant="outline" size="sm">
                   <ExternalLink size={16} />
-                  <span style={{ marginLeft: '0.5rem' }}>Storybook</span>
+                  <span className="u-ml-2">Storybook</span>
                 </Button>
               </div>
             </div>
@@ -110,11 +105,8 @@ const ComponentDetailPage: React.FC = () => {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="component-tabs" style={{
-          borderBottom: '1px solid var(--atomix-border)',
-          marginBottom: '2rem'
-        }}>
-          <div style={{ display: 'flex', gap: '1rem' }}>
+        <div className="component-tabs u-border-bottom u-mb-8">
+          <div className="u-d-flex u-gap-4">
             {[
               { key: 'overview', label: 'Overview', icon: <BookOpen size={16} /> },
               { key: 'examples', label: 'Examples', icon: <Code size={16} /> },
@@ -126,16 +118,8 @@ const ComponentDetailPage: React.FC = () => {
                 onClick={() => setActiveTab(tab.key as any)}
                 className={`tab-button ${activeTab === tab.key ? 'active' : ''}`}
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1rem',
-                  border: 'none',
-                  background: 'transparent',
                   borderBottom: activeTab === tab.key ? '2px solid var(--atomix-primary)' : '2px solid transparent',
                   color: activeTab === tab.key ? 'var(--atomix-primary)' : 'var(--atomix-text-secondary)',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
                   fontWeight: activeTab === tab.key ? '500' : '400'
                 }}
               >
@@ -157,7 +141,7 @@ const ComponentDetailPage: React.FC = () => {
                   <ul>
                     {componentDoc.features.map((feature, index) => (
                       <li key={index}>
-                        <CheckCircle size={16} style={{ color: 'var(--atomix-success)' }} />
+                        <CheckCircle size={16} className="u-text-success" />
                         {feature}
                       </li>
                     ))}

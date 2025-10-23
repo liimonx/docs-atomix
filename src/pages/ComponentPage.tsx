@@ -15,7 +15,7 @@ import {
   Info,
   Lightbulb
 } from 'lucide-react';
-import { Button, Card, Badge } from '@shohojdhara/atomix';
+import { Button, Card, Badge, Container, Grid, GridCol, Row, Block } from '@shohojdhara/atomix';
 import toast from 'react-hot-toast';
 
 import { findNavigationItem } from '../data/navigation';
@@ -216,9 +216,9 @@ function App() {
   if (!componentId || !navigationItem || !componentDoc) {
     return (
       <div className="component-page" style={{ padding: '2rem', textAlign: 'center' }}>
-        <AlertCircle size={48} style={{ color: 'var(--atomix-text-secondary)', marginBottom: '1rem' }} />
+        <AlertCircle size={48} className="u-text-secondary-emphasis u-mb-4" />
         <h1>Component Not Found</h1>
-        <p style={{ color: 'var(--atomix-text-secondary)', marginBottom: '2rem' }}>
+        <p className="u-text-secondary-emphasis u-mb-8">
           The component "{componentId}" could not be found.
         </p>
         <Button asChild>
@@ -237,80 +237,91 @@ function App() {
 
       <div className="component-page">
         {/* Header */}
-        <div className="component-showcase">
-          <div className="showcase-header">
-            <div className="header-content">
-              <div className="title-section">
-                <h1 className="component-title">{componentDoc.name}</h1>
-                <div className="component-badges">
-                  <Badge variant={getStatusColor(componentDoc.status) as any}>
-                    {componentDoc.status}
-                  </Badge>
-                  <Badge variant="outline">v{componentDoc.version}</Badge>
-                  <Badge variant="outline">{componentDoc.category}</Badge>
+        <Block className="component-showcase">
+          <Container>
+            <Row justifyContent="between" alignItems="start">
+              <GridCol lg={8}>
+                <div className="title-section">
+                  <h1 className="component-title">{componentDoc.name}</h1>
+                  <div className="component-badges">
+                    <Badge variant={getStatusColor(componentDoc.status) as any} label={componentDoc.status} />
+                    <Badge variant="primary" label={`v${componentDoc.version}`} />
+                    <Badge variant="primary" label={componentDoc.category} />
+                  </div>
+                  <p style={{
+                    fontSize: '1.125rem',
+                    color: 'var(--atomix-text-secondary)',
+                    margin: '1rem 0',
+                    lineHeight: '1.6'
+                  }}>
+                    {componentDoc.description}
+                  </p>
                 </div>
-                <p style={{
-                  fontSize: '1.125rem',
-                  color: 'var(--atomix-text-secondary)',
-                  margin: '1rem 0',
-                  lineHeight: '1.6'
-                }}>
-                  {componentDoc.description}
-                </p>
-              </div>
-              <div className="header-actions">
-                <Button variant="outline" size="sm">
-                  <Github size={16} />
-                  <span style={{ marginLeft: '0.5rem' }}>Source</span>
-                </Button>
-                <Button variant="outline" size="sm">
-                  <ExternalLink size={16} />
-                  <span style={{ marginLeft: '0.5rem' }}>Storybook</span>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
+              </GridCol>
+              <GridCol lg={4}>
+                <div className="header-actions" style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
+                  <Button variant="outline" size="sm">
+                    <Github size={16} />
+                    <span style={{ marginLeft: '0.5rem' }}>Source</span>
+                  </Button>
+                  <Button variant="outline" size="sm">
+                    <ExternalLink size={16} />
+                    <span style={{ marginLeft: '0.5rem' }}>Storybook</span>
+                  </Button>
+                </div>
+              </GridCol>
+            </Row>
+          </Container>
+        </Block>
 
         {/* Navigation Tabs */}
-        <div className="component-tabs" style={{
+        <Block className="component-tabs" style={{
           borderBottom: '1px solid var(--atomix-border)',
           marginBottom: '2rem'
         }}>
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            {[
-              { key: 'overview', label: 'Overview', icon: <BookOpen size={16} /> },
-              { key: 'examples', label: 'Examples', icon: <Code size={16} /> },
-              { key: 'props', label: 'Props', icon: <Info size={16} /> },
-              { key: 'accessibility', label: 'Accessibility', icon: <Eye size={16} /> }
-            ].map(tab => (
-              <button
-                key={tab.key}
-                onClick={() => setActiveTab(tab.key as any)}
-                className={`tab-button ${activeTab === tab.key ? 'active' : ''}`}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1rem',
-                  border: 'none',
-                  background: 'transparent',
-                  borderBottom: activeTab === tab.key ? '2px solid var(--atomix-primary)' : '2px solid transparent',
-                  color: activeTab === tab.key ? 'var(--atomix-primary)' : 'var(--atomix-text-secondary)',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  fontWeight: activeTab === tab.key ? '500' : '400'
-                }}
-              >
-                {tab.icon}
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
+          <Container>
+            <Row>
+              <GridCol xs={12}>
+                <div style={{ display: 'flex', gap: '1rem' }}>
+                  {[
+                    { key: 'overview', label: 'Overview', icon: <BookOpen size={16} /> },
+                    { key: 'examples', label: 'Examples', icon: <Code size={16} /> },
+                    { key: 'props', label: 'Props', icon: <Info size={16} /> },
+                    { key: 'accessibility', label: 'Accessibility', icon: <Eye size={16} /> }
+                  ].map(tab => (
+                    <button
+                      key={tab.key}
+                      onClick={() => setActiveTab(tab.key as any)}
+                      className={`tab-button ${activeTab === tab.key ? 'active' : ''}`}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        padding: '0.75rem 1rem',
+                        border: 'none',
+                        background: 'transparent',
+                        borderBottom: activeTab === tab.key ? '2px solid var(--atomix-primary)' : '2px solid transparent',
+                        color: activeTab === tab.key ? 'var(--atomix-primary)' : 'var(--atomix-text-secondary)',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s ease',
+                        fontWeight: activeTab === tab.key ? '500' : '400'
+                      }}
+                    >
+                      {tab.icon}
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+              </GridCol>
+            </Row>
+          </Container>
+        </Block>
 
         {/* Tab Content */}
-        <div className="tab-content">
+        <Container>
+          <Row>
+            <GridCol xs={12}>
+              <div className="tab-content">
           {activeTab === 'overview' && (
             <div className="overview-content">
               {/* Installation */}
@@ -356,13 +367,13 @@ function App() {
                       }}
                     >
                       {feature.supported ? (
-                        <CheckCircle size={20} style={{ color: 'var(--atomix-success)', marginTop: '0.125rem' }} />
+                        <CheckCircle size={20} className="u-text-success u-mt-0.5" />
                       ) : (
-                        <AlertCircle size={20} style={{ color: 'var(--atomix-text-secondary)', marginTop: '0.125rem' }} />
+                        <AlertCircle size={20} className="u-text-secondary-emphasis u-mt-0.5" />
                       )}
                       <div>
                         <h3 style={{ margin: '0 0 0.25rem 0', fontSize: '1rem' }}>{feature.title}</h3>
-                        <p style={{ margin: 0, color: 'var(--atomix-text-secondary)', fontSize: '0.875rem' }}>
+                        <p className="u-m-0 u-text-secondary-emphasis u-fs-sm">
                           {feature.description}
                         </p>
                       </div>
@@ -376,7 +387,7 @@ function App() {
                 <h2 style={{ marginBottom: '1rem' }}>Related Components</h2>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                   {componentDoc.relatedComponents.map((comp, index) => (
-                    <Badge key={index} variant="outline">{comp}</Badge>
+                    <Badge key={index} variant="primary" label={comp} />  
                   ))}
                 </div>
               </section>
@@ -431,27 +442,27 @@ function App() {
                   border: '1px solid var(--atomix-border)'
                 }}>
                   <thead>
-                    <tr style={{ backgroundColor: 'var(--atomix-bg-secondary)' }}>
-                      <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '1px solid var(--atomix-border)' }}>Name</th>
-                      <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '1px solid var(--atomix-border)' }}>Type</th>
-                      <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '1px solid var(--atomix-border)' }}>Default</th>
-                      <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '1px solid var(--atomix-border)' }}>Description</th>
+                    <tr className="u-bg-secondary-subtle">
+                      <th className="u-p-3 u-text-start u-border-bottom u-border-solid u-border-secondary">Name</th>
+                        <th className="u-p-3 u-text-start u-border-bottom u-border-solid u-border-secondary">Type</th>
+                        <th className="u-p-3 u-text-start u-border-bottom u-border-solid u-border-secondary">Default</th>
+                        <th className="u-p-3 u-text-start u-border-bottom u-border-solid u-border-secondary">Description</th>
                     </tr>
                   </thead>
                   <tbody>
                     {componentDoc.props.map((prop, index) => (
-                      <tr key={index} style={{ borderBottom: '1px solid var(--atomix-border)' }}>
-                        <td style={{ padding: '0.75rem', fontFamily: 'monospace', fontSize: '0.875rem' }}>
+                      <tr key={index} className="u-border-bottom u-border-solid u-border-secondary">
+                        <td className="u-p-3 u-font-mono u-fs-sm">
                           {prop.name}
-                          {prop.required && <span style={{ color: 'var(--atomix-error)', marginLeft: '0.25rem' }}>*</span>}
+                          {prop.required && <span className="u-text-error-emphasis u-ms-1">*</span>}
                         </td>
-                        <td style={{ padding: '0.75rem', fontFamily: 'monospace', fontSize: '0.875rem', color: 'var(--atomix-text-secondary)' }}>
+                        <td className="u-p-3 u-font-mono u-fs-sm u-text-secondary-emphasis">
                           {prop.type}
                         </td>
-                        <td style={{ padding: '0.75rem', fontFamily: 'monospace', fontSize: '0.875rem' }}>
+                        <td className="u-p-3 u-font-mono u-fs-sm u-text-secondary-emphasis">
                           {prop.defaultValue || '-'}
                         </td>
-                        <td style={{ padding: '0.75rem', fontSize: '0.875rem' }}>
+                        <td className="u-p-3 u-fs-sm">
                           {prop.description}
                         </td>
                       </tr>
@@ -466,11 +477,11 @@ function App() {
             <div className="accessibility-content">
               <section style={{ marginBottom: '3rem' }}>
                 <h3 style={{ marginBottom: '1rem' }}>Overview</h3>
-                <p style={{ color: 'var(--atomix-text-secondary)', lineHeight: '1.6' }}>
+                <p className="u-text-secondary-emphasis u-lh-lg">
                   {componentDoc.accessibility.overview}
                 </p>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem' }}>
-                  <Badge variant="outline">WCAG {componentDoc.accessibility.wcagLevel}</Badge>
+                  <Badge variant="primary" label={`WCAG ${componentDoc.accessibility.wcagLevel}`} />
                 </div>
               </section>
 
@@ -483,18 +494,18 @@ function App() {
                     border: '1px solid var(--atomix-border)'
                   }}>
                     <thead>
-                      <tr style={{ backgroundColor: 'var(--atomix-bg-secondary)' }}>
-                        <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '1px solid var(--atomix-border)' }}>Key</th>
-                        <th style={{ padding: '0.75rem', textAlign: 'left', borderBottom: '1px solid var(--atomix-border)' }}>Action</th>
+                      <tr className="u-bg-secondary-subtle">
+                        <th className="u-p-3 u-text-start u-border-bottom u-border-solid u-border-secondary">Key</th>
+                        <th className="u-p-3 u-text-start u-border-bottom u-border-solid u-border-secondary">Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       {componentDoc.accessibility.keyboardSupport.map((key, index) => (
-                        <tr key={index} style={{ borderBottom: '1px solid var(--atomix-border)' }}>
-                          <td style={{ padding: '0.75rem', fontFamily: 'monospace', fontSize: '0.875rem' }}>
+                        <tr key={index} className="u-border-bottom u-border-solid u-border-secondary">
+                          <td className="u-p-3 u-font-mono u-fs-sm">
                             {key.key}
                           </td>
-                          <td style={{ padding: '0.75rem', fontSize: '0.875rem' }}>
+                          <td className="u-p-3 u-fs-sm">
                             {key.action}
                           </td>
                         </tr>
@@ -506,7 +517,7 @@ function App() {
 
               <section>
                 <h3 style={{ marginBottom: '1rem' }}>Guidelines</h3>
-                <ul style={{ color: 'var(--atomix-text-secondary)', lineHeight: '1.6' }}>
+                <ul className="u-text-secondary-emphasis u-lh-lg">
                   {componentDoc.accessibility.guidelines.map((guideline, index) => (
                     <li key={index} style={{ marginBottom: '0.5rem' }}>
                       {guideline}
@@ -516,7 +527,10 @@ function App() {
               </section>
             </div>
           )}
-        </div>
+              </div>
+            </GridCol>
+          </Row>
+        </Container>
       </div>
     </>
   );

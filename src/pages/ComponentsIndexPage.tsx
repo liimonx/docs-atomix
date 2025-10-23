@@ -1,15 +1,18 @@
-import React, { useState, useMemo, ChangeEvent } from 'react';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import React, { useState, useMemo, ChangeEvent } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   Card,
   Input,
   Badge,
   Icon,
   Button,
-  Hero
-} from '@shohojdhara/atomix';
-import { navigationData } from '../data/navigation';
+  Hero,
+  GridCol,
+  Row,
+  Block,
+} from "@shohojdhara/atomix";
+import { navigationData } from "../data/navigation";
 
 interface ComponentItem {
   id: string;
@@ -27,26 +30,26 @@ interface ComponentItem {
 }
 
 const ComponentsIndexPage: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Get all component items from navigation data
   const allComponents = useMemo(() => {
     const components: ComponentItem[] = [];
-    
+
     navigationData.forEach((section) => {
-      if (section.id !== 'getting-started') {
+      if (section.id !== "getting-started") {
         section.items.forEach((item) => {
           components.push({
             ...item,
-            description: item.description || '',
-            icon: item.icon || 'Info',
+            description: item.description || "",
+            icon: item.icon || "Info",
             section: section.title,
-            sectionId: section.id
+            sectionId: section.id,
           });
         });
       }
     });
-    
+
     return components;
   }, []);
 
@@ -61,9 +64,11 @@ const ComponentsIndexPage: React.FC = () => {
       const searchableText = [
         component.title,
         component.description,
-        ...(component.searchTerms || [])
-      ].join(' ').toLowerCase();
-      
+        ...(component.searchTerms || []),
+      ]
+        .join(" ")
+        .toLowerCase();
+
       return searchableText.includes(query);
     });
   }, [allComponents, searchQuery]);
@@ -71,14 +76,14 @@ const ComponentsIndexPage: React.FC = () => {
   // Group components by category
   const groupedComponents = useMemo(() => {
     const groups: Record<string, ComponentItem[]> = {};
-    
+
     filteredComponents.forEach((component) => {
       if (!groups[component.section]) {
         groups[component.section] = [];
       }
       groups[component.section].push(component);
     });
-    
+
     return groups;
   }, [filteredComponents]);
 
@@ -95,64 +100,55 @@ const ComponentsIndexPage: React.FC = () => {
       <Hero
         title="Components"
         text="A comprehensive collection of modern, accessible React components"
+        actions={
+          <Input
+            type="search"
+            placeholder="Search components..."
+            value={searchQuery}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setSearchQuery(e.target.value)
+            }
+          />
+        }
         alignment="center"
         backgroundImageSrc="https://images.unsplash.com/photo-1760976180663-946ff68fa64c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1034"
-      />
+      ></Hero>
 
-      <div className="components-index-page" style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem' }}>
-        {/* Search */}
-        <section style={{ marginBottom: '3rem' }}>
-          <div style={{ maxWidth: '500px', margin: '0 auto' }}>
-            <Input
-              type="search"
-              placeholder="Search components..."
-              value={searchQuery}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
-            />
+      {/* Components Grid */}
+      <Block className="components-grid">
+        {Object.keys(groupedComponents).length === 0 ? (
+          <div className="u-text-center u-p-12">
+            <Icon name="MagnifyingGlass" size="xl" className="u-mb-4" />
+            <h3>No components found</h3>
+            <p className="u-text-secondary-emphasis u-mb-6">
+              No components match "{searchQuery}". Try a different search term.
+            </p>
+            <Button variant="outline" onClick={() => setSearchQuery("")}>
+              Clear search
+            </Button>
           </div>
-        </section>
+        ) : (
+          Object.entries(groupedComponents).map(([section, components]) => (
+            <div key={section} className="u-mb-12">
+              <h2 className="u-mb-6 u-fs-xl u-fw-600">{section}</h2>
 
-        {/* Components Grid */}
-        <section className="components-grid">
-          {Object.keys(groupedComponents).length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '3rem' }}>
-              <Icon name="MagnifyingGlass" size="xl" className="u-mb-4" />
-              <h3>No components found</h3>
-              <p style={{ color: 'var(--atomix-text-secondary)', marginBottom: '1.5rem' }}>
-                No components match "{searchQuery}". Try a different search term.
-              </p>
-              <Button variant="outline" onClick={() => setSearchQuery('')}>
-                Clear search
-              </Button>
-            </div>
-          ) : (
-            Object.entries(groupedComponents).map(([section, components]) => (
-              <div key={section} style={{ marginBottom: '3rem' }}>
-                 <h2 style={{ marginBottom: '1.5rem', fontSize: '1.5rem', fontWeight: '600' }}>
-                  {section}
-                </h2>
-                
-                <div style={{ 
-                   display: 'grid', 
-                   gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
-                   gap: '1.5rem' 
-                 }}>
-                  {components.map((component) => (
-                    <Link
-                      key={component.id}
-                      to={component.path}
-                      className="no-underline"
-                    >
-                      <Card className="u-p-6 u-cursor-pointer u-h-100">
-                        <div style={{ marginBottom: '1rem' }}>
-                          <Icon
-                            name={component.icon as any}
-                            size="lg"
-                          />
+              <Row>
+                {components.map((component) => (
+                  <GridCol
+                    key={component.id}
+                    sm={6}
+                    md={4}
+                    lg={3}
+                    className="u-mb-6"
+                  >
+                    <Link to={component.path} className="u-link-none">
+                      <Card className="u-p-6 u-cursor-pointer u-h-100 u-bg-primary-subtle">
+                        <div className="u-mb-4">
+                          <Icon name={component.icon as any} size="lg" />
                         </div>
-                        
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                          <h3 style={{ fontSize: '1.125rem', fontWeight: '600', margin: 0 }}>
+
+                        <div className="u-d-flex u-align-items-center u-gap-2 u-mb-2">
+                          <h3 className="u-fs-lg u-fw-600 u-m-0 u-text-primary-emphasis">
                             {component.title}
                           </h3>
                           {component.badge && (
@@ -164,44 +160,37 @@ const ComponentsIndexPage: React.FC = () => {
                             />
                           )}
                         </div>
-                        
-                        <p style={{
-                          fontSize: '0.875rem',
-                          color: 'var(--atomix-text-secondary)',
-                          margin: 0,
-                          lineHeight: '1.5'
-                        }}>
+
+                        <p className="u-fs-sm u-text-secondary-emphasis u-m-0 u-lh-lg">
                           {component.description}
                         </p>
                       </Card>
                     </Link>
-                  ))}
-                </div>
-              </div>
-            ))
-          )}
-        </section>
-
-        {/* Stats Section */}
-        <section className="stats-section" style={{ padding: '3rem 0', backgroundColor: 'var(--atomix-bg-secondary)', marginTop: '3rem' }}>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '2rem' }}>
-              <div>
-                <h3 style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0 }}>{allComponents.length}</h3>
-                <p style={{ color: 'var(--atomix-text-secondary)', margin: 0 }}>Components</p>
-              </div>
-              <div>
-                <h3 style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0 }}>100%</h3>
-                <p style={{ color: 'var(--atomix-text-secondary)', margin: 0 }}>Accessible</p>
-              </div>
-              <div>
-                <h3 style={{ fontSize: '2rem', fontWeight: 'bold', margin: 0 }}>TypeScript</h3>
-                <p style={{ color: 'var(--atomix-text-secondary)', margin: 0 }}>Support</p>
-              </div>
+                  </GridCol>
+                ))}
+              </Row>
             </div>
-          </div>
-        </section>
-      </div>
+          ))
+        )}
+      </Block>
+
+      {/* Stats Section */}
+      <Block className="stats-section" spacing="xl" background="secondary">
+        <Row justifyContent="around" className="u-text-center">
+          <GridCol xs="auto">
+            <h3 className="u-fs-2xl u-fw-bold u-m-0">{allComponents.length}</h3>
+            <p className="u-text-secondary-emphasis u-m-0">Components</p>
+          </GridCol>
+          <GridCol xs="auto">
+            <h3 className="u-fs-2xl u-fw-bold u-m-0">100%</h3>
+            <p className="u-text-secondary-emphasis u-m-0">Accessible</p>
+          </GridCol>
+          <GridCol xs="auto">
+            <h3 className="u-fs-2xl u-fw-bold u-m-0">TypeScript</h3>
+            <p className="u-text-secondary-emphasis u-m-0">Support</p>
+          </GridCol>
+        </Row>
+      </Block>
     </>
   );
 };

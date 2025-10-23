@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Spinner } from '@shohojdhara/atomix';
+import { Spinner, Container } from '@shohojdhara/atomix';
 import { DocumentationHeader } from './DocumentationHeader';
 import { DocumentationSidebar } from './DocumentationSidebar';
 import { DocumentationFooter } from './DocumentationFooter';
@@ -36,7 +36,9 @@ export const AppLayout: React.FC = () => {
 
         {/* Page Content */}
         <main className="atomix-docs-content" role="main">
+          <Container type="fluid">
             <Outlet />
+          </Container>
         </main>
       </div>
 

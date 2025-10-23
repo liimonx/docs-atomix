@@ -45,15 +45,15 @@ export const DocumentationFooter: React.FC = () => {
 
   return (
     <footer className="atomix-docs-footer" role="contentinfo">
-      <Container type="xl">
-        <div className="footer-content">
+      <Container type="xl" className="u-py-12 u-px-6">
+        <div className="footer-content u-mb-12">
           <div className="footer-brand">
             <Icon name="AtomixLogo" size="lg" />
-            <h3 style={{ fontSize: '1.125rem', fontWeight: '700', margin: '0.5rem 0' }}>Atomix Design System</h3>
-            <p style={{ fontSize: '0.875rem', color: 'var(--atomix-text-secondary)', margin: '0.5rem 0' }}>
+            <h3 className="u-fs-lg u-fw-bold u-my-2">Atomix Design System</h3>
+            <p className="u-fs-sm u-text-secondary-emphasis u-my-3">
               A comprehensive React component library built with accessibility and developer experience in mind.
             </p>
-            <div className="footer-social">
+            <div className="footer-social u-mt-4">
               <a href="https://github.com/shohojdhara/atomix" target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" size="sm">
                   <Icon name="Github" size="sm" />
@@ -75,7 +75,7 @@ export const DocumentationFooter: React.FC = () => {
           <div className="footer-links">
             {footerLinks.map((section) => (
               <div key={section.title} className="footer-section">
-                <h4 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.75rem' }}>
+                <h4 className="u-fs-md u-fw-semibold u-mb-3">
                   {section.title}
                 </h4>
                 <nav className="section-links" aria-label={`${section.title} links`}>
@@ -96,15 +96,15 @@ export const DocumentationFooter: React.FC = () => {
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <p style={{ fontSize: '0.875rem', color: 'var(--atomix-text-secondary)', margin: 0 }}>
+        <div className="footer-bottom u-pt-12">
+          <p className="u-fs-sm u-text-secondary-emphasis u-m-0">
             © {currentYear} Atomix Design System. All rights reserved.
           </p>
-          <p style={{ fontSize: '0.875rem', color: 'var(--atomix-text-secondary)', margin: 0 }}>
+          <p className="u-fs-sm u-text-secondary-emphasis u-m-0">
             Built with ❤️ using Atomix components
           </p>
         </div>
       </Container>
     </footer>
   );
-};
+}
