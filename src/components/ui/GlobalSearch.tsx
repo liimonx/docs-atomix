@@ -44,12 +44,13 @@ export function GlobalSearch() {
   };
 
   return (
-    <div className="relative w-full max-w-md" onKeyDown={handleKeyDown}>
+    <div className="u-position-relative" onKeyDown={handleKeyDown} style={{ width: '300px' }}>
       <Dropdown
         isOpen={isOpen}
         onOpenChange={setIsOpen}
+        className="u-w-100"
         menu={
-          <div className="w-full">
+          <div className="u-w-100">
             {searchResults.length > 0 ? (
               <ul>
                 {searchResults.map((result, index) => (
@@ -73,17 +74,18 @@ export function GlobalSearch() {
           </div>
         }
       >
-        <div className="relative">
+        <div className="u-position-relative u-w-100">
           <Input
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search..."
-            className="w-full"
+            glass
+            variant="info"
           />
-          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+          <div className="u-position-absolute u-w-100 u-bottom-0 u-right-0 u-d-flex u-align-items-center u-pr-3">
             {searchQuery && (
-              <button onClick={clearSearch} className="text-gray-500 hover:text-gray-700">
-                <Icon name="X" className="h-5 w-5" />
+              <button onClick={clearSearch} className="u-text-secondary u-hover:u-text-secondary-emphasis">
+                <Icon name="X" size="sm" />
               </button>
             )}
           </div>

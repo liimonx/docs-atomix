@@ -3,110 +3,357 @@ export interface DesignToken {
   value: string;
   description: string;
   category: string;
-  type: 'color' | 'spacing' | 'typography' | 'border' | 'shadow' | 'breakpoint';
+  usage?: string[];
+  cssVariable?: string;
 }
 
-export const designTokens: DesignToken[] = [
-  // Primary Colors
-  { name: '$primary-6', value: '#7c3aed', description: 'Balanced primary purple', category: 'colors', type: 'color' },
-  { name: '$primary-5', value: '#9c63e9', description: 'Primary purple light', category: 'colors', type: 'color' },
-  { name: '$primary-4', value: '#b88cef', description: 'Primary purple lighter', category: 'colors', type: 'color' },
-  { name: '$primary-7', value: '#6425ca', description: 'Primary purple dark', category: 'colors', type: 'color' },
-  { name: '$primary-8', value: '#501ba6', description: 'Primary purple darker', category: 'colors', type: 'color' },
-  
-  // Semantic Colors
-  { name: '$success', value: '#22c55e', description: 'Success state color', category: 'colors', type: 'color' },
-  { name: '$error', value: '#ef4444', description: 'Error state color', category: 'colors', type: 'color' },
-  { name: '$warning', value: '#eab308', description: 'Warning state color', category: 'colors', type: 'color' },
-  { name: '$info', value: '#3b82f6', description: 'Info state color', category: 'colors', type: 'color' },
-  
-  // Gray Scale
-  { name: '$gray-1', value: '#f9fafb', description: 'Lightest gray', category: 'colors', type: 'color' },
-  { name: '$gray-2', value: '#f3f4f6', description: 'Very light gray', category: 'colors', type: 'color' },
-  { name: '$gray-3', value: '#e5e7eb', description: 'Light gray', category: 'colors', type: 'color' },
-  { name: '$gray-5', value: '#9ca3af', description: 'Medium gray', category: 'colors', type: 'color' },
-  { name: '$gray-6', value: '#6b7280', description: 'Dark gray', category: 'colors', type: 'color' },
-  { name: '$gray-8', value: '#374151', description: 'Darker gray', category: 'colors', type: 'color' },
-  { name: '$gray-9', value: '#1f2937', description: 'Very dark gray', category: 'colors', type: 'color' },
-  { name: '$gray-10', value: '#111827', description: 'Darkest gray', category: 'colors', type: 'color' },
-  
-  // Text Colors
-  { name: '$primary-text', value: '#111827', description: 'Primary text color', category: 'colors', type: 'color' },
-  { name: '$secondary-text', value: '#374151', description: 'Secondary text color', category: 'colors', type: 'color' },
-  { name: '$tertiary-text', value: '#6b7280', description: 'Tertiary text color', category: 'colors', type: 'color' },
-  { name: '$disabled-text', value: '#9ca3af', description: 'Disabled text color', category: 'colors', type: 'color' },
-  
-  // Background Colors
-  { name: '$primary-bg', value: '#ffffff', description: 'Primary background', category: 'colors', type: 'color' },
-  { name: '$secondary-bg', value: '#e5e7eb', description: 'Secondary background', category: 'colors', type: 'color' },
-  { name: '$tertiary-bg', value: '#d1d5db', description: 'Tertiary background', category: 'colors', type: 'color' },
-  
-  // Spacing Scale
-  { name: 'spacing-0', value: '0rem', description: 'No spacing (0px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-1', value: '0.25rem', description: 'Tiny spacing (4px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-2', value: '0.5rem', description: 'Extra small spacing (8px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-3', value: '0.75rem', description: 'Small spacing (12px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-4', value: '1rem', description: 'Base spacing (16px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-5', value: '1.25rem', description: 'Medium spacing (20px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-6', value: '1.5rem', description: 'Large spacing (24px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-8', value: '2rem', description: 'Extra large spacing (32px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-10', value: '2.5rem', description: '2XL spacing (40px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-12', value: '3rem', description: '3XL spacing (48px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-16', value: '4rem', description: '4XL spacing (64px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-20', value: '5rem', description: '5XL spacing (80px)', category: 'spacing', type: 'spacing' },
-  { name: 'spacing-24', value: '6rem', description: '6XL spacing (96px)', category: 'spacing', type: 'spacing' },
-  
-  // Typography - Font Families
-  { name: '$font-family-base', value: 'Roboto, sans-serif', description: 'Base font family', category: 'typography', type: 'typography' },
-  { name: '$font-family-monospace', value: 'SFMono-Regular, Menlo, Monaco, Consolas, monospace', description: 'Monospace font family', category: 'typography', type: 'typography' },
-  
-  // Typography - Font Sizes
-  { name: '$font-size-xs', value: '0.75rem', description: 'Extra small (12px)', category: 'typography', type: 'typography' },
-  { name: '$font-size-sm', value: '0.875rem', description: 'Small (14px)', category: 'typography', type: 'typography' },
-  { name: '$font-size-base', value: '1rem', description: 'Base (16px)', category: 'typography', type: 'typography' },
-  { name: '$font-size-md', value: '1.125rem', description: 'Medium (18px)', category: 'typography', type: 'typography' },
-  { name: '$font-size-lg', value: '1.25rem', description: 'Large (20px)', category: 'typography', type: 'typography' },
-  { name: '$font-size-xl', value: '1.5rem', description: 'Extra large (24px)', category: 'typography', type: 'typography' },
-  { name: '$font-size-2xl', value: '2rem', description: '2XL (32px)', category: 'typography', type: 'typography' },
-  
-  // Typography - Headings
-  { name: '$h1-font-size', value: '2.5rem', description: 'H1 heading (40px)', category: 'typography', type: 'typography' },
-  { name: '$h2-font-size', value: '2rem', description: 'H2 heading (32px)', category: 'typography', type: 'typography' },
-  { name: '$h3-font-size', value: '1.5rem', description: 'H3 heading (24px)', category: 'typography', type: 'typography' },
-  { name: '$h4-font-size', value: '1.25rem', description: 'H4 heading (20px)', category: 'typography', type: 'typography' },
-  { name: '$h5-font-size', value: '1.125rem', description: 'H5 heading (18px)', category: 'typography', type: 'typography' },
-  { name: '$h6-font-size', value: '1rem', description: 'H6 heading (16px)', category: 'typography', type: 'typography' },
-  
-  // Typography - Font Weights
-  { name: '$font-weight-light', value: '300', description: 'Light weight', category: 'typography', type: 'typography' },
-  { name: '$font-weight-normal', value: '400', description: 'Normal weight', category: 'typography', type: 'typography' },
-  { name: '$font-weight-medium', value: '500', description: 'Medium weight', category: 'typography', type: 'typography' },
-  { name: '$font-weight-semibold', value: '600', description: 'Semibold weight', category: 'typography', type: 'typography' },
-  { name: '$font-weight-bold', value: '700', description: 'Bold weight', category: 'typography', type: 'typography' },
-  
-  // Border Radius
-  { name: '$border-radius-sm', value: '0.25rem', description: 'Small radius (4px)', category: 'border', type: 'border' },
-  { name: '$border-radius', value: '0.5rem', description: 'Default radius (8px)', category: 'border', type: 'border' },
-  { name: '$border-radius-lg', value: '0.625rem', description: 'Large radius (10px)', category: 'border', type: 'border' },
-  { name: '$border-radius-xl', value: '0.75rem', description: 'Extra large radius (12px)', category: 'border', type: 'border' },
-  { name: '$border-radius-xxl', value: '1rem', description: '2XL radius (16px)', category: 'border', type: 'border' },
-  { name: '$border-radius-3xl', value: '1.5rem', description: '3XL radius (24px)', category: 'border', type: 'border' },
-  { name: '$border-radius-4xl', value: '2rem', description: '4XL radius (32px)', category: 'border', type: 'border' },
-  { name: '$border-radius-pill', value: '50rem', description: 'Pill shape (800px)', category: 'border', type: 'border' },
-  
-  // Box Shadows
-  { name: '$box-shadow-xs', value: '0px 1px 2px 0px rgba(45, 54, 67, 0.04), 0px 2px 4px 0px rgba(45, 54, 67, 0.08)', description: 'Extra small shadow', category: 'shadow', type: 'shadow' },
-  { name: '$box-shadow-sm', value: '0 2px 4px rgba(0, 0, 0, 0.075)', description: 'Small shadow', category: 'shadow', type: 'shadow' },
-  { name: '$box-shadow-md', value: '0 4px 8px rgba(0, 0, 0, 0.1)', description: 'Medium shadow', category: 'shadow', type: 'shadow' },
-  { name: '$box-shadow', value: '0 8px 16px rgba(0, 0, 0, 0.15)', description: 'Default shadow', category: 'shadow', type: 'shadow' },
-  { name: '$box-shadow-lg', value: '0 16px 48px rgba(0, 0, 0, 0.175)', description: 'Large shadow', category: 'shadow', type: 'shadow' },
-  { name: '$box-shadow-xl', value: '0px 16px 64px -8px rgba(45, 54, 67, 0.14)', description: 'Extra large shadow', category: 'shadow', type: 'shadow' },
-  
-  // Breakpoints
-  { name: 'breakpoint-xs', value: '0px', description: 'Extra small devices', category: 'breakpoint', type: 'breakpoint' },
-  { name: 'breakpoint-sm', value: '576px', description: 'Small devices', category: 'breakpoint', type: 'breakpoint' },
-  { name: 'breakpoint-md', value: '768px', description: 'Medium devices', category: 'breakpoint', type: 'breakpoint' },
-  { name: 'breakpoint-lg', value: '992px', description: 'Large devices', category: 'breakpoint', type: 'breakpoint' },
-  { name: 'breakpoint-xl', value: '1200px', description: 'Extra large devices', category: 'breakpoint', type: 'breakpoint' },
-  { name: 'breakpoint-xxl', value: '1440px', description: '2XL devices', category: 'breakpoint', type: 'breakpoint' }
+export interface TokenCategory {
+  id: string;
+  title: string;
+  description: string;
+  tokens: DesignToken[];
+}
+
+export const designTokens: TokenCategory[] = [
+  {
+    id: 'colors',
+    title: 'Colors',
+    description: 'Comprehensive color system with semantic naming and accessibility considerations',
+    tokens: [
+      {
+        name: 'Primary',
+        value: '#2563eb',
+        description: 'Primary brand color used for main actions and emphasis',
+        category: 'brand',
+        usage: ['buttons', 'links', 'focus states'],
+        cssVariable: '--atomix-primary'
+      },
+      {
+        name: 'Secondary',
+        value: '#64748b',
+        description: 'Secondary color for supporting elements',
+        category: 'brand',
+        usage: ['secondary buttons', 'borders', 'subtle text'],
+        cssVariable: '--atomix-secondary'
+      },
+      {
+        name: 'Success',
+        value: '#10b981',
+        description: 'Success state color for positive feedback',
+        category: 'semantic',
+        usage: ['success messages', 'valid states', 'positive indicators'],
+        cssVariable: '--atomix-success'
+      },
+      {
+        name: 'Warning',
+        value: '#f59e0b',
+        description: 'Warning state color for cautionary feedback',
+        category: 'semantic',
+        usage: ['warning messages', 'caution states', 'attention indicators'],
+        cssVariable: '--atomix-warning'
+      },
+      {
+        name: 'Error',
+        value: '#ef4444',
+        description: 'Error state color for negative feedback',
+        category: 'semantic',
+        usage: ['error messages', 'invalid states', 'destructive actions'],
+        cssVariable: '--atomix-error'
+      },
+      {
+        name: 'Gray 50',
+        value: '#f8fafc',
+        description: 'Lightest gray for backgrounds and subtle elements',
+        category: 'neutral',
+        usage: ['page backgrounds', 'card backgrounds', 'subtle borders'],
+        cssVariable: '--atomix-gray-50'
+      },
+      {
+        name: 'Gray 900',
+        value: '#0f172a',
+        description: 'Darkest gray for primary text and high contrast elements',
+        category: 'neutral',
+        usage: ['headings', 'primary text', 'high contrast elements'],
+        cssVariable: '--atomix-gray-900'
+      }
+    ]
+  },
+  {
+    id: 'spacing',
+    title: 'Spacing',
+    description: 'Consistent spacing scale based on 4px grid system',
+    tokens: [
+      {
+        name: 'XS',
+        value: '0.25rem (4px)',
+        description: 'Extra small spacing for tight layouts',
+        category: 'spacing',
+        usage: ['icon gaps', 'tight padding', 'fine adjustments'],
+        cssVariable: '--atomix-space-xs'
+      },
+      {
+        name: 'SM',
+        value: '0.5rem (8px)',
+        description: 'Small spacing for compact elements',
+        category: 'spacing',
+        usage: ['button padding', 'form field gaps', 'compact layouts'],
+        cssVariable: '--atomix-space-sm'
+      },
+      {
+        name: 'MD',
+        value: '1rem (16px)',
+        description: 'Medium spacing for standard layouts',
+        category: 'spacing',
+        usage: ['default padding', 'standard margins', 'content spacing'],
+        cssVariable: '--atomix-space-md'
+      },
+      {
+        name: 'LG',
+        value: '1.5rem (24px)',
+        description: 'Large spacing for generous layouts',
+        category: 'spacing',
+        usage: ['section padding', 'card spacing', 'generous margins'],
+        cssVariable: '--atomix-space-lg'
+      },
+      {
+        name: 'XL',
+        value: '2rem (32px)',
+        description: 'Extra large spacing for major sections',
+        category: 'spacing',
+        usage: ['page sections', 'major components', 'hero spacing'],
+        cssVariable: '--atomix-space-xl'
+      },
+      {
+        name: '2XL',
+        value: '3rem (48px)',
+        description: 'Double extra large spacing for significant separation',
+        category: 'spacing',
+        usage: ['page headers', 'major sections', 'hero elements'],
+        cssVariable: '--atomix-space-2xl'
+      }
+    ]
+  },
+  {
+    id: 'typography',
+    title: 'Typography',
+    description: 'Type scale and font system for consistent text hierarchy',
+    tokens: [
+      {
+        name: 'Font Family Base',
+        value: 'Inter, system-ui, sans-serif',
+        description: 'Primary font family for body text and UI elements',
+        category: 'font-family',
+        usage: ['body text', 'UI elements', 'general content'],
+        cssVariable: '--atomix-font-family-base'
+      },
+      {
+        name: 'Font Family Heading',
+        value: 'Inter, system-ui, sans-serif',
+        description: 'Font family for headings and display text',
+        category: 'font-family',
+        usage: ['headings', 'display text', 'emphasis'],
+        cssVariable: '--atomix-font-family-heading'
+      },
+      {
+        name: 'Font Family Mono',
+        value: 'JetBrains Mono, Consolas, monospace',
+        description: 'Monospace font for code and technical content',
+        category: 'font-family',
+        usage: ['code blocks', 'technical text', 'data display'],
+        cssVariable: '--atomix-font-family-mono'
+      },
+      {
+        name: 'Text XS',
+        value: '0.75rem (12px)',
+        description: 'Extra small text for captions and fine print',
+        category: 'font-size',
+        usage: ['captions', 'fine print', 'metadata'],
+        cssVariable: '--atomix-text-xs'
+      },
+      {
+        name: 'Text SM',
+        value: '0.875rem (14px)',
+        description: 'Small text for secondary content',
+        category: 'font-size',
+        usage: ['secondary text', 'form labels', 'helper text'],
+        cssVariable: '--atomix-text-sm'
+      },
+      {
+        name: 'Text Base',
+        value: '1rem (16px)',
+        description: 'Base text size for body content',
+        category: 'font-size',
+        usage: ['body text', 'paragraphs', 'default content'],
+        cssVariable: '--atomix-text-base'
+      },
+      {
+        name: 'Text LG',
+        value: '1.125rem (18px)',
+        description: 'Large text for emphasis and lead content',
+        category: 'font-size',
+        usage: ['lead text', 'emphasis', 'large content'],
+        cssVariable: '--atomix-text-lg'
+      },
+      {
+        name: 'Text XL',
+        value: '1.25rem (20px)',
+        description: 'Extra large text for small headings',
+        category: 'font-size',
+        usage: ['small headings', 'subheadings', 'emphasis'],
+        cssVariable: '--atomix-text-xl'
+      },
+      {
+        name: 'Text 2XL',
+        value: '1.5rem (24px)',
+        description: 'Double extra large text for medium headings',
+        category: 'font-size',
+        usage: ['medium headings', 'section titles'],
+        cssVariable: '--atomix-text-2xl'
+      },
+      {
+        name: 'Text 3XL',
+        value: '1.875rem (30px)',
+        description: 'Triple extra large text for large headings',
+        category: 'font-size',
+        usage: ['large headings', 'page titles'],
+        cssVariable: '--atomix-text-3xl'
+      },
+      {
+        name: 'Text 4XL',
+        value: '2.25rem (36px)',
+        description: 'Quadruple extra large text for display headings',
+        category: 'font-size',
+        usage: ['display headings', 'hero titles'],
+        cssVariable: '--atomix-text-4xl'
+      }
+    ]
+  },
+  {
+    id: 'elevation',
+    title: 'Elevation',
+    description: 'Shadow system for creating depth and hierarchy',
+    tokens: [
+      {
+        name: 'Shadow None',
+        value: 'none',
+        description: 'No shadow for flat elements',
+        category: 'shadow',
+        usage: ['flat buttons', 'inline elements', 'no elevation'],
+        cssVariable: '--atomix-shadow-none'
+      },
+      {
+        name: 'Shadow SM',
+        value: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        description: 'Small shadow for subtle elevation',
+        category: 'shadow',
+        usage: ['cards', 'form fields', 'subtle elevation'],
+        cssVariable: '--atomix-shadow-sm'
+      },
+      {
+        name: 'Shadow MD',
+        value: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+        description: 'Medium shadow for standard elevation',
+        category: 'shadow',
+        usage: ['buttons', 'dropdowns', 'standard elevation'],
+        cssVariable: '--atomix-shadow-md'
+      },
+      {
+        name: 'Shadow LG',
+        value: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+        description: 'Large shadow for prominent elevation',
+        category: 'shadow',
+        usage: ['modals', 'popovers', 'prominent elements'],
+        cssVariable: '--atomix-shadow-lg'
+      },
+      {
+        name: 'Shadow XL',
+        value: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+        description: 'Extra large shadow for high elevation',
+        category: 'shadow',
+        usage: ['overlays', 'floating elements', 'high elevation'],
+        cssVariable: '--atomix-shadow-xl'
+      },
+      {
+        name: 'Shadow 2XL',
+        value: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        description: 'Double extra large shadow for maximum elevation',
+        category: 'shadow',
+        usage: ['hero elements', 'maximum elevation', 'dramatic effect'],
+        cssVariable: '--atomix-shadow-2xl'
+      }
+    ]
+  },
+  {
+    id: 'border-radius',
+    title: 'Border Radius',
+    description: 'Consistent border radius scale for rounded corners',
+    tokens: [
+      {
+        name: 'Radius None',
+        value: '0',
+        description: 'No border radius for sharp corners',
+        category: 'border-radius',
+        usage: ['sharp elements', 'no rounding', 'geometric shapes'],
+        cssVariable: '--atomix-radius-none'
+      },
+      {
+        name: 'Radius SM',
+        value: '0.125rem (2px)',
+        description: 'Small border radius for subtle rounding',
+        category: 'border-radius',
+        usage: ['form fields', 'subtle rounding', 'small elements'],
+        cssVariable: '--atomix-radius-sm'
+      },
+      {
+        name: 'Radius MD',
+        value: '0.375rem (6px)',
+        description: 'Medium border radius for standard rounding',
+        category: 'border-radius',
+        usage: ['buttons', 'cards', 'standard elements'],
+        cssVariable: '--atomix-radius-md'
+      },
+      {
+        name: 'Radius LG',
+        value: '0.5rem (8px)',
+        description: 'Large border radius for generous rounding',
+        category: 'border-radius',
+        usage: ['large buttons', 'prominent cards', 'generous rounding'],
+        cssVariable: '--atomix-radius-lg'
+      },
+      {
+        name: 'Radius XL',
+        value: '0.75rem (12px)',
+        description: 'Extra large border radius for significant rounding',
+        category: 'border-radius',
+        usage: ['hero elements', 'significant rounding', 'modern look'],
+        cssVariable: '--atomix-radius-xl'
+      },
+      {
+        name: 'Radius Full',
+        value: '9999px',
+        description: 'Full border radius for circular elements',
+        category: 'border-radius',
+        usage: ['avatars', 'badges', 'circular buttons'],
+        cssVariable: '--atomix-radius-full'
+      }
+    ]
+  }
 ];
+
+export const getTokensByCategory = (categoryId: string) => {
+  return designTokens.find(category => category.id === categoryId);
+};
+
+export const getAllTokens = () => {
+  return designTokens.flatMap(category => category.tokens);
+};
+
+export const searchTokens = (query: string) => {
+  const lowercaseQuery = query.toLowerCase();
+  return getAllTokens().filter(token =>
+    token.name.toLowerCase().includes(lowercaseQuery) ||
+    token.description.toLowerCase().includes(lowercaseQuery) ||
+    token.category.toLowerCase().includes(lowercaseQuery) ||
+    token.usage?.some(usage => usage.toLowerCase().includes(lowercaseQuery))
+  );
+};

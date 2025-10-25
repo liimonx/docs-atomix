@@ -1,25 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
-import { Spinner, Container } from '@shohojdhara/atomix';
-import { DocumentationHeader } from './DocumentationHeader';
-import { DocumentationSidebar } from './DocumentationSidebar';
-import { DocumentationFooter } from './DocumentationFooter';
-import { MobileNavigation } from './MobileNavigation';
-import { BackToTopButton } from '../ui/BackToTopButton';
-
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { Spinner, Container } from "@shohojdhara/atomix";
+import { DocumentationHeader } from "./DocumentationHeader";
+import { DocumentationSidebar } from "./DocumentationSidebar";
+import { DocumentationFooter } from "./DocumentationFooter";
+import { MobileNavigation } from "./MobileNavigation";
+import { BackToTopButton } from "../ui/BackToTopButton";  
 
 export const AppLayout: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const location = useLocation();
-
   return (
-    <div className={`atomix-docs-app `}>
-      {/* Header - ALWAYS visible */}
-      <DocumentationHeader
-        onMenuToggle={() => setSidebarOpen(!sidebarOpen)}
-        sidebarOpen={sidebarOpen}
-      />
-
+    <div className="atomix-docs-app">
       {/* Main content area */}
       <div className="atomix-docs-main">
         {/* Sidebar - Desktop persistent, mobile overlay */}
@@ -36,9 +27,11 @@ export const AppLayout: React.FC = () => {
 
         {/* Page Content */}
         <main className="atomix-docs-content" role="main">
-          <Container type="fluid">
-            <Outlet />
-          </Container>
+          <div className="atomix-docs-container-wrapper">
+            <Container type="fluid">
+              <Outlet />
+            </Container>
+          </div>
         </main>
       </div>
 
@@ -47,6 +40,12 @@ export const AppLayout: React.FC = () => {
 
       {/* Back to Top Button */}
       <BackToTopButton />
+
+      {/* Header - ALWAYS visible */}
+      <DocumentationHeader
+        onMenuToggle={() => setSidebarOpen(!sidebarOpen)}
+        sidebarOpen={sidebarOpen}
+      />
     </div>
   );
 };

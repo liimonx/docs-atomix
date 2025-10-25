@@ -28,6 +28,25 @@ const getBadgeVariant = (variant: string): 'primary' | 'secondary' | 'success' |
   }
 };
 
+// Map problematic icon names to alternatives that actually exist
+const getSafeIconName = (iconName: string): string => {
+  const iconMap: Record<string, string> = {
+    'Navigation': 'NavigationArrow',
+    'NavigationArrow': 'NavigationArrow',
+    'ChevronDown': 'CaretDown',
+    'ChevronDownIcon': 'CaretDown',
+    'HelpCircle': 'Question',
+    'HelpCircleIcon': 'Question',
+    'Grid3X3': 'GridFour',
+    'Grid2X2': 'GridFour',
+    'Smartphone': 'DeviceMobile',
+    'Droplets': 'Drop',
+    'Drop': 'Drop'
+  };
+  
+  return iconMap[iconName] || iconName;
+};
+
 export const DocumentationSidebar: React.FC<DocumentationSidebarProps> = ({
   isOpen,
   onClose
@@ -65,7 +84,8 @@ export const DocumentationSidebar: React.FC<DocumentationSidebarProps> = ({
       aria-label="Documentation navigation"
       aria-hidden={!isOpen}
     >
-      <div className="u-d-flex u-flex-column u-h-100">
+      <div className="u-my-8"
+     >
         <SideMenu>
           {/* Search inside SideMenu */}
           <div className="u-px-3 u-py-3">
@@ -105,7 +125,7 @@ export const DocumentationSidebar: React.FC<DocumentationSidebarProps> = ({
                       onClose();
                     }}
                   >
-                    {item.icon && <Icon name={item.icon as any} size="sm" />}
+                    {item.icon && <Icon name={getSafeIconName(item.icon) as any} size="sm" />}
                     {item.title}
                     {item.badge && (
                         
@@ -128,7 +148,7 @@ export const DocumentationSidebar: React.FC<DocumentationSidebarProps> = ({
                       onClose();
                     }}
                   >
-                    {item.icon && <Icon name={item.icon as any} size="sm" />}
+                    {item.icon && <Icon name={getSafeIconName(item.icon) as any} size="sm" />}
                     {item.title}
                     {item.badge && (
                       <Badge variant={getBadgeVariant(item.badge.variant) as any} size="sm" label={item.badge.text}/>
@@ -139,35 +159,6 @@ export const DocumentationSidebar: React.FC<DocumentationSidebarProps> = ({
             ))
           )}
         </SideMenu>
-
-        {/* Footer */}
-        <div className="u-mt-auto u-p-3 u-border-top">
-          <div className="u-d-flex u-flex-column u-gap-2 u-mb-3">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => navigate('/getting-started')}
-              className="u-w-100"
-            >
-              <Icon name="BookOpen" size="sm" />
-              <span>Quick Start</span>
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => window.open('https://github.com/shohojdhara/atomix', '_blank')}
-              className="u-w-100"
-            >
-              <Icon name="GithubLogo" size="sm" />
-              <span>GitHub</span>
-            </Button>
-          </div>
-          <div className="u-text-center u-pt-2 u-border-top">
-            <p className="u-fs-xs u-text-body-secondary u-mb-0">
-              Atomix v1.0.0
-            </p>
-          </div>
-        </div>
       </div>
     </aside>
   );

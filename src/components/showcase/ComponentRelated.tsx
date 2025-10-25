@@ -1,24 +1,25 @@
 import React from 'react';
-import { Card, Text, Link, Stack } from '../../components/mock-atomix';
+import { Card } from '@shohojdhara/atomix';
+import { Link } from 'react-router-dom';
 import { findNavigationItem } from '../../data/navigation';
 
 interface ComponentRelatedProps {
-  related: string[];
+  relatedComponents: string[];
 }
 
-export const ComponentRelated: React.FC<ComponentRelatedProps> = ({ related }) => {
-  if (!related || related.length === 0) {
+export const ComponentRelated: React.FC<ComponentRelatedProps> = ({ relatedComponents }) => {
+  if (!relatedComponents || relatedComponents.length === 0) {
     return null;
   }
 
   return (
     <Card>
-      <Card.Header>
-        <Text size="lg" weight="semibold">Related Components</Text>
-      </Card.Header>
-      <Card.Body>
-        <Stack gap="sm">
-          {related.map((componentName) => {
+      <div className="card-header">
+        <h3 className="u-mb-0">Related Components</h3>
+      </div>
+      <div className="card-body">
+        <div className="u-d-flex u-flex-column u-gap-2">
+          {relatedComponents.map((componentName) => {
             const navItem = findNavigationItem(componentName.toLowerCase());
             if (!navItem) return null;
 
@@ -26,16 +27,16 @@ export const ComponentRelated: React.FC<ComponentRelatedProps> = ({ related }) =
               <Link
                 key={componentName}
                 to={navItem.path}
-                style={{ display: 'block' }}
+                className="u-text-decoration-none"
               >
-                <Text color="primary" hover>
+                <span className="u-text-primary u-hover-text-decoration-underline">
                   {navItem.title}
-                </Text>
+                </span>
               </Link>
             );
           })}
-        </Stack>
-      </Card.Body>
+        </div>
+      </div>
     </Card>
   );
 };

@@ -1,6 +1,7 @@
 {
-  "name": "atomix-docs",
+  "name": "atomix-design-system-docs",
   "version": "1.0.0",
+  "description": "Comprehensive documentation site for the Atomix Design System - 40+ components, design tokens, layouts, and AtomixGlass effects",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +13,20 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage"
   },
+  "keywords": [
+    "design-system",
+    "react",
+    "components",
+    "typescript",
+    "atomix",
+    "ui-library",
+    "design-tokens",
+    "glass-morphism",
+    "accessibility",
+    "documentation"
+  ],
   "dependencies": {
+    "@playwright/test": "^1.56.1",
     "@shohojdhara/atomix": "^0.2.4",
     "date-fns": "^2.29.3",
     "framer-motion": "^10.0.1",

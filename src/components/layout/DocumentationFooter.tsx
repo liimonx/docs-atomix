@@ -48,7 +48,7 @@ export const DocumentationFooter: React.FC = () => {
       <Container type="xl" className="u-py-12 u-px-6">
         <div className="footer-content u-mb-12">
           <div className="footer-brand">
-            <Icon name="AtomixLogo" size="lg" />
+            <Icon name="Atom" size="lg" />
             <h3 className="u-fs-lg u-fw-bold u-my-2">Atomix Design System</h3>
             <p className="u-fs-sm u-text-secondary-emphasis u-my-3">
               A comprehensive React component library built with accessibility and developer experience in mind.
@@ -56,17 +56,17 @@ export const DocumentationFooter: React.FC = () => {
             <div className="footer-social u-mt-4">
               <a href="https://github.com/shohojdhara/atomix" target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" size="sm">
-                  <Icon name="Github" size="sm" />
+                  <Icon name="GithubLogo" size="sm" />
                 </Button>
               </a>
               <a href="https://twitter.com/atomixdesign" target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" size="sm">
-                  <Icon name="Twitter" size="sm" />
+                  <Icon name="X" size="sm" />
                 </Button>
               </a>
               <a href="https://discord.gg/atomix" target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" size="sm">
-                  <Icon name="MessageCircle" size="sm" />
+                  <Icon name="DiscordLogo" size="sm" />
                 </Button>
               </a>
             </div>

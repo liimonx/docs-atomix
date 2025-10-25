@@ -1,39 +1,28 @@
 import React from 'react';
-import { Card, Text, Box, Stack } from '../../components/mock-atomix';
+import { Card } from '@shohojdhara/atomix';
 
 interface ComponentShowcaseProps {
-  component: React.ReactNode;
-  title?: string;
+  title: string;
   description?: string;
+  children: React.ReactNode;
 }
 
-export const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
-  component,
-  title,
-  description
+export const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({ 
+  title, 
+  description, 
+  children 
 }) => {
   return (
-    <Card>
-      {title && (
-        <Card.Header>
-          <Text size="lg" weight="semibold">{title}</Text>
-          {description && (
-            <Text size="sm" color="muted">{description}</Text>
-          )}
-        </Card.Header>
-      )}
-      <Card.Body>
-        <Box
-          style={{
-            padding: '2rem',
-            border: '1px solid var(--atomix-border-color)',
-            borderRadius: 'var(--atomix-border-radius)',
-            backgroundColor: 'var(--atomix-background)'
-          }}
-        >
-          {component}
-        </Box>
-      </Card.Body>
+    <Card className="component-showcase u-mb-6">
+      <div className="card-header">
+        <h3 className="u-mb-2">{title}</h3>
+        {description && <p className="u-text-muted u-mb-0">{description}</p>}
+      </div>
+      <div className="card-body">
+        <div className="showcase-content">
+          {children}
+        </div>
+      </div>
     </Card>
   );
 };

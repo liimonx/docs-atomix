@@ -9,15 +9,29 @@ import {
   GridCol,
   Row,
   Block,
+  Dropdown
 } from "@shohojdhara/atomix";
 import { designTokens, DesignToken } from "../data/design-tokens";
 import useCopyToClipboard from "../hooks/useCopyToClipboard";
+import { useLocation } from "react-router-dom";
 
 const DesignTokensPage: React.FC = () => {
+  const location = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
   const [isCopied, copy] = useCopyToClipboard();
   const [copiedTokenName, setCopiedTokenName] = useState<string | null>(null);
+
+  // Extract category from URL
+  const getCategoryFromUrl = () => {
+    const pathParts = location.pathname.split('/');
+    const category = pathParts[pathParts.length - 1];
+    
+    // Check if it's a valid category
+    const validCategory = designTokens.find(tokenCategory => tokenCategory.id === category);
+    return validCategory ? category : 'all';
+  };
+
+  const selectedCategory = getCategoryFromUrl();
 
   const handleCopy = (token: DesignToken) => {
     copy(token.value).then((success) => {
@@ -29,10 +43,15 @@ const DesignTokensPage: React.FC = () => {
   };
 
   const filteredTokens = useMemo(() => {
-    let tokens = designTokens;
+    let tokens: DesignToken[] = [];
 
     if (selectedCategory !== "all") {
-      tokens = tokens.filter((token) => token.category === selectedCategory);
+      const category = designTokens.find((cat) => cat.id === selectedCategory);
+      if (category) {
+        tokens = [...category.tokens];
+      }
+    } else {
+      tokens = designTokens.flatMap((category) => category.tokens);
     }
 
     if (searchQuery.trim()) {
@@ -41,7 +60,8 @@ const DesignTokensPage: React.FC = () => {
         (token) =>
           token.name.toLowerCase().includes(query) ||
           token.description.toLowerCase().includes(query) ||
-          token.value.toLowerCase().includes(query)
+          token.value.toLowerCase().includes(query) ||
+          token.category.toLowerCase().includes(query)
       );
     }
 
@@ -61,17 +81,17 @@ const DesignTokensPage: React.FC = () => {
 
   const categories = [
     { value: "all", label: "All Tokens" },
-    { value: "colors", label: "Colors" },
-    { value: "spacing", label: "Spacing" },
-    { value: "typography", label: "Typography" },
-    { value: "border", label: "Border" },
-    { value: "shadow", label: "Shadows" },
-    { value: "breakpoint", label: "Breakpoints" },
+    ...designTokens.map(tokenCategory => ({
+      value: tokenCategory.id,
+      label: tokenCategory.title
+    }))
   ];
 
   const renderTokenPreview = (token: DesignToken) => {
-    switch (token.type) {
-      case "color":
+    switch (token.category) {
+      case "brand":
+      case "semantic":
+      case "neutral":
         return (
           <div
             style={{
@@ -88,13 +108,20 @@ const DesignTokensPage: React.FC = () => {
         return (
           <div
             style={{
-              width: token.value,
+              width: token.value.includes('rem') ? token.value : 'auto',
               height: "20px",
               backgroundColor: "var(--atomix-brand-bg-subtle)",
               borderRadius: "4px",
               marginRight: "1rem",
+              minWidth: token.value.includes('rem') ? '0' : token.value,
+              padding: token.value.includes('rem') ? '0' : '5px',
+              display: 'flex',
+              alignItems: 'center',
+              fontSize: '10px'
             }}
-          />
+          >
+            {!token.value.includes('rem') && token.value}
+          </div>
         );
       case "shadow":
         return (
@@ -110,7 +137,7 @@ const DesignTokensPage: React.FC = () => {
             }}
           />
         );
-      case "border":
+      case "border-radius":
         return (
           <div
             style={{
@@ -118,7 +145,7 @@ const DesignTokensPage: React.FC = () => {
               height: "40px",
               backgroundColor: "var(--atomix-brand-bg-subtle)",
               border: `2px solid var(--atomix-brand-border-subtle)`,
-              borderRadius: token.value,
+              borderRadius: token.value.includes('rem') ? token.value : '0',
               marginRight: "1rem",
             }}
           />
@@ -140,7 +167,7 @@ const DesignTokensPage: React.FC = () => {
               fontFamily: "var(--atomix-font-family-mono)",
             }}
           >
-            {token.type.slice(0, 2).toUpperCase()}
+            {token.category.slice(0, 2).toUpperCase()}
           </div>
         );
     }
@@ -177,7 +204,7 @@ const DesignTokensPage: React.FC = () => {
                 className="u-w-100"
                 value={selectedCategory}
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  setSelectedCategory(e.target.value)
+                  window.location.hash = `/docs/design-tokens/${e.target.value}`
                 }
                 options={categories}
               />

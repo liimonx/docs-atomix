@@ -160,6 +160,17 @@ export interface AppError {
   timestamp: Date;
 }
 
+// Global Atomix Namespace for Vanilla JS Components
+export interface AtomixGlobal {
+  Card?: any;
+  applyCardHoverEffect?: (element: HTMLElement) => void;
+  applyCardFocusEffect?: (element: HTMLElement) => void;
+  makeCardClickable?: (element: HTMLElement, onClick: () => void) => void;
+  initializeAllCards?: () => void;
+  applyCardElevationEffect?: (element: HTMLElement) => void;
+  applyCardFlipEffect?: (element: HTMLElement) => void;
+}
+
 // Utility Types
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
@@ -168,3 +179,10 @@ export type DeepPartial<T> = {
 export type ComponentStatus = ComponentDocumentation['status'];
 export type BadgeVariant = NavigationBadge['variant'];
 export type ThemeName = AppState['theme'];
+
+// Extend global Window interface
+declare global {
+  interface Window {
+    Atomix: AtomixGlobal;
+  }
+}

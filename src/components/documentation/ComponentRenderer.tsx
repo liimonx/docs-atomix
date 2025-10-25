@@ -2,7 +2,7 @@ import React from 'react';
 import * as Atomix from '@shohojdhara/atomix';
 
 interface ComponentRendererProps {
-  componentName: keyof typeof Atomix;
+  componentName?: keyof typeof Atomix;
   props?: any;
   children?: React.ReactNode;
 }
@@ -10,8 +10,16 @@ interface ComponentRendererProps {
 const ComponentRenderer: React.FC<ComponentRendererProps> = ({
   componentName,
   props = {},
-  children,
+  children
 }) => {
+  if (!componentName) {
+    return (
+      <div className='u-text-error-emphasis u-p-4'>
+        Component name must be provided.
+      </div>
+    );
+  }
+
   const Component = Atomix[componentName] as React.ComponentType<any>;
 
   if (!Component) {

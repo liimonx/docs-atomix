@@ -1,4 +1,157 @@
-import React, { useState, useEffect, isValidElement } from 'react';
+import React from 'react';
+import { Row, GridCol } from '@shohojdhara/atomix';
+
+interface Accessibility {
+  keyboardSupport: string[];
+  ariaAttributes: string[];
+}
+
+interface ComponentAccessibilityProps {
+  accessibility: Accessibility;
+}
+
+const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ accessibility }) => {
+  return (
+    <div className="accessibility-tab">
+      <div className="card u-mb-6">
+        <h3 className="u-mb-4">Keyboard Support</h3>
+        <ul className="u-list-unstyled">
+          {accessibility.keyboardSupport.map((key, index) => (
+            <li key={index} className="u-mb-2">{key}</li>
+          ))}
+        </ul>
+      </div>
+      
+      <div className="card">
+        <h3 className="u-mb-4">ARIA Attributes</h3>
+        <ul className="u-list-unstyled">
+          {accessibility.ariaAttributes.map((attr, index) => (
+            <li key={index} className="u-mb-2">{attr}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default ComponentAccessibility;
+import React from 'react';
+import { Button, Card } from '@shohojdhara/atomix';
+import toast from 'react-hot-toast';
+
+interface Example {
+  title: string;
+  description: string;
+  code: string;
+  variant?: 'default' | 'success' | 'warning' | 'error';
+}
+
+interface ComponentExamplesProps {
+  examples: Example[];
+  onCopy: (code: string, id: string) => void;
+  copiedCode: string | null;
+}
+
+const ComponentExamples: React.FC<ComponentExamplesProps> = ({ 
+  examples, 
+  onCopy, 
+  copiedCode 
+}) => {
+  return (
+    <div className="examples-tab">
+      {examples.map((example, index) => (
+        <Card key={index} className="example-card u-mb-6">
+          <h3 className="u-mb-2">{example.title}</h3>
+          <p className="u-mb-4">{example.description}</p>
+          
+          <div className="example-preview u-mb-4 u-p-4 u-border u-rounded">
+            <p>Component preview would be displayed here</p>
+          </div>
+          
+          <div className="example-code u-position-relative">
+            <pre className="u-p-4 u-bg-gray-100 u-rounded u-mb-0">
+              <code>{example.code}</code>
+            </pre>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="u-position-absolute u-top-2 u-right-2"
+              onClick={() => onCopy(example.code, `example-${index}`)}
+            >
+              {copiedCode === `example-${index}` ? 'Copied!' : 'Copy'}
+            </Button>
+          </div>
+        </Card>
+      ))}
+    </div>
+  );
+};
+
+export default ComponentExamples;
+import React from 'react';
+import { Badge } from '@shohojdhara/atomix';
+
+interface Prop {
+  name: string;
+  type: string;
+  defaultValue: string;
+  description: string;
+  required: boolean;
+}
+
+interface ComponentPropsProps {
+  props: Prop[];
+}
+
+const ComponentProps: React.FC<ComponentPropsProps> = ({ props }) => {
+  return (
+    <div className="props-tab">
+      <div className="card">
+        <table className="props-table u-w-100">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {props.map((prop, index) => (
+              <tr key={index}>
+                <td>
+                  <code>{prop.name}</code>
+                  {prop.required && <Badge variant="error" className="u-ml-2">Required</Badge>}
+                </td>
+                <td>
+                  <code>{prop.type}</code>
+                </td>
+                <td>
+                  <code>{prop.defaultValue || '-'}</code>
+                </td>
+                <td>{prop.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default ComponentProps;
+import React from 'react';
+
+const ComponentShowcase: React.FC = () => {
+  return (
+    <div className="component-showcase">
+      <p>Component showcase will be displayed here</p>
+    </div>
+  );
+};
+
+export default ComponentShowcase;
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import {
@@ -15,13 +168,15 @@ import {
   Info,
   Lightbulb
 } from 'lucide-react';
-import { Button, Card, Badge } from '@shohojdhara/atomix';
+import { Button, Card, Badge, Row, GridCol } from '@shohojdhara/atomix';
 import toast from 'react-hot-toast';
 
-import { findNavigationItem } from '../data/navigation';
-import { ComponentDocumentation } from '../types';
-import { componentMetadata, ComponentMetadata } from '../data/components';
-import ComponentRenderer from '../components/documentation/ComponentRenderer';
+import { componentMetadata } from '../data/components';
+import { ComponentShowcase } from '../components/showcase/ComponentShowcase';
+import { ComponentProps } from '../components/showcase/ComponentProps';
+import { ComponentExamples } from '../components/showcase/ComponentExamples';
+import { ComponentAccessibility } from '../components/showcase/ComponentAccessibility';
+import { ComponentRelated } from '../components/showcase/ComponentRelated';
 
 const ComponentDetailPage: React.FC = () => {
   const { componentId } = useParams<{ componentId: string }>();
@@ -45,201 +200,165 @@ const ComponentDetailPage: React.FC = () => {
     switch (status) {
       case 'stable': return 'success';
       case 'beta': return 'warning';
-      case 'experimental': return 'info';
+      case 'alpha': return 'info';
       case 'deprecated': return 'error';
       default: return 'default';
     }
   };
 
-  if (!componentId || !componentDoc) {
+  if (!componentDoc) {
     return (
-      <div className="component-page u-p-8 u-text-center">
-        <AlertCircle size={48} className="u-text-secondary-emphasis u-mb-4" />
-        <h1>Component Not Found</h1>
-        <p className="u-text-secondary-emphasis u-mb-8">
-          The component "{componentId}" could not be found.
-        </p>
-        <Button asChild>
-          <Link to="/components">Back to Components</Link>
-        </Button>
+      <div className="container">
+        <div className="u-text-center u-py-8">
+          <h1>Component Not Found</h1>
+          <p>The requested component could not be found.</p>
+          <Link to="/components">
+            <Button>Back to Components</Button>
+          </Link>
+        </div>
       </div>
     );
   }
 
   return (
-    <>
+    <div className="component-detail-page">
       <Helmet>
-        <title>{componentDoc.name} - Atomix Components</title>
+        <title>{componentDoc.name} - Atomix Documentation</title>
         <meta name="description" content={componentDoc.description} />
       </Helmet>
 
-      <div className="component-page">
-        {/* Header */}
-        <div className="component-showcase">
-          <div className="showcase-header">
-            <div className="header-content">
-              <div className="title-section">
-                <h1 className="component-title">{componentDoc.name}</h1>
-                <div className="component-badges">
-                  <Badge label={componentDoc.status} variant={getStatusColor(componentDoc.status) as any} />
-                  <Badge label={`v${componentDoc.version}`} />
-                  <Badge label={componentDoc.category} />
-                </div>
-              </div>
-                <p className="u-fs-lg u-text-secondary-emphasis u-my-4 u-lh-lg">
-                  {componentDoc.description}
-                </p>
-              </div>
-              <div className="header-actions">
-                <Button variant="outline" size="sm">
-                  <Github size={16} />
-                  <span className="u-ml-2">Source</span>
-                </Button>
-                <Button variant="outline" size="sm">
-                  <ExternalLink size={16} />
-                  <span className="u-ml-2">Storybook</span>
-                </Button>
-              </div>
-            </div>
+      <div className="component-header u-mb-8">
+        <Link to="/components" className="u-d-flex u-align-items-center u-mb-4 u-text-decoration-none">
+          <span>← Back to Components</span>
+        </Link>
+        
+        <div className="u-d-flex u-flex-wrap u-align-items-center u-justify-content-between u-gap-4">
+          <div>
+            <h1 className="u-mb-2">{componentDoc.name}</h1>
+            <p className="u-text-muted u-mb-0">{componentDoc.description}</p>
+          </div>
+          
+          <div className="u-d-flex u-gap-2">
+            <Button variant="outline" size="sm">
+              <Github size={16} className="u-mr-2" />
+              Source
+            </Button>
+            <Button variant="outline" size="sm">
+              <ExternalLink size={16} className="u-mr-2" />
+              Storybook
+            </Button>
           </div>
         </div>
-
-        {/* Navigation Tabs */}
-        <div className="component-tabs u-border-bottom u-mb-8">
-          <div className="u-d-flex u-gap-4">
-            {[
-              { key: 'overview', label: 'Overview', icon: <BookOpen size={16} /> },
-              { key: 'examples', label: 'Examples', icon: <Code size={16} /> },
-              { key: 'props', label: 'Props', icon: <Info size={16} /> },
-              { key: 'accessibility', label: 'Accessibility', icon: <Eye size={16} /> }
-            ].map(tab => (
-              <button
-                key={tab.key}
-                onClick={() => setActiveTab(tab.key as any)}
-                className={`tab-button ${activeTab === tab.key ? 'active' : ''}`}
-                style={{
-                  borderBottom: activeTab === tab.key ? '2px solid var(--atomix-primary)' : '2px solid transparent',
-                  color: activeTab === tab.key ? 'var(--atomix-primary)' : 'var(--atomix-text-secondary)',
-                  fontWeight: activeTab === tab.key ? '500' : '400'
-                }}
-              >
-                {tab.icon}
-                {tab.label}
-              </button>
-            ))}
-          </div>
+        
+        <div className="u-d-flex u-flex-wrap u-gap-3 u-mt-4">
+          <Badge variant={getStatusColor(componentDoc.status)}>{componentDoc.status}</Badge>
+          <Badge variant="secondary">v{componentDoc.version}</Badge>
+          <Badge variant="outline">Import: {componentDoc.importPath}</Badge>
         </div>
+      </div>
 
-        {/* Tab Content */}
-        <div className="tab-content">
-          {activeTab === 'overview' && (
-            <div className="overview-tab">
-              <Card>
-                <p>{componentDoc.description}</p>
-                <div className="features-list">
-                  <h3>Features</h3>
-                  <ul>
+      <div className="component-navigation u-mb-6">
+        <div className="tabs">
+          <button 
+            className={`tab ${activeTab === 'overview' ? 'active' : ''}`}
+            onClick={() => setActiveTab('overview')}
+          >
+            Overview
+          </button>
+          <button 
+            className={`tab ${activeTab === 'examples' ? 'active' : ''}`}
+            onClick={() => setActiveTab('examples')}
+          >
+            Examples
+          </button>
+          <button 
+            className={`tab ${activeTab === 'props' ? 'active' : ''}`}
+            onClick={() => setActiveTab('props')}
+          >
+            Props
+          </button>
+          <button 
+            className={`tab ${activeTab === 'accessibility' ? 'active' : ''}`}
+            onClick={() => setActiveTab('accessibility')}
+          >
+            Accessibility
+          </button>
+        </div>
+      </div>
+
+      <div className="component-content">
+        {activeTab === 'overview' && (
+          <div className="overview-content">
+            <Row>
+              <GridCol md={8}>
+                <Card className="u-mb-6">
+                  <h3 className="u-mb-4">Features</h3>
+                  <ul className="u-list-unstyled">
                     {componentDoc.features.map((feature, index) => (
-                      <li key={index}>
-                        <CheckCircle size={16} className="u-text-success" />
-                        {feature}
+                      <li key={index} className="u-mb-2 u-d-flex u-align-items-start">
+                        <CheckCircle size={16} className="u-mr-2 u-mt-1 text-success" />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
-              </Card>
-            </div>
-          )}
-
-          {activeTab === 'examples' && (
-            <div className="examples-tab">
-              {componentDoc.examples.map((example, index) => (
-                <Card key={index} className="example-card">
-                  <h4>{example.title}</h4>
-                  <p>{example.description}</p>
-                  <div className="example-preview">
-                    {isValidElement(example.preview) ? (
-                      <ComponentRenderer 
-                        componentName={componentDoc.name as any} 
-                        props={example.preview.props} 
-                      />
-                    ) : (
-                      <div>Preview not available</div>
-                    )}
-                  </div>
-                  <div className="example-code">
-                    <pre>
-                      <code>{example.code}</code>
-                    </pre>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => copyToClipboard(example.code, `example-${index}`)}
-                    >
-                      {copiedCode === `example-${index}` ? 'Copied!' : 'Copy'}
-                    </Button>
-                  </div>
                 </Card>
-              ))}
-            </div>
-          )}
+              </GridCol>
+              <GridCol md={4}>
+                <Card className="u-mb-6">
+                  <h3 className="u-mb-4">Dependencies</h3>
+                  {componentDoc.dependencies.length > 0 ? (
+                    <ul className="u-list-unstyled">
+                      {componentDoc.dependencies.map((dep, index) => (
+                        <li key={index} className="u-mb-2">
+                          <span className="badge badge-outline">{dep}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="u-text-muted">No external dependencies</p>
+                  )}
+                </Card>
+              </GridCol>
+            </Row>
+            
+            <Card className="u-mb-6">
+              <h3 className="u-mb-4">Installation</h3>
+              <pre className="code-block u-mb-0">
+                <code>npm install @shohojdhara/atomix</code>
+              </pre>
+            </Card>
+            
+            <Card>
+              <h3 className="u-mb-4">Basic Usage</h3>
+              <pre className="code-block u-mb-0">
+                <code>{`import { ${componentDoc.name} } from '${componentDoc.importPath}';`}</code>
+              </pre>
+            </Card>
+          </div>
+        )}
 
-          {activeTab === 'props' && (
-            <div className="props-tab">
-              <Card>
-                <table className="props-table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Type</th>
-                      <th>Default</th>
-                      <th>Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {componentDoc.props.map((prop, index) => (
-                      <tr key={index}>
-                        <td>
-                          <code>{prop.name}</code>
-                          {prop.required && <Badge label="Required" variant="error" />}
-                        </td>
-                        <td>
-                          <code>{prop.type}</code>
-                        </td>
-                        <td>
-                          {prop.defaultValue ? <code>{prop.defaultValue}</code> : '-'}
-                        </td>
-                        <td>{prop.description}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </Card>
-            </div>
-          )}
+        {activeTab === 'examples' && (
+          <ComponentExamples 
+            examples={componentDoc.examples} 
+            onCopy={copyToClipboard}
+            copiedCode={copiedCode}
+          />
+        )}
 
-          {activeTab === 'accessibility' && (
-            <div className="accessibility-tab">
-              <Card>
-                <h3>Keyboard Support</h3>
-                <ul>
-                  {componentDoc.accessibility.keyboardSupport.map((key, index) => (
-                    <li key={index}>{key}</li>
-                  ))}
-                </ul>
-                <h3>ARIA Attributes</h3>
-                <ul>
-                  {componentDoc.accessibility.ariaAttributes.map((attr, index) => (
-                    <li key={index}>{attr}</li>
-                  ))}
-                </ul>
-              </Card>
-            </div>
-          )}
-        </div>
-      </>
-    );
-  };
+        {activeTab === 'props' && (
+          <ComponentProps props={componentDoc.props} />
+        )}
 
+        {activeTab === 'accessibility' && (
+          <ComponentAccessibility accessibility={componentDoc.accessibility} />
+        )}
+      </div>
+
+      <div className="component-footer u-mt-8">
+        <ComponentRelated relatedComponents={componentDoc.relatedComponents} />
+      </div>
+    </div>
+  );
+};
 
 export default ComponentDetailPage;

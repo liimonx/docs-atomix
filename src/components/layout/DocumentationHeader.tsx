@@ -1,96 +1,96 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  Button,
-  ColorModeToggle,
-  Badge,
-  Dropdown,
   Icon,
-  Tooltip,
   Navbar,
   Nav,
   NavItem,
+  ColorModeToggle,
+  Button,
 } from "@shohojdhara/atomix";
 import { GlobalSearch } from "../ui/GlobalSearch";
-import { useTheme } from "../../hooks/useTheme";
-import { useSearch } from "../../hooks/useSearch";
 
 interface DocumentationHeaderProps {
   onMenuToggle: () => void;
   sidebarOpen: boolean;
 }
 
-export const DocumentationHeader: React.FC<DocumentationHeaderProps> = () => {
-  const { theme, toggleTheme } = useTheme();
-
-  const navigationItems = [
-    { label: "Home", href: "/", icon: "Home" },
-    { label: "Components", href: "/components", icon: "Layers" },
-    { label: "Design Tokens", href: "/design-tokens", icon: "Palette" },
-    { label: "Examples", href: "/examples", icon: "Code" },
-  ];
-
-  const externalLinks = [
-    {
-      label: "GitHub",
-      href: "https://github.com/shohojdhara/atomix",
-      icon: "Github",
-    },
-    {
-      label: "NPM",
-      href: "https://www.npmjs.com/package/@shohojdhara/atomix",
-      icon: "Package",
-    },
-    {
-      label: "Storybook",
-      href: "https://atomix-storybook.netlify.app",
-      icon: "BookOpen",
-    },
-  ];
-
+export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
+  onMenuToggle,
+  sidebarOpen,
+}) => {
+  const navigate = useNavigate();
+  
   return (
     <Navbar
+      className="atomix-docs-header"
       position="fixed"
+      glass={{
+        displacementScale: 60,
+        blurAmount: 3,
+        elasticity: 0,
+        enableLiquidBlur: true,
+      } as any}
       brand={
         <>
-          <Link
-            to="/"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              textDecoration: "none",
-            }}
+          <button
+            className="mobile-menu-toggle"
+            onClick={onMenuToggle}
+            aria-label={sidebarOpen ? "Close menu" : "Open menu"}
+            aria-expanded={sidebarOpen}
           >
-            <Icon name="Stack" size="md" />
-            <strong>Atomix</strong>
+            <Icon name={sidebarOpen ? "X" : "List"} size="lg" />
+          </button>
+
+          <Link 
+            to="/" 
+            className="brand-link"
+          >
+            <Icon name="Atom" size="lg" />
+            Atomix
           </Link>
         </>
       }
     >
-      <Nav alignment="center">
-        {navigationItems.map((item) => (
-          <NavItem key={item.href} active={location.pathname === item.href}>
-            <Link to={item.href} style={{ display: "flex", alignItems: "center", gap: "0.25rem", textDecoration: "none", color: "inherit" }}>
-              <Icon name={item.icon as any} size="sm" />
-              {item.label}
-            </Link>
-          </NavItem>
-        ))}
+      <Nav alignment="start" className="nav-main">
+        <NavItem>
+          <Link to="/docs/getting-started/installation" className="nav-link">
+            Docs
+          </Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/docs/components/overview" className="nav-link">
+            Components
+          </Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/docs/design-tokens/colors" className="nav-link">
+            Design Tokens
+          </Link>
+        </NavItem>
       </Nav>
 
-      <GlobalSearch />
+      <Nav alignment="end" className="u-gap-4">
+        <GlobalSearch />
 
-      <Tooltip
-        position="bottom"
-        content={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-      >
-        <div onClick={toggleTheme} style={{ cursor: 'pointer' }}>
-          <ColorModeToggle />
-        </div>
-      </Tooltip>
+        <ColorModeToggle
+          aria-label="Toggle theme"
+        />
 
-      <Badge variant="primary" size="sm" label="v1.0.0" />
+        <Button
+          variant="ghost"
+          glass={
+            {
+              cornerRadius: 90,
+            }
+          }
+          rounded
+          iconOnly
+          icon={<Icon name="GithubLogo" />}
+          aria-label="GitHub repository"
+          onClick={() => window.open("https://github.com/shohojdhara/atomix", "_blank")}
+        />
+      </Nav>
     </Navbar>
   );
 };

@@ -74,8 +74,8 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
             <div className="introduction-content">
               <Hero
                 title="Welcome to Atomix"
-                subtitle="Modern React Component Library"
-                text="A comprehensive, accessible React component library built with TypeScript. Fast, customizable, and developer-friendly."
+                subtitle="Comprehensive Design System"
+                text="A complete design system with 40+ components, layouts, design tokens, and AtomixGlass effects. Built for React and vanilla JavaScript with accessibility and performance in mind."
                 alignment="center"
                 backgroundImageSrc="https://picsum.photos/id/1067/1920/1080"
                 showOverlay={true}
@@ -83,14 +83,14 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                 contentWidth="900px"
                 actions={
                   <>
-                    <Link to="/docs/installation">
+                    <Link to="/docs/getting-started/installation">
                       <Button
                         glass
                         icon={<Download size={16} />}
-                        label="Download"
+                        label="Get Started"
                       />
                     </Link>
-                    <Link to="/docs/components">
+                    <Link to="/docs/components/overview">
                       <Button
                         glass
                         variant="secondary"
@@ -105,38 +105,36 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
               <Block spacing="sm">
                 <h2 className="u-mb-6">What is Atomix?</h2>
                 <p className="u-text-secondary-emphasis u-mb-6 u-lh-lg">
-                  Atomix is a modern, comprehensive React component library that
-                  provides a complete set of UI components designed to help you
-                  build beautiful and functional user interfaces quickly and
-                  efficiently. Built with TypeScript and designed with
-                  accessibility in mind, Atomix offers a consistent design
-                  system that works seamlessly across different projects.
+                  Atomix is a comprehensive design system that provides everything you need to build modern web applications. 
+                  With 40+ components, a complete layout system, design tokens, ITCSS architecture, and advanced effects like 
+                  AtomixGlass, it offers both React components and vanilla JavaScript implementations. Built with accessibility, 
+                  performance, and developer experience as core principles.
                 </p>
                   <Row>
                     {[
                       {
                         icon: <Zap size={24} />,
-                        title: "Fast Development",
+                        title: "40+ Components",
                         description:
-                          "Pre-built components that work out of the box, allowing you to focus on your application logic rather than UI implementation.",
+                          "Comprehensive component library from basic buttons to advanced charts, modals, and AtomixGlass effects.",
                       },
                       {
                         icon: <Palette size={24} />,
-                        title: "Customizable",
+                        title: "Complete Design System",
                         description:
-                          "Easily customizable through CSS variables and component props to match your brand and design requirements.",
+                          "Design tokens, ITCSS architecture, layout system with grid and masonry, plus multiple built-in themes.",
                       },
                       {
                         icon: <Shield size={24} />,
-                        title: "Accessible",
+                        title: "Accessibility First",
                         description:
-                          "Built with accessibility best practices, ensuring your applications are usable by everyone.",
+                          "WCAG 2.1 AA compliant with full keyboard navigation, screen reader support, and focus management.",
                       },
                       {
                         icon: <Code size={24} />,
-                        title: "TypeScript Support",
+                        title: "Dual Implementation",
                         description:
-                          "Full TypeScript support with comprehensive type definitions for better development experience.",
+                          "React components and vanilla JavaScript classes with full TypeScript support and comprehensive documentation.",
                       },
                     ].map((feature, index) => (
                       <GridCol key={index} md={6} lg={3} className="u-mb-4">
@@ -162,13 +160,15 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                 <h2 className="u-mb-6">Key Features</h2>
                   <Row>
                     {[
+                      "40+ components with React and vanilla JS implementations",
+                      "Complete layout system with grid and masonry layouts",
+                      "Design tokens for colors, spacing, typography, and elevation",
+                      "ITCSS architecture with utilities and customization",
+                      "AtomixGlass WebGL effects with performance optimization",
+                      "Multiple built-in themes and complete customization",
+                      "WCAG 2.1 AA accessibility compliance",
                       "TypeScript-first with comprehensive type definitions",
-                      "Full accessibility support (WCAG 2.1 AA compliant)",
-                      "Customizable theming system with CSS custom properties",
-                      "Tree-shakable for optimal bundle sizes",
-                      "Server-side rendering (SSR) compatible",
-                      "Comprehensive documentation and examples",
-                      "Regular updates and active community support",
+                      "Tree-shakable and SSR compatible",
                     ].map((feature, index) => (
                       <GridCol key={index} md={6} lg={4} className="u-mb-4">
                         <div className="u-d-flex u-align-items-center u-gap-3 u-p-4 u-bg-secondary-subtle u-rounded">
@@ -192,10 +192,10 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                           <Link to="/docs/installation">
                             <Button icon={<Download size={16} />} label="Install Atomix" />
                           </Link>
-                          <Link to="/docs/quickstart">
+                          <Link to="/docs/getting-started/quick-start">
                             <Button variant="outline" icon={<Zap size={16} />} label="Quick Start Guide" />
                           </Link>
-                          <Link to="/docs/components/button">
+                          <Link to="/docs/components/overview">
                             <Button variant="outline" icon={<BookOpen size={16} />} label="Browse Components" />
                           </Link>
                         </div>
@@ -392,7 +392,7 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                   <GridCol md={6} className="u-mb-4">
                     <Card className="u-h-full u-transition-transform u-cursor-pointer hover:u-transform hover:u-translate-y-n1">
                       <Link
-                        to="/docs/quickstart"
+                        to="/docs/getting-started/quick-start"
                         className="u-text-decoration-none"
                       >
                         <div className="u-p-6">
@@ -422,7 +422,7 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                   <GridCol md={6} className="u-mb-4">
                     <Card className="u-h-full u-transition-transform u-cursor-pointer hover:u-transform hover:u-translate-y-n1">
                       <Link
-                        to="/docs/theming"
+                        to="/docs/guides/theming"
                         className="u-text-decoration-none"
                       >
                         <div className="u-p-6">

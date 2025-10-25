@@ -1,6 +1,22 @@
 import React from 'react';
-import { Card, Text, List, Badge, Box, Stack } from '../../components/mock-atomix';
-import { AccessibilityInfo } from '../../data/components';
+import { Card, Badge } from '@shohojdhara/atomix';
+
+interface AccessibilityInfo {
+  overview: string;
+  keyboardSupport: Array<{
+    key: string;
+    action: string;
+    context?: string;
+  }>;
+  ariaAttributes: Array<{
+    attribute: string;
+    description: string;
+    required: boolean;
+    defaultValue?: string;
+  }>;
+  guidelines: string[];
+  wcagLevel: 'A' | 'AA' | 'AAA';
+}
 
 interface ComponentAccessibilityProps {
   accessibility: AccessibilityInfo;
@@ -8,66 +24,120 @@ interface ComponentAccessibilityProps {
 
 export const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ accessibility }) => {
   return (
-    <Card>
-      <Card.Header>
-        <Text size="lg" weight="semibold">Accessibility</Text>
-        <Badge variant="success" size="sm">
-          WCAG 2.1 AA
-        </Badge>
-      </Card.Header>
-      <Card.Body>
-        <Stack gap="lg">
-          {accessibility.screenReaderSupport && (
-            <Box>
-              <Text weight="medium" mb="sm">
-                Screen Reader Support
-              </Text>
-              <Text color="success">
-                ✓ Fully supported with proper announcements
-              </Text>
-            </Box>
-          )}
+    <div className="component-accessibility">
+      <Card className="u-mb-6">
+        <div className="card-header">
+          <h3 className="u-mb-0">Overview</h3>
+        </div>
+        <div className="card-body">
+          <p>{accessibility.overview}</p>
+          <div className="u-mt-3">
+            <Badge variant="info">WCAG {accessibility.wcagLevel}</Badge>
+          </div>
+        </div>
+      </Card>
 
-          {accessibility.keyboardSupport.length > 0 && (
-            <Box>
-              <Text weight="medium" mb="sm">
-                Keyboard Support
-              </Text>
-              <List>
-                {accessibility.keyboardSupport.map((support, index) => (
-                  <List.Item key={index}>{support}</List.Item>
-                ))}
-              </List>
-            </Box>
-          )}
+      {accessibility.keyboardSupport.length > 0 && (
+        <Card className="u-mb-6">
+          <div className="card-header">
+            <h3 className="u-mb-0">Keyboard Support</h3>
+          </div>
+          <div className="card-body">
+            <div className="table-responsive">
+              <table className="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Key</th>
+                    <th>Action</th>
+                    {accessibility.keyboardSupport.some(k => k.context) && <th>Context</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {accessibility.keyboardSupport.map((kb, index) => (
+                    <tr key={index}>
+                      <td>
+                        <code className="u-bg-light u-px-2 u-py-1 u-rounded">
+                          {kb.key}
+                        </code>
+                      </td>
+                      <td>{kb.action}</td>
+                      {accessibility.keyboardSupport.some(k => k.context) && (
+                        <td>{kb.context || '-'}</td>
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </Card>
+      )}
 
-          {accessibility.ariaAttributes.length > 0 && (
-            <Box>
-              <Text weight="medium" mb="sm">
-                ARIA Attributes
-              </Text>
-              <List>
-                {accessibility.ariaAttributes.map((attr, index) => (
-                  <List.Item key={index}>{attr}</List.Item>
-                ))}
-              </List>
-            </Box>
-          )}
+      {accessibility.ariaAttributes.length > 0 && (
+        <Card className="u-mb-6">
+          <div className="card-header">
+            <h3 className="u-mb-0">ARIA Attributes</h3>
+          </div>
+          <div className="card-body">
+            <div className="table-responsive">
+              <table className="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Attribute</th>
+                    <th>Description</th>
+                    <th>Required</th>
+                    <th>Default Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {accessibility.ariaAttributes.map((aria, index) => (
+                    <tr key={index}>
+                      <td>
+                        <code className="u-text-info">{
+                          aria.attribute
+                        }</code>
+                      </td>
+                      <td>{aria.description}</td>
+                      <td>
+                        {aria.required ? (
+                          <Badge variant="success" size="sm">Required</Badge>
+                        ) : (
+                          <Badge variant="secondary" size="sm">Optional</Badge>
+                        )}
+                      </td>
+                      <td>
+                        {aria.defaultValue ? (
+                          <code>{aria.defaultValue}</code>
+                        ) : (
+                          <span className="u-text-muted">-</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </Card>
+      )}
 
-          {accessibility.focusManagement.length > 0 && (
-            <Box>
-              <Text weight="medium" mb="sm">
-                Focus Management
-              </Text>
-              <List>
-                {accessibility.focusManagement.map((management, index) => (
-                  <List.Item key={index}>{management}</List.Item>
-                ))}
-              </List>
-            </Box>
-          )}
-        </Stack>
-      </Card.Body>
-    </Card>
+      {accessibility.guidelines.length > 0 && (
+        <Card>
+          <div className="card-header">
+            <h3 className="u-mb-0">Guidelines</h3>
+          </div>
+          <div className="card-body">
+            <ul className="u-list-unstyled u-mb-0">
+              {accessibility.guidelines.map((guideline, index) => (
+                <li key={index} className="u-mb-2 u-d-flex u-align-items-start">
+                  <span className="u-mr-2">•</span>
+                  <span>{guideline}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Card>
+      )}
+    </div>
   );
 };
