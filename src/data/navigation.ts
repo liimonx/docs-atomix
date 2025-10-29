@@ -13,6 +13,7 @@ export const navigationData: NavigationSection[] = [
     title: 'Getting Started',
     description: 'Everything you need to get up and running with Atomix',
     priority: 1,
+    collapsed: false,
     items: [
       {
         id: 'introduction',
@@ -63,6 +64,7 @@ export const navigationData: NavigationSection[] = [
     title: 'Design Tokens',
     description: 'The foundation of the Atomix Design System',
     priority: 2,
+    collapsed: true,
     items: [
       {
         id: 'colors',
@@ -121,6 +123,7 @@ export const navigationData: NavigationSection[] = [
     title: 'Styles System',
     description: 'CSS architecture and utilities built on ITCSS',
     priority: 3,
+    collapsed: true,
     items: [
       {
         id: 'architecture',
@@ -169,6 +172,7 @@ export const navigationData: NavigationSection[] = [
     title: 'Layouts',
     description: 'Powerful layout system for responsive interfaces',
     priority: 4,
+    collapsed: true,
     items: [
       {
         id: 'grid',
@@ -227,6 +231,7 @@ export const navigationData: NavigationSection[] = [
     title: 'Components',
     description: 'Comprehensive component library with React and vanilla JS',
     priority: 5,
+    collapsed: false,
     items: [
       {
         id: 'overview',
@@ -385,6 +390,7 @@ export const navigationData: NavigationSection[] = [
     title: 'Guides',
     description: 'In-depth guides and tutorials for mastering Atomix',
     priority: 6,
+    collapsed: true,
     items: [
       {
         id: 'theming',
@@ -425,6 +431,7 @@ export const navigationData: NavigationSection[] = [
     title: 'Examples',
     description: 'Real-world examples and implementation patterns',
     priority: 7,
+    collapsed: true,
     items: [
       {
         id: 'common-patterns',
@@ -443,6 +450,7 @@ export const navigationData: NavigationSection[] = [
     title: 'API Reference',
     description: 'Complete technical reference for all APIs',
     priority: 8,
+    collapsed: true,
     items: [
       {
         id: 'react',
@@ -481,6 +489,7 @@ export const navigationData: NavigationSection[] = [
     title: 'Resources',
     description: 'Additional resources, community, and project information',
     priority: 9,
+    collapsed: true,
     items: [
       {
         id: 'roadmap',

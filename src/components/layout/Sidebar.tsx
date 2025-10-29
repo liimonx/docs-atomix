@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Button, Icon, Badge, Input } from "@shohojdhara/atomix";
+import { Button, Icon, Badge, Input, Breadcrumb, BreadcrumbItem } from "@shohojdhara/atomix";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { navigationData, searchNavigation } from "@data/navigation";
 import { SideMenu, SideMenuList, SideMenuItem } from "@shohojdhara/atomix/components/Navigation";
 import type { NavigationSection, NavigationItem } from "@/types";
+
+// Helper function to get title from path or item ID
+const getTitleFromPath = (path: string): string => {
+  const cleanPath = path.split('/').filter(Boolean).pop() || '';
+  return cleanPath
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
 
 interface DocumentationSidebarProps {
   isOpen: boolean;
@@ -180,8 +189,24 @@ const Sidebar: React.FC<DocumentationSidebarProps> = ({
             className="u-flex-grow-1 u-overflow-y-auto"
             aria-label="Main navigation"
           >
+            {/* Breadcrumb */}
+            <Breadcrumb 
+              items={[
+                { label: "Home", path: "/" },
+                ...location.pathname !== '/' 
+                  ? location.pathname.split('/').filter(Boolean).map((segment, index, array) => {
+                      const href = `/${array.slice(0, index + 1).join('/')}`;
+                      const label = getTitleFromPath(segment);
+                      const isLast = index === array.length - 1;
+                      return isLast ? { label } : { label, path: href };
+                    })
+                  : []
+              ]} 
+              className="u-mb-2 u-mt-2 u-py-1" 
+            />
+
             {/* Search */}
-            <div className="u-mb-4 u-pt-3">
+            <div className="u-mb-4">
               <div className="u-position-relative">
                 <Input
                   type="text"

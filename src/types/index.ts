@@ -119,10 +119,8 @@ export interface SearchResult {
   title: string;
   description: string;
   path: string;
-  category: string;
-  type: 'component' | 'page' | 'section';
-  score: number;
-  highlights?: string[];
+  category: 'component' | 'page' | 'section';
+  breadcrumbs?: string[];
 }
 
 export interface SearchOptions {

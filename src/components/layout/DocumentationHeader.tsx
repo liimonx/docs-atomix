@@ -20,17 +20,17 @@ export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
   sidebarOpen,
 }) => {
   const navigate = useNavigate();
-  
+
   return (
     <Navbar
       className="atomix-docs-header"
       position="fixed"
+      variant="light"
       glass={{
         displacementScale: 60,
         blurAmount: 3,
         elasticity: 0,
-        enableLiquidBlur: true,
-      } as any}
+      }}
       brand={
         <>
           <button
@@ -42,10 +42,7 @@ export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
             <Icon name={sidebarOpen ? "X" : "List"} size="lg" />
           </button>
 
-          <Link 
-            to="/" 
-            className="brand-link"
-          >
+          <Link to="/" className="u-text-primary-emphasis">
             <Icon name="Atom" size="lg" />
             Atomix
           </Link>
@@ -53,42 +50,30 @@ export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
       }
     >
       <Nav alignment="start" className="nav-main">
-        <NavItem>
-          <Link to="/docs/getting-started/installation" className="nav-link">
-            Docs
-          </Link>
-        </NavItem>
-        <NavItem>
-          <Link to="/docs/components/overview" className="nav-link">
-            Components
-          </Link>
-        </NavItem>
-        <NavItem>
-          <Link to="/docs/design-tokens/colors" className="nav-link">
-            Design Tokens
-          </Link>
-        </NavItem>
+        <NavItem href="/docs/getting-started/installation">Docs</NavItem>
+        <NavItem href="/docs/components/overview">Components</NavItem>
+        <NavItem href="/docs/design-tokens/colors">Design Tokens</NavItem>
       </Nav>
 
       <Nav alignment="end" className="u-gap-4">
-        <GlobalSearch />
+        <div className="header-search-container">
+          <GlobalSearch />
+        </div>
 
-        <ColorModeToggle
-          aria-label="Toggle theme"
-        />
+        <ColorModeToggle aria-label="Toggle theme" />
 
         <Button
           variant="ghost"
-          glass={
-            {
-              cornerRadius: 90,
-            }
-          }
+          glass={{
+            cornerRadius: 90,
+          }}
           rounded
           iconOnly
           icon={<Icon name="GithubLogo" />}
           aria-label="GitHub repository"
-          onClick={() => window.open("https://github.com/shohojdhara/atomix", "_blank")}
+          onClick={() =>
+            window.open("https://github.com/shohojdhara/atomix", "_blank")
+          }
         />
       </Nav>
     </Navbar>

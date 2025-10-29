@@ -1,156 +1,3 @@
-import React from 'react';
-import { Row, GridCol } from '@shohojdhara/atomix';
-
-interface Accessibility {
-  keyboardSupport: string[];
-  ariaAttributes: string[];
-}
-
-interface ComponentAccessibilityProps {
-  accessibility: Accessibility;
-}
-
-const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ accessibility }) => {
-  return (
-    <div className="accessibility-tab">
-      <div className="card u-mb-6">
-        <h3 className="u-mb-4">Keyboard Support</h3>
-        <ul className="u-list-unstyled">
-          {accessibility.keyboardSupport.map((key, index) => (
-            <li key={index} className="u-mb-2">{key}</li>
-          ))}
-        </ul>
-      </div>
-      
-      <div className="card">
-        <h3 className="u-mb-4">ARIA Attributes</h3>
-        <ul className="u-list-unstyled">
-          {accessibility.ariaAttributes.map((attr, index) => (
-            <li key={index} className="u-mb-2">{attr}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-export default ComponentAccessibility;
-import React from 'react';
-import { Button, Card } from '@shohojdhara/atomix';
-import toast from 'react-hot-toast';
-
-interface Example {
-  title: string;
-  description: string;
-  code: string;
-  variant?: 'default' | 'success' | 'warning' | 'error';
-}
-
-interface ComponentExamplesProps {
-  examples: Example[];
-  onCopy: (code: string, id: string) => void;
-  copiedCode: string | null;
-}
-
-const ComponentExamples: React.FC<ComponentExamplesProps> = ({ 
-  examples, 
-  onCopy, 
-  copiedCode 
-}) => {
-  return (
-    <div className="examples-tab">
-      {examples.map((example, index) => (
-        <Card key={index} className="example-card u-mb-6">
-          <h3 className="u-mb-2">{example.title}</h3>
-          <p className="u-mb-4">{example.description}</p>
-          
-          <div className="example-preview u-mb-4 u-p-4 u-border u-rounded">
-            <p>Component preview would be displayed here</p>
-          </div>
-          
-          <div className="example-code u-position-relative">
-            <pre className="u-p-4 u-bg-gray-100 u-rounded u-mb-0">
-              <code>{example.code}</code>
-            </pre>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="u-position-absolute u-top-2 u-right-2"
-              onClick={() => onCopy(example.code, `example-${index}`)}
-            >
-              {copiedCode === `example-${index}` ? 'Copied!' : 'Copy'}
-            </Button>
-          </div>
-        </Card>
-      ))}
-    </div>
-  );
-};
-
-export default ComponentExamples;
-import React from 'react';
-import { Badge } from '@shohojdhara/atomix';
-
-interface Prop {
-  name: string;
-  type: string;
-  defaultValue: string;
-  description: string;
-  required: boolean;
-}
-
-interface ComponentPropsProps {
-  props: Prop[];
-}
-
-const ComponentProps: React.FC<ComponentPropsProps> = ({ props }) => {
-  return (
-    <div className="props-tab">
-      <div className="card">
-        <table className="props-table u-w-100">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Default</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            {props.map((prop, index) => (
-              <tr key={index}>
-                <td>
-                  <code>{prop.name}</code>
-                  {prop.required && <Badge variant="error" className="u-ml-2">Required</Badge>}
-                </td>
-                <td>
-                  <code>{prop.type}</code>
-                </td>
-                <td>
-                  <code>{prop.defaultValue || '-'}</code>
-                </td>
-                <td>{prop.description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-};
-
-export default ComponentProps;
-import React from 'react';
-
-const ComponentShowcase: React.FC = () => {
-  return (
-    <div className="component-showcase">
-      <p>Component showcase will be displayed here</p>
-    </div>
-  );
-};
-
-export default ComponentShowcase;
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -177,6 +24,7 @@ import { ComponentProps } from '../components/showcase/ComponentProps';
 import { ComponentExamples } from '../components/showcase/ComponentExamples';
 import { ComponentAccessibility } from '../components/showcase/ComponentAccessibility';
 import { ComponentRelated } from '../components/showcase/ComponentRelated';
+import { Breadcrumb } from '../components/layout/Breadcrumb';
 
 const ComponentDetailPage: React.FC = () => {
   const { componentId } = useParams<{ componentId: string }>();
@@ -196,15 +44,16 @@ const ComponentDetailPage: React.FC = () => {
     }
   };
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'stable': return 'success';
-      case 'beta': return 'warning';
-      case 'alpha': return 'info';
-      case 'deprecated': return 'error';
-      default: return 'default';
-    }
-  };
+const getStatusColor = (status: string): 'success' | 'warning' | 'info' | 'error' => {
+  switch (status) {
+    case 'stable': return 'success';
+    case 'beta': return 'warning';
+    case 'alpha': return 'info';
+    case 'deprecated': return 'error';
+    default: return 'default';
+  }
+};
+
 
   if (!componentDoc) {
     return (
@@ -220,6 +69,12 @@ const ComponentDetailPage: React.FC = () => {
     );
   }
 
+  // Create breadcrumb items
+  const breadcrumbItems = [
+    { label: 'Components', path: '/docs/components/overview' },
+    { label: componentDoc.name }
+  ];
+
   return (
     <div className="component-detail-page">
       <Helmet>
@@ -227,17 +82,19 @@ const ComponentDetailPage: React.FC = () => {
         <meta name="description" content={componentDoc.description} />
       </Helmet>
 
+      <Breadcrumb items={breadcrumbItems} />
+
       <div className="component-header u-mb-8">
         <Link to="/components" className="u-d-flex u-align-items-center u-mb-4 u-text-decoration-none">
           <span>← Back to Components</span>
         </Link>
-        
+
         <div className="u-d-flex u-flex-wrap u-align-items-center u-justify-content-between u-gap-4">
           <div>
             <h1 className="u-mb-2">{componentDoc.name}</h1>
             <p className="u-text-muted u-mb-0">{componentDoc.description}</p>
           </div>
-          
+
           <div className="u-d-flex u-gap-2">
             <Button variant="outline" size="sm">
               <Github size={16} className="u-mr-2" />
@@ -249,35 +106,35 @@ const ComponentDetailPage: React.FC = () => {
             </Button>
           </div>
         </div>
-        
+
         <div className="u-d-flex u-flex-wrap u-gap-3 u-mt-4">
-          <Badge variant={getStatusColor(componentDoc.status)}>{componentDoc.status}</Badge>
-          <Badge variant="secondary">v{componentDoc.version}</Badge>
-          <Badge variant="outline">Import: {componentDoc.importPath}</Badge>
+          <Badge variant={getStatusColor(componentDoc.status)} label={componentDoc.status} />
+          <Badge variant="secondary" label={`v${componentDoc.version}`} />
+          <Badge variant="outline" label={`Import: ${componentDoc.importPath}`} />
         </div>
       </div>
 
       <div className="component-navigation u-mb-6">
         <div className="tabs">
-          <button 
+          <button
             className={`tab ${activeTab === 'overview' ? 'active' : ''}`}
             onClick={() => setActiveTab('overview')}
           >
             Overview
           </button>
-          <button 
+          <button
             className={`tab ${activeTab === 'examples' ? 'active' : ''}`}
             onClick={() => setActiveTab('examples')}
           >
             Examples
           </button>
-          <button 
+          <button
             className={`tab ${activeTab === 'props' ? 'active' : ''}`}
             onClick={() => setActiveTab('props')}
           >
             Props
           </button>
-          <button 
+          <button
             className={`tab ${activeTab === 'accessibility' ? 'active' : ''}`}
             onClick={() => setActiveTab('accessibility')}
           >
@@ -320,14 +177,14 @@ const ComponentDetailPage: React.FC = () => {
                 </Card>
               </GridCol>
             </Row>
-            
+
             <Card className="u-mb-6">
               <h3 className="u-mb-4">Installation</h3>
               <pre className="code-block u-mb-0">
                 <code>npm install @shohojdhara/atomix</code>
               </pre>
             </Card>
-            
+
             <Card>
               <h3 className="u-mb-4">Basic Usage</h3>
               <pre className="code-block u-mb-0">
@@ -338,11 +195,16 @@ const ComponentDetailPage: React.FC = () => {
         )}
 
         {activeTab === 'examples' && (
-          <ComponentExamples 
-            examples={componentDoc.examples} 
-            onCopy={copyToClipboard}
-            copiedCode={copiedCode}
-          />
+<ComponentExamples
+  examples={componentDoc.examples.map(example => ({
+    ...example,
+    language: 'jsx',
+    category: 'example'
+  }))}
+  onCopy={copyToClipboard}
+  copiedCode={copiedCode}
+/>
+
         )}
 
         {activeTab === 'props' && (
@@ -350,7 +212,14 @@ const ComponentDetailPage: React.FC = () => {
         )}
 
         {activeTab === 'accessibility' && (
-          <ComponentAccessibility accessibility={componentDoc.accessibility} />
+          <ComponentAccessibility
+  accessibility={{
+    ...componentDoc.accessibility,
+    overview: 'Overview of accessibility features',
+    guidelines: 'WCAG guidelines followed',
+    wcagLevel: 'AA'
+  }}
+/>
         )}
       </div>
 

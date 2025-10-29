@@ -96,8 +96,7 @@ const HomePage: React.FC<{ colorModeToggle?: () => boolean }> = ({
   ];
 
   return (
-    <div className="u-min-vh-100">
-      <main>
+    <>
         <Helmet>
           <title>
             Atomix - Comprehensive Design System & Component Library
@@ -107,50 +106,7 @@ const HomePage: React.FC<{ colorModeToggle?: () => boolean }> = ({
             content="A comprehensive design system with 40+ components, layouts, design tokens, and AtomixGlass effects. Built for React and vanilla JavaScript with accessibility and performance in mind."
           />
         </Helmet>
-        
-        {/* Full-width Hero Section */}
-        <Hero
-          subtitle="A Comprehensive Design System"
-          title="Build Amazing UIs with Atomix"
-          text="A modern design system with 40+ components, comprehensive layouts, design tokens, and advanced effects like AtomixGlass. Built for React and vanilla JavaScript with accessibility and performance in mind."
-          alignment="center"
-          backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
-          contentWidth="100%"
-          className="u-py-20"
-          showOverlay={colorModeToggle() ? false : true}
-          actions={
-            <>
-              <Button
-                glass
-                variant="primary"
-                icon={<Icon name="ArrowRight" size="sm" />}
-                onClick={() => navigate('/docs/getting-started/installation')}
-              >
-                Get Started
-              </Button>
-              <Button
-                glass
-                variant="info"
-                onClick={() => navigate('/docs/components/overview')}
-              >
-                Explore Components
-              </Button>
-            </>
-          }
-          parallax={true}
-          parallaxIntensity={0.7}
-          glass={{
-            displacementScale: 30,
-            blurAmount: 5,
-            elasticity: 0,
-            enableLiquidBlur: true,
-            mode: "shader",
-            shaderVariant: "PremiumGlass",
-            padding: "32px 20px",
-          } as any}
-        />
 
-        <div className="page">
           {/* Features Section */}
           <Block spacing="sm" className="features-section">
             <SectionIntro title="Why Choose Atomix?" alignment="center" />
@@ -239,9 +195,7 @@ const HomePage: React.FC<{ colorModeToggle?: () => boolean }> = ({
               </GridCol>
             </Row>
           </Block>
-        </div>
-      </main>
-    </div>
+    </>
   );
 };
 
@@ -254,12 +208,16 @@ const LinkContent: React.FC<{
   <div>
     <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-2">
       <div className="u-d-flex u-align-items-center">
-        {icon || <Icon name={"FileText" as const} size={20} className="u-me-2" />}
+        {icon || (
+          <Icon name={"FileText" as const} size={20} className="u-me-2" />
+        )}
         <h3 className="u-fs-lg u-fw-600 u-ms-2 u-m-0 u-text-primary-emphasis">
           {title}
         </h3>
       </div>
-      {external && <Icon name={"Link" as const} size={16} className="u-opacity-60" />}
+      {external && (
+        <Icon name={"Link" as const} size={16} className="u-opacity-60" />
+      )}
     </div>
     <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-ms-10">
       {description}

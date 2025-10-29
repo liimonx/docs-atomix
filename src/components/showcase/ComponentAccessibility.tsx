@@ -32,7 +32,7 @@ export const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ 
         <div className="card-body">
           <p>{accessibility.overview}</p>
           <div className="u-mt-3">
-            <Badge variant="info">WCAG {accessibility.wcagLevel}</Badge>
+            <Badge label={`WCAG ${accessibility.wcagLevel}`} variant="info">WCAG {accessibility.wcagLevel}</Badge>
           </div>
         </div>
       </Card>
@@ -100,9 +100,9 @@ export const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ 
                       <td>{aria.description}</td>
                       <td>
                         {aria.required ? (
-                          <Badge variant="success" size="sm">Required</Badge>
+                          <Badge label="Required" variant="success" size="sm">Required</Badge>
                         ) : (
-                          <Badge variant="secondary" size="sm">Optional</Badge>
+                          <Badge label="Optional" variant="secondary" size="sm">Optional</Badge>
                         )}
                       </td>
                       <td>

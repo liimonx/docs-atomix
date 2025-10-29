@@ -16,7 +16,7 @@ import {
   Lightbulb,
   ArrowLeft
 } from 'lucide-react';
-import { Button, Card, Badge, Row, GridCol } from '@shohojdhara/atomix';
+import { Button, Card, Badge, Row, GridCol, Container, Hero, Icon, Dropdown, Spinner, SideMenu, SideMenuList, SideMenuItem } from '@shohojdhara/atomix';
 import toast from 'react-hot-toast';
 
 import { findNavigationItem } from '../data/navigation';
@@ -35,7 +35,7 @@ const ComponentPage: React.FC = () => {
 
   // Find navigation item for the component
   const navigationItem = componentId ? findNavigationItem(componentId) : null;
-  
+
   // Get component documentation directly (no loading state needed)
   const componentData = getComponentDocumentation(componentId || '');
   const componentDoc: ComponentDocumentation = componentData || {
@@ -137,7 +137,7 @@ const ComponentPage: React.FC = () => {
   };
 
   return (
-    <div className="component-page">
+    <Container className="component-page">
       <Helmet>
         <title>{componentDoc.name} - Atomix Documentation</title>
         <meta name="description" content={componentDoc.description} />
@@ -145,56 +145,56 @@ const ComponentPage: React.FC = () => {
 
       <div className="component-header u-mb-8">
         <Link to="/components" className="u-d-flex u-align-items-center u-mb-4 u-text-decoration-none">
-          <ArrowLeft size={16} className="u-mr-2" />
+          <Icon name="ArrowLeft" size={16} className="u-mr-2" />
           <span>Back to Components</span>
         </Link>
-        
+
         <div className="u-d-flex u-flex-wrap u-align-items-center u-justify-content-between u-gap-4">
           <div>
             <h1 className="u-mb-2">{componentDoc.name}</h1>
             <p className="u-text-muted u-mb-0">{componentDoc.description}</p>
           </div>
-          
+
           <div className="u-d-flex u-gap-2">
             <Button variant="outline" size="sm">
-              <Github size={16} className="u-mr-2" />
+              <Icon name="Github" size={16} className="u-mr-2" />
               Source
             </Button>
             <Button variant="outline" size="sm">
-              <ExternalLink size={16} className="u-mr-2" />
+              <Icon name="ExternalLink" size={16} className="u-mr-2" />
               Storybook
             </Button>
           </div>
         </div>
-        
+
         <div className="u-d-flex u-flex-wrap u-gap-3 u-mt-4">
-          <Badge variant="success">{componentDoc.status}</Badge>
-          <Badge variant="secondary">v{componentDoc.version}</Badge>
-          <Badge variant="outline">Last updated: {componentDoc.lastUpdated}</Badge>
+          <Badge label={componentDoc.status} variant="success">{componentDoc.status}</Badge>
+          <Badge label={`v${componentDoc.version}`} variant="secondary">v{componentDoc.version}</Badge>
+          <Badge label={`Last updated: ${componentDoc.lastUpdated}`} variant="outline">Last updated: {componentDoc.lastUpdated}</Badge>
         </div>
       </div>
 
       <div className="component-navigation u-mb-6">
         <div className="tabs">
-          <button 
+          <button
             className={`tab ${activeTab === 'overview' ? 'active' : ''}`}
             onClick={() => setActiveTab('overview')}
           >
             Overview
           </button>
-          <button 
+          <button
             className={`tab ${activeTab === 'examples' ? 'active' : ''}`}
             onClick={() => setActiveTab('examples')}
           >
             Examples
           </button>
-          <button 
+          <button
             className={`tab ${activeTab === 'props' ? 'active' : ''}`}
             onClick={() => setActiveTab('props')}
           >
             Props
           </button>
-          <button 
+          <button
             className={`tab ${activeTab === 'accessibility' ? 'active' : ''}`}
             onClick={() => setActiveTab('accessibility')}
           >
@@ -215,7 +215,7 @@ const ComponentPage: React.FC = () => {
                       <li key={index} className="u-mb-3">
                         {feature.supported ? (
                           <div className="u-d-flex u-align-items-start">
-                            <CheckCircle size={16} className="u-mr-2 u-mt-1 text-success" />
+                            <Icon name="CheckCircle" size={16} className="u-mr-2 u-mt-1 text-success" />
                             <div>
                               <strong>{feature.title}</strong>
                               <p className="u-text-muted u-mb-0">{feature.description}</p>
@@ -223,7 +223,7 @@ const ComponentPage: React.FC = () => {
                           </div>
                         ) : (
                           <div className="u-d-flex u-align-items-start">
-                            <AlertCircle size={16} className="u-mr-2 u-mt-1 text-warning" />
+                            <Icon name="AlertCircle" size={16} className="u-mr-2 u-mt-1 text-warning" />
                             <div>
                               <strong>{feature.title}</strong>
                               <p className="u-text-muted u-mb-0">{feature.description}</p>
@@ -242,7 +242,7 @@ const ComponentPage: React.FC = () => {
                     <ul className="u-list-unstyled">
                       {componentDoc.dependencies.map((dep, index) => (
                         <li key={index} className="u-mb-2">
-                          <span className="badge badge-outline">{dep}</span>
+                          <Badge label={dep} variant="outline">{dep}</Badge>
                         </li>
                       ))}
                     </ul>
@@ -250,25 +250,25 @@ const ComponentPage: React.FC = () => {
                     <p className="u-text-muted">No external dependencies</p>
                   )}
                 </Card>
-                
+
                 <Card>
                   <h3 className="u-mb-4">Tags</h3>
                   <div className="u-d-flex u-flex-wrap u-gap-2">
                     {componentDoc.tags.map((tag, index) => (
-                      <Badge key={index} variant="secondary" size="sm">{tag}</Badge>
+                      <Badge key={index} label={tag} variant="secondary" size="sm">{tag}</Badge>
                     ))}
                   </div>
                 </Card>
               </GridCol>
             </Row>
-            
+
             <Card className="u-mb-6">
               <h3 className="u-mb-4">Installation</h3>
               <pre className="code-block u-mb-0">
                 <code className="language-bash">npm install @shohojdhara/atomix</code>
               </pre>
             </Card>
-            
+
             <Card>
               <h3 className="u-mb-4">Basic Usage</h3>
               <pre className="code-block u-mb-0">
@@ -279,8 +279,8 @@ const ComponentPage: React.FC = () => {
         )}
 
         {activeTab === 'examples' && (
-          <ComponentExamples 
-            examples={componentDoc.examples} 
+          <ComponentExamples
+            examples={componentDoc.examples}
             onCopy={copyToClipboard}
             copiedCode={copiedCode}
           />
@@ -298,7 +298,7 @@ const ComponentPage: React.FC = () => {
       <div className="component-footer u-mt-8">
         <ComponentRelated relatedComponents={componentDoc.relatedComponents} />
       </div>
-    </div>
+    </Container>
   );
 };
 

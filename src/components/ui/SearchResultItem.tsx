@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Icon } from '@shohojdhara/atomix';
+import { Icon, Badge } from '@shohojdhara/atomix';
 import type { SearchResult } from '../../types';
 
 interface SearchResultItemProps {
@@ -29,13 +29,13 @@ export const SearchResultItem: React.FC<SearchResultItemProps> = ({ result, onCl
         borderRadius: 'var(--atomix-docs-radius-md)'
       }}
     >
-      <div className="u-d-flex u-align-items-center u-justify-content-center u-mr-3 u-p-2 u-bg-secondary-subtle u-border-radius-sm">
+      <div className="u-d-flex u-align-items-center u-justify-content-center u-me-3 u-p-2 u-bg-secondary-subtle u-border-radius-sm">
         <Icon name={getIconName(result.category) as any} size="sm" />
       </div>
       <div className="u-flex-grow-1">
         <div className="u-fw-medium u-mb-1">{result.title}</div>
-        <div 
-          className="u-fs-sm u-text-secondary u-line-clamp-2"
+        <div
+          className="u-fs-sm u-text-secondary-emphasis u-line-clamp-2"
           style={{
             display: '-webkit-box',
             WebkitLineClamp: 2,
@@ -43,11 +43,11 @@ export const SearchResultItem: React.FC<SearchResultItemProps> = ({ result, onCl
             overflow: 'hidden'
           }}
         >
-          {result.description && typeof result.description === 'string' 
+          {result.description && typeof result.description === 'string'
             ? result.description.replace(/<[^>]*>/g, '') // Strip HTML tags
             : result.description}
         </div>
-        <div className="u-fs-xs u-text-secondary u-mt-1">
+        <div className="u-fs-xs u-text-secondary-emphasis u-mt-1">
           {result.category} • {result.breadcrumbs?.join(' › ') || 'Documentation'}
         </div>
       </div>

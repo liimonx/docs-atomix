@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Card, Button } from '@shohojdhara/atomix';
-import { Copy } from 'lucide-react';
+import { Card, Button, Badge, Icon } from '@shohojdhara/atomix';
+import { Copy, Eye, Code as CodeIcon } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 interface ComponentExample {
@@ -9,6 +9,7 @@ interface ComponentExample {
   code: string;
   language: string;
   category: string;
+  preview?: React.ReactNode;
 }
 
 interface ComponentExamplesProps {
@@ -17,12 +18,13 @@ interface ComponentExamplesProps {
   copiedCode: string | null;
 }
 
-export const ComponentExamples: React.FC<ComponentExamplesProps> = ({ 
-  examples, 
+export const ComponentExamples: React.FC<ComponentExamplesProps> = ({
+  examples,
   onCopy,
   copiedCode
 }) => {
   const [activeExample, setActiveExample] = useState(0);
+  const [previewMode, setPreviewMode] = useState<'preview' | 'code'>('preview');
 
   if (!examples || examples.length === 0) {
     return (
@@ -43,7 +45,10 @@ export const ComponentExamples: React.FC<ComponentExamplesProps> = ({
               <button
                 key={index}
                 className={`tab ${activeExample === index ? 'active' : ''}`}
-                onClick={() => setActiveExample(index)}
+                onClick={() => {
+                  setActiveExample(index);
+                  setPreviewMode('preview'); // Reset to preview mode when changing examples
+                }}
               >
                 {example.title}
               </button>
@@ -53,41 +58,35 @@ export const ComponentExamples: React.FC<ComponentExamplesProps> = ({
       ) : null}
 
       {examples.map((example, index) => (
-        <div 
-          key={index} 
+        <div
+          key={index}
           className={examples.length > 1 && activeExample !== index ? 'u-d-none' : ''}
         >
           <Card className="u-mb-6">
-            <div className="card-header u-d-flex u-align-items-center u-justify-content-between">
-              <h3 className="u-mb-0">{example.title}</h3>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => onCopy(example.code, `example-${index}`)}
-              >
-                <Copy size={16} className="u-mr-2" />
-                {copiedCode === `example-${index}` ? 'Copied!' : 'Copy'}
-              </Button>
-            </div>
-            <div className="card-body">
-              {example.description && (
-                <p className="u-mb-4">{example.description}</p>
-              )}
-              
-              <div className="u-mb-4">
-                <pre className="code-block u-mb-0">
-                  <code className={`language-${example.language}`}>
-                    {example.code}
-                  </code>
-                </pre>
-              </div>
-              
-              <div className="example-preview u-p-4 u-bg-light u-rounded">
-                <div className="u-text-center u-text-muted">
-                  Example preview would be rendered here
-                </div>
-              </div>
-            </div>
+            <h3 className="u-mb-4">Examples</h3>
+            <ul className="u-list-unstyled">
+              {examples.map((example, index) => (
+                <li key={index} className="u-mb-3">
+                  <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-2">
+                    <h4 className="u-mb-0">{example.title}</h4>
+                    <div className="u-d-flex u-gap-2">
+                      <Button variant="outline" size="sm" onClick={() => onCopy(example.code, `example-${index}`)}>
+                        <Icon name="Copy" size={16} className="u-mr-2" />
+                        {copiedCode === `example-${index}` ? 'Copied!' : 'Copy'}
+                      </Button>
+                      <Button variant="outline" size="sm" onClick={() => setActiveExample(example)}>
+                        <Icon name="Eye" size={16} className="u-mr-2" />
+                        Preview
+                      </Button>
+                    </div>
+                  </div>
+                  <p className="u-text-muted u-mb-2">{example.description}</p>
+                  <pre className="code-block u-mb-0">
+                    <code className={`language-${example.language}`}>{example.code}</code>
+                  </pre>
+                </li>
+              ))}
+            </ul>
           </Card>
         </div>
       ))}

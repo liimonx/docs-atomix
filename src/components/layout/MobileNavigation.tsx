@@ -6,7 +6,6 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button, Icon, Badge } from '@shohojdhara/atomix';
 import { navigationData } from '../../data/navigation';
-import type { NavigationBadge } from '@/types';
 
 interface MobileNavigationProps {
   isOpen: boolean;
@@ -73,7 +72,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
                     <span className="u-flex-grow-1">{item.title}</span>
                     {item.badge && (
                       <Badge 
-                        variant={getBadgeVariant(item.badge.variant)} 
+                        variant={getBadgeVariant(item.badge.variant) as any} 
                         size="sm" 
                         label={item.badge.text}
                       />
