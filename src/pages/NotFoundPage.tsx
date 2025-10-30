@@ -150,7 +150,7 @@ const NotFoundPage: React.FC = () => {
             backgroundColor: 'var(--atomix-bg-tertiary)',
             borderRadius: '8px',
             padding: '2rem',
-            border: '1px solid var(--atomix-border)'
+            border: '1px solid var(--atomix-border-subtle)'
           }}>
             <Icon name="MagnifyingGlass" size="xl" className="mb-4" />
             <h3 style={{

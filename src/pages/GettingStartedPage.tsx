@@ -77,10 +77,14 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                 subtitle="Comprehensive Design System"
                 text="A complete design system with 40+ components, layouts, design tokens, and AtomixGlass effects. Built for React and vanilla JavaScript with accessibility and performance in mind."
                 alignment="center"
-                backgroundImageSrc="https://picsum.photos/id/1067/1920/1080"
+                backgroundImageSrc="https://images.unsplash.com/photo-1739981760998-6d6340522cbf?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2532"
                 showOverlay={true}
                 fullViewportHeight={false}
                 contentWidth="900px"
+                className="u-pt-36 u-pb-24"
+                glass={{
+                     padding: "20px",
+                  } as any}
                 actions={
                   <>
                     <Link to="/docs/getting-started/installation">

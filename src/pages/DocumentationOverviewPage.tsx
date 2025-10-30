@@ -210,6 +210,15 @@ const DocumentationOverviewPage: React.FC = () => {
       <div className="documentation-overview-page">
         {/* Hero Section */}
         <Hero
+          glass={{
+            displacementScale: 30,
+            blurAmount: 5,
+            elasticity: 0,
+            enableLiquidBlur: true,
+            padding: "20px",
+            cornerRadius: 30,
+          } as any}
+          className="u-pt-32 u-pb-16"
           title="Atomix Documentation"
           subtitle="Comprehensive Design System"
           text="Everything you need to build amazing user interfaces with Atomix. From getting started to advanced customization, find all the resources you need."

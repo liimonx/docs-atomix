@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { Spinner, Container, Hero, Button, Icon } from "@shohojdhara/atomix";
+import { Outlet, useNavigate } from "react-router-dom";
+import { Container, Hero, Button, Icon } from "@shohojdhara/atomix";
 import { DocumentationHeader } from "./DocumentationHeader";
-import { MobileNavigation } from "./MobileNavigation";
 import { BackToTopButton } from "../ui/BackToTopButton";
 import { DocumentationFooter } from "./DocumentationFooter";
 import { DocumentationSidebar } from "./DocumentationSidebar";

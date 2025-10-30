@@ -93,10 +93,19 @@ const ComponentsIndexPage: React.FC = () => {
       </Helmet>
 
       <Hero
+        glass={{
+          displacementScale: 30,
+          blurAmount: 5,
+          elasticity: 0,
+          enableLiquidBlur: true,
+          padding: "20px",
+          cornerRadius: 30,
+        } as any}
+        className="u-pt-32 u-pb-16"
         title="Components"
         text="A comprehensive collection of modern, accessible React components"
         alignment="center"
-        backgroundImageSrc="https://images.unsplash.com/photo-1760976180663-946ff68fa64c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1034"
+        backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
       />
 
       <div className="components-index-page" style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem' }}>

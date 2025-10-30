@@ -1,17 +1,9 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
-import {
-  Button,
-  Card,
-  Icon,
-  Hero,
-  SectionIntro,
-  GridCol,
-  Row,
-  Block,
-  ColorModeToggle,
-} from "@shohojdhara/atomix";
+import { Link, useNavigate } from 'react-router-dom';
+import { Button, Block, SectionIntro, Row, Card, GridCol } from '@shohojdhara/atomix';
+import { Icon } from '@shohojdhara/atomix';
+import CallToActionSection from '@components/sections/CallToActionSection';
+import { Helmet } from "react-helmet";
 
 const HomePage: React.FC<{ colorModeToggle?: () => boolean }> = ({
   colorModeToggle = () => false,
@@ -166,35 +158,23 @@ const HomePage: React.FC<{ colorModeToggle?: () => boolean }> = ({
           </Block>
 
           {/* CTA Section */}
-          <Block spacing="sm">
-            <Row justifyContent="center">
-              <GridCol lg={8}>
-                <Card className="atomix-card-enhanced u-bg-brand-subtle">
-                  <h2 className="u-text-primary-emphasis">
-                    Ready to get started?
-                  </h2>
-                  <p className="u-text-secondary-emphasis u-mb-6 u-lh-lg">
-                    Install Atomix and get access to 40+ components,
-                    comprehensive layouts, design tokens, and advanced effects.
-                    Perfect for React and vanilla JavaScript projects.
-                  </p>
-                  <div className="u-d-flex u-gap-4 u-flex-wrap">
-                    <Card className="u-bg-tertiary-subtle">
-                      <code className="u-font-mono u-fs-sm u-text-primary-emphasis">
-                        npm install @shohojdhara/atomix
-                      </code>
-                    </Card>
-                    <Link to="/docs/getting-started/installation">
-                      <Button
-                        label="View Installation Guide"
-                        icon={<Icon name="ArrowRight" size={16} />}
-                      />
-                    </Link>
-                  </div>
-                </Card>
-              </GridCol>
-            </Row>
-          </Block>
+          <CallToActionSection
+            title="Ready to get started?"
+            text="Install Atomix in your React project and start building amazing user interfaces today."
+            primaryAction={
+              <div className="u-bg-tertiary-subtle u-rounded u-p-4 u-mb-8 u-font-mono u-fs-sm">
+                <code className="u-text-primary-emphasis">npm install @shohojdhara/atomix</code>
+              </div>
+            }
+            secondaryAction={
+              <Link to="/docs/installation">
+                <Button asChild>
+                  View Installation Guide
+                  <Icon name="ArrowRight" size={16} className="u-ms-2" />
+                </Button>
+              </Link>
+            }
+          />
     </>
   );
 };

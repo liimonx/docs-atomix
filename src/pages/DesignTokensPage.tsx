@@ -187,10 +187,21 @@ const DesignTokensPage: React.FC = () => {
         title="Design Tokens"
         text="The design system's visual language, expressed through code"
         alignment="center"
+        glass={{
+          displacementScale: 30,
+          blurAmount: 5,
+          elasticity: 0,
+          padding: "20px",
+          cornerRadius: 30,
+        } as any}
+        className="u-pt-32 u-pb-16"
         actions={
           <Row style={{width: 400}}>
             <GridCol md={8}>
               <Input
+                glass={{
+                  elasticity: 0,
+                }}
                 type="search"
                 placeholder="Search tokens..."
                 value={searchQuery}
