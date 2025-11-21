@@ -1,0 +1,308 @@
+// Component: ComponentPage
+// =============================================================================
+
+// Note: Design tokens are available via CSS custom properties from @shohojdhara/atomix/css
+
+// Block: Component page container
+// =============================================================================
+.componentPage {
+  min-height: 100vh;
+  padding-bottom: var(--atomix-spacing-xl);
+}
+
+// Hero section
+// =============================================================================
+.componentPage__hero {
+  margin-bottom: var(--atomix-spacing-lg);
+}
+
+// Header section
+// =============================================================================
+.componentPage__header {
+  margin-bottom: var(--atomix-spacing-lg);
+}
+
+.componentPage__backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--atomix-spacing-xs);
+  color: var(--atomix-text-secondary);
+  text-decoration: none;
+  font-size: var(--atomix-font-size-sm);
+  margin-bottom: var(--atomix-spacing-md);
+  transition: var(--atomix-transition-fast);
+
+  &:hover {
+    color: var(--atomix-brand-primary);
+    transform: translateX(-4px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--atomix-brand-primary);
+    outline-offset: 2px;
+    border-radius: var(--atomix-radius-sm);
+  }
+}
+
+.componentPage__titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--atomix-spacing-md);
+  margin-bottom: var(--atomix-spacing-md);
+}
+
+.componentPage__titleContent {
+  flex: 1;
+  min-width: 300px;
+}
+
+.componentPage__title {
+  font-size: var(--atomix-font-size-3xl);
+  font-weight: var(--atomix-font-weight-bold);
+  margin-bottom: var(--atomix-spacing-sm);
+  color: var(--atomix-text-primary);
+}
+
+.componentPage__description {
+  font-size: var(--atomix-font-size-lg);
+  color: var(--atomix-text-secondary);
+  line-height: var(--atomix-line-height-relaxed);
+  margin: 0;
+}
+
+.componentPage__actions {
+  display: flex;
+  gap: var(--atomix-spacing-sm);
+  flex-wrap: wrap;
+}
+
+.componentPage__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--atomix-spacing-sm);
+}
+
+// Tab navigation
+// =============================================================================
+.componentPage__tabs {
+  margin-bottom: var(--atomix-spacing-lg);
+}
+
+// Content sections
+// =============================================================================
+.componentPage__content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Overview section
+// =============================================================================
+.componentPage__overview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-lg);
+}
+
+.componentPage__featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-md);
+}
+
+.componentPage__featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--atomix-spacing-sm);
+}
+
+.componentPage__featureIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.componentPage__featureContent {
+  flex: 1;
+}
+
+.componentPage__featureTitle {
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-text-primary);
+  margin-bottom: var(--atomix-spacing-xs);
+}
+
+.componentPage__featureDescription {
+  color: var(--atomix-text-secondary);
+  font-size: var(--atomix-font-size-sm);
+  margin: 0;
+}
+
+// Sidebar info
+// =============================================================================
+.componentPage__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-md);
+}
+
+.componentPage__infoCard {
+  h3 {
+    font-size: var(--atomix-font-size-lg);
+    font-weight: var(--atomix-font-weight-semibold);
+    margin-bottom: var(--atomix-spacing-md);
+    color: var(--atomix-text-primary);
+  }
+}
+
+.componentPage__dependencyList,
+.componentPage__tagList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.componentPage__dependencyItem {
+  margin-bottom: var(--atomix-spacing-sm);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.componentPage__tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--atomix-spacing-xs);
+}
+
+.componentPage__emptyState {
+  color: var(--atomix-text-tertiary);
+  font-size: var(--atomix-font-size-sm);
+  font-style: italic;
+}
+
+// Code blocks
+// =============================================================================
+.componentPage__codeBlock {
+  background: var(--atomix-bg-secondary);
+  border: 1px solid var(--atomix-border);
+  border-radius: var(--atomix-radius-md);
+  padding: var(--atomix-spacing-md);
+  overflow-x: auto;
+  font-family: var(--atomix-font-family-mono);
+  font-size: var(--atomix-font-size-sm);
+  line-height: var(--atomix-line-height-normal);
+  margin: 0;
+
+  code {
+    background: transparent;
+    padding: 0;
+    border: none;
+    color: var(--atomix-text-primary);
+  }
+}
+
+// Quick links
+// =============================================================================
+.componentPage__quickLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--atomix-spacing-sm);
+  padding: var(--atomix-spacing-md);
+  background: var(--atomix-bg-secondary);
+  border-radius: var(--atomix-radius-md);
+  border: 1px solid var(--atomix-border);
+}
+
+.componentPage__tagBadge {
+  margin-bottom: var(--atomix-spacing-xs);
+}
+
+.componentPage__quickLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--atomix-spacing-xs);
+  padding: var(--atomix-spacing-xs) var(--atomix-spacing-sm);
+  background: var(--atomix-bg-primary);
+  border: 1px solid var(--atomix-border);
+  border-radius: var(--atomix-radius-sm);
+  color: var(--atomix-text-secondary);
+  text-decoration: none;
+  font-size: var(--atomix-font-size-sm);
+  transition: var(--atomix-transition-fast);
+
+  &:hover {
+    background: var(--atomix-bg-tertiary);
+    color: var(--atomix-brand-primary);
+    border-color: var(--atomix-brand-primary);
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--atomix-brand-primary);
+    outline-offset: 2px;
+  }
+}
+
+// Responsive design
+// =============================================================================
+@media (max-width: 768px) {
+  .componentPage__title {
+    font-size: var(--atomix-font-size-2xl);
+  }
+
+  .componentPage__titleRow {
+    flex-direction: column;
+  }
+
+  .componentPage__titleContent {
+    min-width: 100%;
+  }
+
+  .componentPage__actions {
+    width: 100%;
+
+    button {
+      flex: 1;
+    }
+  }
+}
+
+// Accessibility
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .componentPage__backLink,
+  .componentPage__quickLink {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .componentPage__content {
+    animation: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .componentPage__codeBlock,
+  .componentPage__quickLinks {
+    border-width: 2px;
+  }
+}
+

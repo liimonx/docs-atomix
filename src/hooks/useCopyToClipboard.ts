@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useCopyToClipboard = (): [boolean, (text: string) => Promise<boolean>] => {
+export const useCopyToClipboard = (): [boolean, (_text: string) => Promise<boolean>] => {
   const [isCopied, setIsCopied] = useState(false);
 
   const copy = async (text: string): Promise<boolean> => {
@@ -10,7 +10,6 @@ export const useCopyToClipboard = (): [boolean, (text: string) => Promise<boolea
       setTimeout(() => setIsCopied(false), 2000);
       return true;
     } catch (error) {
-      console.error('Failed to copy text:', error);
       setIsCopied(false);
       return false;
     }

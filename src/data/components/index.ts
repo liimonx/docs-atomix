@@ -1,5 +1,4 @@
 // Simplified index file for testing
-console.log('Importing buttonMetadata...');
 import { buttonMetadata } from './button';
 import { badgeMetadata } from './badge';
 import { cardMetadata } from './card';

@@ -1,0 +1,14 @@
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.card {
+  padding: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: var(--atomix-spacing-md);
+  flex-wrap: wrap;
+}

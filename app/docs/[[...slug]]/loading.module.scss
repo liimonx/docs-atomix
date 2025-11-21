@@ -1,0 +1,45 @@
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.headerSkeleton {
+  margin-bottom: 1.5rem;
+}
+
+.titleSkeleton {
+  height: 48px;
+  width: 60%;
+}
+
+.subtitleSkeleton {
+  height: 24px;
+  width: 80%;
+}
+
+.cardSkeleton {
+  padding: 1.5rem;
+}
+
+.line {
+  background: var(--atomix-color-bg-tertiary);
+  border-radius: var(--atomix-radius-md);
+}
+
+.lineSm {
+  height: 20px;
+}
+
+.lineMd {
+  height: 32px;
+}
+
+.codeSkeleton {
+  height: 200px;
+}
+
+.center {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

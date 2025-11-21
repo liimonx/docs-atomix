@@ -1,0 +1,90 @@
+// Component: SearchResultItem
+// =============================================================================
+
+// Block: Base search result item link wrapper
+// =============================================================================
+.searchResultItem__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: var(--atomix-spacing-sm);
+}
+
+// Block: Base search result item card
+// =============================================================================
+.searchResultItem {
+  transition: var(--atomix-transition-fast);
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--atomix-shadow-md);
+  }
+}
+
+// Elements
+// =============================================================================
+.searchResultItem__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--atomix-spacing-md);
+  padding: var(--atomix-spacing-sm);
+}
+
+.searchResultItem__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--atomix-spacing-sm);
+  background-color: var(--atomix-bg-secondary);
+  border-radius: var(--atomix-radius-sm);
+  flex-shrink: 0;
+}
+
+.searchResultItem__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.searchResultItem__title {
+  font-weight: var(--atomix-font-weight-medium);
+  margin-bottom: var(--atomix-spacing-xs);
+  color: var(--atomix-text-primary);
+}
+
+.searchResultItem__description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: var(--atomix-font-size-sm);
+  color: var(--atomix-text-secondary);
+  margin-bottom: var(--atomix-spacing-xs);
+}
+
+.searchResultItem__meta {
+  font-size: var(--atomix-font-size-xs);
+  color: var(--atomix-text-secondary);
+  margin-top: var(--atomix-spacing-xs);
+}
+
+// Accessibility
+// =============================================================================
+.searchResultItem__link {
+  &:focus-visible {
+    outline: 2px solid var(--atomix-primary);
+    outline-offset: 2px;
+    border-radius: var(--atomix-radius-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .searchResultItem {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+

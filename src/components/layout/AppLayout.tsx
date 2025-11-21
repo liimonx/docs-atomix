@@ -1,98 +1,99 @@
-import React, { useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { Container, Hero, Button, Icon } from "@shohojdhara/atomix";
-import { DocumentationHeader } from "./DocumentationHeader";
-import { BackToTopButton } from "../ui/BackToTopButton";
-import { DocumentationFooter } from "./DocumentationFooter";
-import { DocumentationSidebar } from "./DocumentationSidebar";
+'use client';
 
-export const AppLayout: React.FC = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { Container } from "@shohojdhara/atomix";
+import { DocumentationHeader } from "@/components/navigation/DocumentationHeader";
+import { DocumentationFooter } from "./DocumentationFooter";
+import { DocumentationSidebar } from "@/components/navigation/DocumentationSidebar";
+import { MobileNavigation } from "@/components/navigation/MobileNavigation";
+import { SkipLinks } from "@/components/ui/SkipLinks";
+import { useResponsive } from "@/hooks/useResponsive";
+
+// Memoize static components to prevent re-renders
+const MemoizedSkipLinks = React.memo(SkipLinks);
+const MemoizedDocumentationFooter = React.memo(DocumentationFooter);
+
+export const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
 
-  const handleItemSelect = (itemId: string) => {
+  const { isMobile } = useResponsive();
+
+  // Memoize callbacks to prevent child re-renders
+  const handleItemSelect = useCallback((itemId: string) => {
     setActiveItem(itemId);
-  };
+    if (isMobile) {
+      setSidebarOpen(false);
+    }
+  }, [isMobile]);
 
-  // Check if we're on the homepage
-  const isHomepage = location.pathname === "/";
+  const handleMenuToggle = useCallback(() => {
+    setSidebarOpen(prev => !prev);
+  }, []);
+
+  const handleSidebarClose = useCallback(() => {
+    setSidebarOpen(false);
+  }, []);
+
+  const handleSearchChange = useCallback((query: string) => {
+    setSearchQuery(query);
+  }, []);
+
+  // Close sidebar on route change (mobile)
+  useEffect(() => {
+    if (!isMobile) return;
+    setSidebarOpen(false);
+    const handler = () => setSidebarOpen(false);
+    window.addEventListener('popstate', handler);
+    return () => window.removeEventListener('popstate', handler);
+  }, [isMobile]);
+
+  // Memoize header props to prevent re-renders
+  const headerProps = useMemo(() => ({
+    onMenuToggle: handleMenuToggle,
+    sidebarOpen,
+  }), [handleMenuToggle, sidebarOpen]);
+
+  // Memoize sidebar props to prevent re-renders
+  const sidebarProps = useMemo(() => ({
+    isOpen: sidebarOpen,
+    onClose: handleSidebarClose,
+    activeItem,
+    onItemSelect: handleItemSelect,
+    searchQuery,
+    onSearchChange: handleSearchChange,
+  }), [sidebarOpen, handleSidebarClose, activeItem, handleItemSelect, searchQuery, handleSearchChange]);
 
   return (
-    <div className="atomix-docs-app">
-      {/* Full-width Hero Section - only shown on homepage */}
-      {isHomepage && (
-        <>
-          <Hero
-            subtitle="A Comprehensive Design System"
-            title="Build Amazing UIs with Atomix"
-            text="A modern design system with 40+ components, comprehensive layouts, design tokens, and advanced effects like AtomixGlass. Built for React and vanilla JavaScript with accessibility and performance in mind."
-            alignment="center"
-            backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
-            contentWidth="70%"
-            fullViewportHeight
-            className="u-py-64 hero"
-            showOverlay={false}
-            actions={
-              <>
-                <Button
-                  glass
-                  variant="primary"
-                  icon={<Icon name="ArrowRight" size="sm" />}
-                  onClick={() => navigate("/docs/getting-started/installation")}
-                >
-                  Get Started
-                </Button>
-                <Button
-                  glass
-                  variant="info"
-                  onClick={() => navigate("/docs/components/overview")}
-                >
-                  Explore Components
-                </Button>
-              </>
-            }
-            parallax={true}
-            glass={
-              {
-                displacementScale: 30,
-                blurAmount: 5,
-                elasticity: 0,
-                enableLiquidBlur: true,
-                padding: "0 20px",
-                cornerRedius: 30,
-              } as any
-            }
-          />
-          <div className="shade"></div>
-        </>
-      )}
+    <div>
+      <MemoizedSkipLinks />
+      {/* Header - ALWAYS visible - rendered first for proper DOM order */}
+      <DocumentationHeader {...headerProps} />
 
       {/* Main content area */}
       <div className="atomix-docs-main">
         {/* Sidebar - Desktop persistent, mobile overlay */}
-        <DocumentationSidebar
-          isOpen={isSidebarOpen}
-          onClose={() => setIsSidebarOpen(false)}
-          activeItem={activeItem}
-          onItemSelect={handleItemSelect}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-        />
+        <nav id="navigation" aria-label="Documentation navigation">
+          <DocumentationSidebar {...sidebarProps} />
+        </nav>
 
-        <main className="atomix-docs-content">
+        {/* Mobile Navigation Overlay */}
+        {isMobile && sidebarOpen && (
+          <MobileNavigation
+            isOpen={sidebarOpen}
+            onClose={handleSidebarClose}
+          />
+        )}
+
+        {/* Page Content - Only this should re-render on route change */}
+        <main id="main-content" className="atomix-docs-content" role="main">
           <Container type="fluid">
-            <Outlet />
+            {children}
           </Container>
         </main>
       </div>
-      <DocumentationFooter />
-      <BackToTopButton />
-      <DocumentationHeader
-        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
-        sidebarOpen={isSidebarOpen}
-      />
+      <MemoizedDocumentationFooter />
     </div>
   );
 };

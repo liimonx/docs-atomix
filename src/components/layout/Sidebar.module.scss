@@ -1,0 +1,43 @@
+// Component: Sidebar
+// =============================================================================
+
+// Block: Base sidebar
+// =============================================================================
+.sidebar {
+  // Base styles handled by global layout
+}
+
+// Elements - Navigation Item
+// =============================================================================
+.sidebar__navItem {
+  // Dynamic padding based on level - handled inline with calc
+}
+
+// Level-based padding modifiers
+// =============================================================================
+.sidebar__navItem--level0 {
+  padding-left: 0.75rem;
+}
+
+.sidebar__navItem--level1 {
+  padding-left: 1.5rem;
+}
+
+.sidebar__navItem--level2 {
+  padding-left: 2.25rem;
+}
+
+.sidebar__navItem--level3 {
+  padding-left: 3rem;
+}
+
+.sidebar__navItem--level4 {
+  padding-left: 3.75rem;
+}
+
+// Sidebar search
+// =============================================================================
+.sidebar-search {
+  position: relative;
+  margin: 0.5rem 1rem 1rem 1rem;
+}

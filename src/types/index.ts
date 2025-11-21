@@ -1,5 +1,21 @@
+export interface DesignToken {
+  name: string;
+  category: string;
+  type: 'color' | 'spacing' | 'typography';
+  value: string;
+  fontFamily?: string;
+  fontSize?: string;
+  fontWeight?: string;
+  description?: string;
+  cssVariable?: string;
+}
+
 // Component Documentation Types
 export interface ComponentDocumentation {
+  icon?: string;
+  isNew?: boolean;
+  deprecationMessage?: string;
+  quickStart?: string;
   name: string;
   description: string;
   category: string;
@@ -16,9 +32,11 @@ export interface ComponentDocumentation {
   tags: string[];
   importPath: string;
   dependencies: string[];
+  designTokens?: DesignToken[];
 }
 
 export interface ComponentFeature {
+  icon?: string;
   title: string;
   description: string;
   supported: boolean;
@@ -32,6 +50,7 @@ export interface ComponentUsage {
 }
 
 export interface ComponentExample {
+  id: string;
   title: string;
   description: string;
   code: string;
@@ -59,6 +78,9 @@ export interface AccessibilityInfo {
   ariaAttributes: AriaAttribute[];
   guidelines: string[];
   wcagLevel: 'A' | 'AA' | 'AAA';
+  screenReaderSupport?: string;
+  focusManagement?: string;
+  colorContrastCompliant?: boolean;
 }
 
 export interface KeyboardSupport {
@@ -161,12 +183,12 @@ export interface AppError {
 // Global Atomix Namespace for Vanilla JS Components
 export interface AtomixGlobal {
   Card?: any;
-  applyCardHoverEffect?: (element: HTMLElement) => void;
-  applyCardFocusEffect?: (element: HTMLElement) => void;
-  makeCardClickable?: (element: HTMLElement, onClick: () => void) => void;
+  applyCardHoverEffect?: (_element: HTMLElement) => void;
+  applyCardFocusEffect?: (_element: HTMLElement) => void;
+  makeCardClickable?: (_element: HTMLElement, _onClick: () => void) => void;
   initializeAllCards?: () => void;
-  applyCardElevationEffect?: (element: HTMLElement) => void;
-  applyCardFlipEffect?: (element: HTMLElement) => void;
+  applyCardElevationEffect?: (_element: HTMLElement) => void;
+  applyCardFlipEffect?: (_element: HTMLElement) => void;
 }
 
 // Utility Types

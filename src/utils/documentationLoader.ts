@@ -86,6 +86,7 @@ const mockComponentData: Record<string, ComponentDocumentation> = {
     ],
     examples: [
       {
+        id: 'button-basic',
         title: 'Basic Button',
         description: 'A simple primary button',
         code: '<Button>Click me</Button>',
@@ -93,6 +94,7 @@ const mockComponentData: Record<string, ComponentDocumentation> = {
         category: 'basic'
       },
       {
+        id: 'button-variants',
         title: 'Variants',
         description: 'Different button styles for different purposes',
         code: `<Button variant="primary">Primary</Button>
@@ -104,6 +106,7 @@ const mockComponentData: Record<string, ComponentDocumentation> = {
         category: 'basic'
       },
       {
+        id: 'button-sizes',
         title: 'Sizes',
         description: 'Three different button sizes',
         code: `<Button size="sm">Small</Button>
@@ -113,6 +116,7 @@ const mockComponentData: Record<string, ComponentDocumentation> = {
         category: 'basic'
       },
       {
+        id: 'button-states',
         title: 'States',
         description: 'Disabled and loading states',
         code: `<Button disabled>Disabled</Button>
@@ -121,6 +125,7 @@ const mockComponentData: Record<string, ComponentDocumentation> = {
         category: 'basic'
       },
       {
+        id: 'button-witha_icon',
         title: 'With Icon',
         description: 'Buttons with icons for better visual communication',
         code: `<Button icon={<Star size={16} />}>Favorite</Button>
@@ -129,6 +134,7 @@ const mockComponentData: Record<string, ComponentDocumentation> = {
         category: 'advanced'
       },
       {
+        id: 'button-full-width',
         title: 'Full Width',
         description: 'Buttons that span the full width of their container',
         code: '<Button fullWidth>Full Width Button</Button>',
@@ -288,6 +294,7 @@ function MyComponent() {
     ],
     examples: [
       {
+        id: 'badge-basic',
         title: 'Basic Badge',
         description: 'Default badge with content',
         code: '<Badge>5</Badge>',
@@ -295,6 +302,7 @@ function MyComponent() {
         category: 'basic'
       },
       {
+        id: 'badge-variants',
         title: 'Variants',
         description: 'Different visual styles for different contexts',
         code: `<Badge variant="default">Default</Badge>
@@ -308,6 +316,7 @@ function MyComponent() {
         category: 'basic'
       },
       {
+        id: 'badge-sizes',
         title: 'Sizes',
         description: 'Different sizes for different contexts',
         code: `<Badge size="sm">Small</Badge>
@@ -317,6 +326,7 @@ function MyComponent() {
         category: 'basic'
       },
       {
+        id: 'badge-dot',
         title: 'Dot Badge',
         description: 'Minimalist dot badge for notifications',
         code: '<Badge dot />',
@@ -451,6 +461,7 @@ function MyComponent() {
     ],
     examples: [
       {
+        id: 'card-basic',
         title: 'Basic Card',
         description: 'Simple card with content',
         code: `<Card>
@@ -460,6 +471,7 @@ function MyComponent() {
         category: 'basic'
       },
       {
+        id: 'card-header-footer',
         title: 'Card with Header and Footer',
         description: 'Card with header and footer sections',
         code: `<Card 
@@ -472,6 +484,7 @@ function MyComponent() {
         category: 'basic'
       },
       {
+        id: 'card-variants',
         title: 'Card Variants',
         description: 'Different visual styles for cards',
         code: `<Card variant="elevated">

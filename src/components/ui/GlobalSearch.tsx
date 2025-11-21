@@ -1,5 +1,7 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { Dropdown, Input, Icon, Button } from "@shohojdhara/atomix";
 import { useSearch } from "../../hooks/useSearch";
 import { SearchResultItem } from "./SearchResultItem";
@@ -10,8 +12,14 @@ export function GlobalSearch() {
     useSearch();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  const navigate = useNavigate();
+  const [mounted, setMounted] = useState(false);
+  const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Ensure component only renders on client to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Map the search results to match the expected type
   const mappedSearchResults: TypedSearchResult[] = searchResults.map(
@@ -56,7 +64,7 @@ export function GlobalSearch() {
     } else if (e.key === "Enter" && selectedIndex >= 0) {
       const result = mappedSearchResults[selectedIndex];
       if (result) {
-        navigate(result.path);
+        router.push(result.path);
         setIsOpen(false);
         clearSearch();
         setSelectedIndex(-1);
@@ -65,19 +73,12 @@ export function GlobalSearch() {
     }
   };
 
-  const handleFocus = () => {
-    if (searchQuery.length > 0 && mappedSearchResults.length > 0) {
-      setIsOpen(true);
-    }
-  };
 
-  const handleBlur = (e: React.FocusEvent) => {
-    // Delay closing to allow clicking on results
-    setTimeout(() => {
-      setIsOpen(false);
-      setSelectedIndex(-1);
-    }, 150);
-  };
+
+  // Render null during SSR to avoid hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div
@@ -92,12 +93,12 @@ export function GlobalSearch() {
           <div className="u-w-100">
             {mappedSearchResults.length > 0 ? (
               <ul className="u-list-style-none u-m-0 u-p-0">
-                {mappedSearchResults.map((result, index) => (
+                {mappedSearchResults.map((result) => (
                   <SearchResultItem
                     key={result.id}
                     result={result}
                     onClick={() => {
-                      navigate(result.path);
+                      router.push(result.path);
                       setIsOpen(false);
                       clearSearch();
                       setSelectedIndex(-1);
@@ -107,11 +108,11 @@ export function GlobalSearch() {
                 ))}
               </ul>
             ) : searchQuery.length > 0 ? (
-              <div className="p-4 text-center text-gray-500">
+              <div className="u-p-4 u-text-center u-text-secondary-emphasis">
                 No results found.
               </div>
             ) : (
-              <div className="p-4 text-center text-gray-500">
+              <div className="u-p-4 u-text-center u-text-secondary-emphasis">
                 Start typing to search...
               </div>
             )}
@@ -120,16 +121,25 @@ export function GlobalSearch() {
       >
         <div className="u-position-relative u-w-100">
           <Input
+          className="search-input"
             glass={{
+              blurAmount: 10,
+              cornerRadius: 30,
               elasticity: 0,
             }}
             type="text"
-            placeholder="Search..."
+            placeholder="Search documentation..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="u-w-100"
+            style={{
+              width: "300px",
+              borderColor: "transparent",
+              backgroundColor: "rgba(var(--atomix-primary-rgb), 0.4)",
+              borderRadius: "30px",
+              padding: "8px 16px 8px 40px",
+            }}
           />
-          <div className="u-position-absolute u-top-0 u-end-0 u-pt-1 u-pe-1">
+          <div className="u-position-absolute u-top-0 u-start-0 u-pt-1 u-ps-1">
             {searchQuery ? (
               <Button
                 onClick={() => {
@@ -140,8 +150,8 @@ export function GlobalSearch() {
                 iconOnly
                 rounded
                 variant="ghost"
-                icon={<Icon name="X" />}
-                size='sm'
+                icon={<Icon name="X" size="sm" />}
+                size="sm"
               />
             ) : (
               <Button
@@ -153,8 +163,8 @@ export function GlobalSearch() {
                 iconOnly
                 rounded
                 variant="ghost"
-                size='sm'
-                icon={<Icon name="MagnifyingGlass" />}
+                size="sm"
+                icon={<Icon name="MagnifyingGlass" size="sm" />}
               />
             )}
           </div>

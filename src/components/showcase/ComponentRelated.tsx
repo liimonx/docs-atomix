@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react';
 import { Card } from '@shohojdhara/atomix';
-import { Link } from 'react-router-dom';
-import { findNavigationItem } from '../../data/navigation';
+import Link from 'next/link';
+import { findNavigationItem } from '@/data/navigation';
 
 interface ComponentRelatedProps {
   relatedComponents: string[];
@@ -26,7 +28,7 @@ export const ComponentRelated: React.FC<ComponentRelatedProps> = ({ relatedCompo
             return (
               <Link
                 key={componentName}
-                to={navItem.path}
+                href={navItem.path}
                 className="u-text-decoration-none"
               >
                 <span className="u-text-primary u-hover-text-decoration-underline">

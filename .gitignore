@@ -1,4 +1,8 @@
 node_modules
 .DS_Store
 atomix-src
-docs
+.next
+out
+.env.local
+.env
+tsconfig.tsbuildinfo

@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Icon, Badge } from '@shohojdhara/atomix';
+import Link from 'next/link';
+import { Icon, Card } from '@shohojdhara/atomix';
 import type { SearchResult } from '../../types';
+import styles from './SearchResultItem.module.scss';
 
 interface SearchResultItemProps {
   result: SearchResult;
@@ -21,36 +24,30 @@ export const SearchResultItem: React.FC<SearchResultItemProps> = ({ result, onCl
 
   return (
     <Link
-      to={result.path}
+      href={result.path}
       onClick={onClick}
-      className="u-d-flex u-align-items-center u-p-3 u-text-decoration-none u-border-radius-md u-transition u-mb-1 hover:u-bg-secondary-subtle"
-      style={{
-        color: 'var(--atomix-text-primary)',
-        borderRadius: 'var(--atomix-docs-radius-md)'
-      }}
+      className={styles.searchResultItem__link}
     >
-      <div className="u-d-flex u-align-items-center u-justify-content-center u-me-3 u-p-2 u-bg-secondary-subtle u-border-radius-sm">
-        <Icon name={getIconName(result.category) as any} size="sm" />
-      </div>
-      <div className="u-flex-grow-1">
-        <div className="u-fw-medium u-mb-1">{result.title}</div>
-        <div
-          className="u-fs-sm u-text-secondary-emphasis u-line-clamp-2"
-          style={{
-            display: '-webkit-box',
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden'
-          }}
-        >
-          {result.description && typeof result.description === 'string'
-            ? result.description.replace(/<[^>]*>/g, '') // Strip HTML tags
-            : result.description}
+      <Card
+        className={styles.searchResultItem}
+      >
+        <div className={styles.searchResultItem__content}>
+          <div className={styles.searchResultItem__icon}>
+            <Icon name={getIconName(result.category) as any} size="sm" />
+          </div>
+          <div className={styles.searchResultItem__text}>
+            <div className={styles.searchResultItem__title}>{result.title}</div>
+            <div className={styles.searchResultItem__description}>
+              {result.description && typeof result.description === 'string'
+                ? result.description.replace(/<[^>]*>/g, '') // Strip HTML tags
+                : result.description}
+            </div>
+            <div className={styles.searchResultItem__meta}>
+              {result.category} • {result.breadcrumbs?.join(' › ') || 'Documentation'}
+            </div>
+          </div>
         </div>
-        <div className="u-fs-xs u-text-secondary-emphasis u-mt-1">
-          {result.category} • {result.breadcrumbs?.join(' › ') || 'Documentation'}
-        </div>
-      </div>
+      </Card>
     </Link>
   );
 };

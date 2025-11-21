@@ -1,4 +1,4 @@
-import { Button } from '@shohojdhara/atomix';
+// import { Button } from '@shohojdhara/atomix';
 
 export const buttonMetadata = {
   id: 'button',

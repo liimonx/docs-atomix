@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Badge, Icon } from '@shohojdhara/atomix';
+import { Card, Badge } from '@shohojdhara/atomix';
 
 interface PropDefinition {
   name: string;

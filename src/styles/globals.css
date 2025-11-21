@@ -1,5 +1,202 @@
-/* MANDATORY: Import Atomix CSS first */
-@import "@shohojdhara/atomix/css/min";
+
+
+
+/* Home page specific styles */
+.atomix-docs-main.home-page .atomix-docs-content.full-width {
+  margin-left: 0;
+  max-width: none;
+}
+
+/* Home page content sections */
+.home-page-content {
+  padding: 0;
+}
+
+.home-page-content > section {
+  padding: 4rem 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.home-page-content > section:first-child {
+  padding-top: 0;
+}
+
+.home-page-content > section:last-child {
+  padding-bottom: 6rem;
+}
+
+/* Features section */
+.features-section .section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.features-section .section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--atomix-color-text-primary);
+}
+
+.features-section .section-header p {
+  font-size: 1.25rem;
+  color: var(--atomix-color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  padding: 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--atomix-shadow-lg);
+}
+
+.feature-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  background: var(--atomix-color-primary-light);
+}
+
+.feature-icon {
+  color: var(--atomix-color-primary);
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--atomix-color-text-primary);
+}
+
+.feature-description {
+  color: var(--atomix-color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Component grid section */
+.component-grid-section .section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.component-grid-section .section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--atomix-color-text-primary);
+}
+
+.component-grid-section .section-header p {
+  font-size: 1.25rem;
+  color: var(--atomix-color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.component-card {
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.component-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--atomix-shadow-md);
+}
+
+.component-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--atomix-color-text-primary);
+}
+
+.component-description {
+  color: var(--atomix-color-text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.component-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.component-category {
+  color: var(--atomix-color-text-muted);
+  font-weight: 500;
+}
+
+.component-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-stable {
+  background: var(--atomix-color-success-light);
+  color: var(--atomix-color-success);
+}
+
+.status-beta {
+  background: var(--atomix-color-warning-light);
+  color: var(--atomix-color-warning);
+}
+
+.view-all-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--atomix-color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--atomix-radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.view-all-button:hover {
+  background: var(--atomix-color-primary-dark);
+}
+
+.section-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
 
 /* Prominent search styles */
 .header-search-container {
@@ -25,21 +222,6 @@
   width: 100%;
 }
 
-.atomix-full-width {
-  width: calc(100vw - 280px);
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: calc(-50vw + 140px);
-  margin-right: calc(-50vw + 140px);
-}
-
-.atomix-full-width .atomix-hero__content {
-  max-width: 100% !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-}
-
 .atomix-docs-header .mobile-menu-toggle {
   display: none;
   background: none;
@@ -53,11 +235,6 @@
 
 .atomix-docs-header .mobile-menu-toggle:hover {
   background: var(--atomix-color-bg-secondary);
-}
-
-/* Added z-index to ensure navbar is visible */
-.atomix-docs-header {
-  z-index: 1030;
 }
 
 /* Main content area */
@@ -89,7 +266,7 @@
 /* Sidebar styles */
 .atomix-docs-sidebar {
   width: 280px;
-  padding: 10px;
+  padding: var(--atomix-spacing-sm);
   position: sticky;
   top: 0px;
   left: 0;
@@ -159,7 +336,7 @@
 
 .sidebar-nav-item {
   padding: 0.25rem 0.75rem;
-  margin: 2px 0;
+  margin: var(--atomix-spacing-xxs) 0;
   display: block;
   color: var(--atomix-color-text-secondary);
   text-decoration: none;
@@ -632,4 +809,8 @@
   outline: 2px solid var(--atomix-color-primary);
   outline-offset: 2px;
   border-radius: var(--atomix-radius-sm);
+}
+
+.search-input::placeholder {
+  color: var(--atomix-color-primary);
 }

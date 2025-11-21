@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import Fuse from 'fuse.js';
 import { navigationData } from '../data/navigation';

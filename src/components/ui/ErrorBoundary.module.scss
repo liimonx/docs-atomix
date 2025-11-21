@@ -1,0 +1,51 @@
+// Component: ErrorBoundary
+// =============================================================================
+
+// Note: Design tokens are available via CSS custom properties from @shohojdhara/atomix/css
+
+// Block: Base error boundary container
+// =============================================================================
+.errorBoundary {
+  padding: var(--atomix-spacing-xl, 2rem);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+// Elements
+// =============================================================================
+.errorBoundary__details {
+  margin-top: var(--atomix-spacing-md, 1rem);
+}
+
+.errorBoundary__summary {
+  cursor: pointer;
+  font-weight: var(--atomix-font-weight-bold, 700);
+}
+
+.errorBoundary__pre {
+  margin-top: var(--atomix-spacing-xs, 0.5rem);
+  padding: var(--atomix-spacing-md, 1rem);
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: var(--atomix-radius-md, 0.375rem);
+  overflow: auto;
+  font-size: var(--atomix-font-size-sm, 0.875rem);
+  line-height: var(--atomix-line-height-normal, 1.5);
+}
+
+.errorBoundary__actions {
+  margin-top: var(--atomix-spacing-md, 1rem);
+  display: flex;
+  gap: var(--atomix-spacing-md, 1rem);
+  flex-wrap: wrap;
+}
+
+// Accessibility
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .errorBoundary {
+    * {
+      transition: none !important;
+    }
+  }
+}
+

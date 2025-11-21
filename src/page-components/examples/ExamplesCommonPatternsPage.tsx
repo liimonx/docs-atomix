@@ -1,0 +1,89 @@
+'use client';
+
+import React from 'react';
+import {
+  Hero,
+  SectionIntro,
+  Card,
+  GridCol,
+  Row,
+  Block,
+  Button,
+} from '@shohojdhara/atomix';
+import { GlassProps } from '@/types/atomix-components';
+
+const ExamplesCommonPatternsPage = () => {
+  return (
+    <>
+
+      <Hero
+        glass={{
+          displacementScale: 30,
+          blurAmount: 5,
+          elasticity: 0,
+          enableLiquidBlur: true,
+          padding: "20px",
+          cornerRadius: 30,
+        } as GlassProps}
+        className="u-pt-32 u-pb-16"
+        backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
+        title="Examples - Common Patterns"
+        text="Common design patterns and implementation examples with Atomix components"
+        alignment="center"
+      />
+
+      <Block className="u-pt-8 u-pb-8">
+        <SectionIntro
+          title="Common Design Patterns"
+          text="A collection of common design patterns implemented with Atomix components for reference and inspiration."
+        />
+        
+        <Row className="u-mt-8">
+          <GridCol md={6}>
+            <Card className="u-p-6 u-h-100">
+              <h3>Navigation Patterns</h3>
+              <p>Common navigation patterns implemented with Atomix components.</p>
+              <Button variant="primary" className="u-mt-4">
+                View Examples
+              </Button>
+            </Card>
+          </GridCol>
+          
+          <GridCol md={6}>
+            <Card className="u-p-6 u-h-100">
+              <h3>Form Patterns</h3>
+              <p>Best practices for form design and implementation with Atomix.</p>
+              <Button variant="primary" className="u-mt-4">
+                View Examples
+              </Button>
+            </Card>
+          </GridCol>
+        </Row>
+        
+        <Row className="u-mt-4">
+          <GridCol md={6}>
+            <Card className="u-p-6 u-h-100">
+              <h3>Card Layouts</h3>
+              <p>Different card layout patterns for various content types.</p>
+              <Button variant="primary" className="u-mt-4">
+                View Examples
+              </Button>
+            </Card>
+          </GridCol>
+          
+          <GridCol md={6}>
+            <Card className="u-p-6 u-h-100">
+              <h3>Dashboard Layouts</h3>
+              <p>Dashboard layout patterns with data visualization components.</p>
+              <Button variant="primary" className="u-mt-4">
+                View Examples
+              </Button>
+            </Card>
+          </GridCol>
+        </Row>
+      </Block>
+    </>
+  );
+};
+
+export default ExamplesCommonPatternsPage;
