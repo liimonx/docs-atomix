@@ -45,8 +45,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body data-atomix-color-mode="dark">
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var colorMode = localStorage.getItem('atomix-color-mode') || 'dark';
+                  document.documentElement.setAttribute('data-atomix-color-mode', colorMode);
+                  document.body.setAttribute('data-atomix-color-mode', colorMode);
+                } catch (e) {
+                  document.documentElement.setAttribute('data-atomix-color-mode', 'dark');
+                  document.body.setAttribute('data-atomix-color-mode', 'dark');
+                }
+              })();
+            `,
+          }}
+        />
         <ResponsiveProvider>
           <SearchProvider>
             {children}

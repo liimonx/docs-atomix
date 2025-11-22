@@ -5,28 +5,47 @@ const nextConfig = {
   // Remove output: 'export' for development, only use for static export builds
   // output: 'export',
   
+  // Enable React strict mode for better development experience
+  reactStrictMode: true,
+  
+  // Transpile packages that need to be processed by Next.js
   transpilePackages: ['@shohojdhara/atomix', '@phosphor-icons/react'],
+  
+  // TypeScript configuration
   typescript: {
     ignoreBuildErrors: false,
   },
+  
+  // ESLint configuration
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  
+  // Image optimization configuration
   images: {
     // Note: For static exports (output: 'export'), external images cannot be optimized
     // by Next.js Image component. Consider using a CDN or downloading images locally.
-    // For now, keeping unoptimized: true is required for static export with external images.
+    // For now, keeping unoptimized: false enables optimization for local images
     unoptimized: false,
-    // To enable optimization for local images, set unoptimized: false
-    // and ensure images are in the public directory or use a CDN
+    // Remote image patterns for external image optimization
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
     ],
+    // Image formats to optimize
+    formats: ['image/avif', 'image/webp'],
   },
+  
+  // Sass/SCSS configuration
   sassOptions: {
     includePaths: ['./src'],
   },
+  
+  // Webpack configuration
   webpack: (config, { isServer, webpack }) => {
+    // Path aliases for cleaner imports
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, './src'),
@@ -39,6 +58,7 @@ const nextConfig = {
       '@styles': path.resolve(__dirname, './src/styles'),
     };
 
+    // Module resolution paths
     config.resolve.modules = [
       ...(config.resolve.modules || []),
       path.resolve(__dirname, 'node_modules'),
@@ -60,8 +80,14 @@ const nextConfig = {
 
     return config;
   },
+  
+  // Experimental features (Next.js 15)
   experimental: {
+    // Enable optimized package imports
+    optimizePackageImports: ['@shohojdhara/atomix', '@phosphor-icons/react'],
   },
+  
+  // URL redirects
   async redirects() {
     return [
       {
@@ -100,6 +126,14 @@ const nextConfig = {
         permanent: true,
       },
     ];
+  },
+  
+  // Compiler options
+  compiler: {
+    // Remove console logs in production
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
   },
 };
 

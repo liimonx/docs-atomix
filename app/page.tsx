@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Layers, Palette, Code, Sparkles } from "lucide-react";
 import { HomePageLayout } from "@/components/layout/HomePageLayout";
 import {
   Hero,
@@ -15,19 +14,62 @@ import {
   GridCol,
   SectionIntro,
   AtomixGlass,
+  Container,
 } from "@shohojdhara/atomix";
 import CallToActionSection from "@/components/sections/CallToActionSection";
 
 // Note: This page uses client components (HomePageLayout has interactive features)
 // Metadata is handled in app/layout.tsx for the root page
 export default function Page() {
+  // Hero glass effect blur amount - starts at 0, transitions to 5 after 4 seconds
+  const [blurAmount, setBlurAmount] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setBlurAmount(1);
+    }, 3000); // 3 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
   // Statistics data
   const quickStats = [
-    { label: "Components", value: "40+", icon: <Layers size={20} /> },
-    { label: "Design Tokens", value: "200+", icon: <Palette size={20} /> },
-    { label: "Utility Classes", value: "500+", icon: <Code size={20} /> },
-    { label: "Chart Types", value: "15+", icon: <Sparkles size={20} /> },
+    {
+      label: "Components",
+      value: "40+",
+      icon: "Stack" as const,
+      color: "primary" as const,
+      description: "Ready-to-use React components",
+    },
+    {
+      label: "Design Tokens",
+      value: "200+",
+      icon: "Palette" as const,
+      color: "success" as const,
+      description: "Colors, spacing, typography",
+    },
+    {
+      label: "Utility Classes",
+      value: "500+",
+      icon: "Code" as const,
+      color: "info" as const,
+      description: "Powerful CSS utilities",
+    },
+    {
+      label: "Chart Types",
+      value: "15+",
+      icon: "Sparkle" as const,
+      color: "warning" as const,
+      description: "Advanced data visualization",
+    },
   ];
+
+  // Color class mapping for badges
+  const colorClassMap: Record<string, string> = {
+    primary: "u-bg-primary-subtle u-text-primary-emphasis",
+    success: "u-bg-success-subtle u-text-success-emphasis",
+    info: "u-bg-info-subtle u-text-info-emphasis",
+    warning: "u-bg-warning-subtle u-text-warning-emphasis",
+  };
 
   // Features data
   const features = [
@@ -156,13 +198,13 @@ export default function Page() {
     external: boolean;
     icon?: React.ReactNode;
   }> = ({ title, description, external, icon }) => (
-    <div>
-      <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-2">
+    <div className="u-d-flex u-flex-column u-h-100">
+      <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-3">
         <div className="u-d-flex u-align-items-center">
           {icon || (
             <Icon name={"FileText" as const} size={20} className="u-me-2" />
           )}
-          <h3 className="u-fs-lg u-fw-600 u-ms-2 u-m-0 u-text-primary-emphasis">
+          <h3 className="u-fs-lg u-fw-600 u-m-0 u-text-primary-emphasis">
             {title}
           </h3>
         </div>
@@ -170,7 +212,7 @@ export default function Page() {
           <Icon name={"Link" as const} size={16} className="u-opacity-60" />
         )}
       </div>
-      <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-ms-10">
+      <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-flex-grow-1">
         {description}
       </p>
     </div>
@@ -180,207 +222,249 @@ export default function Page() {
     <HomePageLayout>
       {/* Hero Section */}
       <Hero
-        className="u-pt-44 u-pb-40"
-        subtitle={
-          <Badge
-            glass={{ className: "u-d-inline-block", children: <></> }}
-            label="Simplicity in motion"
-          /> as any
-        }
+        className="u-pt-52 u-pb-40"
+        subtitle="Simplicity in motion"
         title="Build Amazing UIs with Atomix"
         text="A modern design system with 40+ components, comprehensive layouts, design tokens, and advanced effects. Built for React and vanilla JavaScript with accessibility and performance in mind. Trusted by developers worldwide for creating beautiful, responsive interfaces."
         alignment="center"
-        videoBackground="https://cdn.pixabay.com/video/2024/08/31/228998_large.mp4"
+        videoBackground="https://cdn.pixabay.com/video/2022/09/23/132253-752803366_large.mp4"
         videoOptions={{
           autoplay: true,
           loop: true,
           muted: true,
         }}
-        contentWidth="1000px"
-        parallax={true}
+        contentWidth="1100px"
         glass={{
-          displacementScale: 100,
+          displacementScale: 290,
           blurAmount: 0,
-          aberrationIntensity: 0.1,
+          mode: "shader",
           cornerRadius: 24,
-          padding: "2rem 3rem",
+          padding: "1rem 2rem",
+          saturation: 200,
           elasticity: 0,
           children: <></>,
         }}
         actions={
           <div className="u-d-flex u-flex-wrap u-gap-4 u-justify-content-center">
-            <Link href="/docs/getting-started/installation">
-              <Button
-                glass
-                variant="primary"
-                icon={<Icon name="Rocket" />}
-                iconPosition="start"
-                iconOnly={true}
-                text="Get Started"
-              />
-            </Link>
-            <Link href="/docs/components/overview">
-              <Button
-                glass
-                variant="error"
-                icon={<Icon name="Code" />}
-                iconPosition="start"
-                iconOnly={true}
-                text="View Components"
-              />
-            </Link>
-            <Link href="/docs/examples">
-              <Button
-                glass
-                variant="info"
-                icon={<Icon name="Sparkle" />}
-                iconPosition="start"
-                iconOnly={true}
-                text="See Examples"
-              />
-            </Link>
+            <Button
+              glass
+              variant="primary"
+              icon={<Icon name="Rocket" />}
+            >
+              <Link
+                style={{ color: "inherit" }}
+                href="/docs/getting-started/installation"
+              >
+                Get Started
+              </Link>
+            </Button>
+            <Button
+              glass
+              variant="error"
+              icon={<Icon name="Code" />}
+            >
+              <Link
+                style={{ color: "inherit" }}
+                href="/docs/components/overview"
+              >
+                View Components
+              </Link>
+            </Button>
+            <Button
+              glass
+              variant="info"
+              icon={<Icon name="Sparkle" />}
+            >
+              <Link style={{ color: "inherit" }} href="/docs/examples">
+                See Examples
+              </Link>
+            </Button>
           </div>
         }
-        // backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
       />
 
       {/* Statistics Section */}
-      <Block spacing="sm" background="secondary">
-        <SectionIntro
-          title="By the Numbers"
-          text="Atomix provides a comprehensive set of tools and components"
-          alignment="center"
-        />
-        <Row>
-          {quickStats.map((stat, index) => (
-            <GridCol key={index} sm={6} lg={3} className="u-mb-4">
-              <Card title={stat.value} text={stat.label} icon={stat.icon} />
-            </GridCol>
-          ))}
-        </Row>
+      <Block spacing="md" background="secondary">
+        <Container>
+          <SectionIntro
+            title="By the Numbers"
+            text="Atomix provides a comprehensive set of tools and components"
+            alignment="center"
+            className="u-pt-0"
+          />
+          <Row>
+            {quickStats.map((stat, index) => (
+              <GridCol key={index} sm={6} lg={3} className="u-mb-6">
+                <Card
+                  icon={<Icon name={stat.icon as any} />}
+                  title={stat.value}
+                  text={stat.label}
+                  children={<p className="u-text-secondary-emphasis u-fs-xs u-lh-relaxed u-m-0 u-flex-grow-1">{stat.description}</p>}
+                  row
+                ></Card>
+              </GridCol>
+            ))}
+          </Row>
+        </Container>
       </Block>
 
       {/* Features Section */}
-      <Block spacing="sm">
-        <SectionIntro title="Why Choose Atomix?" alignment="center" />
-        <Row>
-          {features.map((feature, index) => (
-            <GridCol key={index} md={6} lg={4} className="u-mb-8">
-              <Card>
-                <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-2">
-                  {feature.icon}
-                </div>
-                <h3 className="u-fs-lg u-fw-600 u-mb-2 u-text-primary-emphasis">
-                  {feature.title}
-                </h3>
-                <p className="u-text-secondary-emphasis u-lh-lg">
-                  {feature.description}
-                </p>
-              </Card>
-            </GridCol>
-          ))}
-        </Row>
+      <Block spacing="md">
+        <Container>
+          <SectionIntro
+            title="Why Choose Atomix?"
+            text="Everything you need to build modern, accessible web applications"
+            alignment="center"
+          />
+          <Row className="u-mt-8">
+            {features.map((feature, index) => (
+              <GridCol key={index} md={6} lg={4} className="u-mb-6">
+                <Card className="u-h-100 u-d-flex u-flex-column">
+                  <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-3 u-w-fit">
+                    {feature.icon}
+                  </div>
+                  <h3 className="u-fs-lg u-fw-600 u-mb-3 u-text-primary-emphasis">
+                    {feature.title}
+                  </h3>
+                  <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-flex-grow-1">
+                    {feature.description}
+                  </p>
+                </Card>
+              </GridCol>
+            ))}
+          </Row>
+        </Container>
       </Block>
 
       {/* Philosophy Section */}
-      <Block background="secondary" spacing="sm">
-        <SectionIntro
-          title="Our Design Philosophy"
-          text="Thoughtful principles that guide our approach to creating exceptional user interfaces"
-          alignment="center"
-        />
-        <Row>
-          {philosophies.map((philosophy, index) => (
-            <GridCol key={index} md={6} lg={4} className="u-mb-8">
-              <Card>
-                <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-2">
-                  {philosophy.icon}
-                </div>
-                <h3 className="u-fs-lg u-fw-600 u-mb-2 u-text-primary-emphasis">
-                  {philosophy.title}
-                </h3>
-                <p className="u-text-secondary-emphasis u-lh-lg">
-                  {philosophy.description}
-                </p>
-              </Card>
-            </GridCol>
-          ))}
-        </Row>
+      <Block background="secondary" spacing="md">
+        <Container>
+          <SectionIntro
+            title="Our Design Philosophy"
+            text="Thoughtful principles that guide our approach to creating exceptional user interfaces"
+            alignment="center"
+          />
+          <Row className="u-mt-8">
+            {philosophies.map((philosophy, index) => (
+              <GridCol key={index} md={6} lg={4} className="u-mb-6">
+                <Card className="u-h-100 u-d-flex u-flex-column">
+                  <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-3 u-w-fit">
+                    {philosophy.icon}
+                  </div>
+                  <h3 className="u-fs-lg u-fw-600 u-mb-3 u-text-primary-emphasis">
+                    {philosophy.title}
+                  </h3>
+                  <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-flex-grow-1">
+                    {philosophy.description}
+                  </p>
+                </Card>
+              </GridCol>
+            ))}
+          </Row>
+        </Container>
       </Block>
 
       {/* Quick Links Section */}
-      <Block spacing="sm">
-        <SectionIntro title="Quick Start" alignment="center" />
-        <Row>
-          {quickLinks.map((link, index) => (
-            <GridCol key={index} sm={6} lg={4} className="u-mb-6">
-              <Card className="atomix-card-enhanced u-h-100 u-bg-brand-subtle">
-                {link.external ? (
-                  <a
-                    href={link.path}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="u-d-block u-link-none"
-                  >
-                    <LinkContent
-                      title={link.title}
-                      description={link.description}
-                      external={link.external}
-                    />
-                  </a>
-                ) : (
-                  <Link href={link.path} className="u-d-block u-link-none">
-                    <LinkContent
-                      title={link.title}
-                      description={link.description}
-                      external={link.external}
-                    />
-                  </Link>
-                )}
-              </Card>
-            </GridCol>
-          ))}
-        </Row>
+      <Block spacing="md">
+        <Container>
+          <SectionIntro
+            title="Quick Start"
+            text="Get up and running with Atomix in minutes"
+            alignment="center"
+          />
+          <Row className="u-mt-8">
+            {quickLinks.map((link, index) => (
+              <GridCol key={index} sm={6} lg={4} className="u-mb-6">
+                <Card className="u-h-100 u-bg-brand-subtle u-transition-all u-cursor-pointer u-hover-lift">
+                  {link.external ? (
+                    <a
+                      href={link.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="u-d-block u-link-none u-h-100"
+                      aria-label={`${link.title} (opens in new tab)`}
+                    >
+                      <LinkContent
+                        title={link.title}
+                        description={link.description}
+                        external={link.external}
+                      />
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.path}
+                      className="u-d-block u-link-none u-h-100"
+                      aria-label={link.title}
+                    >
+                      <LinkContent
+                        title={link.title}
+                        description={link.description}
+                        external={link.external}
+                      />
+                    </Link>
+                  )}
+                </Card>
+              </GridCol>
+            ))}
+          </Row>
+        </Container>
       </Block>
 
       {/* Call-to-Action Section */}
       <Block
         background="secondary"
-        spacing="sm"
+        spacing="md"
+        className="u-overflow-hidden"
         style={{
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
           backgroundImage:
             "url(https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundAttachment: "fixed",
         }}
       >
-        <CallToActionSection
-          title="Ready to get started?"
-          text="Install Atomix in your React project and start building amazing user interfaces today."
-          glass
-          primaryAction={
-            <AtomixGlass elasticity={0} blurAmount={0} displacementScale={0}>
-              <div className="u-d-flex u-h-100 u-px-5 u-py-3 u-align-items-center u-justify-content-center u-text-error-emphasis u-rounded">
-                <Icon name="Terminal" size={24} className="u-me-2" />
-                <code className="u-text-error-emphasis">
-                  npm install @shohojdhara/atomix
-                </code>
-              </div>
-            </AtomixGlass>
-          }
-          secondaryAction={
-            <Link href="/docs/getting-started/installation">
+        <Container className="u-position-relative">
+          <CallToActionSection
+            title="Ready to get started?"
+            text="Install Atomix in your React project and start building amazing user interfaces today."
+            glass
+            primaryAction={
+              <AtomixGlass
+                elasticity={0}
+                blurAmount={0}
+                displacementScale={0}
+                mode="standard"
+              >
+                <div className="u-d-flex u-align-items-center u-justify-content-center u-px-5 u-py-3 u-bg-surface u-rounded u-border u-border-border">
+                  <Icon
+                    name="Terminal"
+                    size={24}
+                    className="u-me-2 u-text-primary-emphasis"
+                  />
+                  <code className="u-text-primary-emphasis u-fs-md u-fw-500">
+                    npm install @shohojdhara/atomix
+                  </code>
+                </div>
+              </AtomixGlass>
+            }
+            secondaryAction={
               <Button
                 asChild
                 glass={{ blurAmount: 0, displacementScale: 0 }}
-                variant="primary"
-                icon={<Icon name="ArrowRight" size="md" />}
-                label="View Installation Guide"
-              />
-            </Link>
-          }
-        />
+                variant="error"
+                icon={<Icon name="ArrowRight" />}
+              >
+                <Link
+                  href="/docs/getting-started/installation"
+                  style={{ color: "inherit" }}
+                >
+                  View Installation Guide
+                </Link>
+              </Button>
+            }
+          />
+        </Container>
       </Block>
     </HomePageLayout>
   );
