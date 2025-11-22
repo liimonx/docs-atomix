@@ -1,13 +1,14 @@
 // Component: SkipLinks
 // =============================================================================
 
+
 // Block: Skip links container
 // =============================================================================
 .skipLinks {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: var(--atomix-z-tooltip);
   display: flex;
   flex-direction: column;
   gap: var(--atomix-spacing-sm);
@@ -22,30 +23,32 @@
   left: calc(var(--atomix-spacing-sm) * -1);
   padding: var(--atomix-spacing-sm) var(--atomix-spacing-md);
   background-color: var(--atomix-primary);
-  color: var(--atomix-text-primary);
+  color: var(--atomix-color-text-invert);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: var(--atomix-font-weight-semibold);
   border-radius: var(--atomix-radius-md);
   opacity: 0;
   pointer-events: none;
   transform: translateY(-100%);
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-  z-index: 10000;
+  z-index: calc(var(--atomix-z-tooltip) + 1);
 
   &:focus {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
-    outline: 2px solid var(--atomix-primary);
+    outline: 2px solid var(--atomix-color-border-focus);
     outline-offset: 2px;
   }
 
   &:hover {
-    background-color: var(--atomix-primary-hover);
+    background-color: var(--atomix-primary);
+    opacity: 0.9;
   }
 
   &:active {
-    background-color: var(--atomix-primary-active);
+    background-color: var(--atomix-primary);
+    opacity: 0.8;
   }
 }
 

@@ -21,7 +21,6 @@ import CallToActionSection from "@/components/sections/CallToActionSection";
 // Note: This page uses client components (HomePageLayout has interactive features)
 // Metadata is handled in app/layout.tsx for the root page
 export default function Page() {
-
   // Statistics data
   const quickStats = [
     { label: "Components", value: "40+", icon: <Layers size={20} /> },
@@ -150,8 +149,6 @@ export default function Page() {
     },
   ];
 
-
-
   // LinkContent component for quick links
   const LinkContent: React.FC<{
     title: string;
@@ -183,53 +180,65 @@ export default function Page() {
     <HomePageLayout>
       {/* Hero Section */}
       <Hero
-        className="u-pt-52 u-pb-40"
+        className="u-pt-44 u-pb-40"
         subtitle={
-          (
-            <Badge
-              // glass={{ className: "u-d-inline-block", children: <></> }}
-              label="Simplicity in motion"
-            />
-          ) as any
+          <Badge
+            glass={{ className: "u-d-inline-block", children: <></> }}
+            label="Simplicity in motion"
+          /> as any
         }
         title="Build Amazing UIs with Atomix"
         text="A modern design system with 40+ components, comprehensive layouts, design tokens, and advanced effects. Built for React and vanilla JavaScript with accessibility and performance in mind. Trusted by developers worldwide for creating beautiful, responsive interfaces."
         alignment="center"
-        videoBackground="https://cdn.pixabay.com/video/2023/07/07/170464-843367906_large.mp4"
+        videoBackground="https://cdn.pixabay.com/video/2024/08/31/228998_large.mp4"
+        videoOptions={{
+          autoplay: true,
+          loop: true,
+          muted: true,
+        }}
+        contentWidth="1000px"
+        parallax={true}
         glass={{
           displacementScale: 100,
-          blurAmount: 1.8,
+          blurAmount: 0,
+          aberrationIntensity: 0.1,
           cornerRadius: 24,
-          padding: "1rem 3rem",
+          padding: "2rem 3rem",
           elasticity: 0,
           children: <></>,
         }}
         actions={
           <div className="u-d-flex u-flex-wrap u-gap-4 u-justify-content-center">
-            <Button
-              iconOnly
-              glass
-              variant="primary"
-              icon={<Icon name="Rocket" />}
-              iconPosition="start"
-              text="Get Started"
-            />
-            <Button
-              iconOnly
-              glass
-              variant="error"
-              icon={<Icon name="Code" />}
-              iconPosition="start"
-              text="View Components"
-            />
-            <Button
-              iconOnly
-              glass
-              variant="info"
-              icon={<Icon name="Sparkle" />}
-              iconPosition="start"
-              text="See Examples"
-            />
+            <Link href="/docs/getting-started/installation">
+              <Button
+                glass
+                variant="primary"
+                icon={<Icon name="Rocket" />}
+                iconPosition="start"
+                iconOnly={true}
+                text="Get Started"
+              />
+            </Link>
+            <Link href="/docs/components/overview">
+              <Button
+                glass
+                variant="error"
+                icon={<Icon name="Code" />}
+                iconPosition="start"
+                iconOnly={true}
+                text="View Components"
+              />
+            </Link>
+            <Link href="/docs/examples">
+              <Button
+                glass
+                variant="info"
+                icon={<Icon name="Sparkle" />}
+                iconPosition="start"
+                iconOnly={true}
+                text="See Examples"
+              />
+            </Link>
           </div>
         }
         // backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"

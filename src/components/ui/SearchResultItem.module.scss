@@ -13,7 +13,7 @@
 // Block: Base search result item card
 // =============================================================================
 .searchResultItem {
-  transition: var(--atomix-transition-fast);
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
 
   &:hover {
@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--atomix-spacing-sm);
-  background-color: var(--atomix-bg-secondary);
+  background-color: var(--atomix-color-bg-secondary);
   border-radius: var(--atomix-radius-sm);
   flex-shrink: 0;
 }
@@ -49,7 +49,7 @@
 .searchResultItem__title {
   font-weight: var(--atomix-font-weight-medium);
   margin-bottom: var(--atomix-spacing-xs);
-  color: var(--atomix-text-primary);
+  color: var(--atomix-color-text-primary);
 }
 
 .searchResultItem__description {
@@ -58,13 +58,13 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-size: var(--atomix-font-size-sm);
-  color: var(--atomix-text-secondary);
+  color: var(--atomix-color-text-secondary);
   margin-bottom: var(--atomix-spacing-xs);
 }
 
 .searchResultItem__meta {
   font-size: var(--atomix-font-size-xs);
-  color: var(--atomix-text-secondary);
+  color: var(--atomix-color-text-secondary);
   margin-top: var(--atomix-spacing-xs);
 }
 

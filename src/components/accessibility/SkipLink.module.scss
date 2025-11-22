@@ -1,29 +1,39 @@
-// Skip Link Component Styles
+// Component: SkipLink
 // =============================================================================
 
-@import '../../design-system/tokens';
 
+// Block: Base skip link
+// =============================================================================
 .skipLink {
   position: absolute;
   top: -100px;
   left: 0;
-  z-index: 9999;
-  padding: var(--space-3) var(--space-4);
-  background-color: var(--color-primary-500);
-  color: var(--color-text-primary);
+  z-index: var(--atomix-z-tooltip);
+  padding: var(--atomix-spacing-sm) var(--atomix-spacing-md);
+  background-color: var(--atomix-primary);
+  color: var(--atomix-color-text-invert);
   text-decoration: none;
-  font-weight: var(--font-weight-semibold);
-  border-radius: var(--radius-md);
+  font-weight: var(--atomix-font-weight-semibold);
+  border-radius: var(--atomix-radius-md);
   transition: top 0.2s ease-in-out;
 
   &:focus {
-    top: var(--space-2);
-    outline: 2px solid var(--color-border-focus);
+    top: var(--atomix-spacing-xs);
+    outline: 2px solid var(--atomix-color-border-focus);
     outline-offset: 2px;
   }
 
   &:hover {
-    background-color: var(--color-primary-600);
+    background-color: var(--atomix-primary);
+    opacity: 0.9;
+  }
+}
+
+// Accessibility
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .skipLink {
+    transition: none;
   }
 }
 
