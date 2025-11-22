@@ -18,9 +18,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { componentId: string };
+  params: Promise<{ componentId: string }>;
 }): Promise<Metadata> {
-  const navigationItem = findNavigationItem(params.componentId);
+  const resolvedParams = await params;
+  const navigationItem = findNavigationItem(resolvedParams.componentId);
   
   if (!navigationItem) {
     return {
@@ -50,7 +51,7 @@ export async function generateMetadata({
       title,
       description,
       type: 'website',
-      url: `https://atomix-docs.vercel.app/docs/components/${params.componentId}`,
+      url: `https://atomix-docs.vercel.app/docs/components/${resolvedParams.componentId}`,
       siteName: 'Atomix Documentation',
     },
     twitter: {
@@ -59,16 +60,17 @@ export async function generateMetadata({
       description,
     },
     alternates: {
-      canonical: `https://atomix-docs.vercel.app/docs/components/${params.componentId}`,
+      canonical: `https://atomix-docs.vercel.app/docs/components/${resolvedParams.componentId}`,
     },
   };
 }
 
-export default function ComponentPageRoute({
+export default async function ComponentPageRoute({
   params,
 }: {
-  params: { componentId: string };
+  params: Promise<{ componentId: string }>;
 }) {
-  return <ComponentPage componentId={params.componentId} />;
+  const resolvedParams = await params;
+  return <ComponentPage componentId={resolvedParams.componentId} />;
 }
 

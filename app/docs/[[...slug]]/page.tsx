@@ -12,7 +12,7 @@ import type { RouteParams, ComponentPropsMap } from '@/types/routes';
 import DocumentationOverviewPage from '@/page-components/common/DocumentationOverviewPage';
 
 interface DynamicPageProps {
-  params: RouteParams;
+  params: Promise<RouteParams>;
 }
 
 // Generate static params for all routes
@@ -41,7 +41,8 @@ export async function generateStaticParams() {
 
 // Generate metadata for the route
 export async function generateMetadata({ params }: DynamicPageProps): Promise<Metadata> {
-  const slug = params.slug || [];
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug || [];
   
   // Handle empty slug - return docs overview metadata
   if (slug.length === 0) {
@@ -70,7 +71,8 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
 }
 
 export default async function DynamicDocsPage({ params }: DynamicPageProps) {
-  const slug = params.slug || [];
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug || [];
   
   // Handle empty slug - show documentation overview page
   if (slug.length === 0) {
