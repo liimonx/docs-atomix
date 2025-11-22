@@ -22,7 +22,7 @@ export const DocumentationFooter: React.FC = () => {
       className={styles.documentationFooter}
       brand="Atomix Design System"
       brandDescription="A comprehensive design system for building modern, accessible, and performant web applications with React and vanilla JavaScript."
-      copyright={`© ${currentYear} Atomix Design System. Built with ❤️ by the Atomix team.`}
+      copyright={`© ${currentYear} Atomix Design System. Built with ❤️ by the Shohojdhara.`}
       layout="columns"
       variant="primary"
       showNewsletter={false}
