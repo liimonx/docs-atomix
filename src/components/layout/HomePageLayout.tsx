@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import { Hero, Button, Icon } from "@shohojdhara/atomix";
+import { usePathname } from "next/navigation";
 import { DocumentationHeader } from "@/components/navigation/DocumentationHeader";
 import { DocumentationFooter } from "./DocumentationFooter";
 import { MobileNavigation } from "@/components/navigation/MobileNavigation";
@@ -11,7 +10,6 @@ import { useResponsive } from "@/hooks/useResponsive";
 
 export const HomePageLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const router = useRouter();
   const pathname = usePathname();
   const { isMobile } = useResponsive();
 

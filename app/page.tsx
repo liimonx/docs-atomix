@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Layers, Palette, Code, Sparkles } from "lucide-react";
 import { HomePageLayout } from "@/components/layout/HomePageLayout";
 import {
@@ -18,12 +17,10 @@ import {
   AtomixGlass,
 } from "@shohojdhara/atomix";
 import CallToActionSection from "@/components/sections/CallToActionSection";
-import { componentMetadata } from "@/data/components";
 
 // Note: This page uses client components (HomePageLayout has interactive features)
 // Metadata is handled in app/layout.tsx for the root page
 export default function Page() {
-  const router = useRouter();
 
   // Statistics data
   const quickStats = [
@@ -153,8 +150,7 @@ export default function Page() {
     },
   ];
 
-  // Featured components (first 6 from metadata)
-  const featuredComponents = componentMetadata.slice(0, 6);
+
 
   // LinkContent component for quick links
   const LinkContent: React.FC<{
