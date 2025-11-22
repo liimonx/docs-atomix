@@ -8,7 +8,6 @@ import {
   Block,
   Card,
   Button,
-  Badge,
   Icon,
   Row,
   GridCol,
@@ -63,48 +62,40 @@ export default function Page() {
     },
   ];
 
-  // Color class mapping for badges
-  const colorClassMap: Record<string, string> = {
-    primary: "u-bg-primary-subtle u-text-primary-emphasis",
-    success: "u-bg-success-subtle u-text-success-emphasis",
-    info: "u-bg-info-subtle u-text-info-emphasis",
-    warning: "u-bg-warning-subtle u-text-warning-emphasis",
-  };
-
   // Features data
   const features = [
     {
-      icon: <Icon name="Lightning" size="lg" />,
+      icon: <Icon name="Lightning" />,
       title: "40+ Components",
       description:
         "Comprehensive component library from basic buttons to advanced charts and AtomixGlass effects.",
     },
     {
-      icon: <Icon name="Palette" size="lg" />,
+      icon: <Icon name="Palette" />,
       title: "Design System Foundation",
       description:
         "Complete design tokens, ITCSS architecture, and powerful layout system with grid and masonry.",
     },
     {
-      icon: <Icon name="Shield" size="lg" />,
+      icon: <Icon name="Shield" />,
       title: "Accessibility First",
       description:
         "WCAG 2.1 AA compliant with full keyboard navigation, screen reader support, and focus management.",
     },
     {
-      icon: <Icon name="Code" size="lg" />,
+      icon: <Icon name="Code" />,
       title: "Dual Implementation",
       description:
         "React components and vanilla JavaScript classes with TypeScript support and comprehensive docs.",
     },
     {
-      icon: <Icon name="Sparkle" size="lg" />,
+      icon: <Icon name="Sparkle" />,
       title: "AtomixGlass Effects",
       description:
         "Advanced WebGL-powered glass morphism effects with multiple variants and performance optimization.",
     },
     {
-      icon: <Icon name="Stack" size="lg" />,
+      icon: <Icon name="Stack" />,
       title: "Complete Theming",
       description:
         "Multiple built-in themes, CSS custom properties, and SCSS configuration for brand integration.",
@@ -114,37 +105,37 @@ export default function Page() {
   // Philosophy data
   const philosophies = [
     {
-      icon: <Icon name="Heart" size="lg" />,
+      icon: <Icon name="Heart" />,
       title: "Principled Design",
       description:
         "Every design decision stems from our core principles of clarity, consistency, and inclusivity. We believe beautiful interfaces should be accessible to everyone.",
     },
     {
-      icon: <Icon name="Lightning" size="lg" />,
+      icon: <Icon name="Lightning" />,
       title: "Performance Conscious",
       description:
         "We craft lightweight solutions that prioritize performance without sacrificing functionality. Less code, more speed, better experience.",
     },
     {
-      icon: <Icon name="GitMerge" size="lg" />,
+      icon: <Icon name="GitMerge" />,
       title: "Scalable Architecture",
       description:
         "Built on ITCSS methodology, our architecture scales from small projects to enterprise applications with predictable organization.",
     },
     {
-      icon: <Icon name="Globe" size="lg" />,
+      icon: <Icon name="Globe" />,
       title: "Universally Accessible",
       description:
         "Accessibility isn't an add-on but a foundation. Every component meets WCAG 2.1 AA standards with full keyboard navigation support.",
     },
     {
-      icon: <Icon name="Gear" size="lg" />,
+      icon: <Icon name="Gear" />,
       title: "Developer Experience",
       description:
         "Thoughtful APIs, comprehensive documentation, and intuitive customization make development enjoyable and efficient.",
     },
     {
-      icon: <Icon name="ArrowsClockwise" size="lg" />,
+      icon: <Icon name="ArrowsClockwise" />,
       title: "Future-Proof",
       description:
         "Our forward-looking approach ensures compatibility with emerging technologies while maintaining stability for production systems.",
@@ -245,9 +236,9 @@ export default function Page() {
           children: <></>,
         }}
         actions={
-          <div className="u-d-flex u-flex-wrap u-gap-4 u-justify-content-center">
+          <>
             <Button
-              glass
+              glass={{ blurAmount: 0 }}
               variant="primary"
               icon={<Icon name="Rocket" />}
             >
@@ -259,8 +250,8 @@ export default function Page() {
               </Link>
             </Button>
             <Button
-              glass
-              variant="error"
+              glass={{ blurAmount: 0 }}
+              variant="primary-outline"
               icon={<Icon name="Code" />}
             >
               <Link
@@ -270,16 +261,7 @@ export default function Page() {
                 View Components
               </Link>
             </Button>
-            <Button
-              glass
-              variant="info"
-              icon={<Icon name="Sparkle" />}
-            >
-              <Link style={{ color: "inherit" }} href="/docs/examples">
-                See Examples
-              </Link>
-            </Button>
-          </div>
+          </>
         }
       />
 
@@ -299,7 +281,11 @@ export default function Page() {
                   icon={<Icon name={stat.icon as any} />}
                   title={stat.value}
                   text={stat.label}
-                  children={<p className="u-text-secondary-emphasis u-fs-xs u-lh-relaxed u-m-0 u-flex-grow-1">{stat.description}</p>}
+                  children={
+                    <p className="u-text-secondary-emphasis u-fs-xs u-lh-relaxed u-m-0 u-flex-grow-1">
+                      {stat.description}
+                    </p>
+                  }
                   row
                 ></Card>
               </GridCol>
@@ -347,17 +333,12 @@ export default function Page() {
           <Row className="u-mt-8">
             {philosophies.map((philosophy, index) => (
               <GridCol key={index} md={6} lg={4} className="u-mb-6">
-                <Card className="u-h-100 u-d-flex u-flex-column">
-                  <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-3 u-w-fit">
-                    {philosophy.icon}
-                  </div>
-                  <h3 className="u-fs-lg u-fw-600 u-mb-3 u-text-primary-emphasis">
-                    {philosophy.title}
-                  </h3>
-                  <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-flex-grow-1">
-                    {philosophy.description}
-                  </p>
-                </Card>
+                <Card
+                  row
+                  icon={philosophy.icon}
+                  title={philosophy.title}
+                  text={philosophy.description}
+                />
               </GridCol>
             ))}
           </Row>
@@ -450,7 +431,6 @@ export default function Page() {
             }
             secondaryAction={
               <Button
-                asChild
                 glass={{ blurAmount: 0, displacementScale: 0 }}
                 variant="error"
                 icon={<Icon name="ArrowRight" />}

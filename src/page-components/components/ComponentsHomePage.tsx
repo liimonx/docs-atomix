@@ -42,13 +42,13 @@ const ComponentsHomePage: React.FC = () => {
           </p>
 
           <div className="u-d-flex u-justify-content-center u-gap-3 u-flex-wrap">
-            <Button asChild variant="primary" size="lg">
+            <Button  variant="primary" size="lg">
               <Link href="/docs/getting-started/installation">
                 <Download size={20} className="u-mr-2" />
                 Get Started
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button  variant="outline" size="lg">
               <Link href="/docs/components/overview">
                 <BookOpen size={20} className="u-mr-2" />
                 Browse Components
@@ -159,7 +159,7 @@ const ComponentsHomePage: React.FC = () => {
 
                   <div className="u-mt-4">
                     <Button
-                      asChild
+                      
                       variant="primary"
                       size="sm"
                       className="u-w-100"

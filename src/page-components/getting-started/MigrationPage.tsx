@@ -166,7 +166,7 @@ const MigrationPage: React.FC = () => {
             </Link>
             .
           </p>
-          <Button variant="outline" asChild>
+          <Button variant="outline" >
             <Link href="/docs/getting-started/quick-start">
               View Quick Start Guide
               <ArrowRight size={16} className="u-ms-2" />

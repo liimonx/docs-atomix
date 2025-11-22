@@ -52,7 +52,7 @@ const NotFoundPage: React.FC = () => {
 
         {/* Action Buttons */}
         <div className={styles.notFoundPage__actions}>
-          <Button asChild size="lg">
+          <Button  size="lg">
             <Link href="/">
               <Icon name="House" size="sm" className="mr-2" />
               Go Home
@@ -103,7 +103,7 @@ const NotFoundPage: React.FC = () => {
             <p className={styles.notFoundPage__helpText}>
               Try using the search bar in the sidebar or check out our comprehensive documentation.
             </p>
-            <Button variant="outline" asChild>
+            <Button variant="outline" >
               <Link href="/docs/introduction">
                 Browse Documentation
               </Link>

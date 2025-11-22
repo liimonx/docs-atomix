@@ -156,7 +156,7 @@ const HomePage: React.FC = () => {
               </div>
             }
             secondaryAction={
-              <Button asChild>
+              <Button >
                 <Link href="/docs/getting-started/installation">
                   View Installation Guide
                   <Icon name="ArrowRight" size={16} className="u-ms-2" />

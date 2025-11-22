@@ -65,7 +65,7 @@ const CallToActionSectionDocumentation: React.FC = () => {
               }
               secondaryAction={
                 <Link href="/docs/getting-started/installation">
-                  <Button asChild variant="primary">
+                  <Button  variant="primary">
                     View Installation Guide
                     <Icon name="ArrowRight" size={16} className="u-ms-2" />
                   </Button>

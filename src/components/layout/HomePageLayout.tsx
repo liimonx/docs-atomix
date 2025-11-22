@@ -31,7 +31,7 @@ export const HomePageLayout: React.FC<{ children: React.ReactNode }> = ({ childr
 
      
       {/* Main content area - no sidebar for home page */}
-      <div className="atomix-docs-main home-page">
+      <div className="home-page">
         {/* Mobile Navigation Overlay */}
         {isMobile && sidebarOpen && (
           <MobileNavigation
@@ -41,7 +41,7 @@ export const HomePageLayout: React.FC<{ children: React.ReactNode }> = ({ childr
         )}
 
         {/* Page Content - no sidebar for home page */}
-        <main id="main-content" className="atomix-docs-content full-width" role="main">
+        <main id="main-content" role="main">
           {children}
         </main>
       </div>

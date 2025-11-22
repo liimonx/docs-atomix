@@ -157,13 +157,13 @@ const ComponentGuidelinesPage: React.FC = () => {
             to see these guidelines in action.
           </p>
           <div className="u-d-flex u-gap-3">
-            <Button variant="primary" asChild>
+            <Button variant="primary" >
               <Link href="/docs/components/overview">
                 Browse Components
                 <ArrowRight size={16} className="u-ms-2" />
               </Link>
             </Button>
-            <Button variant="outline" asChild>
+            <Button variant="outline" >
               <Link href="/docs/getting-started/quick-start">
                 Quick Start Guide
               </Link>
