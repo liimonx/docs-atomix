@@ -5,7 +5,7 @@
       "name": "atomix-docs",
       "dependencies": {
         "@playwright/test": "^1.56.1",
-        "@shohojdhara/atomix": "^0.2.6",
+        "@shohojdhara/atomix": "^0.2.7",
         "date-fns": "^2.29.3",
         "framer-motion": "^10.0.1",
         "fuse.js": "^6.6.2",
@@ -296,7 +296,7 @@
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.53.2", "", { "os": "win32", "cpu": "x64" }, "sha512-k+/Rkcyx//P6fetPoLMb8pBeqJBNGx81uuf7iljX9++yNBVRDQgD04L+SVXmXmh5ZP4/WOp4mWF0kmi06PW2tA=="],
 
-    "@shohojdhara/atomix": ["@shohojdhara/atomix@0.2.6", "", { "dependencies": { "@phosphor-icons/react": "2.1.10", "classnames": "^2.3.0" }, "peerDependencies": { "react": "^18.0.0", "react-dom": "^18.0.0" } }, "sha512-Gmcr0UvXjg+2qJozUKYv3cKSuT/n6RnFHptOJLME3/ilEHKClAoNqlLBlzGHafY54wy4qGEhzcATG/FcTLi+EA=="],
+    "@shohojdhara/atomix": ["@shohojdhara/atomix@0.2.7", "", { "dependencies": { "@phosphor-icons/react": "2.1.10", "classnames": "^2.3.0" }, "peerDependencies": { "react": "^18.0.0", "react-dom": "^18.0.0" } }, "sha512-qdmkSRVwBq4cYBDt4rr/NQ2Tze3Jy0d+RhBd2B663Dib858jBL5uZ3La5DyPJRKpBkDx4TcOnVAW3+1ioWFw0A=="],
 
     "@sinclair/typebox": ["@sinclair/typebox@0.34.38", "", {}, "sha512-HpkxMmc2XmZKhvaKIZZThlHmx1L0I/V1hWK1NubtlFnr6ZqdiOpV72TKudZUNQjZNsyDBay72qFEhEvb+bcwcA=="],
 

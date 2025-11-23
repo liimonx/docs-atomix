@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Card, 
-  Tab, 
+  Tabs, 
   Button, 
   Badge, 
   Callout, 
@@ -207,7 +207,7 @@ function MyComponent() {
       </header>
 
       {/* Navigation Tabs */}
-      <Tab
+      <Tabs
         items={tabs}
         activeIndex={activeTab}
         onTabChange={setActiveTab}

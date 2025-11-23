@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next';
 import { Toaster } from 'react-hot-toast';
 import { ResponsiveProvider } from '@/hooks/useResponsive';
 import { SearchProvider } from '@/hooks/useSearch';
-import '@/styles/globals.css';
 import '@shohojdhara/atomix/css';
+import '@/styles/globals.css';
 
 export const viewport: Viewport = {
   themeColor: '#0066cc',

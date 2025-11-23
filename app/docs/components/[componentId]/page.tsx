@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ComponentPage from '@/page-components/components/ComponentPage';
+import { ComponentPage } from '@/page-components';
 import { navigationData } from '@/data/navigation';
 import { findNavigationItem } from '@/data/navigation';
 

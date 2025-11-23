@@ -11,7 +11,7 @@ import {
   Button,
   Badge,
   Callout,
-  Tab
+  Tabs
 } from '@shohojdhara/atomix';
 import { GlassProps } from '@/types/atomix-components';
 import {
@@ -127,7 +127,7 @@ const GuidesAtomixGlassPerformancePage = () => {
 
         {/* Main Content Tabs */}
         <div className="u-mt-8">
-          <Tab
+          <Tabs
             items={[
               {
                 label: 'Best Practices',

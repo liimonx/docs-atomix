@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Tab } from '@shohojdhara/atomix';
+import { Button, Tabs } from '@shohojdhara/atomix';
 import type { ComponentDocumentation } from '@/types/index';
 
 interface InteractiveDemoProps {
@@ -91,7 +91,7 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({
         )}
       </div>
 
-      <Tab
+      <Tabs
         items={tabs}
         activeIndex={activeTab}
         onTabChange={setActiveTab}

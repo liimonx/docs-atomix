@@ -63,14 +63,14 @@ export const ComponentExamples: React.FC<ComponentExamplesProps> = ({
           <Card className="u-mb-6">
             <h3 className="u-mb-4">Examples</h3>
             <ul className="u-list-unstyled">
-              {examples.map((_, nestedIndex) => (
-                <li key={index} className="u-mb-3">
+              {examples.map((example, nestedIndex) => (
+                <li key={example.id || `example-${nestedIndex}`} className="u-mb-3">
                   <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-2">
-                    <h4 className="u-mb-0">{examples[nestedIndex].title}</h4>
+                    <h4 className="u-mb-0">{example.title}</h4>
                     <div className="u-d-flex u-gap-2">
-                      <Button variant="outline" size="sm" onClick={() => onCopy(examples[nestedIndex].code, `example-${nestedIndex}`)}>
+                      <Button variant="outline" size="sm" onClick={() => onCopy(example.code, example.id || `example-${nestedIndex}`)}>
                         {/* <Icon name="Copy" size={16} className="u-mr-2" /> */}
-                        {copiedCode === `example-${nestedIndex}` ? 'Copied!' : 'Copy'}
+                        {copiedCode === (example.id || `example-${nestedIndex}`) ? 'Copied!' : 'Copy'}
                       </Button>
                       {/* <Button variant="outline" size="sm" onClick={() => setActiveExample(example)}>
                         <Icon name="Eye" size={16} className="u-mr-2" />
@@ -78,9 +78,9 @@ export const ComponentExamples: React.FC<ComponentExamplesProps> = ({
                       </Button> */}
                     </div>
                   </div>
-                  <p className="u-text-muted u-mb-2">{examples[nestedIndex].description}</p>
+                  <p className="u-text-muted u-mb-2">{example.description}</p>
                   <pre className="code-block u-mb-0">
-                    <code className={`language-${examples[nestedIndex].language}`}>{examples[nestedIndex].code}</code>
+                    <code className={`language-${example.language}`}>{example.code}</code>
                   </pre>
                 </li>
               ))}

@@ -18,7 +18,7 @@ import {
   GridCol,
   Block,
   Hero,
-  Tab,
+  Tabs,
   Callout,
 } from "@shohojdhara/atomix";
 import toast from "react-hot-toast";
@@ -400,7 +400,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
         </div>
 
         <div className={styles.componentPage__tabs}>
-          <Tab items={tabItems} activeIndex={0} />
+          <Tabs items={tabItems} activeIndex={0} />
         </div>
 
         <div className="u-mt-8">
