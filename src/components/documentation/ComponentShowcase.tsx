@@ -26,18 +26,19 @@ export const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
       icon: 'Eye' as any,
       description: 'Component overview and basic usage',
       content: (
-        <div className="tab-content overview-content">
+        <div className="u-mt-4">
           {/* Quick Start */}
-          <section className="quick-start-section">
-            <h2>Quick Start</h2>
-            <p>Get started with {component.name} in just a few lines of code.</p>
+          <section className="u-mb-8">
+            <h2 className="u-fs-2xl u-fw-bold u-mb-3">Quick Start</h2>
+            <p className="u-text-secondary-emphasis u-mb-4">Get started with {component.name} in just a few lines of code.</p>
 
-            <div className="code-example">
-              <div className="code-header">
-                <span className="code-title">Basic Usage</span>
+            <Card className="u-p-0 u-overflow-hidden">
+              <div className="u-p-3 u-bg-tertiary u-border-b u-border-subtle">
+                <span className="u-fs-sm u-fw-medium u-text-secondary-emphasis">Basic Usage</span>
               </div>
-              <pre className="code-block">
-                <code>{component.quickStart || `import { ${component.name} } from '@shohojdhara/atomix';
+              <div className="u-p-4 u-bg-secondary">
+                <pre className="u-m-0 u-overflow-x-auto">
+                  <code className="u-fs-sm">{component.quickStart || `import { ${component.name} } from '@shohojdhara/atomix';
 
 function MyComponent() {
   return (
@@ -46,25 +47,26 @@ function MyComponent() {
     </${component.name}>
   );
 }`}</code>
-              </pre>
-            </div>
+                </pre>
+              </div>
+            </Card>
           </section>
 
           {/* Key Features */}
           {component.features && component.features.length > 0 && (
-            <section className="features-section">
-              <h2>Key Features</h2>
-              <div className="features-grid">
+            <section className="u-mb-8">
+              <h2 className="u-fs-2xl u-fw-bold u-mb-4">Key Features</h2>
+              <div className="u-d-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 'var(--atomix-spacing-md)' }}>
                 {component.features.map((feature, index) => (
-                  <Card key={index} className="feature-card">
-                    <div className="feature-content">
+                  <Card key={index} className="u-p-6 u-h-100">
+                    <div className="u-d-flex u-flex-direction-column u-gap-3">
                       <Icon
                         name={feature.icon as any}
                         size="md"
-                        className="feature-icon"
+                        className="u-text-primary"
                       />
-                      <h3 className="feature-title">{feature.title}</h3>
-                      <p className="feature-description">{feature.description}</p>
+                      <h3 className="u-fs-lg u-fw-semibold u-m-0">{feature.title}</h3>
+                      <p className="u-text-secondary-emphasis u-m-0">{feature.description}</p>
                     </div>
                   </Card>
                 ))}
@@ -80,8 +82,8 @@ function MyComponent() {
       icon: 'Code' as any,
       description: 'Interactive examples and demos',
       content: (
-        <div className="tab-content examples-content">
-          <p>Examples content will be implemented here.</p>
+        <div className="u-mt-4">
+          <p className="u-text-secondary-emphasis">Examples content will be implemented here.</p>
         </div>
       )
     },
@@ -91,8 +93,8 @@ function MyComponent() {
       icon: 'FileText' as any,
       description: 'Props, types, and API reference',
       content: (
-        <div className="tab-content api-content">
-          <p>API documentation will be implemented here.</p>
+        <div className="u-mt-4">
+          <p className="u-text-secondary-emphasis">API documentation will be implemented here.</p>
         </div>
       )
     },
@@ -102,8 +104,8 @@ function MyComponent() {
       icon: 'Shield' as any,
       description: 'A11y features and guidelines',
       content: (
-        <div className="tab-content accessibility-content">
-          <p>Accessibility guidelines will be implemented here.</p>
+        <div className="u-mt-4">
+          <p className="u-text-secondary-emphasis">Accessibility guidelines will be implemented here.</p>
         </div>
       )
     },
@@ -113,34 +115,39 @@ function MyComponent() {
       icon: 'Palette' as any,
       description: 'Design tokens and theming',
       content: (
-        <div className="tab-content design-content">
-          <p>Design tokens information will be implemented here.</p>
+        <div className="u-mt-4">
+          <p className="u-text-secondary-emphasis">Design tokens information will be implemented here.</p>
         </div>
       )
     }
   ];
 
   return (
-    <div className="component-showcase" role="main">
+    <div role="main" className="u-mb-8">
       {/* Component Header */}
-      <header className="showcase-header">
-        <div className="header-content">
-          <div className="title-section">
-            <div className="title-wrapper">
+      <Card className="u-p-6 u-mb-6 u-bg-gradient" style={{ background: 'linear-gradient(135deg, var(--atomix-color-bg-secondary), var(--atomix-color-bg-tertiary))' }}>
+        <div className="u-d-flex u-align-items-center u-justify-content-between u-flex-wrap u-gap-4 u-mb-4">
+          <div className="u-flex-grow-1" style={{ minWidth: '300px' }}>
+            <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
               {component.icon && (
                 <Icon
                   name={component.icon as any}
                   size="lg"
-                  className="component-icon"
+                  className="u-text-primary"
                   aria-hidden="true"
                 />
               )}
-              <h1 className="component-title">
+              <h1 className="u-fs-4xl u-fw-extrabold u-m-0" style={{ 
+                background: 'var(--atomix-color-primary-gradient)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>
                 {component.name}
               </h1>
             </div>
 
-            <div className="component-badges">
+            <div className="u-d-flex u-gap-2 u-flex-wrap u-mb-4">
               <Badge variant="primary" size="sm" label="Component" />
 
               {component.status === 'stable' && (
@@ -161,7 +168,7 @@ function MyComponent() {
             </div>
           </div>
 
-          <div className="header-actions">
+          <div className="u-d-flex u-gap-2 u-align-items-center">
             <Tooltip content="Copy import statement">
               <Button
                 variant="outline-secondary"
@@ -180,13 +187,13 @@ function MyComponent() {
           </div>
         </div>
 
-        <p className="component-description">
+        <p className="u-fs-lg u-text-secondary-emphasis u-mb-4" style={{ lineHeight: '1.6' }}>
           {component.description}
         </p>
 
         {/* Status Messages */}
         {component.status === 'deprecated' && (
-          <Callout variant="warning" className="status-callout">
+          <Callout variant="warning" className="u-mt-4">
             <Icon name={"AlertTriangle" as any} size="sm" />
             <div>
               <strong>Deprecated Component</strong>
@@ -196,7 +203,7 @@ function MyComponent() {
         )}
 
         {component.status === 'beta' && (
-          <Callout variant="info" className="status-callout">
+          <Callout variant="info" className="u-mt-4">
             <Icon name="Info" size="sm" />
             <div>
               <strong>Beta Component</strong>
@@ -204,14 +211,13 @@ function MyComponent() {
             </div>
           </Callout>
         )}
-      </header>
+      </Card>
 
       {/* Navigation Tabs */}
       <Tabs
         items={tabs}
         activeIndex={activeTab}
         onTabChange={setActiveTab}
-        className="showcase-tabs"
         aria-label="Component documentation sections"
       />
     </div>

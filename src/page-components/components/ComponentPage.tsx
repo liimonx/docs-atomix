@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -31,10 +31,15 @@ import { ComponentExamples } from "@/components/showcase/ComponentExamples";
 import { ComponentAccessibility } from "@/components/showcase/ComponentAccessibility";
 import { ComponentRelated } from "@/components/showcase/ComponentRelated";
 import { GlassProps } from "@/types/atomix-components";
-import styles from "./ComponentPage.module.scss";
 
 const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Prevent hydration mismatch by only rendering glass effect on client
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Find navigation item for the component
   const navigationItem = componentId ? findNavigationItem(componentId) : null;
@@ -150,32 +155,29 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
     {
       label: "📋 Overview",
       content: (
-        <div className={styles.componentPage__overview}>
+        <div className="u-mt-4">
           <Row>
             <GridCol md={8}>
               <Card className="u-p-6">
-                <h3 className="u-mb-4">✨ Features</h3>
-                <ul className={styles.componentPage__featuresList}>
+                <h3 className="u-fs-xl u-fw-bold u-mb-4">✨ Features</h3>
+                <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-4">
                   {componentDoc.features.map((feature, index) => (
                     <li
                       key={index}
-                      className={styles.componentPage__featureItem}
+                      className="u-d-flex u-align-items-start u-gap-3"
                     >
                       {feature.supported ? (
                         <>
                           <CheckCircle
                             size={20}
-                            className={`${styles.componentPage__featureIcon} u-text-success`}
+                            className="u-text-success u-flex-shrink-0"
+                            style={{ marginTop: '2px' }}
                           />
-                          <div className={styles.componentPage__featureContent}>
-                            <div className={styles.componentPage__featureTitle}>
+                          <div className="u-flex-grow-1">
+                            <div className="u-fw-semibold u-text-primary u-mb-1">
                               {feature.title}
                             </div>
-                            <p
-                              className={
-                                styles.componentPage__featureDescription
-                              }
-                            >
+                            <p className="u-text-secondary-emphasis u-fs-sm u-m-0">
                               {feature.description}
                             </p>
                           </div>
@@ -184,17 +186,14 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                         <>
                           <AlertCircle
                             size={20}
-                            className={`${styles.componentPage__featureIcon} u-text-warning`}
+                            className="u-text-warning u-flex-shrink-0"
+                            style={{ marginTop: '2px' }}
                           />
-                          <div className={styles.componentPage__featureContent}>
-                            <div className={styles.componentPage__featureTitle}>
+                          <div className="u-flex-grow-1">
+                            <div className="u-fw-semibold u-text-primary u-mb-1">
                               {feature.title}
                             </div>
-                            <p
-                              className={
-                                styles.componentPage__featureDescription
-                              }
-                            >
+                            <p className="u-text-secondary-emphasis u-fs-sm u-m-0">
                               {feature.description}
                             </p>
                           </div>
@@ -206,25 +205,29 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
               </Card>
 
               <Card className="u-p-6 u-mt-4">
-                <h3 className="u-mb-4">📦 Installation</h3>
-                <pre className={styles.componentPage__codeBlock}>
-                  <code>npm install @shohojdhara/atomix</code>
-                </pre>
+                <h3 className="u-fs-xl u-fw-bold u-mb-4">📦 Installation</h3>
+                <Card className="u-p-4 u-bg-secondary u-border u-border-subtle u-overflow-x-auto">
+                  <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'monospace' }}>
+                    <code>npm install @shohojdhara/atomix</code>
+                  </pre>
+                </Card>
               </Card>
 
               <Card className="u-p-6 u-mt-4">
-                <h3 className="u-mb-4">🚀 Basic Usage</h3>
-                <pre className={styles.componentPage__codeBlock}>
-                  <code>{`import { ${componentDoc.name} } from '${componentDoc.importPath}';
+                <h3 className="u-fs-xl u-fw-bold u-mb-4">🚀 Basic Usage</h3>
+                <Card className="u-p-4 u-bg-secondary u-border u-border-subtle u-overflow-x-auto">
+                  <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'monospace' }}>
+                    <code>{`import { ${componentDoc.name} } from '${componentDoc.importPath}';
 
 // Example usage
 <${componentDoc.name} />
 `}</code>
-                </pre>
+                  </pre>
+                </Card>
               </Card>
 
               <Callout variant="info" className="u-mt-4">
-                <h4 className="u-mb-2">💡 Quick Tip</h4>
+                <h4 className="u-fs-lg u-fw-semibold u-mb-2">💡 Quick Tip</h4>
                 <p className="u-mb-0">
                   Check out the Examples tab for more detailed usage patterns
                   and the Props tab for a complete API reference.
@@ -233,58 +236,64 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
             </GridCol>
 
             <GridCol md={4}>
-              <div className={styles.componentPage__sidebar}>
-                <Card className={`${styles.componentPage__infoCard} u-p-6`}>
-                  <h3>📚 Dependencies</h3>
+              <div className="u-d-flex u-flex-direction-column u-gap-4">
+                <Card className="u-p-6">
+                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">📚 Dependencies</h3>
                   {componentDoc.dependencies.length > 0 ? (
-                    <ul className={styles.componentPage__dependencyList}>
+                    <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
                       {componentDoc.dependencies.map((dep, index) => (
-                        <li
-                          key={index}
-                          className={styles.componentPage__dependencyItem}
-                        >
+                        <li key={index}>
                           <Badge variant="warning" label={dep as string}/>
                         </li>
                       ))}
                     </ul>
                   ) : (
-                    <p className={styles.componentPage__emptyState}>
+                    <p className="u-text-secondary-emphasis u-fs-sm u-font-style-italic u-m-0">
                       No external dependencies
                     </p>
                   )}
                 </Card>
 
-                <Card className={`${styles.componentPage__infoCard} u-p-6`}>
-                  <h3>🏷️ Tags</h3>
-                  <div className={styles.componentPage__tagList}>
+                <Card className="u-p-6">
+                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">🏷️ Tags</h3>
+                  <div className="u-d-flex u-flex-wrap u-gap-2">
                     {componentDoc.tags.map((tag, index) => (
-                      <Badge key={index} variant="secondary" size="sm" label={tag as string} className={styles.componentPage__tagBadge} >
-                      </Badge>
+                      <Badge key={index} variant="secondary" size="sm" label={tag as string} />
                     ))}
                   </div>
                 </Card>
 
-                <Card className={`${styles.componentPage__infoCard} u-p-6`}>
-                  <h3>🔗 Quick Links</h3>
-                  <div className={styles.componentPage__quickLinks}>
-                    <a
-                      href={`https://github.com/shohojdhara/atomix/tree/main/src/components/${componentDoc.name}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.componentPage__quickLink}
+                <Card className="u-p-6">
+                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">🔗 Quick Links</h3>
+                  <div className="u-d-flex u-flex-direction-column u-gap-2">
+                    <Button
+                      variant="outline-secondary"
+                      size="sm"
+                      onClick={() =>
+                        window.open(
+                          `https://github.com/shohojdhara/atomix/tree/main/src/components/${componentDoc.name}`,
+                          "_blank"
+                        )
+                      }
+                      className="u-w-100 u-justify-content-start"
                     >
                       <Github size={14} />
                       Source Code
-                    </a>
-                    <a
-                      href={`https://atomix-storybook.netlify.app/?path=/story/components-${componentId}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.componentPage__quickLink}
+                    </Button>
+                    <Button
+                      variant="outline-secondary"
+                      size="sm"
+                      onClick={() =>
+                        window.open(
+                          `https://atomix-storybook.netlify.app/?path=/story/components-${componentId}`,
+                          "_blank"
+                        )
+                      }
+                      className="u-w-100 u-justify-content-start"
                     >
                       <BookOpen size={14} />
                       Storybook
-                    </a>
+                    </Button>
                   </div>
                 </Card>
               </div>
@@ -316,20 +325,22 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
   ];
 
   return (
-    <div className={styles.componentPage}>
+    <div className="u-min-h-screen u-pb-xl">
 
       <Hero
         glass={
-          {
-            displacementScale: 30,
-            blurAmount: 5,
-            elasticity: 0,
-            enableLiquidBlur: true,
-            padding: "20px",
-            cornerRadius: 30,
-          } as GlassProps
+          isMounted
+            ? {
+                displacementScale: 30,
+                blurAmount: 5,
+                elasticity: 0,
+                enableLiquidBlur: true,
+                padding: "20px",
+                cornerRadius: 30,
+              } as GlassProps
+            : undefined
         }
-        className={`${styles.componentPage__hero} u-pt-32 u-pb-16`}
+        className="u-mb-lg u-pt-32 u-pb-16"
         backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
         title={componentDoc.name}
         text={componentDoc.description}
@@ -337,26 +348,37 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
       />
 
       <Block>
-        <div className={styles.componentPage__header}>
+        <div className="u-mb-lg">
           <Link
             href="/docs/components/overview"
-            className={styles.componentPage__backLink}
+            className="u-d-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-fs-sm u-mb-4 u-transition-fast u-focus-visible-ring"
+            style={{ 
+              transition: 'var(--atomix-transition-fast)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'var(--atomix-color-primary)';
+              e.currentTarget.style.transform = 'translateX(-4px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '';
+              e.currentTarget.style.transform = '';
+            }}
           >
             <ArrowLeft size={16} />
             <span>Back to Components</span>
           </Link>
 
-          <div className={styles.componentPage__titleRow}>
-            <div className={styles.componentPage__titleContent}>
-              <h1 className={styles.componentPage__title}>
+          <div className="u-d-flex u-flex-wrap u-align-items-start u-justify-content-between u-gap-4 u-mb-4">
+            <div className="u-flex-grow-1" style={{ minWidth: '300px' }}>
+              <h1 className="u-fs-4xl u-fw-bold u-mb-2">
                 {componentDoc.name}
               </h1>
-              <p className={styles.componentPage__description}>
+              <p className="u-fs-lg u-text-secondary-emphasis u-m-0" style={{ lineHeight: 'var(--atomix-line-height-relaxed)' }}>
                 {componentDoc.description}
               </p>
             </div>
 
-            <div className={styles.componentPage__actions}>
+            <div className="u-d-flex u-gap-2 u-flex-wrap">
               <Button
                 variant="outline"
                 size="sm"
@@ -383,7 +405,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
             </div>
           </div>
 
-          <div className={styles.componentPage__badges}>
+          <div className="u-d-flex u-flex-wrap u-gap-2">
             <Badge
               variant={getStatusColor(componentDoc.status) as any}
               label={componentDoc.status as string}
@@ -399,7 +421,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
           </div>
         </div>
 
-        <div className={styles.componentPage__tabs}>
+        <div className="u-mb-lg">
           <Tabs items={tabItems} activeIndex={0} />
         </div>
 

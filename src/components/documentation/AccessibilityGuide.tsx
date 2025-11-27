@@ -11,31 +11,33 @@ export const AccessibilityGuide: React.FC<AccessibilityGuideProps> = ({ componen
 
   if (!accessibility) {
     return (
-      <div className="accessibility-guide empty">
-        <p>No accessibility information available for this component.</p>
-      </div>
+      <Card className="u-p-6 u-text-center">
+        <p className="u-text-secondary-emphasis">No accessibility information available for this component.</p>
+      </Card>
     );
   }
 
   return (
-    <div className="accessibility-guide">
-      <section className="a11y-overview">
-        <h2>Accessibility Overview</h2>
-        <p>{accessibility.overview}</p>
+    <div className="u-mb-6">
+      <section className="u-mb-8">
+        <h2 className="u-fs-2xl u-fw-bold u-mb-3">Accessibility Overview</h2>
+        <p className="u-text-secondary-emphasis">{accessibility.overview}</p>
       </section>
 
       {accessibility.keyboardSupport && accessibility.keyboardSupport.length > 0 && (
-        <section className="keyboard-support">
-          <h2>Keyboard Support</h2>
-          <div className="keyboard-grid">
+        <section className="u-mb-8">
+          <h2 className="u-fs-2xl u-fw-bold u-mb-4">Keyboard Support</h2>
+          <div className="u-d-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 'var(--atomix-spacing-md)' }}>
             {accessibility.keyboardSupport.map((item, index) => (
-              <Card key={index} className="keyboard-item">
-                <div className="keyboard-key">
-                  <kbd>{item.key}</kbd>
-                </div>
-                <div className="keyboard-description">
-                  <p>{item.action}</p>
-                  {item.context && <small>{item.context}</small>}
+              <Card key={index} className="u-p-4">
+                <div className="u-d-flex u-align-items-start u-gap-3">
+                  <div className="u-bg-tertiary u-p-2 u-br-sm">
+                    <kbd className="u-fs-sm u-fw-semibold u-m-0">{item.key}</kbd>
+                  </div>
+                  <div className="u-flex-grow-1">
+                    <p className="u-m-0 u-mb-1">{item.action}</p>
+                    {item.context && <small className="u-fs-sm u-text-secondary-emphasis">{item.context}</small>}
+                  </div>
                 </div>
               </Card>
             ))}
@@ -44,60 +46,66 @@ export const AccessibilityGuide: React.FC<AccessibilityGuideProps> = ({ componen
       )}
 
       {accessibility.ariaAttributes && accessibility.ariaAttributes.length > 0 && (
-        <section className="aria-attributes">
-          <h2>ARIA Attributes</h2>
-          <div className="aria-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>Attribute</th>
-                  <th>Value</th>
-                  <th>Description</th>
-                  <th>Required</th>
-                </tr>
-              </thead>
-              <tbody>
-                {accessibility.ariaAttributes.map((attr, index) => (
-                  <tr key={index}>
-                    <td><code>{attr.attribute}</code></td>
-                    <td><code>{attr.defaultValue ?? '-'}</code></td>
-                    <td>{attr.description}</td>
-                    <td>
-                      {attr.required ? (
-                        <Icon name="Check" size="sm" className="required-icon" />
-                      ) : (
-                        <Icon name="X" size="sm" className="optional-icon" />
-                      )}
-                    </td>
+        <section className="u-mb-8">
+          <h2 className="u-fs-2xl u-fw-bold u-mb-4">ARIA Attributes</h2>
+          <Card className="u-p-0 u-overflow-hidden">
+            <div className="u-overflow-x-auto">
+              <table className="u-w-100" style={{ borderCollapse: 'collapse' }}>
+                <thead className="u-bg-tertiary">
+                  <tr>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Attribute</th>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Value</th>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Description</th>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Required</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {accessibility.ariaAttributes.map((attr, index) => (
+                    <tr key={index} className="u-border-b u-border-subtle">
+                      <td className="u-p-3">
+                        <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">{attr.attribute}</code>
+                      </td>
+                      <td className="u-p-3">
+                        <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">{attr.defaultValue ?? '-'}</code>
+                      </td>
+                      <td className="u-p-3 u-text-secondary-emphasis">{attr.description}</td>
+                      <td className="u-p-3">
+                        {attr.required ? (
+                          <Icon name="Check" size="sm" className="u-text-success" />
+                        ) : (
+                          <Icon name="X" size="sm" className="u-text-secondary-emphasis" />
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Card>
         </section>
       )}
 
-      <section className="additional-info">
-        <h2>Additional Information</h2>
-        <div className="info-grid">
-          <div className="info-item">
-            <h3>Screen Reader Support</h3>
-            <p>{accessibility.screenReaderSupport || 'Not specified'}</p>
-          </div>
+      <section className="u-mb-8">
+        <h2 className="u-fs-2xl u-fw-bold u-mb-4">Additional Information</h2>
+        <div className="u-d-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 'var(--atomix-spacing-md)' }}>
+          <Card className="u-p-4">
+            <h3 className="u-fs-lg u-fw-semibold u-mb-2">Screen Reader Support</h3>
+            <p className="u-text-secondary-emphasis u-m-0">{accessibility.screenReaderSupport || 'Not specified'}</p>
+          </Card>
           
-          <div className="info-item">
-            <h3>Focus Management</h3>
-            <p>{accessibility.focusManagement || 'Not specified'}</p>
-          </div>
+          <Card className="u-p-4">
+            <h3 className="u-fs-lg u-fw-semibold u-mb-2">Focus Management</h3>
+            <p className="u-text-secondary-emphasis u-m-0">{accessibility.focusManagement || 'Not specified'}</p>
+          </Card>
           
-          <div className="info-item">
-            <h3>Color Contrast</h3>
-            <p>
+          <Card className="u-p-4">
+            <h3 className="u-fs-lg u-fw-semibold u-mb-2">Color Contrast</h3>
+            <p className="u-m-0">
               {accessibility.colorContrastCompliant 
                 ? '✅ Compliant with WCAG 2.1 AA standards' 
                 : '⚠️ May not meet WCAG 2.1 AA standards'}
             </p>
-          </div>
+          </Card>
         </div>
       </section>
     </div>

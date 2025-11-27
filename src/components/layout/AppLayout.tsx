@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { Container } from "@shohojdhara/atomix";
+import { Container, Grid, GridCol } from "@shohojdhara/atomix";
 import { DocumentationHeader } from "@/components/navigation/DocumentationHeader";
 import { DocumentationFooter } from "./DocumentationFooter";
 import { DocumentationSidebar } from "@/components/navigation/DocumentationSidebar";
@@ -13,7 +13,9 @@ import { useResponsive } from "@/hooks/useResponsive";
 const MemoizedSkipLinks = React.memo(SkipLinks);
 const MemoizedDocumentationFooter = React.memo(DocumentationFooter);
 
-export const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,15 +23,18 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children })
   const { isMobile } = useResponsive();
 
   // Memoize callbacks to prevent child re-renders
-  const handleItemSelect = useCallback((itemId: string) => {
-    setActiveItem(itemId);
-    if (isMobile) {
-      setSidebarOpen(false);
-    }
-  }, [isMobile]);
+  const handleItemSelect = useCallback(
+    (itemId: string) => {
+      setActiveItem(itemId);
+      if (isMobile) {
+        setSidebarOpen(false);
+      }
+    },
+    [isMobile]
+  );
 
   const handleMenuToggle = useCallback(() => {
-    setSidebarOpen(prev => !prev);
+    setSidebarOpen((prev) => !prev);
   }, []);
 
   const handleSidebarClose = useCallback(() => {
@@ -45,25 +50,38 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children })
     if (!isMobile) return;
     setSidebarOpen(false);
     const handler = () => setSidebarOpen(false);
-    window.addEventListener('popstate', handler);
-    return () => window.removeEventListener('popstate', handler);
+    window.addEventListener("popstate", handler);
+    return () => window.removeEventListener("popstate", handler);
   }, [isMobile]);
 
   // Memoize header props to prevent re-renders
-  const headerProps = useMemo(() => ({
-    onMenuToggle: handleMenuToggle,
-    sidebarOpen,
-  }), [handleMenuToggle, sidebarOpen]);
+  const headerProps = useMemo(
+    () => ({
+      onMenuToggle: handleMenuToggle,
+      sidebarOpen,
+    }),
+    [handleMenuToggle, sidebarOpen]
+  );
 
   // Memoize sidebar props to prevent re-renders
-  const sidebarProps = useMemo(() => ({
-    isOpen: sidebarOpen,
-    onClose: handleSidebarClose,
-    activeItem,
-    onItemSelect: handleItemSelect,
-    searchQuery,
-    onSearchChange: handleSearchChange,
-  }), [sidebarOpen, handleSidebarClose, activeItem, handleItemSelect, searchQuery, handleSearchChange]);
+  const sidebarProps = useMemo(
+    () => ({
+      isOpen: sidebarOpen,
+      onClose: handleSidebarClose,
+      activeItem,
+      onItemSelect: handleItemSelect,
+      searchQuery,
+      onSearchChange: handleSearchChange,
+    }),
+    [
+      sidebarOpen,
+      handleSidebarClose,
+      activeItem,
+      handleItemSelect,
+      searchQuery,
+      handleSearchChange,
+    ]
+  );
 
   return (
     <div>
@@ -72,27 +90,27 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children })
       <DocumentationHeader {...headerProps} />
 
       {/* Main content area */}
-      <div className="atomix-docs-main">
-        {/* Sidebar - Desktop persistent, mobile overlay */}
-        <nav id="navigation" aria-label="Documentation navigation">
-          <DocumentationSidebar {...sidebarProps} />
-        </nav>
+      <Container type="fluid">
+        <Grid>
+          {/* Sidebar - Desktop persistent, mobile overlay */}
+          <GridCol xs={12} lg={3} className="d-none d-lg-block">
+            <DocumentationSidebar {...sidebarProps} />
+          </GridCol>
 
-        {/* Mobile Navigation Overlay */}
-        {isMobile && sidebarOpen && (
-          <MobileNavigation
-            isOpen={sidebarOpen}
-            onClose={handleSidebarClose}
-          />
-        )}
+          {/* Mobile Navigation Overlay */}
+          {isMobile && sidebarOpen && (
+            <MobileNavigation
+              isOpen={sidebarOpen}
+              onClose={handleSidebarClose}
+            />
+          )}
 
-        {/* Page Content - Only this should re-render on route change */}
-        <main id="main-content" className="atomix-docs-content" role="main">
-          <Container type="fluid">
+          {/* Page Content - Only this should re-render on route change */}
+          <GridCol xs={12} lg={9}>
             {children}
-          </Container>
-        </main>
-      </div>
+          </GridCol>
+        </Grid>
+      </Container>
       <MemoizedDocumentationFooter />
     </div>
   );

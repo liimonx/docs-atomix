@@ -1,32 +1,23 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Hero,
   SectionIntro,
   Card,
   GridCol,
-  Row,
   Block,
   Button,
   Badge,
+  Grid,
   Callout,
-  Tabs
-} from '@shohojdhara/atomix';
-import { GlassProps } from '@/types/atomix-components';
-import {
-  Zap,
-  TrendingDown,
-  Cpu,
-  Monitor,
-  Copy,
-  CheckCircle,
-  AlertTriangle,
-  Info,
-  Lightbulb
-} from 'lucide-react';
-import toast from 'react-hot-toast';
-import styles from './GuidesAtomixGlassPerformancePage.module.scss';
+  Tabs,
+  Icon,
+} from "@shohojdhara/atomix";
+import { GlassProps } from "@/types/atomix-components";
+
+import toast from "react-hot-toast";
+import styles from "./GuidesAtomixGlassPerformancePage.module.scss";
 
 const GuidesAtomixGlassPerformancePage = () => {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -35,14 +26,19 @@ const GuidesAtomixGlassPerformancePage = () => {
     try {
       await navigator.clipboard.writeText(code);
       setCopiedCode(id);
-      toast.success('Code copied to clipboard!');
+      toast.success("Code copied to clipboard!");
       setTimeout(() => setCopiedCode(null), 2000);
     } catch (err) {
-      toast.error('Failed to copy code');
+      toast.error("Failed to copy code");
     }
   };
 
-  const renderCodeBlock = (code: string, language: string, id: string, title?: string) => (
+  const renderCodeBlock = (
+    code: string,
+    language: string,
+    id: string,
+    title?: string
+  ) => (
     <div className={styles.guidePage__codeBlock}>
       <div className={styles.guidePage__codeHeader}>
         <span className={styles.guidePage__codeTitle}>{title || language}</span>
@@ -51,27 +47,34 @@ const GuidesAtomixGlassPerformancePage = () => {
           size="sm"
           onClick={() => copyToClipboard(code, id)}
         >
-          {copiedCode === id ? <CheckCircle size={16} /> : <Copy size={16} />}
+          {copiedCode === id ? (
+            <Icon name="CheckCircle" size={16} />
+          ) : (
+            <Icon name="Copy" size={16} />
+          )}
         </Button>
       </div>
       <div className={styles.guidePage__codeContent}>
-        <pre><code>{code}</code></pre>
+        <pre>
+          <code>{code}</code>
+        </pre>
       </div>
     </div>
   );
 
   return (
     <>
-
       <Hero
-        glass={{
-          displacementScale: 30,
-          blurAmount: 5,
-          elasticity: 0,
-          enableLiquidBlur: true,
-          padding: "20px",
-          cornerRadius: 30,
-        } as GlassProps}
+        glass={
+          {
+            displacementScale: 30,
+            blurAmount: 5,
+            elasticity: 0,
+            enableLiquidBlur: true,
+            padding: "20px",
+            cornerRadius: 30,
+          } as GlassProps
+        }
         className="u-pt-32 u-pb-16"
         backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
         title="⚡ AtomixGlass Performance"
@@ -84,45 +87,71 @@ const GuidesAtomixGlassPerformancePage = () => {
           title="Performance Optimization Guide"
           text="The AtomixGlass component creates stunning glass morphism effects but can be performance-intensive. This guide provides best practices, optimization techniques, and monitoring strategies to ensure smooth, performant experiences across all devices."
         />
-        
+
         {/* Performance Metrics */}
-        <Row className="u-mt-8">
+        <Grid className="u-mt-8">
           <GridCol md={3} sm={6}>
-            <Card className={`u-p-6 ${styles.guidePage__metricCard}`}>
+            <Card>
               <div className={styles.guidePage__metricValue}>5-7</div>
-              <div className={styles.guidePage__metricLabel}>Max Components</div>
-              <Badge variant="success" size="sm" label="Recommended" className="u-mt-3" />
+              <div className={styles.guidePage__metricLabel}>
+                Max Components
+              </div>
+              <Badge
+                variant="success"
+                size="sm"
+                label="Recommended"
+                className="u-mt-3"
+              />
             </Card>
           </GridCol>
           <GridCol md={3} sm={6}>
-            <Card className={`u-p-6 ${styles.guidePage__metricCard}`}>
+            <Card>
               <div className={styles.guidePage__metricValue}>60fps</div>
-              <div className={styles.guidePage__metricLabel}>Target Frame Rate</div>
-              <Badge variant="primary" size="sm" label="Goal" className="u-mt-3" />
+              <div className={styles.guidePage__metricLabel}>
+                Target Frame Rate
+              </div>
+              <Badge
+                variant="primary"
+                size="sm"
+                label="Goal"
+                className="u-mt-3"
+              />
             </Card>
           </GridCol>
           <GridCol md={3} sm={6}>
-            <Card className={`u-p-6 ${styles.guidePage__metricCard}`}>
+            <Card>
               <div className={styles.guidePage__metricValue}>≤100ms</div>
-              <div className={styles.guidePage__metricLabel}>First Input Delay</div>
-              <Badge variant="warning" size="sm" label="Web Vital" className="u-mt-3" />
+              <div className={styles.guidePage__metricLabel}>
+                First Input Delay
+              </div>
+              <Badge
+                variant="warning"
+                size="sm"
+                label="Web Vital"
+                className="u-mt-3"
+              />
             </Card>
           </GridCol>
           <GridCol md={3} sm={6}>
-            <Card className={`u-p-6 ${styles.guidePage__metricCard}`}>
+            <Card>
               <div className={styles.guidePage__metricValue}>≤0.1</div>
-              <div className={styles.guidePage__metricLabel}>Layout Shift Score</div>
-              <Badge variant="info" size="sm" label="CLS Target" className="u-mt-3" />
+              <div className={styles.guidePage__metricLabel}>
+                Layout Shift Score
+              </div>
+              <Badge
+                variant="info"
+                size="sm"
+                label="CLS Target"
+                className="u-mt-3"
+              />
             </Card>
           </GridCol>
-        </Row>
-        
-        <Callout
-          variant="info"
-          title="Performance Impact"
-          className="u-mt-6"
-        >
-          AtomixGlass uses CSS filters, backdrop filters, and WebGL shaders. While these create beautiful effects, they can impact performance on lower-end devices. Follow this guide to optimize for all users.
+        </Grid>
+
+        <Callout variant="info" title="Performance Impact" className="u-mt-6">
+          AtomixGlass uses CSS filters, backdrop filters, and WebGL shaders.
+          While these create beautiful effects, they can impact performance on
+          lower-end devices. Follow this guide to optimize for all users.
         </Callout>
 
         {/* Main Content Tabs */}
@@ -130,104 +159,204 @@ const GuidesAtomixGlassPerformancePage = () => {
           <Tabs
             items={[
               {
-                label: 'Best Practices',
+                label: "Best Practices",
                 content: (
                   <div>
                     {/* Hardware Acceleration */}
-                    <Row className="u-mt-6">
-                      <GridCol md={12}>
-                        <Card className={`u-p-6 ${styles.guidePage__recommendationCard}`}>
-                          <div className="u-flex u-items-start u-gap-4">
-                            <div className={styles.guidePage__recommendationIcon}>
-                              <Cpu size={20} />
-                            </div>
-                            <div className="u-flex-1">
-                              <h3 className="u-flex u-items-center u-gap-2">
-                                Hardware Acceleration
-                                <Badge variant="primary" size="sm" label="Critical" />
-                              </h3>
-                              <p className="u-mt-2 u-text-secondary">
-                                AtomixGlass automatically uses hardware acceleration through CSS transforms and will-change properties. However, overusing these can cause memory issues.
-                              </p>
-                              <div className="u-mt-4">
-                                <h4 className="u-text-sm u-font-semibold u-mb-2">✅ Do:</h4>
-                                <ul className="u-list-disc u-ml-6 u-space-y-1">
-                                  <li>Limit to 5-7 AtomixGlass components visible at once</li>
-                                  <li>Use simpler effects for less important UI elements</li>
-                                  <li>Remove will-change after animations complete</li>
-                                  <li>Monitor GPU memory usage in DevTools</li>
-                                </ul>
+                    <Grid className="u-mt-6">
+                      <GridCol md={6}>
+                        <Card
+                          icon={<Icon name="Cpu" />}
+                          title={
+                            <>
+                              Hardware Acceleration
+                              <Badge
+                                variant="primary"
+                                size="sm"
+                                label="Critical"
+                                className="u-ms-2"
+                              />
+                            </>
+                          }
+                          text="AtomixGlass automatically uses hardware acceleration through CSS transforms and will-change properties. However, overusing these can cause memory issues."
+                          children={
+                            <React.Fragment>
+                              <div className="u-d-flex u-align-items-start u-gap-4">
+                                <div className="u-flex-grow-1">
+                                  <div className="u-mt-4">
+                                    <h4 className="u-mb-2">✅ Do:</h4>
+                                    <ul className="u-fs-sm">
+                                      <li className="u-mb-1">
+                                        Limit to 5-7 AtomixGlass components
+                                        visible at once
+                                      </li>
+                                      <li className="u-mb-1">
+                                        Use simpler effects for less important
+                                        UI elements
+                                      </li>
+                                      <li className="u-mb-1">
+                                        Remove will-change after animations
+                                        complete
+                                      </li>
+                                      <li className="u-mb-1">
+                                        Monitor GPU memory usage in DevTools
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div className="u-mt-3">
+                                    <h4 className="u-mb-2">❌ Don't:</h4>
+                                    <ul className="u-ml-6 u-fs-sm">
+                                      <li className="u-mb-1">
+                                        Apply glass effects to large scrollable
+                                        areas
+                                      </li>
+                                      <li className="u-mb-1">
+                                        Nest multiple AtomixGlass components
+                                      </li>
+                                      <li className="u-mb-1">
+                                        Use maximum effect values everywhere
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
                               </div>
-                              <div className="u-mt-3">
-                                <h4 className="u-text-sm u-font-semibold u-mb-2">❌ Don't:</h4>
-                                <ul className="u-list-disc u-ml-6 u-space-y-1">
-                                  <li>Apply glass effects to large scrollable areas</li>
-                                  <li>Nest multiple AtomixGlass components</li>
-                                  <li>Use maximum effect values everywhere</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </Card>
+                            </React.Fragment>
+                          }
+                          className="u-h-100"
+                        ></Card>
                       </GridCol>
-                    </Row>
 
-                    {/* Effect Intensity */}
-                    <Row className="u-mt-4">
-                      <GridCol md={12}>
-                        <Card className={`u-p-6 ${styles.guidePage__recommendationCard}`}>
-                          <div className="u-flex u-items-start u-gap-4">
-                            <div className={styles.guidePage__recommendationIcon}>
-                              <TrendingDown size={20} />
-                            </div>
-                            <div className="u-flex-1">
-                              <h3 className="u-flex u-items-center u-gap-2">
-                                Effect Intensity Optimization
-                                <Badge variant="warning" size="sm" label="Important" />
-                              </h3>
-                              <p className="u-mt-2 u-text-secondary">
-                                Higher values for displacement, blur, and aberration require more processing power. Balance visual appeal with performance.
-                              </p>
+                      <GridCol md={6}>
+                        <Card
+                          icon={<Icon name="TrendDown" />}
+                          title={
+                            <>
+                              Effect Intensity Optimization
+                              <Badge
+                                variant="warning"
+                                size="sm"
+                                label="Important"
+                                className="u-ms-2"
+                              />
+                            </>
+                          }
+                          text="Higher values for displacement, blur, and aberration require more processing power. Balance visual appeal with performance."
+                          className="u-h-100"
+                        >
+                          <div className="u-d-flex u-align-items-start u-gap-4">
+                            <div className="u-flex-grow-1">
                               <div className="u-mt-4">
-                                <table className={styles.guidePage__comparisonTable}>
-                                  <thead>
-                                    <tr>
-                                      <th>Property</th>
-                                      <th>Standard</th>
-                                      <th>Performance</th>
-                                      <th>Impact</th>
+                                <table
+                                  className={
+                                    "c-data-table c-data-table--bordered c-data-table--striped c-data-table--dense"
+                                  }
+                                >
+                                  <thead className="c-data-table__header u-fs-sm">
+                                    <tr className="c-data-table__header-row">
+                                      <th className="c-data-table__header-cell">
+                                        Property
+                                      </th>
+                                      <th className="c-data-table__header-cell">
+                                        Standard
+                                      </th>
+                                      <th className="c-data-table__header-cell">
+                                        Performance
+                                      </th>
+                                      <th className="c-data-table__header-cell">
+                                        Impact
+                                      </th>
                                     </tr>
                                   </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td><code>displacementScale</code></td>
-                                      <td>20 (default)</td>
-                                      <td>10-15</td>
-                                      <td><Badge variant="error" size="sm" label="High" /></td>
+                                  <tbody className="c-data-table__body u-fs-sm">
+                                    <tr className="c-data-table__row">
+                                      <td className="c-data-table__cell">
+                                        <code>displacementScale</code>
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        20 (default)
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        10-15
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        <Badge
+                                          variant="error"
+                                          size="sm"
+                                          label="High"
+                                        />
+                                      </td>
                                     </tr>
-                                    <tr>
-                                      <td><code>blurAmount</code></td>
-                                      <td>1 (default)</td>
-                                      <td>0.5-0.8</td>
-                                      <td><Badge variant="warning" size="sm" label="Medium" /></td>
+                                    <tr className="c-data-table__row">
+                                      <td className="c-data-table__cell">
+                                        <code>blurAmount</code>
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        1 (default)
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        0.5-0.8
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        <Badge
+                                          variant="warning"
+                                          size="sm"
+                                          label="Medium"
+                                        />
+                                      </td>
                                     </tr>
-                                    <tr>
-                                      <td><code>saturation</code></td>
-                                      <td>140 (default)</td>
-                                      <td>120-130</td>
-                                      <td><Badge variant="success" size="sm" label="Low" /></td>
+                                    <tr className="c-data-table__row">
+                                      <td className="c-data-table__cell">
+                                        <code>saturation</code>
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        140 (default)
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        120-130
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        <Badge
+                                          variant="success"
+                                          size="sm"
+                                          label="Low"
+                                        />
+                                      </td>
                                     </tr>
-                                    <tr>
-                                      <td><code>aberrationIntensity</code></td>
-                                      <td>2.5 (default)</td>
-                                      <td>1.5-2</td>
-                                      <td><Badge variant="warning" size="sm" label="Medium" /></td>
+                                    <tr className="c-data-table__row">
+                                      <td className="c-data-table__cell">
+                                        <code>aberrationIntensity</code>
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        2.5 (default)
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        1.5-2
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        <Badge
+                                          variant="warning"
+                                          size="sm"
+                                          label="Medium"
+                                        />
+                                      </td>
                                     </tr>
-                                    <tr>
-                                      <td><code>elasticity</code></td>
-                                      <td>0.05 (default)</td>
-                                      <td>0-0.02</td>
-                                      <td><Badge variant="info" size="sm" label="Variable" /></td>
+                                    <tr className="c-data-table__row">
+                                      <td className="c-data-table__cell">
+                                        <code>elasticity</code>
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        0.05 (default)
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        0-0.02
+                                      </td>
+                                      <td className="c-data-table__cell">
+                                        <Badge
+                                          variant="info"
+                                          size="sm"
+                                          label="Variable"
+                                        />
+                                      </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -236,80 +365,104 @@ const GuidesAtomixGlassPerformancePage = () => {
                           </div>
                         </Card>
                       </GridCol>
-                    </Row>
 
-                    {/* Shader Mode */}
-        <Row className="u-mt-4">
-                      <GridCol md={12}>
-                        <Card className={`u-p-6 ${styles.guidePage__recommendationCard}`}>
-                          <div className="u-flex u-items-start u-gap-4">
-                            <div className={styles.guidePage__recommendationIcon}>
-                              <Zap size={20} />
-                            </div>
-                            <div className="u-flex-1">
-                              <h3 className="u-flex u-items-center u-gap-2">
-                                Shader Mode Considerations
-                                <Badge variant="error" size="sm" label="High Impact" />
-                              </h3>
-                              <p className="u-mt-2 u-text-secondary">
-                                The 'shader' mode uses WebGL for advanced effects and is the most performance-intensive option. Use strategically.
-                              </p>
-                              <Callout variant="warning" title="Performance Warning" className="u-mt-4">
-                                Shader mode can reduce frame rates by 30-50% on low-end devices. Always provide fallbacks.
-                              </Callout>
-                              <div className="u-mt-4">
-                                <h4 className="u-text-sm u-font-semibold u-mb-2">When to use shader mode:</h4>
-                                <ul className="u-list-disc u-ml-6 u-space-y-1">
-                                  <li>Hero sections and landing page headers</li>
-                                  <li>Special interactive elements (on hover/click)</li>
-                                  <li>Marketing pages with high-end target audience</li>
-                                  <li>Desktop-first applications</li>
-                                </ul>
-                              </div>
-                              <div className="u-mt-3">
-                                <h4 className="u-text-sm u-font-semibold u-mb-2">When to use standard mode:</h4>
-                                <ul className="u-list-disc u-ml-6 u-space-y-1">
-                                  <li>Mobile applications</li>
-                                  <li>Dashboard and admin interfaces</li>
-                                  <li>Repeated UI elements (cards, modals)</li>
-                                  <li>Low-end device support required</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
+                      <GridCol md={12} className="u-mt-4">
+                        <Card
+                          icon={<Icon name="Lightning" />}
+                          title={
+                            <>
+                              Shader Mode Considerations
+                              <Badge
+                                variant="error"
+                                size="sm"
+                                label="High Impact"
+                                className="u-ms-2"
+                              />
+                            </>
+                          }
+                          text="The 'shader' mode uses WebGL for advanced effects and is the most performance-intensive option. Use strategically."
+                          className="u-h-100"
+                        >
+                          <Callout
+                            variant="warning"
+                            title="Performance Warning"
+                            className="u-mt-4"
+                          >
+                            Shader mode can reduce frame rates by 30-50% on
+                            low-end devices. Always provide fallbacks.
+                          </Callout>
+                          <Grid>
+                            <GridCol md={6} className="u-mt-4">
+                              <h6 className="u-mb-2">
+                                When to use shader mode:
+                              </h6>
+                              <ul className="u-ml-6 u-fs-sm">
+                                <li className="u-mb-1">
+                                  Hero sections and landing page headers
+                                </li>
+                                <li className="u-mb-1">
+                                  Special interactive elements (on hover/click)
+                                </li>
+                                <li className="u-mb-1">
+                                  Marketing pages with high-end target audience
+                                </li>
+                                <li className="u-mb-1">
+                                  Desktop-first applications
+                                </li>
+                              </ul>
+                            </GridCol>
+                            <GridCol md={6} className="u-mt-4">
+                              <h6 className="u-mb-2">
+                                When to use standard mode:
+                              </h6>
+                              <ul className="u-ml-6 u-fs-sm">
+                                <li className="u-mb-1">Mobile applications</li>
+                                <li className="u-mb-1">
+                                  Dashboard and admin interfaces
+                                </li>
+                                <li className="u-mb-1">
+                                  Repeated UI elements (cards, modals)
+                                </li>
+                                <li className="u-mb-1">
+                                  Low-end device support required
+                                </li>
+                              </ul>
+                            </GridCol>
+                          </Grid>
                         </Card>
                       </GridCol>
-                    </Row>
+                    </Grid>
                   </div>
                 ),
               },
               {
-                label: 'Device Detection',
+                label: "Device Detection",
                 content: (
                   <div>
-                    <Row className="u-mt-6">
-          <GridCol md={12}>
-            <Card className="u-p-6">
-                          <div className="u-flex u-items-start u-gap-4">
-                            <div className={styles.guidePage__recommendationIcon}>
-                              <Monitor size={20} />
+                    <Grid className="u-mt-6">
+                      <GridCol md={6}>
+                        <Card className="u-p-6">
+                          <div className="u-d-flex u-align-items-start u-gap-4">
+                            <div>
+                              <Icon name="Monitor" size={20} />
                             </div>
-                            <div className="u-flex-1">
+                            <div className="u-flex-grow-1">
                               <h3>Adaptive Loading Strategy</h3>
-                              <p className="u-mt-2 u-text-secondary">
-                                Implement adaptive loading to provide appropriate experiences based on device capabilities. This ensures optimal performance across all devices.
+                              <p className="u-mt-2 u-text-secondary-emphasis">
+                                Implement adaptive loading to provide
+                                appropriate experiences based on device
+                                capabilities. This ensures optimal performance
+                                across all devices.
                               </p>
                             </div>
                           </div>
                         </Card>
                       </GridCol>
-                    </Row>
 
-                    <Row className="u-mt-4">
-                      <GridCol md={12}>
+                      <GridCol md={6}>
                         <h4 className="u-mb-3">Basic Device Detection</h4>
                         {renderCodeBlock(
-`import { useEffect, useState } from 'react';
+                          `import { useEffect, useState } from 'react';
 import { AtomixGlass } from '@shohojdhara/atomix';
 
 function AdaptiveGlassComponent() {
@@ -340,18 +493,18 @@ function AdaptiveGlassComponent() {
     </AtomixGlass>
   );
 }`,
-                          'typescript',
-                          'device-detection-basic',
-                          'AdaptiveGlassComponent.tsx'
+                          "typescript",
+                          "device-detection-basic",
+                          "AdaptiveGlassComponent.tsx"
                         )}
-          </GridCol>
-        </Row>
-        
-        <Row className="u-mt-4">
-                      <GridCol md={12}>
-                        <h4 className="u-mb-3">Advanced Device Detection Hook</h4>
+                      </GridCol>
+
+                      <GridCol md={6}>
+                        <h4 className="u-mb-3">
+                          Advanced Device Detection Hook
+                        </h4>
                         {renderCodeBlock(
-`import { useEffect, useState } from 'react';
+                          `import { useEffect, useState } from 'react';
 
 interface DeviceCapabilities {
   isLowEnd: boolean;
@@ -420,123 +573,181 @@ function OptimizedGlassComponent() {
     </AtomixGlass>
   );
 }`,
-                          'typescript',
-                          'device-detection-advanced',
-                          'useDeviceCapabilities.ts'
+                          "typescript",
+                          "device-detection-advanced",
+                          "useDeviceCapabilities.ts"
                         )}
                       </GridCol>
-                    </Row>
+                    </Grid>
 
                     <Callout variant="info" title="Pro Tip" className="u-mt-4">
-                      Consider storing device capabilities in a context provider to avoid recalculating on every component mount.
+                      Consider storing device capabilities in a context provider
+                      to avoid recalculating on every component mount.
                     </Callout>
                   </div>
                 ),
               },
               {
-                label: 'Monitoring',
+                label: "Monitoring",
                 content: (
                   <div>
-                    <Row className="u-mt-6">
-          <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
-                            <Monitor size={24} className="u-text-primary" />
+                    <Grid className="u-mt-6">
+                      <GridCol md={6}>
+                        <Card className="u-p-6 u-h-100">
+                          <div className="u-d-flex u-align-items-start u-gap-3 u-mb-4">
+                            <Icon
+                              name="Monitor"
+                              size={24}
+                              className="u-text-primary"
+                            />
                             <div>
                               <h3>Browser DevTools</h3>
-                              <p className="u-text-sm u-text-secondary u-mt-1">
+                              <p className="u-text-secondary-emphasis u-mt-1">
                                 Essential tools for performance monitoring
                               </p>
                             </div>
                           </div>
-                          
-                          <h4 className="u-text-sm u-font-semibold u-mb-2">Performance Tab</h4>
-                          <ul className="u-list-disc u-ml-6 u-space-y-1 u-text-sm u-mb-4">
-                            <li>Record and analyze frame rates</li>
-                            <li>Identify bottlenecks and long tasks</li>
-                            <li>Check for layout thrashing</li>
-                            <li>Monitor paint and composite times</li>
+
+                          <h4 className="u-fs-sm u-fw-600 u-mb-2">
+                            Performance Tab
+                          </h4>
+                          <ul className="u-ml-6 u-fs-sm u-mb-4">
+                            <li className="u-mb-1">
+                              Record and analyze frame rates
+                            </li>
+                            <li className="u-mb-1">
+                              Identify bottlenecks and long tasks
+                            </li>
+                            <li className="u-mb-1">
+                              Check for layout thrashing
+                            </li>
+                            <li className="u-mb-1">
+                              Monitor paint and composite times
+                            </li>
                           </ul>
-                          
-                          <h4 className="u-text-sm u-font-semibold u-mb-2">Rendering Tab</h4>
-                          <ul className="u-list-disc u-ml-6 u-space-y-1 u-text-sm u-mb-4">
-                            <li>Enable FPS meter</li>
-                            <li>Show paint flashing</li>
-                            <li>Highlight layout shift regions</li>
-                            <li>Emulate vision deficiencies</li>
-              </ul>
-              
-                          <h4 className="u-text-sm u-font-semibold u-mb-2">Memory Tab</h4>
-                          <ul className="u-list-disc u-ml-6 u-space-y-1 u-text-sm">
-                            <li>Take heap snapshots</li>
-                            <li>Detect memory leaks</li>
-                            <li>Monitor allocation timeline</li>
-              </ul>
-            </Card>
-          </GridCol>
-          
-          <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
-                            <Zap size={24} className="u-text-warning" />
+
+                          <h4 className="u-fs-sm u-fw-600 u-mb-2">
+                            Rendering Tab
+                          </h4>
+                          <ul className="u-ml-6 u-fs-sm u-mb-4">
+                            <li className="u-mb-1">Enable FPS meter</li>
+                            <li className="u-mb-1">Show paint flashing</li>
+                            <li className="u-mb-1">
+                              Highlight layout shift regions
+                            </li>
+                            <li className="u-mb-1">
+                              Emulate vision deficiencies
+                            </li>
+                          </ul>
+
+                          <h4 className="u-fs-sm u-fw-600 u-mb-2">
+                            Memory Tab
+                          </h4>
+                          <ul className="u-ml-6 u-fs-sm">
+                            <li className="u-mb-1">Take heap snapshots</li>
+                            <li className="u-mb-1">Detect memory leaks</li>
+                            <li className="u-mb-1">
+                              Monitor allocation timeline
+                            </li>
+                          </ul>
+                        </Card>
+                      </GridCol>
+
+                      <GridCol md={6}>
+                        <Card className="u-p-6 u-h-100">
+                          <div className="u-d-flex u-align-items-start u-gap-3 u-mb-4">
+                            <Icon
+                              name="Lightning"
+                              size={24}
+                              className="u-text-warning"
+                            />
                             <div>
                               <h3>Core Web Vitals</h3>
-                              <p className="u-text-sm u-text-secondary u-mt-1">
+                              <p className="u-fs-sm u-text-secondary-emphasis u-mt-1">
                                 Key metrics for user experience
                               </p>
                             </div>
                           </div>
-                          
-                          <div className="u-space-y-4">
-                            <div>
-                              <div className="u-flex u-items-center u-justify-between u-mb-1">
-                                <h4 className="u-text-sm u-font-semibold">Largest Contentful Paint (LCP)</h4>
-                                <Badge variant="success" size="sm" label="≤2.5s" />
+
+                          <div>
+                            <div className="u-mb-4">
+                              <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-1">
+                                <h4 className="u-fs-sm u-fw-600">
+                                  Largest Contentful Paint (LCP)
+                                </h4>
+                                <Badge
+                                  variant="success"
+                                  size="sm"
+                                  label="≤2.5s"
+                                />
                               </div>
-                              <p className="u-text-xs u-text-secondary">
-                                Time until largest content element is rendered. AtomixGlass can delay LCP if used in hero sections.
+                              <p className="u-fs-sm u-text-secondary-emphasis">
+                                Time until largest content element is rendered.
+                                AtomixGlass can delay LCP if used in hero
+                                sections.
                               </p>
                             </div>
-                            
-                            <div>
-                              <div className="u-flex u-items-center u-justify-between u-mb-1">
-                                <h4 className="u-text-sm u-font-semibold">First Input Delay (FID)</h4>
-                                <Badge variant="success" size="sm" label="≤100ms" />
+
+                            <div className="u-mb-4">
+                              <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-1">
+                                <h4 className="u-fs-sm u-fw-600">
+                                  First Input Delay (FID)
+                                </h4>
+                                <Badge
+                                  variant="success"
+                                  size="sm"
+                                  label="≤100ms"
+                                />
                               </div>
-                              <p className="u-text-xs u-text-secondary">
-                                Time from first interaction to browser response. Heavy shader effects can increase FID.
+                              <p className="u-fs-sm u-text-secondary-emphasis">
+                                Time from first interaction to browser response.
+                                Heavy shader effects can increase FID.
                               </p>
                             </div>
-                            
-                            <div>
-                              <div className="u-flex u-items-center u-justify-between u-mb-1">
-                                <h4 className="u-text-sm u-font-semibold">Cumulative Layout Shift (CLS)</h4>
-                                <Badge variant="success" size="sm" label="≤0.1" />
+
+                            <div className="u-mb-4">
+                              <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-1">
+                                <h4 className="u-fs-sm u-fw-600">
+                                  Cumulative Layout Shift (CLS)
+                                </h4>
+                                <Badge
+                                  variant="success"
+                                  size="sm"
+                                  label="≤0.1"
+                                />
                               </div>
-                              <p className="u-text-xs u-text-secondary">
-                                Visual stability score. Always set explicit dimensions for AtomixGlass containers.
+                              <p className="u-fs-sm u-text-secondary-emphasis">
+                                Visual stability score. Always set explicit
+                                dimensions for AtomixGlass containers.
                               </p>
                             </div>
-                            
+
                             <div>
-                              <div className="u-flex u-items-center u-justify-between u-mb-1">
-                                <h4 className="u-text-sm u-font-semibold">Interaction to Next Paint (INP)</h4>
-                                <Badge variant="warning" size="sm" label="≤200ms" />
+                              <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-1">
+                                <h4 className="u-fs-sm u-fw-600">
+                                  Interaction to Next Paint (INP)
+                                </h4>
+                                <Badge
+                                  variant="warning"
+                                  size="sm"
+                                  label="≤200ms"
+                                />
                               </div>
-                              <p className="u-text-xs u-text-secondary">
-                                Responsiveness metric. Debounce interactive glass effects to maintain good INP.
+                              <p className="u-fs-sm u-text-secondary-emphasis">
+                                Responsiveness metric. Debounce interactive
+                                glass effects to maintain good INP.
                               </p>
                             </div>
                           </div>
                         </Card>
                       </GridCol>
-                    </Row>
+                    </Grid>
 
-                    <Row className="u-mt-4">
+                    <Grid className="u-mt-4">
                       <GridCol md={12}>
                         <h4 className="u-mb-3">Performance Monitoring Hook</h4>
                         {renderCodeBlock(
-`import { useEffect, useRef } from 'react';
+                          `import { useEffect, useRef } from 'react';
 
 interface PerformanceMetrics {
   fps: number;
@@ -618,38 +829,54 @@ function MonitoredGlassComponent() {
     </div>
   );
 }`,
-                          'typescript',
-                          'performance-monitor',
-                          'usePerformanceMonitor.ts'
+                          "typescript",
+                          "performance-monitor",
+                          "usePerformanceMonitor.ts"
                         )}
                       </GridCol>
-                    </Row>
+                    </Grid>
 
-                    <Callout variant="warning" title="Production Warning" className="u-mt-4">
-                      Remove or disable performance monitoring in production builds as it can itself impact performance.
+                    <Callout
+                      variant="warning"
+                      title="Production Warning"
+                      className="u-mt-4"
+                    >
+                      Remove or disable performance monitoring in production
+                      builds as it can itself impact performance.
                     </Callout>
                   </div>
                 ),
               },
               {
-                label: 'Optimization Tips',
+                label: "Optimization Tips",
                 content: (
                   <div>
-                    <Row className="u-mt-6">
+                    <Grid className="u-mt-6">
                       <GridCol md={6}>
                         <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
-                            <Lightbulb size={24} className="u-text-success" />
+                          <div className="u-d-flex u-align-items-start u-gap-3 u-mb-4">
+                            <Icon
+                              name="Lightbulb"
+                              size={24}
+                              className="u-text-success"
+                            />
                             <div>
                               <h3>Conditional Rendering</h3>
-                              <Badge variant="success" size="sm" label="Easy Win" className="u-mt-1" />
+                              <Badge
+                                variant="success"
+                                size="sm"
+                                label="Easy Win"
+                                className="u-mt-1"
+                              />
                             </div>
                           </div>
-                          <p className="u-text-sm u-text-secondary u-mb-4">
-                            Only render AtomixGlass components when they're visible in the viewport. This dramatically reduces GPU load.
+                          <p className="u-fs-sm u-text-secondary-emphasis u-mb-4">
+                            Only render AtomixGlass components when they're
+                            visible in the viewport. This dramatically reduces
+                            GPU load.
                           </p>
                           {renderCodeBlock(
-`import { useInView } from 'react-intersection-observer';
+                            `import { useInView } from 'react-intersection-observer';
 
 function LazyGlassComponent() {
   const { ref, inView } = useInView({
@@ -671,27 +898,37 @@ function LazyGlassComponent() {
     </div>
   );
 }`,
-                            'typescript',
-                            'conditional-rendering',
-                            'LazyGlassComponent.tsx'
+                            "typescript",
+                            "conditional-rendering",
+                            "LazyGlassComponent.tsx"
                           )}
                         </Card>
                       </GridCol>
-                      
+
                       <GridCol md={6}>
                         <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
-                            <AlertTriangle size={24} className="u-text-warning" />
+                          <div className="u-d-flex u-align-items-start u-gap-3 u-mb-4">
+                            <Icon
+                              name="WaveTriangle"
+                              size={24}
+                              className="u-text-warning"
+                            />
                             <div>
                               <h3>Reduced Motion Support</h3>
-                              <Badge variant="warning" size="sm" label="Accessibility" className="u-mt-1" />
+                              <Badge
+                                variant="warning"
+                                size="sm"
+                                label="Accessibility"
+                                className="u-mt-1"
+                              />
                             </div>
                           </div>
-                          <p className="u-text-sm u-text-secondary u-mb-4">
-                            Respect user preferences for reduced motion. This also improves performance on low-end devices.
+                          <p className="u-fs-sm u-text-secondary-emphasis u-mb-4">
+                            Respect user preferences for reduced motion. This
+                            also improves performance on low-end devices.
                           </p>
                           {renderCodeBlock(
-`const prefersReducedMotion = window.matchMedia(
+                            `const prefersReducedMotion = window.matchMedia(
   '(prefers-reduced-motion: reduce)'
 ).matches;
 
@@ -706,29 +943,39 @@ function AccessibleGlassComponent() {
     </AtomixGlass>
   );
 }`,
-                            'typescript',
-                            'reduced-motion',
-                            'AccessibleGlassComponent.tsx'
+                            "typescript",
+                            "reduced-motion",
+                            "AccessibleGlassComponent.tsx"
                           )}
                         </Card>
                       </GridCol>
-                    </Row>
+                    </Grid>
 
-                    <Row className="u-mt-4">
+                    <Grid className="u-mt-4">
                       <GridCol md={6}>
                         <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
-                            <Info size={24} className="u-text-info" />
+                          <div className="u-d-flex u-align-items-start u-gap-3 u-mb-4">
+                            <Icon
+                              name="Info"
+                              size={24}
+                              className="u-text-info"
+                            />
                             <div>
                               <h3>Debounce Interactions</h3>
-                              <Badge variant="info" size="sm" label="Performance" className="u-mt-1" />
+                              <Badge
+                                variant="info"
+                                size="sm"
+                                label="Performance"
+                                className="u-mt-1"
+                              />
                             </div>
                           </div>
-                          <p className="u-text-sm u-text-secondary u-mb-4">
-                            Debounce mouse/touch events to reduce the frequency of expensive shader updates.
+                          <p className="u-fs-sm u-text-secondary-emphasis u-mb-4">
+                            Debounce mouse/touch events to reduce the frequency
+                            of expensive shader updates.
                           </p>
                           {renderCodeBlock(
-`import { useMemo } from 'react';
+                            `import { useMemo } from 'react';
 import { debounce } from 'lodash';
 
 function DebouncedGlassComponent() {
@@ -748,27 +995,37 @@ function DebouncedGlassComponent() {
     </AtomixGlass>
   );
 }`,
-                            'typescript',
-                            'debounce-interactions',
-                            'DebouncedGlassComponent.tsx'
+                            "typescript",
+                            "debounce-interactions",
+                            "DebouncedGlassComponent.tsx"
                           )}
                         </Card>
                       </GridCol>
-                      
+
                       <GridCol md={6}>
                         <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
-                            <Cpu size={24} className="u-text-primary" />
+                          <div className="u-d-flex u-align-items-start u-gap-3 u-mb-4">
+                            <Icon
+                              name="Cpu"
+                              size={24}
+                              className="u-text-primary"
+                            />
                             <div>
                               <h3>Memoization</h3>
-                              <Badge variant="primary" size="sm" label="React" className="u-mt-1" />
+                              <Badge
+                                variant="primary"
+                                size="sm"
+                                label="React"
+                                className="u-mt-1"
+                              />
                             </div>
                           </div>
-                          <p className="u-text-sm u-text-secondary u-mb-4">
-                            Memoize AtomixGlass components to prevent unnecessary re-renders and shader recompilation.
+                          <p className="u-fs-sm u-text-secondary-emphasis u-mb-4">
+                            Memoize AtomixGlass components to prevent
+                            unnecessary re-renders and shader recompilation.
                           </p>
                           {renderCodeBlock(
-`import { memo } from 'react';
+                            `import { memo } from 'react';
 
 const MemoizedGlassCard = memo(({ title, content }) => {
   return (
@@ -791,16 +1048,20 @@ const MemoizedGlassCard = memo(({ title, content }) => {
     prevProps.content === nextProps.content
   );
 });`,
-                            'typescript',
-                            'memoization',
-                            'MemoizedGlassCard.tsx'
+                            "typescript",
+                            "memoization",
+                            "MemoizedGlassCard.tsx"
                           )}
-            </Card>
-          </GridCol>
-        </Row>
+                        </Card>
+                      </GridCol>
+                    </Grid>
 
-                    <Callout variant="success" title="Quick Wins Summary" className="u-mt-6">
-                      <ul className="u-list-disc u-ml-6 u-space-y-1 u-mt-2">
+                    <Callout
+                      variant="success"
+                      title="Quick Wins Summary"
+                      className="u-mt-6"
+                    >
+                      <ul className="u-ml-6 u-fs-sm u-mt-2">
                         <li>Use intersection observer for lazy loading</li>
                         <li>Respect prefers-reduced-motion</li>
                         <li>Debounce interactive events</li>

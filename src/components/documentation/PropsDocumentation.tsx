@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DataTable, Badge, Icon } from '@shohojdhara/atomix';
+import { DataTable, Badge, Icon, Input, Card } from '@shohojdhara/atomix';
 import type { ComponentDocumentation } from '@/types/index';
 
 interface PropsDocumentationProps {
@@ -13,9 +13,9 @@ export const PropsDocumentation: React.FC<PropsDocumentationProps> = ({
 
   if (!component.props || component.props.length === 0) {
     return (
-      <div className="props-documentation empty">
-        <p>No props documentation available for this component.</p>
-      </div>
+      <Card className="u-p-6 u-text-center">
+        <p className="u-text-secondary-emphasis">No props documentation available for this component.</p>
+      </Card>
     );
   }
 
@@ -34,17 +34,13 @@ export const PropsDocumentation: React.FC<PropsDocumentationProps> = ({
       header: 'Name',
       accessor: 'name',
       render: (prop: any) => (
-        <div className="prop-name">
-          <code>{prop.name}</code>
+        <div className="u-d-flex u-align-items-center u-gap-2 u-flex-wrap">
+          <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">{prop.name}</code>
           {prop.required && (
-            <Badge variant="error" label="Required" className="required-badge">
-              Required
-            </Badge>
+            <Badge variant="error" size="sm" label="Required" />
           )}
           {prop.deprecated && (
-            <Badge variant="warning" label="Deprecated" className="deprecated-badge">
-              Deprecated
-            </Badge>
+            <Badge variant="warning" size="sm" label="Deprecated" />
           )}
         </div>
       )
@@ -54,7 +50,7 @@ export const PropsDocumentation: React.FC<PropsDocumentationProps> = ({
       title: 'Type',
       header: 'Type',
       accessor: 'type',
-      render: (prop: any) => <code className="prop-type">{prop.type}</code>
+      render: (prop: any) => <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm u-text-primary">{prop.type}</code>
     },
     {
       key: 'defaultValue',
@@ -62,7 +58,11 @@ export const PropsDocumentation: React.FC<PropsDocumentationProps> = ({
       header: 'Default',
       accessor: 'defaultValue',
       render: (prop: any) => (
-        prop.defaultValue ? <code>{prop.defaultValue}</code> : <span className="no-default">-</span>
+        prop.defaultValue ? (
+          <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">{prop.defaultValue}</code>
+        ) : (
+          <span className="u-text-secondary-emphasis">-</span>
+        )
       )
     },
     {
@@ -71,12 +71,12 @@ export const PropsDocumentation: React.FC<PropsDocumentationProps> = ({
       header: 'Description',
       accessor: 'description',
       render: (prop: any) => (
-        <div className="prop-description">
-          <p>{prop.description}</p>
+        <div>
+          <p className="u-m-0 u-mb-2">{prop.description}</p>
           {prop.deprecated && prop.deprecationMessage && (
-            <div className="deprecation-message">
-              <Icon name="Warning" size="sm" />
-              <span>{prop.deprecationMessage}</span>
+            <div className="u-d-flex u-align-items-center u-gap-2 u-mt-2">
+              <Icon name="Warning" size="sm" className="u-text-warning" />
+              <span className="u-fs-sm u-text-secondary-emphasis">{prop.deprecationMessage}</span>
             </div>
           )}
         </div>
@@ -85,21 +85,21 @@ export const PropsDocumentation: React.FC<PropsDocumentationProps> = ({
   ];
 
   return (
-    <div className="props-documentation">
-      <div className="props-header">
-        <h2>{component.name} Props</h2>
-        <div className="props-controls">
-          <input
+    <div className="u-mb-6">
+      <div className="u-d-flex u-align-items-center u-justify-content-between u-flex-wrap u-gap-4 u-mb-6">
+        <h2 className="u-fs-2xl u-fw-bold u-m-0">{component.name} Props</h2>
+        <div className="u-d-flex u-gap-2" style={{ minWidth: '250px', flex: '1 1 auto', maxWidth: '400px' }}>
+          <Input
             type="text"
             placeholder="Search props..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="props-search"
+            className="u-w-100"
           />
         </div>
       </div>
 
-      <div className="props-table-container">
+      <div className="u-overflow-x-auto">
         <DataTable
           data={filteredProps}
           columns={columns}

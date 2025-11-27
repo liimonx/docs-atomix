@@ -41,8 +41,8 @@ const ResourcesContributingPage = () => {
         <Row className="u-mt-8">
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Getting Started</h3>
-              <p>How to get started with contributing to Atomix.</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-3">Getting Started</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">How to get started with contributing to Atomix.</p>
               <Button variant="primary" className="u-mt-4">
                 View Guide
               </Button>
@@ -51,8 +51,8 @@ const ResourcesContributingPage = () => {
           
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Coding Standards</h3>
-              <p>Coding standards and best practices for Atomix contributions.</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-3">Coding Standards</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Coding standards and best practices for Atomix contributions.</p>
               <Button variant="primary" className="u-mt-4">
                 View Standards
               </Button>
@@ -63,8 +63,8 @@ const ResourcesContributingPage = () => {
         <Row className="u-mt-4">
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Development Setup</h3>
-              <p>Setting up your development environment for Atomix.</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-3">Development Setup</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Setting up your development environment for Atomix.</p>
               <Button variant="primary" className="u-mt-4">
                 View Setup
               </Button>
@@ -73,8 +73,8 @@ const ResourcesContributingPage = () => {
           
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Reporting Issues</h3>
-              <p>How to report bugs and request features for Atomix.</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-3">Reporting Issues</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">How to report bugs and request features for Atomix.</p>
               <Button variant="primary" className="u-mt-4">
                 View Guidelines
               </Button>

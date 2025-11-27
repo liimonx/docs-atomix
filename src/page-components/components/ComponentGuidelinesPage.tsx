@@ -93,12 +93,13 @@ const ComponentGuidelinesPage: React.FC = () => {
   ];
 
   return (
-    <div className="component-guidelines-page">
+    <div>
       <Hero
         title="Component Guidelines"
         subtitle="Development standards and best practices"
+        className="u-mb-lg"
       >
-        <p>Learn about component structure, naming conventions, accessibility requirements, and coding standards for the Atomix design system.</p>
+        <p className="u-text-secondary-emphasis">Learn about component structure, naming conventions, accessibility requirements, and coding standards for the Atomix design system.</p>
       </Hero>
 
       <Block spacing="md">
@@ -157,16 +158,18 @@ const ComponentGuidelinesPage: React.FC = () => {
             to see these guidelines in action.
           </p>
           <div className="u-d-flex u-gap-3">
-            <Button variant="primary" >
-              <Link href="/docs/components/overview">
-                Browse Components
-                <ArrowRight size={16} className="u-ms-2" />
-              </Link>
+            <Button 
+              variant="primary"
+              onClick={() => window.location.href = '/docs/components/overview'}
+            >
+              Browse Components
+              <ArrowRight size={16} className="u-ms-2" />
             </Button>
-            <Button variant="outline" >
-              <Link href="/docs/getting-started/quick-start">
-                Quick Start Guide
-              </Link>
+            <Button 
+              variant="outline"
+              onClick={() => window.location.href = '/docs/getting-started/quick-start'}
+            >
+              Quick Start Guide
             </Button>
           </div>
         </Callout>

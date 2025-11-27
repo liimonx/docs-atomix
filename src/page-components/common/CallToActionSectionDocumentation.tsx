@@ -2,35 +2,34 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Button } from '@shohojdhara/atomix';
-import { Icon } from '@shohojdhara/atomix';
+import { Button, Icon, Card } from '@shohojdhara/atomix';
 import CallToActionSection from '@/components/sections/CallToActionSection';
 
 const CallToActionSectionDocumentation: React.FC = () => {
   return (
     <div className="u-p-6">
-      <div className="container">
+      <div className="u-container u-mx-auto u-px-4">
         <div className="u-mb-8">
-          <nav className="u-d-flex u-align-items-center u-mb-4 u-text-sm">
+          <nav className="u-d-flex u-align-items-center u-mb-4 u-fs-sm">
             <Link href="/docs" className="u-text-primary u-text-decoration-none">
               Documentation
             </Link>
-            <Icon name="CaretRight" size={14} className="u-mx-2 u-text-muted" />
+            <Icon name="CaretRight" size={14} className="u-mx-2 u-text-secondary-emphasis" />
             <Link href="/docs/components" className="u-text-primary u-text-decoration-none">
               Components
             </Link>
-            <Icon name="CaretRight" size={14} className="u-mx-2 u-text-muted" />
-            <span className="u-text-muted">Call to Action Section</span>
+            <Icon name="CaretRight" size={14} className="u-mx-2 u-text-secondary-emphasis" />
+            <span className="u-text-secondary-emphasis">Call to Action Section</span>
           </nav>
           
-          <h1 className="u-mb-4">Call to Action Section</h1>
-          <p className="u-text-muted u-mb-6">
+          <h1 className="u-fs-4xl u-fw-bold u-mb-4">Call to Action Section</h1>
+          <p className="u-text-secondary-emphasis u-mb-6">
             A component for creating prominent call-to-action sections using the River component.
           </p>
         </div>
 
         <div className="u-mb-8">
-          <h2 className="u-mb-4">Basic Usage</h2>
+          <h2 className="u-fs-2xl u-fw-bold u-mb-4">Basic Usage</h2>
           <div className="u-mb-6">
             <CallToActionSection
               title="Ready to get started?"
@@ -51,93 +50,94 @@ const CallToActionSectionDocumentation: React.FC = () => {
         </div>
 
         <div className="u-mb-8">
-          <h2 className="u-mb-4">Installation CTA</h2>
+          <h2 className="u-fs-2xl u-fw-bold u-mb-4">Installation CTA</h2>
           <div className="u-mb-6">
             <CallToActionSection
               title="Install Atomix"
               text="Get access to 40+ components, comprehensive layouts, design tokens, and advanced effects."
               primaryAction={
-                <div className="u-bg-tertiary-subtle u-rounded u-p-4 u-mb-4 u-font-mono u-fs-sm">
-                  <code className="u-text-primary-emphasis">
+                <Card className="u-bg-tertiary-subtle u-br-md u-p-4 u-mb-4">
+                  <code className="u-text-primary-emphasis u-fs-sm" style={{ fontFamily: 'monospace' }}>
                     npm install @shohojdhara/atomix
                   </code>
-                </div>
+                </Card>
               }
               secondaryAction={
-                <Link href="/docs/getting-started/installation">
-                  <Button  variant="primary">
-                    View Installation Guide
-                    <Icon name="ArrowRight" size={16} className="u-ms-2" />
-                  </Button>
-                </Link>
+                <Button 
+                  variant="primary"
+                  onClick={() => window.location.href = '/docs/getting-started/installation'}
+                >
+                  View Installation Guide
+                  <Icon name="ArrowRight" size={16} className="u-ms-2" />
+                </Button>
               }
             />
           </div>
         </div>
 
         <div className="u-mb-8">
-          <h2 className="u-mb-4">Props</h2>
-          <div className="card">
-            <div className="table-responsive">
-              <table className="table u-mb-0">
-                <thead>
+          <h2 className="u-fs-2xl u-fw-bold u-mb-4">Props</h2>
+          <Card className="u-p-0 u-overflow-hidden">
+            <div className="u-overflow-x-auto">
+              <table className="u-w-100" style={{ borderCollapse: 'collapse' }}>
+                <thead className="u-bg-tertiary">
                   <tr>
-                    <th>Prop</th>
-                    <th>Type</th>
-                    <th>Default</th>
-                    <th>Description</th>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Prop</th>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Type</th>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Default</th>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Description</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <code>title</code>
+                  <tr className="u-border-b u-border-subtle">
+                    <td className="u-p-3">
+                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">title</code>
                     </td>
-                    <td>ReactNode</td>
-                    <td>-</td>
-                    <td>The section title</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">ReactNode</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">-</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">The section title</td>
+                  </tr>
+                  <tr className="u-border-b u-border-subtle">
+                    <td className="u-p-3">
+                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">text</code>
+                    </td>
+                    <td className="u-p-3 u-text-secondary-emphasis">string | string[]</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">-</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">The section text content</td>
+                  </tr>
+                  <tr className="u-border-b u-border-subtle">
+                    <td className="u-p-3">
+                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">primaryAction</code>
+                    </td>
+                    <td className="u-p-3 u-text-secondary-emphasis">ReactNode</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">-</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">Primary action element (button, link, etc.)</td>
+                  </tr>
+                  <tr className="u-border-b u-border-subtle">
+                    <td className="u-p-3">
+                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">secondaryAction</code>
+                    </td>
+                    <td className="u-p-3 u-text-secondary-emphasis">ReactNode</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">-</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">Secondary action element (button, link, etc.)</td>
                   </tr>
                   <tr>
-                    <td>
-                      <code>text</code>
+                    <td className="u-p-3">
+                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">center</code>
                     </td>
-                    <td>string | string[]</td>
-                    <td>-</td>
-                    <td>The section text content</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>primaryAction</code>
-                    </td>
-                    <td>ReactNode</td>
-                    <td>-</td>
-                    <td>Primary action element (button, link, etc.)</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>secondaryAction</code>
-                    </td>
-                    <td>ReactNode</td>
-                    <td>-</td>
-                    <td>Secondary action element (button, link, etc.)</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <code>center</code>
-                    </td>
-                    <td>boolean</td>
-                    <td>true</td>
-                    <td>Whether to center the content</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">boolean</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">true</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">Whether to center the content</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-          </div>
+          </Card>
         </div>
 
         <div className="u-mb-8">
-          <h2 className="u-mb-4">Implementation</h2>
-          <p>
+          <h2 className="u-fs-2xl u-fw-bold u-mb-4">Implementation</h2>
+          <p className="u-text-secondary-emphasis">
             The CallToActionSection component is a wrapper around the River component,
             providing a consistent way to create call-to-action sections across the site.
           </p>

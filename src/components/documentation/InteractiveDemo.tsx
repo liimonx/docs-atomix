@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Tabs } from '@shohojdhara/atomix';
+import { Button, Tabs, Select, Card } from '@shohojdhara/atomix';
 import type { ComponentDocumentation } from '@/types/index';
 
 interface InteractiveDemoProps {
@@ -19,9 +19,9 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({
 
   if (!example) {
     return (
-      <div className="interactive-demo empty">
-        <p>No examples available for this component.</p>
-      </div>
+      <Card className="u-p-6 u-text-center">
+        <p className="u-text-secondary-emphasis">No examples available for this component.</p>
+      </Card>
     );
   }
 
@@ -31,13 +31,13 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({
       label: 'Preview',
       description: 'Live preview of the component',
       content: (
-        <div className="tab-content preview-content">
-          <div className="preview-container">
+        <div className="u-mt-4">
+          <div className="u-p-6 u-bg-secondary u-br-md u-border u-border-subtle">
             {example.preview ? (
               example.preview
             ) : (
-              <div className="preview-placeholder">
-                <p>Preview not available</p>
+              <div className="u-text-center u-p-8">
+                <p className="u-text-secondary-emphasis">Preview not available</p>
               </div>
             )}
           </div>
@@ -49,44 +49,46 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({
       label: 'Code',
       description: 'Source code for this example',
       content: (
-        <div className="tab-content code-content">
-          <pre className="code-block">
-            <code>{example.code}</code>
-          </pre>
-          <div className="code-actions">
-            <Button
-              variant="outline-primary"
-              size="sm"
-              onClick={() => navigator.clipboard.writeText(example.code)}
-            >
-              Copy to Clipboard
-            </Button>
-          </div>
+        <div className="u-mt-4">
+          <Card className="u-p-0 u-overflow-hidden">
+            <div className="u-p-4 u-bg-tertiary u-border-b u-border-subtle">
+              <pre className="u-m-0 u-overflow-x-auto">
+                <code className="u-fs-sm">{example.code}</code>
+              </pre>
+            </div>
+            <div className="u-p-4 u-d-flex u-justify-content-end">
+              <Button
+                variant="outline-primary"
+                size="sm"
+                onClick={() => navigator.clipboard.writeText(example.code)}
+              >
+                Copy to Clipboard
+              </Button>
+            </div>
+          </Card>
         </div>
       )
     }
   ];
 
   return (
-    <div className="interactive-demo">
-      <div className="demo-header">
-        <h3>{example.title}</h3>
-        <p>{example.description}</p>
+    <div className="u-mb-6">
+      <div className="u-mb-6">
+        <h3 className="u-fs-xl u-fw-bold u-mb-2">{example.title}</h3>
+        <p className="u-text-secondary-emphasis u-mb-4">{example.description}</p>
         
         {component.examples && component.examples.length > 1 && (
-          <div className="example-selector">
-            <label htmlFor="example-select">Select example:</label>
-            <select 
+          <div className="u-d-flex u-align-items-center u-gap-3 u-mt-4">
+            <label htmlFor="example-select" className="u-fs-sm u-fw-medium">Select example:</label>
+            <Select
               id="example-select"
-              value={selectedExample}
-              onChange={(e) => onExampleChange(parseInt(e.target.value))}
-            >
-              {component.examples.map((ex, index) => (
-                <option key={ex.id} value={index}>
-                  {ex.title}
-                </option>
-              ))}
-            </select>
+              value={selectedExample.toString()}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onExampleChange(parseInt(e.target.value))}
+              options={component.examples.map((ex, index) => ({
+                value: index.toString(),
+                label: ex.title
+              }))}
+            />
           </div>
         )}
       </div>
@@ -95,7 +97,6 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({
         items={tabs}
         activeIndex={activeTab}
         onTabChange={setActiveTab}
-        className="demo-tabs"
       />
     </div>
   );

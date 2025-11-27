@@ -41,8 +41,8 @@ const ResourcesRoadmapPage = () => {
         <Row className="u-mt-8">
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Upcoming Features</h3>
-              <p>Features planned for future releases of Atomix.</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-3">Upcoming Features</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Features planned for future releases of Atomix.</p>
               <Button variant="primary" className="u-mt-4">
                 View Features
               </Button>
@@ -51,8 +51,8 @@ const ResourcesRoadmapPage = () => {
           
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Release Schedule</h3>
-              <p>Planned release dates and versioning roadmap.</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-3">Release Schedule</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Planned release dates and versioning roadmap.</p>
               <Button variant="primary" className="u-mt-4">
                 View Schedule
               </Button>
@@ -63,8 +63,8 @@ const ResourcesRoadmapPage = () => {
         <Row className="u-mt-4">
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Completed Work</h3>
-              <p>Recently completed features and improvements.</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-3">Completed Work</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Recently completed features and improvements.</p>
               <Button variant="primary" className="u-mt-4">
                 View Changelog
               </Button>
@@ -73,8 +73,8 @@ const ResourcesRoadmapPage = () => {
           
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Community Feedback</h3>
-              <p>How community feedback influences the Atomix roadmap.</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-3">Community Feedback</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">How community feedback influences the Atomix roadmap.</p>
               <Button variant="primary" className="u-mt-4">
                 View Feedback
               </Button>

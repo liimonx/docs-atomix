@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Hero,
   SectionIntro,
@@ -12,18 +12,24 @@ import {
 import { GlassProps } from '@/types/atomix-components';
 
 const LayoutsCustomizationPage = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Prevent hydration mismatch by only rendering glass effect on client
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <>
-
       <Hero
-        glass={{
+        glass={isMounted ? {
           displacementScale: 30,
           blurAmount: 5,
           elasticity: 0,
           enableLiquidBlur: true,
           padding: "20px",
           cornerRadius: 30,
-        } as GlassProps}
+        } as GlassProps : undefined}
         className="u-pt-32 u-pb-16"
         backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
         title="Layouts Customization"
@@ -40,14 +46,14 @@ const LayoutsCustomizationPage = () => {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3>Customization Levels</h3>
-              <p>Atomix Layouts offer multiple levels of configuration:</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Customization Levels</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Atomix Layouts offer multiple levels of configuration:</p>
               
-              <ul>
-                <li><strong>🎨 CSS Custom Properties</strong> - Runtime theming and quick adjustments</li>
-                <li><strong>⚙️ SCSS Variables</strong> - Build-time configuration and deep customization</li>
-                <li><strong>🎛️ Component Props</strong> - Dynamic behavior and styling</li>
-                <li><strong>🧩 Custom Components</strong> - Extending and creating new layout patterns</li>
+              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-3">
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🎨 CSS Custom Properties</strong> - Runtime theming and quick adjustments</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">⚙️ SCSS Variables</strong> - Build-time configuration and deep customization</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🎛️ Component Props</strong> - Dynamic behavior and styling</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🧩 Custom Components</strong> - Extending and creating new layout patterns</li>
               </ul>
             </Card>
           </GridCol>
@@ -56,10 +62,10 @@ const LayoutsCustomizationPage = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3>CSS Custom Properties</h3>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-4">CSS Custom Properties</h3>
               
-              <h4 className="u-mt-3">Grid System Properties</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Grid System Properties</h4>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
 {`:root {
   /* Container widths */
   --atomix-container-sm: 540px;
@@ -83,8 +89,8 @@ const LayoutsCustomizationPage = () => {
 }`}
               </pre>
               
-              <h4 className="u-mt-3">Masonry Grid Properties</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Masonry Grid Properties</h4>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
 {`:root {
   /* Masonry gaps */
   --atomix-masonry-gap: 1rem;
@@ -102,10 +108,10 @@ const LayoutsCustomizationPage = () => {
         <Row className="u-mt-4">
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>SCSS Variables</h3>
-              <p>Customize layout at build time using SCSS variables:</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-4">SCSS Variables</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Customize layout at build time using SCSS variables:</p>
               
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
 {`// Override before importing Atomix
 $grid-columns: 16;
 $grid-gutter-width: 2rem;
@@ -125,10 +131,10 @@ $container-max-widths: (
           
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Component Props</h3>
-              <p>Customize individual components with props:</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Component Props</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Customize individual components with props:</p>
               
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
 {`<Container 
   fluid={false} 
   maxWidth="lg"
@@ -152,10 +158,10 @@ $container-max-widths: (
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3>Custom Components</h3>
-              <p>Create custom layout components by extending Atomix components:</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Custom Components</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Create custom layout components by extending Atomix components:</p>
               
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
 {`import styled from 'styled-components';
 import { Container, Row, GridCol } from '@shohojdhara/atomix';
 

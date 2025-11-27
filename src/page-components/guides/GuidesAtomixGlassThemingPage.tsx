@@ -45,51 +45,51 @@ const GuidesAtomixGlassThemingPage = () => {
               
               <h4 className="u-mt-4">Core Visual Properties</h4>
               <div className="u-mt-3">
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                  <thead>
-                    <tr style={{ borderBottom: '2px solid var(--atomix-border)' }}>
-                      <th style={{ padding: '12px', textAlign: 'left' }}>Property</th>
-                      <th style={{ padding: '12px', textAlign: 'left' }}>Type</th>
-                      <th style={{ padding: '12px', textAlign: 'left' }}>Default</th>
-                      <th style={{ padding: '12px', textAlign: 'left' }}>Description</th>
+                <table className="c-data-table c-data-table--bordered c-data-table--striped c-data-table--dense">
+                  <thead className="c-data-table__header u-fs-sm">
+                    <tr className="c-data-table__header-row">
+                      <th className="c-data-table__header-cell">Property</th>
+                      <th className="c-data-table__header-cell">Type</th>
+                      <th className="c-data-table__header-cell">Default</th>
+                      <th className="c-data-table__header-cell">Description</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid var(--atomix-border)' }}>
-                      <td style={{ padding: '12px' }}><code>displacementScale</code></td>
-                      <td style={{ padding: '12px' }}>number</td>
-                      <td style={{ padding: '12px' }}>20</td>
-                      <td style={{ padding: '12px' }}>Distortion effect strength</td>
+                  <tbody className="c-data-table__body u-fs-sm">
+                    <tr className="c-data-table__row">
+                      <td className="c-data-table__cell"><code>displacementScale</code></td>
+                      <td className="c-data-table__cell">number</td>
+                      <td className="c-data-table__cell">20</td>
+                      <td className="c-data-table__cell">Distortion effect strength</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid var(--atomix-border)' }}>
-                      <td style={{ padding: '12px' }}><code>blurAmount</code></td>
-                      <td style={{ padding: '12px' }}>number</td>
-                      <td style={{ padding: '12px' }}>1</td>
-                      <td style={{ padding: '12px' }}>Backdrop blur intensity</td>
+                    <tr className="c-data-table__row">
+                      <td className="c-data-table__cell"><code>blurAmount</code></td>
+                      <td className="c-data-table__cell">number</td>
+                      <td className="c-data-table__cell">1</td>
+                      <td className="c-data-table__cell">Backdrop blur intensity</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid var(--atomix-border)' }}>
-                      <td style={{ padding: '12px' }}><code>saturation</code></td>
-                      <td style={{ padding: '12px' }}>number</td>
-                      <td style={{ padding: '12px' }}>140</td>
-                      <td style={{ padding: '12px' }}>Color saturation percentage</td>
+                    <tr className="c-data-table__row">
+                      <td className="c-data-table__cell"><code>saturation</code></td>
+                      <td className="c-data-table__cell">number</td>
+                      <td className="c-data-table__cell">140</td>
+                      <td className="c-data-table__cell">Color saturation percentage</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid var(--atomix-border)' }}>
-                      <td style={{ padding: '12px' }}><code>aberrationIntensity</code></td>
-                      <td style={{ padding: '12px' }}>number</td>
-                      <td style={{ padding: '12px' }}>2.5</td>
-                      <td style={{ padding: '12px' }}>Chromatic aberration amount</td>
+                    <tr className="c-data-table__row">
+                      <td className="c-data-table__cell"><code>aberrationIntensity</code></td>
+                      <td className="c-data-table__cell">number</td>
+                      <td className="c-data-table__cell">2.5</td>
+                      <td className="c-data-table__cell">Chromatic aberration amount</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid var(--atomix-border)' }}>
-                      <td style={{ padding: '12px' }}><code>elasticity</code></td>
-                      <td style={{ padding: '12px' }}>number</td>
-                      <td style={{ padding: '12px' }}>0.05</td>
-                      <td style={{ padding: '12px' }}>Interactive elasticity (0-1)</td>
+                    <tr className="c-data-table__row">
+                      <td className="c-data-table__cell"><code>elasticity</code></td>
+                      <td className="c-data-table__cell">number</td>
+                      <td className="c-data-table__cell">0.05</td>
+                      <td className="c-data-table__cell">Interactive elasticity (0-1)</td>
                     </tr>
-                    <tr>
-                      <td style={{ padding: '12px' }}><code>cornerRadius</code></td>
-                      <td style={{ padding: '12px' }}>number</td>
-                      <td style={{ padding: '12px' }}>16</td>
-                      <td style={{ padding: '12px' }}>Border radius in pixels</td>
+                    <tr className="c-data-table__row">
+                      <td className="c-data-table__cell"><code>cornerRadius</code></td>
+                      <td className="c-data-table__cell">number</td>
+                      <td className="c-data-table__cell">16</td>
+                      <td className="c-data-table__cell">Border radius in pixels</td>
                     </tr>
                   </tbody>
                 </table>
@@ -314,31 +314,31 @@ function ResponsiveGlass({ children }) {
               <h3>Best Practices</h3>
               
               <h4 className="u-mt-3">1. Consistency</h4>
-              <ul>
-                      <li>Use consistent glass settings across similar UI elements</li>
-                      <li>Create reusable themed components</li>
-                      <li>Document your glass theme configuration</li>
+              <ul className="u-ml-6 u-fs-sm">
+                      <li className="u-mb-1">Use consistent glass settings across similar UI elements</li>
+                      <li className="u-mb-1">Create reusable themed components</li>
+                      <li className="u-mb-1">Document your glass theme configuration</li>
                     </ul>
               
               <h4 className="u-mt-3">2. Accessibility</h4>
-              <ul>
-                <li>Ensure sufficient contrast for text over glass</li>
-                <li>Test with different background images</li>
-                <li>Provide fallbacks for browsers without support</li>
+              <ul className="u-ml-6 u-fs-sm">
+                <li className="u-mb-1">Ensure sufficient contrast for text over glass</li>
+                <li className="u-mb-1">Test with different background images</li>
+                <li className="u-mb-1">Provide fallbacks for browsers without support</li>
                     </ul>
               
               <h4 className="u-mt-3">3. Performance</h4>
-              <ul>
-                      <li>Use lighter effects on mobile devices</li>
-                <li>Limit the number of glass elements per page</li>
-                      <li>Consider disabling shader mode on low-end devices</li>
+              <ul className="u-ml-6 u-fs-sm">
+                      <li className="u-mb-1">Use lighter effects on mobile devices</li>
+                <li className="u-mb-1">Limit the number of glass elements per page</li>
+                      <li className="u-mb-1">Consider disabling shader mode on low-end devices</li>
                     </ul>
               
               <h4 className="u-mt-3">4. Brand Alignment</h4>
-              <ul>
-                      <li>Match glass colors to your brand palette</li>
-                      <li>Adjust intensity to match your design language</li>
-                      <li>Create variants for different contexts (hero, cards, modals)</li>
+              <ul className="u-ml-6 u-fs-sm">
+                      <li className="u-mb-1">Match glass colors to your brand palette</li>
+                      <li className="u-mb-1">Adjust intensity to match your design language</li>
+                      <li className="u-mb-1">Create variants for different contexts (hero, cards, modals)</li>
                     </ul>
             </Card>
           </GridCol>

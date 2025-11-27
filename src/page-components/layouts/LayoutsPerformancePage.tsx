@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Hero,
   SectionIntro,
@@ -12,18 +12,24 @@ import {
 import { GlassProps } from '@/types/atomix-components';
 
 const LayoutsPerformancePage = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Prevent hydration mismatch by only rendering glass effect on client
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <>
-
       <Hero
-        glass={{
+        glass={isMounted ? {
           displacementScale: 30,
           blurAmount: 5,
           elasticity: 0,
           enableLiquidBlur: true,
           padding: "20px",
           cornerRadius: 30,
-        } as GlassProps}
+        } as GlassProps : undefined}
         className="u-pt-32 u-pb-16"
         backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
         title="Layouts Performance"
@@ -40,23 +46,23 @@ const LayoutsPerformancePage = () => {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3>Overview</h3>
-              <p>Layout performance is crucial for user experience. Poor layout performance can cause:</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Overview</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Layout performance is crucial for user experience. Poor layout performance can cause:</p>
               
-              <ul>
-                <li><strong>Layout Shifts (CLS)</strong> - Visual instability as content moves</li>
-                <li><strong>Slow Rendering</strong> - Delayed paint and layout operations</li>
-                <li><strong>Janky Animations</strong> - Inconsistent frame rates</li>
-                <li><strong>Memory Leaks</strong> - Accumulating DOM nodes and event listeners</li>
-                <li><strong>Bundle Bloat</strong> - Unnecessary CSS and JavaScript</li>
+              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-3 u-mb-4">
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Layout Shifts (CLS)</strong> - Visual instability as content moves</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Slow Rendering</strong> - Delayed paint and layout operations</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Janky Animations</strong> - Inconsistent frame rates</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Memory Leaks</strong> - Accumulating DOM nodes and event listeners</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Bundle Bloat</strong> - Unnecessary CSS and JavaScript</li>
               </ul>
               
-              <h4 className="u-mt-3">Key Metrics</h4>
-              <ul>
-                <li><strong>Cumulative Layout Shift (CLS)</strong> - Visual stability score</li>
-                <li><strong>First Contentful Paint (FCP)</strong> - Time to first rendered content</li>
-                <li><strong>Largest Contentful Paint (LCP)</strong> - Time to largest content element</li>
-                <li><strong>Time to Interactive (TTI)</strong> - Time until page is fully interactive</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Key Metrics</h4>
+              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Cumulative Layout Shift (CLS)</strong> - Visual stability score</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">First Contentful Paint (FCP)</strong> - Time to first rendered content</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Largest Contentful Paint (LCP)</strong> - Time to largest content element</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Time to Interactive (TTI)</strong> - Time until page is fully interactive</li>
               </ul>
             </Card>
           </GridCol>
@@ -65,10 +71,10 @@ const LayoutsPerformancePage = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3>Grid System Performance</h3>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Grid System Performance</h3>
               
-              <h4 className="u-mt-3">Efficient Column Calculations</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Efficient Column Calculations</h4>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
 {`// ❌ Avoid: Expensive calculations on every render
 function SlowGrid({ items }) {
   const getColumnSize = (index) => {
@@ -111,19 +117,19 @@ function OptimizedGrid({ items }) {
         <Row className="u-mt-4">
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Minimizing Layout Shifts</h3>
-              <p>Strategies to reduce Cumulative Layout Shift (CLS):</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Minimizing Layout Shifts</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">Strategies to reduce Cumulative Layout Shift (CLS):</p>
               
-              <ul>
-                <li>Set explicit dimensions on images and media</li>
-                <li>Reserve space for dynamic content</li>
-                <li>Avoid inserting content above existing content</li>
-                <li>Use CSS aspect ratio for responsive media</li>
-                <li>Preload critical fonts</li>
+              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2 u-mb-4">
+                <li className="u-text-secondary-emphasis">• Set explicit dimensions on images and media</li>
+                <li className="u-text-secondary-emphasis">• Reserve space for dynamic content</li>
+                <li className="u-text-secondary-emphasis">• Avoid inserting content above existing content</li>
+                <li className="u-text-secondary-emphasis">• Use CSS aspect ratio for responsive media</li>
+                <li className="u-text-secondary-emphasis">• Preload critical fonts</li>
               </ul>
               
-              <h4 className="u-mt-3">Example: Image with Aspect Ratio</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Example: Image with Aspect Ratio</h4>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
 {`<div className="u-ratio u-ratio-16x9">
   <img 
     src="image.jpg" 
@@ -138,10 +144,10 @@ function OptimizedGrid({ items }) {
           
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3>Virtualization</h3>
-              <p>For large datasets, use virtualization to render only visible items:</p>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Virtualization</h3>
+              <p className="u-text-secondary-emphasis u-mb-4">For large datasets, use virtualization to render only visible items:</p>
               
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
 {`import { VirtualizedGrid } from '@shohojdhara/atomix';
 
 <VirtualizedGrid
@@ -155,12 +161,12 @@ function OptimizedGrid({ items }) {
 />`}
               </pre>
               
-              <h4 className="u-mt-3">Benefits</h4>
-              <ul>
-                <li>Reduced DOM nodes</li>
-                <li>Lower memory usage</li>
-                <li>Faster initial render</li>
-                <li>Improved scrolling performance</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Benefits</h4>
+              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis">• Reduced DOM nodes</li>
+                <li className="u-text-secondary-emphasis">• Lower memory usage</li>
+                <li className="u-text-secondary-emphasis">• Faster initial render</li>
+                <li className="u-text-secondary-emphasis">• Improved scrolling performance</li>
               </ul>
             </Card>
           </GridCol>
@@ -169,11 +175,11 @@ function OptimizedGrid({ items }) {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3>CSS Optimization</h3>
+              <h3 className="u-fs-xl u-fw-semibold u-mb-4">CSS Optimization</h3>
               
-              <h4 className="u-mt-3">Critical CSS</h4>
-              <p>Inline critical CSS for above-the-fold content:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Critical CSS</h4>
+              <p className="u-text-secondary-emphasis u-mb-2">Inline critical CSS for above-the-fold content:</p>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
 {`<style>
   /* Inline critical layout styles */
   .container { max-width: 1200px; margin: 0 auto; }
@@ -182,9 +188,9 @@ function OptimizedGrid({ items }) {
 </style>`}
               </pre>
               
-              <h4 className="u-mt-3">CSS Containment</h4>
-              <p>Use CSS containment to isolate expensive layout calculations:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">CSS Containment</h4>
+              <p className="u-text-secondary-emphasis u-mb-2">Use CSS containment to isolate expensive layout calculations:</p>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
 {`.expensive-component {
   contain: layout style paint;
 }`}

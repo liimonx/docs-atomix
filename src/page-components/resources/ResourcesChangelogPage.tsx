@@ -40,35 +40,35 @@ const ResourcesChangelogPage = () => {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                <h3 style={{ margin: 0 }}>v2.1.0</h3>
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <h3 className="u-fs-xl u-fw-bold u-m-0">v2.1.0</h3>
                 <Badge variant="success" label="Latest" />
-                <span style={{ color: 'var(--atomix-text-secondary)', fontSize: '14px' }}>
+                <span className="u-text-secondary-emphasis u-fs-sm">
                   November 11, 2025
                 </span>
               </div>
               
-              <h4 className="u-mt-4">✨ New Features</h4>
-              <ul>
-                <li><strong>AtomixGlass Component:</strong> Advanced glass morphism effects with WebGL shader support</li>
-                <li><strong>Dark Mode Support:</strong> Built-in dark mode with automatic theme switching</li>
-                <li><strong>New Components:</strong> Added PhotoViewer, VideoPlayer, and River components</li>
-                <li><strong>Design Tokens:</strong> Comprehensive design token system for colors, spacing, and typography</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">✨ New Features</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">AtomixGlass Component:</strong> Advanced glass morphism effects with WebGL shader support</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Dark Mode Support:</strong> Built-in dark mode with automatic theme switching</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">New Components:</strong> Added PhotoViewer, VideoPlayer, and River components</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Design Tokens:</strong> Comprehensive design token system for colors, spacing, and typography</li>
               </ul>
               
-              <h4 className="u-mt-4">🚀 Improvements</h4>
-              <ul>
-                <li>Enhanced accessibility across all components</li>
-                <li>Improved performance for grid and masonry layouts</li>
-                <li>Better TypeScript support with comprehensive type definitions</li>
-                <li>Updated documentation with interactive examples</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🚀 Improvements</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis">Enhanced accessibility across all components</li>
+                <li className="u-text-secondary-emphasis">Improved performance for grid and masonry layouts</li>
+                <li className="u-text-secondary-emphasis">Better TypeScript support with comprehensive type definitions</li>
+                <li className="u-text-secondary-emphasis">Updated documentation with interactive examples</li>
               </ul>
               
-              <h4 className="u-mt-4">🐛 Bug Fixes</h4>
-              <ul>
-                <li>Fixed modal backdrop click handling on mobile devices</li>
-                <li>Resolved tooltip positioning issues in scrollable containers</li>
-                <li>Fixed form validation state styling inconsistencies</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🐛 Bug Fixes</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis">Fixed modal backdrop click handling on mobile devices</li>
+                <li className="u-text-secondary-emphasis">Resolved tooltip positioning issues in scrollable containers</li>
+                <li className="u-text-secondary-emphasis">Fixed form validation state styling inconsistencies</li>
               </ul>
             </Card>
           </GridCol>
@@ -77,35 +77,35 @@ const ResourcesChangelogPage = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                <h3 style={{ margin: 0 }}>v2.0.0</h3>
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <h3 className="u-fs-xl u-fw-bold u-m-0">v2.0.0</h3>
                 <Badge variant="primary" label="Major Release" />
-                <span style={{ color: 'var(--atomix-text-secondary)', fontSize: '14px' }}>
+                <span className="u-text-secondary-emphasis u-fs-sm">
                   October 1, 2025
                 </span>
               </div>
               
-              <h4 className="u-mt-4">🎉 Major Changes</h4>
-              <ul>
-                <li><strong>Complete Redesign:</strong> New visual language with modern aesthetics</li>
-                <li><strong>Component Library Overhaul:</strong> Rebuilt all components from the ground up</li>
-                <li><strong>ITCSS Architecture:</strong> Adopted ITCSS for better CSS organization</li>
-                <li><strong>React 18 Support:</strong> Full compatibility with React 18 features</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🎉 Major Changes</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Complete Redesign:</strong> New visual language with modern aesthetics</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Component Library Overhaul:</strong> Rebuilt all components from the ground up</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">ITCSS Architecture:</strong> Adopted ITCSS for better CSS organization</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">React 18 Support:</strong> Full compatibility with React 18 features</li>
               </ul>
               
-              <h4 className="u-mt-4">⚠️ Breaking Changes</h4>
-              <ul>
-                <li>Renamed several component props for consistency</li>
-                <li>Updated color token naming convention</li>
-                <li>Changed default spacing scale</li>
-                <li>Removed deprecated utility classes</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">⚠️ Breaking Changes</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis">Renamed several component props for consistency</li>
+                <li className="u-text-secondary-emphasis">Updated color token naming convention</li>
+                <li className="u-text-secondary-emphasis">Changed default spacing scale</li>
+                <li className="u-text-secondary-emphasis">Removed deprecated utility classes</li>
               </ul>
               
-              <h4 className="u-mt-4">📚 Documentation</h4>
-              <ul>
-                <li>New documentation site with improved navigation</li>
-                <li>Added migration guide from v1.x</li>
-                <li>Interactive component playground</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">📚 Documentation</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis">New documentation site with improved navigation</li>
+                <li className="u-text-secondary-emphasis">Added migration guide from v1.x</li>
+                <li className="u-text-secondary-emphasis">Interactive component playground</li>
               </ul>
             </Card>
           </GridCol>
@@ -114,25 +114,25 @@ const ResourcesChangelogPage = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                <h3 style={{ margin: 0 }}>v1.8.5</h3>
-                <span style={{ color: 'var(--atomix-text-secondary)', fontSize: '14px' }}>
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <h3 className="u-fs-xl u-fw-bold u-m-0">v1.8.5</h3>
+                <span className="u-text-secondary-emphasis u-fs-sm">
                   August 15, 2025
                 </span>
               </div>
               
-              <h4 className="u-mt-4">🐛 Bug Fixes</h4>
-              <ul>
-                <li>Fixed dropdown menu positioning in RTL layouts</li>
-                <li>Resolved date picker calendar navigation issues</li>
-                <li>Fixed accordion animation glitches on Safari</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🐛 Bug Fixes</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis">Fixed dropdown menu positioning in RTL layouts</li>
+                <li className="u-text-secondary-emphasis">Resolved date picker calendar navigation issues</li>
+                <li className="u-text-secondary-emphasis">Fixed accordion animation glitches on Safari</li>
               </ul>
               
-              <h4 className="u-mt-4">🚀 Improvements</h4>
-              <ul>
-                <li>Optimized bundle size (reduced by 15%)</li>
-                <li>Improved tree-shaking support</li>
-                <li>Enhanced SSR compatibility</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🚀 Improvements</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis">Optimized bundle size (reduced by 15%)</li>
+                <li className="u-text-secondary-emphasis">Improved tree-shaking support</li>
+                <li className="u-text-secondary-emphasis">Enhanced SSR compatibility</li>
               </ul>
             </Card>
           </GridCol>
@@ -141,25 +141,25 @@ const ResourcesChangelogPage = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                <h3 style={{ margin: 0 }}>v1.8.0</h3>
-                <span style={{ color: 'var(--atomix-text-secondary)', fontSize: '14px' }}>
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <h3 className="u-fs-xl u-fw-bold u-m-0">v1.8.0</h3>
+                <span className="u-text-secondary-emphasis u-fs-sm">
                   July 1, 2025
                 </span>
               </div>
               
-              <h4 className="u-mt-4">✨ New Features</h4>
-              <ul>
-                <li><strong>DataTable Component:</strong> Advanced table with sorting, filtering, and pagination</li>
-                <li><strong>Chart Component:</strong> Integrated charting library with multiple chart types</li>
-                <li><strong>Upload Component:</strong> Drag-and-drop file upload with preview</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">✨ New Features</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">DataTable Component:</strong> Advanced table with sorting, filtering, and pagination</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Chart Component:</strong> Integrated charting library with multiple chart types</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Upload Component:</strong> Drag-and-drop file upload with preview</li>
               </ul>
               
-              <h4 className="u-mt-4">🚀 Improvements</h4>
-              <ul>
-                <li>Added keyboard navigation to all interactive components</li>
-                <li>Improved screen reader support</li>
-                <li>Enhanced mobile touch interactions</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🚀 Improvements</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis">Added keyboard navigation to all interactive components</li>
+                <li className="u-text-secondary-emphasis">Improved screen reader support</li>
+                <li className="u-text-secondary-emphasis">Enhanced mobile touch interactions</li>
               </ul>
             </Card>
           </GridCol>
@@ -168,25 +168,25 @@ const ResourcesChangelogPage = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-                <h3 style={{ margin: 0 }}>v1.7.0</h3>
-                <span style={{ color: 'var(--atomix-text-secondary)', fontSize: '14px' }}>
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <h3 className="u-fs-xl u-fw-bold u-m-0">v1.7.0</h3>
+                <span className="u-text-secondary-emphasis u-fs-sm">
                   May 15, 2025
                 </span>
               </div>
               
-              <h4 className="u-mt-4">✨ New Features</h4>
-              <ul>
-                <li><strong>Masonry Grid Layout:</strong> Pinterest-style dynamic grid system</li>
-                <li><strong>Testimonial Component:</strong> Customer testimonial display with multiple layouts</li>
-                <li><strong>Rating Component:</strong> Star rating with half-star support</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">✨ New Features</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Masonry Grid Layout:</strong> Pinterest-style dynamic grid system</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Testimonial Component:</strong> Customer testimonial display with multiple layouts</li>
+                <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Rating Component:</strong> Star rating with half-star support</li>
               </ul>
               
-              <h4 className="u-mt-4">🐛 Bug Fixes</h4>
-              <ul>
-                <li>Fixed modal scroll lock on iOS</li>
-                <li>Resolved tab component focus management</li>
-                <li>Fixed form input autofill styling</li>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🐛 Bug Fixes</h4>
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <li className="u-text-secondary-emphasis">Fixed modal scroll lock on iOS</li>
+                <li className="u-text-secondary-emphasis">Resolved tab component focus management</li>
+                <li className="u-text-secondary-emphasis">Fixed form input autofill styling</li>
               </ul>
             </Card>
           </GridCol>
@@ -195,14 +195,14 @@ const ResourcesChangelogPage = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3>Earlier Versions</h3>
-              <p className="u-mt-3">
+              <h3 className="u-fs-xl u-fw-bold u-mb-3">Earlier Versions</h3>
+              <p className="u-text-secondary-emphasis u-mt-3">
                 For release notes from earlier versions (v1.0.0 - v1.6.x), please visit our{' '}
                 <a 
                   href="https://github.com/shohojdhara/atomix/releases" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  style={{ color: 'var(--atomix-brand-primary)' }}
+                  className="u-text-primary u-text-decoration-none"
                 >
                   GitHub Releases page
                 </a>.
@@ -214,42 +214,42 @@ const ResourcesChangelogPage = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3>Version Support</h3>
+              <h3 className="u-fs-xl u-fw-bold u-mb-4">Version Support</h3>
               
-              <div className="u-mt-4">
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <div className="u-mt-4 u-overflow-x-auto">
+                <table className="u-w-100" style={{ borderCollapse: 'collapse' }}>
                   <thead>
-                    <tr style={{ borderBottom: '2px solid var(--atomix-border)' }}>
-                      <th style={{ padding: '12px', textAlign: 'left' }}>Version</th>
-                      <th style={{ padding: '12px', textAlign: 'left' }}>Status</th>
-                      <th style={{ padding: '12px', textAlign: 'left' }}>Support Until</th>
-                      <th style={{ padding: '12px', textAlign: 'left' }}>Notes</th>
+                    <tr className="u-border-b" style={{ borderBottomWidth: '2px' }}>
+                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">Version</th>
+                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">Status</th>
+                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">Support Until</th>
+                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">Notes</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr style={{ borderBottom: '1px solid var(--atomix-border)' }}>
-                      <td style={{ padding: '12px' }}>v2.x</td>
-                      <td style={{ padding: '12px' }}>
+                    <tr className="u-border-b u-border-subtle">
+                      <td className="u-p-3">v2.x</td>
+                      <td className="u-p-3">
                         <Badge variant="success" label="Active" />
                       </td>
-                      <td style={{ padding: '12px' }}>Current</td>
-                      <td style={{ padding: '12px' }}>Latest stable release</td>
+                      <td className="u-p-3 u-text-secondary-emphasis">Current</td>
+                      <td className="u-p-3 u-text-secondary-emphasis">Latest stable release</td>
                     </tr>
-                    <tr style={{ borderBottom: '1px solid var(--atomix-border)' }}>
-                      <td style={{ padding: '12px' }}>v1.8.x</td>
-                      <td style={{ padding: '12px' }}>
+                    <tr className="u-border-b u-border-subtle">
+                      <td className="u-p-3">v1.8.x</td>
+                      <td className="u-p-3">
                         <Badge variant="warning" label="Maintenance" />
                       </td>
-                      <td style={{ padding: '12px' }}>June 2026</td>
-                      <td style={{ padding: '12px' }}>Security fixes only</td>
+                      <td className="u-p-3 u-text-secondary-emphasis">June 2026</td>
+                      <td className="u-p-3 u-text-secondary-emphasis">Security fixes only</td>
                     </tr>
                     <tr>
-                      <td style={{ padding: '12px' }}>v1.7.x and earlier</td>
-                      <td style={{ padding: '12px' }}>
+                      <td className="u-p-3">v1.7.x and earlier</td>
+                      <td className="u-p-3">
                         <Badge variant="error" label="Unsupported" />
                       </td>
-                      <td style={{ padding: '12px' }}>-</td>
-                      <td style={{ padding: '12px' }}>Please upgrade to v2.x</td>
+                      <td className="u-p-3 u-text-secondary-emphasis">-</td>
+                      <td className="u-p-3 u-text-secondary-emphasis">Please upgrade to v2.x</td>
                     </tr>
                   </tbody>
                 </table>

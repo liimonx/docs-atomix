@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import { HomePageLayout } from "@/components/layout/HomePageLayout";
 import {
@@ -20,16 +20,6 @@ import CallToActionSection from "@/components/sections/CallToActionSection";
 // Note: This page uses client components (HomePageLayout has interactive features)
 // Metadata is handled in app/layout.tsx for the root page
 export default function Page() {
-  // Hero glass effect blur amount - starts at 0, transitions to 5 after 4 seconds
-  const [blurAmount, setBlurAmount] = useState(0);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setBlurAmount(1);
-    }, 3000); // 3 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
   // Statistics data
   const quickStats = [
     {
@@ -142,6 +132,42 @@ export default function Page() {
     },
   ];
 
+  const heroSiderContent = {
+    slides: [
+      {
+        type: "video",
+        src: "https://cdn.pixabay.com/video/2024/08/20/227583_large.mp4",
+      },
+      {
+        type: "video",
+        src: "https://cdn.pixabay.com/video/2022/09/23/132253-752803366_large.mp4",
+      },
+      {
+        type: "video",
+        src: "https://cdn.pixabay.com/video/2021/01/14/62028-502737559_large.mp4",
+      },
+      {
+        type: "video",
+        src: "https://cdn.pixabay.com/video/2025/11/07/314643_large.mp4",
+      },
+      {
+        type: "video",
+        src: "https://cdn.pixabay.com/video/2023/02/25/152085-802335503_large.mp4",
+      },
+      {
+        type: "video",
+        src: "https://cdn.pixabay.com/video/2025/03/07/263086_large.mp4",
+      },
+    ],
+    autoplay: {
+      delay: 5000,
+      pauseOnHover: false,
+    },
+    loop: true,
+    transition: "fade",
+    transitionDuration: 1000,
+  };
+
   // Quick links data
   const quickLinks = [
     {
@@ -218,27 +244,23 @@ export default function Page() {
         title="Build Amazing UIs with Atomix"
         text="A modern design system with 40+ components, comprehensive layouts, design tokens, and advanced effects. Built for React and vanilla JavaScript with accessibility and performance in mind. Trusted by developers worldwide for creating beautiful, responsive interfaces."
         alignment="center"
-        videoBackground="https://cdn.pixabay.com/video/2022/09/23/132253-752803366_large.mp4"
-        videoOptions={{
-          autoplay: true,
-          loop: true,
-          muted: true,
-        }}
+        backgroundSlider={heroSiderContent as any}
+        showOverlay={false}
         contentWidth="1100px"
         glass={{
-          displacementScale: 290,
-          blurAmount: 0,
+          displacementScale: 190,
+          blurAmount: 1.2,
           mode: "shader",
           cornerRadius: 24,
+          enableLiquidBlur: true,
           padding: "1rem 2rem",
           saturation: 200,
-          elasticity: 0,
           children: <></>,
         }}
         actions={
           <>
             <Button
-              glass={{ blurAmount: 0 }}
+              // glass={{ blurAmount: 0 }}
               variant="primary"
               icon={<Icon name="Rocket" />}
             >
@@ -250,8 +272,8 @@ export default function Page() {
               </Link>
             </Button>
             <Button
-              glass={{ blurAmount: 0 }}
-              variant="primary-outline"
+              // glass={{ blurAmount: 0 }}
+              variant="secondary-outline"
               icon={<Icon name="Code" />}
             >
               <Link

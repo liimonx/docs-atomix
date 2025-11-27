@@ -1,14 +1,11 @@
 // Component: GuidesAtomixGlassPerformancePage
 // =============================================================================
 
-// Block: Base guide page
-// =============================================================================
+
 .guidePage {
   padding-bottom: var(--atomix-spacing-2xl);
 }
 
-// Code blocks
-// =============================================================================
 .guidePage__codeBlock {
   position: relative;
   background: var(--atomix-bg-secondary);
@@ -26,127 +23,7 @@
   border-bottom: 1px solid var(--atomix-border);
 }
 
-.guidePage__codeTitle {
-  font-size: var(--atomix-font-size-sm);
-  font-weight: var(--atomix-font-weight-semibold);
-  color: var(--atomix-text-secondary);
-  font-family: var(--atomix-font-family-mono);
-}
 
-.guidePage__codeContent {
-  padding: var(--atomix-spacing-md);
-  overflow-x: auto;
-  
-  pre {
-    margin: 0;
-    font-family: var(--atomix-font-family-mono);
-    font-size: var(--atomix-font-size-sm);
-    line-height: var(--atomix-line-height-relaxed);
-    color: var(--atomix-text-primary);
-  }
-  
-  code {
-    font-family: inherit;
-    background: transparent;
-    padding: 0;
-  }
-}
-
-// Recommendation cards
-// =============================================================================
-.guidePage__recommendationCard {
-  border-left: 4px solid var(--atomix-brand-primary);
-  background: var(--atomix-bg-secondary);
-  transition: var(--atomix-transition-fast);
-
-  &:hover {
-    transform: translateX(4px);
-    border-left-color: var(--atomix-brand-primary);
-    box-shadow: var(--atomix-shadow-md);
-  }
-}
-
-.guidePage__recommendationIcon {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--atomix-brand-bg-subtle);
-  border-radius: var(--atomix-radius-md);
-  color: var(--atomix-brand-primary);
-}
-
-// Metric cards
-// =============================================================================
-.guidePage__metricCard {
-  text-align: center;
-  transition: var(--atomix-transition-fast);
-  border: 1px solid var(--atomix-border);
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--atomix-shadow-lg);
-    border-color: var(--atomix-brand-primary);
-  }
-}
-
-.guidePage__metricValue {
-  font-size: var(--atomix-font-size-3xl);
-  font-weight: var(--atomix-font-weight-bold);
-  color: var(--atomix-text-primary);
-  margin-bottom: var(--atomix-spacing-xs);
-}
-
-.guidePage__metricLabel {
-  font-size: var(--atomix-font-size-sm);
-  color: var(--atomix-text-secondary);
-}
-
-// Comparison table
-// =============================================================================
-.guidePage__comparisonTable {
-  width: 100%;
-  border-collapse: collapse;
-  
-  thead {
-    background: var(--atomix-bg-secondary);
-    
-    th {
-      padding: var(--atomix-spacing-md);
-      text-align: left;
-      font-weight: var(--atomix-font-weight-semibold);
-      border-bottom: 2px solid var(--atomix-border);
-    }
-  }
-  
-  tbody {
-    tr {
-      border-bottom: 1px solid var(--atomix-border);
-      transition: var(--atomix-transition-fast);
-      
-      &:hover {
-        background: var(--atomix-bg-secondary);
-      }
-    }
-    
-    td {
-      padding: var(--atomix-spacing-md);
-      
-      code {
-        background: var(--atomix-bg-secondary);
-        padding: 2px 6px;
-        border-radius: var(--atomix-radius-sm);
-        font-family: var(--atomix-font-family-mono);
-        font-size: var(--atomix-font-size-xs);
-      }
-    }
-  }
-}
-
-// Responsive design
-// =============================================================================
 @media (max-width: 768px) {
   .guidePage__comparisonTable {
     font-size: var(--atomix-font-size-sm);
@@ -162,8 +39,7 @@
   }
 }
 
-// Accessibility
-// =============================================================================
+
 @media (prefers-reduced-motion: reduce) {
   .guidePage__recommendationCard,
   .guidePage__metricCard {

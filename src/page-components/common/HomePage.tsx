@@ -117,29 +117,30 @@ const HomePage: React.FC = () => {
             <Row>
               {quickLinks.map((link, index) => (
                 <GridCol key={index} sm={6} lg={4} className="u-mb-6">
-                  <Card className="atomix-card-enhanced u-p-6 u-border u-border-solid u-transition u-transform u-duration-200 u-ease-in-out hover:u-translate-y--1 u-cursor-pointer u-bg-primary-subtle">
-                    {link.external ? (
-                      <a
-                        href={link.path}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="u-d-block u-link-none"
-                      >
-                        <LinkContent
-                          title={link.title}
-                          description={link.description}
-                          external={link.external}
-                        />
-                      </a>
-                    ) : (
-                      <Link href={link.path} className="u-d-block u-link-none">
-                        <LinkContent
-                          title={link.title}
-                          description={link.description}
-                          external={link.external}
-                        />
-                      </Link>
-                    )}
+                  <Card 
+                    className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast"
+                    style={{ transition: 'var(--atomix-transition-fast)' }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-4px)';
+                      e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = '';
+                      e.currentTarget.style.boxShadow = '';
+                    }}
+                    onClick={() => {
+                      if (link.external) {
+                        window.open(link.path, '_blank', 'noopener,noreferrer');
+                      } else {
+                        window.location.href = link.path;
+                      }
+                    }}
+                  >
+                    <LinkContent
+                      title={link.title}
+                      description={link.description}
+                      external={link.external}
+                    />
                   </Card>
                 </GridCol>
               ))}
@@ -156,11 +157,11 @@ const HomePage: React.FC = () => {
               </div>
             }
             secondaryAction={
-              <Button >
-                <Link href="/docs/getting-started/installation">
-                  View Installation Guide
-                  <Icon name="ArrowRight" size={16} className="u-ms-2" />
-                </Link>
+              <Button 
+                onClick={() => window.location.href = '/docs/getting-started/installation'}
+              >
+                View Installation Guide
+                <Icon name="ArrowRight" size={16} className="u-ms-2" />
               </Button>
             }
           />
