@@ -57,7 +57,7 @@ const CallToActionSectionDocumentation: React.FC = () => {
               text="Get access to 40+ components, comprehensive layouts, design tokens, and advanced effects."
               primaryAction={
                 <Card className="u-bg-tertiary-subtle u-br-md u-p-4 u-mb-4">
-                  <code className="u-text-primary-emphasis u-fs-sm" style={{ fontFamily: 'monospace' }}>
+                  <code className="u-text-primary-emphasis u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
                     npm install @shohojdhara/atomix
                   </code>
                 </Card>

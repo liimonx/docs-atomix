@@ -148,11 +148,14 @@ export function resolveRoute(slug: string[]): RouteResolution {
   const category = navigationItem?.category || null;
   const componentId = extractComponentIdFromSlug(slug);
   const isComponentDetail = isComponentDetailSlug(slug);
-  const isValid = navigationItem !== null || isComponentDetail;
+  
+  // Special case: /docs/components should be valid (components index page)
+  const isComponentsIndex = slug.length === 1 && slug[0] === 'components';
+  const isValid = navigationItem !== null || isComponentDetail || isComponentsIndex;
 
   return {
     navigationItem,
-    category,
+    category: category || (isComponentsIndex ? 'components' : null),
     componentId,
     isValid,
     isComponentDetail,

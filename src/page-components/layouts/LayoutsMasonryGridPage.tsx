@@ -69,7 +69,7 @@ const LayoutsMasonryGridPage = () => {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">MasonryGrid</h4>
               <p className="u-text-secondary-emphasis u-mb-2">The main container that manages item positioning and responsive behavior.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`import { MasonryGrid } from '@shohojdhara/atomix';
 
 <MasonryGrid 
@@ -83,7 +83,7 @@ const LayoutsMasonryGridPage = () => {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">MasonryGridItem</h4>
               <p className="u-text-secondary-emphasis u-mb-2">Individual items within the masonry grid.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`import { MasonryGridItem } from '@shohojdhara/atomix';
 
 <MasonryGridItem className="my-masonry-item">
@@ -120,7 +120,7 @@ const LayoutsMasonryGridPage = () => {
             <Card className="u-p-6 u-h-100">
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Responsive Configuration</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Configure columns for different breakpoints:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`<MasonryGrid 
   columns={{
     xs: 1,

@@ -6,7 +6,9 @@ import {
   Badge, 
   Callout, 
   Icon,
-  Tooltip
+  Tooltip,
+  Row,
+  GridCol
 } from '@shohojdhara/atomix';
 import type { ComponentDocumentation } from '@/types/index';
 
@@ -56,21 +58,23 @@ function MyComponent() {
           {component.features && component.features.length > 0 && (
             <section className="u-mb-8">
               <h2 className="u-fs-2xl u-fw-bold u-mb-4">Key Features</h2>
-              <div className="u-d-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 'var(--atomix-spacing-md)' }}>
+              <Row>
                 {component.features.map((feature, index) => (
-                  <Card key={index} className="u-p-6 u-h-100">
-                    <div className="u-d-flex u-flex-direction-column u-gap-3">
-                      <Icon
-                        name={feature.icon as any}
-                        size="md"
-                        className="u-text-primary"
-                      />
-                      <h3 className="u-fs-lg u-fw-semibold u-m-0">{feature.title}</h3>
-                      <p className="u-text-secondary-emphasis u-m-0">{feature.description}</p>
-                    </div>
-                  </Card>
+                  <GridCol key={index} md={6} lg={4}>
+                    <Card className="u-p-6 u-h-100">
+                      <div className="u-d-flex u-flex-direction-column u-gap-3">
+                        <Icon
+                          name={feature.icon as any}
+                          size="md"
+                          className="u-text-primary"
+                        />
+                        <h3 className="u-fs-lg u-fw-semibold u-m-0">{feature.title}</h3>
+                        <p className="u-text-secondary-emphasis u-m-0">{feature.description}</p>
+                      </div>
+                    </Card>
+                  </GridCol>
                 ))}
-              </div>
+              </Row>
             </section>
           )}
         </div>

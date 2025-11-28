@@ -28,182 +28,11 @@
   padding-bottom: 6rem;
 }
 
-/* Features section */
-.features-section .section-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
+/* Features section - REMOVED: Now using utility classes and Atomix components in FeaturesSection.tsx */
 
-.features-section .section-header h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--atomix-color-text-primary);
-}
+/* Component grid section - REMOVED: Now using utility classes and Atomix components in ComponentGrid.tsx */
 
-.features-section .section-header p {
-  font-size: 1.25rem;
-  color: var(--atomix-color-text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.feature-card {
-  padding: 2rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--atomix-shadow-lg);
-}
-
-.feature-icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  background: var(--atomix-color-primary-light);
-}
-
-.feature-icon {
-  color: var(--atomix-color-primary);
-}
-
-.feature-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: var(--atomix-color-text-primary);
-}
-
-.feature-description {
-  color: var(--atomix-color-text-secondary);
-  line-height: 1.6;
-}
-
-/* Component grid section */
-.component-grid-section .section-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.component-grid-section .section-header h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--atomix-color-text-primary);
-}
-
-.component-grid-section .section-header p {
-  font-size: 1.25rem;
-  color: var(--atomix-color-text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.component-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-
-.component-card {
-  padding: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.component-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--atomix-shadow-md);
-}
-
-.component-name {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--atomix-color-text-primary);
-}
-
-.component-description {
-  color: var(--atomix-color-text-secondary);
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-
-.component-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.875rem;
-}
-
-.component-category {
-  color: var(--atomix-color-text-muted);
-  font-weight: 500;
-}
-
-.component-status {
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.status-stable {
-  background: var(--atomix-color-success-light);
-  color: var(--atomix-color-success);
-}
-
-.status-beta {
-  background: var(--atomix-color-warning-light);
-  color: var(--atomix-color-warning);
-}
-
-.view-all-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--atomix-color-primary);
-  color: white;
-  border: none;
-  border-radius: var(--atomix-radius-md);
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.view-all-button:hover {
-  background: var(--atomix-color-primary-dark);
-}
-
-.section-footer {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-/* Prominent search styles */
-.header-search-container {
-  position: relative;
-  width: 300px;
-  max-width: 100%;
-}
+/* Prominent search styles - REMOVED: Now using utility classes */
 
 /* Preview toggle buttons */
 .preview-toggle-buttons .btn {
@@ -222,20 +51,7 @@
   width: 100%;
 }
 
-.atomix-docs-header .mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: var(--atomix-radius-sm);
-  color: var(--atomix-color-text-primary);
-  transition: var(--atomix-transition-fast);
-}
-
-.atomix-docs-header .mobile-menu-toggle:hover {
-  background: var(--atomix-color-bg-secondary);
-}
+/* Mobile menu toggle - REMOVED: Now using utility classes in DocumentationHeader.tsx */
 
 /* Main content area */
 .atomix-docs-main {
@@ -572,13 +388,7 @@
     margin-right: -50vw;
   }
 
-  .atomix-docs-header .mobile-menu-toggle {
-    display: block;
-  }
-
-  .atomix-docs-header .nav-main.desktop-only {
-    display: none;
-  }
+  /* Mobile menu toggle - REMOVED: Now using utility classes */
 
   .showcase-header {
     padding: var(--atomix-spacing-md);
@@ -594,9 +404,7 @@
     justify-content: flex-start;
   }
 
-  .atomix-docs-header .nav-search {
-    display: none;
-  }
+  /* Nav search - REMOVED: Now using utility classes */
 }
 
 @media (max-width: 480px) {
@@ -804,13 +612,18 @@
   animation: fadeIn 0.3s ease forwards;
 }
 
-/* Enhanced focus styles */
-*:focus-visible {
-  outline: 2px solid var(--atomix-color-primary);
-  outline-offset: 2px;
-  border-radius: var(--atomix-radius-sm);
+/* Card hover effect utility */
+.atomix-card-hover {
+  transition: var(--atomix-transition-fast);
 }
 
-.search-input::placeholder {
-  color: var(--atomix-color-primary);
+.atomix-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--atomix-shadow-lg);
+  border-color: var(--atomix-color-primary);
+}
+
+/* Max width utility */
+.u-max-w-600 {
+  max-width: 600px;
 }

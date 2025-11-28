@@ -82,7 +82,7 @@ export function GlobalSearch() {
 
   return (
     <div
-      className="u-position-relative header-search-wrapper"
+      className="u-position-relative"
       onKeyDown={handleKeyDown}
     >
       <Dropdown
@@ -121,7 +121,7 @@ export function GlobalSearch() {
       >
         <div className="u-position-relative u-w-100">
           <Input
-          className="search-input"
+            className="u-w-300 u-border-transparent u-br-full u-px-4 u-py-2 u-ps-10"
             glass={{
               blurAmount: 10,
               cornerRadius: 30,
@@ -131,13 +131,6 @@ export function GlobalSearch() {
             placeholder="Search documentation..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            style={{
-              width: "300px",
-              borderColor: "transparent",
-              backgroundColor: "rgba(var(--atomix-primary-rgb), 0.4)",
-              borderRadius: "30px",
-              padding: "8px 16px 8px 40px",
-            }}
           />
           <div className="u-position-absolute u-top-0 u-start-0 u-pt-1 u-ps-1">
             {searchQuery ? (

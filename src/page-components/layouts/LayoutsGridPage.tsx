@@ -69,7 +69,7 @@ const LayoutsGridPage = () => {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Container</h4>
               <p className="u-text-secondary-emphasis u-mb-2">The Container component provides responsive max-widths and centering for your content.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`import { Container } from '@shohojdhara/atomix';
 
 <Container>
@@ -82,7 +82,7 @@ const LayoutsGridPage = () => {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Row</h4>
               <p className="u-text-secondary-emphasis u-mb-2">The Row component wraps columns and provides negative margins to counteract column padding.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`import { Row } from '@shohojdhara/atomix';
 
 <Row>
@@ -94,7 +94,7 @@ const LayoutsGridPage = () => {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">GridCol</h4>
               <p className="u-text-secondary-emphasis u-mb-2">The GridCol component represents individual columns within a row.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`import { GridCol } from '@shohojdhara/atomix';
 
 <Row>

@@ -74,7 +74,7 @@ const LayoutsPerformancePage = () => {
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Grid System Performance</h3>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Efficient Column Calculations</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`// ❌ Avoid: Expensive calculations on every render
 function SlowGrid({ items }) {
   const getColumnSize = (index) => {
@@ -129,7 +129,7 @@ function OptimizedGrid({ items }) {
               </ul>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Example: Image with Aspect Ratio</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`<div className="u-ratio u-ratio-16x9">
   <img 
     src="image.jpg" 
@@ -147,7 +147,7 @@ function OptimizedGrid({ items }) {
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Virtualization</h3>
               <p className="u-text-secondary-emphasis u-mb-4">For large datasets, use virtualization to render only visible items:</p>
               
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`import { VirtualizedGrid } from '@shohojdhara/atomix';
 
 <VirtualizedGrid
@@ -179,7 +179,7 @@ function OptimizedGrid({ items }) {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Critical CSS</h4>
               <p className="u-text-secondary-emphasis u-mb-2">Inline critical CSS for above-the-fold content:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`<style>
   /* Inline critical layout styles */
   .container { max-width: 1200px; margin: 0 auto; }
@@ -190,7 +190,7 @@ function OptimizedGrid({ items }) {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">CSS Containment</h4>
               <p className="u-text-secondary-emphasis u-mb-2">Use CSS containment to isolate expensive layout calculations:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`.expensive-component {
   contain: layout style paint;
 }`}

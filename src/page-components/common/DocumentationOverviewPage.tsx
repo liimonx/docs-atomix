@@ -308,7 +308,7 @@ const DocumentationOverviewPage: React.FC = () => {
                     <GridCol key={itemIndex} md={6} lg={3} className="u-mb-4">
                       <Card 
                         className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle"
-                        style={{ transition: 'var(--atomix-transition-fast)' }}
+                        className="u-transition-fast"
                         onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
                           e.currentTarget.style.transform = 'translateY(-4px)';
                           e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
@@ -323,7 +323,7 @@ const DocumentationOverviewPage: React.FC = () => {
                           <h3 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
                             {item.title}
                           </h3>
-                          <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1" style={{ lineHeight: 'var(--atomix-line-height-relaxed)' }}>
+                          <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
                             {item.description}
                           </p>
                           <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">

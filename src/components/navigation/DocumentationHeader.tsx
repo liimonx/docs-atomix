@@ -40,7 +40,7 @@ export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
   ];
 
   return (
-    <header className="atomix-docs-header" role="banner">
+    <header role="banner">
       <Navbar
         glass={{
           displacementScale: 20,
@@ -49,14 +49,14 @@ export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
           mode: 'standard',
         } as any}
         brand={
-          <div className="nav-brand">
+          <div className="u-d-flex u-align-items-center u-gap-2">
             {/* Mobile menu toggle */}
             <Button
               variant="outline-secondary"
               size="sm"
               onClick={onMenuToggle}
               aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
-              className="mobile-menu-toggle"
+              className="u-d-none u-d-lg-none"
             >
               <Icon name={sidebarOpen ? 'X' : 'List'} size="sm" />
             </Button>
@@ -64,38 +64,29 @@ export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
             {/* Logo and Brand */}
             <Link
               href="/"
-              className="navbar-brand"
+              className="u-d-flex u-align-items-center u-gap-2 u-text-decoration-none"
               aria-label="Atomix Design System"
             >
-              <AtomixLogo className="navbar-logo" />
-              <span className="navbar-title">Atomix</span>
+              <AtomixLogo />
+              <span className="u-fs-lg u-fw-semibold">Atomix</span>
             </Link>
           </div>
         }
-        className="docs-nav"
         aria-label="Main navigation"
         position="fixed"
       >
         {/* Navigation Items - Desktop Only */}
-        <Nav className="" aria-label="Primary navigation" alignment='end'>
-          {/* {navigationItems.map((item) => (
-            <NavItem key={item.href} href={item.href}>
-              <Icon name={item.icon as any} size="sm" className="nav-link-icon" />
-              {item.label}
-            </NavItem>
-          ))} */}
+        <Nav className="u-d-flex u-align-items-center u-gap-2" aria-label="Primary navigation" alignment='end'>
            {/* Search */}
-           <div className="nav-search">
+           <div className="u-position-relative">
             <GlobalSearch  />
           </div>
         </Nav>
 
         {/* Right Section */}
-        <Nav className="nav-actions" alignment='end'>
-         
-
+        <Nav className="u-d-flex u-align-items-center u-gap-2" alignment='end'>
           {/* External Links */}
-          <div className="nav-external-links">
+          <div className="u-d-flex u-gap-2">
             {externalLinks.map((link) => (
               <Button
                 key={link.href}
@@ -104,7 +95,6 @@ export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
                 variant="ghost"
                 size="sm"
                 aria-label={link.label}
-                className="external-link"
                 target="_blank"
                 rel="noopener noreferrer"
               >

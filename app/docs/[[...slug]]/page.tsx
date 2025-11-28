@@ -31,8 +31,10 @@ export async function generateStaticParams() {
   });
   
   // Include empty slug for /docs overview page
+  // Include ['components'] for /docs/components index page
   return [
     { slug: [] }, // For /docs
+    { slug: ['components'] }, // For /docs/components
     ...filteredSlugs.map(slug => ({
       slug,
     })),
@@ -63,6 +65,29 @@ export async function generateMetadata({ params }: DynamicPageProps): Promise<Me
       },
       alternates: {
         canonical: 'https://atomix-docs.vercel.app/docs',
+      },
+    };
+  }
+  
+  // Handle /docs/components (index page) - special metadata
+  if (slug.length === 1 && slug[0] === 'components') {
+    return {
+      title: 'Components | Atomix Documentation',
+      description: 'A comprehensive collection of modern, accessible, and customizable React components. Browse 40+ components with search, filtering, and detailed documentation.',
+      openGraph: {
+        title: 'Components | Atomix Documentation',
+        description: 'A comprehensive collection of modern, accessible, and customizable React components.',
+        type: 'website',
+        url: 'https://atomix-docs.vercel.app/docs/components',
+        siteName: 'Atomix Documentation',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: 'Components | Atomix Documentation',
+        description: 'A comprehensive collection of modern, accessible, and customizable React components.',
+      },
+      alternates: {
+        canonical: 'https://atomix-docs.vercel.app/docs/components',
       },
     };
   }
@@ -100,7 +125,11 @@ export default async function DynamicDocsPage({ params }: DynamicPageProps) {
   
   // Get the navigation item
   const navigationItem = routeResolution.navigationItem;
-  if (!navigationItem) {
+  
+  // Special case: /docs/components (index page) - no navigation item needed
+  const isComponentsIndex = slug.length === 1 && slug[0] === 'components';
+  
+  if (!navigationItem && !isComponentsIndex) {
     notFound();
   }
   
@@ -114,7 +143,7 @@ export default async function DynamicDocsPage({ params }: DynamicPageProps) {
   
   // Render the component with appropriate props
   // Some components need specific props (e.g., GettingStartedPage needs 'type')
-  const componentProps = getComponentProps(navigationItem);
+  const componentProps = navigationItem ? getComponentProps(navigationItem) : {};
   
   return <PageComponent {...componentProps} />;
 }

@@ -68,7 +68,7 @@ const LayoutsResponsivePatternsPage = () => {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">1. Sidebar Layout</h4>
               <p className="u-text-secondary-emphasis u-mb-2">Perfect for blogs, documentation, and admin dashboards.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`function SidebarLayout({ children, sidebar }) {
   return (
     <Container>
@@ -94,7 +94,7 @@ const LayoutsResponsivePatternsPage = () => {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">2. Card Grid Layout</h4>
               <p className="u-text-secondary-emphasis u-mb-2">Ideal for dashboards, galleries, and product listings.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`function CardGridLayout({ cards }) {
   return (
     <Container>
@@ -130,7 +130,7 @@ const LayoutsResponsivePatternsPage = () => {
               </ul>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Usage Example</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`<GridCol xs={12} sm={6} md={4} lg={3}>
   Responsive column
 </GridCol>`}
@@ -144,7 +144,7 @@ const LayoutsResponsivePatternsPage = () => {
               <p className="u-text-secondary-emphasis u-mb-4">Ensure images and media adapt to their containers:</p>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Images</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`<img 
   src="image.jpg" 
   alt="Description"
@@ -153,7 +153,7 @@ const LayoutsResponsivePatternsPage = () => {
               </pre>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Videos</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`<div className="u-ratio u-ratio-16x9">
   <iframe 
     src="video.mp4"
@@ -164,7 +164,7 @@ const LayoutsResponsivePatternsPage = () => {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Typography</h4>
               <p className="u-text-secondary-emphasis u-mb-2">Use responsive font sizes:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`.u-font-size-responsive {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
 }`}

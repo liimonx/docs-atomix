@@ -4,7 +4,8 @@ import React from 'react';
 import { 
   Button, 
   Icon, 
-  Accordion 
+  Accordion,
+  Badge
 } from '@shohojdhara/atomix';
 import { navigationData } from '@/data/navigation';
 import { useRouter } from 'next/navigation';
@@ -29,23 +30,48 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
     onClose();
   };
 
+  const getBadgeVariant = (
+    variant: string
+  ):
+    | "primary"
+    | "secondary"
+    | "success"
+    | "warning"
+    | "info"
+    | "danger" => {
+    switch (variant) {
+      case "new":
+        return "success";
+      case "beta":
+        return "warning";
+      case "updated":
+        return "info";
+      case "deprecated":
+        return "danger";
+      default:
+        return "secondary";
+    }
+  };
+
   const accordionItems = navigationData.map(section => ({
     title: section.title,
     content: (
-      <ul className="mobile-nav-list">
+      <ul className="u-list-style-none u-m-0 u-p-0">
         {section.items.map(item => (
-          <li key={item.path} className="mobile-nav-item">
+          <li key={item.path} className="u-mb-2">
             <Button
               variant="ghost"
-              className="mobile-nav-link"
+              className="u-w-100 u-justify-content-start"
               onClick={() => handleNavigation(item.path)}
               fullWidth
             >
-              <span className="mobile-nav-text">{item.title}</span>
+              <span className="u-flex-grow-1 u-text-start">{item.title}</span>
               {item.badge && (
-                <span className={`badge badge-${item.badge.variant}`}>
-                  {item.badge.text}
-                </span>
+                <Badge
+                  label={item.badge.text}
+                  variant={getBadgeVariant(item.badge.variant) as any}
+                  size="sm"
+                />
               )}
             </Button>
           </li>
@@ -55,10 +81,10 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
   }));
 
   return (
-    <div className="mobile-navigation-overlay">
-      <div className="mobile-navigation">
-        <div className="mobile-nav-header">
-          <h2>Documentation</h2>
+    <div className="u-position-fixed u-top-0 u-start-0 u-w-100 u-h-100 u-z-index-1000">
+      <div className="u-position-absolute u-top-0 u-start-0 u-w-100 u-h-100 u-bg-primary u-p-4 u-overflow-y-auto" style={{ maxWidth: '320px', boxShadow: '2px 0 8px rgba(0,0,0,0.1)' }}>
+        <div className="u-d-flex u-justify-content-between u-align-items-center u-mb-4">
+          <h2 className="u-fs-xl u-fw-semibold u-m-0">Documentation</h2>
           <Button
             variant="ghost"
             size="sm"
@@ -69,25 +95,23 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
           </Button>
         </div>
         
-        <div className="mobile-nav-content">
-          <div className="mobile-accordion">
-            {accordionItems.map((item, index) => (
-              <Accordion
-                key={index}
-                title={item.title}
-                className="mobile-accordion-item"
-              >
-                {item.content}
-              </Accordion>
-            ))}
-          </div>
+        <div>
+          {accordionItems.map((item, index) => (
+            <Accordion
+              key={index}
+              title={item.title}
+            >
+              {item.content}
+            </Accordion>
+          ))}
         </div>
       </div>
       
       <div 
-        className="mobile-nav-backdrop" 
+        className="u-position-absolute u-top-0 u-start-0 u-w-100 u-h-100 u-bg-black u-opacity-50" 
         onClick={onClose}
         aria-hidden="true"
+        style={{ marginLeft: '320px' }}
       />
     </div>
   );

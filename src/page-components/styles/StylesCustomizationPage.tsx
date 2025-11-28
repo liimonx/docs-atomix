@@ -105,7 +105,7 @@ const StylesCustomizationPage = () => {
             <Card className="u-p-6 u-h-100">
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">SCSS Variable Override</h3>
               <p className="u-text-secondary-emphasis u-mb-4">The simplest way to customize Atomix is by overriding SCSS variables:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`// Override before importing Atomix
 $primary-6: #your-brand-color;
 $font-family-base: 'Your Font', sans-serif;
@@ -121,7 +121,7 @@ $border-radius: 0.5rem;
             <Card className="u-p-6 u-h-100">
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">@use with Configuration</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Import Atomix with configuration options:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`@use 'atomix/styles' with (
   $primary-6: #your-brand-color,
   $font-family-base: 'Your Font', sans-serif
@@ -140,7 +140,7 @@ $border-radius: 0.5rem;
               <div className="u-mt-4">
                 <h4 className="u-fs-lg u-fw-semibold u-mb-2">Runtime Theme Switching</h4>
                 <p className="u-text-secondary-emphasis u-mb-2">Switch themes dynamically with JavaScript:</p>
-                <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+                <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`// Switch to dark theme
 document.documentElement.setAttribute('data-theme', 'dark');
 
@@ -150,7 +150,7 @@ document.documentElement.setAttribute('data-theme', 'light');`}
                 
                 <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-2">Creating Custom Themes</h4>
                 <p className="u-text-secondary-emphasis u-mb-2">Define your own themes with CSS custom properties:</p>
-                <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+                <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`:root[data-theme="brand"] {
   --atomix-primary: #your-brand-color;
   --atomix-primary-6: #your-brand-color;

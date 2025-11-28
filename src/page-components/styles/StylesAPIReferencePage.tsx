@@ -52,7 +52,7 @@ const StylesAPIReferencePage = () => {
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Color Variables</h4>
               <p className="u-text-secondary-emphasis u-mb-2">Primary color scale:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`$primary-1: #f2e8fd;   // Lightest tint
 $primary-2: #e4d0fa;   // Very light
 $primary-3: #d0b2f5;   // Light
@@ -85,7 +85,7 @@ $primary-10: #2a0e60;  // Darkest shade`}
               <p className="u-text-secondary-emphasis u-mb-4">Reusable mixins for common styling patterns:</p>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Responsive Breakpoints</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`@include media-breakpoint-up(sm) {
   // Styles for small and up
 }
@@ -96,7 +96,7 @@ $primary-10: #2a0e60;  // Darkest shade`}
               </pre>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Focus Styles</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`@include focus-ring();`}
               </pre>
             </Card>
@@ -108,7 +108,7 @@ $primary-10: #2a0e60;  // Darkest shade`}
               <p className="u-text-secondary-emphasis u-mb-4">Utility functions for working with design tokens:</p>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Color Functions</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`color('primary', 6);     // Get primary color
 color('gray', 8);        // Get gray color
 
@@ -117,7 +117,7 @@ shade('primary', 20%);   // Darken color`}
               </pre>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Spacing Functions</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`space(4);  // Get 1rem (4 * 0.25rem)
 space(8);  // Get 2rem (8 * 0.25rem)`}
               </pre>
@@ -132,7 +132,7 @@ space(8);  // Get 2rem (8 * 0.25rem)`}
               <p className="u-text-secondary-emphasis u-mb-4">Runtime theming with CSS custom properties:</p>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Color Properties</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`:root {
   --atomix-primary: #7c3aed;
   --atomix-primary-6: #7c3aed;
@@ -145,7 +145,7 @@ space(8);  // Get 2rem (8 * 0.25rem)`}
               </pre>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Theming</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`// Switch themes with JavaScript
 document.documentElement.setAttribute('data-theme', 'dark');`}
               </pre>

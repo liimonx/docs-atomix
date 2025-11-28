@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon } from '@shohojdhara/atomix';
+import { Card, Icon, Container, Row, GridCol, SectionIntro } from '@shohojdhara/atomix';
 
 export const FeaturesSection: React.FC = () => {
   const features = [
@@ -42,29 +42,34 @@ export const FeaturesSection: React.FC = () => {
   ];
 
   return (
-    <section className="features-section">
-      <div className="section-header">
-        <h2>Why Choose Atomix</h2>
-        <p>Built for modern web applications with developers and designers in mind</p>
-      </div>
+    <section className="u-py-16">
+      <Container>
+        <SectionIntro
+          title="Why Choose Atomix"
+          text="Built for modern web applications with developers and designers in mind"
+          className="u-text-center u-mb-12"
+        />
 
-      <div className="features-grid">
-        {features.map((feature, index) => (
-          <Card key={index} className={`feature-card feature-card-${feature.color}`}>
-            <div className="feature-icon-wrapper">
-              <Icon 
-                name={feature.icon as any} 
-                size="lg" 
-                className="feature-icon"
-              />
-            </div>
-            <div className="feature-content">
-              <h3 className="feature-title">{feature.title}</h3>
-              <p className="feature-description">{feature.description}</p>
-            </div>
-          </Card>
-        ))}
-      </div>
+        <Row className="u-gap-8">
+          {features.map((feature, index) => (
+            <GridCol key={index} xs={12} md={6} lg={4}>
+              <Card className="u-h-100 u-p-8 u-transition-all u-cursor-pointer" style={{ transition: 'all 0.2s ease' }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = 'var(--atomix-shadow-md)'; }} onMouseLeave={(e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}>
+                <div className="u-d-flex u-align-items-center u-justify-content-center u-w-15 u-h-15 u-br-lg u-mb-6" style={{ backgroundColor: 'var(--atomix-color-bg-brand)' }}>
+                  <Icon 
+                    name={feature.icon as any} 
+                    size="lg"
+                    style={{ color: 'var(--atomix-color-text-brand)' }}
+                  />
+                </div>
+                <div>
+                  <h3 className="u-fs-xl u-fw-semibold u-mb-3 u-color-text-primary">{feature.title}</h3>
+                  <p className="u-text-secondary-emphasis u-line-height-relaxed">{feature.description}</p>
+                </div>
+              </Card>
+            </GridCol>
+          ))}
+        </Row>
+      </Container>
     </section>
   );
 };

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Button, Card, Icon } from '@shohojdhara/atomix';
+import { Button, Card, Icon, Row, GridCol } from '@shohojdhara/atomix';
 
 const NotFoundPage: React.FC = () => {
   const popularLinks = [
@@ -73,33 +73,25 @@ const NotFoundPage: React.FC = () => {
             Popular Pages
           </h3>
 
-          <div className="u-d-grid u-gap-4" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))' }}>
+          <Row>
             {popularLinks.map((link, index) => (
-              <Card
-                key={index}
-                className="u-cursor-pointer u-transition-fast u-border u-border-subtle"
-                style={{ transition: 'var(--atomix-transition-fast)' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = '';
-                  e.currentTarget.style.boxShadow = '';
-                }}
-                onClick={() => window.location.href = link.path}
-              >
-                <div className="u-p-6">
-                  <h4 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
-                    {link.title}
-                  </h4>
-                  <p className="u-text-secondary-emphasis u-m-0">
-                    {link.description}
-                  </p>
-                </div>
-              </Card>
+              <GridCol key={index} md={6} lg={3}>
+                <Card
+                  className="u-cursor-pointer u-transition-fast u-border u-border-subtle atomix-card-hover"
+                  onClick={() => window.location.href = link.path}
+                >
+                  <div className="u-p-6">
+                    <h4 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
+                      {link.title}
+                    </h4>
+                    <p className="u-text-secondary-emphasis u-m-0">
+                      {link.description}
+                    </p>
+                  </div>
+                </Card>
+              </GridCol>
             ))}
-          </div>
+          </Row>
         </section>
 
         {/* Help Section */}

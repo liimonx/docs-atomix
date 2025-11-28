@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon } from '@shohojdhara/atomix';
+import { Card, Icon, Row, GridCol } from '@shohojdhara/atomix';
 import type { ComponentDocumentation } from '@/types/index';
 
 interface AccessibilityGuideProps {
@@ -27,21 +27,23 @@ export const AccessibilityGuide: React.FC<AccessibilityGuideProps> = ({ componen
       {accessibility.keyboardSupport && accessibility.keyboardSupport.length > 0 && (
         <section className="u-mb-8">
           <h2 className="u-fs-2xl u-fw-bold u-mb-4">Keyboard Support</h2>
-          <div className="u-d-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 'var(--atomix-spacing-md)' }}>
+          <Row>
             {accessibility.keyboardSupport.map((item, index) => (
-              <Card key={index} className="u-p-4">
-                <div className="u-d-flex u-align-items-start u-gap-3">
-                  <div className="u-bg-tertiary u-p-2 u-br-sm">
-                    <kbd className="u-fs-sm u-fw-semibold u-m-0">{item.key}</kbd>
+              <GridCol key={index} md={6} lg={4}>
+                <Card className="u-p-4">
+                  <div className="u-d-flex u-align-items-start u-gap-3">
+                    <div className="u-bg-tertiary u-p-2 u-br-sm">
+                      <kbd className="u-fs-sm u-fw-semibold u-m-0">{item.key}</kbd>
+                    </div>
+                    <div className="u-flex-grow-1">
+                      <p className="u-m-0 u-mb-1">{item.action}</p>
+                      {item.context && <small className="u-fs-sm u-text-secondary-emphasis">{item.context}</small>}
+                    </div>
                   </div>
-                  <div className="u-flex-grow-1">
-                    <p className="u-m-0 u-mb-1">{item.action}</p>
-                    {item.context && <small className="u-fs-sm u-text-secondary-emphasis">{item.context}</small>}
-                  </div>
-                </div>
-              </Card>
+                </Card>
+              </GridCol>
             ))}
-          </div>
+          </Row>
         </section>
       )}
 
@@ -87,26 +89,32 @@ export const AccessibilityGuide: React.FC<AccessibilityGuideProps> = ({ componen
 
       <section className="u-mb-8">
         <h2 className="u-fs-2xl u-fw-bold u-mb-4">Additional Information</h2>
-        <div className="u-d-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 'var(--atomix-spacing-md)' }}>
-          <Card className="u-p-4">
-            <h3 className="u-fs-lg u-fw-semibold u-mb-2">Screen Reader Support</h3>
-            <p className="u-text-secondary-emphasis u-m-0">{accessibility.screenReaderSupport || 'Not specified'}</p>
-          </Card>
+        <Row>
+          <GridCol md={6} lg={4}>
+            <Card className="u-p-4">
+              <h3 className="u-fs-lg u-fw-semibold u-mb-2">Screen Reader Support</h3>
+              <p className="u-text-secondary-emphasis u-m-0">{accessibility.screenReaderSupport || 'Not specified'}</p>
+            </Card>
+          </GridCol>
           
-          <Card className="u-p-4">
-            <h3 className="u-fs-lg u-fw-semibold u-mb-2">Focus Management</h3>
-            <p className="u-text-secondary-emphasis u-m-0">{accessibility.focusManagement || 'Not specified'}</p>
-          </Card>
+          <GridCol md={6} lg={4}>
+            <Card className="u-p-4">
+              <h3 className="u-fs-lg u-fw-semibold u-mb-2">Focus Management</h3>
+              <p className="u-text-secondary-emphasis u-m-0">{accessibility.focusManagement || 'Not specified'}</p>
+            </Card>
+          </GridCol>
           
-          <Card className="u-p-4">
-            <h3 className="u-fs-lg u-fw-semibold u-mb-2">Color Contrast</h3>
-            <p className="u-m-0">
-              {accessibility.colorContrastCompliant 
-                ? '✅ Compliant with WCAG 2.1 AA standards' 
-                : '⚠️ May not meet WCAG 2.1 AA standards'}
-            </p>
-          </Card>
-        </div>
+          <GridCol md={6} lg={4}>
+            <Card className="u-p-4">
+              <h3 className="u-fs-lg u-fw-semibold u-mb-2">Color Contrast</h3>
+              <p className="u-m-0">
+                {accessibility.colorContrastCompliant 
+                  ? '✅ Compliant with WCAG 2.1 AA standards' 
+                  : '⚠️ May not meet WCAG 2.1 AA standards'}
+              </p>
+            </Card>
+          </GridCol>
+        </Row>
       </section>
     </div>
   );

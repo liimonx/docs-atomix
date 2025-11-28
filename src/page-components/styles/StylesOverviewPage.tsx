@@ -63,9 +63,9 @@ const StylesOverviewPage: React.FC = () => {
           
           <Row>
             <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
-                <h3 className="u-mb-3">Architecture</h3>
-                <p className="u-mb-4">Learn about our CSS architecture based on ITCSS methodology for scalable styling.</p>
+              <Card className="u-p-6 u-h-100 atomix-card-hover">
+                <h3 className="u-fs-lg u-fw-semibold u-mb-3">Architecture</h3>
+                <p className="u-text-secondary-emphasis u-mb-4">Learn about our CSS architecture based on ITCSS methodology for scalable styling.</p>
                 <Button 
                   variant="outline" 
                   label="Architecture Guide" 
@@ -76,7 +76,7 @@ const StylesOverviewPage: React.FC = () => {
             </GridCol>
             
             <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+              <Card className="u-p-6 u-h-100 atomix-card-hover">
                 <h3 className="u-fs-lg u-fw-semibold u-mb-3">Utility Classes</h3>
                 <p className="u-text-secondary-emphasis u-mb-4">Explore our extensive collection of utility classes for rapid UI development.</p>
                 <Button 
@@ -89,7 +89,7 @@ const StylesOverviewPage: React.FC = () => {
             </GridCol>
             
             <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+              <Card className="u-p-6 u-h-100 atomix-card-hover">
                 <h3 className="u-fs-lg u-fw-semibold u-mb-3">Customization</h3>
                 <p className="u-text-secondary-emphasis u-mb-4">Learn how to customize the Atomix design system to match your brand.</p>
                 <Button 

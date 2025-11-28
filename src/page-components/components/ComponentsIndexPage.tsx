@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState, useMemo, ChangeEvent } from 'react';
-import Link from 'next/link';
+import React, { useState, useMemo, ChangeEvent } from "react";
+import Link from "next/link";
 import {
   Card,
   Input,
@@ -11,19 +11,13 @@ import {
   Hero,
   Block,
   Row,
+  Grid,
   GridCol,
-  Callout
-} from '@shohojdhara/atomix';
-import { 
-  Search, 
-  Grid as GridIcon, 
-  List,
-  CheckCircle,
-  Zap,
-  Shield,
-  Sparkles
-} from 'lucide-react';
-import { navigationData } from '@/data/navigation';
+  Callout,
+  Container,
+} from "@shohojdhara/atomix";
+
+import { navigationData } from "@/data/navigation";
 
 interface ComponentItem {
   id: string;
@@ -42,32 +36,38 @@ interface ComponentItem {
   isUpdated?: boolean;
 }
 
-type ViewMode = 'grid' | 'list';
-type FilterCategory = 'all' | 'components' | 'design-tokens' | 'styles' | 'layouts' | 'guides';
+type ViewMode = "grid" | "list";
+type FilterCategory =
+  | "all"
+  | "components"
+  | "design-tokens"
+  | "styles"
+  | "layouts"
+  | "guides";
 
 const ComponentsIndexPage: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [viewMode, setViewMode] = useState<ViewMode>('grid');
-  const [filterCategory, setFilterCategory] = useState<FilterCategory>('all');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  const [filterCategory, setFilterCategory] = useState<FilterCategory>("all");
 
   // Get all component items from navigation data
   const allComponents = useMemo(() => {
     const components: ComponentItem[] = [];
-    
+
     navigationData.forEach((section) => {
-      if (section.id !== 'getting-started') {
+      if (section.id !== "getting-started") {
         section.items.forEach((item) => {
           components.push({
             ...item,
-            description: item.description || '',
-            icon: item.icon || 'Info',
+            description: item.description || "",
+            icon: item.icon || "Info",
             section: section.title,
-            sectionId: section.id
+            sectionId: section.id,
           });
         });
       }
     });
-    
+
     return components;
   }, []);
 
@@ -76,9 +76,9 @@ const ComponentsIndexPage: React.FC = () => {
     let filtered = allComponents;
 
     // Filter by category
-    if (filterCategory !== 'all') {
-      filtered = filtered.filter(component => 
-        component.sectionId === filterCategory
+    if (filterCategory !== "all") {
+      filtered = filtered.filter(
+        (component) => component.sectionId === filterCategory
       );
     }
 
@@ -90,9 +90,11 @@ const ComponentsIndexPage: React.FC = () => {
           component.title,
           component.description,
           component.section,
-          ...(component.searchTerms || [])
-        ].join(' ').toLowerCase();
-        
+          ...(component.searchTerms || []),
+        ]
+          .join(" ")
+          .toLowerCase();
+
         return searchableText.includes(query);
       });
     }
@@ -103,322 +105,471 @@ const ComponentsIndexPage: React.FC = () => {
   // Group components by category
   const groupedComponents = useMemo(() => {
     const groups: Record<string, ComponentItem[]> = {};
-    
+
     filteredComponents.forEach((component) => {
       if (!groups[component.section]) {
         groups[component.section] = [];
       }
       groups[component.section].push(component);
     });
-    
+
     return groups;
   }, [filteredComponents]);
 
   // Category filter options
   const categoryOptions = [
-    { id: 'all', label: 'All', count: allComponents.length },
-    { id: 'components', label: 'Components', count: allComponents.filter(c => c.sectionId === 'components').length },
-    { id: 'design-tokens', label: 'Design Tokens', count: allComponents.filter(c => c.sectionId === 'design-tokens').length },
-    { id: 'styles', label: 'Styles', count: allComponents.filter(c => c.sectionId === 'styles').length },
-    { id: 'layouts', label: 'Layouts', count: allComponents.filter(c => c.sectionId === 'layouts').length },
-    { id: 'guides', label: 'Guides', count: allComponents.filter(c => c.sectionId === 'guides').length },
+    { id: "all", label: "All", count: allComponents.length },
+    {
+      id: "components",
+      label: "Components",
+      count: allComponents.filter((c) => c.sectionId === "components").length,
+    },
+    {
+      id: "design-tokens",
+      label: "Design Tokens",
+      count: allComponents.filter((c) => c.sectionId === "design-tokens")
+        .length,
+    },
+    {
+      id: "styles",
+      label: "Styles",
+      count: allComponents.filter((c) => c.sectionId === "styles").length,
+    },
+    {
+      id: "layouts",
+      label: "Layouts",
+      count: allComponents.filter((c) => c.sectionId === "layouts").length,
+    },
+    {
+      id: "guides",
+      label: "Guides",
+      count: allComponents.filter((c) => c.sectionId === "guides").length,
+    },
   ];
 
   return (
     <>
-
       <Hero
-        glass={{
-          displacementScale: 30,
-          blurAmount: 5,
-          elasticity: 0,
-          enableLiquidBlur: true,
-          padding: "20px",
-          cornerRadius: 30,
-        } as any}
+        title="Components"
+        text="A comprehensive collection of modern, accessible, and customizable React components built with TypeScript and optimized for performance."
         className="u-pt-32 u-pb-16"
-        title="📚 Component Library"
-        text="A comprehensive collection of modern, accessible, and customizable React components"
         alignment="center"
+        showOverlay={false}
+        videoBackground="https://cdn.pixabay.com/video/2018/09/16/18249-290359989_large.mp4"
+        videoOptions={
+          {
+            autoplay: true,
+            loop: true,
+            muted: true,
+            preload: "auto",
+          } as any
+        }
         backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
+        contentWidth="1200px"
+        children={
+          <>
+            <Container
+              style={
+                {
+                  "--atomix-primary-border-subtle": "transparent",
+                } as React.CSSProperties
+              }
+            >
+              {/* Stats Cards */}
+              <Grid className="u-mb-6">
+                <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
+                  <Card
+                    glass={{
+                      blurAmount: 1,
+                    }}
+                    className="u-h-100"
+                    title={allComponents.length.toString()}
+                    text="Total Components"
+                    header={
+                      <div className="u-d-flex u-align-items-center u-justify-content-center u-w-100">
+                        <div
+                          className="u-d-flex u-align-items-center u-justify-content-center"
+                          style={{
+                            width: "56px",
+                            height: "56px",
+                            borderRadius: "12px",
+                            background: "rgba(var(--atomix-primary-rgb), 0.15)",
+                          }}
+                        >
+                          <Icon
+                            name="GridFour"
+                            size={28}
+                            className="u-text-brand-emphasis"
+                          />
+                        </div>
+                      </div>
+                    }
+                  />
+                </GridCol>
+                <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
+                  <Card
+                    glass={{
+                      blurAmount: 1,
+                    }}
+                    className="u-h-100"
+                    header={
+                      <div className="u-d-flex u-align-items-center u-justify-content-center u-w-100">
+                        <div
+                          className="u-d-flex u-align-items-center u-justify-content-center"
+                          style={{
+                            width: "56px",
+                            height: "56px",
+                            borderRadius: "12px",
+                            background: "rgba(var(--atomix-success-rgb), 0.15)",
+                          }}
+                        >
+                          <Icon
+                            name="CheckCircle"
+                            size={28}
+                            className="u-text-success-emphasis"
+                          />
+                        </div>
+                      </div>
+                    }
+                    title="100%"
+                    text="Accessible"
+                  />
+                </GridCol>
+                <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
+                  <Card
+                    glass={{
+                      blurAmount: 1,
+                    }}
+                    className="u-text-center u-h-100"
+                    header={
+                      <div className="u-d-flex u-align-items-center u-justify-content-center u-w-100">
+                        <div
+                          className="u-d-flex u-align-items-center u-justify-content-center"
+                          style={{
+                            width: "56px",
+                            height: "56px",
+                            borderRadius: "12px",
+                            background: "rgba(var(--atomix-info-rgb), 0.15)",
+                          }}
+                        >
+                          <Icon
+                            name="Shield"
+                            size={28}
+                            className="u-text-info-emphasis"
+                          />
+                        </div>
+                      </div>
+                    }
+                    title="TypeScript"
+                    text="Full Support"
+                  />
+                </GridCol>
+                <GridCol md={3} sm={6}>
+                  <Card
+                    glass={{
+                      blurAmount: 1,
+                    }}
+                    className="u-h-100"
+                    header={
+                      <div className="u-d-flex u-align-items-center u-justify-content-center u-w-100">
+                        <div
+                          className="u-d-flex u-align-items-center u-justify-content-center"
+                          style={{
+                            width: "56px",
+                            height: "56px",
+                            borderRadius: "12px",
+                            background: "rgba(var(--atomix-warning-rgb), 0.15)",
+                          }}
+                        >
+                          <Icon
+                            name="Lightning"
+                            size={28}
+                            className="u-text-warning-emphasis"
+                          />
+                        </div>
+                      </div>
+                    }
+                    title="React 18"
+                    text="Optimized"
+                  />
+                </GridCol>
+              </Grid>
+
+            
+              {/* Search and Filter Section */}
+              <Card
+                glass={{
+                  blurAmount: 1,
+                  padding: "24px",
+                  mode: 'shader',
+                  displacementScale: 100,
+                }}
+                className="u-mt-6"
+              >
+                {/* Search and View Controls */}
+                <Grid className="u-align-items-center u-mb-4">
+                  <GridCol md={8} sm={12} className="u-mb-3 u-mb-md-0">
+                    <div className="u-relative u-w-100">
+                      <Input
+                        glass={{
+                          blurAmount: 0,
+                          mode: 'standard'
+                        }}
+                        type="search"
+                        placeholder="Search components, tokens, guides..."
+                        value={searchQuery}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                          setSearchQuery(e.target.value)
+                        }
+                        className="u-w-100"
+                        style={{
+                          padding: "12px 16px 12px 48px",
+                          fontSize: "15px",
+                        }}
+                      />
+                      <div
+                        className="u-position-absolute"
+                        style={{
+                          top: "50%",
+                          left: "16px",
+                          transform: "translateY(-50%)",
+                          pointerEvents: "none",
+                        }}
+                      >
+                        <Icon
+                          name="MagnifyingGlass"
+                          size={20}
+                          className="u-text-secondary-emphasis"
+                        />
+                      </div>
+                    </div>
+                  </GridCol>
+                  <GridCol md={4} sm={12}>
+                    <div className="u-d-flex u-justify-content-end u-gap-2">
+                      <Button
+                        glass={{
+                          blurAmount: 0,
+                        }}
+                        variant={viewMode === "grid" ? "primary" : "outline"}
+                        size="sm"
+                        onClick={() => setViewMode("grid")}
+                        aria-label="Grid view"
+                        className="u-d-flex u-align-items-center u-gap-2"
+                      >
+                        <Icon name="GridFour" size={18} />
+                        <span>Grid</span>
+                      </Button>
+                      <Button
+                        glass={{
+                          blurAmount: 0,
+                        }}
+                        variant={viewMode === "list" ? "primary" : "outline"}
+                        size="sm"
+                        onClick={() => setViewMode("list")}
+                        aria-label="List view"
+                        className="u-d-flex u-align-items-center u-gap-2"
+                      >
+                        <Icon name="ListBullets" size={18} />
+                        <span>List</span>
+                      </Button>
+                    </div>
+                  </GridCol>
+                </Grid>
+
+                {/* Category Filters */}
+                <div className="u-d-flex u-flex-wrap u-gap-2 u-pt-4 u-border-t u-border-brand-subtle">
+                  {categoryOptions.map((option) => (
+                    <Button
+                      key={option.id}
+                      glass={{
+                        blurAmount: 2,
+                      }}
+                      variant={
+                        filterCategory === option.id
+                          ? "primary"
+                          : "outline-secondary"
+                      }
+                      size="sm"
+                      onClick={() =>
+                        setFilterCategory(option.id as FilterCategory)
+                      }
+                    >
+                      <div className="u-d-flex u-align-items-center u-gap-2">
+                        <span>{option.label}</span>
+                        <Badge
+                          glass={{
+                            blurAmount: 2,
+                            children: <></>,
+                          }}
+                          label={option.count.toString()}
+                          variant={
+                            filterCategory === option.id
+                              ? "primary"
+                              : "secondary"
+                          }
+                          size="sm"
+                        >
+                          {option.count}
+                        </Badge>
+                      </div>
+                    </Button>
+                  ))}
+                </div>
+              </Card>
+            </Container>
+          </>
+        }
       />
 
-      <Block className="u-pb-2xl">
-        {/* Stats Cards */}
-        <Row className="u-mb-8">
-          <GridCol md={3} sm={6}>
-            <Card className="u-p-6 u-text-center u-transition-fast u-border u-border-subtle" 
-              style={{ 
-                transition: 'var(--atomix-transition-fast)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
-                e.currentTarget.style.borderColor = 'var(--atomix-color-primary)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = '';
-                e.currentTarget.style.boxShadow = '';
-                e.currentTarget.style.borderColor = '';
-              }}
-            >
-              <div className="u-d-flex u-justify-content-center u-mb-4">
-                <GridIcon size={32} className="u-text-primary" />
-              </div>
-              <h3 className="u-fs-2xl u-fw-bold u-mb-1">{allComponents.length}</h3>
-              <p className="u-fs-sm u-text-secondary-emphasis u-m-0">Total Items</p>
-            </Card>
-          </GridCol>
-          <GridCol md={3} sm={6}>
-            <Card className="u-p-6 u-text-center u-transition-fast u-border u-border-subtle"
-              style={{ 
-                transition: 'var(--atomix-transition-fast)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
-                e.currentTarget.style.borderColor = 'var(--atomix-color-primary)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = '';
-                e.currentTarget.style.boxShadow = '';
-                e.currentTarget.style.borderColor = '';
-              }}
-            >
-              <div className="u-d-flex u-justify-content-center u-mb-4">
-                <CheckCircle size={32} className="u-text-success" />
-              </div>
-              <h3 className="u-fs-2xl u-fw-bold u-mb-1">100%</h3>
-              <p className="u-fs-sm u-text-secondary-emphasis u-m-0">Accessible</p>
-            </Card>
-          </GridCol>
-          <GridCol md={3} sm={6}>
-            <Card className="u-p-6 u-text-center u-transition-fast u-border u-border-subtle"
-              style={{ 
-                transition: 'var(--atomix-transition-fast)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
-                e.currentTarget.style.borderColor = 'var(--atomix-color-primary)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = '';
-                e.currentTarget.style.boxShadow = '';
-                e.currentTarget.style.borderColor = '';
-              }}
-            >
-              <div className="u-d-flex u-justify-content-center u-mb-4">
-                <Shield size={32} className="u-text-info" />
-              </div>
-              <h3 className="u-fs-2xl u-fw-bold u-mb-1">TypeScript</h3>
-              <p className="u-fs-sm u-text-secondary-emphasis u-m-0">Full Support</p>
-            </Card>
-          </GridCol>
-          <GridCol md={3} sm={6}>
-            <Card className="u-p-6 u-text-center u-transition-fast u-border u-border-subtle"
-              style={{ 
-                transition: 'var(--atomix-transition-fast)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
-                e.currentTarget.style.borderColor = 'var(--atomix-color-primary)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = '';
-                e.currentTarget.style.boxShadow = '';
-                e.currentTarget.style.borderColor = '';
-              }}
-            >
-              <div className="u-d-flex u-justify-content-center u-mb-4">
-                <Zap size={32} className="u-text-warning" />
-              </div>
-              <h3 className="u-fs-2xl u-fw-bold u-mb-1">React 18</h3>
-              <p className="u-fs-sm u-text-secondary-emphasis u-m-0">Optimized</p>
-            </Card>
-          </GridCol>
-        </Row>
-
-        {/* Search and Filters */}
-        <Card className="u-p-6 u-mb-6">
-          <Row className="u-align-items-center">
-            <GridCol md={6}>
-              <div className="u-relative u-w-100">
-                <Search size={20} className="u-absolute" style={{ left: 'var(--atomix-spacing-md)', top: '50%', transform: 'translateY(-50%)', color: 'var(--atomix-color-text-tertiary)', pointerEvents: 'none' }} />
-                <Input
-                  type="search"
-                  placeholder="Search components, tokens, guides..."
-                  value={searchQuery}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
-                  className="u-w-100"
-                  style={{ paddingLeft: 'calc(var(--atomix-spacing-md) + 24px)' }}
-                />
-              </div>
-            </GridCol>
-            <GridCol md={6}>
-              <div className="u-d-flex u-justify-content-end u-gap-4">
-                <div className="u-d-flex u-gap-2">
-                  <Button
-                    variant={viewMode === 'grid' ? 'primary' : 'outline'}
-                    size="sm"
-                    onClick={() => setViewMode('grid')}
-                    aria-label="Grid view"
-                  >
-                    <GridIcon size={16} />
-                  </Button>
-                  <Button
-                    variant={viewMode === 'list' ? 'primary' : 'outline'}
-                    size="sm"
-                    onClick={() => setViewMode('list')}
-                    aria-label="List view"
-                  >
-                    <List size={16} />
-                  </Button>
-                </div>
-              </div>
-            </GridCol>
-          </Row>
-
-          {/* Category Filters */}
-          <div className="u-d-flex u-flex-wrap u-gap-2 u-mt-4 u-pt-4 u-border-t u-border-subtle">
-            {categoryOptions.map((option) => (
-              <Button
-                key={option.id}
-                variant={filterCategory === option.id ? 'primary' : 'outline'}
-                size="sm"
-                onClick={() => setFilterCategory(option.id as FilterCategory)}
-                className="u-d-flex u-align-items-center u-gap-2"
-              >
-                {option.label}
-                <Badge 
-                  label={option.count.toString()}
-                  variant="secondary" 
-                  size="sm"
-                >
-                  {option.count}
-                </Badge>
-              </Button>
-            ))}
-          </div>
-        </Card>
-
-        {/* Results Info */}
-        {(searchQuery || filterCategory !== 'all') && (
+      <Block spacing="sm">
+        {(searchQuery || filterCategory !== "all") && (
           <Callout variant="info" className="u-mb-6">
             <p className="u-mb-0">
-              Showing <strong>{filteredComponents.length}</strong> of <strong>{allComponents.length}</strong> items
+              Showing <strong>{filteredComponents.length}</strong> of{" "}
+              <strong>{allComponents.length}</strong> items
               {searchQuery && ` matching "${searchQuery}"`}
-              {filterCategory !== 'all' && ` in ${categoryOptions.find(c => c.id === filterCategory)?.label}`}
+              {filterCategory !== "all" &&
+                ` in ${
+                  categoryOptions.find((c) => c.id === filterCategory)?.label
+                }`}
             </p>
           </Callout>
         )}
 
         {/* Components Grid/List */}
-        <section className="u-mb-2xl">
+        <div className="u-mb-2xl">
           {Object.keys(groupedComponents).length === 0 ? (
-            <Card className="u-p-8 u-text-center">
-              <Search size={48} className="u-mb-4 u-text-secondary-emphasis" />
-              <h3 className="u-fs-2xl u-fw-bold u-mb-3">No items found</h3>
-              <p className="u-text-secondary-emphasis u-mb-6">
-                No items match your search "{searchQuery}". Try a different search term or filter.
-              </p>
-              <div className="u-d-flex u-justify-content-center u-gap-2 u-flex-wrap">
-                <Button variant="outline" onClick={() => setSearchQuery('')}>
-                  Clear search
-                </Button>
-                <Button variant="outline" onClick={() => setFilterCategory('all')}>
-                  Reset filters
-                </Button>
-              </div>
-            </Card>
+            <Card
+              header={
+                <Icon
+                  name="MagnifyingGlass"
+                  size={48}
+                  className="u-mb-4 u-text-secondary-emphasis"
+                />
+              }
+              children={
+                <>
+                  <h3 className="u-fs-2xl u-fw-bold u-mb-3">No items found</h3>
+                  <p className="u-text-secondary-emphasis u-mb-6">
+                    No items match your search "{searchQuery}". Try a different
+                    search term or filter.
+                  </p>
+                </>
+              }
+            ></Card>
           ) : (
             Object.entries(groupedComponents).map(([section, components]) => (
-              <div key={section} className="u-mb-2xl">
-                <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-4 u-pb-3 u-border-b" style={{ borderBottomWidth: '2px' }}>
-                  <h2 className="u-fs-xl u-fw-semibold u-m-0">
-                    {section}
-                  </h2>
-                  <Badge label={`${components.length} items`} variant="secondary">{components.length} items</Badge>
-                </div>
-                
-                <div 
-                  className="u-d-grid u-gap-lg"
-                  style={{ 
-                    gridTemplateColumns: viewMode === 'list' ? '1fr' : 'repeat(auto-fill, minmax(300px, 1fr))'
-                  }}
+              <div key={section} className="u-mt-4">
+                <div
+                  className="u-d-flex u-align-items-center u-gap-2 u-justify-content-between u-pb-3 u-border-b"
+                  style={{ borderBottomWidth: "2px" }}
                 >
-                  {components.map((component) => (
-                    <Link
-                      key={component.id}
-                      href={component.path}
-                      className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
-                    >
-                      <Card 
-                        className={`u-p-4 u-cursor-pointer u-h-100 u-transition-fast u-border u-border-subtle ${viewMode === 'list' ? 'u-d-flex u-flex-direction-row u-align-items-center' : 'u-d-flex u-flex-direction-column'}`}
-                        style={{ 
-                          transition: 'var(--atomix-transition-fast)',
-                          gap: 'var(--atomix-spacing-md)'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.transform = 'translateY(-4px)';
-                          e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
-                          e.currentTarget.style.borderColor = 'var(--atomix-color-primary)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.transform = '';
-                          e.currentTarget.style.boxShadow = '';
-                          e.currentTarget.style.borderColor = '';
-                        }}
-                      >
-                        <div 
-                          className="u-d-flex u-align-items-center u-justify-content-center u-bg-secondary u-br-md u-text-primary u-flex-shrink-0"
-                          style={{ 
-                            width: '48px', 
-                            height: '48px',
-                            marginBottom: viewMode === 'list' ? '0' : 'var(--atomix-spacing-md)'
-                          }}
-                        >
-                          <Icon
-                            name={component.icon as any}
-                            size="lg"
-                          />
-                        </div>
-                        
-                        <div className="u-flex-grow-1 u-d-flex u-flex-direction-column u-gap-2">
-                          <div className="u-d-flex u-align-items-center u-gap-2 u-flex-wrap">
-                            <h3 className="u-fs-lg u-fw-semibold u-m-0">
-                              {component.title}
-                            </h3>
-                            {component.badge && (
-                              <Badge
-                                label={component.badge.text}
-                                variant={component.badge.variant as any}
-                                size="sm"
-                              >
-                                {component.badge.text}
-                              </Badge>
-                            )}
-                            {component.isNew && (
-                              <Badge label="New" variant="success" size="sm">
-                                <Sparkles size={12} />
-                                New
-                              </Badge>
-                            )}
-                          </div>
-                          
-                          <p className="u-fs-sm u-text-secondary-emphasis u-m-0" style={{ lineHeight: 'var(--atomix-line-height-relaxed)' }}>
-                            {component.description}
-                          </p>
-                        </div>
-                      </Card>
-                    </Link>
-                  ))}
+                  <h2 className="u-fs-xl u-fw-semibold">{section}</h2>
+                  <Badge
+                    label={`${components.length} items`}
+                    variant="secondary"
+                  >
+                    {components.length} items
+                  </Badge>
                 </div>
+
+                {viewMode === "list" ? (
+                  <Grid>
+                    {components.map((component) => (
+                      <GridCol key={component.id} xs={12} className="u-mt-4">
+                        <Link
+                          href={component.path}
+                          className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                        >
+                          <Card
+                            row
+                            icon={<Icon name={component.icon as any} />}
+                            title={component.title}
+                            text={component.description}
+                            header={
+                              <>
+                                {component.badge && (
+                                  <Badge
+                                    label={component.badge.text}
+                                    variant={component.badge.variant as any}
+                                    size="sm"
+                                    className="u-ms-2"
+                                  >
+                                    {component.badge.text}
+                                  </Badge>
+                                )}
+                                {component.isNew && (
+                                  <Badge
+                                    label="New"
+                                    variant="success"
+                                    size="sm"
+                                    className="u-ms-2"
+                                  >
+                                    <Icon name="Sparkle" size={12} />
+                                    New
+                                  </Badge>
+                                )}
+                              </>
+                            }
+                          />
+                        </Link>
+                      </GridCol>
+                    ))}
+                  </Grid>
+                ) : (
+                  <Grid>
+                    {components.map((component) => (
+                      <GridCol
+                        key={component.id}
+                        xs={12}
+                        sm={6}
+                        md={4}
+                        lg={3}
+                        className="u-mt-4"
+                      >
+                        <Link href={component.path} className=" u-h-100">
+                          <Card
+                            row
+                            className="u-h-100"
+                            icon={<Icon name={component.icon as any} />}
+                            title={component.title}
+                            text={component.description}
+                            children={
+                              <>
+                                {" "}
+                                {component.badge ? (
+                                  <Badge
+                                    label={component.badge.text}
+                                    variant={component.badge.variant as any}
+                                    size="sm"
+                                    className="u-ms-2"
+                                  >
+                                    {component.badge.text}
+                                  </Badge>
+                                ) : undefined}{" "}
+                                {component && component.isNew ? (
+                                  <Badge
+                                    label="New"
+                                    variant="success"
+                                    size="sm"
+                                    className="u-ms-2"
+                                  >
+                                    <Icon name="Sparkle" size={12} />
+                                    New
+                                  </Badge>
+                                ) : undefined}
+                              </>
+                            }
+                          ></Card>
+                        </Link>
+                      </GridCol>
+                    ))}
+                  </Grid>
+                )}
               </div>
             ))
           )}
-        </section>
+        </div>
       </Block>
     </>
   );

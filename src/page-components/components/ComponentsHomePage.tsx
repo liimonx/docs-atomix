@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { Button, Card, Badge, Icon } from "@shohojdhara/atomix";
+import { Button, Card, Badge, Icon, Row, GridCol } from "@shohojdhara/atomix";
 import { Download, BookOpen, Grid, Zap } from "lucide-react";
 
 import { componentMetadata } from "@/data/components";
@@ -33,10 +33,7 @@ const ComponentsHomePage: React.FC = () => {
       <section className="u-text-center u-py-12 u-mb-12">
         <div className="u-container u-mx-auto u-px-4">
           <h1 className="u-fs-4xl u-fw-bold u-mb-4">Atomix Components</h1>
-          <p
-            className="u-text-secondary-emphasis u-mb-6 u-mx-auto"
-            style={{ maxWidth: '600px' }}
-          >
+          <p className="u-text-secondary-emphasis u-mb-6 u-mx-auto u-max-w-600">
             A comprehensive library of accessible, responsive UI components
             built with React and TypeScript.
           </p>
@@ -65,33 +62,39 @@ const ComponentsHomePage: React.FC = () => {
       {/* Stats Section */}
       <section className="u-mb-12">
         <div className="u-container u-mx-auto u-px-4">
-          <div className="u-d-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 'var(--atomix-spacing-lg)' }}>
-            <Card className="u-text-center u-p-6">
-              <div className="u-d-flex u-justify-content-center u-mb-4">
-                <Grid size={32} className="u-text-primary" />
-              </div>
-              <h3 className="u-fs-2xl u-fw-bold u-mb-2">{componentMetadata.length}</h3>
-              <p className="u-text-secondary-emphasis u-mb-0">Components</p>
-            </Card>
+          <Row>
+            <GridCol md={4} sm={6}>
+              <Card className="u-text-center">
+                <div className="u-d-flex u-justify-content-center u-mb-4">
+                  <Grid size={32} className="u-text-primary" />
+                </div>
+                <h3 className="u-fs-2xl u-fw-bold u-mb-2">{componentMetadata.length}</h3>
+                <p className="u-text-secondary-emphasis u-mb-0">Components</p>
+              </Card>
+            </GridCol>
 
-            <Card className="u-text-center u-p-6">
-              <div className="u-d-flex u-justify-content-center u-mb-4">
-                <Icon size={32} className="u-text-success" name="Shield" />
-              </div>
-              <h3 className="u-fs-2xl u-fw-bold u-mb-2">
-                {componentMetadata.filter((c) => c.status === "stable").length}
-              </h3>
-              <p className="u-text-secondary-emphasis u-mb-0">Stable Components</p>
-            </Card>
+            <GridCol md={4} sm={6}>
+              <Card className="u-text-center">
+                <div className="u-d-flex u-justify-content-center u-mb-4">
+                  <Icon size={32} className="u-text-success" name="Shield" />
+                </div>
+                <h3 className="u-fs-2xl u-fw-bold u-mb-2">
+                  {componentMetadata.filter((c) => c.status === "stable").length}
+                </h3>
+                <p className="u-text-secondary-emphasis u-mb-0">Stable Components</p>
+              </Card>
+            </GridCol>
 
-            <Card className="u-text-center u-p-6">
-              <div className="u-d-flex u-justify-content-center u-mb-4">
-                <Icon size={32} className="u-text-warning" name="Star" />
-              </div>
-              <h3 className="u-fs-2xl u-fw-bold u-mb-2">{categories.length}</h3>
-              <p className="u-text-secondary-emphasis u-mb-0">Categories</p>
-            </Card>
-          </div>
+            <GridCol md={4} sm={6}>
+              <Card className="u-text-center">
+                <div className="u-d-flex u-justify-content-center u-mb-4">
+                  <Icon size={32} className="u-text-warning" name="Star" />
+                </div>
+                <h3 className="u-fs-2xl u-fw-bold u-mb-2">{categories.length}</h3>
+                <p className="u-text-secondary-emphasis u-mb-0">Categories</p>
+              </Card>
+            </GridCol>
+          </Row>
         </div>
       </section>
 
@@ -108,27 +111,29 @@ const ComponentsHomePage: React.FC = () => {
             </Link>
           </div>
 
-          <div className="u-d-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 'var(--atomix-spacing-md)' }}>
+          <Row>
             {categories.slice(0, 6).map((category, index) => (
-              <Card key={index} className="u-p-4">
-                <div className="u-d-flex u-align-items-center">
-                  <div className="u-bg-primary-subtle u-text-primary-emphasis u-br-md u-p-2 u-mr-3">
-                    <Grid size={20} />
+              <GridCol key={index} md={4} sm={6}>
+                <Card>
+                  <div className="u-d-flex u-align-items-center">
+                    <div className="u-bg-primary-subtle u-text-primary-emphasis u-br-md u-p-2 u-mr-3">
+                      <Grid size={20} />
+                    </div>
+                    <div>
+                      <h3 className="u-fs-lg u-fw-semibold u-mb-1">{category}</h3>
+                      <p className="u-text-secondary-emphasis u-mb-0 u-fs-sm">
+                        {
+                          componentMetadata.filter((c) => c.category === category)
+                            .length
+                        }{" "}
+                        components
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="u-fs-lg u-fw-semibold u-mb-1">{category}</h3>
-                    <p className="u-text-secondary-emphasis u-mb-0 u-fs-sm">
-                      {
-                        componentMetadata.filter((c) => c.category === category)
-                          .length
-                      }{" "}
-                      components
-                    </p>
-                  </div>
-                </div>
-              </Card>
+                </Card>
+              </GridCol>
             ))}
-          </div>
+          </Row>
         </div>
       </section>
 
@@ -137,44 +142,46 @@ const ComponentsHomePage: React.FC = () => {
         <div className="u-container u-mx-auto u-px-4">
           <h2 className="u-fs-3xl u-fw-bold u-mb-6">Featured Components</h2>
 
-          <div className="u-d-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--atomix-spacing-lg)' }}>
+          <Row>
             {featuredComponents.map((component) => (
-              <Card key={component.id} className="u-h-100 u-p-6">
-                <div className="u-d-flex u-flex-direction-column u-h-100">
-                  <div className="u-d-flex u-align-items-center u-mb-4">
-                    <div className="u-bg-secondary-subtle u-text-secondary-emphasis u-br-md u-p-2 u-mr-3">
-                      <Zap size={20} />
+              <GridCol key={component.id} md={6} lg={4}>
+                <Card className="u-h-100">
+                  <div className="u-d-flex u-flex-direction-column u-h-100">
+                    <div className="u-d-flex u-align-items-center u-mb-4">
+                      <div className="u-bg-secondary-subtle u-text-secondary-emphasis u-br-md u-p-2 u-mr-3">
+                        <Zap size={20} />
+                      </div>
+                      <h3 className="u-fs-lg u-fw-semibold u-mb-0">{component.name}</h3>
                     </div>
-                    <h3 className="u-fs-lg u-fw-semibold u-mb-0">{component.name}</h3>
-                  </div>
 
-                  <p className="u-text-secondary-emphasis u-flex-grow-1 u-mb-4">
-                    {component.description.substring(0, 100)}...
-                  </p>
+                    <p className="u-text-secondary-emphasis u-flex-grow-1 u-mb-4">
+                      {component.description.substring(0, 100)}...
+                    </p>
 
-                  <div className="u-d-flex u-gap-2 u-flex-wrap u-mb-4">
-                    <Badge variant="primary" size="sm" label={component.status}/>
-                    <Badge
-                      variant="secondary"
-                      size="sm"
-                      label={`v${component.version}`}
-                    />
-                  </div>
+                    <div className="u-d-flex u-gap-2 u-flex-wrap u-mb-4">
+                      <Badge variant="primary" size="sm" label={component.status}/>
+                      <Badge
+                        variant="secondary"
+                        size="sm"
+                        label={`v${component.version}`}
+                      />
+                    </div>
 
-                  <div>
-                    <Button
-                      variant="primary"
-                      size="sm"
-                      className="u-w-100"
-                      onClick={() => window.location.href = `/docs/components/${component.id}`}
-                    >
-                      View Details
-                    </Button>
+                    <div>
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        className="u-w-100"
+                        onClick={() => window.location.href = `/docs/components/${component.id}`}
+                      >
+                        View Details
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </GridCol>
             ))}
-          </div>
+          </Row>
         </div>
       </section>
 
@@ -191,39 +198,41 @@ const ComponentsHomePage: React.FC = () => {
             </Link>
           </div>
 
-          <div className="u-d-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'var(--atomix-spacing-lg)' }}>
+          <Row>
             {recentComponents.map((component) => (
-              <Card key={component.id} className="u-h-100 u-p-6">
-                <div className="u-d-flex u-flex-direction-column u-h-100">
-                  <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-3">
-                    <h3 className="u-fs-lg u-fw-semibold u-mb-0">{component.name}</h3>
-                    <Badge
-                      variant="info"
-                      size="sm"
-                      label={`v${component.version}`}
-                    />
-                  </div>
+              <GridCol key={component.id} md={6} lg={4}>
+                <Card className="u-h-100">
+                  <div className="u-d-flex u-flex-direction-column u-h-100">
+                    <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-3">
+                      <h3 className="u-fs-lg u-fw-semibold u-mb-0">{component.name}</h3>
+                      <Badge
+                        variant="info"
+                        size="sm"
+                        label={`v${component.version}`}
+                      />
+                    </div>
 
-                  <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1">
-                    {component.description.substring(0, 100)}...
-                  </p>
+                    <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1">
+                      {component.description.substring(0, 100)}...
+                    </p>
 
-                  <div className="u-d-flex u-gap-2">
-                    <Badge
-                      variant="primary"
-                      size="sm"
-                      label={component.status}
-                    />
-                    <Badge
-                      variant="secondary"
-                      size="sm"
-                      label={component.category}
-                    />
+                    <div className="u-d-flex u-gap-2">
+                      <Badge
+                        variant="primary"
+                        size="sm"
+                        label={component.status}
+                      />
+                      <Badge
+                        variant="secondary"
+                        size="sm"
+                        label={component.category}
+                      />
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </GridCol>
             ))}
-          </div>
+          </Row>
         </div>
       </section>
     </div>

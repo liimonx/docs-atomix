@@ -63,7 +63,7 @@ const LayoutsOverviewPage: React.FC = () => {
           
           <Row>
             <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+              <Card className="u-p-6 u-h-100 atomix-card-hover">
                 <h3 className="u-fs-lg u-fw-semibold u-mb-3">Grid System</h3>
                 <p className="u-text-secondary-emphasis u-mb-4">A powerful 12-column responsive grid system for creating consistent layouts across devices.</p>
                 <Button 
@@ -76,7 +76,7 @@ const LayoutsOverviewPage: React.FC = () => {
             </GridCol>
             
             <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+              <Card className="u-p-6 u-h-100 atomix-card-hover">
                 <h3 className="u-fs-lg u-fw-semibold u-mb-3">Masonry Grid</h3>
                 <p className="u-text-secondary-emphasis u-mb-4">Create Pinterest-style layouts with our flexible masonry grid component.</p>
                 <Button 
@@ -89,7 +89,7 @@ const LayoutsOverviewPage: React.FC = () => {
             </GridCol>
             
             <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+              <Card className="u-p-6 u-h-100 atomix-card-hover">
                 <h3 className="u-fs-lg u-fw-semibold u-mb-3">Responsive Patterns</h3>
                 <p className="u-text-secondary-emphasis u-mb-4">Learn best practices for creating responsive layouts with our design patterns.</p>
                 <Button 

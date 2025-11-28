@@ -65,7 +65,7 @@ const LayoutsCustomizationPage = () => {
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">CSS Custom Properties</h3>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Grid System Properties</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`:root {
   /* Container widths */
   --atomix-container-sm: 540px;
@@ -90,7 +90,7 @@ const LayoutsCustomizationPage = () => {
               </pre>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Masonry Grid Properties</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`:root {
   /* Masonry gaps */
   --atomix-masonry-gap: 1rem;
@@ -111,7 +111,7 @@ const LayoutsCustomizationPage = () => {
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">SCSS Variables</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Customize layout at build time using SCSS variables:</p>
               
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`// Override before importing Atomix
 $grid-columns: 16;
 $grid-gutter-width: 2rem;
@@ -134,7 +134,7 @@ $container-max-widths: (
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Component Props</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Customize individual components with props:</p>
               
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`<Container 
   fluid={false} 
   maxWidth="lg"
@@ -161,7 +161,7 @@ $container-max-widths: (
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Custom Components</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Create custom layout components by extending Atomix components:</p>
               
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`import styled from 'styled-components';
 import { Container, Row, GridCol } from '@shohojdhara/atomix';
 

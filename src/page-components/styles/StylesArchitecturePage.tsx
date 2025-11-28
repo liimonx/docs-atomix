@@ -47,7 +47,7 @@ const StylesArchitecturePage = () => {
           <GridCol md={12}>
               <Card className="u-p-6">
                 <h3 className="u-fs-xl u-fw-semibold u-mb-4">Architecture Overview</h3>
-                <pre className="u-mt-4 u-p-4 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+                <pre className="u-mt-4 u-p-4 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`src/styles/
 ├── 01-settings/     # Variables, colors, configuration
 ├── 02-tools/        # Mixins, functions, utilities

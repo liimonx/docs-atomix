@@ -12,6 +12,7 @@ import {
   ComponentPage,
   ComponentGuidelinesPage,
   ComponentsHomePage,
+  ComponentsIndexPage,
   
   // Design Token Pages
   DesignTokensPage,
@@ -89,6 +90,8 @@ class PageComponentRegistry {
     // Component Pages
     this.idMap.set('components:overview', ComponentsHomePage);
     this.idMap.set('components:guidelines', ComponentGuidelinesPage);
+    // Special case: /docs/components (index page) - when slug is just ['components']
+    this.idMap.set('components:index', ComponentsIndexPage);
     this.categoryMap.set('components', ComponentPage);
 
     // Design Token Pages
@@ -224,6 +227,11 @@ export function getPageComponent(
   item: NavigationItem | null,
   slug: string[]
 ): React.ComponentType<any> | null {
+  // Special case: /docs/components (index page) - handle without navigation item
+  if (!item && slug.length === 1 && slug[0] === 'components') {
+    return pageComponentRegistry.getComponentById('components', 'index');
+  }
+  
   if (!item) return null;
   return pageComponentRegistry.getComponent(item, slug);
 }

@@ -48,7 +48,7 @@ const StylesUtilitiesPage = () => {
             <Card className="u-p-6">
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Naming Convention</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Atomix utilities follow a consistent pattern:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`u-{property}-{value}
 u-{property}-{breakpoint}-{value}`}
               </pre>
@@ -72,7 +72,7 @@ u-{property}-{breakpoint}-{value}`}
               <p className="u-text-secondary-emphasis u-mb-4">Margin and padding utilities with a consistent scale (0.25rem increments):</p>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Margin Classes</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'monospace' }}>
+              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`.u-m-0      /* 0 */
 .u-m-1      /* 0.25rem */
 .u-m-2      /* 0.5rem */
