@@ -20,23 +20,21 @@ export function generateStaticParams() {
 }
 
 interface ComponentRouteParams {
-  componentId: string;
+  params: Promise<{ componentId: string }>;
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
-}: {
-  params: ComponentRouteParams;
-}): Metadata {
-  return generateComponentMetadata(params.componentId);
+}: ComponentRouteParams): Promise<Metadata> {
+  const resolvedParams = await params;
+  return generateComponentMetadata(resolvedParams.componentId);
 }
 
-export default function ComponentPageRoute({
+export default async function ComponentPageRoute({
   params,
-}: {
-  params: ComponentRouteParams;
-}) {
-  const { componentId } = params;
+}: ComponentRouteParams) {
+  const resolvedParams = await params;
+  const { componentId } = resolvedParams;
   const path = `/docs/components/${componentId}`;
 
   // Validate the route against navigation configuration to ensure we only
