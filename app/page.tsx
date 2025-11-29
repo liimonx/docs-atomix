@@ -9,11 +9,11 @@ import {
   Card,
   Button,
   Icon,
-  Row,
   GridCol,
   SectionIntro,
   AtomixGlass,
   Container,
+  Grid,
 } from "@shohojdhara/atomix";
 import CallToActionSection from "@/components/sections/CallToActionSection";
 
@@ -256,11 +256,12 @@ export default function Page() {
           padding: "1rem 2rem",
           saturation: 200,
           children: <></>,
+          elasticity: 0,
         }}
         actions={
           <>
             <Button
-              // glass={{ blurAmount: 0 }}
+              glass={{ blurAmount: 0 }}
               variant="primary"
               icon={<Icon name="Rocket" />}
             >
@@ -272,13 +273,13 @@ export default function Page() {
               </Link>
             </Button>
             <Button
-              // glass={{ blurAmount: 0 }}
-              variant="secondary-outline"
+              glass={{ blurAmount: 0 }}
+              variant="outline-secondary"
               icon={<Icon name="Code" />}
             >
               <Link
                 style={{ color: "inherit" }}
-                href="/docs/components/overview"
+                href="/docs/components"
               >
                 View Components
               </Link>
@@ -296,7 +297,7 @@ export default function Page() {
             alignment="center"
             className="u-pt-0"
           />
-          <Row>
+          <Grid>
             {quickStats.map((stat, index) => (
               <GridCol key={index} sm={6} lg={3} className="u-mb-6">
                 <Card
@@ -312,7 +313,7 @@ export default function Page() {
                 ></Card>
               </GridCol>
             ))}
-          </Row>
+          </Grid>
         </Container>
       </Block>
 
@@ -324,11 +325,11 @@ export default function Page() {
             text="Everything you need to build modern, accessible web applications"
             alignment="center"
           />
-          <Row className="u-mt-8">
+          <Grid>
             {features.map((feature, index) => (
               <GridCol key={index} md={6} lg={4} className="u-mb-6">
                 <Card className="u-h-100 u-d-flex u-flex-column">
-                  <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-3 u-w-fit">
+                  <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-mb-4 u-p-3">
                     {feature.icon}
                   </div>
                   <h3 className="u-fs-lg u-fw-600 u-mb-3 u-text-primary-emphasis">
@@ -340,19 +341,19 @@ export default function Page() {
                 </Card>
               </GridCol>
             ))}
-          </Row>
+          </Grid>
         </Container>
       </Block>
 
       {/* Philosophy Section */}
-      <Block background="secondary" spacing="md">
+      <Block background="secondary" spacing="md" >
         <Container>
           <SectionIntro
             title="Our Design Philosophy"
             text="Thoughtful principles that guide our approach to creating exceptional user interfaces"
             alignment="center"
           />
-          <Row className="u-mt-8">
+          <Grid>
             {philosophies.map((philosophy, index) => (
               <GridCol key={index} md={6} lg={4} className="u-mb-6">
                 <Card
@@ -363,7 +364,7 @@ export default function Page() {
                 />
               </GridCol>
             ))}
-          </Row>
+          </Grid>
         </Container>
       </Block>
 
@@ -375,10 +376,10 @@ export default function Page() {
             text="Get up and running with Atomix in minutes"
             alignment="center"
           />
-          <Row className="u-mt-8">
+          <Grid>
             {quickLinks.map((link, index) => (
               <GridCol key={index} sm={6} lg={4} className="u-mb-6">
-                <Card className="u-h-100 u-bg-brand-subtle u-transition-all u-cursor-pointer u-hover-lift">
+                <Card className="u-h-100 u-transition-all u-cursor-pointer u-hover-lift">
                   {link.external ? (
                     <a
                       href={link.path}
@@ -409,7 +410,7 @@ export default function Page() {
                 </Card>
               </GridCol>
             ))}
-          </Row>
+          </Grid>
         </Container>
       </Block>
 

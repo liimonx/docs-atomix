@@ -1,76 +1,50 @@
-import type { Metadata } from 'next';
-import { ComponentPage } from '@/page-components';
-import { navigationData } from '@/data/navigation';
-import { findNavigationItem } from '@/data/navigation';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-export async function generateStaticParams() {
+import { ComponentPage } from "@/page-components";
+import { navigationData } from "@/data/navigation";
+import { generateComponentMetadata, validateRoute } from "@/utils/routeConfig";
+
+export function generateStaticParams() {
   // Get all component IDs from navigation data
-  const componentSection = navigationData.find((section) => section.id === 'components');
+  const componentSection = navigationData.find(
+    (section) => section.id === "components"
+  );
   if (!componentSection) return [];
 
   return componentSection.items
-    .filter((item) => item.id !== 'overview' && item.id !== 'guidelines')
+    .filter((item) => item.id !== "overview" && item.id !== "guidelines")
     .map((item) => ({
       componentId: item.id,
     }));
 }
 
-export async function generateMetadata({
+interface ComponentRouteParams {
+  componentId: string;
+}
+
+export function generateMetadata({
   params,
 }: {
-  params: Promise<{ componentId: string }>;
-}): Promise<Metadata> {
-  const resolvedParams = await params;
-  const navigationItem = findNavigationItem(resolvedParams.componentId);
-  
-  if (!navigationItem) {
-    return {
-      title: 'Component Not Found',
-      description: 'The requested component could not be found.',
-    };
+  params: ComponentRouteParams;
+}): Metadata {
+  return generateComponentMetadata(params.componentId);
+}
+
+export default function ComponentPageRoute({
+  params,
+}: {
+  params: ComponentRouteParams;
+}) {
+  const { componentId } = params;
+  const path = `/docs/components/${componentId}`;
+
+  // Validate the route against navigation configuration to ensure we only
+  // render valid component documentation pages. If the route is invalid,
+  // fall back to the global 404 experience for consistency.
+  if (!validateRoute(path)) {
+    notFound();
   }
 
-  const title = `${navigationItem.title} | Atomix Documentation`;
-  const description = navigationItem.description || `Documentation for ${navigationItem.title} component - part of the Atomix Design System. Learn how to use, customize, and implement this component in your React applications.`;
-
-  return {
-    title,
-    description,
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
-    openGraph: {
-      title,
-      description,
-      type: 'website',
-      url: `https://atomix-docs.vercel.app/docs/components/${resolvedParams.componentId}`,
-      siteName: 'Atomix Documentation',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-    },
-    alternates: {
-      canonical: `https://atomix-docs.vercel.app/docs/components/${resolvedParams.componentId}`,
-    },
-  };
+  return <ComponentPage componentId={componentId} />;
 }
-
-export default async function ComponentPageRoute({
-  params,
-}: {
-  params: Promise<{ componentId: string }>;
-}) {
-  const resolvedParams = await params;
-  return <ComponentPage componentId={resolvedParams.componentId} />;
-}
-

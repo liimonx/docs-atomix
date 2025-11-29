@@ -1,21 +1,15 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import {
-  ArrowLeft,
-  Github,
-  ExternalLink,
-  CheckCircle,
-  AlertCircle,
-  BookOpen,
-} from "lucide-react";
+
 import {
   Button,
   Card,
   Badge,
-  Row,
   GridCol,
+  Grid,
+  Icon,
   Block,
   Hero,
   Tabs,
@@ -153,28 +147,26 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
   // Prepare tab items for Atomix Tab component
   const tabItems = [
     {
-      label: "📋 Overview",
+      label: "Overview",
       content: (
-        <div className="u-mt-4">
-          <Row>
+        <div>
+          <Grid>
             <GridCol md={8}>
-              <Card className="u-p-6">
-                <h3 className="u-fs-xl u-fw-bold u-mb-4">✨ Features</h3>
-                <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-4">
+              <Card>
+                <h3 className="u-fs-xl u-fw-bold u-mb-4">
+                  <Icon name="Sparkle" /> Features
+                </h3>
+                <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-wrap u-gap-2">
                   {componentDoc.features.map((feature, index) => (
                     <li
                       key={index}
-                      className="u-d-flex u-align-items-start u-gap-3"
+                      className="u-d-flex u-align-items-start u-gap-4"
                     >
                       {feature.supported ? (
                         <>
-                          <CheckCircle
-                            size={20}
-                            className="u-text-success u-flex-shrink-0"
-                            style={{ marginTop: '2px' }}
-                          />
+                          <Icon name="CheckCircle" />
                           <div className="u-flex-grow-1">
-                            <div className="u-fw-semibold u-text-primary u-mb-1">
+                            <div className="u-fw-semibold u-text-brand-emphasis u-mb-1">
                               {feature.title}
                             </div>
                             <p className="u-text-secondary-emphasis u-fs-sm u-m-0">
@@ -184,13 +176,9 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                         </>
                       ) : (
                         <>
-                          <AlertCircle
-                            size={20}
-                            className="u-text-warning u-flex-shrink-0"
-                            style={{ marginTop: '2px' }}
-                          />
+                          <Icon name="Warning" />
                           <div className="u-flex-grow-1">
-                            <div className="u-fw-semibold u-text-primary u-mb-1">
+                            <div className="u-fw-semibold u-text-brand-emphasis u-mb-1">
                               {feature.title}
                             </div>
                             <p className="u-text-secondary-emphasis u-fs-sm u-m-0">
@@ -204,19 +192,29 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                 </ul>
               </Card>
 
-              <Card className="u-p-6 u-mt-4">
-                <h3 className="u-fs-xl u-fw-bold u-mb-4">📦 Installation</h3>
-                <Card className="u-p-4 u-bg-secondary u-border u-border-subtle u-overflow-x-auto">
-                  <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+              <Card className="u-mt-4">
+                <h3 className="u-fs-xl u-fw-bold u-mb-4">
+                  <Icon name="Package" /> Installation
+                </h3>
+                <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
+                  <pre
+                    className="u-m-0 u-fs-sm"
+                    style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  >
                     <code>npm install @shohojdhara/atomix</code>
                   </pre>
                 </Card>
               </Card>
 
-              <Card className="u-p-6 u-mt-4">
-                <h3 className="u-fs-xl u-fw-bold u-mb-4">🚀 Basic Usage</h3>
-                <Card className="u-p-4 u-bg-secondary u-border u-border-subtle u-overflow-x-auto">
-                  <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+              <Card className="u-mt-4">
+                <h3 className="u-fs-xl u-fw-bold u-mb-4">
+                  <Icon name="Rocket" /> Basic Usage
+                </h3>
+                <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
+                  <pre
+                    className="u-m-0 u-fs-sm"
+                    style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  >
                     <code>{`import { ${componentDoc.name} } from '${componentDoc.importPath}';
 
 // Example usage
@@ -227,7 +225,9 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
               </Card>
 
               <Callout variant="info" className="u-mt-4">
-                <h4 className="u-fs-lg u-fw-semibold u-mb-2">💡 Quick Tip</h4>
+                <h4 className="u-fs-lg u-fw-semibold u-mb-2">
+                  <Icon name="Lightbulb" /> Quick Tip
+                </h4>
                 <p className="u-mb-0">
                   Check out the Examples tab for more detailed usage patterns
                   and the Props tab for a complete API reference.
@@ -236,14 +236,16 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
             </GridCol>
 
             <GridCol md={4}>
-              <div className="u-d-flex u-flex-direction-column u-gap-4">
-                <Card className="u-p-6">
-                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">📚 Dependencies</h3>
+              <div className="u-d-flex u-flex-column u-gap-4">
+                <Card>
+                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">
+                    <Icon name="Book" /> Dependencies
+                  </h3>
                   {componentDoc.dependencies.length > 0 ? (
                     <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
                       {componentDoc.dependencies.map((dep, index) => (
                         <li key={index}>
-                          <Badge variant="warning" label={dep as string}/>
+                          <Badge variant="warning" label={dep as string} />
                         </li>
                       ))}
                     </ul>
@@ -254,17 +256,26 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                   )}
                 </Card>
 
-                <Card className="u-p-6">
-                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">🏷️ Tags</h3>
+                <Card>
+                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">
+                    <Icon name="Tag" /> Tags
+                  </h3>
                   <div className="u-d-flex u-flex-wrap u-gap-2">
                     {componentDoc.tags.map((tag, index) => (
-                      <Badge key={index} variant="secondary" size="sm" label={tag as string} />
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        size="sm"
+                        label={tag as string}
+                      />
                     ))}
                   </div>
                 </Card>
 
-                <Card className="u-p-6">
-                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">🔗 Quick Links</h3>
+                <Card>
+                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">
+                    <Icon name="Link" /> Quick Links
+                  </h3>
                   <div className="u-d-flex u-flex-direction-column u-gap-2">
                     <Button
                       variant="outline-secondary"
@@ -277,7 +288,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                       }
                       className="u-w-100 u-justify-content-start"
                     >
-                      <Github size={14} />
+                      <Icon name="GithubLogo" />
                       Source Code
                     </Button>
                     <Button
@@ -291,19 +302,19 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                       }
                       className="u-w-100 u-justify-content-start"
                     >
-                      <BookOpen size={14} />
+                      <Icon name="BookOpen" />
                       Storybook
                     </Button>
                   </div>
                 </Card>
               </div>
             </GridCol>
-          </Row>
+          </Grid>
         </div>
       ),
     },
     {
-      label: "💻 Examples",
+      label: "Examples",
       content: (
         <ComponentExamples
           examples={componentDoc.examples}
@@ -313,11 +324,11 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
       ),
     },
     {
-      label: "⚙️ Props",
+      label: "Props",
       content: <ComponentProps props={componentDoc.props} />,
     },
     {
-      label: "♿ Accessibility",
+      label: "Accessibility",
       content: (
         <ComponentAccessibility accessibility={componentDoc.accessibility} />
       ),
@@ -326,18 +337,17 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
 
   return (
     <div className="u-min-h-screen u-pb-xl">
-
       <Hero
         glass={
           isMounted
-            ? {
+            ? ({
                 displacementScale: 30,
                 blurAmount: 5,
                 elasticity: 0,
                 enableLiquidBlur: true,
                 padding: "20px",
                 cornerRadius: 30,
-              } as GlassProps
+              } as GlassProps)
             : undefined
         }
         className="u-mb-lg u-pt-32 u-pb-16"
@@ -352,28 +362,29 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
           <Link
             href="/docs/components/overview"
             className="u-d-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-fs-sm u-mb-4 u-transition-fast u-focus-visible-ring"
-            style={{ 
-              transition: 'var(--atomix-transition-fast)'
+            style={{
+              transition: "var(--atomix-transition-fast)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = 'var(--atomix-color-primary)';
-              e.currentTarget.style.transform = 'translateX(-4px)';
+              e.currentTarget.style.color = "var(--atomix-color-primary)";
+              e.currentTarget.style.transform = "translateX(-4px)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = '';
-              e.currentTarget.style.transform = '';
+              e.currentTarget.style.color = "";
+              e.currentTarget.style.transform = "";
             }}
           >
-            <ArrowLeft size={16} />
+            <Icon name="ArrowLeft" />
             <span>Back to Components</span>
           </Link>
 
           <div className="u-d-flex u-flex-wrap u-align-items-start u-justify-content-between u-gap-4 u-mb-4">
-            <div className="u-flex-grow-1" style={{ minWidth: '300px' }}>
-              <h1 className="u-fs-4xl u-fw-bold u-mb-2">
-                {componentDoc.name}
-              </h1>
-              <p className="u-fs-lg u-text-secondary-emphasis u-m-0" style={{ lineHeight: 'var(--atomix-line-height-relaxed)' }}>
+            <div className="u-flex-grow-1" style={{ minWidth: "300px" }}>
+              <h1 className="u-fs-4xl u-fw-bold u-mb-2">{componentDoc.name}</h1>
+              <p
+                className="u-fs-lg u-text-secondary-emphasis u-m-0"
+                style={{ lineHeight: "var(--atomix-line-height-relaxed)" }}
+              >
                 {componentDoc.description}
               </p>
             </div>
@@ -389,7 +400,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                   )
                 }
               >
-                <Github size={16} />
+                <Icon name="GithubLogo" />
                 Source
               </Button>
               <Button
@@ -399,7 +410,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                   window.open(`https://atomix-storybook.netlify.app`, "_blank")
                 }
               >
-                <ExternalLink size={16} />
+                <Icon name="BookOpen" />
                 Storybook
               </Button>
             </div>
@@ -421,7 +432,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
           </div>
         </div>
 
-        <div className="u-mb-lg">
+        <div className="u-mt-4">
           <Tabs items={tabItems} activeIndex={0} />
         </div>
 

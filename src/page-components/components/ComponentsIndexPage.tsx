@@ -10,7 +10,6 @@ import {
   Button,
   Hero,
   Block,
-  Row,
   Grid,
   GridCol,
   Callout,
@@ -152,7 +151,7 @@ const ComponentsIndexPage: React.FC = () => {
       <Hero
         title="Components"
         text="A comprehensive collection of modern, accessible, and customizable React components built with TypeScript and optimized for performance."
-        className="u-pt-32 u-pb-16"
+        className="u-pt-36 u-pb-20"
         alignment="center"
         showOverlay={false}
         videoBackground="https://cdn.pixabay.com/video/2018/09/16/18249-290359989_large.mp4"
@@ -168,20 +167,18 @@ const ComponentsIndexPage: React.FC = () => {
         contentWidth="1200px"
         children={
           <>
-            <Container
-              style={
-                {
-                  "--atomix-primary-border-subtle": "transparent",
-                } as React.CSSProperties
-              }
-            >
+            <Container>
               {/* Stats Cards */}
               <Grid className="u-mb-6">
                 <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
                   <Card
                     glass={{
-                      blurAmount: 1,
+                      displacementScale: 80,
+                      blurAmount: 0.8,
+                      padding: "24px",
                     }}
+                    elevation="lg"
+                    variant="primary"
                     className="u-h-100"
                     title={allComponents.length.toString()}
                     text="Total Components"
@@ -190,15 +187,16 @@ const ComponentsIndexPage: React.FC = () => {
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center"
                           style={{
-                            width: "56px",
-                            height: "56px",
-                            borderRadius: "12px",
-                            background: "rgba(var(--atomix-primary-rgb), 0.15)",
+                            width: "48px",
+                            height: "48px",
+                            borderRadius: "8px",
+                            backdropFilter:
+                              "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
                           }}
                         >
                           <Icon
                             name="GridFour"
-                            size={28}
+                            size={24}
                             className="u-text-brand-emphasis"
                           />
                         </div>
@@ -209,23 +207,28 @@ const ComponentsIndexPage: React.FC = () => {
                 <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
                   <Card
                     glass={{
-                      blurAmount: 1,
+                      displacementScale: 80,
+                      blurAmount: 0.8,
+                      padding: "24px",
                     }}
+                    elevation="lg"
+                    variant="success"
                     className="u-h-100"
                     header={
                       <div className="u-d-flex u-align-items-center u-justify-content-center u-w-100">
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center"
                           style={{
-                            width: "56px",
-                            height: "56px",
+                            width: "48px",
+                            height: "48px",
                             borderRadius: "12px",
-                            background: "rgba(var(--atomix-success-rgb), 0.15)",
+                            backdropFilter:
+                              "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
                           }}
                         >
                           <Icon
                             name="CheckCircle"
-                            size={28}
+                            size={24}
                             className="u-text-success-emphasis"
                           />
                         </div>
@@ -238,23 +241,28 @@ const ComponentsIndexPage: React.FC = () => {
                 <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
                   <Card
                     glass={{
-                      blurAmount: 1,
+                      displacementScale: 80,
+                      blurAmount: 0.8,
+                      padding: "24px",
                     }}
+                    elevation="lg"
+                    variant="info"
                     className="u-text-center u-h-100"
                     header={
                       <div className="u-d-flex u-align-items-center u-justify-content-center u-w-100">
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center"
                           style={{
-                            width: "56px",
-                            height: "56px",
-                            borderRadius: "12px",
-                            background: "rgba(var(--atomix-info-rgb), 0.15)",
+                            width: "48px",
+                            height: "48px",
+                            borderRadius: "8px",
+                            backdropFilter:
+                              "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
                           }}
                         >
                           <Icon
                             name="Shield"
-                            size={28}
+                            size={24}
                             className="u-text-info-emphasis"
                           />
                         </div>
@@ -266,8 +274,12 @@ const ComponentsIndexPage: React.FC = () => {
                 </GridCol>
                 <GridCol md={3} sm={6}>
                   <Card
+                    elevation="lg"
+                    variant="warning"
                     glass={{
-                      blurAmount: 1,
+                      displacementScale: 80,
+                      blurAmount: 0.8,
+                      padding: "24px",
                     }}
                     className="u-h-100"
                     header={
@@ -275,15 +287,16 @@ const ComponentsIndexPage: React.FC = () => {
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center"
                           style={{
-                            width: "56px",
-                            height: "56px",
-                            borderRadius: "12px",
-                            background: "rgba(var(--atomix-warning-rgb), 0.15)",
+                            width: "48px",
+                            height: "48px",
+                            borderRadius: "8px",
+                            backdropFilter:
+                              "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
                           }}
                         >
                           <Icon
                             name="Lightning"
-                            size={28}
+                            size={24}
                             className="u-text-warning-emphasis"
                           />
                         </div>
@@ -295,35 +308,32 @@ const ComponentsIndexPage: React.FC = () => {
                 </GridCol>
               </Grid>
 
-            
               {/* Search and Filter Section */}
               <Card
+                elevation="lg"
                 glass={{
-                  blurAmount: 1,
+                  blurAmount: 1.2,
                   padding: "24px",
-                  mode: 'shader',
-                  displacementScale: 100,
+                  mode: "shader",
+                  displacementScale: 205,
                 }}
-                className="u-mt-6"
               >
                 {/* Search and View Controls */}
-                <Grid className="u-align-items-center u-mb-4">
-                  <GridCol md={8} sm={12} className="u-mb-3 u-mb-md-0">
+                <Grid className="u-align-items-center u-justify-content-between u-mb-4">
+                  <GridCol md={7} sm={12} className="u-mb-3 u-mb-md-0">
                     <div className="u-relative u-w-100">
                       <Input
-                        glass={{
-                          blurAmount: 0,
-                          mode: 'standard'
-                        }}
+                        variant="dark"
                         type="search"
                         placeholder="Search components, tokens, guides..."
                         value={searchQuery}
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
                           setSearchQuery(e.target.value)
                         }
-                        className="u-w-100"
                         style={{
-                          padding: "12px 16px 12px 48px",
+                          background:
+                            "rgba(var(--atomix-dark-rgb), 0.4) !important",
+                          paddingLeft: "48px",
                           fontSize: "15px",
                         }}
                       />
@@ -347,10 +357,9 @@ const ComponentsIndexPage: React.FC = () => {
                   <GridCol md={4} sm={12}>
                     <div className="u-d-flex u-justify-content-end u-gap-2">
                       <Button
-                        glass={{
-                          blurAmount: 0,
-                        }}
-                        variant={viewMode === "grid" ? "primary" : "outline"}
+                        variant={
+                          viewMode === "grid" ? "primary" : "outline-error "
+                        }
                         size="sm"
                         onClick={() => setViewMode("grid")}
                         aria-label="Grid view"
@@ -360,10 +369,9 @@ const ComponentsIndexPage: React.FC = () => {
                         <span>Grid</span>
                       </Button>
                       <Button
-                        glass={{
-                          blurAmount: 0,
-                        }}
-                        variant={viewMode === "list" ? "primary" : "outline"}
+                        variant={
+                          viewMode === "list" ? "primary" : "outline-error"
+                        }
                         size="sm"
                         onClick={() => setViewMode("list")}
                         aria-label="List view"
@@ -381,13 +389,10 @@ const ComponentsIndexPage: React.FC = () => {
                   {categoryOptions.map((option) => (
                     <Button
                       key={option.id}
-                      glass={{
-                        blurAmount: 2,
-                      }}
                       variant={
                         filterCategory === option.id
                           ? "primary"
-                          : "outline-secondary"
+                          : "outline-primary"
                       }
                       size="sm"
                       onClick={() =>
@@ -397,15 +402,9 @@ const ComponentsIndexPage: React.FC = () => {
                       <div className="u-d-flex u-align-items-center u-gap-2">
                         <span>{option.label}</span>
                         <Badge
-                          glass={{
-                            blurAmount: 2,
-                            children: <></>,
-                          }}
                           label={option.count.toString()}
                           variant={
-                            filterCategory === option.id
-                              ? "primary"
-                              : "secondary"
+                            filterCategory === option.id ? "error" : "primary"
                           }
                           size="sm"
                         >

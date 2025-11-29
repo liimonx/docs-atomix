@@ -236,22 +236,12 @@ export const navigationData: NavigationSection[] = [
       {
         id: 'overview',
         title: 'Overview',
-        path: '/docs/components/overview',
+        path: '/docs/components/',
         icon: 'GridFour',
         description: 'All available components',
         category: 'components',
         searchTerms: ['overview', 'components', 'library'],
         priority: 1
-      },
-      {
-        id: 'guidelines',
-        title: 'Guidelines',
-        path: '/docs/components/guidelines',
-        icon: 'BookOpen',
-        description: 'Development standards and best practices',
-        category: 'components',
-        searchTerms: ['guidelines', 'standards', 'best practices'],
-        priority: 2
       },
       {
         id: 'accordion',

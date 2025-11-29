@@ -163,29 +163,31 @@ export const DocumentationSidebar: React.FC<DocumentationSidebarProps> =
                     size="sm"
                     className="u-mr-2 u-position-absolute u-start-0 u-top-0 u-mt-2"
                   />
-                  <Input
-                    type="text"
-                    placeholder="Search navigation..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    size="sm"
-                    aria-label="Search navigation"
-                    glass={{
-                      blurAmount: 8,
-                      elasticity: 0.1,
-                      cornerRadius: 12,
-                    }}
-                    className="u-w-100"
-                  />
+                  <div suppressHydrationWarning>
+                    <Input
+                      type="text"
+                      placeholder="Search navigation..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      size="sm"
+                      aria-label="Search navigation"
+                      glass={{
+                        blurAmount: 8,
+                        elasticity: 0.1,
+                        cornerRadius: 12,
+                      }}
+                      className="u-w-100"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Navigation Content */}
-            <div>
+            <div suppressHydrationWarning>
               <SideMenu title="Documentation" collapsible={false}>
                 {filteredNavigation.map((section) => (
-                  <div key={section.id}>
+                  <div key={section.id} suppressHydrationWarning>
                     <Accordion
                       title={section.title}
                       defaultOpen={expandedSections.includes(section.id)}

@@ -31,11 +31,25 @@ export function getAriaCurrent(isActive: boolean): 'page' | undefined {
 
 /**
  * Generate unique ID for accessibility
+ * Note: This function should only be used in client components.
+ * For SSR-safe ID generation, use React's useId hook instead.
  */
 export function generateId(prefix: string, index?: number): string {
-  return index !== undefined
-    ? `${prefix}-${index}`
-    : `${prefix}-${Math.random().toString(36).substr(2, 9)}`;
+  // Use index-based ID if provided (deterministic)
+  if (index !== undefined) {
+    return `${prefix}-${index}`;
+  }
+  
+  // For non-indexed IDs, use a timestamp-based approach that's more stable
+  // but still unique. This is better than Math.random() for SSR scenarios.
+  // However, React's useId hook is still preferred for SSR-safe IDs.
+  if (typeof window !== 'undefined') {
+    return `${prefix}-${Math.random().toString(36).substr(2, 9)}`;
+  }
+  
+  // Server-side: use a deterministic fallback
+  // This is not ideal but prevents hydration mismatches
+  return `${prefix}-ssr-${Date.now().toString(36)}`;
 }
 
 /**

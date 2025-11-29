@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "@playwright/test": "^1.56.1",
-    "@shohojdhara/atomix": "^0.2.7",
+    "@shohojdhara/atomix": "^0.2.8",
     "date-fns": "^2.29.3",
     "framer-motion": "^10.0.1",
     "fuse.js": "^6.6.2",

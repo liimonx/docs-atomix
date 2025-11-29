@@ -121,11 +121,17 @@ export function GlobalSearch() {
       >
         <div className="u-position-relative u-w-100">
           <Input
-            className="u-w-300 u-border-transparent u-br-full u-px-4 u-py-2 u-ps-10"
+            className="u-px-4 u-py-2 u-ps-10"
             glass={{
               blurAmount: 10,
-              cornerRadius: 30,
               elasticity: 0,
+              cornerRadius: 30,
+            }}
+            style={{
+              borderRadius: "30px",
+              width: "300px",
+              borderColor: "transparent",
+              backgroundColor: "rgba(var(--atomix-primary-rgb), 0.4)",
             }}
             type="text"
             placeholder="Search documentation..."

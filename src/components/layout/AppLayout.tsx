@@ -93,7 +93,7 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
       <Container type="fluid">
         <Grid>
           {/* Sidebar - Desktop persistent, mobile overlay */}
-          <GridCol xs={12} lg={3} className="d-none d-lg-block">
+          <GridCol xs={12} lg={3} xl={2} className="d-none d-lg-block">
             <DocumentationSidebar {...sidebarProps} />
           </GridCol>
 
@@ -106,7 +106,7 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
           )}
 
           {/* Page Content - Only this should re-render on route change */}
-          <GridCol xs={12} lg={9}>
+          <GridCol xs={12} lg={9} xl={10}>
             {children}
           </GridCol>
         </Grid>

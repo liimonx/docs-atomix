@@ -38,8 +38,6 @@ const LayoutsOverviewPage: React.FC = () => {
         text="A comprehensive set of components for creating responsive, accessible, and performant layouts."
         alignment="center"
         showOverlay={false}
-        fullViewportHeight={false}
-        contentWidth="900px"
         actions={
           <>
             <Button 

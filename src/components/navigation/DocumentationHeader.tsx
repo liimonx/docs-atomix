@@ -40,7 +40,7 @@ export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
   ];
 
   return (
-    <header role="banner">
+    <header role="banner" suppressHydrationWarning>
       <Navbar
         glass={{
           displacementScale: 20,

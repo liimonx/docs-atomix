@@ -12,7 +12,7 @@ export const badgeMetadata = {
   tags: ['badge', 'status', 'notification', 'indicator'],
   relatedComponents: ['Tag', 'Chip', 'Alert'],
   features: [
-    'Multiple variants (default, primary, secondary, success, warning, error, info)',
+    'Multiple variants (default, primary, secondary, success, warning, error, info, dark, light)',
     'Multiple sizes (sm, md, lg)',
     'Dot mode for minimalist notifications',
     'Full accessibility support'
@@ -20,7 +20,7 @@ export const badgeMetadata = {
   props: [
     {
       name: 'variant',
-      type: "'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info'",
+      type: "'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info' | 'dark' | 'light'",
       description: 'Visual style variant of the badge',
       required: false,
       defaultValue: 'default'
@@ -56,29 +56,32 @@ export const badgeMetadata = {
     {
       title: 'Variants',
       description: 'Different badge styles for different contexts',
-      code: `<Badge>Default</Badge>
-<Badge variant="primary">Primary</Badge>
-<Badge variant="secondary">Secondary</Badge>
-<Badge variant="success">Success</Badge>
-<Badge variant="warning">Warning</Badge>
-<Badge variant="error">Error</Badge>
-<Badge variant="info">Info</Badge>`,
+      code: `<Badge label="Default" />
+<Badge variant="primary" label="Primary" />
+<Badge variant="secondary" label="Secondary" />
+<Badge variant="success" label="Success" />
+<Badge variant="warning" label="Warning" />
+<Badge variant="error" label="Error" />
+<Badge variant="info" label="Info" />
+<Badge variant="dark" label="Dark" />
+<Badge variant="light" label="Light" />`,
+
       preview: null
     },
     {
       title: 'Sizes',
       description: 'Three different badge sizes',
-      code: `<Badge size="sm">Small</Badge>
-<Badge size="md">Medium</Badge>
-<Badge size="lg">Large</Badge>`,
+      code: `<Badge size="sm" label="Small" />
+<Badge size="md" label="Medium" />
+<Badge size="lg" label="Large" />`,
       preview: null
     },
     {
       title: 'Dot Mode',
       description: 'Minimalist dot badges for notifications',
-      code: `<Badge dot />
-<Badge dot variant="primary" />
-<Badge dot variant="error" />`,
+      code: `<Badge dot label="Dot" />
+<Badge dot variant="primary" label="Primary" />
+<Badge dot variant="error" label="Error" />`,
       preview: null
     }
   ],

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card, Badge } from '@shohojdhara/atomix';
+import React from "react";
+import { Card, Badge, DataTable } from "@shohojdhara/atomix";
 
 interface PropDefinition {
   name: string;
@@ -18,82 +18,111 @@ interface ComponentPropsProps {
 
 export const ComponentProps: React.FC<ComponentPropsProps> = ({ props }) => {
   return (
-    <Card>
-      <div className="card-header">
-        <h3 className="u-mb-0">Props</h3>
-      </div>
-      <div className="card-body">
-        <div className="table-responsive">
-          <table className="table table-bordered">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Required</th>
-                <th>Default</th>
-                <th>Description</th>
-                <th>Examples</th>
-                <th>Deprecated</th>
-                <th>Since</th>
-              </tr>
-            </thead>
-            <tbody>
-              {props.map((prop, index) => (
-                <tr key={index}>
-                  <td>
-                    <code className="u-text-info">{prop.name}</code>
-                  </td>
-                  <td>
-                    <code>{prop.type}</code>
-                  </td>
-                  <td>
-                    {prop.required ? (
-                      <Badge label="Required" variant="success" size="sm">Required</Badge>
-                    ) : (
-                      <Badge label="Optional" variant="secondary" size="sm">Optional</Badge>
-                    )}
-                  </td>
-                  <td>
-                    {prop.defaultValue ? (
-                      <code>{prop.defaultValue}</code>
-                    ) : (
-                      <span className="u-text-muted">-</span>
-                    )}
-                  </td>
-                  <td>{prop.description}</td>
-                  <td>
-                    {prop.examples && prop.examples.length > 0 ? (
-                      <ul className="u-list-unstyled u-mb-0">
-                        {prop.examples.map((example, idx) => (
-                          <li key={idx}>
-                            <code>{example}</code>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <span className="u-text-muted">-</span>
-                    )}
-                  </td>
-                  <td>
-                    {prop.deprecated ? (
-                      <Badge label="Deprecated" variant="warning" size="sm">Deprecated</Badge>
-                    ) : (
-                      <span className="u-text-muted">-</span>
-                    )}
-                  </td>
-                  <td>
-                    {prop.since ? (
-                      <span className="u-text-muted">{prop.since}</span>
-                    ) : (
-                      <span className="u-text-muted">-</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    <Card
+      children={
+        <div className="u-p-6">
+          <h3 className="u-fs-xl u-fw-bold u-mb-4">Props</h3>
+          <DataTable
+            data={props}
+            bordered
+            striped
+            columns={[
+              {
+                key: "name",
+                title: "Name",
+                render: (_value: unknown, prop: PropDefinition) => (
+                  <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                    {prop.name}
+                  </code>
+                ),
+              },
+              {
+                key: "type",
+                title: "Type",
+                render: (_value: unknown, prop: PropDefinition) => (
+                  <code className="u-fs-sm u-bg-tertiary-subtle u-p-1">
+                    {prop.type}
+                  </code>
+                ),
+              },
+              {
+                key: "required",
+                title: "Required",
+                render: (_value: unknown, prop: PropDefinition) =>
+                  prop.required ? (
+                    <Badge label="Required" variant="success" size="sm">
+                      Required
+                    </Badge>
+                  ) : (
+                    <Badge label="Optional" variant="secondary" size="sm">
+                      Optional
+                    </Badge>
+                  ),
+              },
+              {
+                key: "defaultValue",
+                title: "Default",
+                render: (_value: unknown, prop: PropDefinition) =>
+                  prop.defaultValue ? (
+                    <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                      {prop.defaultValue}
+                    </code>
+                  ) : (
+                    <span className="u-text-muted">-</span>
+                  ),
+              },
+              {
+                key: "description",
+                title: "Description",
+                render: (_value: unknown, prop: PropDefinition) => (
+                  <p className="u-m-0 u-mb-2">{prop.description}</p>
+                ),
+              },
+              {
+                key: "examples",
+                title: "Examples",
+                render: (_value: unknown, prop: PropDefinition) =>
+                  prop.examples && prop.examples.length > 0 ? (
+                    <ul className="u-list-unstyled u-mb-0 c-data-table__cell c-data-table__cell--body">
+                      {prop.examples.map((example, idx) => (
+                        <li
+                          key={idx}
+                          className="c-data-table__cell c-data-table__cell--body"
+                        >
+                          <code>{example}</code>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <span className="u-text-muted">-</span>
+                  ),
+              },
+              {
+                key: "deprecated",
+                title: "Deprecated",
+                render: (_value: unknown, prop: PropDefinition) =>
+                  prop.deprecated ? (
+                    <Badge label="Deprecated" variant="warning" size="sm">
+                      Deprecated
+                    </Badge>
+                  ) : (
+                    <span className="u-text-muted">-</span>
+                  ),
+              },
+              {
+                key: "since",
+                title: "Since",
+                render: (_value: unknown, prop: PropDefinition) =>
+                  prop.since ? (
+                    <span className="u-text-muted">{prop.since}</span>
+                  ) : (
+                    <span className="u-text-muted">-</span>
+                  ),
+              },
+            ]}
+          />
         </div>
-      </div>
-    </Card>
+      }
+    />
   );
 };
