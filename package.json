@@ -11,7 +11,8 @@
     "test": "vitest run src/utils/__tests__/routeMapper.test.ts src/utils/__tests__/breadcrumbs.test.ts",
     "test:all": "vitest",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage"
+    "test:coverage": "vitest --coverage",
+    "validate:components": "ts-node scripts/validate-component-metadata.ts"
   },
   "keywords": [
     "design-system",
@@ -27,7 +28,7 @@
   ],
   "dependencies": {
     "@playwright/test": "^1.56.1",
-    "@shohojdhara/atomix": "^0.2.8",
+    "@shohojdhara/atomix": "^0.2.9",
     "date-fns": "^2.29.3",
     "framer-motion": "^10.0.1",
     "fuse.js": "^6.6.2",
@@ -64,6 +65,7 @@
     "eslint-plugin-react-refresh": "^0.3.4",
     "jsdom": "^21.1.0",
     "prettier": "^2.8.4",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   }

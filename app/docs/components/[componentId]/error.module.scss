@@ -1,5 +1,12 @@
-.container {
-  padding: 2rem;
+// Component: ComponentError
+// =============================================================================
+
+// Block: Base component error
+// =============================================================================
+.componentError {
+  box-sizing: border-box;
+  
+  padding: var(--atomix-spacing-xl);
   max-width: 800px;
   margin: 0 auto;
   min-height: 400px;
@@ -8,9 +15,28 @@
   justify-content: center;
 }
 
-.actions {
-  margin-top: 1rem;
+// Elements
+// =============================================================================
+.componentError__actions {
+  margin-top: var(--atomix-spacing-md);
   display: flex;
-  gap: 1rem;
+  gap: var(--atomix-spacing-md);
   flex-wrap: wrap;
+}
+
+// Accessibility
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .componentError {
+    * {
+      transition: none;
+    }
+  }
+}
+
+@media (prefers-contrast: high) {
+  .componentError {
+    border: 1px solid currentColor;
+    border-radius: var(--atomix-radius-md);
+  }
 }

@@ -1,14 +1,39 @@
-.container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+// Component: DocumentationError
+// =============================================================================
+
+// Block: Base documentation error
+// =============================================================================
+.documentationError {
+  box-sizing: border-box;
+  
+  padding-top: var(--atomix-spacing-xl);
+  padding-bottom: var(--atomix-spacing-xl);
 }
 
-.card {
-  padding: 1.5rem;
+// Elements
+// =============================================================================
+.documentationError__card {
+  padding: var(--atomix-spacing-lg);
 }
 
-.actions {
+.documentationError__actions {
   display: flex;
   gap: var(--atomix-spacing-md);
   flex-wrap: wrap;
+}
+
+// Accessibility
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .documentationError {
+    * {
+      transition: none;
+    }
+  }
+}
+
+@media (prefers-contrast: high) {
+  .documentationError__card {
+    border-width: 2px;
+  }
 }

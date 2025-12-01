@@ -9,8 +9,8 @@ import {
   Row,
   Block,
   SectionIntro,
+  Grid,
 } from "@shohojdhara/atomix";
-import Link from "next/link";
 import { GlassProps } from "@/types/atomix-components";
 
 const GettingStartedOverviewPage: React.FC = () => {
@@ -57,13 +57,13 @@ const GettingStartedOverviewPage: React.FC = () => {
             text="Follow our comprehensive guides to integrate Atomix into your project and start building modern, accessible user interfaces."
           />
           
-          <Row>
+          <Grid>
             <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+              <Card className="u-h-100">
                 <h3 className="u-fs-xl u-fw-semibold u-mb-3">Installation</h3>
                 <p className="u-text-secondary-emphasis u-mb-4">Learn how to install Atomix in your project using npm, yarn, or other package managers.</p>
                 <Button 
-                  variant="outline" 
+                  variant="primary-outline" 
                   label="Installation Guide" 
                   size="sm"
                   onClick={() => window.location.href = '/docs/getting-started/installation'}
@@ -72,11 +72,11 @@ const GettingStartedOverviewPage: React.FC = () => {
             </GridCol>
             
             <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+              <Card className="u-h-100">
                 <h3 className="u-fs-xl u-fw-semibold u-mb-3">Quick Start</h3>
                 <p className="u-text-secondary-emphasis u-mb-4">Get up and running quickly with our step-by-step quick start tutorial.</p>
                 <Button 
-                  variant="outline" 
+                  variant="primary-outline" 
                   label="Quick Start Guide" 
                   size="sm"
                   onClick={() => window.location.href = '/docs/getting-started/quick-start'}
@@ -85,18 +85,18 @@ const GettingStartedOverviewPage: React.FC = () => {
             </GridCol>
             
             <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+              <Card className="u-h-100">
                 <h3 className="u-fs-xl u-fw-semibold u-mb-3">Migration</h3>
                 <p className="u-text-secondary-emphasis u-mb-4">Migrating from an older version? Follow our migration guide for a smooth transition.</p>
                 <Button 
-                  variant="outline" 
+                  variant="primary-outline" 
                   label="Migration Guide" 
                   size="sm"
                   onClick={() => window.location.href = '/docs/getting-started/migration'}
                 />
               </Card>
             </GridCol>
-          </Row>
+              </Grid>
         </Block>
       </div>
     </>

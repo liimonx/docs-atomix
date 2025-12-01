@@ -6,7 +6,7 @@ import { Icon, Card } from '@shohojdhara/atomix';
 import type { SearchResult } from '../../types';
 import styles from './SearchResultItem.module.scss';
 
-interface SearchResultItemProps {
+export interface SearchResultItemProps {
   result: SearchResult;
   onClick?: () => void;
 }

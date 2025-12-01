@@ -18,14 +18,16 @@ export default function ComponentError({
   }, [error]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.componentError}>
       <Callout
         variant="error"
         title="Failed to load component"
         icon={<Icon name="WarningCircle" />}
       >
-        <p>
-          We encountered an error while loading this component page.
+        <div>
+          <p>
+            We encountered an error while loading this component page.
+          </p>
           {error.message && (
             <details>
               <summary>
@@ -36,8 +38,8 @@ export default function ComponentError({
               </pre>
             </details>
           )}
-        </p>
-        <div className={styles.actions}>
+        </div>
+        <div className={styles.componentError__actions}>
           <Button
             variant="primary"
             onClick={reset}

@@ -5,7 +5,7 @@ import styles from './loading.module.scss';
 
 export default function ComponentLoading() {
   return (
-    <div className={styles.container}>
+    <div className={styles.componentLoading}>
       <Spinner size="lg" />
     </div>
   );

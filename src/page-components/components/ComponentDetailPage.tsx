@@ -7,7 +7,6 @@ import {
   Button,
   Card,
   Badge,
-  Row,
   GridCol,
   Tabs,
   Block,
@@ -162,12 +161,16 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
       id: "examples",
       label: "Examples",
       content: (
-        <ComponentExamples
-          examples={componentDoc.examples.map((example) => ({
-            ...example,
-            language: "jsx",
-            category: "example",
-          }))}
+          <ComponentExamples
+            examples={componentDoc.examples.map((example, index) => ({
+              id: `example-${index}`,
+              title: example.title,
+              description: example.description,
+              code: example.code,
+              language: "jsx",
+              category: "basic" as const,
+              preview: example.preview === null ? undefined : example.preview,
+            }))}
           onCopy={copyToClipboard}
           copiedCode={copiedCode}
         />
@@ -181,17 +184,63 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
     {
       id: "accessibility",
       label: "Accessibility",
-      content: (
-        <ComponentAccessibility
-          accessibility={{
-            overview: "Overview of accessibility features",
-            guidelines: ["WCAG guidelines followed"],
-            wcagLevel: "AA",
-            keyboardSupport: [],
-            ariaAttributes: [],
-          }}
-        />
-      ),
+      content: (() => {
+        // Transform accessibility data to match expected format
+        const transformAccessibility = (acc: any) => {
+          if (!acc) {
+            return {
+              overview: "Accessibility information not available",
+              guidelines: [],
+              wcagLevel: "AA" as const,
+              keyboardSupport: [],
+              ariaAttributes: [],
+            };
+          }
+
+          // Transform keyboardSupport from string array to object array
+          const keyboardSupport = Array.isArray(acc.keyboardSupport)
+            ? acc.keyboardSupport.map((item: string | { key: string; action: string; context?: string }) => {
+                if (typeof item === 'string') {
+                  const [key, ...actionParts] = item.split(' - ');
+                  return {
+                    key: key.trim(),
+                    action: actionParts.join(' - ').trim() || key.trim(),
+                  };
+                }
+                return item;
+              })
+            : [];
+
+          // Transform ariaAttributes from string array to object array
+          const ariaAttributes = Array.isArray(acc.ariaAttributes)
+            ? acc.ariaAttributes.map((item: string | { attribute: string; description: string; required: boolean; defaultValue?: string }) => {
+                if (typeof item === 'string') {
+                  const [attribute, ...descParts] = item.split(' - ');
+                  return {
+                    attribute: attribute.trim(),
+                    description: descParts.join(' - ').trim() || attribute.trim(),
+                    required: false,
+                  };
+                }
+                return item;
+              })
+            : [];
+
+          return {
+            overview: acc.overview || "Accessibility information not available",
+            guidelines: acc.guidelines || [],
+            wcagLevel: acc.wcagLevel || ("AA" as const),
+            keyboardSupport,
+            ariaAttributes,
+          };
+        };
+
+        return (
+          <ComponentAccessibility
+            accessibility={transformAccessibility(componentDoc.accessibility)}
+          />
+        );
+      })(),
     },
   ];
 

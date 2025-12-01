@@ -1,52 +1,207 @@
 // Design Tokens
 // =============================================================================
-// Centralized design tokens for the documentation site
-// These tokens are based on the Atomix Design System and can be customized
-// for the documentation site's specific needs.
+// Real Atomix Design System tokens
+// These are the actual design tokens used throughout the Atomix design system
 //
 // Note: This file uses :global() to make CSS custom properties available globally
 // when imported into CSS Modules.
 
-// Colors
-// =============================================================================
 :global(:root) {
   // Brand Colors
+  // =============================================================================
   --atomix-primary: #7c3aed;
-  --atomix-secondary: #64748b;
+  --atomix-secondary: #f3f4f6;
   --atomix-success: #22c55e;
+  --atomix-info: #3b82f6;
   --atomix-warning: #eab308;
   --atomix-error: #ef4444;
-  --atomix-info: #3b82f6;
+  --atomix-light: #f9fafb;
+  --atomix-dark: #1f2937;
+
+  // RGB Values for Colors
+  // =============================================================================
+  --atomix-primary-rgb: 124, 58, 237;
+  --atomix-secondary-rgb: 243, 244, 246;
+  --atomix-success-rgb: 34, 197, 94;
+  --atomix-info-rgb: 59, 130, 246;
+  --atomix-warning-rgb: 234, 179, 8;
+  --atomix-error-rgb: 239, 68, 68;
+  --atomix-light-rgb: 249, 250, 251;
+  --atomix-dark-rgb: 31, 41, 55;
+
+  // Gray Scale
+  // =============================================================================
+  --atomix-gray-1: #f9fafb;
+  --atomix-gray-2: #f3f4f6;
+  --atomix-gray-3: #e5e7eb;
+  --atomix-gray-4: #d1d5db;
+  --atomix-gray-5: #9ca3af;
+  --atomix-gray-6: #6b7280;
+  --atomix-gray-7: #4b5563;
+  --atomix-gray-8: #374151;
+  --atomix-gray-9: #1f2937;
+  --atomix-gray-10: #111827;
+
+  // Primary Color Scale
+  // =============================================================================
+  --atomix-primary-1: #f2e8fd;
+  --atomix-primary-2: #e4d0fa;
+  --atomix-primary-3: #d0b2f5;
+  --atomix-primary-4: #b88cef;
+  --atomix-primary-5: #9c63e9;
+  --atomix-primary-6: #7c3aed;
+  --atomix-primary-7: #6425ca;
+  --atomix-primary-8: #501ba6;
+  --atomix-primary-9: #3c1583;
+  --atomix-primary-10: #2a0e60;
 
   // Text Colors
-  --atomix-color-text-primary: #111827;
-  --atomix-color-text-secondary: #374151;
-  --atomix-color-text-tertiary: #6b7280;
-  --atomix-color-text-disabled: #9ca3af;
-  --atomix-color-text-invert: #ffffff;
-  --atomix-color-text-brand: #7c3aed;
-  --atomix-color-text-error: #ef4444;
-  --atomix-color-text-success: #22c55e;
-  --atomix-color-text-warning: #eab308;
-  --atomix-color-text-info: #3b82f6;
+  // =============================================================================
+  --atomix-primary-text-emphasis: #111827;
+  --atomix-secondary-text-emphasis: #374151;
+  --atomix-tertiary-text-emphasis: #6b7280;
+  --atomix-disabled-text-emphasis: #9ca3af;
+  --atomix-invert-text-emphasis: #111827;
+  --atomix-brand-text-emphasis: #7c3aed;
+  --atomix-error-text-emphasis: #ef4444;
+  --atomix-success-text-emphasis: #22c55e;
+  --atomix-warning-text-emphasis: #eab308;
+  --atomix-info-text-emphasis: #3b82f6;
+  --atomix-light-text-emphasis: #f9fafb;
+  --atomix-dark-text-emphasis: #1f2937;
 
   // Background Colors
-  --atomix-color-bg-primary: #ffffff;
-  --atomix-color-bg-secondary: #f9fafb;
-  --atomix-color-bg-tertiary: #f3f4f6;
-  --atomix-color-bg-brand: #f2e8fd;
-  --atomix-color-bg-error: #fef2f2;
-  --atomix-color-bg-success: #f0fdf4;
-  --atomix-color-bg-warning: #fefce8;
-  --atomix-color-bg-info: #eff6ff;
+  // =============================================================================
+  --atomix-primary-bg-subtle: #ffffff;
+  --atomix-secondary-bg-subtle: #e5e7eb;
+  --atomix-tertiary-bg-subtle: #d1d5db;
+  --atomix-invert-bg-subtle: #111827;
+  --atomix-brand-bg-subtle: #e4d0fa;
+  --atomix-error-bg-subtle: #fee2e2;
+  --atomix-success-bg-subtle: #dcfce7;
+  --atomix-warning-bg-subtle: #fef9c3;
+  --atomix-info-bg-subtle: #dbeafe;
+  --atomix-light-bg-subtle: #f3f4f6;
+  --atomix-dark-bg-subtle: #1f2937;
 
   // Border Colors
-  --atomix-color-border: #e5e7eb;
-  --atomix-color-border-focus: #7c3aed;
-  --atomix-color-border-error: #ef4444;
-  --atomix-color-border-success: #22c55e;
+  // =============================================================================
+  --atomix-primary-border-subtle: #e5e7eb;
+  --atomix-secondary-border-subtle: #111827;
+  --atomix-success-border-subtle: #22c55e;
+  --atomix-error-border-subtle: #ef4444;
+  --atomix-warning-border-subtle: #eab308;
+  --atomix-info-border-subtle: #3b82f6;
+  --atomix-brand-border-subtle: #7c3aed;
+  --atomix-light-border-subtle: #f9fafb;
+  --atomix-dark-border-subtle: #1f2937;
 
-  // Spacing Scale (4px base)
+  // Hover Colors
+  // =============================================================================
+  --atomix-primary-hover: #7c3aed;
+  --atomix-secondary-hover: #e5e7eb;
+  --atomix-light-hover: #f3f4f6;
+  --atomix-dark-hover: #4b5563;
+  --atomix-error-hover: #b91c1c;
+  --atomix-success-hover: #15803d;
+  --atomix-warning-hover: #a16207;
+  --atomix-info-hover: #1d4ed8;
+
+  // Gradients
+  // =============================================================================
+  --atomix-primary-gradient: linear-gradient(135deg, #e4d0fa, #d0b2f5, #b88cef);
+  --atomix-secondary-gradient: linear-gradient(135deg, #f3f4f6, #e5e7eb, #d1d5db);
+  --atomix-light-gradient: linear-gradient(135deg, #f9fafb, #f3f4f6, #e5e7eb);
+  --atomix-dark-gradient: linear-gradient(135deg, #4b5563, #1f2937, #000000);
+  --atomix-success-gradient: linear-gradient(135deg, #dcfce7, #86efac, #4ade80);
+  --atomix-info-gradient: linear-gradient(135deg, #dbeafe, #bfdbfe, #60a5fa);
+  --atomix-warning-gradient: linear-gradient(135deg, #fef9c3, #fef08a, #facc15);
+  --atomix-error-gradient: linear-gradient(135deg, #fef2f2, #fee2e2, #fecaca);
+  --atomix-gradient: linear-gradient(135deg, #f9fafb, #f3f4f6, #e5e7eb);
+
+  // Typography
+  // =============================================================================
+  --atomix-font-sans-serif: "Roboto", sans-serif;
+  --atomix-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --atomix-body-font-family: "Roboto", sans-serif;
+  --atomix-body-font-size: 1rem;
+  --atomix-body-font-weight: 400;
+  --atomix-body-line-height: 1.2;
+  --atomix-body-color: #111827;
+  --atomix-body-bg: #ffffff;
+  --atomix-heading-color: #111827;
+  --atomix-link-color: #7c3aed;
+  --atomix-link-color-rgb: 124, 58, 237;
+  --atomix-link-decoration: none;
+  --atomix-link-hover-color: rgb(85.3674418605, 18.2930232558, 200.2069767442);
+  --atomix-link-hover-color-rgb: 85.3674418605, 18.2930232558, 200.2069767442;
+  --atomix-code-color: #ef4444;
+  --atomix-highlight-bg: #fef08a;
+
+  // Borders
+  // =============================================================================
+  --atomix-border-width: 1px;
+  --atomix-border-style: solid;
+  --atomix-border-color: #e5e7eb;
+  --atomix-border-color-translucent: rgba(229, 231, 235, 0.175);
+
+  // Border Radius
+  // =============================================================================
+  --atomix-border-radius: 0.5rem;
+  --atomix-border-radius-sm: 0.25rem;
+  --atomix-border-radius-lg: 0.625rem;
+  --atomix-border-radius-xl: 0.75rem;
+  --atomix-border-radius-xxl: 1rem;
+  --atomix-border-radius-2xl: var(--atomix-border-radius-xxl);
+  --atomix-border-radius-3xl: 1.5rem;
+  --atomix-border-radius-4xl: 2rem;
+  --atomix-border-radius-pill: 50rem;
+
+  // Box Shadows
+  // =============================================================================
+  --atomix-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --atomix-box-shadow-xs: 0px 1px 2px 0px rgba(45, 54, 67, 0.04), 0px 2px 4px 0px rgba(45, 54, 67, 0.08);
+  --atomix-box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.075);
+  --atomix-box-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.175);
+  --atomix-box-shadow-xl: 0px 16px 64px -8px rgba(45, 54, 67, 0.14);
+  --atomix-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+
+  // Form States
+  // =============================================================================
+  --atomix-focus-border-color: #9c63e9;
+  --atomix-form-valid-color: #22c55e;
+  --atomix-form-valid-border-color: #22c55e;
+  --atomix-form-invalid-color: #ef4444;
+  --atomix-form-invalid-border-color: #ef4444;
+
+  // Legacy/Compatibility Aliases (for backward compatibility)
+  // =============================================================================
+  --atomix-color-text-primary: var(--atomix-primary-text-emphasis);
+  --atomix-color-text-secondary: var(--atomix-secondary-text-emphasis);
+  --atomix-color-text-tertiary: var(--atomix-tertiary-text-emphasis);
+  --atomix-color-text-disabled: var(--atomix-disabled-text-emphasis);
+  --atomix-color-text-invert: var(--atomix-invert-text-emphasis);
+  --atomix-color-text-brand: var(--atomix-brand-text-emphasis);
+  --atomix-color-text-error: var(--atomix-error-text-emphasis);
+  --atomix-color-text-success: var(--atomix-success-text-emphasis);
+  --atomix-color-text-warning: var(--atomix-warning-text-emphasis);
+  --atomix-color-text-info: var(--atomix-info-text-emphasis);
+
+  --atomix-color-bg-primary: var(--atomix-primary-bg-subtle);
+  --atomix-color-bg-secondary: var(--atomix-secondary-bg-subtle);
+  --atomix-color-bg-tertiary: var(--atomix-tertiary-bg-subtle);
+  --atomix-color-bg-brand: var(--atomix-brand-bg-subtle);
+  --atomix-color-bg-error: var(--atomix-error-bg-subtle);
+  --atomix-color-bg-success: var(--atomix-success-bg-subtle);
+  --atomix-color-bg-warning: var(--atomix-warning-bg-subtle);
+  --atomix-color-bg-info: var(--atomix-info-bg-subtle);
+
+  --atomix-color-border: var(--atomix-border-color);
+  --atomix-color-border-focus: var(--atomix-focus-border-color);
+  --atomix-color-border-error: var(--atomix-error-border-subtle);
+  --atomix-color-border-success: var(--atomix-success-border-subtle);
+
+  // Spacing Scale (4px base) - Legacy compatibility
   // =============================================================================
   --atomix-spacing-0: 0;
   --atomix-spacing-xxs: 0.25rem; // 4px
@@ -59,17 +214,15 @@
   --atomix-spacing-3xl: 4rem; // 64px
   --atomix-spacing-4xl: 6rem; // 96px
 
-  // Typography
+  // Typography - Legacy compatibility
   // =============================================================================
-  // Font Families
-  --atomix-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
-  --atomix-font-family-heading: 'Inter', system-ui, -apple-system, sans-serif;
-  --atomix-font-family-mono: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+  --atomix-font-family-base: var(--atomix-body-font-family);
+  --atomix-font-family-heading: var(--atomix-body-font-family);
+  --atomix-font-family-mono: var(--atomix-font-monospace);
 
-  // Font Sizes
   --atomix-font-size-xs: 0.75rem; // 12px
   --atomix-font-size-sm: 0.875rem; // 14px
-  --atomix-font-size-md: 1rem; // 16px
+  --atomix-font-size-md: var(--atomix-body-font-size);
   --atomix-font-size-lg: 1.125rem; // 18px
   --atomix-font-size-xl: 1.25rem; // 20px
   --atomix-font-size-2xl: 1.5rem; // 24px
@@ -77,36 +230,34 @@
   --atomix-font-size-4xl: 2.25rem; // 36px
   --atomix-font-size-5xl: 3rem; // 48px
 
-  // Font Weights
   --atomix-font-weight-normal: 400;
   --atomix-font-weight-medium: 500;
   --atomix-font-weight-semibold: 600;
   --atomix-font-weight-bold: 700;
 
-  // Line Heights
   --atomix-line-height-tight: 1.2;
   --atomix-line-height-normal: 1.4;
   --atomix-line-height-relaxed: 1.6;
   --atomix-line-height-loose: 1.8;
 
-  // Border Radius
-  // =============================================================================
-  --atomix-radius-none: 0;
-  --atomix-radius-sm: 0.125rem; // 2px
-  --atomix-radius-md: 0.375rem; // 6px
-  --atomix-radius-lg: 0.5rem; // 8px
-  --atomix-radius-xl: 0.75rem; // 12px
-  --atomix-radius-2xl: 1rem; // 16px
-  --atomix-radius-full: 9999px;
-
-  // Box Shadows
+  // Shadows - Legacy compatibility
   // =============================================================================
   --atomix-shadow-none: none;
-  --atomix-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --atomix-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --atomix-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --atomix-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  --atomix-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --atomix-shadow-sm: var(--atomix-box-shadow-sm);
+  --atomix-shadow-md: var(--atomix-box-shadow);
+  --atomix-shadow-lg: var(--atomix-box-shadow-lg);
+  --atomix-shadow-xl: var(--atomix-box-shadow-xl);
+  --atomix-shadow-2xl: var(--atomix-box-shadow-xl);
+
+  // Border Radius - Legacy compatibility
+  // =============================================================================
+  --atomix-radius-none: 0;
+  --atomix-radius-sm: var(--atomix-border-radius-sm);
+  --atomix-radius-md: var(--atomix-border-radius);
+  --atomix-radius-lg: var(--atomix-border-radius-lg);
+  --atomix-radius-xl: var(--atomix-border-radius-xl);
+  --atomix-radius-2xl: var(--atomix-border-radius-2xl);
+  --atomix-radius-full: var(--atomix-border-radius-pill);
 
   // Z-Index Layers
   // =============================================================================
@@ -120,13 +271,33 @@
   --atomix-z-tooltip: 1070;
 }
 
-// Dark Mode Support (if needed in future)
+// Component Mixins
 // =============================================================================
-@media (prefers-color-scheme: dark) {
-  :global(:root) {
-    // Override tokens for dark mode if needed
-    // --atomix-color-text-primary: #f9fafb;
-    // --atomix-color-bg-primary: #111827;
+@mixin component-base {
+  // Base component styles - can include common reset, transitions, etc.
+  box-sizing: border-box;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+    border-radius: var(--atomix-radius-md);
   }
 }
 
+@mixin component-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+// Dark Mode Support (if needed in future)
+// =============================================================================
+// @media (prefers-color-scheme: dark) {
+//   :global(:root) {
+//     // Override tokens for dark mode if needed
+//     // --atomix-color-text-primary: #f9fafb;
+//     // --atomix-color-bg-primary: #111827;
+//   }
+// }

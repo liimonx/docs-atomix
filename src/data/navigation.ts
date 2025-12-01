@@ -67,6 +67,26 @@ export const navigationData: NavigationSection[] = [
     collapsed: true,
     items: [
       {
+        id: 'overview',
+        title: 'Overview',
+        path: '/docs/design-tokens',
+        icon: 'GridFour',
+        description: 'Introduction to design tokens and the foundation of Atomix',
+        category: 'design-tokens',
+        searchTerms: ['overview', 'tokens', 'foundation', 'introduction'],
+        priority: 0
+      },
+      {
+        id: 'all-tokens',
+        title: 'All Tokens',
+        path: '/docs/design-tokens/all',
+        icon: 'List',
+        description: 'Browse all design tokens in one place',
+        category: 'design-tokens',
+        searchTerms: ['all', 'tokens', 'browse', 'complete'],
+        priority: 1
+      },
+      {
         id: 'colors',
         title: 'Colors',
         path: '/docs/design-tokens/colors',
@@ -74,7 +94,7 @@ export const navigationData: NavigationSection[] = [
         description: 'Comprehensive color system and palettes',
         category: 'design-tokens',
         searchTerms: ['colors', 'palette', 'theme', 'brand'],
-        priority: 1
+        priority: 2
       },
       {
         id: 'spacing',
@@ -84,7 +104,7 @@ export const navigationData: NavigationSection[] = [
         description: 'Spacing and layout system',
         category: 'design-tokens',
         searchTerms: ['spacing', 'margin', 'padding', 'gap'],
-        priority: 2
+        priority: 3
       },
       {
         id: 'typography',
@@ -94,17 +114,17 @@ export const navigationData: NavigationSection[] = [
         description: 'Type system and scales',
         category: 'design-tokens',
         searchTerms: ['typography', 'fonts', 'text', 'type'],
-        priority: 3
+        priority: 4
       },
       {
         id: 'grid',
         title: 'Grid',
         path: '/docs/design-tokens/grid',
         icon: 'GridFour',
-        description: 'Responsive grid system',
+        description: 'Responsive grid system documentation',
         category: 'design-tokens',
-        searchTerms: ['grid', 'layout', 'columns', 'responsive'],
-        priority: 4
+        searchTerms: ['grid', 'layout', 'columns', 'responsive', 'breakpoints'],
+        priority: 5
       },
       {
         id: 'elevation',
@@ -114,7 +134,7 @@ export const navigationData: NavigationSection[] = [
         description: 'Shadow and depth system',
         category: 'design-tokens',
         searchTerms: ['elevation', 'shadow', 'depth', 'z-index'],
-        priority: 4
+        priority: 6
       }
     ]
   },
@@ -231,17 +251,27 @@ export const navigationData: NavigationSection[] = [
     title: 'Components',
     description: 'Comprehensive component library with React and vanilla JS',
     priority: 5,
-    collapsed: false,
+    collapsed: true,
     items: [
       {
         id: 'overview',
         title: 'Overview',
-        path: '/docs/components/',
+        path: '/docs/components/overview',
         icon: 'GridFour',
         description: 'All available components',
         category: 'components',
         searchTerms: ['overview', 'components', 'library'],
         priority: 1
+      },
+      {
+        id: 'guidelines',
+        title: 'Guidelines',
+        path: '/docs/components/guidelines',
+        icon: 'FileText',
+        description: 'Guidelines and best practices for using Atomix components',
+        category: 'components',
+        searchTerms: ['guidelines', 'best practices', 'standards', 'patterns'],
+        priority: 2
       },
       {
         id: 'accordion',
@@ -264,46 +294,6 @@ export const navigationData: NavigationSection[] = [
         priority: 4
       },
       {
-        id: 'button',
-        title: 'Button',
-        path: '/docs/components/button',
-        icon: 'Mouse',
-        description: 'Customizable button component with multiple variants',
-        category: 'components',
-        searchTerms: ['button', 'click', 'action', 'submit'],
-        priority: 5
-      },
-      {
-        id: 'card',
-        title: 'Card',
-        path: '/docs/components/card',
-        icon: 'CreditCard',
-        description: 'Flexible container component for content',
-        category: 'components',
-        searchTerms: ['card', 'container', 'content', 'panel'],
-        priority: 4
-      },
-      {
-        id: 'input',
-        title: 'Input',
-        path: '/docs/components/input',
-        icon: 'TextT',
-        description: 'Text input field with validation support',
-        category: 'components',
-        searchTerms: ['input', 'text', 'form', 'field'],
-        priority: 5
-      },
-      {
-        id: 'form',
-        title: 'Form',
-        path: '/docs/components/form',
-        icon: 'FileText',
-        description: 'Form components and validation',
-        category: 'components',
-        searchTerms: ['form', 'input', 'validation', 'fields'],
-        priority: 10
-      },
-      {
         id: 'avatar',
         title: 'Avatar',
         path: '/docs/components/avatar',
@@ -311,7 +301,7 @@ export const navigationData: NavigationSection[] = [
         description: 'Display user profile images, initials, or icons',
         category: 'components',
         searchTerms: ['avatar', 'profile', 'user', 'image'],
-        priority: 11
+        priority: 5
       },
       {
         id: 'badge',
@@ -321,7 +311,7 @@ export const navigationData: NavigationSection[] = [
         description: 'Compact UI element for displaying status indicators and labels',
         category: 'components',
         searchTerms: ['badge', 'status', 'label', 'indicator'],
-        priority: 12
+        priority: 6
       },
       {
         id: 'breadcrumb',
@@ -331,7 +321,47 @@ export const navigationData: NavigationSection[] = [
         description: 'Hierarchical navigation showing the user\'s location',
         category: 'components',
         searchTerms: ['breadcrumb', 'navigation', 'path', 'hierarchy'],
-        priority: 13
+        priority: 7
+      },
+      {
+        id: 'button',
+        title: 'Button',
+        path: '/docs/components/button',
+        icon: 'Mouse',
+        description: 'Customizable button component with multiple variants',
+        category: 'components',
+        searchTerms: ['button', 'click', 'action', 'submit'],
+        priority: 8
+      },
+      {
+        id: 'card',
+        title: 'Card',
+        path: '/docs/components/card',
+        icon: 'CreditCard',
+        description: 'Flexible container component for content',
+        category: 'components',
+        searchTerms: ['card', 'container', 'content', 'panel'],
+        priority: 9
+      },
+      {
+        id: 'checkbox',
+        title: 'Checkbox',
+        path: '/docs/components/checkbox',
+        icon: 'CheckSquare',
+        description: 'Checkbox input component with validation support',
+        category: 'components',
+        searchTerms: ['checkbox', 'form', 'field'],
+        priority: 10
+      },
+      {
+        id: 'date-picker',
+        title: 'Date Picker',
+        path: '/docs/components/date-picker',
+        icon: 'Calendar',
+        description: 'Date picker component with validation support',
+        category: 'components',
+        searchTerms: ['date', 'picker', 'form', 'field'],
+        priority: 11
       },
       {
         id: 'dropdown',
@@ -341,6 +371,26 @@ export const navigationData: NavigationSection[] = [
         description: 'Flexible menu system with various triggers and placements',
         category: 'components',
         searchTerms: ['dropdown', 'menu', 'select', 'options'],
+        priority: 12
+      },
+      {
+        id: 'form',
+        title: 'Form',
+        path: '/docs/components/form',
+        icon: 'FileText',
+        description: 'Form components and validation',
+        category: 'components',
+        searchTerms: ['form', 'input', 'validation', 'fields'],
+        priority: 13
+      },
+      {
+        id: 'input',
+        title: 'Input',
+        path: '/docs/components/input',
+        icon: 'TextT',
+        description: 'Text input field with validation support',
+        category: 'components',
+        searchTerms: ['input', 'text', 'form', 'field'],
         priority: 14
       },
       {
@@ -354,6 +404,66 @@ export const navigationData: NavigationSection[] = [
         priority: 15
       },
       {
+        id: 'progress',
+        title: 'Progress',
+        path: '/docs/components/progress',
+        icon: 'CircleDashed',
+        description: 'Visual feedback for ongoing processes and completion status',
+        category: 'components',
+        searchTerms: ['progress', 'feedback', 'status', 'completion'],
+        priority: 16
+      },
+      {
+        id: 'radio',
+        title: 'Radio',
+        path: '/docs/components/radio',
+        icon: 'RadioButton',
+        description: 'Radio button component with validation support',
+        category: 'components',
+        searchTerms: ['radio', 'form', 'field'],
+        priority: 17
+      },
+      {
+        id: 'rating',
+        title: 'Rating',
+        path: '/docs/components/rating',
+        icon: 'Star',
+        description: 'Rating component with validation support',
+        category: 'components',
+        searchTerms: ['rating', 'form', 'field'],
+        priority: 18
+      },
+      {
+        id: 'select',
+        title: 'Select',
+        path: '/docs/components/select',
+        icon: 'CaretDown',
+        description: 'Select dropdown component with options',
+        category: 'components',
+        searchTerms: ['select', 'dropdown', 'options', 'menu'],
+        priority: 19
+      },
+      {
+        id: 'slider',
+        title: 'Slider',
+        path: '/docs/components/slider',
+        icon: 'Sliders',
+        description: 'Interactive slider component for numeric input',
+        category: 'components',
+        searchTerms: ['slider', 'numeric', 'input', 'range'],
+        priority: 20
+      },
+      {
+        id: 'spinner',
+        title: 'Spinner',
+        path: '/docs/components/spinner',
+        icon: 'CircleNotch',
+        description: 'Loading indicator component with multiple styles',
+        category: 'components',
+        searchTerms: ['spinner', 'loading', 'indicator', 'progress'],
+        priority: 21
+      },
+      {
         id: 'tab',
         title: 'Tab',
         path: '/docs/components/tab',
@@ -361,7 +471,27 @@ export const navigationData: NavigationSection[] = [
         description: 'Tabbed interfaces for organizing content into separate panels',
         category: 'components',
         searchTerms: ['tab', 'tabs', 'panel', 'content'],
-        priority: 16
+        priority: 22
+      },
+      {
+        id: 'textarea',
+        title: 'Textarea',
+        path: '/docs/components/textarea',
+        icon: 'AlignLeft',
+        description: 'Multi-line text input field with validation support',
+        category: 'components',
+        searchTerms: ['textarea', 'text', 'form', 'field'],
+        priority: 23
+      },
+      {
+        id: 'toggle',
+        title: 'Toggle',
+        path: '/docs/components/toggle',
+        icon: 'ToggleLeft',
+        description: 'Switch-like controls for binary states and settings',
+        category: 'components',
+        searchTerms: ['toggle', 'switch', 'binary', 'settings'],
+        priority: 24
       },
       {
         id: 'tooltip',
@@ -371,8 +501,18 @@ export const navigationData: NavigationSection[] = [
         description: 'Contextual information on hover with rich content support',
         category: 'components',
         searchTerms: ['tooltip', 'hover', 'info', 'popup'],
-        priority: 17
-      }
+        priority: 25
+      },
+      {
+        id: 'upload',
+        title: 'Upload',
+        path: '/docs/components/upload',
+        icon: 'UploadSimple',
+        description: 'Upload component with validation support',
+        category: 'components',
+        searchTerms: ['upload', 'form', 'field'],
+        priority: 26
+      },
     ]
   },
   {

@@ -1,10 +1,11 @@
 // Component: SkipLink
 // =============================================================================
 
-
 // Block: Base skip link
 // =============================================================================
 .skipLink {
+  box-sizing: border-box;
+  
   position: absolute;
   top: -100px;
   left: 0;
@@ -19,8 +20,16 @@
 
   &:focus {
     top: var(--atomix-spacing-xs);
-    outline: 2px solid var(--atomix-color-border-focus);
+    outline: 2px solid var(--atomix-focus-border-color);
     outline-offset: 2px;
+    border-radius: var(--atomix-radius-md);
+  }
+  
+  &:focus-visible {
+    top: var(--atomix-spacing-xs);
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+    border-radius: var(--atomix-radius-md);
   }
 
   &:hover {
@@ -34,6 +43,17 @@
 @media (prefers-reduced-motion: reduce) {
   .skipLink {
     transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .skipLink {
+    border: 2px solid currentColor;
+    
+    &:focus,
+    &:focus-visible {
+      border-width: 3px;
+    }
   }
 }
 

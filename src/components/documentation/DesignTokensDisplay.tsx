@@ -3,7 +3,7 @@ import { Card, Badge } from '@shohojdhara/atomix';
 import type { ComponentDocumentation } from '@/types/index';
 import styles from './DesignTokensDisplay.module.scss';
 
-interface DesignTokensDisplayProps {
+export interface DesignTokensDisplayProps {
   component: ComponentDocumentation;
 }
 
@@ -27,19 +27,33 @@ export const DesignTokensDisplay: React.FC<DesignTokensDisplayProps> = ({ compon
         </p>
       </section>
 
-      <div className={styles.designTokensDisplay__grid}>
+      <div className={styles.designTokensDisplay__grid} role="list" aria-label="Design tokens">
         {designTokens.map((token, index) => (
-          <Card key={index} className={styles.designTokensDisplay__tokenCard}>
+          <Card 
+            key={index} 
+            className={styles.designTokensDisplay__tokenCard}
+            aria-labelledby={`token-${index}-name`}
+          >
             <div className={styles.designTokensDisplay__tokenHeader}>
-              <h3 className={styles.designTokensDisplay__tokenName}>{token.name}</h3>
+              <h3 
+                id={`token-${index}-name`}
+                className={styles.designTokensDisplay__tokenName}
+              >
+                {token.name}
+              </h3>
               <Badge variant="secondary" size="sm" label={token.category} />
             </div>
             
-            <div className={styles.designTokensDisplay__preview}>
+            <div 
+              className={styles.designTokensDisplay__preview}
+              aria-label={`${token.name} preview`}
+            >
               {token.type === 'color' && (
                 <div 
                   className={styles.designTokensDisplay__colorPreview}
                   style={{ backgroundColor: token.value }}
+                  aria-label={`Color preview: ${token.value}`}
+                  role="img"
                 />
               )}
               
@@ -68,18 +82,43 @@ export const DesignTokensDisplay: React.FC<DesignTokensDisplayProps> = ({ compon
             
             <div className={styles.designTokensDisplay__details}>
               <div className={styles.designTokensDisplay__value}>
-                <label className={styles.designTokensDisplay__label}>Value:</label>
-                <code className={styles.designTokensDisplay__code}>{token.value}</code>
+                <label 
+                  className={styles.designTokensDisplay__label}
+                  htmlFor={`token-${index}-value`}
+                >
+                  Value:
+                </label>
+                <code 
+                  id={`token-${index}-value`}
+                  className={styles.designTokensDisplay__code}
+                >
+                  {token.value}
+                </code>
               </div>
               
               {token.description && (
-                <p className={styles.designTokensDisplay__tokenDescription}>{token.description}</p>
+                <p 
+                  className={styles.designTokensDisplay__tokenDescription}
+                  aria-describedby={`token-${index}-name`}
+                >
+                  {token.description}
+                </p>
               )}
               
               {token.cssVariable && (
                 <div className={styles.designTokensDisplay__css}>
-                  <label className={styles.designTokensDisplay__label}>CSS Variable:</label>
-                  <code className={styles.designTokensDisplay__code}>{token.cssVariable}</code>
+                  <label 
+                    className={styles.designTokensDisplay__label}
+                    htmlFor={`token-${index}-css`}
+                  >
+                    CSS Variable:
+                  </label>
+                  <code 
+                    id={`token-${index}-css`}
+                    className={styles.designTokensDisplay__code}
+                  >
+                    {token.cssVariable}
+                  </code>
                 </div>
               )}
             </div>

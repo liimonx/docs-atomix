@@ -1,10 +1,11 @@
 // Component: DesignTokensDisplay
 // =============================================================================
 
-
 // Block: Base design tokens display
 // =============================================================================
 .designTokensDisplay {
+  box-sizing: border-box;
+  
   padding: var(--atomix-spacing-md) 0;
 }
 
@@ -184,11 +185,29 @@
 
 // Accessibility
 // =============================================================================
+.designTokensDisplay__tokenCard {
+  &:focus-visible {
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+    border-radius: var(--atomix-radius-md);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .designTokensDisplay {
     * {
       transition: none;
     }
+  }
+}
+
+@media (prefers-contrast: high) {
+  .designTokensDisplay__tokenCard {
+    border-width: 2px;
+  }
+  
+  .designTokensDisplay__colorPreview {
+    border-width: 2px;
   }
 }
 

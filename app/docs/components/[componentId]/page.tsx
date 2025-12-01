@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 
 import { ComponentPage } from "@/page-components";
@@ -35,6 +36,12 @@ export default async function ComponentPageRoute({
 }: ComponentRouteParams) {
   const resolvedParams = await params;
   const { componentId } = resolvedParams;
+  
+  // Explicitly exclude special routes that should be handled by the catch-all route
+  if (componentId === 'overview' || componentId === 'guidelines') {
+    notFound();
+  }
+  
   const path = `/docs/components/${componentId}`;
 
   // Validate the route against navigation configuration to ensure we only
@@ -44,5 +51,11 @@ export default async function ComponentPageRoute({
     notFound();
   }
 
-  return <ComponentPage componentId={componentId} />;
+  // Wrap in Suspense to handle async boundaries properly
+  // This prevents React errors when async server components render client components
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ComponentPage componentId={componentId} />
+    </Suspense>
+  );
 }

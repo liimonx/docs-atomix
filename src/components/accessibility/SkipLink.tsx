@@ -7,7 +7,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './SkipLink.module.scss';
 
-interface SkipLinkProps {
+export interface SkipLinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;

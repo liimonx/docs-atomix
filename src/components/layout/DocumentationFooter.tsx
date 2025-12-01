@@ -3,7 +3,6 @@
 import React from "react";
 import { Footer, FooterSection, FooterLink } from "@shohojdhara/atomix";
 import toast from "react-hot-toast";
-import styles from "./DocumentationFooter.module.scss";
 
 export const DocumentationFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -19,7 +18,6 @@ export const DocumentationFooter: React.FC = () => {
 
   return (
     <Footer
-      className={styles.documentationFooter}
       brand="Atomix Design System"
       brandDescription="A comprehensive design system for building modern, accessible, and performant web applications with React and vanilla JavaScript."
       copyright={`© ${currentYear} Atomix Design System. Built with ❤️ by the Shohojdhara.`}

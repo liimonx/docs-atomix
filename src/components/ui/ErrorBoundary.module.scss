@@ -1,11 +1,12 @@
 // Component: ErrorBoundary
 // =============================================================================
 
-@import '../../design-system/tokens';
 
 // Block: Base error boundary container
 // =============================================================================
 .errorBoundary {
+  box-sizing: border-box;
+  
   padding: var(--atomix-spacing-xl);
   max-width: 800px;
   margin: 0 auto;
@@ -20,6 +21,12 @@
 .errorBoundary__summary {
   cursor: pointer;
   font-weight: var(--atomix-font-weight-bold);
+  
+  &:focus-visible {
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+    border-radius: var(--atomix-radius-md);
+  }
 }
 
 .errorBoundary__pre {
@@ -48,6 +55,18 @@
     * {
       transition: none !important;
     }
+  }
+}
+
+@media (prefers-contrast: high) {
+  .errorBoundary__pre {
+    border-width: 2px;
+  }
+  
+  .errorBoundary__summary {
+    border: 1px solid currentColor;
+    padding: var(--atomix-spacing-xs);
+    border-radius: var(--atomix-radius-sm);
   }
 }
 

@@ -26,12 +26,13 @@ export const ComponentProps: React.FC<ComponentPropsProps> = ({ props }) => {
             data={props}
             bordered
             striped
+            dense
             columns={[
               {
                 key: "name",
                 title: "Name",
                 render: (_value: unknown, prop: PropDefinition) => (
-                  <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                  <code className="u-fs-sm u-text-error-emphasis">
                     {prop.name}
                   </code>
                 ),
@@ -40,7 +41,7 @@ export const ComponentProps: React.FC<ComponentPropsProps> = ({ props }) => {
                 key: "type",
                 title: "Type",
                 render: (_value: unknown, prop: PropDefinition) => (
-                  <code className="u-fs-sm u-bg-tertiary-subtle u-p-1">
+                  <code className="u-fs-sm u-text-error-emphasis">
                     {prop.type}
                   </code>
                 ),
@@ -64,7 +65,7 @@ export const ComponentProps: React.FC<ComponentPropsProps> = ({ props }) => {
                 title: "Default",
                 render: (_value: unknown, prop: PropDefinition) =>
                   prop.defaultValue ? (
-                    <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                    <code className="u-fs-sm u-text-error-emphasis">
                       {prop.defaultValue}
                     </code>
                   ) : (

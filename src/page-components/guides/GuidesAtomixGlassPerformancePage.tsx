@@ -17,7 +17,6 @@ import {
 import { GlassProps } from "@/types/atomix-components";
 
 import toast from "react-hot-toast";
-import styles from "./GuidesAtomixGlassPerformancePage.module.scss";
 
 const GuidesAtomixGlassPerformancePage = () => {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -39,9 +38,9 @@ const GuidesAtomixGlassPerformancePage = () => {
     id: string,
     title?: string
   ) => (
-    <div className={styles.guidePage__codeBlock}>
-      <div className={styles.guidePage__codeHeader}>
-        <span className={styles.guidePage__codeTitle}>{title || language}</span>
+      <div className="u-p-6 u-bg-secondary u-br-md u-border u-border-subtle u-rounded-md">
+      <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-2">
+        <span className="u-fs-sm u-text-error-emphasis">{title || language}</span>
         <Button
           variant="ghost"
           size="sm"
@@ -54,7 +53,7 @@ const GuidesAtomixGlassPerformancePage = () => {
           )}
         </Button>
       </div>
-      <div className={styles.guidePage__codeContent}>
+      <div className="u-p-3">
         <pre>
           <code>{code}</code>
         </pre>
@@ -82,7 +81,7 @@ const GuidesAtomixGlassPerformancePage = () => {
         alignment="center"
       />
 
-      <Block className={`u-pt-8 u-pb-8 ${styles.guidePage}`}>
+      <Block className="u-pt-8 u-pb-8">
         <SectionIntro
           title="Performance Optimization Guide"
           text="The AtomixGlass component creates stunning glass morphism effects but can be performance-intensive. This guide provides best practices, optimization techniques, and monitoring strategies to ensure smooth, performant experiences across all devices."
@@ -92,8 +91,8 @@ const GuidesAtomixGlassPerformancePage = () => {
         <Grid className="u-mt-8">
           <GridCol md={3} sm={6}>
             <Card>
-              <div className={styles.guidePage__metricValue}>5-7</div>
-              <div className={styles.guidePage__metricLabel}>
+              <div className="u-fs-sm u-text-error-emphasis">5-7</div>
+              <div className="u-fs-sm u-text-error-emphasis">
                 Max Components
               </div>
               <Badge
@@ -106,8 +105,8 @@ const GuidesAtomixGlassPerformancePage = () => {
           </GridCol>
           <GridCol md={3} sm={6}>
             <Card>
-              <div className={styles.guidePage__metricValue}>60fps</div>
-              <div className={styles.guidePage__metricLabel}>
+              <div className="u-fs-sm u-text-error-emphasis">60fps</div>
+              <div className="u-fs-sm u-text-error-emphasis">
                 Target Frame Rate
               </div>
               <Badge
@@ -120,8 +119,8 @@ const GuidesAtomixGlassPerformancePage = () => {
           </GridCol>
           <GridCol md={3} sm={6}>
             <Card>
-              <div className={styles.guidePage__metricValue}>≤100ms</div>
-              <div className={styles.guidePage__metricLabel}>
+              <div className="u-fs-sm u-text-error-emphasis">≤100ms</div>
+              <div className="u-fs-sm u-text-error-emphasis">
                 First Input Delay
               </div>
               <Badge
@@ -134,8 +133,8 @@ const GuidesAtomixGlassPerformancePage = () => {
           </GridCol>
           <GridCol md={3} sm={6}>
             <Card>
-              <div className={styles.guidePage__metricValue}>≤0.1</div>
-              <div className={styles.guidePage__metricLabel}>
+                <div className="u-fs-sm u-text-error-emphasis">≤0.1</div>
+              <div className="u-fs-sm u-text-error-emphasis">
                 Layout Shift Score
               </div>
               <Badge

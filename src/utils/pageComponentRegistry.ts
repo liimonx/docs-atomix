@@ -9,14 +9,15 @@ import {
   APIReactPage,
   
   // Component Pages
+  ComponentsHomePage,
+  ComponentsOverviewPage,
   ComponentPage,
   ComponentGuidelinesPage,
-  ComponentsHomePage,
-  ComponentsIndexPage,
   
   // Design Token Pages
   DesignTokensPage,
   DesignTokensOverviewPage,
+  DesignTokensGridPage,
   
   // Getting Started Pages
   GettingStartedPage,
@@ -88,17 +89,19 @@ class PageComponentRegistry {
     this.idMap.set('api:css', APICSSPage);
 
     // Component Pages
-    this.idMap.set('components:overview', ComponentsHomePage);
+    this.idMap.set('components:overview', ComponentsOverviewPage);
     this.idMap.set('components:guidelines', ComponentGuidelinesPage);
     // Special case: /docs/components (index page) - when slug is just ['components']
-    this.idMap.set('components:index', ComponentsIndexPage);
+    this.idMap.set('components:index', ComponentsHomePage);
     this.categoryMap.set('components', ComponentPage);
 
     // Design Token Pages
+    this.idMap.set('design-tokens:overview', DesignTokensOverviewPage);
+    this.idMap.set('design-tokens:all-tokens', DesignTokensPage);
     this.idMap.set('design-tokens:colors', DesignTokensPage);
     this.idMap.set('design-tokens:spacing', DesignTokensPage);
     this.idMap.set('design-tokens:typography', DesignTokensPage);
-    this.idMap.set('design-tokens:grid', DesignTokensPage);
+    this.idMap.set('design-tokens:grid', DesignTokensGridPage);
     this.idMap.set('design-tokens:elevation', DesignTokensPage);
     this.categoryMap.set('design-tokens', DesignTokensOverviewPage);
 

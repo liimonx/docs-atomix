@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Badge } from '@shohojdhara/atomix';
+import { Card, Badge, DataTable } from '@shohojdhara/atomix';
 
 interface AccessibilityInfo {
   overview: string;
@@ -26,108 +26,98 @@ export const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ 
   return (
     <div className="component-accessibility">
       <Card className="u-mb-6">
-        <div className="card-header">
-          <h3 className="u-mb-0">Overview</h3>
-        </div>
-        <div className="card-body">
-          <p>{accessibility.overview}</p>
-          <div className="u-mt-3">
+            <h3 className="u-mb-2">Overview</h3>
+          <p className="u-m-0 u-mb-2">{accessibility.overview}</p>
             <Badge label={`WCAG ${accessibility.wcagLevel}`} variant="info">WCAG {accessibility.wcagLevel}</Badge>
-          </div>
-        </div>
       </Card>
 
       {accessibility.keyboardSupport.length > 0 && (
         <Card className="u-mb-6">
-          <div className="card-header">
-            <h3 className="u-mb-0">Keyboard Support</h3>
-          </div>
-          <div className="card-body">
-            <div className="table-responsive">
-              <table className="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Key</th>
-                    <th>Action</th>
-                    {accessibility.keyboardSupport.some(k => k.context) && <th>Context</th>}
-                  </tr>
-                </thead>
-                <tbody>
-                  {accessibility.keyboardSupport.map((kb, index) => (
-                    <tr key={index}>
-                      <td>
-                        <code className="u-bg-light u-px-2 u-py-1 u-rounded">
-                          {kb.key}
-                        </code>
-                      </td>
-                      <td>{kb.action}</td>
-                      {accessibility.keyboardSupport.some(k => k.context) && (
-                        <td>{kb.context || '-'}</td>
-                      )}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+            <h3 className="u-mb-2">Keyboard Support</h3>
+            <DataTable
+              data={accessibility.keyboardSupport}
+              bordered
+              striped
+              dense
+              columns={[
+                {
+                  key: 'key',
+                  title: 'Key',
+                  render: (_value: unknown, row: { key: string }) => (
+                    <kbd className="u-fs-sm u-fw-semibold u-m-0">{row.key ?? '-'}</kbd>
+                  ),
+                }, {
+                  key: 'action',
+                  title: 'Action',
+                  render: (_value: unknown, row: { action: string }) => (
+                    <span>{row.action ?? '-'}</span>
+                  ),
+                }, {
+                  key: 'context',
+                  title: 'Context',
+                  render: (_value: unknown, row: { context: string }) => (
+                    <span>{row.context ?? '-'}</span>
+                  ),
+                }
+              ]}
+            />
         </Card>
       )}
 
       {accessibility.ariaAttributes.length > 0 && (
         <Card className="u-mb-6">
-          <div className="card-header">
-            <h3 className="u-mb-0">ARIA Attributes</h3>
-          </div>
-          <div className="card-body">
-            <div className="table-responsive">
-              <table className="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Attribute</th>
-                    <th>Description</th>
-                    <th>Required</th>
-                    <th>Default Value</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {accessibility.ariaAttributes.map((aria, index) => (
-                    <tr key={index}>
-                      <td>
-                        <code className="u-text-info">{
-                          aria.attribute
-                        }</code>
-                      </td>
-                      <td>{aria.description}</td>
-                      <td>
-                        {aria.required ? (
-                          <Badge label="Required" variant="success" size="sm">Required</Badge>
-                        ) : (
-                          <Badge label="Optional" variant="secondary" size="sm">Optional</Badge>
-                        )}
-                      </td>
-                      <td>
-                        {aria.defaultValue ? (
-                          <code>{aria.defaultValue}</code>
-                        ) : (
-                          <span className="u-text-muted">-</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+            <h3 className='u-mb-2'>ARIA Attributes</h3>
+                <DataTable
+              data={accessibility.ariaAttributes}
+              bordered
+              striped
+              dense
+              columns={[
+                {
+                  key: 'attribute',
+                  title: 'Attribute',
+                    render: (_value: unknown, row: { attribute: string }) => (
+                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">{row.attribute}</code>
+                    ),
+                },
+                {
+                  key: 'description',
+                  title: 'Description',
+                  render: (_value: unknown, row: { description: string }) => (
+                    <p className="u-m-0 u-mb-2">{row.description ?? '-'}</p>
+                  ),
+                },
+                {
+                  key: 'required',
+                  title: 'Required',
+                  render: (_value: unknown, row: { required: boolean }) => (
+                    row.required ? (
+                      <Badge label="Required" variant="success" size="sm">Required</Badge>
+                    ) : (
+                      <Badge label="Optional" variant="secondary" size="sm">Optional</Badge>
+                    )
+                  ),
+                },
+                {
+                  key: 'defaultValue',
+                  title: 'Default Value',
+                  render: (_value: unknown, row: { defaultValue: string }) => (
+                    row.defaultValue ? (
+                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">{row.defaultValue}</code>
+                    ) : (
+                      <span className="u-text-muted">-</span>
+                    )
+                  ),
+                }
+              ]}
+            />
         </Card>
       )}
 
       {accessibility.guidelines.length > 0 && (
         <Card>
-          <div className="card-header">
             <h3 className="u-mb-0">Guidelines</h3>
-          </div>
-          <div className="card-body">
-            <ul className="u-list-unstyled u-mb-0">
+            <ul className="u-list-none u-mb-0">
               {accessibility.guidelines.map((guideline, index) => (
                 <li key={index} className="u-mb-2 u-d-flex u-align-items-start">
                   <span className="u-mr-2">•</span>
@@ -135,7 +125,6 @@ export const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ 
                 </li>
               ))}
             </ul>
-          </div>
         </Card>
       )}
     </div>

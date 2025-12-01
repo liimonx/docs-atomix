@@ -88,45 +88,40 @@ const nextConfig = {
   },
   
   // URL redirects
-  async redirects() {
-    return [
-      {
-        source: '/components',
-        destination: '/docs/components/overview',
-        permanent: true,
-      },
-      {
-        source: '/design-tokens',
-        destination: '/docs/design-tokens/colors',
-        permanent: true,
-      },
-      {
-        source: '/docs/installation',
-        destination: '/docs/getting-started/installation',
-        permanent: true,
-      },
-      {
-        source: '/docs/quickstart',
-        destination: '/docs/getting-started/quick-start',
-        permanent: true,
-      },
-      {
-        source: '/docs/theming',
-        destination: '/docs/guides/theming',
-        permanent: true,
-      },
-      {
-        source: '/docs/getting-started/migration',
-        destination: '/docs/introduction',
-        permanent: true,
-      },
-      {
-        source: '/docs/components/guidelines',
-        destination: '/docs/components/overview',
-        permanent: true,
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/components',
+  //       destination: '/docs/components/overview',
+  //       permanent: true,
+  //     },
+  //     {
+  //       source: '/design-tokens',
+  //       destination: '/docs/design-tokens/colors',
+  //       permanent: true,
+  //     },
+  //     {
+  //       source: '/docs/installation',
+  //       destination: '/docs/getting-started/installation',
+  //       permanent: true,
+  //     },
+  //     {
+  //       source: '/docs/quickstart',
+  //       destination: '/docs/getting-started/quick-start',
+  //       permanent: true,
+  //     },
+  //     {
+  //       source: '/docs/theming',
+  //       destination: '/docs/guides/theming',
+  //       permanent: true,
+  //     },
+  //     {
+  //       source: '/docs/components/guidelines',
+  //       destination: '/docs/components/overview',
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
   
   // Compiler options
   compiler: {

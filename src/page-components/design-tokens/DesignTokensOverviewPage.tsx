@@ -6,9 +6,9 @@ import {
   Card,
   Hero,
   GridCol,
-  Row,
   Block,
   SectionIntro,
+  Grid,
 } from "@shohojdhara/atomix";
 import Link from "next/link";
 import { GlassProps } from "@/types/atomix-components";
@@ -44,6 +44,9 @@ const DesignTokensOverviewPage: React.FC = () => {
               <Link href="/docs/design-tokens/spacing">
                 <Button variant="secondary" label="Spacing" />
               </Link>
+              <Link href="/docs/design-tokens/typography">
+                <Button variant="secondary" label="Typography" />
+              </Link>
             </>
           }
         />
@@ -54,37 +57,57 @@ const DesignTokensOverviewPage: React.FC = () => {
             text="Explore the fundamental design values that power the Atomix design system."
           />
           
-          <Row>
-            <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+          <Grid>
+            <GridCol md={6} lg={4} className="u-mt-4">
+              <Card className="u-h-100" variant="tertiary">
                 <h3 className="u-mb-3">Colors</h3>
-                <p className="u-mb-4">Explore our color palette, including primary, secondary, and semantic colors.</p>
+                <p className="u-mb-4">Explore our comprehensive color system with brand colors, semantic colors, and neutral palettes. Includes 10-step color scales and WCAG 2.1 AA compliance.</p>
                 <Link href="/docs/design-tokens/colors">
-                  <Button variant="outline" label="Color Tokens" size="sm" />
+                    <Button variant="outline-primary" label="Color Tokens" size="sm" />
                 </Link>
               </Card>
             </GridCol>
             
-            <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+            <GridCol md={6} lg={4} className="u-mt-4">
+              <Card className="u-h-100" variant="tertiary">
                 <h3 className="u-mb-3">Spacing</h3>
-                <p className="u-mb-4">Learn about our spacing scale based on an 8px grid system for consistent layouts.</p>
+                <p className="u-mb-4">Learn about our spacing scale based on a 4px grid system for consistent layouts. Includes margins, padding, and layout spacing tokens.</p>
                 <Link href="/docs/design-tokens/spacing">
-                  <Button variant="outline" label="Spacing Tokens" size="sm" />
+                  <Button variant="outline-primary" label="Spacing Tokens" size="sm" />
                 </Link>
               </Card>
             </GridCol>
             
-            <GridCol md={6} lg={4}>
-              <Card className="u-p-6 u-h-100">
+            <GridCol md={6} lg={4} className="u-mt-4">
+              <Card className="u-h-100" variant="tertiary">
                 <h3 className="u-mb-3">Typography</h3>
-                <p className="u-mb-4">Explore our typography system including font families, sizes, and weights.</p>
+                <p className="u-mb-4">Explore our typography system including font families, sizes, weights, and line heights. Built for readability and accessibility.</p>
                 <Link href="/docs/design-tokens/typography">
-                  <Button variant="outline" label="Typography Tokens" size="sm" />
+                  <Button variant="outline-primary" label="Typography Tokens" size="sm" />
                 </Link>
               </Card>
             </GridCol>
-          </Row>
+            
+            <GridCol md={6} lg={4} className="u-mt-4">
+              <Card className="u-h-100" variant="tertiary">
+                <h3 className="u-mb-3">Grid</h3>
+                <p className="u-mb-4">Responsive grid system with 12 columns, customizable gutters, and breakpoints. Create flexible, consistent layouts across all devices.</p>
+                <Link href="/docs/design-tokens/grid">
+                  <Button variant="outline-primary" label="Grid Tokens" size="sm" />
+                </Link>
+              </Card>
+            </GridCol>
+            
+            <GridCol md={6} lg={4} className="u-mt-4">
+              <Card className="u-h-100" variant="tertiary">
+                <h3 className="u-mb-3">Elevation</h3>
+                <p className="u-mb-4">Shadow and depth system for creating visual hierarchy. Multiple elevation levels with consistent shadow progression for light and dark themes.</p>
+                <Link href="/docs/design-tokens/elevation">
+                  <Button variant="outline-primary" label="Elevation Tokens" size="sm" />
+                </Link>
+              </Card>
+            </GridCol>
+          </Grid>
         </Block>
       </div>
     </>

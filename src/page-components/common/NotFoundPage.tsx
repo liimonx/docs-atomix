@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { Button, Card, Icon, Row, GridCol } from '@shohojdhara/atomix';
 
 const NotFoundPage: React.FC = () => {

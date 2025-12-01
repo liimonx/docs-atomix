@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
-import { Card, Button } from '@shohojdhara/atomix';
-
-interface ComponentExample {
-  title: string;
-  description: string;
-  code: string;
-  language: string;
-  category: string;
-  preview?: React.ReactNode;
-}
+import React, { useState } from "react";
+import { Card, Button, Icon, Tabs } from "@shohojdhara/atomix";
+import { ComponentExample } from "@/types";
+import { CodePreview } from "./CodePreview";
 
 interface ComponentExamplesProps {
   examples: ComponentExample[];
@@ -19,75 +12,135 @@ interface ComponentExamplesProps {
 export const ComponentExamples: React.FC<ComponentExamplesProps> = ({
   examples,
   onCopy,
-  copiedCode
+  copiedCode,
 }) => {
   const [activeExample, setActiveExample] = useState(0);
-  // const [previewMode, setPreviewMode] = useState<'preview' | 'code'>('preview');
+  // Track active tab index for each example (0 = Preview, 1 = Code)
+  const [activeTabs, setActiveTabs] = useState<Record<string, number>>({});
 
   if (!examples || examples.length === 0) {
     return (
       <Card>
         <div className="card-body">
-          <p className="u-text-muted u-mb-0">No examples available for this component.</p>
+          <p className="u-text-muted u-mb-0">
+            No examples available for this component.
+          </p>
         </div>
       </Card>
     );
   }
 
+  const handleTabChange = (exampleId: string, tabIndex: number) => {
+    setActiveTabs((prev) => ({
+      ...prev,
+      [exampleId]: tabIndex,
+    }));
+  };
+
+  const getActiveTab = (exampleId: string): number => {
+    return activeTabs[exampleId] ?? 1; // Default to Code tab (index 1)
+  };
+
   return (
     <div className="component-examples">
       {examples.length > 1 ? (
-        <div className="u-mb-4">
-          <div className="tabs">
-            {examples.map((_, index) => (
-              <button
-                key={index}
-                className={`tab ${activeExample === index ? 'active' : ''}`}
+        <div className="u-my-4">
+          <div className="u-d-flex u-gap-2 u-justify-content-center">
+            {examples.map((example, index) => (
+              <Button
+                variant={activeExample === index ? "primary" : "outline-primary"}
+                size="sm"
+                key={example.id || `example-${index}`}
                 onClick={() => {
                   setActiveExample(index);
-                  // setPreviewMode('preview'); // Reset to preview mode when changing examples
                 }}
+                aria-label={`Select example ${example.title}`}
               >
-                {examples[index].title}
-              </button>
+                {example.title}
+              </Button>
             ))}
           </div>
         </div>
       ) : null}
 
-      {examples.map((_, index) => (
-        <div
-          key={index}
-          className={examples.length > 1 && activeExample !== index ? 'u-d-none' : ''}
-        >
-          <Card className="u-mb-6">
-            <h3 className="u-mb-4">Examples</h3>
-            <ul className="u-list-unstyled">
-              {examples.map((example, nestedIndex) => (
-                <li key={example.id || `example-${nestedIndex}`} className="u-mb-3">
-                  <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-2">
-                    <h4 className="u-mb-0">{example.title}</h4>
-                    <div className="u-d-flex u-gap-2">
-                      <Button variant="outline" size="sm" onClick={() => onCopy(example.code, example.id || `example-${nestedIndex}`)}>
-                        {/* <Icon name="Copy" size={16} className="u-mr-2" /> */}
-                        {copiedCode === (example.id || `example-${nestedIndex}`) ? 'Copied!' : 'Copy'}
-                      </Button>
-                      {/* <Button variant="outline" size="sm" onClick={() => setActiveExample(example)}>
-                        <Icon name="Eye" size={16} className="u-mr-2" />
-                        Preview
-                      </Button> */}
-                    </div>
+      {examples.map((example, index) => {
+        const exampleId = example.id || `example-${index}`;
+        const activeTabIndex = getActiveTab(exampleId);
+
+        const tabs = [
+          {
+            id: "preview",
+            label: "Preview",
+            content: (
+              <div className="u-mt-4">
+                <div className="u-p-6 u-bg-secondary u-br-md u-border u-border-subtle u-rounded-md">
+                  {example.preview && typeof example.preview !== "boolean" ? (
+                    <div>{example.preview as React.ReactNode}</div>
+                  ) : (
+                    <CodePreview
+                      code={example.code}
+                      language={example.language}
+                    />
+                  )}
+                </div>
+              </div>
+            ),
+          },
+          {
+            id: "code",
+            label: "Code",
+            content: (
+              <div className="u-mt-4">
+                <Card className="u-p-0 u-overflow-hidden">
+                  <div className="u-p-4 u-bg-tertiary u-border-b u-border-subtle">
+                    <pre className="u-m-0 u-overflow-x-auto">
+                      <code className={`language-${example.language} u-fs-sm`}>
+                        {example.code}
+                      </code>
+                    </pre>
                   </div>
-                  <p className="u-text-muted u-mb-2">{example.description}</p>
-                  <pre className="code-block u-mb-0">
-                    <code className={`language-${example.language}`}>{example.code}</code>
-                  </pre>
-                </li>
-              ))}
-            </ul>
-          </Card>
-        </div>
-      ))}
+                  <div className="u-p-4 u-d-flex u-justify-content-end">
+                    <Button
+                      icon={<Icon name="Copy" size="sm" />}
+                      variant="outline-primary"
+                      size="sm"
+                      onClick={() => onCopy(example.code, exampleId)}
+                    >
+                      {copiedCode === exampleId ? "Copied!" : "Copy Code"}
+                    </Button>
+                  </div>
+                </Card>
+              </div>
+            ),
+          },
+        ];
+
+        return (
+          <div
+            key={exampleId}
+            className={
+              examples.length > 1 && activeExample !== index ? "u-d-none" : ""
+            }
+          >
+            <Card className="u-mb-6" elevation="lg">
+              <div className="u-mb-4">
+                <h3 className="u-fs-xl u-fw-bold u-mb-2">{example.title}</h3>
+                {example.description && (
+                  <p className="u-text-secondary-emphasis u-mb-0">
+                    {example.description}
+                  </p>
+                )}
+              </div>
+
+              <Tabs
+                items={tabs}
+                activeIndex={activeTabIndex}
+                onTabChange={(tabIndex) => handleTabChange(exampleId, tabIndex)}
+              />
+            </Card>
+          </div>
+        );
+      })}
     </div>
   );
 };

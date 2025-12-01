@@ -4,6 +4,7 @@
  
 
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { resolveRoute, getAllRouteSlugs } from '@/utils/routeMapper';
 import { getPageComponent } from '@/utils/pageComponentRegistry';
@@ -101,13 +102,15 @@ export default async function DynamicDocsPage({ params }: DynamicPageProps) {
   
   // Handle empty slug - show documentation overview page
   if (slug.length === 0) {
-    return <DocumentationOverviewPage />;
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <DocumentationOverviewPage />
+      </Suspense>
+    );
   }
   
   // Resolve the route
   const routeResolution = resolveRoute(slug);
-  
-  // Route resolution debug (development only)
   
   // Handle invalid routes
   if (!routeResolution.isValid) {
@@ -145,7 +148,13 @@ export default async function DynamicDocsPage({ params }: DynamicPageProps) {
   // Some components need specific props (e.g., GettingStartedPage needs 'type')
   const componentProps = navigationItem ? getComponentProps(navigationItem) : {};
   
-  return <PageComponent {...componentProps} />;
+  // Wrap in Suspense to handle async boundaries properly
+  // This prevents React errors when async server components render client components
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PageComponent {...componentProps} />
+    </Suspense>
+  );
 }
 
 /**

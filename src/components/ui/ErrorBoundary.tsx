@@ -5,7 +5,7 @@ import { Button, Callout } from '@shohojdhara/atomix';
 import { Icon } from '@shohojdhara/atomix';
 import styles from './ErrorBoundary.module.scss';
 
-interface Props {
+export interface ErrorBoundaryProps {
   children: ReactNode;
   fallback?: ReactNode;
 }
@@ -19,8 +19,8 @@ interface State {
  * ErrorBoundary component to catch and handle React errors gracefully
  * Provides user-friendly error messages and recovery options
  */
-export class ErrorBoundary extends Component<Props, State> {
-  constructor(props: Props) {
+export class ErrorBoundary extends Component<ErrorBoundaryProps, State> {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = {
       hasError: false,
@@ -59,19 +59,28 @@ export class ErrorBoundary extends Component<Props, State> {
             title="Something went wrong"
             icon={<Icon name="WarningCircle" />}
           >
-            <p>
-              We encountered an unexpected error while rendering this page.
+            <div>
+              <p>
+                We encountered an unexpected error while rendering this page.
+              </p>
               {this.state.error && (
-                <details className={styles.errorBoundary__details}>
+                <details 
+                  className={styles.errorBoundary__details}
+                  aria-label="Error details"
+                >
                   <summary className={styles.errorBoundary__summary}>
                     Error Details
                   </summary>
-                  <pre className={styles.errorBoundary__pre}>
+                  <pre 
+                    className={styles.errorBoundary__pre}
+                    aria-live="polite"
+                    aria-atomic="true"
+                  >
                     {this.state.error.toString()}
                   </pre>
                 </details>
               )}
-            </p>
+            </div>
             <div className={styles.errorBoundary__actions}>
               <Button
                 variant="primary"

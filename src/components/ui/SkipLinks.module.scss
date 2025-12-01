@@ -1,10 +1,11 @@
 // Component: SkipLinks
 // =============================================================================
 
-
 // Block: Skip links container
 // =============================================================================
 .skipLinks {
+  box-sizing: border-box;
+  
   position: absolute;
   top: 0;
   left: 0;
@@ -18,6 +19,8 @@
 // Element: Individual skip link
 // =============================================================================
 .skipLink {
+  box-sizing: border-box;
+  
   position: absolute;
   top: calc(var(--atomix-spacing-sm) * -1);
   left: calc(var(--atomix-spacing-sm) * -1);
@@ -37,8 +40,18 @@
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
-    outline: 2px solid var(--atomix-color-border-focus);
+    outline: 2px solid var(--atomix-focus-border-color);
     outline-offset: 2px;
+    border-radius: var(--atomix-radius-md);
+  }
+  
+  &:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+    border-radius: var(--atomix-radius-md);
   }
 
   &:hover {
@@ -57,6 +70,17 @@
 @media (prefers-reduced-motion: reduce) {
   .skipLink {
     transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .skipLink {
+    border: 2px solid currentColor;
+    
+    &:focus,
+    &:focus-visible {
+      border-width: 3px;
+    }
   }
 }
 

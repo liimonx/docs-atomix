@@ -26,10 +26,10 @@ export default function DynamicDocsError({ error, reset }: ErrorProps) {
   }, [error]);
 
   return (
-    <div className={`container ${styles.container}`}>
+    <div className={`container ${styles.documentationError}`}>
       <Row justifyContent="center">
         <GridCol xs={12} md={8}>
-          <Card className={styles.card}>
+          <Card className={styles.documentationError__card}>
             <Callout
               variant="error"
               title="Failed to load page"
@@ -57,7 +57,7 @@ export default function DynamicDocsError({ error, reset }: ErrorProps) {
                 </details>
               )}
 
-              <div className={styles.actions}>
+              <div className={styles.documentationError__actions}>
                 <Button
                   variant="primary"
                   onClick={reset}

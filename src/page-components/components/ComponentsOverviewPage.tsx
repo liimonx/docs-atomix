@@ -36,25 +36,19 @@ interface ComponentItem {
 }
 
 type ViewMode = "grid" | "list";
-type FilterCategory =
-  | "all"
-  | "components"
-  | "design-tokens"
-  | "styles"
-  | "layouts"
-  | "guides";
+type FilterCategory = "all" | "components";
 
-const ComponentsIndexPage: React.FC = () => {
+const ComponentsOverviewPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState<ViewMode>("grid");
   const [filterCategory, setFilterCategory] = useState<FilterCategory>("all");
 
-  // Get all component items from navigation data
+  // Get all component items from navigation data (only components section)
   const allComponents = useMemo(() => {
     const components: ComponentItem[] = [];
 
     navigationData.forEach((section) => {
-      if (section.id !== "getting-started") {
+      if (section.id === "components") {
         section.items.forEach((item) => {
           components.push({
             ...item,
@@ -67,7 +61,8 @@ const ComponentsIndexPage: React.FC = () => {
       }
     });
 
-    return components;
+    // Sort components by priority
+    return components.sort((a, b) => (a.priority || 999) - (b.priority || 999));
   }, []);
 
   // Filter components based on search query and category
@@ -122,27 +117,6 @@ const ComponentsIndexPage: React.FC = () => {
       id: "components",
       label: "Components",
       count: allComponents.filter((c) => c.sectionId === "components").length,
-    },
-    {
-      id: "design-tokens",
-      label: "Design Tokens",
-      count: allComponents.filter((c) => c.sectionId === "design-tokens")
-        .length,
-    },
-    {
-      id: "styles",
-      label: "Styles",
-      count: allComponents.filter((c) => c.sectionId === "styles").length,
-    },
-    {
-      id: "layouts",
-      label: "Layouts",
-      count: allComponents.filter((c) => c.sectionId === "layouts").length,
-    },
-    {
-      id: "guides",
-      label: "Guides",
-      count: allComponents.filter((c) => c.sectionId === "guides").length,
     },
   ];
 
@@ -325,7 +299,7 @@ const ComponentsIndexPage: React.FC = () => {
                       <Input
                         variant="dark"
                         type="search"
-                        placeholder="Search components, tokens, guides..."
+                        placeholder="Search components..."
                         value={searchQuery}
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
                           setSearchQuery(e.target.value)
@@ -574,4 +548,4 @@ const ComponentsIndexPage: React.FC = () => {
   );
 };
 
-export default ComponentsIndexPage;
+export default ComponentsOverviewPage;
