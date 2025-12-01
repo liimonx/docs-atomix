@@ -20,25 +20,19 @@ interface DynamicPageProps {
 export async function generateStaticParams() {
   const allSlugs = getAllRouteSlugs();
   
-  // Filter out component detail routes - these are handled by [componentId] route
+  // Filter out ALL component detail routes - these are handled by [componentId] route
   const filteredSlugs = allSlugs.filter(slug => {
-    // Exclude component detail routes (e.g., ['components', 'button'])
-    // These should be handled by /docs/components/[componentId] route
+    // Exclude ALL component detail routes except overview and guidelines
     if (slug.length >= 2 && slug[0] === 'components') {
-      // Only include 'overview' and 'guidelines', exclude all component detail routes
       return slug[1] === 'overview' || slug[1] === 'guidelines';
     }
-    return true; // Include all other routes
+    return true;
   });
   
-  // Include empty slug for /docs overview page
-  // Include ['components'] for /docs/components index page
   return [
     { slug: [] }, // For /docs
-    { slug: ['components'] }, // For /docs/components
-    ...filteredSlugs.map(slug => ({
-      slug,
-    })),
+    { slug: ['components'] }, // For /docs/components index
+    ...filteredSlugs.map(slug => ({ slug })),
   ];
 }
 
@@ -117,13 +111,9 @@ export default async function DynamicDocsPage({ params }: DynamicPageProps) {
     notFound();
   }
   
-  // Handle component detail pages (these are handled by the [componentId] route)
-  // Next.js routing precedence means [componentId] is more specific than [[...slug]],
-  // but we exclude them here as a safety measure to avoid conflicts
+  // Explicitly handle component detail routes - redirect to [componentId] route
   if (routeResolution.isComponentDetail && routeResolution.componentId) {
-    // Let the [componentId] route handle component detail pages
-    // This should not normally be reached due to route precedence, but acts as a fallback
-    notFound();
+    notFound(); // Let [componentId] route handle these
   }
   
   // Get the navigation item

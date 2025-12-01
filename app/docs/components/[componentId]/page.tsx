@@ -37,22 +37,16 @@ export default async function ComponentPageRoute({
   const resolvedParams = await params;
   const { componentId } = resolvedParams;
   
-  // Explicitly exclude special routes that should be handled by the catch-all route
+  // Exclude routes handled by catch-all
   if (componentId === 'overview' || componentId === 'guidelines') {
     notFound();
   }
   
-  const path = `/docs/components/${componentId}`;
-
-  // Validate the route against navigation configuration to ensure we only
-  // render valid component documentation pages. If the route is invalid,
-  // fall back to the global 404 experience for consistency.
-  if (!validateRoute(path)) {
+  // Validate component exists
+  if (!validateRoute(`/docs/components/${componentId}`)) {
     notFound();
   }
 
-  // Wrap in Suspense to handle async boundaries properly
-  // This prevents React errors when async server components render client components
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <ComponentPage componentId={componentId} />

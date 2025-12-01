@@ -149,9 +149,9 @@ export function resolveRoute(slug: string[]): RouteResolution {
   const componentId = extractComponentIdFromSlug(slug);
   const isComponentDetail = isComponentDetailSlug(slug);
   
-  // Special case: /docs/components should be valid (components index page)
+  // Special cases
   const isComponentsIndex = slug.length === 1 && slug[0] === 'components';
-  const isValid = navigationItem !== null || isComponentDetail || isComponentsIndex;
+  const isValid = navigationItem !== null || isComponentsIndex;
 
   return {
     navigationItem,

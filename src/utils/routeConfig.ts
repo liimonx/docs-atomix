@@ -174,6 +174,10 @@ export function generateComponentMetadata(componentId: string): Metadata {
  * Validate route path
  */
 export function validateRoute(path: string): boolean {
+  // Handle special cases
+  if (path === '/docs' || path === '/docs/components') {
+    return true;
+  }
   return findNavigationItemByPath(path) !== null;
 }
 
