@@ -53,7 +53,7 @@ export const FeaturesSection: React.FC = () => {
         <Row className="u-gap-8">
           {features.map((feature, index) => (
             <GridCol key={index} xs={12} md={6} lg={4}>
-              <Card className="u-h-100 u-p-8 u-transition-all u-cursor-pointer" style={{ transition: 'all 0.2s ease' }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = 'var(--atomix-shadow-md)'; }} onMouseLeave={(e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}>
+              <Card className="u-h-100 u-p-8 u-transition-all u-cursor-pointer u-hover-transform-up">
                 <div className="u-d-flex u-align-items-center u-justify-content-center u-w-15 u-h-15 u-br-lg u-mb-6" style={{ backgroundColor: 'var(--atomix-color-bg-brand)' }}>
                   <Icon 
                     name={feature.icon as any} 

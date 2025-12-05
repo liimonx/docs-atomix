@@ -24,6 +24,7 @@ export { default as GettingStartedOverviewPage } from "./getting-started/Getting
 export { default as MigrationPage } from "./getting-started/MigrationPage";
 
 // Guide Pages
+export { default as GeneralThemingGuidePage } from "./guides/GeneralThemingGuidePage";
 export { default as GuidesAtomixGlassPerformancePage } from "./guides/GuidesAtomixGlassPerformancePage";
 export { default as GuidesAtomixGlassThemingPage } from "./guides/GuidesAtomixGlassThemingPage";
 

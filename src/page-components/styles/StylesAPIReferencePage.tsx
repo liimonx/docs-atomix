@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   Hero,
   SectionIntro,
@@ -8,33 +8,89 @@ import {
   GridCol,
   Row,
   Block,
+  Icon,
+  Badge,
 } from '@shohojdhara/atomix';
-import { GlassProps } from '@/types/atomix-components';
+
+interface APISection {
+  icon: string;
+  title: string;
+  description: string;
+  code: string;
+  color: string;
+}
+
+const APICard: React.FC<APISection> = ({ icon, title, description, code, color }) => (
+  <Card className="u-p-6 u-h-100 u-border-left" style={{ borderLeftWidth: '4px', borderLeftColor: color }}>
+    <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
+      <Icon name={icon as any} size={24} style={{ color }} />
+      <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
+    </div>
+    <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
+    <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
+      <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+        <code>{code}</code>
+      </pre>
+    </div>
+  </Card>
+);
 
 const StylesAPIReferencePage = () => {
-  const [isMounted, setIsMounted] = useState(false);
+  const mixins: APISection[] = [
+    {
+      icon: 'Monitor',
+      title: 'Responsive Breakpoints',
+      description: 'Media query mixins for responsive design',
+      code: `@include media-breakpoint-up(md) {\n  // Styles for medium and up\n}`,
+      color: '#3b82f6'
+    },
+    {
+      icon: 'Focus',
+      title: 'Focus Ring',
+      description: 'Accessible focus styles',
+      code: `@include focus-ring();\n@include focus-ring-primary();`,
+      color: '#8b5cf6'
+    },
+    {
+      icon: 'Zap',
+      title: 'Utility Generator',
+      description: 'Generate custom utility classes',
+      code: `@include generate-utility($utility);`,
+      color: '#ec4899'
+    },
+  ];
 
-  // Prevent hydration mismatch by only rendering glass effect on client
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const functions: APISection[] = [
+    {
+      icon: 'Palette',
+      title: 'Color Functions',
+      description: 'Access and manipulate colors',
+      code: `color('primary', 6);\ntint($primary, 20%);\nshade($primary, 20%);`,
+      color: '#f97316'
+    },
+    {
+      icon: 'Box',
+      title: 'Spacing Functions',
+      description: 'Calculate spacing values',
+      code: `space(4);  // 1rem\nspace(8);  // 2rem`,
+      color: '#22c55e'
+    },
+    {
+      icon: 'Maximize',
+      title: 'Breakpoint Functions',
+      description: 'Get breakpoint values',
+      code: `breakpoint-min('md');\nbreakpoint-max('lg');`,
+      color: '#eab308'
+    },
+  ];
 
   return (
     <>
       <Hero
-        glass={isMounted ? {
-          displacementScale: 30,
-          blurAmount: 5,
-          elasticity: 0,
-          enableLiquidBlur: true,
-          padding: "20px",
-          cornerRadius: 30,
-          children: null,
-        } as GlassProps : undefined}
         className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
-        title="Styles API Reference"
-        text="Complete technical reference for Atomix CSS classes and custom properties"
+        backgroundImageSrc="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2940&auto=format&fit=crop"
+        title="API Reference"
+        text="Complete technical reference for SCSS variables, mixins, and functions"
         alignment="center"
       />
 
@@ -47,108 +103,134 @@ const StylesAPIReferencePage = () => {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">SCSS Variables</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Atomix provides a comprehensive set of SCSS variables for customization:</p>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Color Variables</h4>
-              <p className="u-text-secondary-emphasis u-mb-2">Primary color scale:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`$primary-1: #f2e8fd;   // Lightest tint
-$primary-2: #e4d0fa;   // Very light
-$primary-3: #d0b2f5;   // Light
-$primary-4: #b88cef;   // Light-medium
-$primary-5: #9c63e9;   // Medium-light
-$primary-6: #7c3aed;   // Base primary
-$primary-7: #6425ca;   // Medium-dark
-$primary-8: #501ba6;   // Dark
-$primary-9: #3c1583;   // Very dark
-$primary-10: #2a0e60;  // Darkest shade`}
-              </pre>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Semantic Color Scales</h4>
-              <p className="u-text-secondary-emphasis u-mb-2">Additional color scales for different purposes:</p>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2">
-                <li className="u-text-secondary-emphasis"><code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">$red-1</code> through <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">$red-10</code></li>
-                <li className="u-text-secondary-emphasis"><code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">$green-1</code> through <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">$green-10</code></li>
-                <li className="u-text-secondary-emphasis"><code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">$yellow-1</code> through <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">$yellow-10</code></li>
-                <li className="u-text-secondary-emphasis"><code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">$blue-1</code> through <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">$blue-10</code></li>
-                <li className="u-text-secondary-emphasis"><code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">$gray-1</code> through <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">$gray-10</code></li>
-              </ul>
+              <div className="u-d-flex u-align-items-start u-gap-4">
+                <Icon name="Variable" size={32} className="u-text-primary-emphasis" />
+                <div className="u-w-100">
+                  <h3 className="u-fs-xl u-fw-semibold u-mb-3">SCSS Variables</h3>
+                  <p className="u-text-secondary-emphasis u-mb-4">Comprehensive set of SCSS variables for customization</p>
+                  <div className="u-d-flex u-flex-wrap u-gap-2 u-mb-4">
+                    <Badge variant="secondary" size="sm" label="Colors" />
+                    <Badge variant="secondary" size="sm" label="Spacing" />
+                    <Badge variant="secondary" size="sm" label="Typography" />
+                    <Badge variant="secondary" size="sm" label="Breakpoints" />
+                  </div>
+                  <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
+                    <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+{`// Color scales (1-10)
+$primary-6: #7c3aed;  // Base
+$red-6: #ef4444;
+$green-6: #22c55e;
+$blue-6: #3b82f6;
+$gray-6: #6b7280;
+
+// Spacing
+$spacer: 0.25rem;
+$spacing-4: 1rem;
+
+// Typography
+$font-family-base: sans-serif;
+$font-size-base: 1rem;`}
+                    </pre>
+                  </div>
+                </div>
+              </div>
             </Card>
           </GridCol>
         </Row>
-        
-        <Row className="u-mt-4">
-          <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">SCSS Mixins</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Reusable mixins for common styling patterns:</p>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Responsive Breakpoints</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`@include media-breakpoint-up(sm) {
-  // Styles for small and up
-}
 
-@include media-breakpoint-between(md, lg) {
-  // Styles for medium to large
-}`}
-              </pre>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Focus Styles</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`@include focus-ring();`}
-              </pre>
-            </Card>
-          </GridCol>
-          
-          <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">SCSS Functions</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Utility functions for working with design tokens:</p>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Color Functions</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`color('primary', 6);     // Get primary color
-color('gray', 8);        // Get gray color
-
-tint('primary', 20%);    // Lighten color
-shade('primary', 20%);   // Darken color`}
-              </pre>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Spacing Functions</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`space(4);  // Get 1rem (4 * 0.25rem)
-space(8);  // Get 2rem (8 * 0.25rem)`}
-              </pre>
-            </Card>
-          </GridCol>
-        </Row>
-        
-        <Row className="u-mt-4">
+        <Row className="u-mt-6">
           <GridCol md={12}>
-            <Card className="u-p-6">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">CSS Custom Properties</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Runtime theming with CSS custom properties:</p>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Color Properties</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+            <h2 className="u-fs-2xl u-fw-bold u-mb-4">SCSS Mixins</h2>
+          </GridCol>
+        </Row>
+        
+        <Row className="u-mt-4">
+          {mixins.map((mixin, idx) => (
+            <GridCol key={idx} md={6} lg={4} className="u-mb-4">
+              <APICard {...mixin} />
+            </GridCol>
+          ))}
+        </Row>
+
+        <Row className="u-mt-6">
+          <GridCol md={12}>
+            <h2 className="u-fs-2xl u-fw-bold u-mb-4">SCSS Functions</h2>
+          </GridCol>
+        </Row>
+
+        <Row className="u-mt-4">
+          {functions.map((func, idx) => (
+            <GridCol key={idx} md={6} lg={4} className="u-mb-4">
+              <APICard {...func} />
+            </GridCol>
+          ))}
+        </Row>
+        
+        <Row className="u-mt-6">
+          <GridCol md={12}>
+            <h2 className="u-fs-2xl u-fw-bold u-mb-4">CSS Custom Properties</h2>
+          </GridCol>
+        </Row>
+
+        <Row className="u-mt-4">
+          <GridCol md={6}>
+            <Card className="u-p-6 u-h-100">
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <Icon name="Palette" size={24} className="u-text-primary-emphasis" />
+                <h3 className="u-fs-xl u-fw-semibold u-m-0">Color Properties</h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4">Runtime color customization</p>
+              <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
+                <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`:root {
   --atomix-primary: #7c3aed;
-  --atomix-primary-6: #7c3aed;
-  --atomix-primary-9: #3c1583;
-  
-  --atomix-success: #10b981;
-  --atomix-warning: #f59e0b;
+  --atomix-success: #22c55e;
   --atomix-error: #ef4444;
 }`}
-              </pre>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Theming</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`// Switch themes with JavaScript
-document.documentElement.setAttribute('data-theme', 'dark');`}
-              </pre>
+                </pre>
+              </div>
+            </Card>
+          </GridCol>
+
+          <GridCol md={6}>
+            <Card className="u-p-6 u-h-100">
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <Icon name="Moon" size={24} className="u-text-brand-emphasis" />
+                <h3 className="u-fs-xl u-fw-semibold u-m-0">Theme Switching</h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4">Dynamic theme changes</p>
+              <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
+                <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+{`// JavaScript
+document.documentElement
+  .setAttribute('data-theme', 'dark');`}
+                </pre>
+              </div>
+            </Card>
+          </GridCol>
+        </Row>
+
+        <Row className="u-mt-6">
+          <GridCol md={12}>
+            <Card className="u-p-6 u-bg-primary-subtle">
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <Icon name="BookOpen" size={24} className="u-text-primary-emphasis" />
+                <h3 className="u-fs-xl u-fw-semibold u-m-0">Usage Example</h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4">Combining SCSS and CSS custom properties:</p>
+              <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
+                <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+{`// SCSS
+.c-button {
+  --btn-bg: #{$primary-6};
+  background: var(--btn-bg);
+  
+  @include media-breakpoint-up(md) {
+    padding: space(6);
+  }
+}`}
+                </pre>
+              </div>
             </Card>
           </GridCol>
         </Row>

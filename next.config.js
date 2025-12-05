@@ -8,6 +8,13 @@ const nextConfig = {
   // Enable React strict mode for better development experience
   reactStrictMode: true,
   
+  // Configure scroll behavior
+  experimental: {
+    scrollRestoration: true,
+    // Enable optimized package imports
+    optimizePackageImports: ['@shohojdhara/atomix', '@phosphor-icons/react'],
+  },
+  
   // Transpile packages that need to be processed by Next.js
   transpilePackages: ['@shohojdhara/atomix', '@phosphor-icons/react'],
   
@@ -79,12 +86,6 @@ const nextConfig = {
     };
 
     return config;
-  },
-  
-  // Experimental features (Next.js 15)
-  experimental: {
-    // Enable optimized package imports
-    optimizePackageImports: ['@shohojdhara/atomix', '@phosphor-icons/react'],
   },
   
   // URL redirects

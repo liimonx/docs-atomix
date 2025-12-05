@@ -16,7 +16,7 @@ export interface SearchResult {
 
 interface SearchContextType {
   searchQuery: string;
-  setSearchQuery: (query: string) => void;
+  setSearchQuery: (_query: string) => void;
   searchResults: SearchResult[];
   clearSearch: () => void;
 }
@@ -73,11 +73,15 @@ export const SearchProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       return;
     }
 
-    const results = fuse.search(searchQuery);
-    setSearchResults(results.slice(0, 10).map((result) => ({
-      ...result.item,
-      score: result.score
-    })));
+    const timer = setTimeout(() => {
+      const results = fuse.search(searchQuery);
+      setSearchResults(results.slice(0, 10).map((result) => ({
+        ...result.item,
+        score: result.score
+      })));
+    }, 150);
+
+    return () => clearTimeout(timer);
   }, [searchQuery, fuse]);
 
   const clearSearch = () => {

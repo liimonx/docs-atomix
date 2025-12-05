@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import toast from "react-hot-toast";
 import {
   Button,
@@ -110,10 +111,7 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                         />
                       }
                       label="Get Started"
-                      onClick={() =>
-                        (window.location.href =
-                          "/docs/getting-started/installation")
-                      }
+                      href="/docs/getting-started/installation"
                     />
                     <Button
                       glass
@@ -126,9 +124,7 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                           className="u-text-primary-emphasis"
                         />
                       }
-                      onClick={() =>
-                        (window.location.href = "/docs/components/overview")
-                      }
+                      href="/docs/components/overview"
                     />
                   </>
                 }
@@ -200,24 +196,29 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                     },
                   ].map((feature, index) => (
                     <GridCol key={index} md={6} lg={3} className="u-mb-4">
-                      <Card className="u-p-6">
-                        <div className="u-d-flex u-align-items-center u-mb-4">
-                          <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4 u-text-primary-emphasis">
-                            {feature.icon}
+                      <Link
+                        href={`/docs/getting-started/quick-start`}
+                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                      >
+                        <Card className="u-p-6">
+                          <div className="u-d-flex u-align-items-center u-mb-4">
+                            <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4 u-text-primary-emphasis">
+                              {feature.icon}
+                            </div>
+                            <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                              {feature.title}
+                            </h3>
                           </div>
-                          <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
-                            {feature.title}
-                          </h3>
-                        </div>
-                        <p
-                          className="u-text-secondary-emphasis u-m-0"
-                          style={{
-                            lineHeight: "var(--atomix-line-height-relaxed)",
-                          }}
-                        >
-                          {feature.description}
-                        </p>
-                      </Card>
+                          <p
+                            className="u-text-secondary-emphasis u-m-0"
+                            style={{
+                              lineHeight: "var(--atomix-line-height-relaxed)",
+                            }}
+                          >
+                            {feature.description}
+                          </p>
+                        </Card>
+                      </Link>
                     </GridCol>
                   ))}
                 </Row>
@@ -256,65 +257,62 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
               <Block spacing="sm">
                 <Row justifyContent="center">
                   <GridCol lg={8}>
-                    <Card className="u-p-8 u-text-center">
-                      <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-primary-emphasis">
-                        Ready to Get Started?
-                      </h2>
-                      <p
-                        className="u-text-secondary-emphasis u-mb-6"
-                        style={{
-                          lineHeight: "var(--atomix-line-height-relaxed)",
-                        }}
-                      >
-                        Install Atomix in your React project and start building
-                        amazing user interfaces today.
-                      </p>
-                      <div className="u-d-flex u-gap-4 u-flex-wrap u-justify-content-center">
-                        <Button
-                          icon={
-                            <Icon
-                              name="Download"
-                              size={16}
-                              className="u-text-primary-emphasis"
-                            />
-                          }
-                          label="Install Atomix"
-                          onClick={() =>
-                            (window.location.href =
-                              "/docs/getting-started/installation")
-                          }
-                        />
-                        <Button
-                          variant="outline"
-                          icon={
-                            <Icon
-                              name="Rocket"
-                              size={16}
-                              className="u-text-primary-emphasis"
-                            />
-                          }
-                          label="Quick Start Guide"
-                          onClick={() =>
-                            (window.location.href =
-                              "/docs/getting-started/quick-start")
-                          }
-                        />
-                        <Button
-                          variant="outline"
-                          icon={
-                            <Icon
-                              name="BookOpen"
-                              size={16}
-                              className="u-text-primary-emphasis"
-                            />
-                          }
-                          label="Browse Components"
-                          onClick={() =>
-                            (window.location.href = "/docs/components/overview")
-                          }
-                        />
-                      </div>
-                    </Card>
+                    <Link
+                      href="/docs/getting-started/quick-start"
+                      className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                    >
+                      <Card className="u-p-8 u-text-center">
+                        <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-primary-emphasis">
+                          Ready to Get Started?
+                        </h2>
+                        <p
+                          className="u-text-secondary-emphasis u-mb-6"
+                          style={{
+                            lineHeight: "var(--atomix-line-height-relaxed)",
+                          }}
+                        >
+                          Install Atomix in your React project and start
+                          building amazing user interfaces today.
+                        </p>
+                        <div className="u-d-flex u-gap-4 u-flex-wrap u-justify-content-center">
+                          <Button
+                            icon={
+                              <Icon
+                                name="Download"
+                                size={16}
+                                className="u-text-primary-emphasis"
+                              />
+                            }
+                            label="Install Atomix"
+                            href="/docs/getting-started/installation"
+                          />
+                          <Button
+                            variant="outline"
+                            icon={
+                              <Icon
+                                name="Rocket"
+                                size={16}
+                                className="u-text-primary-emphasis"
+                              />
+                            }
+                            label="Quick Start Guide"
+                            href="/docs/getting-started/quick-start"
+                          />
+                          <Button
+                            variant="outline"
+                            icon={
+                              <Icon
+                                name="BookOpen"
+                                size={16}
+                                className="u-text-primary-emphasis"
+                              />
+                            }
+                            label="Browse Components"
+                            href="/docs/components/overview"
+                          />
+                        </div>
+                      </Card>
+                    </Link>
                   </GridCol>
                 </Row>
               </Block>
@@ -397,21 +395,26 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                     },
                   ].map((item, index) => (
                     <GridCol key={index} md={4} className="u-mb-4">
-                      <Card className="u-p-5">
-                        <div className="u-d-flex u-align-items-start u-gap-3">
-                          <div className="u-w-10 u-h-10 u-bg-brand-subtle u-rounded u-d-flex u-align-items-center u-justify-content-center u-text-brand-emphasis">
-                            {item.icon}
+                      <Link
+                        href="/docs/getting-started/quick-start"
+                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                      >
+                        <Card className="u-p-5">
+                          <div className="u-d-flex u-align-items-start u-gap-3">
+                            <div className="u-w-10 u-h-10 u-bg-brand-subtle u-rounded u-d-flex u-align-items-center u-justify-content-center u-text-brand-emphasis">
+                              {item.icon}
+                            </div>
+                            <div>
+                              <h3 className="u-fs-base u-m-0 u-mb-1 u-fw-semibold">
+                                {item.title}
+                              </h3>
+                              <p className="u-text-secondary-emphasis u-m-0 u-fs-sm">
+                                {item.desc}
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <h3 className="u-fs-base u-m-0 u-mb-1 u-fw-semibold">
-                              {item.title}
-                            </h3>
-                            <p className="u-text-secondary-emphasis u-m-0 u-fs-sm">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </Card>
+                        </Card>
+                      </Link>
                     </GridCol>
                   ))}
                 </Row>
@@ -564,48 +567,45 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                 <h2 className="u-fs-3xl u-fw-bold u-mb-6">Next Steps</h2>
                 <Row>
                   <GridCol md={6} className="u-mb-4">
-                    <Card
-                      className="u-h-100 u-cursor-pointer u-border u-border-subtle"
-                      onClick={() =>
-                        (window.location.href =
-                          "/docs/getting-started/quick-start")
-                      }
+                    <Link
+                      href="/docs/getting-started/quick-start"
+                      className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
                     >
-                      <div className="u-p-6">
-                        <div className="u-d-flex u-align-items-center u-mb-4">
-                          <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4">
-                            <Icon
-                              name="Lightning"
-                              size={24}
-                              className="u-text-primary-emphasis"
-                            />
+                      <Card className="u-h-100 u-cursor-pointer u-border u-border-subtle">
+                        <div className="u-p-6">
+                          <div className="u-d-flex u-align-items-center u-mb-4">
+                            <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4">
+                              <Icon
+                                name="Lightning"
+                                size={24}
+                                className="u-text-primary-emphasis"
+                              />
+                            </div>
+                            <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                              Quick Start Guide
+                            </h3>
                           </div>
-                          <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
-                            Quick Start Guide
-                          </h3>
+                          <p
+                            className="u-text-secondary-emphasis u-mb-4"
+                            style={{
+                              lineHeight: "var(--atomix-line-height-relaxed)",
+                            }}
+                          >
+                            Learn how to build your first application with
+                            Atomix components
+                          </p>
+                          <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
+                            <span className="u-me-2">Get Started</span>
+                            <Icon name="ArrowRight" size={16} />
+                          </div>
                         </div>
-                        <p
-                          className="u-text-secondary-emphasis u-mb-4"
-                          style={{
-                            lineHeight: "var(--atomix-line-height-relaxed)",
-                          }}
-                        >
-                          Learn how to build your first application with Atomix
-                          components
-                        </p>
-                        <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                          <span className="u-me-2">Get Started</span>
-                          <Icon name="ArrowRight" size={16} />
-                        </div>
-                      </div>
-                    </Card>
+                      </Card>
+                    </Link>
                   </GridCol>
                   <GridCol md={6} className="u-mb-4">
                     <Card
                       className="u-h-100 u-cursor-pointer u-border u-border-subtle"
-                      onClick={() =>
-                        (window.location.href = "/docs/guides/theming")
-                      }
+                      href="/docs/getting-started/theming"
                     >
                       <div className="u-p-6">
                         <div className="u-d-flex u-align-items-center u-mb-4">
@@ -670,10 +670,7 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                         />
                       }
                       label="Installation Guide"
-                      onClick={() =>
-                        (window.location.href =
-                          "/docs/getting-started/installation")
-                      }
+                      href="/docs/getting-started/installation"
                     />
                     <Button
                       glass
@@ -686,9 +683,7 @@ const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
                         />
                       }
                       label="Browse Components"
-                      onClick={() =>
-                        (window.location.href = "/docs/components/overview")
-                      }
+                      href="/docs/components/overview"
                     />
                   </>
                 }
@@ -1160,11 +1155,12 @@ export default App;`}</code>
                   </div>
                   <Row>
                     <GridCol md={4} className="u-mb-4">
+                      <Link
+                        href="/docs/components/overview"
+                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                      >
                       <Card
                         className="u-h-100 u-cursor-pointer"
-                        onClick={() =>
-                          (window.location.href = "/docs/components/overview")
-                        }
                       >
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center u-mb-4"
@@ -1197,10 +1193,7 @@ export default App;`}</code>
                           variant="outline"
                           size="sm"
                           className="u-w-100"
-                          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                            e.stopPropagation();
-                            window.location.href = "/docs/components/overview";
-                          }}
+                          href="/docs/components/overview"
                         >
                           View Components
                           <Icon
@@ -1210,14 +1203,16 @@ export default App;`}</code>
                           />
                         </Button>
                       </Card>
+                      </Link>
                     </GridCol>
                     <GridCol md={4} className="u-mb-4">
-                      <Card
-                        className="u-h-100 u-cursor-pointer"
-                        onClick={() =>
-                          (window.location.href = "/docs/guides/theming")
-                        }
+                      <Link
+                        href="/docs/guides/theming"
+                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
                       >
+                        <Card
+                          className="u-h-100 u-cursor-pointer"
+                        >
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center u-mb-4"
                           style={{
@@ -1249,10 +1244,7 @@ export default App;`}</code>
                           variant="outline"
                           size="sm"
                           className="u-w-100"
-                          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                            e.stopPropagation();
-                            window.location.href = "/docs/guides/theming";
-                          }}
+                          href="/docs/guides/theming"
                         >
                           Theming Guide
                           <Icon
@@ -1262,15 +1254,16 @@ export default App;`}</code>
                           />
                         </Button>
                       </Card>
+                    </Link>
                     </GridCol>
                     <GridCol md={4} className="u-mb-4">
-                      <Card
-                        className="u-lh-100 u-cursor-pointer"
-                        onClick={() =>
-                          (window.location.href =
-                            "/docs/examples/common-patterns")
-                        }
+                      <Link
+                        href="/docs/examples/common-patterns"
+                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
                       >
+                        <Card
+                          className="u-lh-100 u-cursor-pointer"
+                        >
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center u-mb-4"
                           style={{
@@ -1302,11 +1295,7 @@ export default App;`}</code>
                           variant="outline"
                           size="sm"
                           className="u-w-100"
-                          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                            e.stopPropagation();
-                            window.location.href =
-                              "/docs/examples/common-patterns";
-                          }}
+                          href="/docs/examples/common-patterns"
                         >
                           See Examples
                           <Icon
@@ -1316,6 +1305,7 @@ export default App;`}</code>
                           />
                         </Button>
                       </Card>
+                    </Link>
                     </GridCol>
                   </Row>
                 </Card>

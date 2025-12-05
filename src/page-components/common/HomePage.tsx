@@ -117,31 +117,35 @@ const HomePage: React.FC = () => {
             <Row>
               {quickLinks.map((link, index) => (
                 <GridCol key={index} sm={6} lg={4} className="u-mb-6">
-                  <Card 
-                    className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast"
-                    style={{ transition: 'var(--atomix-transition-fast)' }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-4px)';
-                      e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = '';
-                      e.currentTarget.style.boxShadow = '';
-                    }}
-                    onClick={() => {
-                      if (link.external) {
-                        window.open(link.path, '_blank', 'noopener,noreferrer');
-                      } else {
-                        window.location.href = link.path;
-                      }
-                    }}
-                  >
-                    <LinkContent
-                      title={link.title}
-                      description={link.description}
-                      external={link.external}
-                    />
-                  </Card>
+                  {link.external ? (
+                    <a
+                      href={link.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                    >
+                      <Card className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast u-hover-transform-up u-h-100">
+                        <LinkContent
+                          title={link.title}
+                          description={link.description}
+                          external={link.external}
+                        />
+                      </Card>
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.path}
+                      className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                    >
+                      <Card className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast u-hover-transform-up u-h-100">
+                        <LinkContent
+                          title={link.title}
+                          description={link.description}
+                          external={link.external}
+                        />
+                      </Card>
+                    </Link>
+                  )}
                 </GridCol>
               ))}
             </Row>
@@ -158,7 +162,7 @@ const HomePage: React.FC = () => {
             }
             secondaryAction={
               <Button 
-                onClick={() => window.location.href = '/docs/getting-started/installation'}
+                href="/docs/getting-started/installation"
               >
                 View Installation Guide
                 <Icon name="ArrowRight" size={16} className="u-ms-2" />

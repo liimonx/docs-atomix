@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import { Toaster } from 'react-hot-toast';
 import { ResponsiveProvider } from '@/hooks/useResponsive';
 import { SearchProvider } from '@/hooks/useSearch';
+import { PageLoaderProvider } from '@/components/providers/PageLoaderProvider';
 import '@shohojdhara/atomix/css';
 import '@/styles/globals.css';
 
@@ -65,7 +66,9 @@ export default function RootLayout({
         />
         <ResponsiveProvider>
           <SearchProvider>
-            {children}
+            <PageLoaderProvider>
+              {children}
+            </PageLoaderProvider>
           </SearchProvider>
         </ResponsiveProvider>
         <Toaster />

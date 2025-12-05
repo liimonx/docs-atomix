@@ -65,7 +65,7 @@ const CallToActionSectionDocumentation: React.FC = () => {
               secondaryAction={
                 <Button 
                   variant="primary"
-                  onClick={() => window.location.href = '/docs/getting-started/installation'}
+                  href="/docs/getting-started/installation"
                 >
                   View Installation Guide
                   <Icon name="ArrowRight" size={16} className="u-ms-2" />

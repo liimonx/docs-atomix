@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import Link from "next/link";
 
 import { 
@@ -20,19 +20,30 @@ import { BreadcrumbNavigation } from "@/components/navigation/BreadcrumbNavigati
 
 const ComponentsHomePage: React.FC = () => {
   // Get component categories
-  const categories = Array.from(
-    new Set(componentMetadata.map((c) => c.category))
-  );
+  const categories = useMemo(() => 
+    Array.from(new Set(componentMetadata.map((c) => c.category))), 
+  []);
 
   // Get featured components (stable status)
-  const featuredComponents = componentMetadata
-    .filter((c) => c.status === "stable")
-    .slice(0, 6);
+  const featuredComponents = useMemo(() => 
+    componentMetadata
+      .filter((c) => c.status === "stable")
+      .slice(0, 6),
+    []
+  );
 
   // Get recently updated components
-  const recentComponents = [...componentMetadata]
-    .sort((b, a) => a.version.localeCompare(b.version))
-    .slice(0, 6);
+  const recentComponents = useMemo(() => 
+    [...componentMetadata]
+      .sort((b, a) => a.version.localeCompare(b.version))
+      .slice(0, 6),
+    []
+  );
+
+  // Stable components count
+  const stableComponentsCount = useMemo(() => 
+    componentMetadata.filter((c) => c.status === "stable").length,
+  []);
 
   return (
     <>
@@ -49,7 +60,7 @@ const ComponentsHomePage: React.FC = () => {
               variant="primary" 
               size="lg"
               icon={<Icon name="Download" />}
-              onClick={() => window.location.href = '/docs/getting-started/installation'}
+              href="/docs/getting-started/installation"
             >
               Get Started
             </Button>
@@ -57,7 +68,7 @@ const ComponentsHomePage: React.FC = () => {
               variant="outline-primary" 
               size="lg"
               icon={<Icon name="BookOpen" />}
-              onClick={() => window.location.href = '/docs/components/overview'}
+              href="/docs/components/overview"
             >
               Browse Components
             </Button>
@@ -84,7 +95,7 @@ const ComponentsHomePage: React.FC = () => {
                   <Icon size={32} className="u-text-success" name="Shield" />
                 </div>
                 <h3 className="u-fs-2xl u-fw-bold u-mb-2">
-                  {componentMetadata.filter((c) => c.status === "stable").length}
+                  {stableComponentsCount}
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-0">Stable Components</p>
               </Card>
@@ -178,7 +189,7 @@ const ComponentsHomePage: React.FC = () => {
                         variant="primary"
                         size="sm"
                         className="u-w-100"
-                        onClick={() => window.location.href = `/docs/components/${component.id}`}
+                        href={`/docs/components/${component.id}`}
                       >
                         View Details
                       </Button>

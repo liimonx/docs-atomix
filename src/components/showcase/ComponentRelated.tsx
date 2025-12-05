@@ -1,26 +1,28 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Card } from '@shohojdhara/atomix';
-import Link from 'next/link';
-import { findNavigationItem } from '@/data/navigation';
+import React from "react";
+import { Card, Icon } from "@shohojdhara/atomix";
+import Link from "next/link";
+import { findNavigationItem } from "@/data/navigation";
 
 interface ComponentRelatedProps {
   relatedComponents: string[];
 }
 
-export const ComponentRelated: React.FC<ComponentRelatedProps> = ({ relatedComponents }) => {
+export const ComponentRelated: React.FC<ComponentRelatedProps> = ({
+  relatedComponents,
+}) => {
   if (!relatedComponents || relatedComponents.length === 0) {
     return null;
   }
 
   return (
-    <Card>
-      <div className="card-header">
-        <h3 className="u-mb-0">Related Components</h3>
+    <Card className="u-mt-8">
+      <div className="u-p-4 u-border-b u-border-subtle">
+        <h3 className="u-fs-lg u-fw-semibold u-m-0">Related Components</h3>
       </div>
-      <div className="card-body">
-        <div className="u-d-flex u-flex-column u-gap-2">
+      <div className="u-p-4">
+        <div className="u-d-flex u-flex-direction-column u-gap-2">
           {relatedComponents.map((componentName) => {
             const navItem = findNavigationItem(componentName.toLowerCase());
             if (!navItem) return null;
@@ -29,11 +31,10 @@ export const ComponentRelated: React.FC<ComponentRelatedProps> = ({ relatedCompo
               <Link
                 key={componentName}
                 href={navItem.path}
-                className="u-text-decoration-none"
+                className="u-text-decoration-none u-d-flex u-align-items-center u-gap-2 u-p-2 u-br-sm u-transition-all u-hover-bg-secondary-subtle"
               >
-                <span className="u-text-primary u-hover-text-decoration-underline">
-                  {navItem.title}
-                </span>
+                <Icon name="ArrowRight" size="sm" className="u-text-secondary" />
+                <span className="u-text-primary u-fw-medium">{navItem.title}</span>
               </Link>
             );
           })}

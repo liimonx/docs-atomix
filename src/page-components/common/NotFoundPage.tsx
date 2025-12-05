@@ -55,7 +55,7 @@ const NotFoundPage: React.FC = () => {
 
         {/* Action Buttons */}
         <div className="u-d-flex u-gap-3 u-mb-12 u-flex-wrap u-justify-content-center">
-          <Button size="lg" onClick={() => window.location.href = '/'}>
+          <Button size="lg" href="/">
             <Icon name="House" size="sm" className="u-mr-2" />
             Go Home
           </Button>
@@ -77,7 +77,7 @@ const NotFoundPage: React.FC = () => {
               <GridCol key={index} md={6} lg={3}>
                 <Card
                   className="u-cursor-pointer u-transition-fast u-border u-border-subtle atomix-card-hover"
-                  onClick={() => window.location.href = link.path}
+                  href={link.path}
                 >
                   <div className="u-p-6">
                     <h4 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
@@ -105,7 +105,7 @@ const NotFoundPage: React.FC = () => {
             </p>
             <Button 
               variant="outline"
-              onClick={() => window.location.href = '/docs/introduction'}
+              href="/docs/introduction"
             >
               Browse Documentation
             </Button>

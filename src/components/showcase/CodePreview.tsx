@@ -79,15 +79,45 @@ function extractJSXElements(code: string): React.ReactNode[] {
     const isSelfClosing = match[3] === '/>';
     const children = match[4] || '';
     
-    // Get component from Atomix
-    const Component = (Atomix as any)[componentName] as React.ComponentType<any>;
+    // Check if it's an HTML element (lowercase) or React component (PascalCase)
+    const isHTMLElement = componentName.charAt(0) === componentName.charAt(0).toLowerCase();
     
-    if (!Component) {
-      continue; // Skip if component not found in Atomix
+    let Component;
+    if (isHTMLElement) {
+      // For HTML elements, use the lowercase name directly
+      Component = componentName;
+    } else {
+      // For React components, try to get from Atomix
+      Component = (Atomix as any)[componentName] as React.ComponentType<any>;
+      
+      // Skip if component not found in Atomix
+      if (!Component) {
+        continue;
+      }
     }
     
     // Parse props
-    const props = parseProps(propsString);
+    let props = parseProps(propsString);
+    
+    // Special handling for controlled form inputs - convert to uncontrolled
+    const formElements = ['input', 'textarea', 'select', 'Checkbox', 'Radio', 'Switch', 'Toggle'];
+    if (formElements.includes(componentName)) {
+      if ('checked' in props && !('onChange' in props) && !('readOnly' in props)) {
+        props.readOnly = true;
+      }
+      if ('value' in props && !('onChange' in props) && !('readOnly' in props)) {
+        props.readOnly = true;
+      }
+    }
+    
+    // For HTML elements, convert prop names to lowercase to avoid invalid DOM property errors
+    if (isHTMLElement) {
+      const lowerCaseProps: Record<string, any> = {};
+      for (const [key, value] of Object.entries(props)) {
+        lowerCaseProps[key.toLowerCase()] = value;
+      }
+      props = lowerCaseProps;
+    }
     
     // Render the component
     try {
@@ -121,16 +151,21 @@ function parseProps(propsString: string): Record<string, any> {
     return props;
   }
   
-  // Match prop="value", prop='value', or prop={value} patterns
-  // Updated to handle arrays and objects better
-  const propPattern = /(\w+)=(["'])([^"']*)\2|(\w+)=\{([^}]+)\}/g;
+  // Match prop="value", prop='value', prop={value}, or boolean props
+  const propPattern = /(\w+)=(["'])([^"']*)\2|(\w+)=\{([^}]+)\}|(\w+)(?=\s|$|\/>)/g;
   let match;
   
   while ((match = propPattern.exec(propsString)) !== null) {
-    const propName = match[1] || match[4];
+    const propName = match[1] || match[4] || match[6];
     const propValue = match[3] || match[5];
     
     if (!propName) continue;
+    
+    // Handle boolean props (no value means true)
+    if (!propValue && match[6]) {
+      props[propName] = true;
+      continue;
+    }
     
     // Skip complex props like arrays/objects that can't be easily parsed
     // These will cause errors if not handled properly
@@ -155,4 +190,3 @@ function parseProps(propsString: string): Record<string, any> {
   
   return props;
 }
-

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   Hero,
   SectionIntro,
@@ -8,153 +8,270 @@ import {
   GridCol,
   Row,
   Block,
+  Icon,
+  Badge,
 } from '@shohojdhara/atomix';
-import { GlassProps } from '@/types/atomix-components';
+
+interface CustomizationMethodProps {
+  icon: string;
+  title: string;
+  description: string;
+  complexity: 'Low' | 'Medium' | 'High';
+  code: string;
+  color: string;
+}
+
+const MethodCard: React.FC<CustomizationMethodProps> = ({ icon, title, description, complexity, code, color }) => {
+  const complexityColors = {
+    Low: '#22c55e',
+    Medium: '#eab308',
+    High: '#ef4444'
+  };
+
+  return (
+    <Card className="u-p-6 u-h-100 u-border-left" style={{ borderLeftWidth: '4px', borderLeftColor: color }}>
+      <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
+        <Icon name={icon as any} size={24} style={{ color }} />
+        <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
+      </div>
+      <Badge variant="secondary" size="sm" className="u-mb-3" label={`${complexity} Complexity`} style={{ backgroundColor: `${complexityColors[complexity]}20`, color: complexityColors[complexity] }} />
+      <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
+      <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
+        <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+          <code>{code}</code>
+        </pre>
+      </div>
+    </Card>
+  );
+};
 
 const StylesCustomizationPage = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Prevent hydration mismatch by only rendering glass effect on client
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const methods: CustomizationMethodProps[] = [
+    {
+      icon: 'Settings',
+      title: 'Variable Override',
+      description: 'Override SCSS variables before importing Atomix',
+      complexity: 'Low',
+      code: `$primary-6: #your-brand-color;\n$font-family-base: 'Your Font';\n\n@use 'atomix/styles' as *;`,
+      color: '#3b82f6'
+    },
+    {
+      icon: 'Package',
+      title: '@use Configuration',
+      description: 'Use SCSS @use with inline configuration',
+      complexity: 'Low',
+      code: `@use 'atomix/styles' with (\n  $primary-6: #2563eb,\n  $font-family-base: 'Inter'\n);`,
+      color: '#8b5cf6'
+    },
+    {
+      icon: 'Palette',
+      title: 'CSS Custom Properties',
+      description: 'Runtime theming with CSS variables',
+      complexity: 'Medium',
+      code: `:root[data-theme="custom"] {\n  --atomix-primary: #brand;\n  --atomix-text-primary: #333;\n}`,
+      color: '#ec4899'
+    },
+    {
+      icon: 'Code',
+      title: 'Custom Components',
+      description: 'Create new components following ITCSS',
+      complexity: 'Medium',
+      code: `.c-my-component {\n  --my-bg: var(--atomix-bg);\n  background: var(--my-bg);\n}`,
+      color: '#f97316'
+    },
+    {
+      icon: 'Layers',
+      title: 'Extend Utilities',
+      description: 'Add custom utility classes to the system',
+      complexity: 'Medium',
+      code: `$custom-utilities: (\n  'aspect-ratio': (\n    values: (square: 1/1)\n  )\n);`,
+      color: '#22c55e'
+    },
+    {
+      icon: 'Boxes',
+      title: 'Custom Build',
+      description: 'Import layers selectively for optimized builds',
+      complexity: 'High',
+      code: `@use 'atomix/styles/01-settings';\n@use 'atomix/styles/06-components';\n// Skip unused layers`,
+      color: '#ef4444'
+    }
+  ];
 
   return (
     <>
       <Hero
-        glass={isMounted ? {
-          displacementScale: 30,
-          blurAmount: 5,
-          elasticity: 0,
-          enableLiquidBlur: true,
-          padding: "20px",
-          cornerRadius: 30,
-        } as GlassProps : undefined}
         className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
+        backgroundImageSrc="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2864&auto=format&fit=crop"
         title="Styles Customization"
-        text="Theming and brand integration with Atomix CSS framework"
+        text="Theming, brand integration, and extending Atomix"
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block container={{ type: "fluid" }}>
         <SectionIntro
-          title="Customization Options"
-          text="Atomix provides multiple levels of customization to match your brand identity and create unique user experiences."
+          title="Customization Philosophy"
+          text="Atomix provides multiple levels of customization while maintaining system integrity and accessibility standards."
         />
         
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Customization Philosophy</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Atomix follows a principled approach to customization:</p>
-              
-              <ul className="u-mt-4 u-list-none u-d-flex u-flex-direction-column u-gap-3">
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Maintain System Integrity</strong> - Customizations should enhance, not break the system</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Follow ITCSS</strong> - Respect the inverted triangle architecture</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Use Design Tokens</strong> - Leverage the token system for consistency</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Progressive Enhancement</strong> - Start with defaults, then customize</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Accessibility First</strong> - Ensure customizations meet accessibility standards</li>
-              </ul>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">Customization Levels</h4>
-              <div className="u-mt-3 u-overflow-x-auto">
-                <table className="u-w-100" style={{ borderCollapse: 'collapse' }}>
-                  <thead className="u-bg-tertiary">
-                    <tr>
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Level</th>
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Scope</th>
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Complexity</th>
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">Use Case</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="u-border-b u-border-subtle">
-                      <td className="u-p-3 u-fw-semibold u-text-primary-emphasis">Configuration</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">Variables only</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">Low</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">Brand colors, spacing tweaks</td>
-                    </tr>
-                    <tr className="u-border-b u-border-subtle">
-                      <td className="u-p-3 u-fw-semibold u-text-primary-emphasis">Theming</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">CSS custom properties</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">Medium</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">Runtime theme switching</td>
-                    </tr>
-                    <tr className="u-border-b u-border-subtle">
-                      <td className="u-p-3 u-fw-semibold u-text-primary-emphasis">Extension</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">New components/utilities</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">Medium-High</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">Additional functionality</td>
-                    </tr>
-                    <tr>
-                      <td className="u-p-3 u-fw-semibold u-text-primary-emphasis">Architecture</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">System structure</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">High</td>
-                      <td className="u-p-3 u-text-secondary-emphasis">Major modifications</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div className="u-d-flex u-align-items-start u-gap-4">
+                <Icon name="Lightbulb" size={32} className="u-text-warning-emphasis" />
+                <div>
+                  <h3 className="u-fs-xl u-fw-semibold u-mb-3">Design Principles</h3>
+                  <div className="u-d-flex u-flex-wrap u-gap-4">
+                    <div className="u-d-flex u-align-items-center u-gap-2">
+                      <Icon name="Shield" size={20} className="u-text-success-emphasis" />
+                      <span className="u-fs-sm">Maintain System Integrity</span>
+                    </div>
+                    <div className="u-d-flex u-align-items-center u-gap-2">
+                      <Icon name="Triangle" size={20} className="u-text-info-emphasis" />
+                      <span className="u-fs-sm">Follow ITCSS</span>
+                    </div>
+                    <div className="u-d-flex u-align-items-center u-gap-2">
+                      <Icon name="Coins" size={20} className="u-text-warning-emphasis" />
+                      <span className="u-fs-sm">Use Design Tokens</span>
+                    </div>
+                    <div className="u-d-flex u-align-items-center u-gap-2">
+                      <Icon name="TrendUp" size={20} className="u-text-brand-emphasis" />
+                      <span className="u-fs-sm">Progressive Enhancement</span>
+                    </div>
+                    <div className="u-d-flex u-align-items-center u-gap-2">
+                      <Icon name="Eye" size={20} className="u-text-primary-emphasis" />
+                      <span className="u-fs-sm">Accessibility First</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Card>
           </GridCol>
         </Row>
-        
-        <Row className="u-mt-4">
-          <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">SCSS Variable Override</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">The simplest way to customize Atomix is by overriding SCSS variables:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`// Override before importing Atomix
-$primary-6: #your-brand-color;
-$font-family-base: 'Your Font', sans-serif;
-$border-radius: 0.5rem;
 
-// Import Atomix with your customizations
-@use 'atomix/styles' as *;`}
-              </pre>
-            </Card>
+        <Row className="u-mt-6">
+          <GridCol md={12}>
+            <h2 className="u-fs-2xl u-fw-bold u-mb-4">Customization Levels</h2>
+            <div className="u-overflow-x-auto">
+              <table className="u-w-100" style={{ borderCollapse: 'collapse' }}>
+                <thead className="u-bg-tertiary-subtle">
+                  <tr>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">Level</th>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">Scope</th>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">Complexity</th>
+                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">Use Case</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="u-border-b u-border-subtle">
+                    <td className="u-p-3 u-fw-semibold">Configuration</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">Variables only</td>
+                    <td className="u-p-3"><Badge variant="success" size="sm" label="Low" /></td>
+                    <td className="u-p-3 u-text-secondary-emphasis">Brand colors, spacing tweaks</td>
+                  </tr>
+                  <tr className="u-border-b u-border-subtle">
+                    <td className="u-p-3 u-fw-semibold">Theming</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">CSS custom properties</td>
+                    <td className="u-p-3"><Badge variant="warning" size="sm" label="Medium" /></td>
+                    <td className="u-p-3 u-text-secondary-emphasis">Runtime theme switching</td>
+                  </tr>
+                  <tr className="u-border-b u-border-subtle">
+                    <td className="u-p-3 u-fw-semibold">Extension</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">New components/utilities</td>
+                    <td className="u-p-3"><Badge variant="warning" size="sm" label="Medium-High" /></td>
+                    <td className="u-p-3 u-text-secondary-emphasis">Additional functionality</td>
+                  </tr>
+                  <tr>
+                    <td className="u-p-3 u-fw-semibold">Architecture</td>
+                    <td className="u-p-3 u-text-secondary-emphasis">System structure</td>
+                    <td className="u-p-3"><Badge variant="error" size="sm" label="High" /></td>
+                    <td className="u-p-3 u-text-secondary-emphasis">Major modifications</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </GridCol>
-          
-          <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">@use with Configuration</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Import Atomix with configuration options:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`@use 'atomix/styles' with (
-  $primary-6: #your-brand-color,
-  $font-family-base: 'Your Font', sans-serif
-);`}
-              </pre>
-            </Card>
+        </Row>
+
+        <Row className="u-mt-6">
+          <GridCol md={12}>
+            <h2 className="u-fs-2xl u-fw-bold u-mb-4">Configuration Methods</h2>
           </GridCol>
         </Row>
         
         <Row className="u-mt-4">
+          {methods.map((method, idx) => (
+            <GridCol key={idx} md={6} lg={4} className="u-mb-4">
+              <MethodCard {...method} />
+            </GridCol>
+          ))}
+        </Row>
+
+        <Row className="u-mt-6">
           <GridCol md={12}>
-            <Card className="u-p-6">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Theming System</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Atomix provides a powerful theming system based on CSS custom properties:</p>
-              
-              <div className="u-mt-4">
-                <h4 className="u-fs-lg u-fw-semibold u-mb-2">Runtime Theme Switching</h4>
-                <p className="u-text-secondary-emphasis u-mb-2">Switch themes dynamically with JavaScript:</p>
-                <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`// Switch to dark theme
+            <h2 className="u-fs-2xl u-fw-bold u-mb-4">Brand Integration</h2>
+          </GridCol>
+        </Row>
+
+        <Row className="u-mt-4">
+          <GridCol md={6}>
+            <Card className="u-p-6 u-h-100">
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <Icon name="Palette" size={24} className="u-text-primary-emphasis" />
+                <h3 className="u-fs-xl u-fw-semibold u-m-0">Brand Colors</h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-3">Create brand color scales and override Atomix defaults:</p>
+              <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
+                <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+{`$brand-primary: #your-color;
+
+@use 'atomix/styles' with (
+  $primary-6: $brand-primary,
+  $primary-7: shade($brand-primary, 20%)
+);`}
+                </pre>
+              </div>
+            </Card>
+          </GridCol>
+
+          <GridCol md={6}>
+            <Card className="u-p-6 u-h-100">
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <Icon name="TextT" size={24} className="u-text-brand-emphasis" />
+                <h3 className="u-fs-xl u-fw-semibold u-m-0">Typography</h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-3">Integrate your brand fonts and type scale:</p>
+              <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
+                <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+{`@use 'atomix/styles' with (
+  $font-family-base: ('Your Font', sans-serif),
+  $font-size-base: 1rem
+);`}
+                </pre>
+              </div>
+            </Card>
+          </GridCol>
+        </Row>
+
+        <Row className="u-mt-6">
+          <GridCol md={12}>
+            <Card className="u-p-6 u-bg-info-subtle">
+              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+                <Icon name="Lightning" size={24} className="u-text-info-emphasis" />
+                <h3 className="u-fs-xl u-fw-semibold u-m-0">Runtime Theme Switching</h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4">
+                Switch themes dynamically without rebuilding CSS:
+              </p>
+              <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
+                <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+{`// JavaScript theme switching
 document.documentElement.setAttribute('data-theme', 'dark');
 
-// Switch to light theme
-document.documentElement.setAttribute('data-theme', 'light');`}
-                </pre>
-                
-                <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-2">Creating Custom Themes</h4>
-                <p className="u-text-secondary-emphasis u-mb-2">Define your own themes with CSS custom properties:</p>
-                <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`:root[data-theme="brand"] {
-  --atomix-primary: #your-brand-color;
-  --atomix-primary-6: #your-brand-color;
-  --atomix-primary-9: #your-brand-color;
+// CSS theme definition
+:root[data-theme="dark"] {
+  --atomix-primary: #7c3aed;
+  --atomix-text-primary: #fff;
+  --atomix-bg-primary: #1a1a1a;
 }`}
                 </pre>
               </div>

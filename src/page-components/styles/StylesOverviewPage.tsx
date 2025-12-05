@@ -44,18 +44,18 @@ const StylesOverviewPage: React.FC = () => {
           <>
             <Button 
               label="Architecture Guide"
-              onClick={() => window.location.href = '/docs/styles/architecture'}
+              href="/docs/styles/architecture"
             />
             <Button 
               variant="secondary" 
               label="Utility Classes"
-              onClick={() => window.location.href = '/docs/styles/utilities'}
+              href="/docs/styles/utilities"
             />
           </>
         }
       />
 
-        <Block spacing="sm">
+      <Block container={{ type: "fluid" }}>
           <SectionIntro 
             title="Modern CSS Architecture"
             text="Explore our CSS architecture designed for scalability, maintainability, and performance."
@@ -70,7 +70,7 @@ const StylesOverviewPage: React.FC = () => {
                   variant="outline" 
                   label="Architecture Guide" 
                   size="sm"
-                  onClick={() => window.location.href = '/docs/styles/architecture'}
+                  href="/docs/styles/architecture"
                 />
               </Card>
             </GridCol>
@@ -83,7 +83,7 @@ const StylesOverviewPage: React.FC = () => {
                   variant="outline" 
                   label="Utility Classes" 
                   size="sm"
-                  onClick={() => window.location.href = '/docs/styles/utilities'}
+                  href="/docs/styles/utilities"
                 />
               </Card>
             </GridCol>
@@ -96,7 +96,7 @@ const StylesOverviewPage: React.FC = () => {
                   variant="outline" 
                   label="Customization Guide" 
                   size="sm"
-                  onClick={() => window.location.href = '/docs/styles/customization'}
+                  href="/docs/styles/customization"
                 />
               </Card>
             </GridCol>

@@ -8,6 +8,7 @@ import { DocumentationSidebar } from "@/components/navigation/DocumentationSideb
 import { MobileNavigation } from "@/components/navigation/MobileNavigation";
 import { SkipLinks } from "@/components/ui/SkipLinks";
 import { useResponsive } from "@/hooks/useResponsive";
+import { PageTransition } from "./PageTransition";
 
 // Memoize static components to prevent re-renders
 const MemoizedSkipLinks = React.memo(SkipLinks);
@@ -16,23 +17,13 @@ const MemoizedDocumentationFooter = React.memo(DocumentationFooter);
 export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  console.log('AppLayout rendering'); // Debug: Track re-renders
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const { isMobile } = useResponsive();
 
-  // Memoize callbacks to prevent child re-renders
-  const handleItemSelect = useCallback(
-    (itemId: string) => {
-      setActiveItem(itemId);
-      if (isMobile) {
-        setSidebarOpen(false);
-      }
-    },
-    [isMobile]
-  );
-
+  // Memoize callbacks to prevent child re-renders - only depend on isMobile
   const handleMenuToggle = useCallback(() => {
     setSidebarOpen((prev) => !prev);
   }, []);
@@ -63,21 +54,18 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
     [handleMenuToggle, sidebarOpen]
   );
 
-  // Memoize sidebar props to prevent re-renders
+  // Memoize sidebar props to prevent re-renders - remove activeItem dependency
   const sidebarProps = useMemo(
     () => ({
       isOpen: sidebarOpen,
       onClose: handleSidebarClose,
-      activeItem,
-      onItemSelect: handleItemSelect,
       searchQuery,
       onSearchChange: handleSearchChange,
+      onItemSelect: handleSidebarClose, // Close sidebar on mobile after navigation
     }),
     [
       sidebarOpen,
       handleSidebarClose,
-      activeItem,
-      handleItemSelect,
       searchQuery,
       handleSearchChange,
     ]
@@ -107,7 +95,9 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
 
           {/* Page Content - Only this should re-render on route change */}
           <GridCol xs={12} lg={9} xl={10}>
-            {children}
+            <PageTransition>
+              {children}
+            </PageTransition>
           </GridCol>
         </Grid>
       </Container>

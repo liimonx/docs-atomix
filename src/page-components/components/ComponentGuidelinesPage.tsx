@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
   Button,
@@ -18,9 +18,9 @@ import {
 import { GlassProps } from '@/types/atomix-components';
 
 const ComponentGuidelinesPage: React.FC = () => {
-  const [activeTab, setActiveTab] = React.useState(0);
+  const [activeTab, setActiveTab] = useState(0);
 
-  const guidelines = [
+  const guidelines = useMemo(() => [
     {
       title: 'Component Structure',
       description: 'Follow the standard directory structure and file organization',
@@ -93,9 +93,9 @@ const ComponentGuidelinesPage: React.FC = () => {
         'Test both React and vanilla JS implementations',
       ],
     },
-  ];
+  ], []);
 
-  const reactExample = `export interface ButtonProps extends BaseComponentProps {
+  const reactExample = useMemo(() => `export interface ButtonProps extends BaseComponentProps {
   /**
    * Button label text
    */
@@ -129,9 +129,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       {label}
     </button>
   );
-});`;
+});`, []);
 
-  const vanillaExample = `export default class Button {
+  const vanillaExample = useMemo(() => `export default class Button {
   private element: HTMLElement;
   private options: ButtonOptions;
 
@@ -154,9 +154,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   public destroy(): void {
     // Clean up event listeners
   }
-}`;
+}`, []);
 
-  const stylingExample = `// _settings.button.scss
+  const stylingExample = useMemo(() => `// _settings.button.scss
 $button-size: 32px !default;
 $button-size-sm: 24px !default;
 $button-size-lg: 40px !default;
@@ -180,13 +180,13 @@ $button-color: var(--atomix-primary) !default;
   &--sm {
     --atomix-button-size: #{$button-size-sm};
   }
-}`;
+}`, []);
 
 const ListItem = ({ children }: { children: React.ReactNode }) => {
   return <span>{children}</span>;
 };
 
-  const tabItems = [
+  const tabItems = useMemo(() => [
     {
       id: 'overview',
       label: 'Overview',
@@ -388,7 +388,7 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
         </div>
       ),
     },
-  ];
+  ], [guidelines, reactExample, vanillaExample, stylingExample]);
 
   return (
     <>
@@ -414,14 +414,12 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
           <>
             <Button
               label="Browse Components"
-              onClick={() => (window.location.href = '/docs/components/overview')}
+              href="/docs/components/overview"
             />
             <Button
               variant="secondary"
               label="Quick Start"
-              onClick={() =>
-                (window.location.href = '/docs/getting-started/quick-start')
-              }
+              href="/docs/getting-started/quick-start"
             />
           </>
         }
@@ -442,7 +440,7 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
         </div>
       </Block>
 
-      <Block spacing="md" background="secondary">
+      <Block background="secondary">
         <Callout variant="info" title="Getting Started">
           <p className="u-mb-3">
             New to component development? Start with our{' '}
@@ -464,25 +462,21 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
           <div className="u-d-flex u-gap-3 u-flex-wrap">
             <Button
               variant="primary"
-              onClick={() => (window.location.href = '/docs/components/overview')}
+              href="/docs/components/overview"
             >
               <Icon name="GridFour" size={16} className="u-me-2" />
               Browse Components
             </Button>
             <Button
               variant="outline"
-              onClick={() =>
-                (window.location.href = '/docs/getting-started/quick-start')
-              }
+              href="/docs/getting-started/quick-start"
             >
               <Icon name="Rocket" size={16} className="u-me-2" />
               Quick Start Guide
             </Button>
             <Button
               variant="outline"
-              onClick={() =>
-                (window.location.href = '/docs/resources/contributing')
-              }
+              href="/docs/resources/contributing"
             >
               <Icon name="Code" size={16} className="u-me-2" />
               Contributing Guide
@@ -495,4 +489,3 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default ComponentGuidelinesPage;
-

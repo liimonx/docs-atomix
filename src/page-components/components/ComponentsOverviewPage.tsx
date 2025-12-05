@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, ChangeEvent } from "react";
+import React, { useState, useMemo, useCallback, ChangeEvent } from "react";
 import Link from "next/link";
 import {
   Card,
@@ -61,8 +61,8 @@ const ComponentsOverviewPage: React.FC = () => {
       }
     });
 
-    // Sort components by priority
-    return components.sort((a, b) => (a.priority || 999) - (b.priority || 999));
+    // Sort components by priority (add priority property to NavigationItem interface)
+    return components.sort((a, b) => ((a as any).priority || 999) - ((b as any).priority || 999));
   }, []);
 
   // Filter components based on search query and category
@@ -111,14 +111,29 @@ const ComponentsOverviewPage: React.FC = () => {
   }, [filteredComponents]);
 
   // Category filter options
-  const categoryOptions = [
+  const categoryOptions = useMemo(() => [
     { id: "all", label: "All", count: allComponents.length },
     {
       id: "components",
       label: "Components",
       count: allComponents.filter((c) => c.sectionId === "components").length,
     },
-  ];
+  ], [allComponents]);
+
+  // Memoized handler for search input change
+  const handleSearchChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  }, []);
+
+  // Memoized handler for view mode change
+  const handleViewModeChange = useCallback((mode: ViewMode) => {
+    setViewMode(mode);
+  }, []);
+
+  // Memoized handler for filter category change
+  const handleFilterCategoryChange = useCallback((category: FilterCategory) => {
+    setFilterCategory(category);
+  }, []);
 
   return (
     <>
@@ -301,9 +316,7 @@ const ComponentsOverviewPage: React.FC = () => {
                         type="search"
                         placeholder="Search components..."
                         value={searchQuery}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                          setSearchQuery(e.target.value)
-                        }
+                        onChange={handleSearchChange}
                         style={{
                           background:
                             "rgba(var(--atomix-dark-rgb), 0.4) !important",
@@ -335,7 +348,7 @@ const ComponentsOverviewPage: React.FC = () => {
                           viewMode === "grid" ? "primary" : "outline-error "
                         }
                         size="sm"
-                        onClick={() => setViewMode("grid")}
+                        onClick={() => handleViewModeChange("grid")}
                         aria-label="Grid view"
                         className="u-d-flex u-align-items-center u-gap-2"
                       >
@@ -347,7 +360,7 @@ const ComponentsOverviewPage: React.FC = () => {
                           viewMode === "list" ? "primary" : "outline-error"
                         }
                         size="sm"
-                        onClick={() => setViewMode("list")}
+                        onClick={() => handleViewModeChange("list")}
                         aria-label="List view"
                         className="u-d-flex u-align-items-center u-gap-2"
                       >
@@ -370,7 +383,7 @@ const ComponentsOverviewPage: React.FC = () => {
                       }
                       size="sm"
                       onClick={() =>
-                        setFilterCategory(option.id as FilterCategory)
+                        handleFilterCategoryChange(option.id as FilterCategory)
                       }
                     >
                       <div className="u-d-flex u-align-items-center u-gap-2">
@@ -471,15 +484,18 @@ const ComponentsOverviewPage: React.FC = () => {
                                     {component.badge.text}
                                   </Badge>
                                 )}
-                                {component.isNew && (
+                                {(component.isNew || component.isUpdated) && (
                                   <Badge
-                                    label="New"
-                                    variant="success"
+                                    label={component.isNew ? "New" : "Updated"}
+                                    variant={component.isNew ? "success" : "warning"}
                                     size="sm"
                                     className="u-ms-2"
                                   >
-                                    <Icon name="Sparkle" size={12} />
-                                    New
+                                    <Icon 
+                                      name={component.isNew ? "Sparkle" : "ArrowCounterClockwise"} 
+                                      size={12} 
+                                    />
+                                    {component.isNew ? "New" : "Updated"}
                                   </Badge>
                                 )}
                               </>
@@ -500,40 +516,51 @@ const ComponentsOverviewPage: React.FC = () => {
                         lg={3}
                         className="u-mt-4"
                       >
-                        <Link href={component.path} className=" u-h-100">
+                        <Link 
+                          href={component.path} 
+                          className="u-text-decoration-none u-h-100"
+                        >
                           <Card
-                            row
                             className="u-h-100"
                             icon={<Icon name={component.icon as any} />}
                             title={component.title}
                             text={component.description}
-                            children={
-                              <>
-                                {" "}
-                                {component.badge ? (
+                          >
+                            {(component.badge || component.isNew || component.isUpdated) && (
+                              <div className="u-mt-3">
+                                {component.badge && (
                                   <Badge
                                     label={component.badge.text}
                                     variant={component.badge.variant as any}
                                     size="sm"
-                                    className="u-ms-2"
+                                    className="u-me-2"
                                   >
                                     {component.badge.text}
                                   </Badge>
-                                ) : undefined}{" "}
-                                {component && component.isNew ? (
+                                )}
+                                {component.isNew && (
                                   <Badge
                                     label="New"
                                     variant="success"
                                     size="sm"
-                                    className="u-ms-2"
                                   >
                                     <Icon name="Sparkle" size={12} />
                                     New
                                   </Badge>
-                                ) : undefined}
-                              </>
-                            }
-                          ></Card>
+                                )}
+                                {component.isUpdated && (
+                                  <Badge
+                                    label="Updated"
+                                    variant="warning"
+                                    size="sm"
+                                  >
+                                    <Icon name="ArrowCounterClockwise" size={12} />
+                                    Updated
+                                  </Badge>
+                                )}
+                              </div>
+                            )}
+                          </Card>
                         </Link>
                       </GridCol>
                     ))}

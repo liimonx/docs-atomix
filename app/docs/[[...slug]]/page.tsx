@@ -12,6 +12,9 @@ import { generateMetadataFromSlug } from '@/utils/routeConfig';
 import type { RouteParams, ComponentPropsMap } from '@/types/routes';
 import DocumentationOverviewPage from '@/page-components/common/DocumentationOverviewPage';
 
+export const dynamic = 'error';
+export const revalidate = 3600; // Revalidate docs pages hourly by default
+
 interface DynamicPageProps {
   params: Promise<RouteParams>;
 }
@@ -19,21 +22,23 @@ interface DynamicPageProps {
 // Generate static params for all routes
 export async function generateStaticParams() {
   const allSlugs = getAllRouteSlugs();
-  
-  // Filter out ALL component detail routes - these are handled by [componentId] route
+
+  // Explicitly exclude component detail pages; they belong to /docs/components/[componentId]
   const filteredSlugs = allSlugs.filter(slug => {
-    // Exclude ALL component detail routes except overview and guidelines
     if (slug.length >= 2 && slug[0] === 'components') {
       return slug[1] === 'overview' || slug[1] === 'guidelines';
     }
     return true;
   });
-  
-  return [
-    { slug: [] }, // For /docs
-    { slug: ['components'] }, // For /docs/components index
-    ...filteredSlugs.map(slug => ({ slug })),
-  ];
+
+  // Remove duplicates and normalize empty segments
+  const asKey = (s: string[]) => (s.length ? s.join('/') : '__root__');
+  const unique = new Map<string, string[]>();
+  unique.set('__root__', []);
+  unique.set('components', ['components']);
+  for (const slug of filteredSlugs) unique.set(asKey(slug), slug);
+
+  return Array.from(unique.values()).map(slug => ({ slug }));
 }
 
 // Generate metadata for the route

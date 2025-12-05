@@ -28,9 +28,9 @@
   ],
   "dependencies": {
     "@playwright/test": "^1.56.1",
-    "@shohojdhara/atomix": "^0.2.9",
+    "@shohojdhara/atomix": "^0.3.0",
     "date-fns": "^2.29.3",
-    "framer-motion": "^10.0.1",
+    "framer-motion": "^10.18.0",
     "fuse.js": "^6.6.2",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.539.0",

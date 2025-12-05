@@ -264,25 +264,19 @@ export default function Page() {
               glass={{ blurAmount: 0 }}
               variant="primary"
               icon={<Icon name="Rocket" />}
+              href="/docs/getting-started/installation"
+              as={Link}
             >
-              <Link
-                style={{ color: "inherit" }}
-                href="/docs/getting-started/installation"
-              >
-                Get Started
-              </Link>
+              Get Started
             </Button>
             <Button
               glass={{ blurAmount: 0 }}
               variant="outline-secondary"
               icon={<Icon name="Code" />}
+              href="/docs/components"
+              as={Link}
             >
-              <Link
-                style={{ color: "inherit" }}
-                href="/docs/components"
-              >
-                View Components
-              </Link>
+              View Components
             </Button>
           </>
         }
@@ -346,7 +340,7 @@ export default function Page() {
       </Block>
 
       {/* Philosophy Section */}
-      <Block background="secondary" spacing="md" >
+      <Block background="secondary" spacing="md">
         <Container>
           <SectionIntro
             title="Our Design Philosophy"

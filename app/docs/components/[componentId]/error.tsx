@@ -49,7 +49,7 @@ export default function ComponentError({
           </Button>
           <Button
             variant="outline"
-            onClick={() => window.location.href = '/docs/components/overview'}
+            href="/docs/components/overview"
             icon={<Icon name="ArrowLeft" />}
           >
             Back to Components

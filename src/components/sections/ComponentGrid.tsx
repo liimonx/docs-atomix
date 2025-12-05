@@ -37,10 +37,7 @@ export const ComponentGrid: React.FC = () => {
           {featuredComponents.map((component) => (
             <GridCol key={component.id} xs={12} md={6} lg={4}>
               <Card
-                className="u-h-100 u-p-6 u-transition-all u-cursor-pointer"
-                style={{ transition: 'all 0.2s ease' }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = 'var(--atomix-shadow-md)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}
+                className="u-h-100 u-p-6 u-transition-all u-cursor-pointer u-hover-transform-up"
                 onClick={() => router.push(`/docs/components/${component.id}`)}
               >
                 <div>
@@ -59,7 +56,7 @@ export const ComponentGrid: React.FC = () => {
                     
                     <Badge
                       label={component.status}
-                      variant={getStatusVariant(component.status)}
+                      variant={getStatusVariant(component.status) as any}
                       size="sm"
                     />
                   </div>

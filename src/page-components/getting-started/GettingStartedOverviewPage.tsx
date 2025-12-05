@@ -1,17 +1,18 @@
 'use client';
 
 import React from "react";
+
 import {
   Button,
   Card,
   Hero,
   GridCol,
-  Row,
   Block,
   SectionIntro,
   Grid,
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
+import { Link } from "lucide-react";
 
 const GettingStartedOverviewPage: React.FC = () => {
   return (
@@ -40,12 +41,12 @@ const GettingStartedOverviewPage: React.FC = () => {
             <>
               <Button 
                 label="Installation"
-                onClick={() => window.location.href = '/docs/getting-started/installation'}
+                href="/docs/getting-started/installation"
               />
               <Button 
                 variant="secondary" 
                 label="Quick Start"
-                onClick={() => window.location.href = '/docs/getting-started/quick-start'}
+                href="/docs/getting-started/quick-start"
               />
             </>
           }
@@ -66,7 +67,8 @@ const GettingStartedOverviewPage: React.FC = () => {
                   variant="primary-outline" 
                   label="Installation Guide" 
                   size="sm"
-                  onClick={() => window.location.href = '/docs/getting-started/installation'}
+                  as={Link}
+                  href="/docs/getting-started/installation"
                 />
               </Card>
             </GridCol>
@@ -79,7 +81,7 @@ const GettingStartedOverviewPage: React.FC = () => {
                   variant="primary-outline" 
                   label="Quick Start Guide" 
                   size="sm"
-                  onClick={() => window.location.href = '/docs/getting-started/quick-start'}
+                  href="/docs/getting-started/quick-start"
                 />
               </Card>
             </GridCol>
@@ -92,7 +94,7 @@ const GettingStartedOverviewPage: React.FC = () => {
                   variant="primary-outline" 
                   label="Migration Guide" 
                   size="sm"
-                  onClick={() => window.location.href = '/docs/getting-started/migration'}
+                  href="/docs/getting-started/migration"
                 />
               </Card>
             </GridCol>

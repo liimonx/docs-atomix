@@ -12,6 +12,7 @@ import {
 
 } from '@shohojdhara/atomix';
 import { GlobalSearch } from '@/components/ui/GlobalSearch';
+import type { GlassProps } from '@/types/atomix-components';
 
 interface DocumentationHeaderProps {
   onMenuToggle: () => void;
@@ -47,7 +48,7 @@ export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
           blurAmount: 2,
           elasticity: 0,
           mode: 'standard',
-        } as any}
+        } as GlassProps}
         brand={
           <div className="u-d-flex u-align-items-center u-gap-2">
             {/* Mobile menu toggle */}

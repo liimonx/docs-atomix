@@ -205,8 +205,41 @@ const DesignTokensPage: React.FC = () => {
             minHeight: "160px",
             background: colorValue,
             border: needsBorder ? "1px solid var(--atomix-primary-border-subtle)" : "none",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
+            overflow: "hidden",
           }}
-        />
+        >
+          <div style={{
+            position: "absolute",
+            top: "-50%",
+            left: "-50%",
+            width: "200%",
+            height: "200%",
+            background: `linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)`,
+            transform: "rotate(45deg)",
+          }} />
+          <div style={{
+            background: "rgba(255, 255, 255, 0.2)",
+            backdropFilter: "blur(10px)",
+            borderRadius: "50%",
+            width: "60px",
+            height: "60px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
+          }}>
+            <span style={{
+              color: needsBorder ? "#333" : "#fff",
+              fontWeight: "bold",
+              textShadow: needsBorder ? "none" : "0 1px 2px rgba(0,0,0,0.5)",
+              fontSize: "10px",
+            }}>PREVIEW</span>
+          </div>
+        </div>
       );
     }
 
@@ -222,6 +255,9 @@ const DesignTokensPage: React.FC = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              background: "linear-gradient(135deg, #7c3aed20, #f3f4f640)",
+              position: "relative",
+              overflow: "hidden",
             }}
           >
             <div
@@ -235,8 +271,21 @@ const DesignTokensPage: React.FC = () => {
                 backgroundColor: "var(--atomix-brand-bg-subtle)",
                 borderRadius: "var(--atomix-border-radius-sm)",
                 border: "2px solid var(--atomix-primary-border-subtle)",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                position: "relative",
+                zIndex: 2,
               }}
             />
+            <div style={{
+              position: "absolute",
+              top: "10px",
+              left: "10px",
+              right: "10px",
+              bottom: "10px",
+              border: "1px dashed rgba(124, 58, 237, 0.5)",
+              borderRadius: "4px",
+              pointerEvents: "none",
+            }} />
           </div>
         );
       }
@@ -256,8 +305,18 @@ const DesignTokensPage: React.FC = () => {
               border: token.value === "none"
                 ? "2px dashed var(--atomix-primary-border-subtle)"
                 : "1px solid var(--atomix-primary-border-subtle)",
+              position: "relative",
+              overflow: "hidden",
             }}
           >
+            <div style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "40%",
+              background: "linear-gradient(to bottom, rgba(124, 58, 237, 0.1), transparent)",
+            }} />
             {token.value === "none" && (
               <span style={{ 
                 color: "var(--atomix-primary-text-tertiary)",
@@ -266,6 +325,22 @@ const DesignTokensPage: React.FC = () => {
               }}>
                 No shadow
               </span>
+            )}
+            {token.value !== "none" && (
+              <div style={{
+                width: "80px",
+                height: "80px",
+                background: "white",
+                borderRadius: "8px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "bold",
+                color: "#7c3aed",
+                boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.1)",
+              }}>
+                CARD
+              </div>
             )}
           </div>
         );
@@ -277,14 +352,35 @@ const DesignTokensPage: React.FC = () => {
               width: "100%",
               height: "100%",
               minHeight: "160px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "var(--atomix-brand-bg-subtle)",
-              borderRadius: radiusValue,
-              border: "2px solid var(--atomix-primary-border-subtle)",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "8px",
+              padding: "16px",
+              background: "linear-gradient(135deg, #f3f4f6, #e5e7eb)",
             }}
-          />
+          >
+            {[1, 2, 3, 4].map((i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: "var(--atomix-brand-bg-subtle)",
+                  borderRadius: i === 1 ? "0" : radiusValue,
+                  border: "2px solid var(--atomix-primary-border-subtle)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "10px",
+                  fontWeight: "bold",
+                  color: "#7c3aed",
+                }}
+              >
+                {i === 1 && "0"}
+                {i === 2 && "SM"}
+                {i === 3 && "MD"}
+                {i === 4 && "LG"}
+              </div>
+            ))}
+          </div>
         );
       }
       case "font-family": {
@@ -296,22 +392,35 @@ const DesignTokensPage: React.FC = () => {
               height: "100%",
               minHeight: "160px",
               display: "flex",
+              fle: "column",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "var(--atomix-secondary-bg-subtle)",
-              borderRadius: "var(--atomix-border-radius-md)",
+              background: "linear-gradient(to right, #7c3aed10, #f3f4f630)",
+              gap: "8px",
+              padding: "16px",
             }}
           >
             <span
               style={{
                 fontFamily: fontFamilyValue,
-                fontSize: "var(--atomix-font-size-2xl)",
+                fontSize: "24px",
                 color: "var(--atomix-primary-text-emphasis)",
                 fontWeight: "var(--atomix-font-weight-semibold)",
                 lineHeight: "1",
+                textAlign: "center",
               }}
             >
               Aa
+            </span>
+            <span
+              style={{
+                fontFamily: fontFamilyValue,
+                fontSize: "14px",
+                color: "var(--atomix-primary-text-secondary)",
+                textAlign: "center",
+              }}
+            >
+              The quick brown fox
             </span>
           </div>
         );
@@ -325,10 +434,12 @@ const DesignTokensPage: React.FC = () => {
               height: "100%",
               minHeight: "160px",
               display: "flex",
+              fle: "column",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "var(--atomix-secondary-bg-subtle)",
-              borderRadius: "var(--atomix-border-radius-md)",
+              background: "linear-gradient(45deg, #7c3aed10, #f3f4f630)",
+              gap: "8px",
+              padding: "16px",
             }}
           >
             <span
@@ -337,10 +448,35 @@ const DesignTokensPage: React.FC = () => {
                 color: "var(--atomix-primary-text-emphasis)",
                 fontWeight: "var(--atomix-font-weight-semibold)",
                 lineHeight: "1",
+                textAlign: "center",
               }}
             >
-              Aa
+              Sample Text
             </span>
+            <div style={{
+              display: "flex",
+              gap: "12px",
+              alignItems: "center",
+            }}>
+              <span style={{
+                fontSize: "10px",
+                color: "var(--atomix-primary-text-secondary)",
+              }}>
+                Small
+              </span>
+              <span style={{
+                fontSize: "14px",
+                color: "var(--atomix-primary-text-secondary)",
+              }}>
+                Medium
+              </span>
+              <span style={{
+                fontSize: "18px",
+                color: "var(--atomix-primary-text-secondary)",
+              }}>
+                Large
+              </span>
+            </div>
           </div>
         );
       }
@@ -355,10 +491,12 @@ const DesignTokensPage: React.FC = () => {
               height: "100%",
               minHeight: "160px",
               display: "flex",
+              fle: "column",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "var(--atomix-secondary-bg-subtle)",
-              borderRadius: "var(--atomix-border-radius-md)",
+              background: "repeating-linear-gradient(45deg, #7c3aed10, #7c3aed10 10px, #f3f4f630 10px, #f3f4f630 20px)",
+              gap: "8px",
+              padding: "16px",
             }}
           >
             <span
@@ -368,9 +506,21 @@ const DesignTokensPage: React.FC = () => {
                 fontSize: "var(--atomix-font-size-2xl)",
                 color: "var(--atomix-primary-text-emphasis)",
                 lineHeight: "1",
+                textAlign: "center",
               }}
             >
-              Aa
+              Weight
+            </span>
+            <span
+              style={{
+                fontFamily: "var(--atomix-font-family-base)",
+                fontWeight: weightValue,
+                fontSize: "var(--atomix-font-size-sm)",
+                color: "var(--atomix-primary-text-secondary)",
+                textAlign: "center",
+              }}
+            >
+              {token.name}: {token.value}
             </span>
           </div>
         );
@@ -386,8 +536,8 @@ const DesignTokensPage: React.FC = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "var(--atomix-secondary-bg-subtle)",
-              borderRadius: "var(--atomix-border-radius-md)",
+              background: "linear-gradient(to bottom, #7c3aed10 0%, #7c3aed10 50%, #f3f4f630 50%, #f3f4f630 100%)",
+              backgroundSize: "100% 20px",
               padding: "var(--atomix-spacing-4)",
             }}
           >
@@ -398,11 +548,10 @@ const DesignTokensPage: React.FC = () => {
                 color: "var(--atomix-primary-text-emphasis)",
                 textAlign: "center",
                 fontWeight: "var(--atomix-font-weight-medium)",
+                maxWidth: "80%",
               }}
             >
-              Aa Bb Cc
-              <br />
-              Dd Ee Ff
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </div>
           </div>
         );
@@ -426,8 +575,38 @@ const DesignTokensPage: React.FC = () => {
               minHeight: "160px",
               backgroundColor: formColorValue,
               border: needsBorder ? "1px solid var(--atomix-primary-border-subtle)" : "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
             }}
-          />
+          >
+            <div style={{
+              width: "80%",
+              display: "flex",
+              fle: "column",
+              gap: "12px",
+            }}>
+              <div style={{
+                height: "8px",
+                backgroundColor: "var(--atomix-primary)",
+                borderRadius: "4px",
+                width: "70%",
+              }} />
+              <div style={{
+                height: "8px",
+                backgroundColor: "var(--atomix-secondary)",
+                borderRadius: "4px",
+                width: "100%",
+              }} />
+              <div style={{
+                height: "8px",
+                backgroundColor: "var(--atomix-tertiary)",
+                borderRadius: "4px",
+                width: "50%",
+              }} />
+            </div>
+          </div>
         );
       }
       case "z-index": {
@@ -442,8 +621,7 @@ const DesignTokensPage: React.FC = () => {
               height: "100%",
               minHeight: "160px",
               position: "relative",
-              backgroundColor: "var(--atomix-secondary-bg-subtle)",
-              borderRadius: "var(--atomix-border-radius-md)",
+              background: "linear-gradient(135deg, #7c3aed10, #f3f4f630)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -464,9 +642,29 @@ const DesignTokensPage: React.FC = () => {
                 fontSize: "var(--atomix-font-size-sm)",
                 fontWeight: "var(--atomix-font-weight-semibold)",
                 color: "var(--atomix-primary-text-emphasis)",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
               }}
             >
-              z: {zIndexValue}
+              Layer: {zIndexValue}
+            </div>
+            <div style={{
+              position: "absolute",
+              width: "50%",
+              height: "50%",
+              backgroundColor: "var(--atomix-secondary)",
+              borderRadius: "var(--atomix-border-radius-sm)",
+              border: "2px solid var(--atomix-primary-border-subtle)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "var(--atomix-font-size-xs)",
+              fontWeight: "var(--atomix-font-weight-semibold)",
+              color: "var(--atomix-primary-text-emphasis)",
+              top: "15%",
+              left: "15%",
+              opacity: 0.7,
+            }}>
+              Base
             </div>
           </div>
         );
@@ -481,7 +679,7 @@ const DesignTokensPage: React.FC = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "var(--atomix-secondary-bg-subtle)",
+              background: "linear-gradient(135deg, #7c3aed20, #f3f4f640)",
               borderRadius: "var(--atomix-border-radius-md)",
             }}
           >
@@ -530,6 +728,9 @@ const DesignTokensPage: React.FC = () => {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setSearchQuery(e.target.value)
                 }
+                style={{
+                  boxShadow: "0 4px 20px rgba(124, 58, 237, 0.15)",
+                }}
               />
             </GridCol>
             <GridCol md={4}>
@@ -540,6 +741,9 @@ const DesignTokensPage: React.FC = () => {
                   router.push(`/docs/design-tokens/${e.target.value}`);
                 }}
                 options={categories}
+                style={{
+                  boxShadow: "0 4px 20px rgba(124, 58, 237, 0.15)",
+                }}
               />
             </GridCol>
           </Grid>
@@ -550,7 +754,15 @@ const DesignTokensPage: React.FC = () => {
       <Block className="u-mt-8">
         {Object.entries(groupedTokens).map(([category, tokens]) => (
           <div key={category} className="u-mb-8">
-            <h2 className="u-fs-lg u-fw-semibold u-mb-2">{category}</h2>
+            <h2 className="u-fs-lg u-fw-semibold u-mb-2" style={{
+              textTransform: 'uppercase',
+              letterSpacing: '1px',
+              fontSize: '1.25rem',
+              background: 'linear-gradient(90deg, var(--atomix-primary), var(--atomix-secondary))',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>{category}</h2>
 
             <Grid>
               {tokens.map((token: DesignToken) => (
@@ -561,8 +773,23 @@ const DesignTokensPage: React.FC = () => {
                   xl={3}
                   className="u-mb-4"
                 >
-                  <Card className="u-p-0 u-border u-border-solid u-rounded-lg u-h-100 u-overflow-hidden">
-                    <div className="u-d-flex u-flex-direction-column">
+                  <Card className="u-p-0 u-border u-border-solid u-rounded-lg u-h-100 u-overflow-hidden" 
+                    style={{
+                      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                      background: 'rgba(255, 255, 255, 0.7)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(124, 58, 237, 0.2)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.boxShadow = '0 10px 25px rgba(124, 58, 237, 0.2)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+                    }}
+                  >
+                    <div className="u-d-flex u-flex-column">
                       {/* Preview Section */}
                       <div
                         style={{
@@ -581,18 +808,6 @@ const DesignTokensPage: React.FC = () => {
 
                       {/* Token Info Section */}
                       <div className="u-flex-grow-1 u-p-4">
-                        {isColorToken(token) && (
-                          <div
-                            style={{
-                              width: "100%",
-                              height: "48px",
-                              marginBottom: "var(--atomix-spacing-3)",
-                              backgroundColor: getCSSVariable(token) || token.value,
-                              borderRadius: "var(--atomix-border-radius-sm)",
-                              border: "1px solid var(--atomix-primary-border-subtle)",
-                            }}
-                          />
-                        )}
                         <h3 
                           className="u-fs-base u-fw-semibold"
                           style={{
@@ -643,6 +858,14 @@ const DesignTokensPage: React.FC = () => {
                             variant="ghost"
                             size="sm"
                             onClick={() => handleCopy(token)}
+                            style={{
+                              background: "linear-gradient(135deg, var(--atomix-primary), var(--atomix-secondary))",
+                              color: "white",
+                              border: "none",
+                              borderRadius: "4px",
+                              padding: "4px 8px",
+                              fontSize: "12px",
+                            }}
                           >
                             {isCopied && copiedTokenName === token.name
                               ? "Copied!"

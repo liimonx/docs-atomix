@@ -1,5 +1,7 @@
-
-
+/* Global styles for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
 
 /* Home page specific styles */
 .atomix-docs-main.home-page .atomix-docs-content.full-width {
@@ -610,6 +612,62 @@
 
 .fade-in {
   animation: fadeIn 0.3s ease forwards;
+}
+
+/* Page Loader */
+.page-loader-bar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  background: transparent !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+}
+
+.page-loader-progress {
+  height: 100% !important;
+  background: #0066cc !important;
+  box-shadow: 0 0 10px #0066cc !important;
+  animation: pageLoaderProgress 1.5s ease-in-out infinite !important;
+}
+
+.page-loader-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  z-index: 99998 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.page-loader-spinner {
+  width: 60px !important;
+  height: 60px !important;
+  border: 5px solid rgba(255, 255, 255, 0.3) !important;
+  border-top-color: #0066cc !important;
+  border-radius: 50% !important;
+  animation: spin 0.8s linear infinite !important;
+}
+
+@keyframes pageLoaderProgress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Card hover effect utility */

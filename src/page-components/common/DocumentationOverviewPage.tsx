@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import Link from 'next/link';
 import {
   BookOpen,
   Palette,
@@ -37,7 +37,7 @@ const DocumentationOverviewPage: React.FC = () => {
     setIsMounted(true);
   }, []);
 
-  const glass: GlassProps = isMounted ? {
+  const glass: GlassProps | undefined = isMounted ? {
     displacementScale: 30,
     blurAmount: 5,
     elasticity: 0,
@@ -235,14 +235,14 @@ const DocumentationOverviewPage: React.FC = () => {
                 glass
                 icon={<Download size={16} />}
                 label="Get Started"
-                onClick={() => window.location.href = '/docs/getting-started/installation'}
+                href="/docs/getting-started/installation"
               />
               <Button
                 glass
                 variant="secondary"
                 label="Browse Components"
                 icon={<Layers size={16} />}
-                onClick={() => window.location.href = '/docs/components/overview'}
+                href="/docs/components/overview"
               />
             </>
           }
@@ -306,32 +306,27 @@ const DocumentationOverviewPage: React.FC = () => {
                 <Row>
                   {section.items.map((item, itemIndex) => (
                     <GridCol key={itemIndex} md={6} lg={3} className="u-mb-4">
-                      <Card 
-                        className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle"
-                        className="u-transition-fast"
-                        onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
-                          e.currentTarget.style.transform = 'translateY(-4px)';
-                          e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
-                        }}
-                        onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => {
-                          e.currentTarget.style.transform = '';
-                          e.currentTarget.style.boxShadow = '';
-                        }}
-                        onClick={() => window.location.href = item.path}
+                      <Link
+                        href={item.path}
+                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
                       >
-                        <div className="u-p-6 u-h-100 u-d-flex u-flex-direction-column">
-                          <h3 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
-                            {item.title}
-                          </h3>
-                          <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
-                            {item.description}
-                          </p>
-                          <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                            <span className="u-me-2">Learn more</span>
-                            <ArrowRight size={16} />
+                        <Card 
+                          className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up"
+                        >
+                          <div className="u-p-6 u-h-100 u-d-flex u-flex-direction-column">
+                            <h3 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
+                              {item.title}
+                            </h3>
+                            <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
+                              {item.description}
+                            </p>
+                            <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
+                              <span className="u-me-2">Learn more</span>
+                              <ArrowRight size={16} />
+                            </div>
                           </div>
-                        </div>
-                      </Card>
+                        </Card>
+                      </Link>
                     </GridCol>
                   ))}
                 </Row>
@@ -369,37 +364,32 @@ const DocumentationOverviewPage: React.FC = () => {
               },
             ].map((api, index) => (
               <GridCol key={index} md={4} className="u-mb-6">
-                <Card 
-                  className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle"
-                  style={{ transition: 'var(--atomix-transition-fast)' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = '';
-                    e.currentTarget.style.boxShadow = '';
-                  }}
-                  onClick={() => window.location.href = api.path}
+                <Link
+                  href={api.path}
+                  className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
                 >
-                  <div className="u-p-6 u-h-100 u-d-flex u-flex-direction-column">
-                    <div className="u-d-flex u-align-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4 u-text-primary-emphasis">
-                        {api.icon}
+                  <Card 
+                    className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up"
+                  >
+                    <div className="u-p-6 u-h-100 u-d-flex u-flex-direction-column">
+                      <div className="u-d-flex u-align-items-center u-mb-4">
+                        <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4 u-text-primary-emphasis">
+                          {api.icon}
+                        </div>
+                        <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                          {api.title}
+                        </h3>
                       </div>
-                      <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
-                        {api.title}
-                      </h3>
+                      <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1" style={{ lineHeight: 'var(--atomix-line-height-relaxed)' }}>
+                        {api.description}
+                      </p>
+                      <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
+                        <span className="u-me-2">View Reference</span>
+                        <ArrowRight size={16} />
+                      </div>
                     </div>
-                    <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1" style={{ lineHeight: 'var(--atomix-line-height-relaxed)' }}>
-                      {api.description}
-                    </p>
-                    <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                      <span className="u-me-2">View Reference</span>
-                      <ArrowRight size={16} />
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </Link>
               </GridCol>
             ))}
           </Row>
@@ -434,37 +424,32 @@ const DocumentationOverviewPage: React.FC = () => {
               },
             ].map((resource, index) => (
               <GridCol key={index} md={4} className="u-mb-6">
-                <Card 
-                  className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle"
-                  style={{ transition: 'var(--atomix-transition-fast)' }}
-                  onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = 'var(--atomix-shadow-lg)';
-                  }}
-                  onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => {
-                    e.currentTarget.style.transform = '';
-                    e.currentTarget.style.boxShadow = '';
-                  }}
-                  onClick={() => window.location.href = resource.path}
+                <Link
+                  href={resource.path}
+                  className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
                 >
-                  <div className="u-p-6 u-h-100 u-d-flex u-flex-direction-column">
-                    <div className="u-d-flex u-align-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4 u-text-secondary-emphasis">
-                        {resource.icon}
+                  <Card 
+                    className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up"
+                  >
+                    <div className="u-p-6 u-h-100 u-d-flex u-flex-direction-column">
+                      <div className="u-d-flex u-align-items-center u-mb-4">
+                        <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4 u-text-secondary-emphasis">
+                          {resource.icon}
+                        </div>
+                        <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                          {resource.title}
+                        </h3>
                       </div>
-                      <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
-                        {resource.title}
-                      </h3>
+                      <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1" style={{ lineHeight: 'var(--atomix-line-height-relaxed)' }}>
+                        {resource.description}
+                      </p>
+                      <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
+                        <span className="u-me-2">Explore</span>
+                        <ArrowRight size={16} />
+                      </div>
                     </div>
-                    <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1" style={{ lineHeight: 'var(--atomix-line-height-relaxed)' }}>
-                      {resource.description}
-                    </p>
-                    <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                      <span className="u-me-2">Explore</span>
-                      <ArrowRight size={16} />
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </Link>
               </GridCol>
             ))}
           </Row>
@@ -485,13 +470,13 @@ const DocumentationOverviewPage: React.FC = () => {
                   <Button
                     icon={<Download size={16} />}
                     label="Get Started"
-                    onClick={() => window.location.href = '/docs/getting-started/installation'}
+                    href="/docs/getting-started/installation"
                   />
                   <Button
                     variant="outline"
                     icon={<Layers size={16} />}
                     label="Browse Components"
-                    onClick={() => window.location.href = '/docs/components/overview'}
+                    href="/docs/components/overview"
                   />
                 </div>
               </Card>

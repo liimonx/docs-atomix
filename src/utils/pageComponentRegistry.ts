@@ -27,6 +27,7 @@ import {
   // Guide Pages
   GuidesAtomixGlassPerformancePage,
   GuidesAtomixGlassThemingPage,
+  GeneralThemingGuidePage,
   
   // Layout Pages
   LayoutsOverviewPage,
@@ -57,7 +58,7 @@ import { NavigationItem } from '@/types';
 /**
  * Component mapping function type
  */
-type ComponentMapper = (_item: NavigationItem, _slug: string[]) => React.ComponentType<any> | null;
+type ComponentMapper = (__item: NavigationItem, __slug: string[]) => React.ComponentType<any> | null;
 
 /**
  * Component registry with category-based and ID-based mappings
@@ -114,7 +115,7 @@ class PageComponentRegistry {
     this.categoryMap.set('getting-started', GettingStartedOverviewPage);
 
     // Guide Pages
-    this.idMap.set('guides:theming', GuidesAtomixGlassThemingPage);
+    this.idMap.set('guides:theming', GeneralThemingGuidePage);
     this.idMap.set('guides:atomix-glass-performance', GuidesAtomixGlassPerformancePage);
     this.idMap.set('guides:atomix-glass-theming', GuidesAtomixGlassThemingPage);
     this.categoryMap.set('guides', GuidesAtomixGlassThemingPage);

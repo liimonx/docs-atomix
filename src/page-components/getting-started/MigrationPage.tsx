@@ -169,7 +169,7 @@ const MigrationPage: React.FC = () => {
           </p>
           <Button 
             variant="outline"
-            onClick={() => window.location.href = '/docs/getting-started/quick-start'}
+            href="/docs/getting-started/quick-start"
           >
             View Quick Start Guide
             <ArrowRight size={16} className="u-ms-2" />

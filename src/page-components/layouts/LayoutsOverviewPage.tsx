@@ -42,12 +42,12 @@ const LayoutsOverviewPage: React.FC = () => {
           <>
             <Button 
               label="Grid System"
-              onClick={() => window.location.href = '/docs/layouts/grid'}
+              href="/docs/layouts/grid"
             />
             <Button 
               variant="secondary" 
               label="Masonry Grid"
-              onClick={() => window.location.href = '/docs/layouts/masonry-grid'}
+              href="/docs/layouts/masonry-grid"
             />
           </>
         }
@@ -68,7 +68,7 @@ const LayoutsOverviewPage: React.FC = () => {
                   variant="outline" 
                   label="Grid Documentation" 
                   size="sm"
-                  onClick={() => window.location.href = '/docs/layouts/grid'}
+                  href="/docs/layouts/grid"
                 />
               </Card>
             </GridCol>
@@ -81,7 +81,7 @@ const LayoutsOverviewPage: React.FC = () => {
                   variant="outline" 
                   label="Masonry Grid" 
                   size="sm"
-                  onClick={() => window.location.href = '/docs/layouts/masonry-grid'}
+                  href="/docs/layouts/masonry-grid"
                 />
               </Card>
             </GridCol>
@@ -94,7 +94,7 @@ const LayoutsOverviewPage: React.FC = () => {
                   variant="outline" 
                   label="Responsive Patterns" 
                   size="sm"
-                  onClick={() => window.location.href = '/docs/layouts/responsive-patterns'}
+                  href="/docs/layouts/responsive-patterns"
                 />
               </Card>
             </GridCol>

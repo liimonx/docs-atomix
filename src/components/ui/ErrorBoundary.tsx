@@ -91,7 +91,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, State> {
               </Button>
               <Button
                 variant="outline"
-                onClick={() => window.location.href = '/'}
+                href="/"
                 icon={<Icon name="House" />}
               >
                 Go Home

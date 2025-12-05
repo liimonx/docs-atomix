@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 
 import {
@@ -36,87 +36,94 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
   }, []);
 
   // Find navigation item for the component
-  const navigationItem = componentId ? findNavigationItem(componentId) : null;
+  const navigationItem = useMemo(() => 
+    componentId ? findNavigationItem(componentId) : null,
+  [componentId]);
 
   // Get component documentation directly (no loading state needed)
-  const componentData = getComponentDocumentation(componentId || "");
-  const componentDoc: ComponentDocumentation = componentData || {
-    name: navigationItem?.title || componentId || "",
-    description: `A ${componentId} component for building user interfaces.`,
-    category: navigationItem?.category || "Components",
-    version: "1.0.0",
-    status: "stable",
-    lastUpdated: new Date().toISOString().split("T")[0],
-    author: "Atomix Team",
-    importPath: `@shohojdhara/atomix/${navigationItem?.title || componentId}`,
-    dependencies: ["react"],
-    tags: ["component", "ui", "react"],
-    relatedComponents: ["Button", "Card", "Badge"],
-    props: [
-      {
-        name: "className",
-        type: "string",
-        required: false,
-        defaultValue: "-",
-        description: "Additional CSS classes",
-      },
-    ],
-    examples: [
-      {
-        id: "basic-usage",
-        title: "Basic Usage",
-        description: "Simple component implementation",
-        code: `<${navigationItem?.title || "Component"} />`,
-        language: "jsx",
-        category: "basic" as const,
-      },
-    ],
-    features: [
-      {
-        title: "Accessible by default",
-        description: "Follows WCAG guidelines",
-        supported: true,
-      },
-      {
-        title: "Customizable styling",
-        description: "Supports custom CSS classes",
-        supported: true,
-      },
-      {
-        title: "TypeScript support",
-        description: "Full TypeScript definitions included",
-        supported: true,
-      },
-      {
-        title: "Responsive design",
-        description: "Works on all device sizes",
-        supported: true,
-      },
-    ],
-    usage: [
-      {
-        title: "Installation",
-        description: "Install the Atomix component library",
-        code: "npm install @shohojdhara/atomix",
-        language: "bash",
-      },
-    ],
-    accessibility: {
-      overview: "The component follows WCAG 2.1 guidelines.",
-      keyboardSupport: [
+  const componentData = useMemo(() => 
+    getComponentDocumentation(componentId || ""),
+  [componentId]);
+
+  const componentDoc: ComponentDocumentation = useMemo(() => 
+    componentData || {
+      name: navigationItem?.title || componentId || "",
+      description: `A ${componentId} component for building user interfaces.`,
+      category: navigationItem?.category || "Components",
+      version: "1.0.0",
+      status: "stable",
+      lastUpdated: new Date().toISOString().split("T")[0],
+      author: "Atomix Team",
+      importPath: `@shohojdhara/atomix/${navigationItem?.title || componentId}`,
+      dependencies: ["react"],
+      tags: ["component", "ui", "react"],
+      relatedComponents: ["Button", "Card", "Badge"],
+      props: [
         {
-          key: "Tab",
-          action: "Moves focus to the component",
+          name: "className",
+          type: "string",
+          required: false,
+          defaultValue: "-",
+          description: "Additional CSS classes",
         },
       ],
-      ariaAttributes: [],
-      guidelines: [
-        "Components should be keyboard accessible",
-        "Focus should be clearly visible",
+      examples: [
+        {
+          id: "basic-usage",
+          title: "Basic Usage",
+          description: "Simple component implementation",
+          code: `<${navigationItem?.title || "Component"} />`,
+          language: "jsx",
+          category: "basic" as const,
+        },
       ],
-      wcagLevel: "AA",
+      features: [
+        {
+          title: "Accessible by default",
+          description: "Follows WCAG guidelines",
+          supported: true,
+        },
+        {
+          title: "Customizable styling",
+          description: "Supports custom CSS classes",
+          supported: true,
+        },
+        {
+          title: "TypeScript support",
+          description: "Full TypeScript definitions included",
+          supported: true,
+        },
+        {
+          title: "Responsive design",
+          description: "Works on all device sizes",
+          supported: true,
+        },
+      ],
+      usage: [
+        {
+          title: "Installation",
+          description: "Install the Atomix component library",
+          code: "npm install @shohojdhara/atomix",
+          language: "bash",
+        },
+      ],
+      accessibility: {
+        overview: "The component follows WCAG 2.1 guidelines.",
+        keyboardSupport: [
+          {
+            key: "Tab",
+            action: "Moves focus to the component",
+          },
+        ],
+        ariaAttributes: [],
+        guidelines: [
+          "Components should be keyboard accessible",
+          "Focus should be clearly visible",
+        ],
+        wcagLevel: "AA",
+      },
     },
-  };
+  [componentData, navigationItem, componentId]);
 
   const copyToClipboard = async (code: string, id: string) => {
     try {
@@ -129,7 +136,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
     }
   };
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = useMemo(() => (status: string) => {
     switch (status) {
       case "stable":
         return "success";
@@ -142,10 +149,10 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
       default:
         return "default";
     }
-  };
+  }, []);
 
-  // Prepare tab items for Atomix Tab component
-  const tabItems = [
+  // Memoize tab items to prevent unnecessary re-renders
+  const tabItems = useMemo(() => [
     {
       label: "Overview",
       content: (
@@ -333,7 +340,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
         <ComponentAccessibility accessibility={componentDoc.accessibility} />
       ),
     },
-  ];
+  ], [componentDoc, copiedCode, copyToClipboard]);
 
   return (
     <div className="u-min-h-screen u-pb-xl">

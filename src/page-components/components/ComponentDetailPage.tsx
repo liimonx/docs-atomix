@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -32,9 +32,12 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
   >("overview");
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
-  const componentDoc = componentId
-    ? componentMetadata.find((c) => c.id === componentId)
-    : null;
+  const componentDoc = useMemo(() => 
+    componentId
+      ? componentMetadata.find((c) => c.id === componentId)
+      : null,
+    [componentId]
+  );
 
   const copyToClipboard = async (code: string, id: string) => {
     try {
@@ -47,7 +50,7 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
     }
   };
 
-  const getStatusColor = (
+  const getStatusColor = useMemo(() => (
     status: string
   ): "success" | "warning" | "info" | "error" => {
     switch (status) {
@@ -62,7 +65,7 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
       default:
         return "info";
     }
-  };
+  }, []);
 
   if (!componentDoc) {
     return (
@@ -81,7 +84,7 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
   }
 
   // Prepare tab items for Atomix Tabs component
-  const tabItems = [
+  const tabItems = useMemo(() => [
     {
       id: "overview",
       label: "Overview",
@@ -242,12 +245,12 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
         );
       })(),
     },
-  ];
+  ], [componentDoc, copiedCode, copyToClipboard]);
 
-  const getActiveTabIndex = () => {
+  const getActiveTabIndex = useMemo(() => () => {
     const index = tabItems.findIndex((tab) => tab.id === activeTab);
     return index >= 0 ? index : 0;
-  };
+  }, [tabItems, activeTab]);
 
   return (
     <div className="u-min-h-screen u-pb-xl">
