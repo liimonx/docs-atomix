@@ -340,7 +340,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
         <ComponentAccessibility accessibility={componentDoc.accessibility} />
       ),
     },
-  ], [componentDoc, copiedCode, copyToClipboard]);
+  ], [componentDoc, copiedCode, copyToClipboard, componentId]);
 
   return (
     <div className="u-min-h-screen u-pb-xl">

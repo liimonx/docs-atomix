@@ -32,14 +32,11 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
   >("overview");
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
 
-  const componentDoc = useMemo(() => 
-    componentId
-      ? componentMetadata.find((c) => c.id === componentId)
-      : null,
-    [componentId]
-  );
+  const componentDoc = componentId
+    ? componentMetadata.find((c) => c.id === componentId)
+    : null;
 
-  const copyToClipboard = async (code: string, id: string) => {
+  const copyToClipboard = React.useCallback(async (code: string, id: string) => {
     try {
       await navigator.clipboard.writeText(code);
       setCopiedCode(id);
@@ -48,9 +45,9 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
     } catch (err) {
       toast.error("Failed to copy code");
     }
-  };
+  }, []);
 
-  const getStatusColor = useMemo(() => (
+  const getStatusColor = (
     status: string
   ): "success" | "warning" | "info" | "error" => {
     switch (status) {
@@ -65,7 +62,7 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
       default:
         return "info";
     }
-  }, []);
+  };
 
   if (!componentDoc) {
     return (
@@ -84,7 +81,7 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
   }
 
   // Prepare tab items for Atomix Tabs component
-  const tabItems = useMemo(() => [
+  const tabItems = React.useMemo(() => [
     {
       id: "overview",
       label: "Overview",
@@ -247,10 +244,10 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
     },
   ], [componentDoc, copiedCode, copyToClipboard]);
 
-  const getActiveTabIndex = useMemo(() => () => {
+  const getActiveTabIndex = () => {
     const index = tabItems.findIndex((tab) => tab.id === activeTab);
     return index >= 0 ? index : 0;
-  }, [tabItems, activeTab]);
+  };
 
   return (
     <div className="u-min-h-screen u-pb-xl">
