@@ -16,7 +16,7 @@ export interface SearchResult {
 
 interface SearchContextType {
   searchQuery: string;
-  setSearchQuery: (query: string) => void;
+  setSearchQuery: (_query: string) => void;
   searchResults: SearchResult[];
   clearSearch: () => void;
 }

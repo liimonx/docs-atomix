@@ -25,7 +25,7 @@ export function preloadRoute(_path: string): void {
 /**
  * Debounce function for performance optimization
  */
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (..._args: any[]) => any>(
   func: T,
   wait: number
 ): (...funcArgs: Parameters<T>) => void {
@@ -47,7 +47,7 @@ export function debounce<T extends (...args: any[]) => any>(
 /**
  * Throttle function for performance optimization
  */
-export function throttle<T extends (...args: any[]) => any>(
+export function throttle<T extends (..._args: any[]) => any>(
   func: T,
   limit: number
 ): (...funcArgs: Parameters<T>) => void {

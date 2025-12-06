@@ -58,7 +58,7 @@ import { NavigationItem } from '@/types';
 /**
  * Component mapping function type
  */
-type ComponentMapper = (navItem: NavigationItem, slugParts: string[]) => React.ComponentType<any> | null;
+type ComponentMapper = (_navItem: NavigationItem, _slugParts: string[]) => React.ComponentType<any> | null;
 
 /**
  * Component registry with category-based and ID-based mappings
