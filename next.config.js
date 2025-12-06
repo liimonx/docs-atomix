@@ -8,6 +8,9 @@ const nextConfig = {
   // Enable React strict mode for better development experience
   reactStrictMode: true,
   
+  // Output configuration - ensure proper static generation
+  output: undefined, // Let Next.js decide (SSG/SSR hybrid)
+  
   // Configure scroll behavior
   experimental: {
     scrollRestoration: true,

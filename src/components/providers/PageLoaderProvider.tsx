@@ -11,13 +11,19 @@ const LoadingContext = createContext<{
 
 export const PageLoaderProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
     setLoading(true);
     const timer = setTimeout(() => setLoading(false), 400);
     return () => clearTimeout(timer);
-  }, [pathname]);
+  }, [pathname, mounted]);
 
   return (
     <LoadingContext.Provider value={{ loading, setLoading }}>
