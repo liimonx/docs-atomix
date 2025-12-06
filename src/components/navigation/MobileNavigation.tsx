@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import { 
   Button, 
   Icon, 
@@ -15,7 +15,7 @@ interface MobileNavigationProps {
   onClose: () => void;
 }
 
-export const MobileNavigation: React.FC<MobileNavigationProps> = ({
+export const MobileNavigation: FC<MobileNavigationProps> = ({
   isOpen,
   onClose
 }) => {

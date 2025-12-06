@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -23,7 +23,7 @@ import {
   Badge,
 } from '@shohojdhara/atomix';
 
-const MigrationPage: React.FC = () => {
+const MigrationPage: FC = () => {
   const migrationSteps = [
     {
       step: 1,

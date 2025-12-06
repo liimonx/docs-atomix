@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, FC } from 'react';
 
 interface ResponsiveContextType {
   isMobile: boolean;
@@ -11,7 +11,7 @@ interface ResponsiveContextType {
 
 const ResponsiveContext = createContext<ResponsiveContextType | undefined>(undefined);
 
-export const ResponsiveProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ResponsiveProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(true);

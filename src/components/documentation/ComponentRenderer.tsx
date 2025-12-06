@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { FC, ComponentType } from "react";
+
 import * as Atomix from '@shohojdhara/atomix';
 
 interface ComponentRendererProps {
@@ -7,7 +8,7 @@ interface ComponentRendererProps {
   children?: React.ReactNode;
 }
 
-const ComponentRenderer: React.FC<ComponentRendererProps> = ({
+const ComponentRenderer: FC<ComponentRendererProps> = ({
   componentName,
   props = {},
   children
@@ -20,7 +21,7 @@ const ComponentRenderer: React.FC<ComponentRendererProps> = ({
     );
   }
 
-  const Component = Atomix[componentName] as React.ComponentType<any>;
+  const Component = Atomix[componentName] as ComponentType<any>;
 
   if (!Component) {
     return (

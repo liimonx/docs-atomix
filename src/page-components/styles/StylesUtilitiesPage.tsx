@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React from "react";
+import { FC } from 'react';
 import {
   Hero,
   SectionIntro,
@@ -20,7 +20,7 @@ interface UtilityCategoryProps {
   color: string;
 }
 
-const CategoryCard: React.FC<UtilityCategoryProps> = ({
+const CategoryCard: FC<UtilityCategoryProps> = ({
   icon,
   title,
   description,

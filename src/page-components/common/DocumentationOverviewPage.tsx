@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import Link from 'next/link';
 import {
   BookOpen,
@@ -29,7 +29,7 @@ import {
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
 
-const DocumentationOverviewPage: React.FC = () => {
+const DocumentationOverviewPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   // Prevent hydration mismatch by only rendering glass effect on client

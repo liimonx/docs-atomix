@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { FC } from "react";
+import { useState } from 'react';
 import { Button, Tabs, Select, Card } from '@shohojdhara/atomix';
 import type { ComponentDocumentation } from '@/types/index';
 
@@ -8,7 +9,7 @@ interface InteractiveDemoProps {
   onExampleChange: (idx: number) => void;
 }
 
-export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({
+export const InteractiveDemo: FC<InteractiveDemoProps> = ({
   component,
   selectedExample,
   onExampleChange

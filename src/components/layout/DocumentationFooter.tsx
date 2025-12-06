@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
+import { FC } from "react";
 import { Footer, FooterSection, FooterLink } from "@shohojdhara/atomix";
 import toast from "react-hot-toast";
 
-export const DocumentationFooter: React.FC = () => {
+export const DocumentationFooter: FC = () => {
   const currentYear = new Date().getFullYear();
 
   const handleNewsletterSubmit = (email: string) => {

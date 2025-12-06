@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useCallback, FC } from "react";
 import { Container, Grid, GridCol } from "@shohojdhara/atomix";
 import { DocumentationHeader } from "@/components/navigation/DocumentationHeader";
 import { DocumentationFooter } from "./DocumentationFooter";
@@ -14,7 +14,7 @@ import { PageTransition } from "./PageTransition";
 const MemoizedSkipLinks = React.memo(SkipLinks);
 const MemoizedDocumentationFooter = React.memo(DocumentationFooter);
 
-export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
+export const AppLayout: FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

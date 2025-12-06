@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Button, Callout, Icon } from '@shohojdhara/atomix';
 import styles from './error.module.scss';
 

@@ -1,7 +1,7 @@
-import React from 'react';
+import { FC } from 'react';
 import { Card, Icon, Container, Row, GridCol, SectionIntro } from '@shohojdhara/atomix';
 
-export const FeaturesSection: React.FC = () => {
+export const FeaturesSection: FC = () => {
   const features = [
     {
       title: "Accessible by Default",

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { usePathname } from "next/navigation";
 import { DocumentationHeader } from "@/components/navigation/DocumentationHeader";
 import { DocumentationFooter } from "./DocumentationFooter";
@@ -8,7 +8,7 @@ import { MobileNavigation } from "@/components/navigation/MobileNavigation";
 import { SkipLinks } from "@/components/ui/SkipLinks";
 import { useResponsive } from "@/hooks/useResponsive";
 
-export const HomePageLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const HomePageLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   const { isMobile } = useResponsive();

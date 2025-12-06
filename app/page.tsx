@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import Link from "next/link";
 import { HomePageLayout } from "@/components/layout/HomePageLayout";
 import {
@@ -209,12 +207,12 @@ export default function Page() {
   ];
 
   // LinkContent component for quick links
-  const LinkContent: React.FC<{
+  const LinkContent = ({ title, description, external, icon }: {
     title: string;
     description: string;
     external: boolean;
     icon?: React.ReactNode;
-  }> = ({ title, description, external, icon }) => (
+  }) => (
     <div className="u-d-flex u-flex-column u-h-100">
       <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-3">
         <div className="u-d-flex u-align-items-center">

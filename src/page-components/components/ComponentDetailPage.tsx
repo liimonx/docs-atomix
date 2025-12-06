@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -22,7 +22,7 @@ import { ComponentAccessibility } from "@/components/showcase/ComponentAccessibi
 import { ComponentRelated } from "@/components/showcase/ComponentRelated";
 import { BreadcrumbNavigation } from "@/components/navigation/BreadcrumbNavigation";
 
-const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
+const ComponentDetailPage: FC<{ componentId?: string }> = ({
   componentId: componentIdProp,
 }) => {
   const params = useParams();

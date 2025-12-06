@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React from "react";
+import { FC } from 'react';
 import {
   Hero,
   Card,
@@ -22,7 +22,7 @@ interface LayerCardProps {
   color: string;
 }
 
-const LayerCard: React.FC<LayerCardProps> = ({
+const LayerCard: FC<LayerCardProps> = ({
   number,
   title,
   description,

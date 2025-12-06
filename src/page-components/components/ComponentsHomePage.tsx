@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
+import { useMemo, FC } from "react";
 import Link from "next/link";
 
 import { 
@@ -18,7 +18,7 @@ import {
 import { componentMetadata } from "@/data/components";
 import { BreadcrumbNavigation } from "@/components/navigation/BreadcrumbNavigation";
 
-const ComponentsHomePage: React.FC = () => {
+const ComponentsHomePage: FC = () => {
   // Get component categories
   const categories = useMemo(() => 
     Array.from(new Set(componentMetadata.map((c) => c.category))), 

@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import { Button, Card, Icon, Row, GridCol } from '@shohojdhara/atomix';
 
-const NotFoundPage: React.FC = () => {
+const NotFoundPage: FC = () => {
   const popularLinks = [
     {
       title: 'Getting Started',

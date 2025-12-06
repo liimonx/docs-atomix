@@ -1,13 +1,13 @@
 'use client';
 
-import React from "react";
+import React, { FC } from 'react';
 import Link from 'next/link';
 // import { useRouter } from 'next/navigation';
 import { Button, Block, SectionIntro, Row, Card, GridCol } from '@shohojdhara/atomix';
 import { Icon } from '@shohojdhara/atomix';
 import CallToActionSection from '@/components/sections/CallToActionSection';
 
-const HomePage: React.FC = () => {
+const HomePage: FC = () => {
   const features = [
     {
       icon: <Icon name="Lightning" size="lg" />,
@@ -173,7 +173,7 @@ const HomePage: React.FC = () => {
   );
 };
 
-const LinkContent: React.FC<{
+const LinkContent: FC<{
   title: string;
   description: string;
   external: boolean;

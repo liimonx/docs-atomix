@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import { Button, Icon, Card } from '@shohojdhara/atomix';
 import CallToActionSection from '@/components/sections/CallToActionSection';
 
-const CallToActionSectionDocumentation: React.FC = () => {
+const CallToActionSectionDocumentation: FC = () => {
   return (
     <div className="u-p-6">
       <div className="u-container u-mx-auto u-px-4">

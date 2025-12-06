@@ -1,4 +1,5 @@
-import React from 'react';
+import { FC } from "react";
+
 import { Card, Badge } from '@shohojdhara/atomix';
 import type { ComponentDocumentation } from '@/types/index';
 import styles from './DesignTokensDisplay.module.scss';
@@ -7,7 +8,7 @@ export interface DesignTokensDisplayProps {
   component: ComponentDocumentation;
 }
 
-export const DesignTokensDisplay: React.FC<DesignTokensDisplayProps> = ({ component }) => {
+export const DesignTokensDisplay: FC<DesignTokensDisplayProps> = ({ component }) => {
   const designTokens = component.designTokens;
 
   if (!designTokens || designTokens.length === 0) {

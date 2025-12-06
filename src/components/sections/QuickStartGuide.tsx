@@ -1,10 +1,10 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import { Button, Card, Icon, Steps } from '@shohojdhara/atomix';
 import { useRouter } from 'next/navigation';
 
-export const QuickStartGuide: React.FC = () => {
+export const QuickStartGuide: FC = () => {
   const router = useRouter();
 
   const steps = [

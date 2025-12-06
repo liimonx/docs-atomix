@@ -3,7 +3,7 @@
 // Error Boundary for Dynamic Documentation Routes
 // =============================================================================
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { Button, Callout, Icon, Card, Row, GridCol } from '@shohojdhara/atomix';
 import styles from './error.module.scss';

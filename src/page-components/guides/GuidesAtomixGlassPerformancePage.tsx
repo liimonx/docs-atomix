@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState, Fragment } from "react";
 import {
   Hero,
   SectionIntro,
@@ -179,7 +179,7 @@ const GuidesAtomixGlassPerformancePage = () => {
                           }
                           text="AtomixGlass automatically uses hardware acceleration through CSS transforms and will-change properties. However, overusing these can cause memory issues."
                           children={
-                            <React.Fragment>
+                            <Fragment>
                               <div className="u-d-flex u-align-items-start u-gap-4">
                                 <div className="u-flex-grow-1">
                                   <div className="u-mt-4">
@@ -219,7 +219,7 @@ const GuidesAtomixGlassPerformancePage = () => {
                                   </div>
                                 </div>
                               </div>
-                            </React.Fragment>
+                            </Fragment>
                           }
                           className="u-h-100"
                         ></Card>

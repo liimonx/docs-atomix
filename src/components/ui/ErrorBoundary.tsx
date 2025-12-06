@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Component, ReactNode } from 'react';
+import { Component, ReactNode } from 'react';
 import { Button, Callout } from '@shohojdhara/atomix';
 import { Icon } from '@shohojdhara/atomix';
 import styles from './ErrorBoundary.module.scss';

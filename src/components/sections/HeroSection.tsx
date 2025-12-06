@@ -1,10 +1,10 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import { Button, Hero, Icon } from '@shohojdhara/atomix';
 import { useRouter } from 'next/navigation';
 
-export const HeroSection: React.FC = () => {
+export const HeroSection: FC = () => {
   const router = useRouter();
 
   return (

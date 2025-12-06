@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
+import { FC } from 'react';
+
+import { useState, useEffect } from "react";
 import {
   Button,
   Card,
@@ -12,7 +14,7 @@ import {
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
 
-const StylesOverviewPage: React.FC = () => {
+const StylesOverviewPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   // Prevent hydration mismatch by only rendering glass effect on client

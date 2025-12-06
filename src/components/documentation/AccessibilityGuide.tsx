@@ -1,4 +1,5 @@
-import React from 'react';
+import { FC } from "react";
+
 import { Card, Icon, Row, GridCol } from '@shohojdhara/atomix';
 import type { ComponentDocumentation } from '@/types/index';
 
@@ -6,7 +7,7 @@ interface AccessibilityGuideProps {
   component: ComponentDocumentation;
 }
 
-export const AccessibilityGuide: React.FC<AccessibilityGuideProps> = ({ component }) => {
+export const AccessibilityGuide: FC<AccessibilityGuideProps> = ({ component }) => {
   const accessibility = component.accessibility;
 
   if (!accessibility) {

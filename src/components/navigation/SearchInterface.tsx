@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, FC } from 'react';
 import { 
   Modal, 
   Input, 
@@ -11,7 +11,7 @@ import {
 import { useSearch } from '@/hooks/useSearch';
 import { useRouter } from 'next/navigation';
 
-export const SearchInterface: React.FC = () => {
+export const SearchInterface: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [mounted, setMounted] = useState(false);

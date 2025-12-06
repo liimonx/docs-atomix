@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState, FC } from "react";
 import { usePathname } from "next/navigation";
 import PageLoader from "@/components/ui/PageLoader";
 
@@ -9,7 +9,7 @@ const LoadingContext = createContext<{
   setLoading: (isLoading: boolean) => void;
 }>({ loading: false, setLoading: () => {} });
 
-export const PageLoaderProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const PageLoaderProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const pathname = usePathname();
 

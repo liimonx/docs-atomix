@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React from "react";
+import { FC } from 'react';
 
 interface PageLoaderProps {
   loading: boolean;
 }
 
-const PageLoader: React.FC<PageLoaderProps> = ({ loading }) => {
+const PageLoader: FC<PageLoaderProps> = ({ loading }) => {
   if (!loading) return null;
 
   return (

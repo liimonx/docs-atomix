@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+'use client';
+
+import React, { useState, FC } from "react";
 import { Card, Button, Icon, Tabs } from "@shohojdhara/atomix";
 import { ComponentExample } from "@/types";
 import { CodePreview } from "./CodePreview";
@@ -9,7 +11,7 @@ interface ComponentExamplesProps {
   copiedCode: string | null;
 }
 
-export const ComponentExamples: React.FC<ComponentExamplesProps> = ({
+export const ComponentExamples: FC<ComponentExamplesProps> = ({
   examples,
   onCopy,
   copiedCode,

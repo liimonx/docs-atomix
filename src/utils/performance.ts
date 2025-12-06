@@ -1,16 +1,16 @@
 // Performance Utilities
 // =============================================================================
 
-import React from 'react';
+import { lazy, ComponentType, LazyExoticComponent } from 'react';
 
 /**
  * Lazy load a component with React.lazy
  * Provides better code splitting and performance
  */
-export function createLazyComponent<T extends React.ComponentType<any>>(
+export function createLazyComponent<T extends ComponentType<any>>(
   importFn: () => Promise<{ default: T }>
-): React.LazyExoticComponent<T> {
-  return React.lazy(importFn);
+): LazyExoticComponent<T> {
+  return lazy(importFn);
 }
 
 /**

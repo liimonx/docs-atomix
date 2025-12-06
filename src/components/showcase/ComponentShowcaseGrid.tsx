@@ -1,4 +1,5 @@
-import React from 'react';
+import { FC } from "react";
+
 import { Card, Badge } from '@shohojdhara/atomix';
 
 interface Showcase {
@@ -12,7 +13,7 @@ interface ComponentShowcaseProps {
   showcases: Showcase[];
 }
 
-export const ComponentShowcaseGrid: React.FC<ComponentShowcaseProps> = ({ showcases }) => {
+export const ComponentShowcaseGrid: FC<ComponentShowcaseProps> = ({ showcases }) => {
   if (!showcases || showcases.length === 0) {
     return (
       <Card>

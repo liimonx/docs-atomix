@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { FC } from "react";
+import { useState } from 'react';
 import { DataTable, Badge, Icon, Input, Card } from '@shohojdhara/atomix';
 import type { ComponentDocumentation } from '@/types/index';
 
@@ -6,7 +7,7 @@ interface PropsDocumentationProps {
   component: ComponentDocumentation;
 }
 
-export const PropsDocumentation: React.FC<PropsDocumentationProps> = ({
+export const PropsDocumentation: FC<PropsDocumentationProps> = ({
   component
 }) => {
   const [searchTerm, setSearchTerm] = useState('');

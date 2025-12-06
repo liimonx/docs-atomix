@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React from "react";
+import React, { FC } from 'react';
 import Link from "next/link";
 import toast from "react-hot-toast";
 import {
@@ -19,7 +19,7 @@ interface GettingStartedPageProps {
   type: "introduction" | "installation" | "quickstart" | "theming";
 }
 
-const GettingStartedPage: React.FC<GettingStartedPageProps> = ({ type }) => {
+const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
   const [copiedCode, setCopiedCode] = React.useState<string | null>(null);
   const heroGlass: GlassProps = { padding: "20px" } as any;
 

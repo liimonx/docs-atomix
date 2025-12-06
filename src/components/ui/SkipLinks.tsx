@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import styles from './SkipLinks.module.scss';
 
 /**
@@ -9,7 +9,7 @@ import styles from './SkipLinks.module.scss';
  */
 export interface SkipLinksProps {}
 
-export const SkipLinks: React.FC<SkipLinksProps> = () => {
+export const SkipLinks: FC<SkipLinksProps> = () => {
   return (
     <nav className={styles.skipLinks} aria-label="Skip navigation links">
       <a 

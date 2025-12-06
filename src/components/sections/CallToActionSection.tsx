@@ -1,4 +1,5 @@
-import React from "react";
+import { FC } from "react";
+
 import { River, RiverProps } from "@shohojdhara/atomix";
 import { AtomixGlass, Container } from "@shohojdhara/atomix";
 
@@ -29,7 +30,7 @@ interface CallToActionSectionProps
  * CallToActionSection component for displaying prominent call-to-action sections
  * Uses the River component with preset styling for consistent CTAs across the site
  */
-export const CallToActionSection: React.FC<CallToActionSectionProps> = ({
+export const CallToActionSection: FC<CallToActionSectionProps> = ({
   title,
   text,
   primaryAction,

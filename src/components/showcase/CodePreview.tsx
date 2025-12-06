@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { FC, ComponentType, useMemo } from "react";
 import * as Atomix from '@shohojdhara/atomix';
 
 interface CodePreviewProps {
@@ -10,7 +10,7 @@ interface CodePreviewProps {
  * CodePreview component that attempts to render JSX code as a live preview.
  * Uses a simplified parser to extract and render JSX elements from code strings.
  */
-export const CodePreview: React.FC<CodePreviewProps> = ({ code, language }) => {
+export const CodePreview: FC<CodePreviewProps> = ({ code, language }) => {
   const renderedPreview = useMemo(() => {
     if (language !== 'jsx' && language !== 'tsx') {
       return null;
@@ -87,7 +87,7 @@ function extractJSXElements(code: string): React.ReactNode[] {
       Component = componentName;
     } else {
       // For React components, try to get from Atomix
-      Component = (Atomix as any)[componentName] as React.ComponentType<any>;
+      Component = (Atomix as any)[componentName] as ComponentType<any>;
       
       // Skip if component not found in Atomix
       if (!Component) {

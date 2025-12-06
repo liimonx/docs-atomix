@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import {
   Hero,
   SectionIntro,
@@ -20,7 +20,7 @@ interface APISection {
   color: string;
 }
 
-const APICard: React.FC<APISection> = ({ icon, title, description, code, color }) => (
+const APICard: FC<APISection> = ({ icon, title, description, code, color }) => (
   <Card className="u-p-6 u-h-100 u-border-left" style={{ borderLeftWidth: '4px', borderLeftColor: color }}>
     <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
       <Icon name={icon as any} size={24} style={{ color }} />

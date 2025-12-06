@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import { Icon, Card } from '@shohojdhara/atomix';
 import type { SearchResult } from '../../types';
@@ -11,7 +11,7 @@ export interface SearchResultItemProps {
   onClick?: () => void;
 }
 
-export const SearchResultItem: React.FC<SearchResultItemProps> = ({ result, onClick }) => {
+export const SearchResultItem: FC<SearchResultItemProps> = ({ result, onClick }) => {
   const getIconName = (category: string) => {
     switch (category) {
       case 'component': return 'Component';

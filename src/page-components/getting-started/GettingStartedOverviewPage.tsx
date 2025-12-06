@@ -1,6 +1,8 @@
 'use client';
 
-import React from "react";
+import { FC } from 'react';
+
+
 
 import {
   Button,
@@ -14,7 +16,7 @@ import {
 import { GlassProps } from "@/types/atomix-components";
 import { Link } from "lucide-react";
 
-const GettingStartedOverviewPage: React.FC = () => {
+const GettingStartedOverviewPage: FC = () => {
   return (
     <>
 

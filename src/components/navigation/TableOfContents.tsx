@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { FC } from 'react';
+
+import { useState, useEffect } from 'react';
 
 import { Icon } from '@shohojdhara/atomix';
 
@@ -15,7 +17,7 @@ interface TableOfContentsProps {
   contentSelector?: string;
 }
 
-export const TableOfContents: React.FC<TableOfContentsProps> = ({ 
+export const TableOfContents: FC<TableOfContentsProps> = ({ 
   items,
   contentSelector = '.component-content'
 }) => {

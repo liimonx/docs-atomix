@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { FC } from "react";
+import { useState } from 'react';
 import { Button, Icon, Tooltip, Card } from '@shohojdhara/atomix';
 
 interface CodeBlockWithCopyProps {
@@ -8,7 +9,7 @@ interface CodeBlockWithCopyProps {
   showLineNumbers?: boolean;
 }
 
-export const CodeBlockWithCopy: React.FC<CodeBlockWithCopyProps> = ({
+export const CodeBlockWithCopy: FC<CodeBlockWithCopyProps> = ({
   code,
   language = 'typescript',
   title,

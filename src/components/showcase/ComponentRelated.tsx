@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React from "react";
+import { FC } from 'react';
 import { Card, Icon } from "@shohojdhara/atomix";
 import Link from "next/link";
 import { findNavigationItem } from "@/data/navigation";
@@ -9,7 +9,7 @@ interface ComponentRelatedProps {
   relatedComponents: string[];
 }
 
-export const ComponentRelated: React.FC<ComponentRelatedProps> = ({
+export const ComponentRelated: FC<ComponentRelatedProps> = ({
   relatedComponents,
 }) => {
   if (!relatedComponents || relatedComponents.length === 0) {

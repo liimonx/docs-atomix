@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback, FC } from "react";
 import Link from "next/link";
 
 import {
@@ -26,7 +26,7 @@ import { ComponentAccessibility } from "@/components/showcase/ComponentAccessibi
 import { ComponentRelated } from "@/components/showcase/ComponentRelated";
 import { GlassProps } from "@/types/atomix-components";
 
-const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
+const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
 

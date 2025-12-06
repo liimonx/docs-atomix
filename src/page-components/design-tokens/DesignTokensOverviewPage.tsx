@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import { FC } from 'react';
 import {
   Button,
   Hero,
@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 import { GlassProps } from "@/types/atomix-components";
 
-const DesignTokensOverviewPage: React.FC = () => {
+const DesignTokensOverviewPage: FC = () => {
   return (
     <>
 

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { FC } from "react";
+import { useState } from 'react';
 import { 
   Card, 
   Tabs, 
@@ -16,7 +17,7 @@ interface ComponentShowcaseProps {
   component: ComponentDocumentation;
 }
 
-export const ComponentShowcase: React.FC<ComponentShowcaseProps> = ({
+export const ComponentShowcase: FC<ComponentShowcaseProps> = ({
   component
 }) => {
   const [activeTab, setActiveTab] = useState(0);

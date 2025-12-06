@@ -26,11 +26,6 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   
-  // ESLint configuration
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
-  
   // Image optimization configuration
   images: {
     // Note: For static exports (output: 'export'), external images cannot be optimized

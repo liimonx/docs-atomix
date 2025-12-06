@@ -1,4 +1,5 @@
-import React from "react";
+import { FC } from "react";
+
 import { Card, Badge, DataTable } from "@shohojdhara/atomix";
 
 interface PropDefinition {
@@ -16,7 +17,7 @@ interface ComponentPropsProps {
   props: PropDefinition[];
 }
 
-export const ComponentProps: React.FC<ComponentPropsProps> = ({ props }) => {
+export const ComponentProps: FC<ComponentPropsProps> = ({ props }) => {
   return (
     <Card
       children={

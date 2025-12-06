@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import {
   Button,
@@ -19,7 +19,7 @@ interface DocumentationHeaderProps {
   sidebarOpen: boolean;
 }
 
-export const DocumentationHeader: React.FC<DocumentationHeaderProps> = ({
+export const DocumentationHeader: FC<DocumentationHeaderProps> = ({
   onMenuToggle,
   sidebarOpen
 }) => {

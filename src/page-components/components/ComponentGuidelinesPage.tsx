@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import { FC } from 'react';
+
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
   Button,
@@ -17,7 +19,7 @@ import {
 } from '@shohojdhara/atomix';
 import { GlassProps } from '@/types/atomix-components';
 
-const ComponentGuidelinesPage: React.FC = () => {
+const ComponentGuidelinesPage: FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const guidelines = useMemo(() => [

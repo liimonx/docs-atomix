@@ -1,4 +1,5 @@
-import React from 'react';
+import { FC } from "react";
+
 import { Card, Badge, DataTable } from '@shohojdhara/atomix';
 
 interface AccessibilityInfo {
@@ -22,7 +23,7 @@ interface ComponentAccessibilityProps {
   accessibility: AccessibilityInfo;
 }
 
-export const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ accessibility }) => {
+export const ComponentAccessibility: FC<ComponentAccessibilityProps> = ({ accessibility }) => {
   return (
     <div className="component-accessibility">
       <Card className="u-mb-6">

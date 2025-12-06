@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import {
   Hero,
   SectionIntro,
@@ -21,7 +21,7 @@ interface CustomizationMethodProps {
   color: string;
 }
 
-const MethodCard: React.FC<CustomizationMethodProps> = ({ icon, title, description, complexity, code, color }) => {
+const MethodCard: FC<CustomizationMethodProps> = ({ icon, title, description, complexity, code, color }) => {
   const complexityColors = {
     Low: '#22c55e',
     Medium: '#eab308',

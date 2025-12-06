@@ -1,7 +1,7 @@
 // Page Component Registry - Maps route categories to page components
 // =============================================================================
 
-import React from 'react';
+import { ComponentType } from 'react';
 import {
   // API Pages
   APICSSPage,
@@ -58,15 +58,15 @@ import { NavigationItem } from '@/types';
 /**
  * Component mapping function type
  */
-type ComponentMapper = (_navItem: NavigationItem, _slugParts: string[]) => React.ComponentType<any> | null;
+type ComponentMapper = (_navItem: NavigationItem, _slugParts: string[]) => ComponentType<any> | null;
 
 /**
  * Component registry with category-based and ID-based mappings
  */
 class PageComponentRegistry {
-  private categoryMap: Map<string, React.ComponentType<any>> = new Map();
+  private categoryMap: Map<string, ComponentType<any>> = new Map();
   // Use composite key: "category:id" to avoid ID conflicts
-  private idMap: Map<string, React.ComponentType<any>> = new Map();
+  private idMap: Map<string, ComponentType<any>> = new Map();
   private customMappers: ComponentMapper[] = [];
 
   constructor() {
@@ -149,7 +149,7 @@ class PageComponentRegistry {
   /**
    * Register a component for a specific route ID (with category)
    */
-  registerById(category: string, id: string, component: React.ComponentType<any>): void {
+  registerById(category: string, id: string, component: ComponentType<any>): void {
     const key = this.getCompositeKey(category, id);
     this.idMap.set(key, component);
   }
@@ -157,7 +157,7 @@ class PageComponentRegistry {
   /**
    * Register a component for a category
    */
-  registerByCategory(category: string, component: React.ComponentType<any>): void {
+  registerByCategory(category: string, component: ComponentType<any>): void {
     this.categoryMap.set(category, component);
   }
 
@@ -171,7 +171,7 @@ class PageComponentRegistry {
   /**
    * Get component for a navigation item
    */
-  getComponent(item: NavigationItem, slug: string[]): React.ComponentType<any> | null {
+  getComponent(item: NavigationItem, slug: string[]): ComponentType<any> | null {
     // Try custom mappers first
     for (const mapper of this.customMappers) {
       const component = mapper(item, slug);
@@ -193,7 +193,7 @@ class PageComponentRegistry {
   /**
    * Get component by category and ID
    */
-  getComponentById(category: string, id: string): React.ComponentType<any> | null {
+  getComponentById(category: string, id: string): ComponentType<any> | null {
     const key = this.getCompositeKey(category, id);
     return this.idMap.get(key) || null;
   }
@@ -201,7 +201,7 @@ class PageComponentRegistry {
   /**
    * Get component by category only
    */
-  getComponentByCategory(category: string): React.ComponentType<any> | null {
+  getComponentByCategory(category: string): ComponentType<any> | null {
     return this.categoryMap.get(category) || null;
   }
 
@@ -230,7 +230,7 @@ export const pageComponentRegistry = new PageComponentRegistry();
 export function getPageComponent(
   item: NavigationItem | null,
   slug: string[]
-): React.ComponentType<any> | null {
+): ComponentType<any> | null {
   // Special case: /docs/components (index page) - handle without navigation item
   if (!item && slug.length === 1 && slug[0] === 'components') {
     return pageComponentRegistry.getComponentById('components', 'index');
@@ -243,7 +243,7 @@ export function getPageComponent(
 /**
  * Get page component by route path
  */
-export function getPageComponentByPath(path: string): React.ComponentType<any> | null {
+export function getPageComponentByPath(path: string): ComponentType<any> | null {
   // Use dynamic import to avoid circular dependency
   const routeMapper = require('./routeMapper');
   const item = routeMapper.findNavigationItemByPath(path);

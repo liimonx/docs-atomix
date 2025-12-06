@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import { Card, Icon, Button, Badge, Container, Row, GridCol, SectionIntro } from '@shohojdhara/atomix';
 import { useRouter } from 'next/navigation';
 import { componentMetadata } from '@/data/components';
 
-export const ComponentGrid: React.FC = () => {
+export const ComponentGrid: FC = () => {
   const router = useRouter();
 
   // Get a sample of components for the grid

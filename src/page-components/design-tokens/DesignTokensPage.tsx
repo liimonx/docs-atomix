@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import { useState, useMemo, FC } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import {
   Button,
@@ -57,7 +57,7 @@ const extractFontSizeValue = (value: string): string => {
   return value;
 };
 
-const DesignTokensPage: React.FC = () => {
+const DesignTokensPage: FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [searchQuery, setSearchQuery] = useState("");

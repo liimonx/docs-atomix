@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useCallback, ChangeEvent } from "react";
+import { useState, useMemo, useCallback, ChangeEvent, FC } from "react";
 import Link from "next/link";
 import {
   Card,
@@ -38,7 +38,7 @@ interface ComponentItem {
 type ViewMode = "grid" | "list";
 type FilterCategory = "all" | "components";
 
-const ComponentsOverviewPage: React.FC = () => {
+const ComponentsOverviewPage: FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState<ViewMode>("grid");
   const [filterCategory, setFilterCategory] = useState<FilterCategory>("all");
