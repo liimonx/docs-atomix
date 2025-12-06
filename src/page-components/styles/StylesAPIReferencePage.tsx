@@ -104,7 +104,7 @@ const StylesAPIReferencePage = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-start u-gap-4">
-                <Icon name="Variable" size={32} className="u-text-primary-emphasis" />
+                <Icon name="Code" size={32} className="u-text-primary-emphasis" />
                 <div className="u-w-100">
                   <h3 className="u-fs-xl u-fw-semibold u-mb-3">SCSS Variables</h3>
                   <p className="u-text-secondary-emphasis u-mb-4">Comprehensive set of SCSS variables for customization</p>
