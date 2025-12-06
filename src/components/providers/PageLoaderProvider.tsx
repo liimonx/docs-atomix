@@ -23,7 +23,7 @@ export const PageLoaderProvider: FC<{ children: React.ReactNode }> = ({ children
     setLoading(true);
     const timer = setTimeout(() => setLoading(false), 400);
     return () => clearTimeout(timer);
-  }, [pathname, mounted]);
+  }, [pathname]); // Only depend on pathname - mounted guard prevents initial execution
 
   return (
     <LoadingContext.Provider value={{ loading, setLoading }}>
