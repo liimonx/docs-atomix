@@ -94,9 +94,9 @@ export const DocumentationSidebar = ({
         {filteredSections.length > 0 ? (
           <AtomixSideMenu title={`Documentation (${totalItems})`}>
             {filteredSections.map((section) => (
-              <>
+              <React.Fragment key={section.id}>
                 <h6 className="u-mb-4">{section.title}</h6>
-                <SideMenuList key={section.id} className="u-mb-6">
+                <SideMenuList className="u-mb-6">
                   {section.items.map((item: any) => (
                     <SideMenuItem
                       key={item.id}
@@ -113,7 +113,7 @@ export const DocumentationSidebar = ({
                     </SideMenuItem>
                   ))}
                 </SideMenuList>
-              </>
+              </React.Fragment>
             ))}
           </AtomixSideMenu>
         ) : (
