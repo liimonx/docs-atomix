@@ -9,7 +9,6 @@ const DocsLayout = React.memo(function DocsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  console.log('DocsLayout rendering'); // Debug: Track re-renders
   return <AppLayout>{children}</AppLayout>;
 });
 

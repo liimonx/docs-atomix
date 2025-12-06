@@ -5,7 +5,7 @@ import { CodePreview } from "./CodePreview";
 
 interface ComponentExamplesProps {
   examples: ComponentExample[];
-  onCopy: (_code: string, _exampleId: string) => void;
+  onCopy: (code: string, exampleId: string) => void;
   copiedCode: string | null;
 }
 

@@ -17,7 +17,6 @@ const MemoizedDocumentationFooter = React.memo(DocumentationFooter);
 export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  console.log('AppLayout rendering'); // Debug: Track re-renders
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 

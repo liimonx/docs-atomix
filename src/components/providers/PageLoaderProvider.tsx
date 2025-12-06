@@ -6,11 +6,11 @@ import PageLoader from "@/components/ui/PageLoader";
 
 const LoadingContext = createContext<{
   loading: boolean;
-  setLoading: (loading: boolean) => void;
+  setLoading: (_loading: boolean) => void;
 }>({ loading: false, setLoading: () => {} });
 
 export const PageLoaderProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {

@@ -25,8 +25,7 @@ export const CodePreview: React.FC<CodePreviewProps> = ({ code, language }) => {
       }
 
       return jsxElements;
-    } catch (error) {
-      console.warn('Failed to render code preview:', error);
+    } catch {
       return null;
     }
   }, [code, language]);
@@ -133,8 +132,8 @@ function extractJSXElements(code: string): React.ReactNode[] {
       } else {
         elements.push(React.createElement(Component, { key: elements.length, ...props }));
       }
-    } catch (error) {
-      console.warn(`Failed to render ${componentName}:`, error);
+    } catch {
+      // Silently skip components that fail to render
     }
   }
   
