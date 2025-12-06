@@ -324,9 +324,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
       label: "Examples",
       content: (() => {
         // Create a wrapper function that matches the expected signature
-        const handleCopy = (code: string) => {
-          const example = componentDoc.examples.find((ex) => ex.code === code);
-          const exampleId = example?.id || componentDoc.examples[0]?.id || "";
+        const handleCopy = (code: string, exampleId: string) => {
           copyToClipboard(code, exampleId);
         };
 
