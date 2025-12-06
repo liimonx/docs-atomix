@@ -5,7 +5,7 @@ import { CodePreview } from "./CodePreview";
 
 interface ComponentExamplesProps {
   examples: ComponentExample[];
-  onCopy: (_code: string, _id: string) => void;
+  onCopy: (_code: string) => void;
   copiedCode: string | null;
 }
 
@@ -104,7 +104,7 @@ export const ComponentExamples: React.FC<ComponentExamplesProps> = ({
                       icon={<Icon name="Copy" size="sm" />}
                       variant="outline-primary"
                       size="sm"
-                      onClick={() => onCopy(example.code, exampleId)}
+                      onClick={() => onCopy(example.code)}
                     >
                       {copiedCode === exampleId ? "Copied!" : "Copy Code"}
                     </Button>

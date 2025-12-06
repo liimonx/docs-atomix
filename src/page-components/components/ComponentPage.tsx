@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 
 import {
@@ -125,7 +125,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
     },
   [componentData, navigationItem, componentId]);
 
-  const copyToClipboard = async (code: string, id: string) => {
+  const copyToClipboard = useCallback(async (code: string, id: string) => {
     try {
       await navigator.clipboard.writeText(code);
       setCopiedCode(id);
@@ -134,7 +134,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
     } catch (err) {
       toast.error("Failed to copy code");
     }
-  };
+  }, []);
 
   const getStatusColor = useMemo(() => (status: string) => {
     switch (status) {
@@ -322,13 +322,22 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
     },
     {
       label: "Examples",
-      content: (
-        <ComponentExamples
-          examples={componentDoc.examples}
-          onCopy={copyToClipboard}
-          copiedCode={copiedCode}
-        />
-      ),
+      content: (() => {
+        // Create a wrapper function that matches the expected signature
+        const handleCopy = (code: string) => {
+          const example = componentDoc.examples.find((ex) => ex.code === code);
+          const exampleId = example?.id || componentDoc.examples[0]?.id || "";
+          copyToClipboard(code, exampleId);
+        };
+
+        return (
+          <ComponentExamples
+            examples={componentDoc.examples}
+            onCopy={handleCopy}
+            copiedCode={copiedCode}
+          />
+        );
+      })(),
     },
     {
       label: "Props",

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -47,41 +47,14 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
     }
   }, []);
 
-  const getStatusColor = (
-    status: string
-  ): "success" | "warning" | "info" | "error" => {
-    switch (status) {
-      case "stable":
-        return "success";
-      case "beta":
-        return "warning";
-      case "alpha":
-        return "info";
-      case "deprecated":
-        return "error";
-      default:
-        return "info";
-    }
-  };
-
-  if (!componentDoc) {
-    return (
-      <Block>
-        <div className="u-text-center u-py-8">
-          <h1 className="u-fs-3xl u-fw-bold u-mb-4">Component Not Found</h1>
-          <p className="u-text-secondary-emphasis u-mb-6">
-            The requested component could not be found.
-          </p>
-          <Link href="/docs/components/overview">
-            <Button>Back to Components</Button>
-          </Link>
-        </div>
-      </Block>
-    );
-  }
-
   // Prepare tab items for Atomix Tabs component
-  const tabItems = React.useMemo(() => [
+  // Must be called before early return to follow Rules of Hooks
+  const tabItems = React.useMemo(() => {
+    if (!componentDoc) {
+      return [];
+    }
+    
+    return [
     {
       id: "overview",
       label: "Overview",
@@ -160,21 +133,32 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
     {
       id: "examples",
       label: "Examples",
-      content: (
+      content: (() => {
+        const examples = componentDoc.examples.map((example, index) => ({
+          id: `example-${index}`,
+          title: example.title,
+          description: example.description,
+          code: example.code,
+          language: "jsx",
+          category: "basic" as const,
+          preview: example.preview === null ? undefined : example.preview,
+        }));
+
+        // Create a wrapper function that matches the expected signature
+        const handleCopy = (code: string) => {
+          const example = examples.find((ex) => ex.code === code);
+          const exampleId = example?.id || examples[0]?.id || "";
+          copyToClipboard(code, exampleId);
+        };
+
+        return (
           <ComponentExamples
-            examples={componentDoc.examples.map((example, index) => ({
-              id: `example-${index}`,
-              title: example.title,
-              description: example.description,
-              code: example.code,
-              language: "jsx",
-              category: "basic" as const,
-              preview: example.preview === null ? undefined : example.preview,
-            }))}
-          onCopy={copyToClipboard}
-          copiedCode={copiedCode}
-        />
-      ),
+            examples={examples}
+            onCopy={handleCopy}
+            copiedCode={copiedCode}
+          />
+        );
+      })(),
     },
     {
       id: "props",
@@ -242,12 +226,46 @@ const ComponentDetailPage: React.FC<{ componentId?: string }> = ({
         );
       })(),
     },
-  ], [componentDoc, copiedCode, copyToClipboard]);
+    ];
+  }, [componentDoc, copiedCode, copyToClipboard]);
+
+  const getStatusColor = (
+    status: string
+  ): "success" | "warning" | "info" | "error" => {
+    switch (status) {
+      case "stable":
+        return "success";
+      case "beta":
+        return "warning";
+      case "alpha":
+        return "info";
+      case "deprecated":
+        return "error";
+      default:
+        return "info";
+    }
+  };
 
   const getActiveTabIndex = () => {
     const index = tabItems.findIndex((tab) => tab.id === activeTab);
     return index >= 0 ? index : 0;
   };
+
+  if (!componentDoc) {
+    return (
+      <Block>
+        <div className="u-text-center u-py-8">
+          <h1 className="u-fs-3xl u-fw-bold u-mb-4">Component Not Found</h1>
+          <p className="u-text-secondary-emphasis u-mb-6">
+            The requested component could not be found.
+          </p>
+          <Link href="/docs/components/overview">
+            <Button>Back to Components</Button>
+          </Link>
+        </div>
+      </Block>
+    );
+  }
 
   return (
     <div className="u-min-h-screen u-pb-xl">
