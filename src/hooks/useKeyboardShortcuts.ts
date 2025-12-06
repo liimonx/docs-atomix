@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 type KeyboardShortcut = {
-  [key: string]: (_event: KeyboardEvent) => void;
+  [key: string]: (event: KeyboardEvent) => void;
 };
 
 export const useKeyboardShortcuts = (shortcuts: KeyboardShortcut) => {

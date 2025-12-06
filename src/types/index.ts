@@ -183,12 +183,12 @@ export interface AppError {
 // Global Atomix Namespace for Vanilla JS Components
 export interface AtomixGlobal {
   Card?: any;
-  applyCardHoverEffect?: (_element: HTMLElement) => void;
-  applyCardFocusEffect?: (_element: HTMLElement) => void;
-  makeCardClickable?: (_element: HTMLElement, _onClick: () => void) => void;
+  applyCardHoverEffect?: (el: HTMLElement) => void;
+  applyCardFocusEffect?: (el: HTMLElement) => void;
+  makeCardClickable?: (el: HTMLElement, handler: () => void) => void;
   initializeAllCards?: () => void;
-  applyCardElevationEffect?: (_element: HTMLElement) => void;
-  applyCardFlipEffect?: (_element: HTMLElement) => void;
+  applyCardElevationEffect?: (el: HTMLElement) => void;
+  applyCardFlipEffect?: (el: HTMLElement) => void;
 }
 
 // Utility Types

@@ -17,7 +17,7 @@ export function createLazyComponent<T extends React.ComponentType<any>>(
  * Preload a route component
  * Can be called on hover or focus for better perceived performance
  */
-export function preloadRoute(__path: string): void {
+export function preloadRoute(_path: string): void {
   // This would be used with dynamic imports
   // Example: import(`@/page-components/${path}`)
 }
@@ -28,13 +28,13 @@ export function preloadRoute(__path: string): void {
 export function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number
-): (..._args: Parameters<T>) => void {
+): (...funcArgs: Parameters<T>) => void {
   let timeout: ReturnType<typeof setTimeout> | null = null;
 
-  return function executedFunction(...args: Parameters<T>) {
+  return function executedFunction(...funcArgs: Parameters<T>) {
     const later = () => {
       timeout = null;
-      func(...args);
+      func(...funcArgs);
     };
 
     if (timeout) {
@@ -50,12 +50,12 @@ export function debounce<T extends (...args: any[]) => any>(
 export function throttle<T extends (...args: any[]) => any>(
   func: T,
   limit: number
-): (..._args: Parameters<T>) => void {
+): (...funcArgs: Parameters<T>) => void {
   let inThrottle: boolean;
 
-  return function executedFunction(...args: Parameters<T>) {
+  return function executedFunction(...funcArgs: Parameters<T>) {
     if (!inThrottle) {
-      func(...args);
+      func(...funcArgs);
       inThrottle = true;
       setTimeout(() => {
         inThrottle = false;

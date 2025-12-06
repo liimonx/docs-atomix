@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-export const useCopyToClipboard = (): [boolean, (text: string) => Promise<boolean>] => {
+export const useCopyToClipboard = (): [boolean, (value: string) => Promise<boolean>] => {
   const [isCopied, setIsCopied] = useState(false);
 
-  const copy = async (text: string): Promise<boolean> => {
+  const copy = async (value: string): Promise<boolean> => {
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(value);
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
       return true;
