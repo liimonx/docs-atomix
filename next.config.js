@@ -15,6 +15,9 @@ const nextConfig = {
     optimizePackageImports: ['@shohojdhara/atomix', '@phosphor-icons/react'],
   },
   
+  // Turbopack configuration (empty to silence warning)
+  turbopack: {},
+  
   // Transpile packages that need to be processed by Next.js
   transpilePackages: ['@shohojdhara/atomix', '@phosphor-icons/react'],
   
