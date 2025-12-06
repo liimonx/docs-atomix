@@ -5,7 +5,7 @@ import type { ComponentDocumentation } from '@/types/index';
 interface InteractiveDemoProps {
   component: ComponentDocumentation;
   selectedExample: number;
-  onExampleChange: (index: number) => void;
+  onExampleChange: (idx: number) => void;
 }
 
 export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({

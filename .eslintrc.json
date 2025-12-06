@@ -7,13 +7,15 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "next/core-web-vitals"
   ],
-  "ignorePatterns": ["dist", ".eslintrc.json", "atomix-src", "out"],
+  "ignorePatterns": ["dist", ".eslintrc.json", "atomix-src", "out", ".next"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["react-hooks", "jsx-a11y"],
   "rules": {
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "no-console": "warn"
   }
 }

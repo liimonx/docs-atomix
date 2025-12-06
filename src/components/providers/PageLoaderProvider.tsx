@@ -6,7 +6,7 @@ import PageLoader from "@/components/ui/PageLoader";
 
 const LoadingContext = createContext<{
   loading: boolean;
-  setLoading: (value: boolean) => void;
+  setLoading: (isLoading: boolean) => void;
 }>({ loading: false, setLoading: () => {} });
 
 export const PageLoaderProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
