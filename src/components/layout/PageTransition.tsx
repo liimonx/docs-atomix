@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -8,7 +8,7 @@ interface PageTransitionProps {
   children: React.ReactNode;
 }
 
-export const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
+function PageTransitionContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   
@@ -30,5 +30,13 @@ export const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
         {children}
       </motion.div>
     </AnimatePresence>
+  );
+}
+
+export const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
+  return (
+    <Suspense fallback={<div>{children}</div>}>
+      <PageTransitionContent>{children}</PageTransitionContent>
+    </Suspense>
   );
 };

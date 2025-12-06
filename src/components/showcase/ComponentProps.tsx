@@ -23,7 +23,7 @@ export const ComponentProps: React.FC<ComponentPropsProps> = ({ props }) => {
         <div className="u-p-6">
           <h3 className="u-fs-xl u-fw-bold u-mb-4">Props</h3>
           <DataTable
-            data={props}
+            data={props || []}
             bordered
             striped
             dense
@@ -85,7 +85,7 @@ export const ComponentProps: React.FC<ComponentPropsProps> = ({ props }) => {
                 render: (_value: unknown, prop: PropDefinition) =>
                   prop.examples && prop.examples.length > 0 ? (
                     <ul className="u-list-unstyled u-mb-0 c-data-table__cell c-data-table__cell--body">
-                      {prop.examples.map((example, idx) => (
+                      {(prop.examples || []).map((example, idx) => (
                         <li
                           key={idx}
                           className="c-data-table__cell c-data-table__cell--body"

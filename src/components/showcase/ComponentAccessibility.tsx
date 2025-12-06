@@ -31,11 +31,11 @@ export const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ 
             <Badge label={`WCAG ${accessibility.wcagLevel}`} variant="info">WCAG {accessibility.wcagLevel}</Badge>
       </Card>
 
-      {accessibility.keyboardSupport.length > 0 && (
+      {(accessibility.keyboardSupport || []).length > 0 && (
         <Card className="u-mb-6">
             <h3 className="u-mb-2">Keyboard Support</h3>
             <DataTable
-              data={accessibility.keyboardSupport}
+              data={accessibility.keyboardSupport || []}
               bordered
               striped
               dense
@@ -64,11 +64,11 @@ export const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ 
         </Card>
       )}
 
-      {accessibility.ariaAttributes.length > 0 && (
+      {(accessibility.ariaAttributes || []).length > 0 && (
         <Card className="u-mb-6">
             <h3 className='u-mb-2'>ARIA Attributes</h3>
                 <DataTable
-              data={accessibility.ariaAttributes}
+              data={accessibility.ariaAttributes || []}
               bordered
               striped
               dense
@@ -114,11 +114,11 @@ export const ComponentAccessibility: React.FC<ComponentAccessibilityProps> = ({ 
         </Card>
       )}
 
-      {accessibility.guidelines.length > 0 && (
+      {(accessibility.guidelines || []).length > 0 && (
         <Card>
             <h3 className="u-mb-0">Guidelines</h3>
             <ul className="u-list-none u-mb-0">
-              {accessibility.guidelines.map((guideline, index) => (
+              {(accessibility.guidelines || []).map((guideline, index) => (
                 <li key={index} className="u-mb-2 u-d-flex u-align-items-start">
                   <span className="u-mr-2">•</span>
                   <span>{guideline}</span>

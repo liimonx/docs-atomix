@@ -45,13 +45,13 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
     getComponentDocumentation(componentId || ""),
   [componentId]);
 
-  const componentDoc: ComponentDocumentation = useMemo(() => 
-    componentData || {
+  const componentDoc: ComponentDocumentation = useMemo(() => {
+    const fallback = {
       name: navigationItem?.title || componentId || "",
       description: `A ${componentId} component for building user interfaces.`,
       category: navigationItem?.category || "Components",
       version: "1.0.0",
-      status: "stable",
+      status: "stable" as const,
       lastUpdated: new Date().toISOString().split("T")[0],
       author: "Atomix Team",
       importPath: `@shohojdhara/atomix/${navigationItem?.title || componentId}`,
@@ -120,10 +120,24 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
           "Components should be keyboard accessible",
           "Focus should be clearly visible",
         ],
-        wcagLevel: "AA",
+        wcagLevel: "AA" as const,
       },
-    },
-  [componentData, navigationItem, componentId]);
+    };
+    
+    if (!componentData) return fallback;
+    
+    // Ensure all arrays exist
+    return {
+      ...componentData,
+      features: componentData.features || fallback.features,
+      dependencies: componentData.dependencies || fallback.dependencies,
+      tags: componentData.tags || fallback.tags,
+      relatedComponents: componentData.relatedComponents || fallback.relatedComponents,
+      props: componentData.props || fallback.props,
+      examples: componentData.examples || fallback.examples,
+      usage: componentData.usage || fallback.usage,
+    };
+  }, [componentData, navigationItem, componentId]);
 
   const copyToClipboard = useCallback(async (code: string, id: string) => {
     try {
@@ -152,7 +166,8 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
   }, []);
 
   // Memoize tab items to prevent unnecessary re-renders
-  const tabItems = useMemo(() => [
+  const tabItems = useMemo(() => {
+    const items = [
     {
       label: "Overview",
       content: (
@@ -164,7 +179,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                   <Icon name="Sparkle" /> Features
                 </h3>
                 <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-wrap u-gap-2">
-                  {componentDoc.features.map((feature, index) => (
+                  {(componentDoc.features || []).map((feature, index) => (
                     <li
                       key={index}
                       className="u-d-flex u-align-items-start u-gap-4"
@@ -248,9 +263,9 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                   <h3 className="u-fs-lg u-fw-semibold u-mb-4">
                     <Icon name="Book" /> Dependencies
                   </h3>
-                  {componentDoc.dependencies.length > 0 ? (
+                  {(componentDoc.dependencies || []).length > 0 ? (
                     <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
-                      {componentDoc.dependencies.map((dep, index) => (
+                      {(componentDoc.dependencies || []).map((dep, index) => (
                         <li key={index}>
                           <Badge variant="warning" label={dep as string} />
                         </li>
@@ -268,7 +283,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
                     <Icon name="Tag" /> Tags
                   </h3>
                   <div className="u-d-flex u-flex-wrap u-gap-2">
-                    {componentDoc.tags.map((tag, index) => (
+                    {(componentDoc.tags || []).map((tag, index) => (
                       <Badge
                         key={index}
                         variant="secondary"
@@ -330,7 +345,7 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
 
         return (
           <ComponentExamples
-            examples={componentDoc.examples}
+            examples={componentDoc.examples || []}
             onCopy={handleCopy}
             copiedCode={copiedCode}
           />
@@ -339,16 +354,31 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
     },
     {
       label: "Props",
-      content: <ComponentProps props={componentDoc.props} />,
+      content: <ComponentProps props={componentDoc.props || []} />,
     },
     {
       label: "Accessibility",
       content: (
-        <ComponentAccessibility accessibility={componentDoc.accessibility} />
+        <ComponentAccessibility accessibility={componentDoc.accessibility || {
+          overview: "Accessibility information not available",
+          guidelines: [],
+          wcagLevel: "AA" as const,
+          keyboardSupport: [],
+          ariaAttributes: []
+        }} />
       ),
     },
-  ], [componentDoc, copiedCode, copyToClipboard, componentId]);
+  ];
+    
+    // Ensure all items have required properties
+    return items.filter(item => item && item.label && item.content);
+  }, [componentDoc, copiedCode, copyToClipboard, componentId]);
 
+  // Don't render tabs during SSR to avoid issues
+  if (!isMounted) {
+    return <div>Loading...</div>;
+  }
+  
   return (
     <div className="u-min-h-screen u-pb-xl">
       <Hero
@@ -447,12 +477,12 @@ const ComponentPage: React.FC<{ componentId: string }> = ({ componentId }) => {
         </div>
 
         <div className="u-mt-4">
-          <Tabs items={tabItems} activeIndex={0} />
+          <Tabs items={Array.isArray(tabItems) ? tabItems : []} activeIndex={0} />
         </div>
 
         <div className="u-mt-8">
           <ComponentRelated
-            relatedComponents={componentDoc.relatedComponents}
+            relatedComponents={componentDoc.relatedComponents || []}
           />
         </div>
       </Block>
