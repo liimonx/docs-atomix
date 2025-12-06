@@ -16,7 +16,11 @@ export const metadata: Metadata = {
     template: '%s | Atomix Documentation',
   },
   description: 'A modern React component library documentation site built with Atomix components.',
-
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   openGraph: {
     type: 'website',
     url: 'https://atomix-docs.vercel.app/',
