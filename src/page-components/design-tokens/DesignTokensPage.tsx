@@ -3,7 +3,6 @@
 import React, { useState, useMemo } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import {
-  Card,
   Button,
   Input,
   Select,
@@ -392,7 +391,7 @@ const DesignTokensPage: React.FC = () => {
               height: "100%",
               minHeight: "160px",
               display: "flex",
-              fle: "column",
+              flex: "column",
               alignItems: "center",
               justifyContent: "center",
               background: "linear-gradient(to right, #7c3aed10, #f3f4f630)",
@@ -434,7 +433,7 @@ const DesignTokensPage: React.FC = () => {
               height: "100%",
               minHeight: "160px",
               display: "flex",
-              fle: "column",
+              flex: "column",
               alignItems: "center",
               justifyContent: "center",
               background: "linear-gradient(45deg, #7c3aed10, #f3f4f630)",
@@ -491,7 +490,7 @@ const DesignTokensPage: React.FC = () => {
               height: "100%",
               minHeight: "160px",
               display: "flex",
-              fle: "column",
+              flex: "column",
               alignItems: "center",
               justifyContent: "center",
               background: "repeating-linear-gradient(45deg, #7c3aed10, #7c3aed10 10px, #f3f4f630 10px, #f3f4f630 20px)",
@@ -584,7 +583,7 @@ const DesignTokensPage: React.FC = () => {
             <div style={{
               width: "80%",
               display: "flex",
-              fle: "column",
+              flex: "column",
               gap: "12px",
             }}>
               <div style={{
@@ -773,7 +772,7 @@ const DesignTokensPage: React.FC = () => {
                   xl={3}
                   className="u-mb-4"
                 >
-                  <Card className="u-p-0 u-border u-border-solid u-rounded-lg u-h-100 u-overflow-hidden" 
+                  <div className="u-p-0 u-border u-border-solid u-rounded-lg u-h-100 u-overflow-hidden" 
                     style={{
                       transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                       background: 'rgba(255, 255, 255, 0.7)',
@@ -874,7 +873,7 @@ const DesignTokensPage: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                  </Card>
+                  </div>
                 </GridCol>
               ))}
             </Grid>

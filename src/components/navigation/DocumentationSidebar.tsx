@@ -5,8 +5,6 @@ import {
   Icon,
   Input,
   SideMenu as AtomixSideMenu,
-  SideMenuList,
-  SideMenuItem,
 } from "@shohojdhara/atomix";
 import { usePathname } from "next/navigation";
 import { navigationData } from "@/data/navigation";
@@ -29,7 +27,6 @@ export const DocumentationSidebar = ({
   const [searchTerm, setSearchTerm] = useState("");
   const pathname = usePathname();
 
-  // Simple filtering logic
   const filteredSections = useMemo(() => {
     if (!searchTerm.trim()) {
       return navigationData;
@@ -56,6 +53,18 @@ export const DocumentationSidebar = ({
     (sum, section) => sum + section.items.length,
     0
   );
+
+  const menuItems = useMemo(() => {
+    return filteredSections.map((section) => ({
+      title: section.title,
+      items: section.items.map((item: any) => ({
+        title: item.title,
+        href: item.path,
+        icon: <Icon name={item.icon} />,
+        active: pathname === item.path,
+      })),
+    }));
+  }, [filteredSections, pathname]);
 
   return (
     <div
@@ -92,29 +101,12 @@ export const DocumentationSidebar = ({
       {/* Navigation */}
       <div>
         {filteredSections.length > 0 ? (
-          <AtomixSideMenu title={`Documentation (${totalItems})`}>
-            {filteredSections.map((section) => (
-              <React.Fragment key={section.id}>
-                <h6 className="u-mb-4">{section.title}</h6>
-                <SideMenuList className="u-mb-6">
-                  {section.items.map((item: any) => (
-                    <SideMenuItem
-                      key={item.id}
-                      href={item.path}
-                      active={pathname === item.path}
-                      onClick={onClose}
-                      icon={<Icon name={item.icon} />}
-                      LinkComponent={Link}
-                    >
-                      {item.title}
-                      {item.badge && (
-                        <span className="u-ml-auto">{item.badge.text}</span>
-                      )}
-                    </SideMenuItem>
-                  ))}
-                </SideMenuList>
-              </React.Fragment>
-            ))}
+          <AtomixSideMenu
+            title={`Documentation (${totalItems})`}
+            menuItems={menuItems}
+            LinkComponent={Link}
+          >
+            {null}
           </AtomixSideMenu>
         ) : (
           <EmptySearchState />
