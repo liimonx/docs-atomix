@@ -6,6 +6,10 @@ import { ComponentPage } from "@/page-components";
 import { navigationData } from "@/data/navigation";
 import { generateComponentMetadata, validateRoute } from "@/utils/routeConfig";
 
+// Use 'auto' to allow both static and dynamic generation
+export const dynamic = 'auto';
+export const revalidate = 3600;
+
 export function generateStaticParams() {
   // Get all component IDs from navigation data
   const componentSection = navigationData.find(

@@ -12,7 +12,9 @@ import { generateMetadataFromSlug } from '@/utils/routeConfig';
 import type { RouteParams, ComponentPropsMap } from '@/types/routes';
 import DocumentationOverviewPage from '@/page-components/common/DocumentationOverviewPage';
 
-export const dynamic = 'error';
+// Use 'auto' to allow both static and dynamic generation
+// This ensures routes work on Vercel even if not all are pre-generated
+export const dynamic = 'auto';
 export const revalidate = 3600; // Revalidate docs pages hourly by default
 
 interface DynamicPageProps {
