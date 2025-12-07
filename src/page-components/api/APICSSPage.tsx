@@ -21,7 +21,7 @@ const APICSSPage = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
         <SectionIntro
           title="CSS API Reference"
           text="Comprehensive documentation for all Atomix CSS classes, custom properties, and mixins."

@@ -89,7 +89,7 @@ const HomePage: FC = () => {
   return (
     <>
           {/* Features Section */}
-          <Block spacing="sm" >
+          <Block spacing="sm" container={{type: 'fluid'}}>
             <SectionIntro title="Why Choose Atomix?" alignment="center" />
 
             <Row>
@@ -112,7 +112,7 @@ const HomePage: FC = () => {
           </Block>
 
           {/* Quick Links Section */}
-          <Block background="secondary" spacing="sm">
+          <Block background="secondary" spacing="sm" container={{type: 'fluid'}}>
             <SectionIntro title="Quick Start" alignment="center" />
             <Row>
               {quickLinks.map((link, index) => (

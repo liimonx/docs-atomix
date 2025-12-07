@@ -21,7 +21,7 @@ const GeneralThemingGuidePage = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
         <SectionIntro
           title="Customizing Atomix"
           text="Atomix provides flexible theming capabilities that allow you to customize colors, typography, spacing, and other design tokens to match your brand identity."

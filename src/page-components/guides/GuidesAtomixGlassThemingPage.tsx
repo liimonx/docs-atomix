@@ -31,7 +31,7 @@ const GuidesAtomixGlassThemingPage = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
         <SectionIntro
           title="Atomix Glass Theming"
           text="AtomixGlass is highly customizable, allowing you to create unique glass morphism effects that align with your brand. This guide covers theming options, custom configurations, and advanced techniques for creating stunning visual effects."

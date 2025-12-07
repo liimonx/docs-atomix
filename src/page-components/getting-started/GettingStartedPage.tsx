@@ -130,7 +130,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 }
               />
 
-              <Block spacing="sm">
+              <Block spacing="sm" container={{type: 'fluid'}}>
                 <h2 className="u-fs-3xl u-fw-bold u-mb-6">What is Atomix?</h2>
                 <p
                   className="u-text-secondary-emphasis u-mb-6"
@@ -224,7 +224,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Row>
               </Block>
 
-              <Block spacing="sm" background="secondary">
+              <Block spacing="sm" background="secondary" container={{type: 'fluid'}}>
                 <h2 className="u-fs-3xl u-fw-bold u-mb-6">Key Features</h2>
                 <Row>
                   {[
@@ -254,7 +254,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Row>
               </Block>
 
-              <Block spacing="sm">
+              <Block spacing="sm" container={{type: 'fluid'}}>
                 <Row justifyContent="center">
                   <GridCol lg={8}>
                     <Link
@@ -326,7 +326,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
           description: "Install Atomix in your React project",
           content: (
             <div>
-              <Block>
+              <Block container={{type: 'fluid'}}>
                 <h2 className="u-fs-3xl u-fw-bold u-mb-4">Prerequisites</h2>
                 <p
                   className="u-text-secondary-emphasis u-mb-6"

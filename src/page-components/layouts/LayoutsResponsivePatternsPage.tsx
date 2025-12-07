@@ -37,7 +37,7 @@ const LayoutsResponsivePatternsPage = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
         <SectionIntro
           title="Responsive Design Patterns"
           text="This guide covers common responsive design patterns and best practices using the Atomix Layout system. Learn how to create flexible, accessible layouts that work beautifully across all devices and screen sizes."

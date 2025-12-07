@@ -76,7 +76,7 @@ const ComponentsHomePage: FC = () => {
         }
       />
 
-      <Block spacing="md">
+      <Block spacing="md" container={{type: 'fluid'}}>
           {/* Stats Section */}
           <Grid>
             <GridCol md={4} sm={6}>
@@ -113,7 +113,7 @@ const ComponentsHomePage: FC = () => {
           </Grid>
       </Block>
 
-      <Block spacing="md" background="secondary">
+      <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
           <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-6">
             <SectionIntro
               title="Categories"
@@ -152,7 +152,7 @@ const ComponentsHomePage: FC = () => {
           </Grid>
       </Block>
 
-      <Block spacing="md">
+      <Block spacing="md" container={{type: 'fluid'}}>
           <SectionIntro
             title="Featured Components"
             text="Stable, production-ready components"
@@ -201,7 +201,7 @@ const ComponentsHomePage: FC = () => {
             </Grid>
       </Block>
 
-      <Block spacing="md" background="secondary">
+      <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
           <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-6">
             <SectionIntro
               title="Recently Updated"

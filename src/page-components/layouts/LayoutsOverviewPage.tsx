@@ -53,7 +53,7 @@ const LayoutsOverviewPage: FC = () => {
         }
       />
 
-        <Block spacing="sm">
+        <Block spacing="sm" container={{type: 'fluid'}}>
           <SectionIntro 
             title="Building Responsive Layouts"
             text="Create flexible, responsive layouts with our collection of layout components designed for modern web applications."

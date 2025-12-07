@@ -81,7 +81,7 @@ const GuidesAtomixGlassPerformancePage = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
         <SectionIntro
           title="Performance Optimization Guide"
           text="The AtomixGlass component creates stunning glass morphism effects but can be performance-intensive. This guide provides best practices, optimization techniques, and monitoring strategies to ensure smooth, performant experiences across all devices."

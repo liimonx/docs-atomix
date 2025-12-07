@@ -90,7 +90,7 @@ const MigrationPage: FC = () => {
         <p className="u-text-secondary-emphasis">Complete migration guide with step-by-step instructions, class mappings, and automated tools to make the transition smooth.</p>
       </Hero>
 
-      <Block spacing="md">
+      <Block spacing="md" container={{type: 'fluid'}}>
         <SectionIntro
           title="Why Migrate to Atomix?"
           text="Discover the benefits of transitioning to Atomix Design System"
@@ -117,7 +117,7 @@ const MigrationPage: FC = () => {
         </Row>
       </Block>
 
-      <Block spacing="md" background="secondary">
+      <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
         <SectionIntro
           title="Migration Strategy"
           text="Follow these steps for a smooth migration process"
@@ -148,7 +148,7 @@ const MigrationPage: FC = () => {
         </Row>
       </Block>
 
-      <Block spacing="md">
+      <Block spacing="md" container={{type: 'fluid'}}>
         <Callout variant="info" title="Need Help?">
           <p className="u-mb-3">
             If you need assistance with your migration, check out our{' '}

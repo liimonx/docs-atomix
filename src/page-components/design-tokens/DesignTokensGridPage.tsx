@@ -1,6 +1,6 @@
 "use client";
 
-
+import { useMemo } from "react";
 import {
   Hero,
   SectionIntro,
@@ -11,8 +11,53 @@ import {
   DataTable,
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
+import { getTokensByCategory } from "@/data/design-tokens";
 
 const DesignTokensGridPage = () => {
+  // Get breakpoints tokens from design tokens
+  const breakpointsCategory = useMemo(() => getTokensByCategory('breakpoints'), []);
+  const breakpointsTokens = useMemo(() => breakpointsCategory?.tokens || [], [breakpointsCategory]);
+
+  // Get spacing tokens for grid gutters (commonly used spacing values)
+  const spacingCategory = useMemo(() => getTokensByCategory('spacing'), []);
+  const gutterSpacingTokens = useMemo(() => {
+    if (!spacingCategory) return [];
+    // Filter for commonly used gutter spacing values
+    const gutterSpacings = ['2', '3', '4', '6', '8'];
+    return spacingCategory.tokens.filter(token => 
+      gutterSpacings.some(spacing => token.name.includes(`Spacing ${spacing}`) && !token.name.includes('PX'))
+    );
+  }, [spacingCategory]);
+
+  // Format breakpoint data for DataTable
+  const breakpointTableData = useMemo(() => {
+    return breakpointsTokens.map(token => ({
+      key: token.cssVariable?.replace('var(--', '').replace(')', '') || token.name.toLowerCase().replace(/\s+/g, '-'),
+      value: token.value,
+      description: token.description,
+      cssVariable: token.cssVariable || '',
+      render: (value: string) => <code>{value}</code>,
+    }));
+  }, [breakpointsTokens]);
+
+  // Format spacing data for DataTable
+  const spacingTableData = useMemo(() => {
+    return gutterSpacingTokens.map(token => {
+      // Extract pixel value from description if available
+      const pixelMatch = token.description.match(/\((\d+px)\)/);
+      const pixelValue = pixelMatch ? pixelMatch[1] : '';
+      const displayValue = pixelValue ? `${token.value} (${pixelValue})` : token.value;
+      
+      return {
+        key: token.cssVariable?.replace('var(--', '').replace(')', '') || token.name.toLowerCase().replace(/\s+/g, '-'),
+        value: displayValue,
+        description: token.description,
+        cssVariable: token.cssVariable || '',
+        render: (value: string) => <code>{value}</code>,
+      };
+    });
+  }, [gutterSpacingTokens]);
+
   return (
     <>
       <Hero
@@ -66,10 +111,10 @@ const DesignTokensGridPage = () => {
         }
       />
 
-      <Block spacing="sm">
+      <Block spacing="sm" container={{type: 'fluid'}}>
         <SectionIntro
           title="Grid System Design Tokens"
-          text="Atomix uses a flexible 12-column grid system with responsive breakpoints and customizable gutters. These design tokens provide the foundation for creating consistent, responsive layouts across your application."
+          text={`Atomix uses a flexible 12-column grid system with responsive breakpoints and customizable gutters. The grid system is built on ${breakpointsTokens.length} breakpoint tokens and ${gutterSpacingTokens.length} spacing tokens that provide the foundation for creating consistent, responsive layouts across your application.`}
           className="u-text-center"
         />
 
@@ -78,12 +123,14 @@ const DesignTokensGridPage = () => {
             <Card 
               variant="success"
               style={{
-                background: 'rgba(255, 255, 255, 0.7)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(16, 185, 129, 0.2)',
-                borderRadius: '12px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(34, 197, 94, 0.2)',
+                borderRadius: 'var(--atomix-border-radius-xl)',
                 overflow: 'hidden',
-                position: 'relative'
+                position: 'relative',
+                boxShadow: '0 4px 24px rgba(34, 197, 94, 0.08)',
+                transition: 'all 0.3s ease'
               }}
             >
               <div style={{
@@ -92,15 +139,16 @@ const DesignTokensGridPage = () => {
                 left: 0,
                 right: 0,
                 height: '4px',
-                background: 'linear-gradient(90deg, #10b981, #34d399)',
+                background: 'linear-gradient(90deg, var(--atomix-success), var(--atomix-success-hover))',
               }} />
               <h3 style={{
-                background: 'linear-gradient(90deg, #10b981, #047857)',
+                background: 'linear-gradient(135deg, var(--atomix-success), var(--atomix-success-hover))',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                fontWeight: '700',
-                fontSize: '1.5rem'
+                fontWeight: 'var(--atomix-font-weight-bold)',
+                fontSize: 'var(--atomix-font-size-2xl)',
+                marginBottom: 'var(--atomix-spacing-2)'
               }}>Grid Breakpoints</h3>
               <p>
                 The grid system uses the following breakpoints for responsive
@@ -108,52 +156,9 @@ const DesignTokensGridPage = () => {
               </p>
 
               <DataTable
-                data={[
-                  {
-                    key: "grid-breakpoint-xs",
-                    value: "0px",
-                    description: "Extra Small",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-breakpoint-sm",
-                    value: "576px",
-                    description: "Small",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-breakpoint-md",
-                    value: "768px",
-                    description: "Medium",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-breakpoint-lg",
-                    value: "992px",
-                    description: "Large",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-breakpoint-xl",
-                    value: "1200px",
-                    description: "Extra Large",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-breakpoint-xxl",
-                    value: "1400px",
-                    description: "Extra Extra Large",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-breakpoint-xxxl",
-                    value: "1600px",
-                    description: "Extra Extra Extra Large",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                ]}
+                data={breakpointTableData}
                 columns={[
-                  { key: "key", title: "Key" },
+                  { key: "key", title: "Token Name" },
                   { key: "value", title: "Value" },
                   { key: "description", title: "Description" },
                 ]}
@@ -161,8 +166,9 @@ const DesignTokensGridPage = () => {
                 bordered
                 dense
                 style={{
-                  borderRadius: '8px',
-                  overflow: 'hidden'
+                  borderRadius: 'var(--atomix-border-radius-lg)',
+                  overflow: 'hidden',
+                  border: '1px solid var(--atomix-primary-border-subtle)'
                 }}
               />
             </Card>
@@ -171,12 +177,14 @@ const DesignTokensGridPage = () => {
             <Card 
               variant="warning"
               style={{
-                background: 'rgba(255, 255, 255, 0.7)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(245, 158, 11, 0.2)',
-                borderRadius: '12px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(234, 179, 8, 0.2)',
+                borderRadius: 'var(--atomix-border-radius-xl)',
                 overflow: 'hidden',
-                position: 'relative'
+                position: 'relative',
+                boxShadow: '0 4px 24px rgba(234, 179, 8, 0.08)',
+                transition: 'all 0.3s ease'
               }}
             >
               <div style={{
@@ -185,65 +193,23 @@ const DesignTokensGridPage = () => {
                 left: 0,
                 right: 0,
                 height: '4px',
-                background: 'linear-gradient(90deg, #f59e0b, #fbbf24)',
+                background: 'linear-gradient(90deg, var(--atomix-warning), var(--atomix-warning-hover))',
               }} />
               <h3 style={{
-                background: 'linear-gradient(90deg, #f59e0b, #92400e)',
+                background: 'linear-gradient(135deg, var(--atomix-warning), var(--atomix-warning-hover))',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                fontWeight: '700',
-                fontSize: '1.5rem'
+                fontWeight: 'var(--atomix-font-weight-bold)',
+                fontSize: 'var(--atomix-font-size-2xl)',
+                marginBottom: 'var(--atomix-spacing-2)'
               }}>Grid Gutters</h3>
               <p>Gutters define the spacing between columns:</p>
 
               <DataTable
-                data={[
-                  {
-                    key: "grid-gutter-xs",
-                    value: "8px",
-                    description: "Extra Small",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-gutter-sm",
-                    value: "12px",
-                    description: "Small",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-gutter-md",
-                    value: "16px",
-                    description: "Medium",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-gutter-lg",
-                    value: "24px",
-                    description: "Large",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-gutter-xl",
-                    value: "32px",
-                    description: "Extra Large",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-gutter-xxl",
-                    value: "40px",
-                    description: "Extra Extra Large",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                  {
-                    key: "grid-gutter-xxxl",
-                    value: "48px",
-                    description: "Extra Extra Extra Large",
-                    render: (value: string) => <code>{value}</code>,
-                  },
-                ]}
+                data={spacingTableData}
                 columns={[
-                  { key: "key", title: "Key" },
+                  { key: "key", title: "Token Name" },
                   { key: "value", title: "Value" },
                   { key: "description", title: "Description" },
                 ]}
@@ -251,8 +217,9 @@ const DesignTokensGridPage = () => {
                 bordered
                 dense
                 style={{
-                  borderRadius: '8px',
-                  overflow: 'hidden'
+                  borderRadius: 'var(--atomix-border-radius-lg)',
+                  overflow: 'hidden',
+                  border: '1px solid var(--atomix-primary-border-subtle)'
                 }}
               />
             </Card>
@@ -266,12 +233,14 @@ const DesignTokensGridPage = () => {
               className="" 
               variant="error"
               style={{
-                background: 'rgba(255, 255, 255, 0.7)',
-                backdropFilter: 'blur(10px)',
+                background: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(20px)',
                 border: '1px solid rgba(239, 68, 68, 0.2)',
-                borderRadius: '12px',
+                borderRadius: 'var(--atomix-border-radius-xl)',
                 overflow: 'hidden',
-                position: 'relative'
+                position: 'relative',
+                boxShadow: '0 4px 24px rgba(239, 68, 68, 0.08)',
+                transition: 'all 0.3s ease'
               }}
             >
               <div style={{
@@ -280,15 +249,16 @@ const DesignTokensGridPage = () => {
                 left: 0,
                 right: 0,
                 height: '4px',
-                background: 'linear-gradient(90deg, #ef4444, #f87171)',
+                background: 'linear-gradient(90deg, var(--atomix-error), var(--atomix-error-hover))',
               }} />
               <h3 style={{
-                background: 'linear-gradient(90deg, #ef4444, #b91c1c)',
+                background: 'linear-gradient(135deg, var(--atomix-error), var(--atomix-error-hover))',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                fontWeight: '700',
-                fontSize: '1.5rem'
+                fontWeight: 'var(--atomix-font-weight-bold)',
+                fontSize: 'var(--atomix-font-size-2xl)',
+                marginBottom: 'var(--atomix-spacing-2)'
               }}>Visual Example</h3>
               <p className="u-mb-4">
                 Here's a live example of the 12-column grid system:
@@ -296,12 +266,13 @@ const DesignTokensGridPage = () => {
 
               <div
                 style={{
-                  border: "1px solid var(--atomix-border)",
-                  padding: "16px",
-                  borderRadius: "8px",
-                  background: 'linear-gradient(135deg, #f3f4f6, #e5e7eb)',
+                  border: "1px solid var(--atomix-primary-border-subtle)",
+                  padding: "var(--atomix-spacing-4)",
+                  borderRadius: "var(--atomix-border-radius-lg)",
+                  background: 'var(--atomix-secondary-gradient)',
                   position: 'relative',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  boxShadow: 'inset 0 2px 8px rgba(124, 58, 237, 0.05)'
                 }}
               >
                 <div style={{
@@ -325,14 +296,15 @@ const DesignTokensGridPage = () => {
                       <div
                         style={{
                           background: "var(--atomix-brand-bg-subtle)",
-                          padding: "8px",
+                          padding: "var(--atomix-spacing-2)",
                           textAlign: "center",
-                          borderRadius: "4px",
-                          fontSize: "12px",
-                          fontWeight: 'bold',
-                          color: '#7c3aed',
-                          border: '1px solid rgba(124, 58, 237, 0.3)',
-                          boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+                          borderRadius: "var(--atomix-border-radius-md)",
+                          fontSize: "var(--atomix-font-size-sm)",
+                          fontWeight: 'var(--atomix-font-weight-semibold)',
+                          color: 'var(--atomix-primary)',
+                          border: '1px solid rgba(124, 58, 237, 0.2)',
+                          boxShadow: '0 2px 8px rgba(124, 58, 237, 0.1)',
+                          transition: 'all 0.2s ease'
                         }}
                       >
                         {i + 1}
@@ -346,13 +318,14 @@ const DesignTokensGridPage = () => {
                     <div
                       style={{
                         background: "var(--atomix-brand-bg-subtle)",
-                        padding: "16px",
+                        padding: "var(--atomix-spacing-4)",
                         textAlign: "center",
-                        borderRadius: "4px",
-                        fontWeight: 'bold',
-                        color: '#7c3aed',
-                        border: '1px solid rgba(124, 58, 237, 0.3)',
-                        boxShadow: '0 4px 8px rgba(0,0,0,0.05)'
+                        borderRadius: "var(--atomix-border-radius-md)",
+                        fontWeight: 'var(--atomix-font-weight-semibold)',
+                        color: 'var(--atomix-primary)',
+                        border: '1px solid rgba(124, 58, 237, 0.2)',
+                        boxShadow: '0 4px 12px rgba(124, 58, 237, 0.15)',
+                        transition: 'all 0.2s ease'
                       }}
                     >
                       6 columns
@@ -362,13 +335,14 @@ const DesignTokensGridPage = () => {
                     <div
                       style={{
                         background: "var(--atomix-brand-bg-subtle)",
-                        padding: "16px",
+                        padding: "var(--atomix-spacing-4)",
                         textAlign: "center",
-                        borderRadius: "4px",
-                        fontWeight: 'bold',
-                        color: '#7c3aed',
-                        border: '1px solid rgba(124, 58, 237, 0.3)',
-                        boxShadow: '0 4px 8px rgba(0,0,0,0.05)'
+                        borderRadius: "var(--atomix-border-radius-md)",
+                        fontWeight: 'var(--atomix-font-weight-semibold)',
+                        color: 'var(--atomix-primary)',
+                        border: '1px solid rgba(124, 58, 237, 0.2)',
+                        boxShadow: '0 4px 12px rgba(124, 58, 237, 0.15)',
+                        transition: 'all 0.2s ease'
                       }}
                     >
                       6 columns
@@ -381,13 +355,14 @@ const DesignTokensGridPage = () => {
                     <div
                       style={{
                         background: "var(--atomix-brand-bg-subtle)",
-                        padding: "16px",
+                        padding: "var(--atomix-spacing-4)",
                         textAlign: "center",
-                        borderRadius: "4px",
-                        fontWeight: 'bold',
-                        color: '#7c3aed',
-                        border: '1px solid rgba(124, 58, 237, 0.3)',
-                        boxShadow: '0 4px 8px rgba(0,0,0,0.05)'
+                        borderRadius: "var(--atomix-border-radius-md)",
+                        fontWeight: 'var(--atomix-font-weight-semibold)',
+                        color: 'var(--atomix-primary)',
+                        border: '1px solid rgba(124, 58, 237, 0.2)',
+                        boxShadow: '0 4px 12px rgba(124, 58, 237, 0.15)',
+                        transition: 'all 0.2s ease'
                       }}
                     >
                       4 columns
@@ -397,13 +372,14 @@ const DesignTokensGridPage = () => {
                     <div
                       style={{
                         background: "var(--atomix-brand-bg-subtle)",
-                        padding: "16px",
+                        padding: "var(--atomix-spacing-4)",
                         textAlign: "center",
-                        borderRadius: "4px",
-                        fontWeight: 'bold',
-                        color: '#7c3aed',
-                        border: '1px solid rgba(124, 58, 237, 0.3)',
-                        boxShadow: '0 4px 8px rgba(0,0,0,0.05)'
+                        borderRadius: "var(--atomix-border-radius-md)",
+                        fontWeight: 'var(--atomix-font-weight-semibold)',
+                        color: 'var(--atomix-primary)',
+                        border: '1px solid rgba(124, 58, 237, 0.2)',
+                        boxShadow: '0 4px 12px rgba(124, 58, 237, 0.15)',
+                        transition: 'all 0.2s ease'
                       }}
                     >
                       4 columns
@@ -413,13 +389,14 @@ const DesignTokensGridPage = () => {
                     <div
                       style={{
                         background: "var(--atomix-brand-bg-subtle)",
-                        padding: "16px",
+                        padding: "var(--atomix-spacing-4)",
                         textAlign: "center",
-                        borderRadius: "4px",
-                        fontWeight: 'bold',
-                        color: '#7c3aed',
-                        border: '1px solid rgba(124, 58, 237, 0.3)',
-                        boxShadow: '0 4px 8px rgba(0,0,0,0.05)'
+                        borderRadius: "var(--atomix-border-radius-md)",
+                        fontWeight: 'var(--atomix-font-weight-semibold)',
+                        color: 'var(--atomix-primary)',
+                        border: '1px solid rgba(124, 58, 237, 0.2)',
+                        boxShadow: '0 4px 12px rgba(124, 58, 237, 0.15)',
+                        transition: 'all 0.2s ease'
                       }}
                     >
                       4 columns

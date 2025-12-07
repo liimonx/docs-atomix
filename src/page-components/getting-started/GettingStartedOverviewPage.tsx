@@ -54,7 +54,7 @@ const GettingStartedOverviewPage: FC = () => {
           }
         />
 
-        <Block spacing="sm">
+        <Block spacing="sm" container={{type: 'fluid'}}>
           <SectionIntro 
             title="Your First Steps with Atomix"
             text="Follow our comprehensive guides to integrate Atomix into your project and start building modern, accessible user interfaces."

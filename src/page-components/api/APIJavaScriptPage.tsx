@@ -31,7 +31,7 @@ const APIJavaScriptPage = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
         <SectionIntro
           title="JavaScript API Reference"
           text="Comprehensive documentation for all Atomix JavaScript classes, functions, and utilities."

@@ -32,7 +32,7 @@ const ExamplesCommonPatternsPage = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
         <SectionIntro
           title="Common Design Patterns"
           text="A collection of common design patterns implemented with Atomix components for reference and inspiration."

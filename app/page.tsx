@@ -281,7 +281,7 @@ export default function Page() {
       />
 
       {/* Statistics Section */}
-      <Block spacing="md" background="secondary">
+      <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
         <Container>
           <SectionIntro
             title="By the Numbers"
@@ -310,7 +310,7 @@ export default function Page() {
       </Block>
 
       {/* Features Section */}
-      <Block spacing="md">
+      <Block spacing="md" container={{type: 'fluid'}}>
         <Container>
           <SectionIntro
             title="Why Choose Atomix?"
@@ -338,7 +338,7 @@ export default function Page() {
       </Block>
 
       {/* Philosophy Section */}
-      <Block background="secondary" spacing="md">
+      <Block background="secondary" spacing="md" container={{type: 'fluid'}}>
         <Container>
           <SectionIntro
             title="Our Design Philosophy"
@@ -361,7 +361,7 @@ export default function Page() {
       </Block>
 
       {/* Quick Links Section */}
-      <Block spacing="md">
+      <Block spacing="md" container={{type: 'fluid'}}>
         <Container>
           <SectionIntro
             title="Quick Start"
@@ -411,6 +411,7 @@ export default function Page() {
         background="secondary"
         spacing="md"
         className="u-overflow-hidden"
+        container={{type: 'fluid'}}
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",

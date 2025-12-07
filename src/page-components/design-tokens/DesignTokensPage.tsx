@@ -90,8 +90,13 @@ const DesignTokensPage: FC = () => {
       token.category === "semantic" ||
       token.category === "neutral" ||
       token.category === "primary-scale" ||
+      token.category === "red-scale" ||
+      token.category === "green-scale" ||
+      token.category === "blue-scale" ||
+      token.category === "yellow-scale" ||
       token.category === "text" ||
       token.category === "background" ||
+      token.category === "border" ||
       token.category === "hover" ||
       token.value.startsWith("#") ||
       token.value.startsWith("rgb") ||
@@ -189,12 +194,14 @@ const DesignTokensPage: FC = () => {
       // Determine if we need a border for light colors
       const needsBorder = 
         token.value === "#ffffff" ||
+        token.value === "#fff" ||
         token.value === "#f9fafb" ||
         token.value === "#f3f4f6" ||
         token.value.toLowerCase().includes("white") ||
         cssVar?.includes("primary-bg-subtle") ||
         cssVar?.includes("secondary-bg-subtle") ||
-        cssVar?.includes("tertiary-bg-subtle");
+        cssVar?.includes("tertiary-bg-subtle") ||
+        cssVar?.includes("light-bg-subtle");
 
       return (
         <div
@@ -299,7 +306,7 @@ const DesignTokensPage: FC = () => {
               alignItems: "center",
               justifyContent: "center",
               backgroundColor: "var(--atomix-secondary-bg-subtle)",
-              borderRadius: "var(--atomix-border-radius-md)",
+              borderRadius: "var(--atomix-border-radius)",
               boxShadow: cssVar || (token.value === "none" ? "none" : token.value),
               border: token.value === "none"
                 ? "2px dashed var(--atomix-primary-border-subtle)"
@@ -415,7 +422,7 @@ const DesignTokensPage: FC = () => {
               style={{
                 fontFamily: fontFamilyValue,
                 fontSize: "14px",
-                color: "var(--atomix-primary-text-secondary)",
+                color: "var(--atomix-secondary-text-emphasis)",
                 textAlign: "center",
               }}
             >
@@ -459,19 +466,19 @@ const DesignTokensPage: FC = () => {
             }}>
               <span style={{
                 fontSize: "10px",
-                color: "var(--atomix-primary-text-secondary)",
+                color: "var(--atomix-secondary-text-emphasis)",
               }}>
                 Small
               </span>
               <span style={{
                 fontSize: "14px",
-                color: "var(--atomix-primary-text-secondary)",
+                color: "var(--atomix-secondary-text-emphasis)",
               }}>
                 Medium
               </span>
               <span style={{
                 fontSize: "18px",
-                color: "var(--atomix-primary-text-secondary)",
+                color: "var(--atomix-secondary-text-emphasis)",
               }}>
                 Large
               </span>
@@ -500,7 +507,7 @@ const DesignTokensPage: FC = () => {
           >
             <span
               style={{
-                fontFamily: "var(--atomix-font-family-base)",
+                fontFamily: "var(--atomix-body-font-family)",
                 fontWeight: weightValue,
                 fontSize: "var(--atomix-font-size-2xl)",
                 color: "var(--atomix-primary-text-emphasis)",
@@ -512,10 +519,10 @@ const DesignTokensPage: FC = () => {
             </span>
             <span
               style={{
-                fontFamily: "var(--atomix-font-family-base)",
+                fontFamily: "var(--atomix-body-font-family)",
                 fontWeight: weightValue,
                 fontSize: "var(--atomix-font-size-sm)",
-                color: "var(--atomix-primary-text-secondary)",
+                color: "var(--atomix-secondary-text-emphasis)",
                 textAlign: "center",
               }}
             >
@@ -560,12 +567,14 @@ const DesignTokensPage: FC = () => {
         const formColorValue = cssVar || token.value;
         const needsBorder = 
           token.value === "#ffffff" ||
+          token.value === "#fff" ||
           token.value === "#f9fafb" ||
           token.value === "#f3f4f6" ||
           token.value.toLowerCase().includes("white") ||
           cssVar?.includes("primary-bg-subtle") ||
           cssVar?.includes("secondary-bg-subtle") ||
-          cssVar?.includes("tertiary-bg-subtle");
+          cssVar?.includes("tertiary-bg-subtle") ||
+          cssVar?.includes("light-bg-subtle");
         return (
           <div
             style={{
@@ -668,6 +677,134 @@ const DesignTokensPage: FC = () => {
           </div>
         );
       }
+      case "breakpoint": {
+        // Extract breakpoint value
+        const breakpointValue = cssVar || token.value;
+        return (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              minHeight: "160px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "linear-gradient(135deg, #7c3aed10, #f3f4f630)",
+              gap: "8px",
+              padding: "16px",
+            }}
+          >
+            <div style={{
+              width: "80%",
+              height: "40px",
+              backgroundColor: "var(--atomix-brand-bg-subtle)",
+              borderRadius: "var(--atomix-border-radius-sm)",
+              border: "2px solid var(--atomix-primary-border-subtle)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "var(--atomix-font-size-sm)",
+              fontWeight: "var(--atomix-font-weight-semibold)",
+              color: "var(--atomix-primary-text-emphasis)",
+            }}>
+              {breakpointValue === "0" ? "Mobile" : breakpointValue}
+            </div>
+            <span style={{
+              fontSize: "var(--atomix-font-size-xs)",
+              color: "var(--atomix-primary-text-secondary)",
+              textAlign: "center",
+            }}>
+              {token.name}
+            </span>
+          </div>
+        );
+      }
+      case "transition": {
+        const transitionValue = cssVar || token.value;
+        return (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              minHeight: "160px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "linear-gradient(135deg, #7c3aed10, #f3f4f630)",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                width: "60px",
+                height: "60px",
+                backgroundColor: "var(--atomix-primary)",
+                borderRadius: "var(--atomix-border-radius-sm)",
+                transition: transitionValue,
+                animation: "pulse 2s ease-in-out infinite",
+              }}
+            />
+            <style>{`
+              @keyframes pulse {
+                0%, 100% { transform: scale(1); opacity: 1; }
+                50% { transform: scale(1.1); opacity: 0.8; }
+              }
+            `}</style>
+            <div style={{
+              position: "absolute",
+              bottom: "10px",
+              fontSize: "var(--atomix-font-size-xs)",
+              color: "var(--atomix-primary-text-secondary)",
+              textAlign: "center",
+            }}>
+              {token.name}
+            </div>
+          </div>
+        );
+      }
+      case "letter-spacing": {
+        const letterSpacingValue = cssVar || token.value;
+        return (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              minHeight: "160px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "linear-gradient(135deg, #7c3aed10, #f3f4f630)",
+              gap: "12px",
+              padding: "16px",
+            }}
+          >
+            <span
+              style={{
+                letterSpacing: letterSpacingValue,
+                fontSize: "var(--atomix-font-size-2xl)",
+                color: "var(--atomix-primary-text-emphasis)",
+                fontWeight: "var(--atomix-font-weight-semibold)",
+                textAlign: "center",
+              }}
+            >
+              Aa
+            </span>
+            <span
+              style={{
+                letterSpacing: letterSpacingValue,
+                fontSize: "var(--atomix-font-size-md)",
+                color: "var(--atomix-secondary-text-emphasis)",
+                textAlign: "center",
+              }}
+            >
+              {token.name}
+            </span>
+          </div>
+        );
+      }
       default:
         return (
           <div
@@ -679,7 +816,7 @@ const DesignTokensPage: FC = () => {
               alignItems: "center",
               justifyContent: "center",
               background: "linear-gradient(135deg, #7c3aed20, #f3f4f640)",
-              borderRadius: "var(--atomix-border-radius-md)",
+              borderRadius: "var(--atomix-border-radius)",
             }}
           >
             <span style={{ 
@@ -728,7 +865,8 @@ const DesignTokensPage: FC = () => {
                   setSearchQuery(e.target.value)
                 }
                 style={{
-                  boxShadow: "0 4px 20px rgba(124, 58, 237, 0.15)",
+                  boxShadow: "0 4px 24px rgba(124, 58, 237, 0.12)",
+                  borderRadius: "var(--atomix-border-radius-lg)",
                 }}
               />
             </GridCol>
@@ -741,7 +879,8 @@ const DesignTokensPage: FC = () => {
                 }}
                 options={categories}
                 style={{
-                  boxShadow: "0 4px 20px rgba(124, 58, 237, 0.15)",
+                  boxShadow: "0 4px 24px rgba(124, 58, 237, 0.12)",
+                  borderRadius: "var(--atomix-border-radius-lg)",
                 }}
               />
             </GridCol>
@@ -750,17 +889,21 @@ const DesignTokensPage: FC = () => {
         backgroundImageSrc="https://images.unsplash.com/photo-1760976180663-946ff68fa64c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1034"
       />
 
-      <Block className="u-mt-8">
+      <Block className="u-mt-8" container={{type: 'fluid'}}>
         {Object.entries(groupedTokens).map(([category, tokens]) => (
-          <div key={category} className="u-mb-8">
-            <h2 className="u-fs-lg u-fw-semibold u-mb-2" style={{
+          <div key={category} className="u-mb-8" style={{ marginBottom: 'var(--atomix-spacing-12)' }}>
+            <h2 className="u-fs-lg u-fw-semibold u-mb-4" style={{
               textTransform: 'uppercase',
-              letterSpacing: '1px',
-              fontSize: '1.25rem',
-              background: 'linear-gradient(90deg, var(--atomix-primary), var(--atomix-secondary))',
+              letterSpacing: '2px',
+              fontSize: 'var(--atomix-font-size-xl)',
+              background: 'linear-gradient(135deg, var(--atomix-primary), var(--atomix-primary-7))',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
+              fontWeight: 'var(--atomix-font-weight-bold)',
+              marginBottom: 'var(--atomix-spacing-6)',
+              paddingBottom: 'var(--atomix-spacing-2)',
+              borderBottom: '2px solid var(--atomix-primary-border-subtle)'
             }}>{category}</h2>
 
             <Grid>
@@ -774,18 +917,22 @@ const DesignTokensPage: FC = () => {
                 >
                   <div className="u-p-0 u-border u-border-solid u-rounded-lg u-h-100 u-overflow-hidden" 
                     style={{
-                      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                      background: 'rgba(255, 255, 255, 0.7)',
-                      backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(124, 58, 237, 0.2)',
+                      transition: 'all 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
+                      background: 'rgba(255, 255, 255, 0.95)',
+                      backdropFilter: 'blur(20px)',
+                      border: '1px solid rgba(124, 58, 237, 0.15)',
+                      borderRadius: 'var(--atomix-border-radius-xl)',
+                      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-5px)';
-                      e.currentTarget.style.boxShadow = '0 10px 25px rgba(124, 58, 237, 0.2)';
+                      e.currentTarget.style.transform = 'translateY(-8px)';
+                      e.currentTarget.style.boxShadow = '0 12px 32px rgba(124, 58, 237, 0.15)';
+                      e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.3)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.04)';
+                      e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.15)';
                     }}
                   >
                     <div className="u-d-flex u-flex-column">
@@ -806,13 +953,15 @@ const DesignTokensPage: FC = () => {
                       </div>
 
                       {/* Token Info Section */}
-                      <div className="u-flex-grow-1 u-p-4">
+                      <div className="u-flex-grow-1 u-p-4" style={{ padding: 'var(--atomix-spacing-4)' }}>
                         <h3 
                           className="u-fs-base u-fw-semibold"
                           style={{
                             marginTop: 0,
                             marginBottom: "var(--atomix-spacing-2)",
                             color: "var(--atomix-primary-text-emphasis)",
+                            fontSize: 'var(--atomix-font-size-lg)',
+                            fontWeight: 'var(--atomix-font-weight-semibold)',
                           }}
                         >
                           {token.name}
@@ -820,9 +969,10 @@ const DesignTokensPage: FC = () => {
                         <p
                           className="u-m-0 u-fs-sm u-mb-4"
                           style={{
-                            color: "var(--atomix-primary-text-secondary)",
-                            lineHeight: "var(--atomix-line-height-relaxed)",
+                            color: "var(--atomix-secondary-text-emphasis)",
+                            lineHeight: "var(--atomix-line-height-lg)",
                             marginBottom: "var(--atomix-spacing-4)",
+                            fontSize: 'var(--atomix-font-size-md)',
                           }}
                         >
                           {token.description}
@@ -847,7 +997,7 @@ const DesignTokensPage: FC = () => {
                               textOverflow: "ellipsis",
                               display: "block",
                               color: "var(--atomix-primary-text-emphasis)",
-                              fontFamily: "var(--atomix-font-family-mono)",
+                              fontFamily: "var(--atomix-font-monospace)",
                             }}
                             title={getCSSVariable(token) || token.value}
                           >
@@ -858,12 +1008,17 @@ const DesignTokensPage: FC = () => {
                             size="sm"
                             onClick={() => handleCopy(token)}
                             style={{
-                              background: "linear-gradient(135deg, var(--atomix-primary), var(--atomix-secondary))",
+                              background: isCopied && copiedTokenName === token.name
+                                ? "linear-gradient(135deg, var(--atomix-success), var(--atomix-success-hover))"
+                                : "linear-gradient(135deg, var(--atomix-primary), var(--atomix-primary-7))",
                               color: "white",
                               border: "none",
-                              borderRadius: "4px",
-                              padding: "4px 8px",
-                              fontSize: "12px",
+                              borderRadius: "var(--atomix-border-radius-md)",
+                              padding: "var(--atomix-spacing-1) var(--atomix-spacing-3)",
+                              fontSize: "var(--atomix-font-size-sm)",
+                              fontWeight: 'var(--atomix-font-weight-semibold)',
+                              boxShadow: '0 2px 8px rgba(124, 58, 237, 0.2)',
+                              transition: 'all 0.2s ease',
                             }}
                           >
                             {isCopied && copiedTokenName === token.name

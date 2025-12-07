@@ -31,7 +31,7 @@ const ResourcesChangelogPage = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
         <SectionIntro
           title="Version History"
           text="Track the evolution of Atomix Design System with detailed release notes, new features, improvements, and bug fixes."

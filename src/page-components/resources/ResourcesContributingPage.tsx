@@ -32,7 +32,7 @@ const ResourcesContributingPage = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
         <SectionIntro
           title="Contributing to Atomix"
           text="Atomix is an open-source project and welcomes contributions from the community."

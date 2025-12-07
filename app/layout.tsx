@@ -4,7 +4,6 @@ import { ResponsiveProvider } from '@/hooks/useResponsive';
 import { SearchProvider } from '@/hooks/useSearch';
 import { PageLoaderProvider } from '@/components/providers/PageLoaderProvider';
 import '@shohojdhara/atomix/css';
-import '@/styles/globals.css';
 
 export const viewport: Viewport = {
   themeColor: '#0066cc',

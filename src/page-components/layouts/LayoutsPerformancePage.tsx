@@ -37,7 +37,7 @@ const LayoutsPerformancePage = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8">
+      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
         <SectionIntro
           title="Performance Optimization"
           text="This guide covers performance optimization strategies for Atomix Layout components, from basic optimization techniques to advanced performance monitoring and troubleshooting."

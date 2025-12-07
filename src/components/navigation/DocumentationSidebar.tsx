@@ -62,6 +62,7 @@ export const DocumentationSidebar = ({
         href: item.path,
         icon: <Icon name={item.icon} />,
         active: pathname === item.path,
+        linkComponent: Link,
       })),
     }));
   }, [filteredSections, pathname]);
@@ -104,7 +105,6 @@ export const DocumentationSidebar = ({
           <AtomixSideMenu
             title={`Documentation (${totalItems})`}
             menuItems={menuItems}
-            LinkComponent={Link}
           >
             {null}
           </AtomixSideMenu>
