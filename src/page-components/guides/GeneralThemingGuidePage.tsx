@@ -40,10 +40,10 @@ const GeneralThemingGuidePage = () => {
                 <CodeBlockWithCopy 
                   language="css"
                   code={`:root {
-  --atomix-color-primary: #0070f3;
-  --atomix-color-primary-hover: #0051d4;
-  --atomix-font-family-base: 'Inter', sans-serif;
-  --atomix-border-radius-base: 6px;
+  --atomix-color-primary: var(--atomix-primary);
+  --atomix-color-primary-hover: var(--atomix-primary-7);
+  --atomix-font-family-base: var(--atomix-font-sans-serif);
+  --atomix-border-radius-base: var(--atomix-border-radius-sm);
 }`}
                 />
               </div>
@@ -68,8 +68,8 @@ const GeneralThemingGuidePage = () => {
                 <CodeBlockWithCopy 
                   language="javascript"
                   code={`// Switch to dark theme
-document.documentElement.style.setProperty('--atomix-color-bg', '#1a1a1a');
-document.documentElement.style.setProperty('--atomix-color-text', '#ffffff');`}
+document.documentElement.style.setProperty('--atomix-color-bg', 'var(--atomix-dark)');
+document.documentElement.style.setProperty('--atomix-color-text', 'var(--atomix-light)');`}
                 />
               </div>
             </Card>

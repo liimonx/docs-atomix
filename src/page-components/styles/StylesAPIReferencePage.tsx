@@ -41,22 +41,25 @@ const StylesAPIReferencePage = () => {
       icon: 'Monitor',
       title: 'Responsive Breakpoints',
       description: 'Media query mixins for responsive design',
-      code: `@include media-breakpoint-up(md) {\n  // Styles for medium and up\n}`,
-      color: '#3b82f6'
+      code: `@include media-breakpoint-up(md) {
+  // Styles for medium and up
+}`,
+      color: 'var(--atomix-info)'
     },
     {
       icon: 'Focus',
       title: 'Focus Ring',
       description: 'Accessible focus styles',
-      code: `@include focus-ring();\n@include focus-ring-primary();`,
-      color: '#8b5cf6'
+      code: `@include focus-ring();
+@include focus-ring-primary();`,
+      color: 'var(--atomix-primary)'
     },
     {
       icon: 'Zap',
       title: 'Utility Generator',
       description: 'Generate custom utility classes',
       code: `@include generate-utility($utility);`,
-      color: '#ec4899'
+      color: 'var(--atomix-accent)'
     },
   ];
 
@@ -66,21 +69,21 @@ const StylesAPIReferencePage = () => {
       title: 'Color Functions',
       description: 'Access and manipulate colors',
       code: `color('primary', 6);\ntint($primary, 20%);\nshade($primary, 20%);`,
-      color: '#f97316'
+      color: 'var(--atomix-warning)',
     },
     {
       icon: 'Box',
       title: 'Spacing Functions',
       description: 'Calculate spacing values',
       code: `space(4);  // 1rem\nspace(8);  // 2rem`,
-      color: '#22c55e'
+      color: 'var(--atomix-success)',
     },
     {
       icon: 'Maximize',
       title: 'Breakpoint Functions',
       description: 'Get breakpoint values',
       code: `breakpoint-min('md');\nbreakpoint-max('lg');`,
-      color: '#eab308'
+      color: 'var(--atomix-warning)',
     },
   ];
 

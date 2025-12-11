@@ -66,7 +66,7 @@ const StylesUtilitiesPage = () => {
         { class: ".u-mt-8", description: "Margin-top 2rem" },
         { class: ".u-px-4", description: "Padding horizontal" },
       ],
-      color: "#3b82f6",
+      color: "var(--atomix-info)",
     },
     {
       icon: "Layout",
@@ -78,7 +78,7 @@ const StylesUtilitiesPage = () => {
         { class: ".u-justify-content-center", description: "Center content" },
         { class: ".u-align-items-center", description: "Align center" },
       ],
-      color: "#8b5cf6",
+      color: "var(--atomix-primary)",
     },
     {
       icon: "Type",
@@ -90,7 +90,7 @@ const StylesUtilitiesPage = () => {
         { class: ".u-text-center", description: "Text align center" },
         { class: ".u-text-uppercase", description: "Uppercase text" },
       ],
-      color: "#ec4899",
+      color: "var(--atomix-accent)",
     },
     {
       icon: "Palette",
@@ -102,7 +102,7 @@ const StylesUtilitiesPage = () => {
         { class: ".u-border-error", description: "Error border" },
         { class: ".u-bg-primary-subtle", description: "Subtle variant" },
       ],
-      color: "#f97316",
+      color: "var(--atomix-warning)",
     },
     {
       icon: "Square",
@@ -114,7 +114,7 @@ const StylesUtilitiesPage = () => {
         { class: ".u-rounded-lg", description: "Large radius" },
         { class: ".u-rounded-circle", description: "Circle shape" },
       ],
-      color: "#22c55e",
+      color: "var(--atomix-success)",
     },
     {
       icon: "Maximize",
@@ -126,7 +126,7 @@ const StylesUtilitiesPage = () => {
         { class: ".u-min-vh-100", description: "Min height 100vh" },
         { class: ".u-max-w-lg", description: "Max width large" },
       ],
-      color: "#eab308",
+      color: "var(--atomix-warning)",
     },
   ];
 

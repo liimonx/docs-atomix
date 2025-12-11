@@ -141,16 +141,16 @@ const GuidesAtomixGlassThemingPage = () => {
               
               <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
 {`.my-glass {
-  --glass-bg-color: rgba(255, 255, 255, 0.1);
-  --glass-border-color: rgba(255, 255, 255, 0.2);
-  --glass-shadow-color: rgba(0, 0, 0, 0.1);
+  --glass-bg-color: rgba(var(--atomix-light-rgb), 0.1);
+  --glass-border-color: rgba(var(--atomix-light-rgb), 0.2);
+  --glass-shadow-color: rgba(var(--atomix-dark-rgb), 0.1);
 }
 
 /* Dark theme */
 .my-glass.dark {
-  --glass-bg-color: rgba(0, 0, 0, 0.3);
-  --glass-border-color: rgba(255, 255, 255, 0.1);
-  --glass-shadow-color: rgba(0, 0, 0, 0.3);
+  --glass-bg-color: rgba(var(--atomix-dark-rgb), 0.3);
+  --glass-border-color: rgba(var(--atomix-light-rgb), 0.1);
+  --glass-shadow-color: rgba(var(--atomix-dark-rgb), 0.3);
 }`}
               </pre>
               

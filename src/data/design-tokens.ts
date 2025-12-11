@@ -23,7 +23,7 @@ export const designTokens: TokenCategory[] = [
       // Brand Colors
       {
         name: 'Primary',
-        value: '#7c3aed',
+        value: '#5b21b6',
         description: 'Primary brand color used for main actions and emphasis',
         category: 'brand',
         usage: ['buttons', 'links', 'focus states'],
@@ -31,7 +31,7 @@ export const designTokens: TokenCategory[] = [
       },
       {
         name: 'Secondary',
-        value: '#f3f4f6',
+        value: '#f8fafc',
         description: 'Secondary color for supporting elements',
         category: 'brand',
         usage: ['secondary buttons', 'borders', 'subtle text'],
@@ -39,7 +39,7 @@ export const designTokens: TokenCategory[] = [
       },
       {
         name: 'Success',
-        value: '#22c55e',
+        value: '#15803d',
         description: 'Success state color for positive feedback',
         category: 'semantic',
         usage: ['success messages', 'valid states', 'positive indicators'],

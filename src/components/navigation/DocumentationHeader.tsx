@@ -86,23 +86,6 @@ export const DocumentationHeader: FC<DocumentationHeaderProps> = ({
 
         {/* Right Section */}
         <Nav className="u-d-flex u-align-items-center u-gap-2" alignment='end'>
-          {/* External Links */}
-          <div className="u-d-flex u-gap-2">
-            {externalLinks.map((link) => (
-              <Button
-                key={link.href}
-                as="a"
-                href={link.href}
-                variant="ghost"
-                size="sm"
-                aria-label={link.label}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon name={link.icon as any} size="sm" />
-              </Button>
-            ))}
-          </div>
 
           {/* Theme Toggle */}
           <ColorModeToggle aria-label="Toggle theme"  defaultValue='dark' />

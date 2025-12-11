@@ -82,7 +82,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
 
   return (
     <div className="u-position-fixed u-top-0 u-start-0 u-w-100 u-h-100 u-z-index-1000">
-      <div className="u-position-absolute u-top-0 u-start-0 u-w-100 u-h-100 u-bg-primary u-p-4 u-overflow-y-auto" style={{ maxWidth: '320px', boxShadow: '2px 0 8px rgba(0,0,0,0.1)' }}>
+      <div className="u-position-absolute u-top-0 u-start-0 u-w-100 u-h-100 u-bg-primary u-p-4 u-overflow-y-auto" style={{ maxWidth: '320px', boxShadow: '2px 0 8px rgba(var(--atomix-dark-rgb), 0.1)' }}>
         <div className="u-d-flex u-justify-content-between u-align-items-center u-mb-4">
           <h2 className="u-fs-xl u-fw-semibold u-m-0">Documentation</h2>
           <Button
