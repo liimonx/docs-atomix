@@ -28,7 +28,7 @@ const NotFoundPage: FC = () => {
   ];
 
   return (
-    <div className="u-min-h-screen u-d-flex u-flex-direction-column u-align-items-center u-justify-content-center u-p-6 u-text-center">
+    <div className="u-min-h-screen u-d-flex u-flex-column u-align-items-center u-justify-content-center u-p-6 u-text-center">
         {/* Error Icon */}
         <div className="u-mb-6">
           <Icon name="WarningCircle" size="xl" className="u-text-warning" />
@@ -95,7 +95,7 @@ const NotFoundPage: FC = () => {
 
         {/* Help Section */}
         <section className="u-w-100" style={{ maxWidth: '800px' }}>
-          <div className="u-d-flex u-flex-direction-column u-align-items-center u-text-center">
+          <div className="u-d-flex u-flex-column u-align-items-center u-text-center">
             <Icon name="MagnifyingGlass" size="xl" className="u-mb-4 u-text-secondary-emphasis" />
             <h3 className="u-fs-xl u-fw-semibold u-mb-3">
               Still can't find what you're looking for?

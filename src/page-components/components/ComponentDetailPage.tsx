@@ -64,7 +64,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
             <GridCol md={8} className="u-mb-6">
               <Card>
                 <h3 className="u-fs-xl u-fw-bold u-mb-4">Features</h3>
-                <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                   {componentDoc.features.map((feature, index) => (
                     <li
                       key={index}
@@ -88,7 +88,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
               <Card>
                 <h3 className="u-fs-xl u-fw-bold u-mb-4">Dependencies</h3>
                 {componentDoc.dependencies.length > 0 ? (
-                  <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                  <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                     {componentDoc.dependencies.map((dep, index) => (
                       <li key={index}>
                         <Badge variant="warning" label={dep} />

@@ -242,7 +242,7 @@ const StylesArchitecturePage = () => {
                 />
                 <h3 className="u-fs-xl u-fw-semibold u-m-0">Benefits</h3>
               </div>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-3">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-3">
                 <li className="u-d-flex u-gap-2">
                   <Icon
                     name="Check"
@@ -307,7 +307,7 @@ const StylesArchitecturePage = () => {
                 />
                 <h3 className="u-fs-xl u-fw-semibold u-m-0">Modern Features</h3>
               </div>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-3">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-3">
                 <li className="u-d-flex u-gap-2">
                   <Icon
                     name="Lightning"
@@ -382,7 +382,7 @@ const StylesArchitecturePage = () => {
                   Naming Conventions
                 </h3>
               </div>
-              <div className="u-d-flex u-flex-direction-column u-gap-2">
+              <div className="u-d-flex u-flex-column u-gap-2">
                 <code
                   className="u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm"
                   style={{ fontFamily: "var(--atomix-font-family-mono)" }}
@@ -462,7 +462,7 @@ const StylesArchitecturePage = () => {
                 />
                 <h4 className="u-fs-lg u-fw-semibold u-m-0">Do</h4>
               </div>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis u-fs-sm">
                   ✓ Follow the specificity order
                 </li>
@@ -498,7 +498,7 @@ const StylesArchitecturePage = () => {
                 />
                 <h4 className="u-fs-lg u-fw-semibold u-m-0">Don't</h4>
               </div>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis u-fs-sm">
                   ✗ Break specificity order
                 </li>

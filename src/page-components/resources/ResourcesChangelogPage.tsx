@@ -49,7 +49,7 @@ const ResourcesChangelogPage = () => {
               </div>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">✨ New Features</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">AtomixGlass Component:</strong> Advanced glass morphism effects with WebGL shader support</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Dark Mode Support:</strong> Built-in dark mode with automatic theme switching</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">New Components:</strong> Added PhotoViewer, VideoPlayer, and River components</li>
@@ -57,7 +57,7 @@ const ResourcesChangelogPage = () => {
               </ul>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🚀 Improvements</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis">Enhanced accessibility across all components</li>
                 <li className="u-text-secondary-emphasis">Improved performance for grid and masonry layouts</li>
                 <li className="u-text-secondary-emphasis">Better TypeScript support with comprehensive type definitions</li>
@@ -65,7 +65,7 @@ const ResourcesChangelogPage = () => {
               </ul>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🐛 Bug Fixes</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis">Fixed modal backdrop click handling on mobile devices</li>
                 <li className="u-text-secondary-emphasis">Resolved tooltip positioning issues in scrollable containers</li>
                 <li className="u-text-secondary-emphasis">Fixed form validation state styling inconsistencies</li>
@@ -86,7 +86,7 @@ const ResourcesChangelogPage = () => {
               </div>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🎉 Major Changes</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Complete Redesign:</strong> New visual language with modern aesthetics</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Component Library Overhaul:</strong> Rebuilt all components from the ground up</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">ITCSS Architecture:</strong> Adopted ITCSS for better CSS organization</li>
@@ -94,7 +94,7 @@ const ResourcesChangelogPage = () => {
               </ul>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">⚠️ Breaking Changes</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis">Renamed several component props for consistency</li>
                 <li className="u-text-secondary-emphasis">Updated color token naming convention</li>
                 <li className="u-text-secondary-emphasis">Changed default spacing scale</li>
@@ -102,7 +102,7 @@ const ResourcesChangelogPage = () => {
               </ul>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">📚 Documentation</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis">New documentation site with improved navigation</li>
                 <li className="u-text-secondary-emphasis">Added migration guide from v1.x</li>
                 <li className="u-text-secondary-emphasis">Interactive component playground</li>
@@ -122,14 +122,14 @@ const ResourcesChangelogPage = () => {
               </div>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🐛 Bug Fixes</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis">Fixed dropdown menu positioning in RTL layouts</li>
                 <li className="u-text-secondary-emphasis">Resolved date picker calendar navigation issues</li>
                 <li className="u-text-secondary-emphasis">Fixed accordion animation glitches on Safari</li>
               </ul>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🚀 Improvements</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis">Optimized bundle size (reduced by 15%)</li>
                 <li className="u-text-secondary-emphasis">Improved tree-shaking support</li>
                 <li className="u-text-secondary-emphasis">Enhanced SSR compatibility</li>
@@ -149,14 +149,14 @@ const ResourcesChangelogPage = () => {
               </div>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">✨ New Features</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">DataTable Component:</strong> Advanced table with sorting, filtering, and pagination</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Chart Component:</strong> Integrated charting library with multiple chart types</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Upload Component:</strong> Drag-and-drop file upload with preview</li>
               </ul>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🚀 Improvements</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis">Added keyboard navigation to all interactive components</li>
                 <li className="u-text-secondary-emphasis">Improved screen reader support</li>
                 <li className="u-text-secondary-emphasis">Enhanced mobile touch interactions</li>
@@ -176,14 +176,14 @@ const ResourcesChangelogPage = () => {
               </div>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">✨ New Features</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Masonry Grid Layout:</strong> Pinterest-style dynamic grid system</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Testimonial Component:</strong> Customer testimonial display with multiple layouts</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary">Rating Component:</strong> Star rating with half-star support</li>
               </ul>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">🐛 Bug Fixes</h4>
-              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis">Fixed modal scroll lock on iOS</li>
                 <li className="u-text-secondary-emphasis">Resolved tab component focus management</li>
                 <li className="u-text-secondary-emphasis">Fixed form input autofill styling</li>

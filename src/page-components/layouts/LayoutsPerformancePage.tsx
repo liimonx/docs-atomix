@@ -49,7 +49,7 @@ const LayoutsPerformancePage = () => {
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Overview</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Layout performance is crucial for user experience. Poor layout performance can cause:</p>
               
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-3 u-mb-4">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-3 u-mb-4">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Layout Shifts (CLS)</strong> - Visual instability as content moves</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Slow Rendering</strong> - Delayed paint and layout operations</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Janky Animations</strong> - Inconsistent frame rates</li>
@@ -58,7 +58,7 @@ const LayoutsPerformancePage = () => {
               </ul>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Key Metrics</h4>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Cumulative Layout Shift (CLS)</strong> - Visual stability score</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">First Contentful Paint (FCP)</strong> - Time to first rendered content</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">Largest Contentful Paint (LCP)</strong> - Time to largest content element</li>
@@ -120,7 +120,7 @@ function OptimizedGrid({ items }) {
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Minimizing Layout Shifts</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Strategies to reduce Cumulative Layout Shift (CLS):</p>
               
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2 u-mb-4">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-2 u-mb-4">
                 <li className="u-text-secondary-emphasis">• Set explicit dimensions on images and media</li>
                 <li className="u-text-secondary-emphasis">• Reserve space for dynamic content</li>
                 <li className="u-text-secondary-emphasis">• Avoid inserting content above existing content</li>
@@ -162,7 +162,7 @@ function OptimizedGrid({ items }) {
               </pre>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Benefits</h4>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis">• Reduced DOM nodes</li>
                 <li className="u-text-secondary-emphasis">• Lower memory usage</li>
                 <li className="u-text-secondary-emphasis">• Faster initial render</li>

@@ -264,7 +264,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                     <Icon name="Book" /> Dependencies
                   </h3>
                   {(componentDoc.dependencies || []).length > 0 ? (
-                    <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-direction-column u-gap-2">
+                    <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
                       {(componentDoc.dependencies || []).map((dep, index) => (
                         <li key={index}>
                           <Badge variant="warning" label={dep as string} />
@@ -298,7 +298,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                   <h3 className="u-fs-lg u-fw-semibold u-mb-4">
                     <Icon name="Link" /> Quick Links
                   </h3>
-                  <div className="u-d-flex u-flex-direction-column u-gap-2">
+                  <div className="u-d-flex u-flex-column u-gap-2">
                     <Button
                       variant="outline-secondary"
                       size="sm"

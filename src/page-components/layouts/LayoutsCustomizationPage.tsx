@@ -49,7 +49,7 @@ const LayoutsCustomizationPage = () => {
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Customization Levels</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Atomix Layouts offer multiple levels of configuration:</p>
               
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-3">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-3">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🎨 CSS Custom Properties</strong> - Runtime theming and quick adjustments</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">⚙️ SCSS Variables</strong> - Build-time configuration and deep customization</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🎛️ Component Props</strong> - Dynamic behavior and styling</li>

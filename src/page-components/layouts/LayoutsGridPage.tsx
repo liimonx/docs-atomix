@@ -50,7 +50,7 @@ const LayoutsGridPage = () => {
               <p className="u-text-secondary-emphasis u-mb-4">The Grid System is based on a 12-column layout with responsive breakpoints and flexible alignment options. It follows the ITCSS architecture and uses semantic class names for maximum clarity and maintainability.</p>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Key Features</h4>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-3">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-3">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">📐 12-Column System</strong> - Flexible column-based layouts</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">📱 Mobile-First</strong> - Responsive design with 6 breakpoints</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🎯 Semantic Classes</strong> - Clear, predictable class names</li>
@@ -112,7 +112,7 @@ const LayoutsGridPage = () => {
             <Card className="u-p-6 u-h-100">
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Responsive Breakpoints</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Atomix grid system includes 6 responsive breakpoints:</p>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">xs</strong> - Extra small (0px and up)</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">sm</strong> - Small (576px and up)</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">md</strong> - Medium (768px and up)</li>
@@ -127,7 +127,7 @@ const LayoutsGridPage = () => {
             <Card className="u-p-6 u-h-100">
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Column Options</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Grid columns can be customized with various props:</p>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-2">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">span</strong> - Column span (1-12)</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">offset</strong> - Column offset</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">order</strong> - Column order</li>

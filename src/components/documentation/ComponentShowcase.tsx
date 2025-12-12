@@ -63,7 +63,7 @@ function MyComponent() {
                 {component.features.map((feature, index) => (
                   <GridCol key={index} md={6} lg={4}>
                     <Card className="u-p-6 u-h-100">
-                      <div className="u-d-flex u-flex-direction-column u-gap-3">
+                      <div className="u-d-flex u-flex-column u-gap-3">
                         <Icon
                           name={feature.icon as any}
                           size="md"

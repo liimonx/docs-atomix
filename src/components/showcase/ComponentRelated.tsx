@@ -22,7 +22,7 @@ export const ComponentRelated: FC<ComponentRelatedProps> = ({
         <h3 className="u-fs-lg u-fw-semibold u-m-0">Related Components</h3>
       </div>
       <div className="u-p-4">
-        <div className="u-d-flex u-flex-direction-column u-gap-2">
+        <div className="u-d-flex u-flex-column u-gap-2">
           {(relatedComponents || []).map((componentName) => {
             const navItem = findNavigationItem(componentName.toLowerCase());
             if (!navItem) return null;

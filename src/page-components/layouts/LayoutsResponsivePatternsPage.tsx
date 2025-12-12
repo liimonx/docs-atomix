@@ -50,7 +50,7 @@ const LayoutsResponsivePatternsPage = () => {
               <p className="u-text-secondary-emphasis u-mb-4">Responsive design patterns are reusable solutions for common layout challenges. These patterns have been tested across devices and proven to provide excellent user experiences while maintaining accessibility and performance.</p>
               
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Key Principles</h4>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-3">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-3">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">📱 Mobile-First</strong> - Start with mobile and enhance for larger screens</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🎯 Progressive Enhancement</strong> - Layer features based on device capabilities</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">⚖️ Flexible Grids</strong> - Use relative units and flexible layouts</li>
@@ -120,7 +120,7 @@ const LayoutsResponsivePatternsPage = () => {
             <Card className="u-p-6 u-h-100">
               <h3 className="u-fs-xl u-fw-semibold u-mb-4">Breakpoint Strategy</h3>
               <p className="u-text-secondary-emphasis u-mb-4">Atomix uses a mobile-first approach with 6 breakpoints:</p>
-              <ul className="u-list-none u-d-flex u-flex-direction-column u-gap-2 u-mb-4">
+              <ul className="u-list-none u-d-flex u-flex-column u-gap-2 u-mb-4">
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">xs</strong> - Extra small (0px and up)</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">sm</strong> - Small (576px and up)</li>
                 <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">md</strong> - Medium (768px and up)</li>

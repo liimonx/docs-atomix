@@ -313,7 +313,7 @@ const DocumentationOverviewPage: FC = () => {
                         <Card 
                           className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up"
                         >
-                          <div className="u-p-6 u-h-100 u-d-flex u-flex-direction-column">
+                          <div className="u-p-6 u-h-100 u-d-flex u-flex-column">
                             <h3 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
                               {item.title}
                             </h3>
@@ -371,7 +371,7 @@ const DocumentationOverviewPage: FC = () => {
                   <Card 
                     className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up"
                   >
-                    <div className="u-p-6 u-h-100 u-d-flex u-flex-direction-column">
+                    <div className="u-p-6 u-h-100 u-d-flex u-flex-column">
                       <div className="u-d-flex u-align-items-center u-mb-4">
                         <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4 u-text-primary-emphasis">
                           {api.icon}
@@ -431,7 +431,7 @@ const DocumentationOverviewPage: FC = () => {
                   <Card 
                     className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up"
                   >
-                    <div className="u-p-6 u-h-100 u-d-flex u-flex-direction-column">
+                    <div className="u-p-6 u-h-100 u-d-flex u-flex-column">
                       <div className="u-d-flex u-align-items-center u-mb-4">
                         <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4 u-text-secondary-emphasis">
                           {resource.icon}
