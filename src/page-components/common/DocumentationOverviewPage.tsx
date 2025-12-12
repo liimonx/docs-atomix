@@ -305,8 +305,8 @@ const DocumentationOverviewPage: FC = () => {
                   <div 
                     className={`u-w-12 u-h-12 u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4`}
                     style={{
-                      backgroundColor: `var(--atomix-color-${section.color}-subtle)`,
-                      color: `var(--atomix-color-${section.color}-emphasis)`
+                      backgroundColor: `var(--atomix-${section.color}-bg-subtle)`,
+                      color: `var(--atomix-${section.color}-text-emphasis)`
                     }}
                   >
                     {section.icon}

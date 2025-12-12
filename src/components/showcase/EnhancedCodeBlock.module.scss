@@ -1,0 +1,120 @@
+// Component: EnhancedCodeBlock
+// =============================================================================
+
+// Note: Using global tokens from globals.scss
+
+// Block: Base component
+// =============================================================================
+.enhanced-code-block {
+  position: relative;
+  
+  // Highlighted line styles
+  :global(.highlighted-line) {
+    background-color: rgba(139, 92, 246, 0.1) !important;
+    display: block;
+    padding-left: 0.5em;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    border-left: 3px solid var(--atomix-primary);
+    position: relative;
+  }
+
+  // Line number styling
+  :global(.linenumber) {
+    user-select: none;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+
+  // Hover effect on code block
+  &:hover {
+    :global(.linenumber) {
+      opacity: 0.8;
+    }
+  }
+
+  // Selection styling
+  ::selection {
+    background-color: rgba(139, 92, 246, 0.3);
+    color: var(--atomix-dark);
+  }
+
+  ::-moz-selection {
+    background-color: rgba(139, 92, 246, 0.3);
+    color: var(--atomix-dark);
+  }
+
+  // Scrollbar styling
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--atomix-gray-2);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  // Syntax highlighter container
+  :global(pre[class*="language-"]) {
+    margin: 0;
+    padding: 1rem;
+    background: var(--atomix-secondary);
+    border-radius: 0;
+    overflow-x: auto;
+    
+    // Smooth scrolling
+    scroll-behavior: smooth;
+    
+    // Code content
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--atomix-dark);
+    }
+  }
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .enhanced-code-block {
+  :global(pre[class*="language-"]) {
+    padding: 0.75rem;
+    font-size: 0.8125rem;
+  }
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .enhanced-code-block {
+    :global(.linenumber) {
+      transition: none;
+    }
+    
+    :global(pre[class*="language-"]) {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@media (prefers-contrast: high) {
+  .enhanced-code-block {
+    :global(.highlighted-line) {
+      border-left-width: 4px;
+      background-color: rgba(139, 92, 246, 0.2);
+    }
+  }
+}
+

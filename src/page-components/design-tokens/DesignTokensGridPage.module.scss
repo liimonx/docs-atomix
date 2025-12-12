@@ -1,0 +1,202 @@
+// Component: DesignTokensGridPage
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.designTokensGridPage {
+  // Base styles if needed
+}
+
+// Hero Actions
+// =============================================================================
+.designTokensGridPage__heroActions {
+  display: flex;
+  gap: var(--atomix-spacing-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.designTokensGridPage__heroButton {
+  background: var(--atomix-primary-gradient);
+  border: none;
+  color: var(--atomix-light-text-emphasis);
+  padding: var(--atomix-spacing-2) var(--atomix-spacing-5);
+  border-radius: var(--atomix-border-radius);
+  font-weight: var(--atomix-font-weight-semibold);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  transition: all 0.2s ease-in-out;
+  font-size: var(--atomix-font-size-base);
+  line-height: var(--atomix-line-height-base);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--atomix-primary);
+    outline-offset: 2px;
+  }
+}
+
+.designTokensGridPage__heroButton--secondary {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--atomix-primary-10);
+  box-shadow: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(139, 92, 246, 0.4);
+  }
+}
+
+// Card Content
+// =============================================================================
+.designTokensGridPage__card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+// Section Headings
+// =============================================================================
+.designTokensGridPage__sectionHeading {
+ 
+  margin-bottom: var(--atomix-spacing-2);
+  font-size: var(--atomix-font-size-xl);
+  font-weight: var(--atomix-font-weight-semibold);
+  line-height: var(--atomix-line-height-tight);
+}
+
+.designTokensGridPage__sectionHeading--success {
+  background: linear-gradient(135deg, var(--atomix-success), var(--atomix-success-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.designTokensGridPage__sectionHeading--warning {
+  background: linear-gradient(135deg, var(--atomix-warning), var(--atomix-warning-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.designTokensGridPage__sectionHeading--error {
+  background: linear-gradient(135deg, var(--atomix-error), var(--atomix-error-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// DataTable Wrapper
+// =============================================================================
+.designTokensGridPage__dataTable {
+  border-radius: var(--atomix-border-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--atomix-primary-border-subtle);
+}
+
+// Visual Example Container
+// =============================================================================
+.designTokensGridPage__visualExample {
+  border: 1px solid var(--atomix-primary-border-subtle);
+  padding: var(--atomix-spacing-4);
+  border-radius: var(--atomix-border-radius-lg);
+  background: var(--atomix-secondary-gradient);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 8px rgba(139, 92, 246, 0.05);
+}
+
+.designTokensGridPage__visualExampleOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8.33%,
+    rgba(139, 92, 246, 0.1) 8.33%,
+    rgba(139, 92, 246, 0.1) 16.66%
+  );
+  pointer-events: none;
+}
+
+// Grid Column Examples
+// =============================================================================
+.designTokensGridPage__gridColumn {
+  background: var(--atomix-brand-bg-subtle);
+  padding: var(--atomix-spacing-2);
+  text-align: center;
+  border-radius: var(--atomix-border-radius);
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-primary);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
+  transition: all 0.2s ease;
+}
+
+.designTokensGridPage__gridColumn--large {
+  padding: var(--atomix-spacing-4);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .designTokensGridPage__heroActions {
+    gap: var(--atomix-spacing-2);
+  }
+
+  .designTokensGridPage__heroButton {
+    padding: var(--atomix-spacing-2) var(--atomix-spacing-4);
+    font-size: var(--atomix-font-size-sm);
+  }
+
+  .designTokensGridPage__sectionHeading {
+    font-size: var(--atomix-font-size-lg);
+  }
+
+  .designTokensGridPage__visualExample {
+    padding: var(--atomix-spacing-3);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+.designTokensGridPage__heroButton {
+  &:focus-visible {
+    outline: 2px solid var(--atomix-primary);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .designTokensGridPage__card,
+  .designTokensGridPage__gridColumn,
+  .designTokensGridPage__heroButton {
+    transition: none;
+  }
+
+  .designTokensGridPage__heroButton:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .designTokensGridPage__dataTable,
+  .designTokensGridPage__visualExample {
+    border-width: 2px;
+  }
+
+  .designTokensGridPage__gridColumn {
+    border-width: 2px;
+  }
+}
+

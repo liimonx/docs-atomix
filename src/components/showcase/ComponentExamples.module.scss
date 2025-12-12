@@ -1,0 +1,64 @@
+// Component: ComponentExamples
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.component-examples {
+  width: 100%;
+}
+
+// Preview Container
+// =============================================================================
+.preview-container {
+  position: relative;
+  padding: 1.5rem;
+  background: var(--atomix-secondary);
+  border: 1px solid var(--atomix-gray-3);
+  border-radius: 0.5rem;
+  min-height: 200px;
+  
+  // Preview badge
+  .preview-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 1;
+  }
+  
+  // Preview content
+  .preview-content {
+    padding-top: 2rem;
+  }
+  
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    padding: 1rem;
+    min-height: 150px;
+    
+    .preview-content {
+      padding-top: 1.5rem;
+    }
+  }
+}
+
+// Example Header
+// =============================================================================
+.example-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  
+  h3 {
+    margin: 0;
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .preview-container {
+    transition: none;
+  }
+}
+
