@@ -142,7 +142,7 @@ export const DocumentationSidebar = ({
         <div>
           {filteredSections.length > 0 ? (
             <AtomixSideMenu
-              title={`Documentation (${totalItems})`}
+              title={panelTitle}
               menuItems={menuItems}
               LinkComponent={Link as any}
             >

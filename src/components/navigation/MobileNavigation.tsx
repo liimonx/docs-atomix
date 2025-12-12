@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState, useMemo, useEffect } from 'react';
+import { FC, useState, useMemo, useEffect, useRef } from 'react';
 import { 
   EdgePanel,
   Icon,
@@ -27,7 +27,9 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
   onClose
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const prevPathnameRef = useRef(pathname);
 
   const filteredSections = useMemo(() => {
     if (!searchTerm.trim()) {
@@ -56,6 +58,11 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
     0
   );
 
+  // Handle client-side mounting to prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const menuItems = useMemo(() => {
     return filteredSections.map((section) => ({
       title: section.title,
@@ -71,11 +78,16 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
 
   // Close panel when pathname changes (navigation occurred)
   useEffect(() => {
-    if (isOpen) {
+    // Only close if pathname actually changed (not on initial mount or when isOpen changes)
+    if (mounted && isOpen && pathname !== prevPathnameRef.current) {
+      prevPathnameRef.current = pathname;
       onClose();
       setSearchTerm(""); // Clear search on navigation
+    } else if (mounted) {
+      // Update ref even if we don't close
+      prevPathnameRef.current = pathname;
     }
-  }, [pathname, isOpen, onClose]);
+  }, [pathname, isOpen, onClose, mounted]);
 
   const handleOpenChange = (open: boolean) => {
     if (!open) {

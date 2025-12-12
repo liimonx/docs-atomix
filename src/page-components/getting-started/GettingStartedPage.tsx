@@ -931,12 +931,8 @@ export default App;`}
                   </div>
                   <Row>
                     <GridCol md={4} className="u-mb-4">
-                      <Link
-                        href="/docs/components/overview"
-                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
-                      >
                       <Card
-                        className="u-h-100 u-cursor-pointer"
+                        className="u-h-100"
                       >
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center u-mb-4"
@@ -969,6 +965,8 @@ export default App;`}
                           variant="outline"
                           size="sm"
                           className="u-w-100"
+                          as={Link}
+                          href="/docs/components/overview"
                         >
                           View Components
                           <Icon
@@ -978,16 +976,11 @@ export default App;`}
                           />
                         </Button>
                       </Card>
-                      </Link>
                     </GridCol>
                     <GridCol md={4} className="u-mb-4">
-                      <Link
-                        href="/docs/guides/theming"
-                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                      <Card
+                        className="u-h-100"
                       >
-                        <Card
-                          className="u-h-100 u-cursor-pointer"
-                        >
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center u-mb-4"
                           style={{
@@ -1019,6 +1012,8 @@ export default App;`}
                           variant="outline"
                           size="sm"
                           className="u-w-100"
+                          as={Link}
+                          href="/docs/guides/theming"
                         >
                           Theming Guide
                           <Icon
@@ -1028,16 +1023,11 @@ export default App;`}
                           />
                         </Button>
                       </Card>
-                    </Link>
                     </GridCol>
                     <GridCol md={4} className="u-mb-4">
-                      <Link
-                        href="/docs/examples/common-patterns"
-                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                      <Card
+                        className="u-lh-100"
                       >
-                        <Card
-                          className="u-lh-100 u-cursor-pointer"
-                        >
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center u-mb-4"
                           style={{
@@ -1069,6 +1059,8 @@ export default App;`}
                           variant="outline"
                           size="sm"
                           className="u-w-100"
+                          as={Link}
+                          href="/docs/examples/common-patterns"
                         >
                           See Examples
                           <Icon
@@ -1078,7 +1070,6 @@ export default App;`}
                           />
                         </Button>
                       </Card>
-                    </Link>
                     </GridCol>
                   </Row>
                 </Card>

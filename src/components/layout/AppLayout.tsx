@@ -131,10 +131,10 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
 
       {/* Main content area */}
       <Container type="fluid">
+        {/* Sidebar (EdgePanel) - Rendered outside grid for all devices */}
+        <DocumentationSidebar {...sidebarProps} />
+        
         <Grid>
-          {/* Sidebar (EdgePanel) - Rendered outside grid for all devices */}
-          <DocumentationSidebar {...sidebarProps} />
-
           {/* Page Content - Only this should re-render on route change */}
           <GridCol xs={12}>
             <PageTransition>
