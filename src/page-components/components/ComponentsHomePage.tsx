@@ -109,7 +109,7 @@ const ComponentsHomePage: FC = () => {
         />
         {/* Stats Section */}
         <Grid>
-          <GridCol md={4} sm={6}>
+          <GridCol md={4} sm={6} className="u-mb-4">
             <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
               <div className="u-w-16 u-h-16 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-mx-auto u-mb-4 u-text-primary-emphasis">
                 <Icon name="Stack" size={32} />
@@ -123,7 +123,7 @@ const ComponentsHomePage: FC = () => {
             </Card>
           </GridCol>
 
-          <GridCol md={4} sm={6}>
+          <GridCol md={4} sm={6} className="u-mb-4">
             <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
               <div className="u-w-16 u-h-16 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-mx-auto u-mb-4 u-text-success-emphasis">
                 <Icon name="ShieldCheck" size={32} />
@@ -137,7 +137,7 @@ const ComponentsHomePage: FC = () => {
             </Card>
           </GridCol>
 
-          <GridCol md={4} sm={6}>
+          <GridCol md={4} sm={6} className="u-mb-4">
             <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
               <div className="u-w-16 u-h-16 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-mx-auto u-mb-4 u-text-warning-emphasis">
                 <Icon name="StarFour" size={32} />
