@@ -11,6 +11,7 @@ import {
   Icon,
   Badge,
 } from '@shohojdhara/atomix';
+import styles from '@/styles/PageHero.module.scss';
 
 interface CustomizationMethodProps {
   icon: string;
@@ -45,7 +46,7 @@ const MethodCard: FC<CustomizationMethodProps> = ({ icon, title, description, co
   );
 };
 
-const StylesCustomizationPage = () => {
+const StylesCustomizationPage: FC = () => {
   const methods: CustomizationMethodProps[] = [
     {
       icon: 'Settings',
@@ -98,10 +99,10 @@ const StylesCustomizationPage = () => {
   ];
 
   return (
-    <>
+    <div>
       <Hero
-        className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2864&auto=format&fit=crop"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Styles Customization"
         text="Theming, brand integration, and extending Atomix"
         alignment="center"
@@ -279,8 +280,10 @@ document.documentElement.setAttribute('data-theme', 'dark');
           </GridCol>
         </Row>
       </Block>
-    </>
+    </div>
   );
 };
+
+StylesCustomizationPage.displayName = 'StylesCustomizationPage';
 
 export default StylesCustomizationPage;

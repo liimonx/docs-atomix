@@ -1,0 +1,44 @@
+// Component: PageHero
+// =============================================================================
+// Shared styles for page hero sections across all documentation pages
+
+
+// Block: Page hero wrapper
+// =============================================================================
+.pageHero {
+  // Default spacing - consistent across all pages
+  padding-top: var(--atomix-spacing-32);
+  padding-bottom: var(--atomix-spacing-16);
+}
+
+// Hero Actions Container
+// =============================================================================
+.pageHero__actions {
+  display: flex;
+  gap: var(--atomix-spacing-3);
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: var(--atomix-spacing-5);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .pageHero {
+    padding-top: var(--atomix-spacing-24);
+    padding-bottom: var(--atomix-spacing-12);
+  }
+
+  .pageHero__actions {
+    gap: var(--atomix-spacing-2);
+    padding: var(--atomix-spacing-4);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .pageHero__actions {
+    transition: none;
+  }
+}

@@ -1,0 +1,604 @@
+// Component: DesignTokensPage
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.designTokensPage {
+  // Base styles if needed
+}
+
+// Elements - Category Section (now using SectionIntro component)
+// =============================================================================
+// SectionIntro component handles category headers
+
+// Elements - Card Content (using Atomix Card component)
+// =============================================================================
+// Card component handles base styling, we just need content layout
+
+// Elements - Preview Section
+// =============================================================================
+.designTokensPage__preview {
+  min-height: 160px;
+  padding: 0;
+  border-bottom: 1px solid var(--atomix-primary-border-subtle);
+  overflow: hidden;
+  position: relative;
+}
+
+.designTokensPage__preview--color {
+  background-color: transparent;
+}
+
+.designTokensPage__preview--nonColor {
+  background-color: var(--atomix-secondary-bg-subtle);
+}
+
+// Elements - Color Preview
+// =============================================================================
+.designTokensPage__colorPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.designTokensPage__colorPreview--needsBorder {
+  border: 1px solid var(--atomix-primary-border-subtle);
+}
+
+.designTokensPage__colorPreviewGradient {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  transform: rotate(45deg);
+}
+
+.designTokensPage__colorPreviewBadge {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.designTokensPage__colorPreviewText {
+  font-weight: var(--atomix-font-weight-bold);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 10px;
+}
+
+.designTokensPage__colorPreviewText--dark {
+  color: #333;
+  text-shadow: none;
+}
+
+.designTokensPage__colorPreviewText--light {
+  color: #fff;
+}
+
+// Elements - Spacing Preview
+// =============================================================================
+.designTokensPage__spacingPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(243, 244, 246, 0.4));
+  position: relative;
+  overflow: hidden;
+}
+
+.designTokensPage__spacingBox {
+  min-width: 24px;
+  min-height: 24px;
+  max-width: 80px;
+  max-height: 80px;
+  background-color: var(--atomix-brand-bg-subtle);
+  border-radius: var(--atomix-border-radius-sm);
+  border: 2px solid var(--atomix-primary-border-subtle);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.designTokensPage__spacingDashed {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px dashed rgba(124, 58, 237, 0.5);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+// Elements - Shadow Preview
+// =============================================================================
+.designTokensPage__shadowPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--atomix-secondary-bg-subtle);
+  border-radius: var(--atomix-border-radius);
+  border: 1px solid var(--atomix-primary-border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.designTokensPage__shadowPreview--none {
+  border: 2px dashed var(--atomix-primary-border-subtle);
+}
+
+.designTokensPage__shadowGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(124, 58, 237, 0.1), transparent);
+}
+
+.designTokensPage__shadowCard {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: var(--atomix-border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--atomix-font-weight-bold);
+  color: #7c3aed;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.designTokensPage__shadowText {
+  color: var(--atomix-primary-text-tertiary);
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-medium);
+}
+
+// Elements - Border Radius Preview
+// =============================================================================
+.designTokensPage__radiusPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--atomix-spacing-2);
+  padding: var(--atomix-spacing-4);
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+}
+
+.designTokensPage__radiusBox {
+  background-color: var(--atomix-brand-bg-subtle);
+  border: 2px solid var(--atomix-primary-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: var(--atomix-font-weight-bold);
+  color: #7c3aed;
+}
+
+.designTokensPage__radiusBox--none {
+  border-radius: 0;
+}
+
+// Elements - Typography Preview
+// =============================================================================
+.designTokensPage__typographyPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, rgba(124, 58, 237, 0.1), rgba(243, 244, 246, 0.3));
+  gap: var(--atomix-spacing-2);
+  padding: var(--atomix-spacing-4);
+}
+
+.designTokensPage__typographyLarge {
+  color: var(--atomix-primary-text-emphasis);
+  font-weight: var(--atomix-font-weight-semibold);
+  line-height: 1;
+  text-align: center;
+}
+
+.designTokensPage__typographySmall {
+  color: var(--atomix-secondary-text-emphasis);
+  text-align: center;
+}
+
+// Elements - Font Size Preview
+// =============================================================================
+.designTokensPage__fontSizePreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, rgba(124, 58, 237, 0.1), rgba(243, 244, 246, 0.3));
+  gap: var(--atomix-spacing-2);
+  padding: var(--atomix-spacing-4);
+}
+
+.designTokensPage__fontSizeText {
+  color: var(--atomix-primary-text-emphasis);
+  font-weight: var(--atomix-font-weight-semibold);
+  line-height: 1;
+  text-align: center;
+}
+
+.designTokensPage__fontSizeLabels {
+  display: flex;
+  gap: var(--atomix-spacing-3);
+  align-items: center;
+}
+
+.designTokensPage__fontSizeLabel {
+  font-size: var(--atomix-font-size-xs);
+  color: var(--atomix-secondary-text-emphasis);
+}
+
+// Elements - Font Weight Preview
+// =============================================================================
+.designTokensPage__fontWeightPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(45deg, rgba(124, 58, 237, 0.1), rgba(124, 58, 237, 0.1) 10px, rgba(243, 244, 246, 0.3) 10px, rgba(243, 244, 246, 0.3) 20px);
+  gap: var(--atomix-spacing-2);
+  padding: var(--atomix-spacing-4);
+}
+
+.designTokensPage__fontWeightLarge {
+  font-family: var(--atomix-body-font-family);
+  font-size: var(--atomix-font-size-2xl);
+  color: var(--atomix-primary-text-emphasis);
+  line-height: 1;
+  text-align: center;
+}
+
+.designTokensPage__fontWeightSmall {
+  font-family: var(--atomix-body-font-family);
+  font-size: var(--atomix-font-size-sm);
+  color: var(--atomix-secondary-text-emphasis);
+  text-align: center;
+}
+
+// Elements - Line Height Preview
+// =============================================================================
+.designTokensPage__lineHeightPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0.1) 50%, rgba(243, 244, 246, 0.3) 50%, rgba(243, 244, 246, 0.3) 100%);
+  background-size: 100% 20px;
+  padding: var(--atomix-spacing-4);
+}
+
+.designTokensPage__lineHeightText {
+  font-size: var(--atomix-font-size-base);
+  color: var(--atomix-primary-text-emphasis);
+  text-align: center;
+  font-weight: var(--atomix-font-weight-medium);
+  max-width: 80%;
+}
+
+// Elements - Form Preview
+// =============================================================================
+.designTokensPage__formPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.designTokensPage__formPreview--needsBorder {
+  border: 1px solid var(--atomix-primary-border-subtle);
+}
+
+.designTokensPage__formBars {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-3);
+}
+
+.designTokensPage__formBar {
+  height: 8px;
+  border-radius: 4px;
+}
+
+.designTokensPage__formBar--primary {
+  width: 70%;
+  background-color: var(--atomix-primary);
+}
+
+.designTokensPage__formBar--secondary {
+  width: 100%;
+  background-color: var(--atomix-secondary);
+}
+
+.designTokensPage__formBar--tertiary {
+  width: 50%;
+  background-color: var(--atomix-primary-3);
+}
+
+// Elements - Z-Index Preview
+// =============================================================================
+.designTokensPage__zIndexPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  position: relative;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(243, 244, 246, 0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.designTokensPage__zIndexLayer {
+  position: relative;
+  width: 70%;
+  height: 70%;
+  background-color: var(--atomix-brand-bg-subtle);
+  border-radius: var(--atomix-border-radius-sm);
+  border: 2px solid var(--atomix-primary-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-primary-text-emphasis);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.designTokensPage__zIndexBase {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: var(--atomix-secondary);
+  border-radius: var(--atomix-border-radius-sm);
+  border: 2px solid var(--atomix-primary-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--atomix-font-size-xs);
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-primary-text-emphasis);
+  top: 15%;
+  left: 15%;
+  opacity: 0.7;
+}
+
+// Elements - Breakpoint Preview
+// =============================================================================
+.designTokensPage__breakpointPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(243, 244, 246, 0.3));
+  gap: var(--atomix-spacing-2);
+  padding: var(--atomix-spacing-4);
+}
+
+.designTokensPage__breakpointBox {
+  width: 80%;
+  height: 40px;
+  background-color: var(--atomix-brand-bg-subtle);
+  border-radius: var(--atomix-border-radius-sm);
+  border: 2px solid var(--atomix-primary-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-primary-text-emphasis);
+}
+
+.designTokensPage__breakpointLabel {
+  font-size: var(--atomix-font-size-xs);
+  color: var(--atomix-primary-text-secondary);
+  text-align: center;
+}
+
+// Elements - Transition Preview
+// =============================================================================
+.designTokensPage__transitionPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(243, 244, 246, 0.3));
+  position: relative;
+  overflow: hidden;
+}
+
+.designTokensPage__transitionBox {
+  width: 60px;
+  height: 60px;
+  background-color: var(--atomix-primary);
+  border-radius: var(--atomix-border-radius-sm);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.designTokensPage__transitionLabel {
+  position: absolute;
+  bottom: 10px;
+  font-size: var(--atomix-font-size-xs);
+  color: var(--atomix-primary-text-secondary);
+  text-align: center;
+}
+
+// Elements - Letter Spacing Preview
+// =============================================================================
+.designTokensPage__letterSpacingPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(243, 244, 246, 0.3));
+  gap: var(--atomix-spacing-3);
+  padding: var(--atomix-spacing-4);
+}
+
+.designTokensPage__letterSpacingLarge {
+  font-size: var(--atomix-font-size-2xl);
+  color: var(--atomix-primary-text-emphasis);
+  font-weight: var(--atomix-font-weight-semibold);
+  text-align: center;
+}
+
+.designTokensPage__letterSpacingSmall {
+  font-size: var(--atomix-font-size-md);
+  color: var(--atomix-secondary-text-emphasis);
+  text-align: center;
+}
+
+// Elements - Default Preview
+// =============================================================================
+.designTokensPage__defaultPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(243, 244, 246, 0.4));
+  border-radius: var(--atomix-border-radius);
+}
+
+.designTokensPage__defaultText {
+  font-size: var(--atomix-font-size-lg);
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-primary-text-emphasis);
+}
+
+// Elements - Token Info Section
+// =============================================================================
+.designTokensPage__info {
+  flex-grow: 1;
+  padding: var(--atomix-spacing-4);
+}
+
+.designTokensPage__tokenName {
+  margin-top: 0;
+  margin-bottom: var(--atomix-spacing-2);
+  color: var(--atomix-primary-text-emphasis);
+  font-size: var(--atomix-font-size-lg);
+  font-weight: var(--atomix-font-weight-semibold);
+}
+
+.designTokensPage__tokenDescription {
+  color: var(--atomix-secondary-text-emphasis);
+  line-height: var(--atomix-line-height-lg);
+  margin-bottom: var(--atomix-spacing-4);
+  font-size: var(--atomix-font-size-md);
+}
+
+// Elements - Value and Copy Section
+// =============================================================================
+.designTokensPage__valueSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--atomix-spacing-2);
+}
+
+.designTokensPage__valueCode {
+  flex-grow: 1;
+  padding: var(--atomix-spacing-2) var(--atomix-spacing-3);
+  background-color: var(--atomix-primary-bg-subtle);
+  border-radius: var(--atomix-border-radius-sm);
+  border: 1px solid var(--atomix-primary-border-subtle);
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  color: var(--atomix-primary-text-emphasis);
+  font-family: var(--atomix-font-monospace);
+  font-size: var(--atomix-font-size-xs);
+}
+
+// Copy button now uses Atomix Button component with variants
+// =============================================================================
+// Button component handles styling, no custom styles needed
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .designTokensPage__categoryTitle {
+    font-size: var(--atomix-font-size-lg);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .designTokensPage__transitionBox {
+    animation: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .designTokensPage__card {
+    border-width: 2px;
+  }
+  
+  .designTokensPage__colorPreview--needsBorder {
+    border-width: 2px;
+  }
+}
+

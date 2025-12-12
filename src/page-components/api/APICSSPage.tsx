@@ -1,5 +1,6 @@
 'use client';
 
+import { FC } from 'react';
 import {
   Hero,
   SectionIntro,
@@ -9,13 +10,15 @@ import {
   Block,
   Button,
 } from '@shohojdhara/atomix';
+import styles from '@/styles/PageHero.module.scss';
 
-const APICSSPage = () => {
+const APICSSPage: FC = () => {
   return (
-    <>
+    <div>
 
       <Hero
-        className="u-pt-32 u-pb-16"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="API Reference - CSS"
         text="Complete API reference for Atomix CSS classes and custom properties"
         alignment="center"
@@ -71,8 +74,10 @@ const APICSSPage = () => {
           </GridCol>
         </Row>
       </Block>
-    </>
+    </div>
   );
 };
+
+APICSSPage.displayName = 'APICSSPage';
 
 export default APICSSPage;

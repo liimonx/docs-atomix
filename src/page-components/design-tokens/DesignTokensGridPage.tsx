@@ -12,6 +12,7 @@ import {
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
 import { getTokensByCategory } from "@/data/design-tokens";
+import styles from '@/styles/PageHero.module.scss';
 
 const DesignTokensGridPage = () => {
   // Get breakpoints tokens from design tokens
@@ -70,19 +71,13 @@ const DesignTokensGridPage = () => {
             cornerRadius: 30,
           } as GlassProps
         }
-        className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Grid System"
         text="Responsive grid design tokens for flexible layouts"
         alignment="center"
         actions={
-          <div style={{
-            display: 'flex',
-            gap: '12px',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            padding: '20px'
-          }}>
+          <div className={styles.pageHero__actions}>
             <button style={{
               background: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
               border: 'none',

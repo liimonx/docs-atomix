@@ -1,0 +1,80 @@
+// Component: HeroSection
+// =============================================================================
+
+@import '../../styles/tokens';
+
+// Block: Hero section
+// =============================================================================
+.heroSection {
+  // Uses shared page hero styles
+}
+
+// Elements
+// =============================================================================
+.heroSection__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--atomix-spacing-6);
+}
+
+.heroSection__description {
+  color: var(--atomix-secondary-text-emphasis);
+  font-size: var(--atomix-font-size-lg);
+  line-height: var(--atomix-line-height-relaxed);
+  text-align: center;
+  max-width: 800px;
+  margin: 0;
+}
+
+.heroSection__actions {
+  display: flex;
+  gap: var(--atomix-spacing-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.heroSection__stats {
+  display: flex;
+  gap: var(--atomix-spacing-6);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--atomix-spacing-4);
+}
+
+.heroSection__statItem {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+  color: var(--atomix-secondary-text-emphasis);
+  font-size: var(--atomix-font-size-sm);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .heroSection__content {
+    gap: var(--atomix-spacing-4);
+  }
+
+  .heroSection__actions {
+    gap: var(--atomix-spacing-2);
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .heroSection__stats {
+    gap: var(--atomix-spacing-4);
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .heroSection__actions,
+  .heroSection__stats {
+    transition: none;
+  }
+}

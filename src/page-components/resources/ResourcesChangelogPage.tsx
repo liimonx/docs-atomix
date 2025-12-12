@@ -1,6 +1,6 @@
 'use client';
 
-
+import { FC } from 'react';
 import {
   Hero,
   SectionIntro,
@@ -11,10 +11,11 @@ import {
   Badge,
 } from '@shohojdhara/atomix';
 import { GlassProps } from '@/types/atomix-components';
+import styles from '@/styles/PageHero.module.scss';
 
-const ResourcesChangelogPage = () => {
+const ResourcesChangelogPage: FC = () => {
   return (
-    <>
+    <div>
 
       <Hero
         glass={{
@@ -24,8 +25,8 @@ const ResourcesChangelogPage = () => {
           padding: "20px",
           cornerRadius: 30,
         } as GlassProps}
-        className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Changelog"
         text="Release notes and version history"
         alignment="center"
@@ -258,9 +259,11 @@ const ResourcesChangelogPage = () => {
           </GridCol>
         </Row>
       </Block>
-    </>
+    </div>
   );
 };
+
+ResourcesChangelogPage.displayName = 'ResourcesChangelogPage';
 
 export default ResourcesChangelogPage;
 

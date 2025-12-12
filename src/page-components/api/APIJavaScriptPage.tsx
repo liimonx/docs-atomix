@@ -1,5 +1,6 @@
 'use client';
 
+import { FC } from 'react';
 import {
   Hero,
   SectionIntro,
@@ -10,10 +11,11 @@ import {
   Button,
 } from '@shohojdhara/atomix';
 import { GlassProps } from '@/types/atomix-components';
+import styles from '@/styles/PageHero.module.scss';
 
-const APIJavaScriptPage = () => {
+const APIJavaScriptPage: FC = () => {
   return (
-    <>
+    <div>
 
       <Hero
         glass={{
@@ -24,8 +26,8 @@ const APIJavaScriptPage = () => {
           padding: "20px",
           cornerRadius: 30,
         } as GlassProps}
-        className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="API Reference - JavaScript"
         text="Complete API reference for Atomix JavaScript classes and functions"
         alignment="center"
@@ -81,8 +83,10 @@ const APIJavaScriptPage = () => {
           </GridCol>
         </Row>
       </Block>
-    </>
+    </div>
   );
 };
+
+APIJavaScriptPage.displayName = 'APIJavaScriptPage';
 
 export default APIJavaScriptPage;

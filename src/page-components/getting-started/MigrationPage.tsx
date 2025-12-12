@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -10,6 +10,10 @@ import {
   Palette,
   Zap,
   Shield,
+  Download,
+  Layers,
+  GitBranch,
+  Settings,
 } from 'lucide-react';
 import {
   Button,
@@ -22,95 +26,173 @@ import {
   Callout,
   Badge,
 } from '@shohojdhara/atomix';
+import { GlassProps } from '@/types/atomix-components';
+import styles from '@/styles/PageHero.module.scss';
 
 const MigrationPage: FC = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Prevent hydration mismatch by only rendering glass effect on client
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const glass: GlassProps | undefined = isMounted ? {
+    displacementScale: 30,
+    blurAmount: 5,
+    elasticity: 0,
+    enableLiquidBlur: true,
+    padding: "20px",
+    cornerRadius: 30,
+    children: null,
+  } : undefined;
+
   const migrationSteps = [
     {
       step: 1,
       title: 'Assess Current Usage',
-      description: 'Audit your existing components and styles to understand what needs to be migrated.',
+      description: 'Audit your existing components and styles to understand what needs to be migrated. Document all current implementations and dependencies.',
       icon: <FileText size={24} />,
+      color: 'primary',
     },
     {
       step: 2,
       title: 'Plan the Migration',
-      description: 'Prioritize components and create a timeline for the migration process.',
+      description: 'Prioritize components and create a timeline for the migration process. Identify critical paths and dependencies.',
       icon: <Code size={24} />,
+      color: 'secondary',
     },
     {
       step: 3,
       title: 'Set Up Atomix',
-      description: 'Install and configure Atomix alongside your existing system.',
+      description: 'Install and configure Atomix alongside your existing system. Set up design tokens and theme configuration.',
       icon: <Zap size={24} />,
+      color: 'success',
     },
     {
       step: 4,
       title: 'Migrate Incrementally',
-      description: 'Replace components one by one, testing as you go.',
+      description: 'Replace components one by one, testing as you go. Start with low-risk components and gradually move to critical ones.',
       icon: <ArrowRight size={24} />,
+      color: 'warning',
     },
     {
       step: 5,
       title: 'Clean Up',
-      description: 'Remove old dependencies and unused code once migration is complete.',
+      description: 'Remove old dependencies and unused code once migration is complete. Optimize bundle size and performance.',
       icon: <CheckCircle size={24} />,
+      color: 'error',
     },
   ];
 
   const benefits = [
     {
       title: 'Modern Architecture',
-      description: 'ITCSS methodology and CSS custom properties',
-      icon: <Palette size={20} />,
+      description: 'ITCSS methodology and CSS custom properties for scalable, maintainable styles',
+      icon: <Palette size={24} />,
+      color: 'primary',
     },
     {
       title: 'Better Performance',
-      description: 'Smaller bundle size and optimized CSS',
-      icon: <Zap size={20} />,
+      description: 'Smaller bundle size and optimized CSS with tree-shaking support',
+      icon: <Zap size={24} />,
+      color: 'success',
     },
     {
       title: 'Enhanced Accessibility',
-      description: 'WCAG 2.1 AA compliance built-in',
-      icon: <Shield size={20} />,
+      description: 'WCAG 2.1 AA compliance built-in with comprehensive keyboard navigation',
+      icon: <Shield size={24} />,
+      color: 'warning',
     },
     {
       title: 'Developer Experience',
-      description: 'Better TypeScript support and documentation',
-      icon: <Code size={20} />,
+      description: 'Better TypeScript support, comprehensive documentation, and tooling',
+      icon: <Code size={24} />,
+      color: 'secondary',
+    },
+  ];
+
+  const migrationTools = [
+    {
+      title: 'Class Mapping Guide',
+      description: 'Comprehensive mapping from popular frameworks to Atomix utilities',
+      icon: <GitBranch size={24} />,
+      href: '/docs/styles/utilities',
+    },
+    {
+      title: 'Component Migration',
+      description: 'Step-by-step guides for migrating common component patterns',
+      icon: <Layers size={24} />,
+      href: '/docs/components/overview',
+    },
+    {
+      title: 'Theme Configuration',
+      description: 'Learn how to configure Atomix to match your existing design',
+      icon: <Settings size={24} />,
+      href: '/docs/guides/theming',
     },
   ];
 
   return (
     <div>
       <Hero
+        glass={glass}
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Migration Guide"
         subtitle="Migrate from other design systems to Atomix with ease"
-        className="u-mb-lg"
-      >
-        <p className="u-text-secondary-emphasis">Complete migration guide with step-by-step instructions, class mappings, and automated tools to make the transition smooth.</p>
-      </Hero>
+        text="Complete migration guide with step-by-step instructions, class mappings, and automated tools to make the transition smooth."
+        alignment="center"
+        showOverlay={true}
+        fullViewportHeight={false}
+        contentWidth="800px"
+        actions={
+          <div className={styles.pageHero__actions}>
+            <Button
+              glass
+              icon={<Download size={16} />}
+              label="Install Atomix"
+              href="/docs/getting-started/installation"
+            />
+            <Button
+              glass
+              variant="secondary"
+              label="Quick Start"
+              icon={<Zap size={16} />}
+              href="/docs/getting-started/quick-start"
+            />
+          </div>
+        }
+      />
 
       <Block spacing="md" container={{type: 'fluid'}}>
         <SectionIntro
           title="Why Migrate to Atomix?"
           text="Discover the benefits of transitioning to Atomix Design System"
+          alignment="center"
         />
 
         <Row>
           {benefits.map((benefit, index) => (
             <GridCol key={index} md={6} lg={3} className="u-mb-4">
-              <Card className="u-h-100">
-                <div className="u-d-flex u-align-items-center u-mb-3">
-                  <div className="u-me-3 u-text-primary-emphasis">
+              <Card className="u-h-100 u-p-6">
+                <div className="u-d-flex u-flex-column u-h-100">
+                  <div 
+                    className={`u-w-16 u-h-16 u-br-md u-d-flex u-align-items-center u-justify-content-center u-mb-4`}
+                    style={{
+                      backgroundColor: `var(--atomix-color-${benefit.color}-subtle)`,
+                      color: `var(--atomix-color-${benefit.color}-emphasis)`
+                    }}
+                  >
                     {benefit.icon}
                   </div>
-                  <h3 className="u-fs-lg u-fw-600 u-m-0">
+                  <h3 className="u-fs-xl u-fw-semibold u-mb-3 u-text-primary-emphasis">
                     {benefit.title}
                   </h3>
+                  <p className="u-text-secondary-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
-                <p className="u-text-secondary-emphasis u-m-0">
-                  {benefit.description}
-                </p>
               </Card>
             </GridCol>
           ))}
@@ -121,27 +203,38 @@ const MigrationPage: FC = () => {
         <SectionIntro
           title="Migration Strategy"
           text="Follow these steps for a smooth migration process"
+          alignment="center"
         />
 
         <Row>
           {migrationSteps.map((step, index) => (
             <GridCol key={index} md={6} lg={4} className="u-mb-6">
-              <Card className="u-h-100">
-                <div className="u-d-flex u-align-items-center u-mb-3">
-                  <Badge
-                    variant="primary"
-                    size="lg"
-                    label={step.step.toString()}
-                    className="u-me-3"
-                  />
-                  <div className="u-text-primary-emphasis u-me-3">
-                    {step.icon}
+              <Card className="u-h-100 u-p-6 u-transition-fast u-hover-transform-up">
+                <div className="u-d-flex u-flex-column u-h-100">
+                  <div className="u-d-flex u-align-items-center u-mb-4">
+                    <div 
+                      className={`u-w-12 u-h-12 u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4`}
+                      style={{
+                        backgroundColor: `var(--atomix-color-${step.color}-subtle)`,
+                        color: `var(--atomix-color-${step.color}-emphasis)`
+                      }}
+                    >
+                      {step.icon}
+                    </div>
+                    <Badge
+                      variant={step.color as any}
+                      size="lg"
+                      label={step.step.toString()}
+                      className="u-me-auto"
+                    />
                   </div>
-                  <h3 className="u-fs-lg u-fw-600 u-m-0">{step.title}</h3>
+                  <h3 className="u-fs-xl u-fw-semibold u-mb-3 u-text-primary-emphasis">
+                    {step.title}
+                  </h3>
+                  <p className="u-text-secondary-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-                <p className="u-text-secondary-emphasis u-m-0">
-                  {step.description}
-                </p>
               </Card>
             </GridCol>
           ))}
@@ -149,36 +242,88 @@ const MigrationPage: FC = () => {
       </Block>
 
       <Block spacing="md" container={{type: 'fluid'}}>
+        <SectionIntro
+          title="Migration Resources"
+          text="Tools and guides to help you through the migration process"
+          alignment="center"
+        />
+
+        <Row>
+          {migrationTools.map((tool, index) => (
+            <GridCol key={index} md={4} className="u-mb-6">
+              <Link
+                href={tool.href}
+                className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+              >
+                <Card 
+                  className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up"
+                >
+                  <div className="u-p-6 u-h-100 u-d-flex u-flex-column">
+                    <div className="u-d-flex u-align-items-center u-mb-4">
+                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4 u-text-primary-emphasis">
+                        {tool.icon}
+                      </div>
+                      <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                        {tool.title}
+                      </h3>
+                    </div>
+                    <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
+                      {tool.description}
+                    </p>
+                    <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
+                      <span className="u-me-2">Learn more</span>
+                      <ArrowRight size={16} />
+                    </div>
+                  </div>
+                </Card>
+              </Link>
+            </GridCol>
+          ))}
+        </Row>
+      </Block>
+
+      <Block spacing="md" background="brand" container={{type: 'fluid'}}>
         <Callout variant="info" title="Need Help?">
-          <p className="u-mb-3">
+          <p className="u-mb-4 u-line-height-relaxed">
             If you need assistance with your migration, check out our{' '}
             <Link
               href="/docs/getting-started/installation"
-              className="u-text-primary u-text-decoration-none"
+              className="u-text-primary u-text-decoration-none u-fw-medium"
             >
               installation guide
             </Link>{' '}
             or{' '}
             <Link
               href="/docs/components/overview"
-              className="u-text-primary u-text-decoration-none"
+              className="u-text-primary u-text-decoration-none u-fw-medium"
             >
               browse our components
             </Link>
-            .
+            . Our comprehensive documentation covers everything you need to know.
           </p>
-          <Button 
-            variant="outline"
-            href="/docs/getting-started/quick-start"
-          >
-            View Quick Start Guide
-            <ArrowRight size={16} className="u-ms-2" />
-          </Button>
+          <div className="u-d-flex u-gap-3 u-flex-wrap">
+            <Button 
+              variant="primary"
+              href="/docs/getting-started/quick-start"
+              icon={<Zap size={16} />}
+            >
+              View Quick Start Guide
+            </Button>
+            <Button 
+              variant="outline"
+              href="/docs/getting-started/installation"
+              icon={<Download size={16} />}
+            >
+              Installation Guide
+            </Button>
+          </div>
         </Callout>
       </Block>
     </div>
   );
 };
+
+MigrationPage.displayName = 'MigrationPage';
 
 export default MigrationPage;
 

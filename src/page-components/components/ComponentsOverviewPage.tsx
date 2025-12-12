@@ -17,6 +17,7 @@ import {
 } from "@shohojdhara/atomix";
 
 import { navigationData } from "@/data/navigation";
+import styles from '@/styles/PageHero.module.scss';
 
 interface ComponentItem {
   id: string;
@@ -140,7 +141,7 @@ const ComponentsOverviewPage: FC = () => {
       <Hero
         title="Components"
         text="A comprehensive collection of modern, accessible, and customizable React components built with TypeScript and optimized for performance."
-        className="u-pt-36 u-pb-20"
+        className={styles.pageHero}
         alignment="center"
         showOverlay={false}
         videoBackground="https://cdn.pixabay.com/video/2018/09/16/18249-290359989_large.mp4"
@@ -152,7 +153,7 @@ const ComponentsOverviewPage: FC = () => {
             preload: "auto",
           } as any
         }
-        backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
+        backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         contentWidth="1200px"
         children={
           <>

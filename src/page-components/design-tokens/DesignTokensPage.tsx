@@ -10,10 +10,15 @@ import {
   GridCol,
   Grid,
   Block,
+  Card,
+  Badge,
+  SectionIntro,
 } from "@shohojdhara/atomix";
 import { designTokens, DesignToken } from "@/data/design-tokens";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 import { GlassProps } from "@/types/atomix-components";
+import styles from '@/styles/PageHero.module.scss';
+import componentStyles from './DesignTokensPage.module.scss';
 
 // Helper function to get CSS variable name from token
 const getCSSVariable = (token: DesignToken): string | null => {
@@ -205,45 +210,14 @@ const DesignTokensPage: FC = () => {
 
       return (
         <div
-          style={{
-            width: "100%",
-            height: "100%",
-            minHeight: "160px",
-            background: colorValue,
-            border: needsBorder ? "1px solid var(--atomix-primary-border-subtle)" : "none",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
-            overflow: "hidden",
-          }}
+          className={`${componentStyles.designTokensPage__colorPreview} ${needsBorder ? componentStyles['designTokensPage__colorPreview--needsBorder'] : ''}`}
+          style={{ background: colorValue }}
         >
-          <div style={{
-            position: "absolute",
-            top: "-50%",
-            left: "-50%",
-            width: "200%",
-            height: "200%",
-            background: `linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)`,
-            transform: "rotate(45deg)",
-          }} />
-          <div style={{
-            background: "rgba(255, 255, 255, 0.2)",
-            backdropFilter: "blur(10px)",
-            borderRadius: "50%",
-            width: "60px",
-            height: "60px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-          }}>
-            <span style={{
-              color: needsBorder ? "#333" : "#fff",
-              fontWeight: "bold",
-              textShadow: needsBorder ? "none" : "0 1px 2px rgba(0,0,0,0.5)",
-              fontSize: "10px",
-            }}>PREVIEW</span>
+          <div className={componentStyles.designTokensPage__colorPreviewGradient} />
+          <div className={componentStyles.designTokensPage__colorPreviewBadge}>
+            <span className={`${componentStyles.designTokensPage__colorPreviewText} ${needsBorder ? componentStyles['designTokensPage__colorPreviewText--dark'] : componentStyles['designTokensPage__colorPreviewText--light']}`}>
+              PREVIEW
+            </span>
           </div>
         </div>
       );
@@ -253,98 +227,34 @@ const DesignTokensPage: FC = () => {
       case "spacing": {
         const spacingValue = cssVar || extractSpacingValue(token.value);
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "linear-gradient(135deg, #7c3aed20, #f3f4f640)",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
+          <div className={componentStyles.designTokensPage__spacingPreview}>
             <div
+              className={componentStyles.designTokensPage__spacingBox}
               style={{
                 width: spacingValue,
                 height: spacingValue,
-                minWidth: "24px",
-                minHeight: "24px",
-                maxWidth: "80px",
-                maxHeight: "80px",
-                backgroundColor: "var(--atomix-brand-bg-subtle)",
-                borderRadius: "var(--atomix-border-radius-sm)",
-                border: "2px solid var(--atomix-primary-border-subtle)",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                position: "relative",
-                zIndex: 2,
               }}
             />
-            <div style={{
-              position: "absolute",
-              top: "10px",
-              left: "10px",
-              right: "10px",
-              bottom: "10px",
-              border: "1px dashed rgba(124, 58, 237, 0.5)",
-              borderRadius: "4px",
-              pointerEvents: "none",
-            }} />
+            <div className={componentStyles.designTokensPage__spacingDashed} />
           </div>
         );
       }
       case "shadow":
         return (
           <div
+            className={`${componentStyles.designTokensPage__shadowPreview} ${token.value === "none" ? componentStyles['designTokensPage__shadowPreview--none'] : ''}`}
             style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "var(--atomix-secondary-bg-subtle)",
-              borderRadius: "var(--atomix-border-radius)",
               boxShadow: cssVar || (token.value === "none" ? "none" : token.value),
-              border: token.value === "none"
-                ? "2px dashed var(--atomix-primary-border-subtle)"
-                : "1px solid var(--atomix-primary-border-subtle)",
-              position: "relative",
-              overflow: "hidden",
             }}
           >
-            <div style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: "40%",
-              background: "linear-gradient(to bottom, rgba(124, 58, 237, 0.1), transparent)",
-            }} />
+            <div className={componentStyles.designTokensPage__shadowGradient} />
             {token.value === "none" && (
-              <span style={{ 
-                color: "var(--atomix-primary-text-tertiary)",
-                fontSize: "var(--atomix-font-size-sm)",
-                fontWeight: "var(--atomix-font-weight-medium)",
-              }}>
+              <span className={componentStyles.designTokensPage__shadowText}>
                 No shadow
               </span>
             )}
             {token.value !== "none" && (
-              <div style={{
-                width: "80px",
-                height: "80px",
-                background: "white",
-                borderRadius: "8px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: "bold",
-                color: "#7c3aed",
-                boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.1)",
-              }}>
+              <div className={componentStyles.designTokensPage__shadowCard}>
                 CARD
               </div>
             )}
@@ -353,31 +263,13 @@ const DesignTokensPage: FC = () => {
       case "border-radius": {
         const radiusValue = cssVar || extractRadiusValue(token.value);
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "8px",
-              padding: "16px",
-              background: "linear-gradient(135deg, #f3f4f6, #e5e7eb)",
-            }}
-          >
+          <div className={componentStyles.designTokensPage__radiusPreview}>
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
+                className={`${componentStyles.designTokensPage__radiusBox} ${i === 1 ? componentStyles['designTokensPage__radiusBox--none'] : ''}`}
                 style={{
-                  backgroundColor: "var(--atomix-brand-bg-subtle)",
                   borderRadius: i === 1 ? "0" : radiusValue,
-                  border: "2px solid var(--atomix-primary-border-subtle)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "10px",
-                  fontWeight: "bold",
-                  color: "#7c3aed",
                 }}
               >
                 {i === 1 && "0"}
@@ -392,38 +284,20 @@ const DesignTokensPage: FC = () => {
       case "font-family": {
         const fontFamilyValue = cssVar || token.value;
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "flex",
-              flex: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "linear-gradient(to right, #7c3aed10, #f3f4f630)",
-              gap: "8px",
-              padding: "16px",
-            }}
-          >
+          <div className={componentStyles.designTokensPage__typographyPreview}>
             <span
+              className={componentStyles.designTokensPage__typographyLarge}
               style={{
                 fontFamily: fontFamilyValue,
                 fontSize: "24px",
-                color: "var(--atomix-primary-text-emphasis)",
-                fontWeight: "var(--atomix-font-weight-semibold)",
-                lineHeight: "1",
-                textAlign: "center",
               }}
             >
               Aa
             </span>
             <span
+              className={componentStyles.designTokensPage__typographySmall}
               style={{
                 fontFamily: fontFamilyValue,
-                fontSize: "14px",
-                color: "var(--atomix-secondary-text-emphasis)",
-                textAlign: "center",
               }}
             >
               The quick brown fox
@@ -434,52 +308,23 @@ const DesignTokensPage: FC = () => {
       case "font-size": {
         const fontSizeValue = cssVar || extractFontSizeValue(token.value);
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "flex",
-              flex: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "linear-gradient(45deg, #7c3aed10, #f3f4f630)",
-              gap: "8px",
-              padding: "16px",
-            }}
-          >
+          <div className={componentStyles.designTokensPage__fontSizePreview}>
             <span
+              className={componentStyles.designTokensPage__fontSizeText}
               style={{
                 fontSize: fontSizeValue,
-                color: "var(--atomix-primary-text-emphasis)",
-                fontWeight: "var(--atomix-font-weight-semibold)",
-                lineHeight: "1",
-                textAlign: "center",
               }}
             >
               Sample Text
             </span>
-            <div style={{
-              display: "flex",
-              gap: "12px",
-              alignItems: "center",
-            }}>
-              <span style={{
-                fontSize: "10px",
-                color: "var(--atomix-secondary-text-emphasis)",
-              }}>
+            <div className={componentStyles.designTokensPage__fontSizeLabels}>
+              <span className={componentStyles.designTokensPage__fontSizeLabel}>
                 Small
               </span>
-              <span style={{
-                fontSize: "14px",
-                color: "var(--atomix-secondary-text-emphasis)",
-              }}>
+              <span className={componentStyles.designTokensPage__fontSizeLabel}>
                 Medium
               </span>
-              <span style={{
-                fontSize: "18px",
-                color: "var(--atomix-secondary-text-emphasis)",
-              }}>
+              <span className={componentStyles.designTokensPage__fontSizeLabel}>
                 Large
               </span>
             </div>
@@ -491,39 +336,19 @@ const DesignTokensPage: FC = () => {
         const weightMatch = token.value.match(/(\d+)/);
         const weightValue = cssVar || (weightMatch ? weightMatch[1] : token.value);
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "flex",
-              flex: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "repeating-linear-gradient(45deg, #7c3aed10, #7c3aed10 10px, #f3f4f630 10px, #f3f4f630 20px)",
-              gap: "8px",
-              padding: "16px",
-            }}
-          >
+          <div className={componentStyles.designTokensPage__fontWeightPreview}>
             <span
+              className={componentStyles.designTokensPage__fontWeightLarge}
               style={{
-                fontFamily: "var(--atomix-body-font-family)",
                 fontWeight: weightValue,
-                fontSize: "var(--atomix-font-size-2xl)",
-                color: "var(--atomix-primary-text-emphasis)",
-                lineHeight: "1",
-                textAlign: "center",
               }}
             >
               Weight
             </span>
             <span
+              className={componentStyles.designTokensPage__fontWeightSmall}
               style={{
-                fontFamily: "var(--atomix-body-font-family)",
                 fontWeight: weightValue,
-                fontSize: "var(--atomix-font-size-sm)",
-                color: "var(--atomix-secondary-text-emphasis)",
-                textAlign: "center",
               }}
             >
               {token.name}: {token.value}
@@ -534,27 +359,11 @@ const DesignTokensPage: FC = () => {
       case "line-height": {
         const lineHeightValue = cssVar || token.value;
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "linear-gradient(to bottom, #7c3aed10 0%, #7c3aed10 50%, #f3f4f630 50%, #f3f4f630 100%)",
-              backgroundSize: "100% 20px",
-              padding: "var(--atomix-spacing-4)",
-            }}
-          >
+          <div className={componentStyles.designTokensPage__lineHeightPreview}>
             <div
+              className={componentStyles.designTokensPage__lineHeightText}
               style={{
                 lineHeight: lineHeightValue,
-                fontSize: "var(--atomix-font-size-base)",
-                color: "var(--atomix-primary-text-emphasis)",
-                textAlign: "center",
-                fontWeight: "var(--atomix-font-weight-medium)",
-                maxWidth: "80%",
               }}
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -577,42 +386,15 @@ const DesignTokensPage: FC = () => {
           cssVar?.includes("light-bg-subtle");
         return (
           <div
+            className={`${componentStyles.designTokensPage__formPreview} ${needsBorder ? componentStyles['designTokensPage__formPreview--needsBorder'] : ''}`}
             style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
               backgroundColor: formColorValue,
-              border: needsBorder ? "1px solid var(--atomix-primary-border-subtle)" : "none",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "relative",
             }}
           >
-            <div style={{
-              width: "80%",
-              display: "flex",
-              flex: "column",
-              gap: "12px",
-            }}>
-              <div style={{
-                height: "8px",
-                backgroundColor: "var(--atomix-primary)",
-                borderRadius: "4px",
-                width: "70%",
-              }} />
-              <div style={{
-                height: "8px",
-                backgroundColor: "var(--atomix-secondary)",
-                borderRadius: "4px",
-                width: "100%",
-              }} />
-              <div style={{
-                height: "8px",
-                backgroundColor: "var(--atomix-tertiary)",
-                borderRadius: "4px",
-                width: "50%",
-              }} />
+            <div className={componentStyles.designTokensPage__formBars}>
+              <div className={`${componentStyles.designTokensPage__formBar} ${componentStyles['designTokensPage__formBar--primary']}`} />
+              <div className={`${componentStyles.designTokensPage__formBar} ${componentStyles['designTokensPage__formBar--secondary']}`} />
+              <div className={`${componentStyles.designTokensPage__formBar} ${componentStyles['designTokensPage__formBar--tertiary']}`} />
             </div>
           </div>
         );
@@ -623,55 +405,16 @@ const DesignTokensPage: FC = () => {
         const zIndexValue = zIndexMatch ? zIndexMatch[1] : token.value;
         const zIndex = cssVar || zIndexValue;
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              position: "relative",
-              background: "linear-gradient(135deg, #7c3aed10, #f3f4f630)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div className={componentStyles.designTokensPage__zIndexPreview}>
             <div
+              className={componentStyles.designTokensPage__zIndexLayer}
               style={{
-                position: "relative",
-                width: "70%",
-                height: "70%",
-                backgroundColor: "var(--atomix-brand-bg-subtle)",
-                borderRadius: "var(--atomix-border-radius-sm)",
-                border: "2px solid var(--atomix-primary-border-subtle)",
                 zIndex: typeof zIndex === "string" && zIndex.startsWith("var(") ? zIndex : parseInt(zIndex as string) || 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "var(--atomix-font-size-sm)",
-                fontWeight: "var(--atomix-font-weight-semibold)",
-                color: "var(--atomix-primary-text-emphasis)",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
               }}
             >
               Layer: {zIndexValue}
             </div>
-            <div style={{
-              position: "absolute",
-              width: "50%",
-              height: "50%",
-              backgroundColor: "var(--atomix-secondary)",
-              borderRadius: "var(--atomix-border-radius-sm)",
-              border: "2px solid var(--atomix-primary-border-subtle)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "var(--atomix-font-size-xs)",
-              fontWeight: "var(--atomix-font-weight-semibold)",
-              color: "var(--atomix-primary-text-emphasis)",
-              top: "15%",
-              left: "15%",
-              opacity: 0.7,
-            }}>
+            <div className={componentStyles.designTokensPage__zIndexBase}>
               Base
             </div>
           </div>
@@ -681,40 +424,11 @@ const DesignTokensPage: FC = () => {
         // Extract breakpoint value
         const breakpointValue = cssVar || token.value;
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "linear-gradient(135deg, #7c3aed10, #f3f4f630)",
-              gap: "8px",
-              padding: "16px",
-            }}
-          >
-            <div style={{
-              width: "80%",
-              height: "40px",
-              backgroundColor: "var(--atomix-brand-bg-subtle)",
-              borderRadius: "var(--atomix-border-radius-sm)",
-              border: "2px solid var(--atomix-primary-border-subtle)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "var(--atomix-font-size-sm)",
-              fontWeight: "var(--atomix-font-weight-semibold)",
-              color: "var(--atomix-primary-text-emphasis)",
-            }}>
+          <div className={componentStyles.designTokensPage__breakpointPreview}>
+            <div className={componentStyles.designTokensPage__breakpointBox}>
               {breakpointValue === "0" ? "Mobile" : breakpointValue}
             </div>
-            <span style={{
-              fontSize: "var(--atomix-font-size-xs)",
-              color: "var(--atomix-primary-text-secondary)",
-              textAlign: "center",
-            }}>
+            <span className={componentStyles.designTokensPage__breakpointLabel}>
               {token.name}
             </span>
           </div>
@@ -723,42 +437,14 @@ const DesignTokensPage: FC = () => {
       case "transition": {
         const transitionValue = cssVar || token.value;
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "linear-gradient(135deg, #7c3aed10, #f3f4f630)",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
+          <div className={componentStyles.designTokensPage__transitionPreview}>
             <div
+              className={componentStyles.designTokensPage__transitionBox}
               style={{
-                width: "60px",
-                height: "60px",
-                backgroundColor: "var(--atomix-primary)",
-                borderRadius: "var(--atomix-border-radius-sm)",
                 transition: transitionValue,
-                animation: "pulse 2s ease-in-out infinite",
               }}
             />
-            <style>{`
-              @keyframes pulse {
-                0%, 100% { transform: scale(1); opacity: 1; }
-                50% { transform: scale(1.1); opacity: 0.8; }
-              }
-            `}</style>
-            <div style={{
-              position: "absolute",
-              bottom: "10px",
-              fontSize: "var(--atomix-font-size-xs)",
-              color: "var(--atomix-primary-text-secondary)",
-              textAlign: "center",
-            }}>
+            <div className={componentStyles.designTokensPage__transitionLabel}>
               {token.name}
             </div>
           </div>
@@ -767,37 +453,19 @@ const DesignTokensPage: FC = () => {
       case "letter-spacing": {
         const letterSpacingValue = cssVar || token.value;
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "linear-gradient(135deg, #7c3aed10, #f3f4f630)",
-              gap: "12px",
-              padding: "16px",
-            }}
-          >
+          <div className={componentStyles.designTokensPage__letterSpacingPreview}>
             <span
+              className={componentStyles.designTokensPage__letterSpacingLarge}
               style={{
                 letterSpacing: letterSpacingValue,
-                fontSize: "var(--atomix-font-size-2xl)",
-                color: "var(--atomix-primary-text-emphasis)",
-                fontWeight: "var(--atomix-font-weight-semibold)",
-                textAlign: "center",
               }}
             >
               Aa
             </span>
             <span
+              className={componentStyles.designTokensPage__letterSpacingSmall}
               style={{
                 letterSpacing: letterSpacingValue,
-                fontSize: "var(--atomix-font-size-md)",
-                color: "var(--atomix-secondary-text-emphasis)",
-                textAlign: "center",
               }}
             >
               {token.name}
@@ -807,23 +475,8 @@ const DesignTokensPage: FC = () => {
       }
       default:
         return (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              minHeight: "160px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "linear-gradient(135deg, #7c3aed20, #f3f4f640)",
-              borderRadius: "var(--atomix-border-radius)",
-            }}
-          >
-            <span style={{ 
-              fontSize: "var(--atomix-font-size-lg)",
-              fontWeight: "var(--atomix-font-weight-semibold)",
-              color: "var(--atomix-primary-text-emphasis)",
-            }}>
+          <div className={componentStyles.designTokensPage__defaultPreview}>
+            <span className={componentStyles.designTokensPage__defaultText}>
               {token.category.slice(0, 2).toUpperCase()}
             </span>
           </div>
@@ -850,24 +503,19 @@ const DesignTokensPage: FC = () => {
             cornerRadius: 30,
           } as GlassProps
         }
-        className="u-pt-32 u-pb-16"
+        className={styles.pageHero}
         actions={
           <Grid className="u-mt-8">
             <GridCol md={8}>
               <Input
-                glass={{
-                  elasticity: 0,
-                }}
+                glass
                 type="search"
-                placeholder="Search tokens..."
+                placeholder="Search tokens by name, description, or value..."
                 value={searchQuery}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setSearchQuery(e.target.value)
                 }
-                style={{
-                  boxShadow: "0 4px 24px rgba(124, 58, 237, 0.12)",
-                  borderRadius: "var(--atomix-border-radius-lg)",
-                }}
+                className="u-w-100"
               />
             </GridCol>
             <GridCol md={4}>
@@ -878,162 +526,129 @@ const DesignTokensPage: FC = () => {
                   router.push(`/docs/design-tokens/${e.target.value}`);
                 }}
                 options={categories}
-                style={{
-                  boxShadow: "0 4px 24px rgba(124, 58, 237, 0.12)",
-                  borderRadius: "var(--atomix-border-radius-lg)",
-                }}
+                glass
               />
             </GridCol>
           </Grid>
         }
-        backgroundImageSrc="https://images.unsplash.com/photo-1760976180663-946ff68fa64c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1034"
+        backgroundImageSrc="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
       />
 
-      <Block className="u-mt-8" container={{type: 'fluid'}}>
-        {Object.entries(groupedTokens).map(([category, tokens]) => (
-          <div key={category} className="u-mb-8" style={{ marginBottom: 'var(--atomix-spacing-12)' }}>
-            <h2 className="u-fs-lg u-fw-semibold u-mb-4" style={{
-              textTransform: 'uppercase',
-              letterSpacing: '2px',
-              fontSize: 'var(--atomix-font-size-xl)',
-              background: 'linear-gradient(135deg, var(--atomix-primary), var(--atomix-primary-7))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              fontWeight: 'var(--atomix-font-weight-bold)',
-              marginBottom: 'var(--atomix-spacing-6)',
-              paddingBottom: 'var(--atomix-spacing-2)',
-              borderBottom: '2px solid var(--atomix-primary-border-subtle)'
-            }}>{category}</h2>
-
+      <Block spacing="lg" container={{type: 'fluid'}}>
+        {/* Stats Section */}
+        {selectedCategory === "all" && (
+          <div className="u-mb-8">
             <Grid>
-              {tokens.map((token: DesignToken) => (
-                <GridCol
-                  key={token.name}
-                  sm={6}
-                  lg={4}
-                  xl={3}
-                  className="u-mb-4"
-                >
-                  <div className="u-p-0 u-border u-border-solid u-rounded-lg u-h-100 u-overflow-hidden" 
-                    style={{
-                      transition: 'all 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
-                      background: 'rgba(255, 255, 255, 0.95)',
-                      backdropFilter: 'blur(20px)',
-                      border: '1px solid rgba(124, 58, 237, 0.15)',
-                      borderRadius: 'var(--atomix-border-radius-xl)',
-                      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-8px)';
-                      e.currentTarget.style.boxShadow = '0 12px 32px rgba(124, 58, 237, 0.15)';
-                      e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.04)';
-                      e.currentTarget.style.borderColor = 'rgba(124, 58, 237, 0.15)';
-                    }}
+              <GridCol md={4} sm={6}>
+                <Card className="u-p-6 u-text-center u-h-100">
+                  <div className="u-fs-4xl u-fw-bold u-mb-2 u-text-primary-emphasis">
+                    {filteredTokens.length}
+                  </div>
+                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">Total Tokens</p>
+                </Card>
+              </GridCol>
+              <GridCol md={4} sm={6}>
+                <Card className="u-p-6 u-text-center u-h-100">
+                  <div className="u-fs-4xl u-fw-bold u-mb-2 u-text-primary-emphasis">
+                    {Object.keys(groupedTokens).length}
+                  </div>
+                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">Categories</p>
+                </Card>
+              </GridCol>
+              <GridCol md={4} sm={6}>
+                <Card className="u-p-6 u-text-center u-h-100">
+                  <div className="u-fs-4xl u-fw-bold u-mb-2 u-text-primary-emphasis">
+                    {designTokens.length}
+                  </div>
+                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">Token Groups</p>
+                </Card>
+              </GridCol>
+            </Grid>
+          </div>
+        )}
+
+        {Object.entries(groupedTokens).map(([category, tokens]) => {
+          const categoryInfo = designTokens.find(cat => cat.id === category || cat.title.toLowerCase() === category.toLowerCase());
+          const categoryTitle = categoryInfo?.title || category;
+          const categoryDescription = categoryInfo?.description || '';
+          
+          return (
+            <div key={category} className="u-mb-12">
+              <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-6">
+                <SectionIntro
+                  title={categoryTitle}
+                  text={categoryDescription}
+                  alignment="left"
+                />
+                <Badge 
+                  variant="primary" 
+                  size="md" 
+                  label={`${tokens.length} ${tokens.length === 1 ? 'token' : 'tokens'}`}
+                />
+              </div>
+              
+              <Grid>
+                {tokens.map((token: DesignToken) => (
+                  <GridCol
+                    key={token.name}
+                    sm={6}
+                    lg={4}
+                    xl={3}
+                    className="u-mb-4"
                   >
-                    <div className="u-d-flex u-flex-column">
+                    <Card 
+                      className="u-h-100 u-transition-fast u-hover-transform-up u-overflow-hidden"
+                    >
                       {/* Preview Section */}
                       <div
-                        style={{
-                          minHeight: "160px",
-                          padding: 0,
-                          backgroundColor: isColorToken(token) || token.category === "gradient"
-                            ? "transparent"
-                            : "var(--atomix-secondary-bg-subtle)",
-                          borderBottom: "1px solid var(--atomix-primary-border-subtle)",
-                          overflow: "hidden",
-                          position: "relative",
-                        }}
+                        className={`${componentStyles.designTokensPage__preview} ${isColorToken(token) || token.category === "gradient" ? componentStyles['designTokensPage__preview--color'] : componentStyles['designTokensPage__preview--nonColor']}`}
                       >
                         {renderTokenPreview(token)}
                       </div>
 
                       {/* Token Info Section */}
-                      <div className="u-flex-grow-1 u-p-4" style={{ padding: 'var(--atomix-spacing-4)' }}>
-                        <h3 
-                          className="u-fs-base u-fw-semibold"
-                          style={{
-                            marginTop: 0,
-                            marginBottom: "var(--atomix-spacing-2)",
-                            color: "var(--atomix-primary-text-emphasis)",
-                            fontSize: 'var(--atomix-font-size-lg)',
-                            fontWeight: 'var(--atomix-font-weight-semibold)',
-                          }}
-                        >
-                          {token.name}
-                        </h3>
-                        <p
-                          className="u-m-0 u-fs-sm u-mb-4"
-                          style={{
-                            color: "var(--atomix-secondary-text-emphasis)",
-                            lineHeight: "var(--atomix-line-height-lg)",
-                            marginBottom: "var(--atomix-spacing-4)",
-                            fontSize: 'var(--atomix-font-size-md)',
-                          }}
-                        >
+                      <div className={`${componentStyles.designTokensPage__info} u-p-4`}>
+                        <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-2">
+                          <h3 className={`${componentStyles.designTokensPage__tokenName} u-m-0`}>
+                            {token.name}
+                          </h3>
+                          <Badge 
+                            variant="secondary" 
+                            size="sm" 
+                            label={token.category}
+                          />
+                        </div>
+                        
+                        <p className={`${componentStyles.designTokensPage__tokenDescription} u-mb-4`}>
                           {token.description}
                         </p>
 
                         {/* Value and Copy Section */}
-                        <div 
-                          className="u-d-flex u-align-items-center u-justify-content-between"
-                          style={{
-                            gap: "var(--atomix-spacing-2)",
-                          }}
-                        >
+                        <div className={componentStyles.designTokensPage__valueSection}>
                           <code
-                            className="u-fs-xs u-flex-grow-1"
-                            style={{
-                              padding: "var(--atomix-spacing-2) var(--atomix-spacing-3)",
-                              backgroundColor: "var(--atomix-primary-bg-subtle)",
-                              borderRadius: "var(--atomix-border-radius-sm)",
-                              border: "1px solid var(--atomix-primary-border-subtle)",
-                              wordBreak: "break-all",
-                              overflow: "hidden",
-                              textOverflow: "ellipsis",
-                              display: "block",
-                              color: "var(--atomix-primary-text-emphasis)",
-                              fontFamily: "var(--atomix-font-monospace)",
-                            }}
+                            className={componentStyles.designTokensPage__valueCode}
                             title={getCSSVariable(token) || token.value}
                           >
                             {getCSSVariable(token) || token.value}
                           </code>
                           <Button
-                            variant="ghost"
+                            variant={isCopied && copiedTokenName === token.name ? "success" : "primary"}
                             size="sm"
                             onClick={() => handleCopy(token)}
-                            style={{
-                              background: isCopied && copiedTokenName === token.name
-                                ? "linear-gradient(135deg, var(--atomix-success), var(--atomix-success-hover))"
-                                : "linear-gradient(135deg, var(--atomix-primary), var(--atomix-primary-7))",
-                              color: "white",
-                              border: "none",
-                              borderRadius: "var(--atomix-border-radius-md)",
-                              padding: "var(--atomix-spacing-1) var(--atomix-spacing-3)",
-                              fontSize: "var(--atomix-font-size-sm)",
-                              fontWeight: 'var(--atomix-font-weight-semibold)',
-                              boxShadow: '0 2px 8px rgba(124, 58, 237, 0.2)',
-                              transition: 'all 0.2s ease',
-                            }}
                           >
                             {isCopied && copiedTokenName === token.name
-                              ? "Copied!"
+                              ? "Copied"
                               : "Copy"}
                           </Button>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </GridCol>
-              ))}
-            </Grid>
-          </div>
-        ))}
+                    </Card>
+                  </GridCol>
+                ))}
+              </Grid>
+            </div>
+          );
+        })}
       </Block>
     </>
   );

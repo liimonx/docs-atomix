@@ -11,6 +11,7 @@ import {
   Icon,
   Badge,
 } from "@shohojdhara/atomix";
+import styles from '@/styles/PageHero.module.scss';
 
 interface UtilityCategoryProps {
   icon: string;
@@ -53,7 +54,7 @@ const CategoryCard: FC<UtilityCategoryProps> = ({
   </Card>
 );
 
-const StylesUtilitiesPage = () => {
+const StylesUtilitiesPage: FC = () => {
   const categories: UtilityCategoryProps[] = [
     {
       icon: "Box",
@@ -182,10 +183,10 @@ const StylesUtilitiesPage = () => {
   ];
 
   return (
-    <>
+    <div>
       <Hero
-        className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2940&auto=format&fit=crop"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Utility Classes"
         text="500+ utility classes for rapid UI development"
         alignment="center"
@@ -523,8 +524,10 @@ const StylesUtilitiesPage = () => {
           </GridCol>
         </Row>
       </Block>
-    </>
+    </div>
   );
 };
+
+StylesUtilitiesPage.displayName = 'StylesUtilitiesPage';
 
 export default StylesUtilitiesPage;

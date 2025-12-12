@@ -11,6 +11,7 @@ import {
   Icon,
   Badge,
 } from '@shohojdhara/atomix';
+import styles from '@/styles/PageHero.module.scss';
 
 interface APISection {
   icon: string;
@@ -35,7 +36,7 @@ const APICard: FC<APISection> = ({ icon, title, description, code, color }) => (
   </Card>
 );
 
-const StylesAPIReferencePage = () => {
+const StylesAPIReferencePage: FC = () => {
   const mixins: APISection[] = [
     {
       icon: 'Monitor',
@@ -88,10 +89,10 @@ const StylesAPIReferencePage = () => {
   ];
 
   return (
-    <>
+    <div>
       <Hero
-        className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2940&auto=format&fit=crop"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="API Reference"
         text="Complete technical reference for SCSS variables, mixins, and functions"
         alignment="center"
@@ -238,8 +239,10 @@ document.documentElement
           </GridCol>
         </Row>
       </Block>
-    </>
+    </div>
   );
 };
+
+StylesAPIReferencePage.displayName = 'StylesAPIReferencePage';
 
 export default StylesAPIReferencePage;

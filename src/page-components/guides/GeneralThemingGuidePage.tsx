@@ -1,6 +1,6 @@
 'use client';
 
-
+import { FC } from 'react';
 import {
   Hero,
   SectionIntro,
@@ -10,12 +10,14 @@ import {
   Block,
 } from '@shohojdhara/atomix';
 import { CodeBlockWithCopy } from '@/components/documentation/CodeBlockWithCopy';
+import styles from '@/styles/PageHero.module.scss';
 
-const GeneralThemingGuidePage = () => {
+const GeneralThemingGuidePage: FC = () => {
   return (
-    <>
+    <div>
       <Hero
-        className="u-pt-32 u-pb-16"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Theming Guide"
         text="Learn how to customize Atomix to match your brand identity with comprehensive theming options"
         alignment="center"
@@ -76,8 +78,10 @@ document.documentElement.style.setProperty('--atomix-color-text', 'var(--atomix-
           </GridCol>
         </Row>
       </Block>
-    </>
+    </div>
   );
 };
+
+GeneralThemingGuidePage.displayName = 'GeneralThemingGuidePage';
 
 export default GeneralThemingGuidePage;

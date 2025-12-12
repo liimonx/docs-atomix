@@ -28,6 +28,8 @@ import {
   SectionIntro,
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
+import styles from '@/styles/PageHero.module.scss';
+import type { ReactNode } from 'react';
 
 const DocumentationOverviewPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -46,7 +48,19 @@ const DocumentationOverviewPage: FC = () => {
     cornerRadius: 30,
     children: null,
   } : undefined;
-  const documentationSections = [
+  
+  const documentationSections: Array<{
+    id: string;
+    title: string;
+    description: string;
+    icon: ReactNode;
+    color: string;
+    items: Array<{
+      title: string;
+      description: string;
+      path: string;
+    }>;
+  }> = [
     {
       id: "getting-started",
       title: "Getting Started",
@@ -208,7 +222,11 @@ const DocumentationOverviewPage: FC = () => {
     },
   ];
 
-  const quickStats = [
+  const quickStats: Array<{
+    label: string;
+    value: string;
+    icon: ReactNode;
+  }> = [
     { label: "Components", value: "40+", icon: <Layers size={20} /> },
     { label: "Design Tokens", value: "200+", icon: <Palette size={20} /> },
     { label: "Utility Classes", value: "500+", icon: <Code size={20} /> },
@@ -220,17 +238,17 @@ const DocumentationOverviewPage: FC = () => {
         {/* Hero Section */}
         <Hero
           glass={glass}
-          className="u-pt-32 u-pb-16 u-mb-lg"
+          className={styles.pageHero}
           title="Atomix Documentation"
           subtitle="Comprehensive Design System"
           text="Everything you need to build amazing user interfaces with Atomix. From getting started to advanced customization, find all the resources you need."
           alignment="center"
-          backgroundImageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          backgroundImageSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
           showOverlay={true}
           fullViewportHeight={false}
           contentWidth="800px"
           actions={
-            <>
+            <div className={styles.pageHero__actions}>
               <Button
                 glass
                 icon={<Download size={16} />}
@@ -244,7 +262,7 @@ const DocumentationOverviewPage: FC = () => {
                 icon={<Layers size={16} />}
                 href="/docs/components/overview"
               />
-            </>
+            </div>
           }
         />
 

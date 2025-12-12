@@ -11,6 +11,7 @@ import {
 } from "@shohojdhara/atomix";
 import Link from "next/link";
 import { GlassProps } from "@/types/atomix-components";
+import styles from '@/styles/PageHero.module.scss';
 
 const DesignTokensOverviewPage: FC = () => {
   return (
@@ -26,8 +27,8 @@ const DesignTokensOverviewPage: FC = () => {
             padding: "20px",
             cornerRadius: 30,
           } as GlassProps}
-          className="u-pt-32 u-pb-16"
-          backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
+          className={styles.pageHero}
+          backgroundImageSrc="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
           title="Design Tokens"
           subtitle="Atomix Design System Foundation"
           text="The foundational elements that define the visual properties creating consistent, cohesive user interfaces."
@@ -36,59 +37,22 @@ const DesignTokensOverviewPage: FC = () => {
           fullViewportHeight={false}
           contentWidth="900px"
           actions={
-            <div style={{ 
-              display: 'flex', 
-              gap: '12px', 
-              flexWrap: 'wrap', 
-              justifyContent: 'center',
-              padding: '20px'
-            }}>
+            <div className={styles.pageHero__actions}>
               <Link href="/docs/design-tokens/colors">
                 <Button 
-                  label="Colors" 
-                  style={{
-                    background: 'linear-gradient(135deg, var(--atomix-primary), var(--atomix-primary-7))',
-                    border: 'none',
-                    boxShadow: '0 4px 20px rgba(124, 58, 237, 0.3)',
-                    padding: 'var(--atomix-spacing-3) var(--atomix-spacing-6)',
-                    borderRadius: 'var(--atomix-border-radius-lg)',
-                    fontWeight: 'var(--atomix-font-weight-semibold)',
-                    transition: 'all 0.2s ease'
-                  }}
+                  label="Colors"
                 />
               </Link>
               <Link href="/docs/design-tokens/spacing">
                 <Button 
                   variant="secondary" 
-                  label="Spacing" 
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.25)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(124, 58, 237, 0.25)',
-                    boxShadow: '0 4px 20px rgba(124, 58, 237, 0.15)',
-                    padding: 'var(--atomix-spacing-3) var(--atomix-spacing-6)',
-                    borderRadius: 'var(--atomix-border-radius-lg)',
-                    color: 'var(--atomix-primary-8)',
-                    fontWeight: 'var(--atomix-font-weight-semibold)',
-                    transition: 'all 0.2s ease'
-                  }}
+                  label="Spacing"
                 />
               </Link>
               <Link href="/docs/design-tokens/typography">
                 <Button 
                   variant="secondary" 
-                  label="Typography" 
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.25)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(124, 58, 237, 0.25)',
-                    boxShadow: '0 4px 20px rgba(124, 58, 237, 0.15)',
-                    padding: 'var(--atomix-spacing-3) var(--atomix-spacing-6)',
-                    borderRadius: 'var(--atomix-border-radius-lg)',
-                    color: 'var(--atomix-primary-8)',
-                    fontWeight: 'var(--atomix-font-weight-semibold)',
-                    transition: 'all 0.2s ease'
-                  }}
+                  label="Typography"
                 />
               </Link>
             </div>

@@ -1,6 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
+import {
+  LayoutGrid,
+  Smartphone,
+  Code,
+  Zap,
+  Image,
+  Shield,
+  Settings,
+} from 'lucide-react';
 import {
   Hero,
   SectionIntro,
@@ -8,10 +17,13 @@ import {
   GridCol,
   Row,
   Block,
+  Icon,
+  Button,
 } from '@shohojdhara/atomix';
 import { GlassProps } from '@/types/atomix-components';
+import styles from '@/styles/PageHero.module.scss';
 
-const LayoutsMasonryGridPage = () => {
+const LayoutsMasonryGridPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   // Prevent hydration mismatch by only rendering glass effect on client
@@ -19,108 +31,232 @@ const LayoutsMasonryGridPage = () => {
     setIsMounted(true);
   }, []);
 
+  const glass: GlassProps | undefined = isMounted ? {
+    displacementScale: 30,
+    blurAmount: 5,
+    elasticity: 0,
+    enableLiquidBlur: true,
+    padding: "20px",
+    cornerRadius: 30,
+    children: null,
+  } : undefined;
+
+  const features = [
+    {
+      icon: <LayoutGrid size={24} />,
+      title: "Dynamic Positioning",
+      description: "Automatic optimal item placement",
+      color: "primary",
+    },
+    {
+      icon: <Smartphone size={24} />,
+      title: "Responsive Design",
+      description: "Configurable columns per breakpoint",
+      color: "success",
+    },
+    {
+      icon: <Image size={24} />,
+      title: "Image Loading Support",
+      description: "Handles image loading and layout recalculation",
+      color: "warning",
+    },
+    {
+      icon: <Zap size={24} />,
+      title: "Performance Optimized",
+      description: "ResizeObserver and efficient algorithms",
+      color: "secondary",
+    },
+    {
+      icon: <Code size={24} />,
+      title: "Smooth Animations",
+      description: "Optional item transition animations",
+      color: "error",
+    },
+    {
+      icon: <Shield size={24} />,
+      title: "Accessible",
+      description: "Maintains semantic HTML structure",
+      color: "primary",
+    },
+  ];
+
   return (
-    <>
+    <div>
       <Hero
-        glass={isMounted ? {
-          displacementScale: 30,
-          blurAmount: 5,
-          elasticity: 0,
-          enableLiquidBlur: true,
-          padding: "20px",
-          cornerRadius: 30,
-        } as GlassProps : undefined}
-        className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
-        title="Layouts Masonry Grid"
-        text="Creating Pinterest-style masonry layouts with Atomix components"
+        glass={glass}
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
+        title="Masonry Grid"
+        subtitle="Pinterest-Style Dynamic Layouts"
+        text="Create beautiful Pinterest-style layouts with our flexible masonry grid component. Automatically positions items of varying heights for optimal space usage."
         alignment="center"
+        showOverlay={true}
+        fullViewportHeight={false}
+        contentWidth="900px"
+        actions={
+          <div className={styles.pageHero__actions}>
+            <Button
+              glass
+              icon={<Icon name="Code" size={16} />}
+              label="View Examples"
+              href="/docs/examples/common-patterns"
+            />
+            <Button
+              glass
+              variant="secondary"
+              label="Performance Guide"
+              icon={<Icon name="Zap" size={16} />}
+              href="/docs/layouts/performance"
+            />
+          </div>
+        }
       />
 
-      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
+      <Block spacing="md" container={{type: 'fluid'}}>
         <SectionIntro
           title="Masonry Grid System"
           text="The Atomix Masonry Grid provides a dynamic, Pinterest-style layout that automatically positions items based on their height, creating an optimal grid with minimal gaps."
+          alignment="center"
         />
         
-        <Row className="u-mt-8">
+        <Row>
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Overview</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">The Masonry Grid uses JavaScript to calculate optimal positioning for items of varying heights, creating a visually appealing layout that maximizes space usage. Items are positioned column by column, with each new item placed in the column with the shortest current height.</p>
+              <p className="u-text-secondary-emphasis u-mb-6 u-text-center u-line-height-relaxed" style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
+                The Masonry Grid uses JavaScript to calculate optimal positioning for items of varying heights, creating a visually appealing layout that maximizes space usage. Items are positioned column by column, with each new item placed in the column with the shortest current height.
+              </p>
               
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Key Features</h4>
-              <ul className="u-list-none u-d-flex u-flex-column u-gap-3">
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">📐 Dynamic Positioning</strong> - Automatic optimal item placement</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">📱 Responsive Design</strong> - Configurable columns per breakpoint</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🖼️ Image Loading Support</strong> - Handles image loading and layout recalculation</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">⚡ Performance Optimized</strong> - ResizeObserver and efficient algorithms</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🎨 Smooth Animations</strong> - Optional item transition animations</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">♿ Accessible</strong> - Maintains semantic HTML structure</li>
-              </ul>
+              <Row>
+                {features.map((feature, index) => (
+                  <GridCol key={index} md={6} lg={4} className="u-mb-4">
+                    <Card className="u-p-4 u-h-100">
+                      <div className="u-d-flex u-align-items-center u-mb-3">
+                        <div 
+                          className={`u-w-12 u-h-12 u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3`}
+                          style={{
+                            backgroundColor: `var(--atomix-color-${feature.color}-subtle)`,
+                            color: `var(--atomix-color-${feature.color}-emphasis)`
+                          }}
+                        >
+                          {feature.icon}
+                        </div>
+                        <h4 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                          {feature.title}
+                        </h4>
+                      </div>
+                      <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                        {feature.description}
+                      </p>
+                    </Card>
+                  </GridCol>
+                ))}
+              </Row>
             </Card>
           </GridCol>
         </Row>
         
-        <Row className="u-mt-4">
-          <GridCol md={12}>
-            <Card className="u-p-6">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Components</h3>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">MasonryGrid</h4>
-              <p className="u-text-secondary-emphasis u-mb-2">The main container that manages item positioning and responsive behavior.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`import { MasonryGrid } from '@shohojdhara/atomix';
+        <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
+          <SectionIntro
+            title="Components"
+            text="Learn how to use the masonry grid components to build dynamic layouts"
+            alignment="center"
+          />
+          
+          <Row>
+            <GridCol md={12}>
+              <Card className="u-p-6">
+                <div className="u-d-flex u-align-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
+                    <LayoutGrid size={24} />
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">MasonryGrid</h3>
+                </div>
+                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">The main container that manages item positioning and responsive behavior.</p>
+                <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
+                  <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
+                    <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">TypeScript / React</span>
+                  </div>
+                  <pre className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+{`import { MasonryGrid, MasonryGridItem } from '@shohojdhara/atomix';
 
 <MasonryGrid 
   columns={3}
   gap={16}
   className="my-masonry-grid"
 >
-  {/* MasonryGridItem components */}
+  <MasonryGridItem>
+    <img src="image.jpg" alt="Description" />
+    <p>Item content</p>
+  </MasonryGridItem>
 </MasonryGrid>`}
-              </pre>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">MasonryGridItem</h4>
-              <p className="u-text-secondary-emphasis u-mb-2">Individual items within the masonry grid.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`import { MasonryGridItem } from '@shohojdhara/atomix';
-
-<MasonryGridItem className="my-masonry-item">
-  <img src="image.jpg" alt="Description" />
-  <p>Item content</p>
-</MasonryGridItem>`}
-              </pre>
-            </Card>
-          </GridCol>
-        </Row>
+                  </pre>
+                </div>
+              </Card>
+            </GridCol>
+          </Row>
+        </Block>
         
-        <Row className="u-mt-4">
-          <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Props</h3>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">MasonryGrid Props</h4>
-              <ul className="u-list-none u-d-flex u-flex-column u-gap-2 u-mb-4">
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">columns</strong> - Number of columns (default: 3)</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">gap</strong> - Gap between items in pixels (default: 16)</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">className</strong> - Custom CSS class</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">children</strong> - MasonryGridItem components</li>
-              </ul>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">MasonryGridItem Props</h4>
-              <ul className="u-list-none u-d-flex u-flex-column u-gap-2">
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">className</strong> - Custom CSS class</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">children</strong> - Item content</li>
-              </ul>
-            </Card>
-          </GridCol>
-          
-          <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Responsive Configuration</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Configure columns for different breakpoints:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+        <Block spacing="md" container={{type: 'fluid'}}>
+          <Row>
+            <GridCol md={6}>
+              <Card className="u-p-6 u-h-100">
+                <div className="u-d-flex u-align-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
+                    <Settings size={24} />
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">Props</h3>
+                </div>
+                
+                <div className="u-mb-4">
+                  <h4 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">MasonryGrid Props</h4>
+                  <div className="u-d-flex u-flex-column u-gap-2 u-mb-4">
+                    {[
+                      { prop: 'columns', desc: 'Number of columns (default: 3)' },
+                      { prop: 'gap', desc: 'Gap between items in pixels (default: 16)' },
+                      { prop: 'className', desc: 'Custom CSS class' },
+                      { prop: 'children', desc: 'MasonryGridItem components' },
+                    ].map((item, index) => (
+                      <div key={index} className="u-d-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md">
+                        <div className="u-w-10 u-h-10 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis u-fw-bold u-fs-sm">
+                          {item.prop}
+                        </div>
+                        <span className="u-text-secondary-emphasis">{item.desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <h4 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">MasonryGridItem Props</h4>
+                  <div className="u-d-flex u-flex-column u-gap-2">
+                    {[
+                      { prop: 'className', desc: 'Custom CSS class' },
+                      { prop: 'children', desc: 'Item content' },
+                    ].map((item, index) => (
+                      <div key={index} className="u-d-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md">
+                        <div className="u-w-10 u-h-10 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis u-fw-bold u-fs-sm">
+                          {item.prop}
+                        </div>
+                        <span className="u-text-secondary-emphasis">{item.desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            </GridCol>
+            
+            <GridCol md={6}>
+              <Card className="u-p-6 u-h-100">
+                <div className="u-d-flex u-align-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
+                    <Smartphone size={24} />
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">Responsive Configuration</h3>
+                </div>
+                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">Configure columns for different breakpoints:</p>
+                <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle u-mb-4">
+                  <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
+                    <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">Responsive Example</span>
+                  </div>
+                  <pre className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
 {`<MasonryGrid 
   columns={{
     xs: 1,
@@ -133,21 +269,34 @@ const LayoutsMasonryGridPage = () => {
 >
   {/* Items */}
 </MasonryGrid>`}
-              </pre>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Performance Tips</h4>
-              <ul className="u-list-none u-d-flex u-flex-column u-gap-2">
-                <li className="u-text-secondary-emphasis">• Use fixed aspect ratios when possible</li>
-                <li className="u-text-secondary-emphasis">• Limit the number of items for better performance</li>
-                <li className="u-text-secondary-emphasis">• Debounce resize events</li>
-                <li className="u-text-secondary-emphasis">• Use virtualization for large datasets</li>
-              </ul>
-            </Card>
-          </GridCol>
-        </Row>
+                  </pre>
+                </div>
+                
+                <h4 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">Performance Tips</h4>
+                <div className="u-d-flex u-flex-column u-gap-2">
+                  {[
+                    'Use fixed aspect ratios when possible',
+                    'Limit the number of items for better performance',
+                    'Debounce resize events',
+                    'Use virtualization for large datasets',
+                  ].map((tip, index) => (
+                    <div key={index} className="u-d-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md">
+                      <div className="u-w-8 u-h-8 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
+                        <Zap size={16} />
+                      </div>
+                      <span className="u-text-secondary-emphasis">{tip}</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </GridCol>
+          </Row>
+        </Block>
       </Block>
-    </>
+    </div>
   );
 };
+
+LayoutsMasonryGridPage.displayName = 'LayoutsMasonryGridPage';
 
 export default LayoutsMasonryGridPage;

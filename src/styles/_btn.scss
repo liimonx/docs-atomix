@@ -1,3 +1,25 @@
+.c-btn {
+  --atomix-btn-padding-x: 1rem;
+  --atomix-btn-padding-y: 0.5rem;
+  --atomix-btn-font-family: var(--atomix-body-font-family);
+  --atomix-btn-font-size: var(--atomix-body-font-size);
+  --atomix-btn-font-weight: var(--atomix-font-weight-semibold);
+  --atomix-btn-line-height: var(--atomix-line-height-base);
+  --atomix-btn-icon-size: 1rem;
+  --atomix-btn-color: var(--atomix-body-color);
+  --atomix-btn-bg: transparent;
+  --atomix-btn-border-width: 1px;
+  --atomix-btn-border-color: transparent;
+  --atomix-btn-border-radius: var(--atomix-border-radius);
+  --atomix-btn-hover-border-color: transparent;
+  --atomix-btn-box-shadow: var(--atomix-box-shadow-sm);
+  --atomix-btn-disabled-opacity: 0.65;
+  --atomix-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--atomix-btn-focus-shadow-rgb), 0.25);
+  --atomix-btn-inner-gap: 0.5rem;
+  --atomix-btn-focus-shadow-rgb: var(--atomix-primary-rgb);
+  --atomix-btn-transition: var(--atomix-transition-base);
+}
+
 .c-btn--primary {
   --atomix-btn-color: var(--atomix-light);
   --atomix-btn-bg: var(--atomix-primary);
@@ -118,24 +140,3 @@
   --atomix-btn-disabled-border-color: var(--atomix-gray-7);
 }
 
-.c-btn {
-  --atomix-btn-padding-x: 1rem;
-  --atomix-btn-padding-y: 0.5rem;
-  --atomix-btn-font-family: var(--atomix-body-font-family);
-  --atomix-btn-font-size: var(--atomix-body-font-size);
-  --atomix-btn-font-weight: var(--atomix-font-weight-semibold);
-  --atomix-btn-line-height: var(--atomix-line-height-base);
-  --atomix-btn-icon-size: 1rem;
-  --atomix-btn-color: var(--atomix-body-color);
-  --atomix-btn-bg: transparent;
-  --atomix-btn-border-width: 1px;
-  --atomix-btn-border-color: transparent;
-  --atomix-btn-border-radius: var(--atomix-border-radius);
-  --atomix-btn-hover-border-color: transparent;
-  --atomix-btn-box-shadow: var(--atomix-box-shadow-sm);
-  --atomix-btn-disabled-opacity: 0.65;
-  --atomix-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--atomix-btn-focus-shadow-rgb), 0.25);
-  --atomix-btn-inner-gap: 0.5rem;
-  --atomix-btn-focus-shadow-rgb: var(--atomix-primary-rgb);
-  --atomix-btn-transition: var(--atomix-transition-base);
-}

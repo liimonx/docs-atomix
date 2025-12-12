@@ -1,6 +1,6 @@
 'use client';
 
-
+import { FC } from 'react';
 import {
   Hero,
   SectionIntro,
@@ -10,10 +10,11 @@ import {
   Block,
 } from '@shohojdhara/atomix';
 import { GlassProps } from '@/types/atomix-components';
+import styles from '@/styles/PageHero.module.scss';
 
-const GuidesAtomixGlassThemingPage = () => {
+const GuidesAtomixGlassThemingPage: FC = () => {
   return (
-    <>
+    <div>
 
       <Hero
         glass={{
@@ -24,8 +25,8 @@ const GuidesAtomixGlassThemingPage = () => {
           padding: "20px",
           cornerRadius: 30,
         } as GlassProps}
-        className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Guides - Atomix Glass Theming"
         text="Customize glass morphism effects to match your brand identity"
         alignment="center"
@@ -344,9 +345,11 @@ function ResponsiveGlass({ children }) {
           </GridCol>
         </Row>
       </Block>
-    </>
+    </div>
   );
 };
+
+GuidesAtomixGlassThemingPage.displayName = 'GuidesAtomixGlassThemingPage';
 
 export default GuidesAtomixGlassThemingPage;
 

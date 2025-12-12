@@ -11,6 +11,7 @@ import {
   Badge,
   SectionIntro,
 } from "@shohojdhara/atomix";
+import styles from '@/styles/PageHero.module.scss';
 
 interface LayerCardProps {
   number: string;
@@ -79,7 +80,7 @@ const LayerCard: FC<LayerCardProps> = ({
   </Card>
 );
 
-const StylesArchitecturePage = () => {
+const StylesArchitecturePage: FC = () => {
   const layers: LayerCardProps[] = [
     {
       number: "01",
@@ -163,10 +164,10 @@ const StylesArchitecturePage = () => {
   ];
 
   return (
-    <>
+    <div>
       <Hero
-        className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2864&auto=format&fit=crop"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Styles Architecture"
         text="ITCSS methodology for scalable, maintainable CSS"
         alignment="center"
@@ -559,8 +560,10 @@ const StylesArchitecturePage = () => {
           </GridCol>
         </Grid>
       </Block>
-    </>
+    </div>
   );
 };
+
+StylesArchitecturePage.displayName = 'StylesArchitecturePage';
 
 export default StylesArchitecturePage;

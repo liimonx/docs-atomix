@@ -3,6 +3,8 @@
 import { FC } from 'react';
 import { Button, Hero, Icon } from '@shohojdhara/atomix';
 import { useRouter } from 'next/navigation';
+import styles from './HeroSection.module.scss';
+import pageHeroStyles from '@/styles/PageHero.module.scss';
 
 export const HeroSection: FC = () => {
   const router = useRouter();
@@ -12,15 +14,15 @@ export const HeroSection: FC = () => {
       title="Atomix Design System"
       subtitle="A comprehensive React component library for building modern, accessible web applications"
       backgroundImageSrc="/assets/images/hero-background.jpg"
-      className="docs-hero"
+      className={pageHeroStyles.pageHero}
     >
-      <div className="hero-content">
-        <p className="hero-description">
+      <div className={styles.heroSection__content}>
+        <p className={styles.heroSection__description}>
           40+ professionally designed components with full TypeScript support, 
           WCAG 2.1 AA accessibility compliance, and extensive customization options.
         </p>
         
-        <div className="hero-actions">
+        <div className={styles.heroSection__actions}>
           <Button
             size="lg"
             onClick={() => router.push('/docs/getting-started/installation')}
@@ -39,16 +41,16 @@ export const HeroSection: FC = () => {
           </Button>
         </div>
         
-        <div className="hero-stats">
-          <div className="stat-item">
+        <div className={styles.heroSection__stats}>
+          <div className={styles.heroSection__statItem}>
             <Icon name="Stack" size="sm" />
             <span>40+ Components</span>
           </div>
-          <div className="stat-item">
+          <div className={styles.heroSection__statItem}>
             <Icon name="Palette" size="sm" />
             <span>Design Tokens</span>
           </div>
-          <div className="stat-item">
+          <div className={styles.heroSection__statItem}>
             <Icon name="Wheelchair" size="sm" />
             <span>WCAG 2.1 AA</span>
           </div>

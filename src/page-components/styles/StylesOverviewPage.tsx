@@ -13,6 +13,7 @@ import {
   SectionIntro,
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
+import styles from '@/styles/PageHero.module.scss';
 
 const StylesOverviewPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -33,8 +34,8 @@ const StylesOverviewPage: FC = () => {
           padding: "20px",
           cornerRadius: 30,
         } as GlassProps : undefined}
-        className="u-pt-32 u-pb-16"
-        backgroundImageSrc="https://images.unsplash.com/photo-1682100615316-e152a40b5793?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2728"
+        className={styles.pageHero}
+        backgroundImageSrc="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Styles System"
         subtitle="Atomix CSS Architecture"
         text="A comprehensive, scalable CSS architecture built on modern web standards and the ITCSS methodology."
@@ -43,7 +44,7 @@ const StylesOverviewPage: FC = () => {
         fullViewportHeight={false}
         contentWidth="900px"
         actions={
-          <>
+          <div className={styles.pageHero__actions}>
             <Button 
               label="Architecture Guide"
               href="/docs/styles/architecture"
@@ -53,7 +54,7 @@ const StylesOverviewPage: FC = () => {
               label="Utility Classes"
               href="/docs/styles/utilities"
             />
-          </>
+          </div>
         }
       />
 
