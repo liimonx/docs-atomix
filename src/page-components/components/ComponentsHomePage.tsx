@@ -80,7 +80,7 @@ const ComponentsHomePage: FC = () => {
         backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         showOverlay={true}
         fullViewportHeight={false}
-        contentWidth="900px"
+        contentWidth="1100px"
         actions={
           <div className={styles.pageHero__actions}>
             <Button
@@ -101,7 +101,7 @@ const ComponentsHomePage: FC = () => {
       />
       <BreadcrumbNavigation />
 
-      <Block spacing="md" container={{ type: "fluid" }}>
+      <Block spacing="sm" container={{ type: "fluid" }}>
         <SectionIntro
           title="By the Numbers"
           text="Atomix provides a comprehensive component library for building modern interfaces"
@@ -154,15 +154,16 @@ const ComponentsHomePage: FC = () => {
       </Block>
 
       <Block spacing="md" background="secondary" container={{ type: "fluid" }}>
-        <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-6">
+        <div className="u-d-flex u-align-items-center u-mb-6">
           <SectionIntro
             title="Categories"
             text="Browse components by category"
-            alignment="left"
+            alignment="center"
           />
+
           <Link
             href="/docs/components/overview"
-            className="u-text-primary u-text-decoration-none u-fw-medium u-d-flex u-align-items-center u-gap-2"
+            className="u-text-primary u-text-decoration-none u-fw-medium u-align-items-end u-pe-2"
           >
             View All
             <Icon name="ArrowRight" size={16} />
@@ -171,7 +172,7 @@ const ComponentsHomePage: FC = () => {
 
         <Grid>
           {categories.slice(0, 6).map((category, index) => (
-            <GridCol key={index} md={4} sm={6}>
+            <GridCol key={index} md={4} sm={6}  className="u-mb-4">
               <Link
                 href="/docs/components/overview"
                 className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
@@ -254,15 +255,15 @@ const ComponentsHomePage: FC = () => {
       </Block>
 
       <Block spacing="md" background="brand" container={{ type: "fluid" }}>
-        <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-6">
+        <div className="u-d-flex u-align-items-center u-mb-6">
           <SectionIntro
             title="Recently Updated"
             text="Latest component updates and improvements"
-            alignment="left"
+            alignment="center"
           />
           <Link
             href="/docs/components/overview"
-            className="u-text-primary u-text-decoration-none u-fw-medium u-d-flex u-align-items-center u-gap-2"
+            className="u-text-white u-text-decoration-none u-fw-medium u-align-items-end u-pe-2"
           >
             View All
             <Icon name="ArrowRight" size={16} />
