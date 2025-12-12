@@ -11,6 +11,7 @@ import {
   Row,
   GridCol
 } from '@shohojdhara/atomix';
+import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
 import type { ComponentDocumentation } from '@/types/index';
 
 interface ComponentShowcaseProps {
@@ -35,13 +36,8 @@ export const ComponentShowcase: FC<ComponentShowcaseProps> = ({
             <h2 className="u-fs-2xl u-fw-bold u-mb-3">Quick Start</h2>
             <p className="u-text-secondary-emphasis u-mb-4">Get started with {component.name} in just a few lines of code.</p>
 
-            <Card className="u-p-0 u-overflow-hidden">
-              <div className="u-p-3 u-bg-tertiary u-border-b u-border-subtle">
-                <span className="u-fs-sm u-fw-medium u-text-secondary-emphasis">Basic Usage</span>
-              </div>
-              <div className="u-p-4 u-bg-secondary">
-                <pre className="u-m-0 u-overflow-x-auto">
-                  <code className="u-fs-sm">{component.quickStart || `import { ${component.name} } from '@shohojdhara/atomix';
+            <EnhancedCodeBlock
+              code={component.quickStart || `import { ${component.name} } from '@shohojdhara/atomix';
 
 function MyComponent() {
   return (
@@ -49,10 +45,11 @@ function MyComponent() {
       {/* Your content here */}
     </${component.name}>
   );
-}`}</code>
-                </pre>
-              </div>
-            </Card>
+}`}
+              language="typescript"
+              title="Basic Usage"
+              showLineNumbers={true}
+            />
           </section>
 
           {/* Key Features */}

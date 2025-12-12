@@ -1,14 +1,16 @@
 "use client";
 
-import  { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import {
   Icon,
   Input,
   SideMenu as AtomixSideMenu,
+  EdgePanel,
 } from "@shohojdhara/atomix";
 import { usePathname } from "next/navigation";
 import { navigationData } from "@/data/navigation";
 import Link from "next/link";
+
 interface DocumentationSidebarProps {
   isOpen: boolean;
   onClose: () => void;
@@ -25,7 +27,14 @@ export const DocumentationSidebar = ({
   onClose,
 }: DocumentationSidebarProps) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const prevPathnameRef = useRef(pathname);
+
+  // Handle client-side mounting to prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const filteredSections = useMemo(() => {
     if (!searchTerm.trim()) {
@@ -67,72 +76,93 @@ export const DocumentationSidebar = ({
     }));
   }, [filteredSections, pathname]);
 
+  // Close panel when pathname changes (navigation occurred)
+  useEffect(() => {
+    // Only close if pathname actually changed (not on initial mount or when isOpen changes)
+    if (mounted && isOpen && pathname !== prevPathnameRef.current) {
+      prevPathnameRef.current = pathname;
+      onClose();
+      setSearchTerm(""); // Clear search on navigation
+    } else if (mounted) {
+      // Update ref even if we don't close
+      prevPathnameRef.current = pathname;
+    }
+  }, [pathname, isOpen, onClose, mounted]);
+
+  const handleOpenChange = (open: boolean) => {
+    if (!open) {
+      setSearchTerm(""); // Clear search when closing
+      onClose();
+    }
+  };
+
+  const panelTitle = searchTerm.trim()
+    ? `Documentation (${totalItems} found)`
+    : `Documentation (${totalItems})`;
+
   return (
-    <div
-      role="navigation"
-      aria-label="Documentation navigation"
-      className="u-pt-24 u-pb-16 u-position-sticky u-top-0 u-start-0 u-h-100 u-overflow-y-auto"
-      style={{ height: "calc(100vh)" }}
+    <EdgePanel
+      title={panelTitle}
+      isOpen={isOpen}
+      onOpenChange={handleOpenChange}
+      position="start"
+      mode="push"
+      backdrop={false}
+      closeOnBackdropClick={false}
+      closeOnEscape={true}
+      style={{top: '56px'}}
     >
-      {/* Search */}
-      <div className="u-mb-6 u-px-2">
-        <div className="u-position-relative u-mb-3">
-          <Input
-            type="text"
-            placeholder="Search documentation..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            size="md"
-            aria-label="Search documentation navigation"
-            className="u-w-100"
-          />
-          {searchTerm && (
-            <button
-              onClick={() => setSearchTerm("")}
-              className="u-position-absolute u-end-0 u-top-0 u-mt-2 u-me-2 u-bg-transparent u-border-0 u-cursor-pointer u-p-1"
-              aria-label="Clear search"
-              type="button"
-            >
-              <Icon name="X" size="sm" />
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <div>
-        {filteredSections.length > 0 ? (
-          <AtomixSideMenu
-            title={`Documentation (${totalItems})`}
-            menuItems={menuItems}
-            LinkComponent={Link as any}
-          >
-            {null}
-          </AtomixSideMenu>
-        ) : (
-          <EmptySearchState />
-        )}
-      </div>
-
-      {/* Footer Stats */}
-      {filteredSections.length > 0 && (
-        <div className="u-mt-6 u-pt-4 u-border-top u-px-3 u-fs-xs u-color-muted">
-          <div className="u-d-flex u-justify-content-between u-mb-2">
-            <span>Sections: {filteredSections.length}</span>
-            <span>Items: {totalItems}</span>
+      <div className="u-pt-4">
+        {/* Search */}
+        <div className="u-mb-6 u-px-2">
+          <div className="u-position-relative u-mb-3">
+            <Input
+              type="text"
+              placeholder="Search documentation..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              size="md"
+              aria-label="Search documentation navigation"
+              className="u-w-100"
+            />
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm("")}
+                className="u-position-absolute u-end-0 u-top-0 u-mt-2 u-me-2 u-bg-transparent u-border-0 u-cursor-pointer u-p-1"
+                aria-label="Clear search"
+                type="button"
+              >
+                <Icon name="X" size="sm" />
+              </button>
+            )}
           </div>
         </div>
-      )}
 
-      {/* Mobile overlay */}
-      {isOpen && (
-        <div
-          onClick={onClose}
-          aria-hidden="true"
-          role="presentation"
-          className="u-position-fixed u-top-0 u-start-0 u-w-100 u-h-100 u-bg-dark u-opacity-50 u-z-index-dropdown"
-        />
-      )}
-    </div>
+        {/* Navigation */}
+        <div>
+          {filteredSections.length > 0 ? (
+            <AtomixSideMenu
+              title={`Documentation (${totalItems})`}
+              menuItems={menuItems}
+              LinkComponent={Link as any}
+            >
+              {null}
+            </AtomixSideMenu>
+          ) : (
+            <EmptySearchState />
+          )}
+        </div>
+
+        {/* Footer Stats */}
+        {filteredSections.length > 0 && (
+          <div className="u-mt-6 u-pt-4 u-border-top u-px-3 u-fs-xs u-color-muted">
+            <div className="u-d-flex u-justify-content-between u-mb-2">
+              <span>Sections: {filteredSections.length}</span>
+              <span>Items: {totalItems}</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </EdgePanel>
   );
 };

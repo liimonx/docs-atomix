@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useState } from 'react';
 import { Button, Tabs, Select, Card } from '@shohojdhara/atomix';
+import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
 import type { ComponentDocumentation } from '@/types/index';
 
 interface InteractiveDemoProps {
@@ -51,22 +52,12 @@ export const InteractiveDemo: FC<InteractiveDemoProps> = ({
       description: 'Source code for this example',
       content: (
         <div className="u-mt-4">
-          <Card className="u-p-0 u-overflow-hidden">
-            <div className="u-p-4 u-bg-tertiary u-border-b u-border-subtle">
-              <pre className="u-m-0 u-overflow-x-auto">
-                <code className="u-fs-sm">{example.code}</code>
-              </pre>
-            </div>
-            <div className="u-p-4 u-d-flex u-justify-content-end">
-              <Button
-                variant="outline-primary"
-                size="sm"
-                onClick={() => navigator.clipboard.writeText(example.code)}
-              >
-                Copy to Clipboard
-              </Button>
-            </div>
-          </Card>
+          <EnhancedCodeBlock
+            code={example.code}
+            language="tsx"
+            showLineNumbers={true}
+            title={example.title}
+          />
         </div>
       )
     }

@@ -21,6 +21,7 @@ import { ComponentExamples } from "@/components/showcase/ComponentExamples";
 import { ComponentAccessibility } from "@/components/showcase/ComponentAccessibility";
 import { ComponentRelated } from "@/components/showcase/ComponentRelated";
 import { BreadcrumbNavigation } from "@/components/navigation/BreadcrumbNavigation";
+import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 
 const ComponentDetailPage: FC<{ componentId?: string }> = ({
   componentId: componentIdProp,
@@ -106,26 +107,20 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
 
           <Card>
             <h3 className="u-fs-xl u-fw-bold u-mb-4">Installation</h3>
-            <Card className="u-p-4 u-bg-secondary u-border u-border-subtle u-overflow-x-auto">
-              <pre
-                className="u-m-0 u-fs-sm"
-                style={{ fontFamily: "var(--atomix-font-family-mono)" }}
-              >
-                <code>npm install @shohojdhara/atomix</code>
-              </pre>
-            </Card>
+            <EnhancedCodeBlock
+              code="npm install @shohojdhara/atomix"
+              language="bash"
+              showLineNumbers={false}
+            />
           </Card>
 
           <Card>
             <h3 className="u-fs-xl u-fw-bold u-mb-4">Basic Usage</h3>
-            <Card className="u-p-4 u-bg-secondary u-border u-border-subtle u-overflow-x-auto">
-              <pre
-                className="u-m-0 u-fs-sm"
-                style={{ fontFamily: "var(--atomix-font-family-mono)" }}
-              >
-                <code>{`import { ${componentDoc.name} } from '${componentDoc.importPath}';`}</code>
-              </pre>
-            </Card>
+            <EnhancedCodeBlock
+              code={`import { ${componentDoc.name} } from '${componentDoc.importPath}';`}
+              language="typescript"
+              showLineNumbers={false}
+            />
           </Card>
         </div>
       ),

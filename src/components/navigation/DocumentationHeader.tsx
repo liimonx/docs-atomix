@@ -57,7 +57,7 @@ export const DocumentationHeader: FC<DocumentationHeaderProps> = ({
               size="sm"
               onClick={onMenuToggle}
               aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
-              className="u-d-none u-d-lg-none"
+              className="u-d-lg-none"
             >
               <Icon name={sidebarOpen ? 'X' : 'List'} size="sm" />
             </Button>

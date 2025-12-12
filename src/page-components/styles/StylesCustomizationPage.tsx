@@ -11,6 +11,7 @@ import {
   Icon,
   Badge,
 } from '@shohojdhara/atomix';
+import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
 import styles from '@/styles/PageHero.module.scss';
 
 interface CustomizationMethodProps {
@@ -37,11 +38,11 @@ const MethodCard: FC<CustomizationMethodProps> = ({ icon, title, description, co
       </div>
       <Badge variant="secondary" size="sm" className="u-mb-3" label={`${complexity} Complexity`} style={{ backgroundColor: `${complexityColors[complexity]}20`, color: complexityColors[complexity] }} />
       <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
-      <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
-        <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-          <code>{code}</code>
-        </pre>
-      </div>
+      <EnhancedCodeBlock
+        code={code}
+        language={code.includes('@use') || code.includes('$') ? 'scss' : code.includes(':root') ? 'css' : 'scss'}
+        showLineNumbers={false}
+      />
     </Card>
   );
 };

@@ -30,6 +30,7 @@ export * from './showcase/ComponentProps';
 export * from './showcase/ComponentExamples';
 export * from './showcase/ComponentAccessibility';
 export * from './showcase/ComponentRelated';
+export * from './showcase/EnhancedCodeBlock';
 
 // UI components
 export * from './ui/ErrorBoundary';

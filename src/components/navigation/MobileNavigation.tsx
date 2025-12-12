@@ -1,118 +1,154 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useState, useMemo, useEffect } from 'react';
 import { 
-  Button, 
-  Icon, 
-  Accordion,
-  Badge
+  EdgePanel,
+  Icon,
+  Input,
+  SideMenu as AtomixSideMenu,
 } from '@shohojdhara/atomix';
 import { navigationData } from '@/data/navigation';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 interface MobileNavigationProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+const EmptySearchState = () => (
+  <div className="u-p-4 u-text-center u-color-muted u-fs-sm">
+    <p>No navigation items found. Try a different search term.</p>
+  </div>
+);
+
 export const MobileNavigation: FC<MobileNavigationProps> = ({
   isOpen,
   onClose
 }) => {
-  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
+  const pathname = usePathname();
 
-  if (!isOpen) {
-    return null;
-  }
+  const filteredSections = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return navigationData;
+    }
 
-  const handleNavigation = (path: string) => {
-    router.push(path);
-    onClose();
-  };
+    const searchLower = searchTerm.toLowerCase();
 
-  const getBadgeVariant = (
-    variant: string
-  ):
-    | "primary"
-    | "secondary"
-    | "success"
-    | "warning"
-    | "info"
-    | "danger" => {
-    switch (variant) {
-      case "new":
-        return "success";
-      case "beta":
-        return "warning";
-      case "updated":
-        return "info";
-      case "deprecated":
-        return "danger";
-      default:
-        return "secondary";
+    return navigationData
+      .map((section) => ({
+        ...section,
+        items: section.items.filter(
+          (item) =>
+            item.title.toLowerCase().includes(searchLower) ||
+            item.description?.toLowerCase().includes(searchLower) ||
+            item.searchTerms?.some((term) =>
+              term.toLowerCase().includes(searchLower)
+            )
+        ),
+      }))
+      .filter((section) => section.items.length > 0);
+  }, [searchTerm]);
+
+  const totalItems = filteredSections.reduce(
+    (sum, section) => sum + section.items.length,
+    0
+  );
+
+  const menuItems = useMemo(() => {
+    return filteredSections.map((section) => ({
+      title: section.title,
+      items: section.items.map((item: any) => ({
+        title: item.title,
+        href: item.path,
+        icon: <Icon name={item.icon} />,
+        active: pathname === item.path,
+        linkComponent: Link as any,
+      })),
+    }));
+  }, [filteredSections, pathname]);
+
+  // Close panel when pathname changes (navigation occurred)
+  useEffect(() => {
+    if (isOpen) {
+      onClose();
+      setSearchTerm(""); // Clear search on navigation
+    }
+  }, [pathname, isOpen, onClose]);
+
+  const handleOpenChange = (open: boolean) => {
+    if (!open) {
+      setSearchTerm(""); // Clear search when closing
+      onClose();
     }
   };
 
-  const accordionItems = navigationData.map(section => ({
-    title: section.title,
-    content: (
-      <ul className="u-list-style-none u-m-0 u-p-0">
-        {section.items.map(item => (
-          <li key={item.path} className="u-mb-2">
-            <Button
-              variant="ghost"
-              className="u-w-100 u-justify-content-start"
-              onClick={() => handleNavigation(item.path)}
-              fullWidth
-            >
-              <span className="u-flex-grow-1 u-text-start">{item.title}</span>
-              {item.badge && (
-                <Badge
-                  label={item.badge.text}
-                  variant={getBadgeVariant(item.badge.variant) as any}
-                  size="sm"
-                />
-              )}
-            </Button>
-          </li>
-        ))}
-      </ul>
-    )
-  }));
+  const panelTitle = searchTerm.trim()
+    ? `Documentation (${totalItems} found)`
+    : `Documentation (${totalItems})`;
 
   return (
-    <div className="u-position-fixed u-top-0 u-start-0 u-w-100 u-h-100 u-z-index-1000">
-      <div className="u-position-absolute u-top-0 u-start-0 u-w-100 u-h-100 u-bg-primary u-p-4 u-overflow-y-auto" style={{ maxWidth: '320px', boxShadow: '2px 0 8px rgba(var(--atomix-dark-rgb), 0.1)' }}>
-        <div className="u-d-flex u-justify-content-between u-align-items-center u-mb-4">
-          <h2 className="u-fs-xl u-fw-semibold u-m-0">Documentation</h2>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={onClose}
-            aria-label="Close navigation"
-          >
-            <Icon name="X" size="sm" />
-          </Button>
+    <EdgePanel
+      title={panelTitle}
+      isOpen={isOpen}
+      onOpenChange={handleOpenChange}
+      position="start"
+      mode="slide"
+      backdrop={true}
+      closeOnBackdropClick={true}
+      closeOnEscape={true}
+    >
+      <div className="u-pt-4">
+        {/* Search */}
+        <div className="u-mb-6 u-px-2">
+          <div className="u-position-relative u-mb-3">
+            <Input
+              type="text"
+              placeholder="Search documentation..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              size="md"
+              aria-label="Search documentation navigation"
+              className="u-w-100"
+            />
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm("")}
+                className="u-position-absolute u-end-0 u-top-0 u-mt-2 u-me-2 u-bg-transparent u-border-0 u-cursor-pointer u-p-1"
+                aria-label="Clear search"
+                type="button"
+              >
+                <Icon name="X" size="sm" />
+              </button>
+            )}
+          </div>
         </div>
-        
+
+        {/* Navigation */}
         <div>
-          {accordionItems.map((item, index) => (
-            <Accordion
-              key={index}
-              title={item.title}
+          {filteredSections.length > 0 ? (
+            <AtomixSideMenu
+              menuItems={menuItems}
+              LinkComponent={Link as any}
             >
-              {item.content}
-            </Accordion>
-          ))}
+              {null}
+            </AtomixSideMenu>
+          ) : (
+            <EmptySearchState />
+          )}
         </div>
+
+        {/* Footer Stats */}
+        {filteredSections.length > 0 && (
+          <div className="u-mt-6 u-pt-4 u-border-top u-px-3 u-fs-xs u-color-muted">
+            <div className="u-d-flex u-justify-content-between u-mb-2">
+              <span>Sections: {filteredSections.length}</span>
+              <span>Items: {totalItems}</span>
+            </div>
+          </div>
+        )}
       </div>
-      
-      <div 
-        className="u-position-absolute u-top-0 u-start-0 u-w-100 u-h-100 u-bg-black u-opacity-50" 
-        onClick={onClose}
-        aria-hidden="true"
-        style={{ marginLeft: '320px' }}
-      />
-    </div>
+    </EdgePanel>
   );
 };

@@ -9,8 +9,10 @@ import {
   Row,
   Block,
 } from '@shohojdhara/atomix';
-import { CodeBlockWithCopy } from '@/components/documentation/CodeBlockWithCopy';
+import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
 import styles from '@/styles/PageHero.module.scss';
+
+// Theming Guide Page Component
 
 const GeneralThemingGuidePage: FC = () => {
   return (
@@ -39,7 +41,7 @@ const GeneralThemingGuidePage: FC = () => {
               <p>To create a custom theme, override the default CSS variables in your stylesheet:</p>
               
               <div className="u-mt-3">
-                <CodeBlockWithCopy 
+                <EnhancedCodeBlock 
                   language="css"
                   code={`:root {
   --atomix-color-primary: var(--atomix-primary);
@@ -47,6 +49,7 @@ const GeneralThemingGuidePage: FC = () => {
   --atomix-font-family-base: var(--atomix-font-sans-serif);
   --atomix-border-radius-base: var(--atomix-border-radius-sm);
 }`}
+                  showLineNumbers={true}
                 />
               </div>
               
@@ -67,11 +70,12 @@ const GeneralThemingGuidePage: FC = () => {
               <p>For dynamic theme switching, update CSS variables using JavaScript:</p>
               
               <div className="u-mt-3">
-                <CodeBlockWithCopy 
+                <EnhancedCodeBlock 
                   language="javascript"
                   code={`// Switch to dark theme
 document.documentElement.style.setProperty('--atomix-color-bg', 'var(--atomix-dark)');
 document.documentElement.style.setProperty('--atomix-color-text', 'var(--atomix-light)');`}
+                  showLineNumbers={true}
                 />
               </div>
             </Card>

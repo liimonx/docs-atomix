@@ -207,7 +207,12 @@ export default function Page() {
   ];
 
   // LinkContent component for quick links
-  const LinkContent = ({ title, description, external, icon }: {
+  const LinkContent = ({
+    title,
+    description,
+    external,
+    icon,
+  }: {
     title: string;
     description: string;
     external: boolean;
@@ -257,7 +262,7 @@ export default function Page() {
           elasticity: 0,
         }}
         actions={
-          <>
+          <div className="u-d-flex u-flex-wrap u-justify-content-center u-gap-2">
             <Button
               glass={{ blurAmount: 0 }}
               variant="primary"
@@ -276,12 +281,12 @@ export default function Page() {
             >
               View Components
             </Button>
-          </>
+          </div>
         }
       />
 
       {/* Statistics Section */}
-      <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
+      <Block spacing="md" background="secondary" container={{ type: "fluid" }}>
         <Container>
           <SectionIntro
             title="By the Numbers"
@@ -310,7 +315,7 @@ export default function Page() {
       </Block>
 
       {/* Features Section */}
-      <Block spacing="md" container={{type: 'fluid'}}>
+      <Block spacing="md" container={{ type: "fluid" }}>
         <Container>
           <SectionIntro
             title="Why Choose Atomix?"
@@ -338,7 +343,7 @@ export default function Page() {
       </Block>
 
       {/* Philosophy Section */}
-      <Block background="secondary" spacing="md" container={{type: 'fluid'}}>
+      <Block background="secondary" spacing="md" container={{ type: "fluid" }}>
         <Container>
           <SectionIntro
             title="Our Design Philosophy"
@@ -361,7 +366,7 @@ export default function Page() {
       </Block>
 
       {/* Quick Links Section */}
-      <Block spacing="md" container={{type: 'fluid'}}>
+      <Block spacing="md" container={{ type: "fluid" }}>
         <Container>
           <SectionIntro
             title="Quick Start"
@@ -411,7 +416,7 @@ export default function Page() {
         background="secondary"
         spacing="md"
         className="u-overflow-hidden"
-        container={{type: 'fluid'}}
+        container={{ type: "fluid" }}
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",

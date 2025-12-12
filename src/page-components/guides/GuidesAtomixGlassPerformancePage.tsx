@@ -15,52 +15,12 @@ import {
   Icon,
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
+import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 import styles from '@/styles/PageHero.module.scss';
 
 import toast from "react-hot-toast";
 
 const GuidesAtomixGlassPerformancePage: FC = () => {
-  const [copiedCode, setCopiedCode] = useState<string | null>(null);
-
-  const copyToClipboard = async (code: string, id: string) => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopiedCode(id);
-      toast.success("Code copied to clipboard!");
-      setTimeout(() => setCopiedCode(null), 2000);
-    } catch (err) {
-      toast.error("Failed to copy code");
-    }
-  };
-
-  const renderCodeBlock = (
-    code: string,
-    language: string,
-    id: string,
-    title?: string
-  ) => (
-      <div className="u-p-6 u-bg-secondary u-br-md u-border u-border-subtle u-rounded-md">
-      <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-2">
-        <span className="u-fs-sm u-text-error-emphasis">{title || language}</span>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => copyToClipboard(code, id)}
-        >
-          {copiedCode === id ? (
-            <Icon name="CheckCircle" size={16} />
-          ) : (
-            <Icon name="Copy" size={16} />
-          )}
-        </Button>
-      </div>
-      <div className="u-p-3">
-        <pre>
-          <code>{code}</code>
-        </pre>
-      </div>
-    </div>
-  );
 
   return (
     <div>
@@ -461,8 +421,8 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
 
                       <GridCol md={6}>
                         <h4 className="u-mb-3">Basic Device Detection</h4>
-                        {renderCodeBlock(
-                          `import { useEffect, useState } from 'react';
+                        <EnhancedCodeBlock
+                          code={`import { useEffect, useState } from 'react';
 import { AtomixGlass } from '@shohojdhara/atomix';
 
 function AdaptiveGlassComponent() {
@@ -492,19 +452,19 @@ function AdaptiveGlassComponent() {
       Content
     </AtomixGlass>
   );
-}`,
-                          "typescript",
-                          "device-detection-basic",
-                          "AdaptiveGlassComponent.tsx"
-                        )}
+}`}
+                          language="typescript"
+                          title="AdaptiveGlassComponent.tsx"
+                          showLineNumbers={true}
+                        />
                       </GridCol>
 
                       <GridCol md={6}>
                         <h4 className="u-mb-3">
                           Advanced Device Detection Hook
                         </h4>
-                        {renderCodeBlock(
-                          `import { useEffect, useState } from 'react';
+                        <EnhancedCodeBlock
+                          code={`import { useEffect, useState } from 'react';
 
 interface DeviceCapabilities {
   isLowEnd: boolean;
@@ -572,11 +532,11 @@ function OptimizedGlassComponent() {
       Content
     </AtomixGlass>
   );
-}`,
-                          "typescript",
-                          "device-detection-advanced",
-                          "useDeviceCapabilities.ts"
-                        )}
+}`}
+                          language="typescript"
+                          title="useDeviceCapabilities.ts"
+                          showLineNumbers={true}
+                        />
                       </GridCol>
                     </Grid>
 
@@ -746,8 +706,8 @@ function OptimizedGlassComponent() {
                     <Grid className="u-mt-4">
                       <GridCol md={12}>
                         <h4 className="u-mb-3">Performance Monitoring Hook</h4>
-                        {renderCodeBlock(
-                          `import { useEffect, useRef } from 'react';
+                        <EnhancedCodeBlock
+                          code={`import { useEffect, useRef } from 'react';
 
 interface PerformanceMetrics {
   fps: number;
@@ -828,11 +788,11 @@ function MonitoredGlassComponent() {
       <AtomixGlass>Content</AtomixGlass>
     </div>
   );
-}`,
-                          "typescript",
-                          "performance-monitor",
-                          "usePerformanceMonitor.ts"
-                        )}
+}`}
+                          language="typescript"
+                          title="usePerformanceMonitor.ts"
+                          showLineNumbers={true}
+                        />
                       </GridCol>
                     </Grid>
 
@@ -875,8 +835,8 @@ function MonitoredGlassComponent() {
                             visible in the viewport. This dramatically reduces
                             GPU load.
                           </p>
-                          {renderCodeBlock(
-                            `import { useInView } from 'react-intersection-observer';
+                          <EnhancedCodeBlock
+                            code={`import { useInView } from 'react-intersection-observer';
 
 function LazyGlassComponent() {
   const { ref, inView } = useInView({
@@ -897,11 +857,11 @@ function LazyGlassComponent() {
       )}
     </div>
   );
-}`,
-                            "typescript",
-                            "conditional-rendering",
-                            "LazyGlassComponent.tsx"
-                          )}
+}`}
+                            language="typescript"
+                            title="LazyGlassComponent.tsx"
+                            showLineNumbers={true}
+                          />
                         </Card>
                       </GridCol>
 
@@ -927,8 +887,8 @@ function LazyGlassComponent() {
                             Respect user preferences for reduced motion. This
                             also improves performance on low-end devices.
                           </p>
-                          {renderCodeBlock(
-                            `const prefersReducedMotion = window.matchMedia(
+                          <EnhancedCodeBlock
+                            code={`const prefersReducedMotion = window.matchMedia(
   '(prefers-reduced-motion: reduce)'
 ).matches;
 
@@ -942,11 +902,11 @@ function AccessibleGlassComponent() {
   Content
     </AtomixGlass>
   );
-}`,
-                            "typescript",
-                            "reduced-motion",
-                            "AccessibleGlassComponent.tsx"
-                          )}
+}`}
+                            language="typescript"
+                            title="AccessibleGlassComponent.tsx"
+                            showLineNumbers={true}
+                          />
                         </Card>
                       </GridCol>
                     </Grid>
@@ -974,8 +934,8 @@ function AccessibleGlassComponent() {
                             Debounce mouse/touch events to reduce the frequency
                             of expensive shader updates.
                           </p>
-                          {renderCodeBlock(
-                            `import { useMemo } from 'react';
+                          <EnhancedCodeBlock
+                            code={`import { useMemo } from 'react';
 import { debounce } from 'lodash';
 
 function DebouncedGlassComponent() {
@@ -994,11 +954,11 @@ function DebouncedGlassComponent() {
       Interactive content
     </AtomixGlass>
   );
-}`,
-                            "typescript",
-                            "debounce-interactions",
-                            "DebouncedGlassComponent.tsx"
-                          )}
+}`}
+                            language="typescript"
+                            title="DebouncedGlassComponent.tsx"
+                            showLineNumbers={true}
+                          />
                         </Card>
                       </GridCol>
 
@@ -1024,8 +984,8 @@ function DebouncedGlassComponent() {
                             Memoize AtomixGlass components to prevent
                             unnecessary re-renders and shader recompilation.
                           </p>
-                          {renderCodeBlock(
-                            `import { memo } from 'react';
+                          <EnhancedCodeBlock
+                            code={`import { memo } from 'react';
 
 const MemoizedGlassCard = memo(({ title, content }) => {
   return (
@@ -1047,11 +1007,11 @@ const MemoizedGlassCard = memo(({ title, content }) => {
     prevProps.title === nextProps.title &&
     prevProps.content === nextProps.content
   );
-});`,
-                            "typescript",
-                            "memoization",
-                            "MemoizedGlassCard.tsx"
-                          )}
+});`}
+                            language="typescript"
+                            title="MemoizedGlassCard.tsx"
+                            showLineNumbers={true}
+                          />
                         </Card>
                       </GridCol>
                     </Grid>

@@ -15,6 +15,7 @@ import {
   SectionIntro,
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
+import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 import styles from '@/styles/PageHero.module.scss';
 
 interface GettingStartedPageProps {
@@ -712,115 +713,28 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
 
                   <Row>
                     <GridCol md={4} className="u-mb-4">
-                      <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
-                        <div className="u-d-flex u-align-items-center u-justify-content-between u-px-4 u-py-3 u-bg-secondary-subtle u-border-bottom u-border-subtle">
-                          <span className="u-fs-sm u-fw-semibold u-text-primary-emphasis">
-                            npm
-                          </span>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() =>
-                              copyToClipboard(
-                                "npm install @shohojdhara/atomix",
-                                "npm-quick"
-                              )
-                            }
-                          >
-                            {copiedCode === "npm-quick" ? (
-                              <Icon
-                                name="CheckCircle"
-                                size={16}
-                                className="u-text-success"
-                              />
-                            ) : (
-                              <Icon name="Copy" size={16} />
-                            )}
-                          </Button>
-                        </div>
-                        <pre
-                          className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis"
-                          style={{
-                            fontFamily: "var(--atomix-font-family-mono)",
-                          }}
-                        >
-                          <code>npm install @shohojdhara/atomix</code>
-                        </pre>
-                      </div>
+                      <EnhancedCodeBlock
+                        code="npm install @shohojdhara/atomix"
+                        language="bash"
+                        title="npm"
+                        showLineNumbers={false}
+                      />
                     </GridCol>
                     <GridCol md={4} className="u-mb-4">
-                      <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
-                        <div className="u-d-flex u-align-items-center u-justify-content-between u-px-4 u-py-3 u-bg-secondary-subtle u-border-bottom u-border-subtle">
-                          <span className="u-fs-sm u-fw-semibold u-text-primary-emphasis">
-                            yarn
-                          </span>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() =>
-                              copyToClipboard(
-                                "yarn add @shohojdhara/atomix",
-                                "yarn-quick"
-                              )
-                            }
-                          >
-                            {copiedCode === "yarn-quick" ? (
-                              <Icon
-                                name="CheckCircle"
-                                size={16}
-                                className="u-text-success"
-                              />
-                            ) : (
-                              <Icon name="Copy" size={16} />
-                            )}
-                          </Button>
-                        </div>
-                        <pre
-                          className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis"
-                          style={{
-                            fontFamily: "var(--atomix-font-family-mono)",
-                          }}
-                        >
-                          <code>yarn add @shohojdhara/atomix</code>
-                        </pre>
-                      </div>
+                      <EnhancedCodeBlock
+                        code="yarn add @shohojdhara/atomix"
+                        language="bash"
+                        title="yarn"
+                        showLineNumbers={false}
+                      />
                     </GridCol>
                     <GridCol md={4} className="u-mb-4">
-                      <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
-                        <div className="u-d-flex u-align-items-center u-justify-content-between u-px-4 u-py-3 u-bg-secondary-subtle u-border-bottom u-border-subtle">
-                          <span className="u-fs-sm u-fw-semibold u-text-primary-emphasis">
-                            pnpm
-                          </span>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() =>
-                              copyToClipboard(
-                                "pnpm add @shohojdhara/atomix",
-                                "pnpm-quick"
-                              )
-                            }
-                          >
-                            {copiedCode === "pnpm-quick" ? (
-                              <Icon
-                                name="CheckCircle"
-                                size={16}
-                                className="u-text-success"
-                              />
-                            ) : (
-                              <Icon name="Copy" size={16} />
-                            )}
-                          </Button>
-                        </div>
-                        <pre
-                          className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis"
-                          style={{
-                            fontFamily: "var(--atomix-font-family-mono)",
-                          }}
-                        >
-                          <code>pnpm add @shohojdhara/atomix</code>
-                        </pre>
-                      </div>
+                      <EnhancedCodeBlock
+                        code="pnpm add @shohojdhara/atomix"
+                        language="bash"
+                        title="pnpm"
+                        showLineNumbers={false}
+                      />
                     </GridCol>
                   </Row>
                 </Card>
@@ -865,17 +779,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                     </div>
                   </div>
 
-                  <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle u-mb-4">
-                    <div className="u-d-flex u-align-items-center u-justify-content-between u-px-4 u-py-3 u-bg-secondary-subtle u-border-bottom u-border-subtle">
-                      <span className="u-fs-sm u-fw-semibold u-text-primary-emphasis">
-                        main.tsx
-                      </span>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() =>
-                          copyToClipboard(
-                            `import React from 'react';
+                  <EnhancedCodeBlock
+                    code={`import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
@@ -886,43 +791,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-);`,
-                            "import-css"
-                          )
-                        }
-                      >
-                        {copiedCode === "import-css" ? (
-                          <Icon
-                            name="CheckCircle"
-                            size={16}
-                            className="u-text-success"
-                          />
-                        ) : (
-                          <Icon name="Copy" size={16} />
-                        )}
-                      </Button>
-                    </div>
-                    <pre
-                      className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis"
-                      style={{
-                        fontFamily: "var(--atomix-font-family-mono)",
-                        lineHeight: "1.6",
-                      }}
-                    >
-                      <code>{`import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-
-// Import Atomix CSS
-import '@shohojdhara/atomix/css';
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);`}</code>
-                    </pre>
-                  </div>
+);`}
+                    language="typescript"
+                    title="main.tsx"
+                    showLineNumbers={true}
+                  />
 
                   <Card className="u-p-4">
                     <div className="u-d-flex u-gap-3">
@@ -944,18 +817,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                           You can also import a specific theme instead of the
                           default:
                         </p>
-                        <div className="u-bg-tertiary-subtle u-rounded u-p-3 u-border u-border-subtle">
-                          <pre
-                            className="u-m-0 u-fs-xs u-text-primary-emphasis"
-                            style={{
-                              fontFamily: "var(--atomix-font-family-mono)",
-                            }}
-                          >
-                            <code>
-                              import '@shohojdhara/atomix/themes/boomdevs';
-                            </code>
-                          </pre>
-                        </div>
+                        <EnhancedCodeBlock
+                          code="import '@shohojdhara/atomix/themes/boomdevs';"
+                          language="typescript"
+                          showLineNumbers={false}
+                        />
                       </div>
                     </div>
                   </Card>
@@ -994,17 +860,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                     </div>
                   </div>
 
-                  <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle u-mb-4">
-                    <div className="u-d-flex u-align-items-center u-justify-content-between u-px-4 u-py-3 u-bg-secondary-subtle u-border-bottom u-border-subtle">
-                      <span className="u-fs-sm u-fw-semibold u-text-primary-emphasis">
-                        App.tsx
-                      </span>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() =>
-                          copyToClipboard(
-                            `import { Button, Card, Hero } from '@shohojdhara/atomix';
+                  <EnhancedCodeBlock
+                    code={`import { Button, Card, Hero } from '@shohojdhara/atomix';
 
 function App() {
   return (
@@ -1023,51 +880,11 @@ function App() {
   );
 }
 
-export default App;`,
-                            "use-components"
-                          )
-                        }
-                      >
-                        {copiedCode === "use-components" ? (
-                          <Icon
-                            name="CheckCircle"
-                            size={16}
-                            className="u-text-success"
-                          />
-                        ) : (
-                          <Icon name="Copy" size={16} />
-                        )}
-                      </Button>
-                    </div>
-                    <pre
-                      className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis"
-                      style={{
-                        fontFamily: "var(--atomix-font-family-mono)",
-                        lineHeight: "1.6",
-                      }}
-                    >
-                      <code>{`import { Button, Card, Hero } from '@shohojdhara/atomix';
-
-function App() {
-  return (
-    <div>
-      <Hero
-        title="Welcome to Atomix"
-        text="Build beautiful interfaces with ease"
-      />
-      
-      <Card className="u-p-6">
-        <h2>Hello World!</h2>
-        <p>Your first Atomix component</p>
-        <Button variant="primary">Get Started</Button>
-      </Card>
-    </div>
-  );
-}
-
-export default App;`}</code>
-                    </pre>
-                  </div>
+export default App;`}
+                    language="typescript"
+                    title="App.tsx"
+                    showLineNumbers={true}
+                  />
 
                   <Card>
                     <div className="u-d-flex u-gap-3">
@@ -1152,7 +969,6 @@ export default App;`}</code>
                           variant="outline"
                           size="sm"
                           className="u-w-100"
-                          href="/docs/components/overview"
                         >
                           View Components
                           <Icon
@@ -1203,7 +1019,6 @@ export default App;`}</code>
                           variant="outline"
                           size="sm"
                           className="u-w-100"
-                          href="/docs/guides/theming"
                         >
                           Theming Guide
                           <Icon
@@ -1254,7 +1069,6 @@ export default App;`}</code>
                           variant="outline"
                           size="sm"
                           className="u-w-100"
-                          href="/docs/examples/common-patterns"
                         >
                           See Examples
                           <Icon

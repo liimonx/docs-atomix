@@ -2,6 +2,7 @@
 
 import { FC } from 'react';
 import { Button, Card, Icon, Steps } from '@shohojdhara/atomix';
+import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
 import { useRouter } from 'next/navigation';
 
 export const QuickStartGuide: FC = () => {
@@ -13,9 +14,13 @@ export const QuickStartGuide: FC = () => {
       text: "Install Atomix - Add Atomix to your project using npm or yarn",
       content: (
         <div className="step-code">
-          <pre><code>npm install @shohojdhara/atomix</code></pre>
-          <pre><code># or</code></pre>
-          <pre><code>yarn add @shohojdhara/atomix</code></pre>
+          <EnhancedCodeBlock
+            code={`npm install @shohojdhara/atomix
+# or
+yarn add @shohojdhara/atomix`}
+            language="bash"
+            showLineNumbers={false}
+          />
         </div>
       )
     },
@@ -24,8 +29,12 @@ export const QuickStartGuide: FC = () => {
       text: "Import Styles - Import the core CSS file in your main entry point",
       content: (
         <div className="step-code">
-          <pre><code>// In your main.tsx or App.tsx</code></pre>
-          <pre><code>import '@shohojdhara/atomix/css';</code></pre>
+          <EnhancedCodeBlock
+            code={`// In your main.tsx or App.tsx
+import '@shohojdhara/atomix/css';`}
+            language="typescript"
+            showLineNumbers={false}
+          />
         </div>
       )
     },
@@ -34,9 +43,13 @@ export const QuickStartGuide: FC = () => {
       text: "Use Components - Start using Atomix components in your application",
       content: (
         <div className="step-code">
-          <pre><code>{`import { Button } from '@shohojdhara/atomix';`}</code></pre>
-          <br />
-          <pre><code>{`<Button variant="primary">Hello World</Button>`}</code></pre>
+          <EnhancedCodeBlock
+            code={`import { Button } from '@shohojdhara/atomix';
+
+<Button variant="primary">Hello World</Button>`}
+            language="typescript"
+            showLineNumbers={false}
+          />
         </div>
       )
     }
