@@ -114,7 +114,7 @@ const LayoutsGridPage: FC = () => {
         }
       />
 
-      <Block spacing="md" container={{type: 'fluid'}}>
+      <Block spacing="md" >
         <SectionIntro
           title="Grid System Overview"
           text="The Atomix Grid System provides a powerful, flexible, and responsive layout solution built on modern CSS Grid and Flexbox technologies."
@@ -157,7 +157,7 @@ const LayoutsGridPage: FC = () => {
           </GridCol>
         </Row>
         
-        <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
+        <Block spacing="md" background="secondary" >
           <SectionIntro
             title="Components"
             text="Learn how to use the core grid components to build responsive layouts"
@@ -244,7 +244,7 @@ const LayoutsGridPage: FC = () => {
           </Row>
         </Block>
         
-        <Block spacing="md" container={{type: 'fluid'}}>
+        <Block spacing="md" >
           <Row>
             <GridCol md={6}>
               <Card className="u-p-6 u-h-100">

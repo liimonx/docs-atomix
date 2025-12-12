@@ -32,7 +32,7 @@ const APIReactPage: FC = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
+      <Block className="u-pt-8 u-pb-8" >
         <SectionIntro
           title="React API Reference"
           text="Complete reference for all React components in the Atomix Design System, including props, types, and usage examples."

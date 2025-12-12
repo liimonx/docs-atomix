@@ -38,7 +38,7 @@ const LayoutsCustomizationPage: FC = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
+      <Block className="u-pt-8 u-pb-8" >
         <SectionIntro
           title="Layout Customization"
           text="Atomix Layouts are built with customization in mind, offering multiple levels of configuration from basic theming with CSS custom properties to advanced SCSS configuration and creating completely custom layout patterns."

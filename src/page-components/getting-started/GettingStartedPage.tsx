@@ -137,7 +137,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 }
               />
 
-              <Block spacing="md" container={{type: 'fluid'}}>
+              <Block spacing="md" >
                 <SectionIntro
                   title="What is Atomix?"
                   text="A comprehensive design system that provides everything you need to build modern web applications"
@@ -217,7 +217,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Row>
               </Block>
 
-              <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
+              <Block spacing="md" background="secondary" >
                 <SectionIntro
                   title="Key Features"
                   text="Everything you need to build modern, accessible, and performant user interfaces"
@@ -244,7 +244,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Row>
               </Block>
 
-              <Block spacing="md" background="brand" container={{type: 'fluid'}}>
+              <Block spacing="md" background="brand" >
                 <Row justifyContent="center">
                   <GridCol lg={8}>
                     <Card className="u-p-8 u-text-center">
@@ -334,7 +334,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 }
               />
 
-              <Block spacing="md" container={{type: 'fluid'}}>
+              <Block spacing="md" >
                 <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">Prerequisites</h2>
                 <p
                   className="u-text-secondary-emphasis u-mb-6 u-text-center"
@@ -388,7 +388,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Row>
               </Block>
 
-              <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
+              <Block spacing="md" background="secondary" >
                 <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">
                   Installation Methods
                 </h2>
@@ -534,7 +534,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Row>
               </Block>
 
-              <Block spacing="md" container={{type: 'fluid'}}>
+              <Block spacing="md" >
                 <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">Next Steps</h2>
                 <p className="u-text-secondary-emphasis u-mb-6 u-text-center" style={{ maxWidth: '600px', margin: '0 auto 2rem' }}>
                   Once installed, explore these resources to get the most out of Atomix

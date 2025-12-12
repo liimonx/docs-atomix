@@ -109,13 +109,40 @@ function extractJSXElements(code: string): React.ReactNode[] {
       }
     }
     
-    // For HTML elements, convert prop names to lowercase to avoid invalid DOM property errors
+    // For HTML elements, filter out invalid props and convert valid ones to lowercase
     if (isHTMLElement) {
-      const lowerCaseProps: Record<string, any> = {};
+      const filteredProps: Record<string, any> = {};
+      const standardReactProps = new Set(['key', 'ref', 'children', 'className', 'tabIndex', 'contentEditable', 'spellCheck']);
+      
       for (const [key, value] of Object.entries(props)) {
-        lowerCaseProps[key.toLowerCase()] = value;
+        const lowerKey = key.toLowerCase();
+        const firstChar = key.charAt(0);
+        
+        // Filter out PascalCase props that look like React component names
+        // (e.g., "Button", "Card", etc.) - these are invalid for DOM elements
+        if (firstChar === firstChar.toUpperCase() && firstChar !== firstChar.toLowerCase()) {
+          // Only allow standard React props that are PascalCase
+          if (!standardReactProps.has(key)) {
+            continue; // Skip invalid PascalCase props
+          }
+        }
+        
+        // Keep valid props: lowercase, camelCase React props, data-*, aria-*, and event handlers
+        // Convert to lowercase for HTML attributes (except standard React props)
+        if (standardReactProps.has(key)) {
+          filteredProps[key] = value; // Keep camelCase for standard React props
+        } else if (
+          key === lowerKey || // Already lowercase
+          key.startsWith('data-') ||
+          key.startsWith('aria-') ||
+          key.startsWith('on') || // Event handlers
+          lowerKey.startsWith('data-') ||
+          lowerKey.startsWith('aria-')
+        ) {
+          filteredProps[lowerKey] = value; // Convert to lowercase
+        }
       }
-      props = lowerCaseProps;
+      props = filteredProps;
     }
     
     // Render the component

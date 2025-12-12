@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import { usePathname } from 'next/navigation';
 import { Breadcrumb, Icon } from '@shohojdhara/atomix';
 import { navigationData } from '@/data/navigation';
 
@@ -10,7 +11,7 @@ interface BreadcrumbItem {
 }
 
 export const BreadcrumbNavigation: FC = () => {
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
+  const pathname = usePathname();
   
   // Find the current navigation item
   const currentItem = navigationData

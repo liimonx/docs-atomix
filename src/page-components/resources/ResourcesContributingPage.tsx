@@ -33,7 +33,7 @@ const ResourcesContributingPage: FC = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
+      <Block className="u-pt-8 u-pb-8" >
         <SectionIntro
           title="Contributing to Atomix"
           text="Atomix is an open-source project and welcomes contributions from the community."

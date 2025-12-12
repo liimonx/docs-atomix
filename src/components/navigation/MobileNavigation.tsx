@@ -141,6 +141,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
         <div>
           {filteredSections.length > 0 ? (
             <AtomixSideMenu
+              title={panelTitle}
               menuItems={menuItems}
               LinkComponent={Link as any}
             >

@@ -47,62 +47,6 @@ body {
   animation: fadeIn 0.3s ease forwards;
 }
 
-/* Page Loader */
-.page-loader-bar {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 4px !important;
-  background: transparent !important;
-  z-index: 99999 !important;
-  pointer-events: none !important;
-}
-
-.page-loader-progress {
-  height: 100% !important;
-  background: var(--atomix-info) !important;
-  box-shadow: 0 0 10px var(--atomix-info) !important;
-  animation: pageLoaderProgress 1.5s ease-in-out infinite !important;
-}
-
-.page-loader-overlay {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  background: rgba(var(--atomix-dark-rgb), 0.8) !important;
-  z-index: 99998 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.page-loader-spinner {
-  width: 60px !important;
-  height: 60px !important;
-  border: 5px solid rgba(var(--atomix-light-rgb), 0.3) !important;
-  border-top-color: var(--atomix-info) !important;
-  border-radius: 50% !important;
-  animation: spin 0.8s linear infinite !important;
-}
-
-@keyframes pageLoaderProgress {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* Card hover effect utility */
 .atomix-card-hover {
   transition: var(--atomix-transition-fast);

@@ -165,7 +165,7 @@ const MigrationPage: FC = () => {
         }
       />
 
-      <Block spacing="md" container={{type: 'fluid'}}>
+      <Block spacing="md" >
         <SectionIntro
           title="Why Migrate to Atomix?"
           text="Discover the benefits of transitioning to Atomix Design System"
@@ -199,7 +199,7 @@ const MigrationPage: FC = () => {
         </Row>
       </Block>
 
-      <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
+      <Block spacing="md" background="secondary" >
         <SectionIntro
           title="Migration Strategy"
           text="Follow these steps for a smooth migration process"
@@ -241,7 +241,7 @@ const MigrationPage: FC = () => {
         </Row>
       </Block>
 
-      <Block spacing="md" container={{type: 'fluid'}}>
+      <Block spacing="md" >
         <SectionIntro
           title="Migration Resources"
           text="Tools and guides to help you through the migration process"
@@ -282,7 +282,7 @@ const MigrationPage: FC = () => {
         </Row>
       </Block>
 
-      <Block spacing="md" background="brand" container={{type: 'fluid'}}>
+      <Block spacing="md" background="brand" >
         <Callout variant="info" title="Need Help?">
           <p className="u-mb-4 u-line-height-relaxed">
             If you need assistance with your migration, check out our{' '}

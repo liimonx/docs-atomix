@@ -248,7 +248,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
 
   if (!componentDoc) {
     return (
-      <Block container={{type: 'fluid'}}>
+      <Block >
         <div className="u-text-center u-py-8">
           <h1 className="u-fs-3xl u-fw-bold u-mb-4">Component Not Found</h1>
           <p className="u-text-secondary-emphasis u-mb-6">
@@ -266,7 +266,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
     <div className="u-min-h-screen u-pb-xl">
       <BreadcrumbNavigation />
 
-      <Block container={{type: 'fluid'}}>
+      <Block >
         <div className="u-mb-8">
           <Link
             href="/docs/components"

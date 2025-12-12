@@ -267,7 +267,7 @@ const DocumentationOverviewPage: FC = () => {
         />
 
         {/* Quick Stats */}
-        <Block spacing="sm" background="secondary" container={{type: 'fluid'}}>
+        <Block spacing="sm" background="secondary" >
           <SectionIntro
             title="By the Numbers"
             text="Atomix provides a comprehensive set of tools and components"
@@ -291,7 +291,7 @@ const DocumentationOverviewPage: FC = () => {
         </Block>
 
         {/* Documentation Sections */}
-        <Block spacing="lg" container={{type: 'fluid'}}>
+        <Block spacing="lg" >
           <SectionIntro
             title="Explore the Documentation"
             text="Comprehensive guides and references for every aspect of Atomix"
@@ -354,7 +354,7 @@ const DocumentationOverviewPage: FC = () => {
         </Block>
 
         {/* API Reference Section */}
-        <Block spacing="sm" background="brand" container={{type: 'fluid'}}>
+        <Block spacing="sm" background="brand" >
           <SectionIntro
             title="API Reference"
             text="Complete technical reference for all APIs"
@@ -414,7 +414,7 @@ const DocumentationOverviewPage: FC = () => {
         </Block>
 
         {/* Resources Section */}
-        <Block spacing="sm" container={{type: 'fluid'}}>
+        <Block spacing="sm" >
           <SectionIntro
             title="Resources & Community"
             text="Additional resources, roadmap, and community information"
@@ -474,7 +474,7 @@ const DocumentationOverviewPage: FC = () => {
         </Block>
 
         {/* CTA Section */}
-        <Block spacing="sm" background="tertiary" container={{type: 'fluid'}}>
+        <Block spacing="sm" background="tertiary" >
           <Row justifyContent="center">
             <GridCol lg={8}>
               <Card className="u-text-center u-p-8">

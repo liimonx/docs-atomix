@@ -98,7 +98,7 @@ const StylesAPIReferencePage: FC = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
+      <Block className="u-pt-8 u-pb-8" >
         <SectionIntro
           title="API Documentation"
           text="Comprehensive reference for all CSS classes, custom properties, and mixins available in Atomix."

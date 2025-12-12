@@ -33,7 +33,7 @@ const ResourcesRoadmapPage: FC = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
+      <Block className="u-pt-8 u-pb-8" >
         <SectionIntro
           title="Project Roadmap"
           text="Stay up to date with upcoming features, improvements, and releases in the Atomix project."

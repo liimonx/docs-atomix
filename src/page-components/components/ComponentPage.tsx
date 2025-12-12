@@ -402,7 +402,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
         alignment="center"
       />
 
-      <Block container={{type: 'fluid'}}>
+      <Block >
         <div className="u-mb-lg">
           <Link
             href="/docs/components/overview"

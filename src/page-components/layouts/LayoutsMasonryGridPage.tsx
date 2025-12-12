@@ -112,7 +112,7 @@ const LayoutsMasonryGridPage: FC = () => {
         }
       />
 
-      <Block spacing="md" container={{type: 'fluid'}}>
+      <Block spacing="md" >
         <SectionIntro
           title="Masonry Grid System"
           text="The Atomix Masonry Grid provides a dynamic, Pinterest-style layout that automatically positions items based on their height, creating an optimal grid with minimal gaps."
@@ -155,7 +155,7 @@ const LayoutsMasonryGridPage: FC = () => {
           </GridCol>
         </Row>
         
-        <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
+        <Block spacing="md" background="secondary" >
           <SectionIntro
             title="Components"
             text="Learn how to use the masonry grid components to build dynamic layouts"
@@ -196,7 +196,7 @@ const LayoutsMasonryGridPage: FC = () => {
           </Row>
         </Block>
         
-        <Block spacing="md" container={{type: 'fluid'}}>
+        <Block spacing="md" >
           <Row>
             <GridCol md={6}>
               <Card className="u-p-6 u-h-100">

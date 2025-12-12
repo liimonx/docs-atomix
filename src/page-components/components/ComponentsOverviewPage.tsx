@@ -408,7 +408,7 @@ const ComponentsOverviewPage: FC = () => {
         }
       />
 
-      <Block spacing="sm" container={{type: 'fluid'}}>
+      <Block spacing="sm" >
         {(searchQuery || filterCategory !== "all") && (
           <Callout variant="info" className="u-mb-6">
             <p className="u-mb-0">

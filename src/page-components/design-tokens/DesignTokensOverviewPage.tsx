@@ -59,7 +59,7 @@ const DesignTokensOverviewPage: FC = () => {
           }
         />
 
-        <Block spacing="sm" container={{type: 'fluid'}}>
+        <Block spacing="sm" >
           <SectionIntro 
             title="Design System Foundations"
             text="Explore the fundamental design values that power the Atomix design system."

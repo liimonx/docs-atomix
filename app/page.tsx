@@ -248,7 +248,7 @@ export default function Page() {
         text="A modern design system with 40+ components, comprehensive layouts, design tokens, and advanced effects. Built for React and vanilla JavaScript with accessibility and performance in mind. Trusted by developers worldwide for creating beautiful, responsive interfaces."
         alignment="center"
         backgroundSlider={heroSiderContent as any}
-        showOverlay={false}
+        // showOverlay={false}
         contentWidth="1100px"
         glass={{
           displacementScale: 190,

@@ -33,7 +33,7 @@ const APIJavaScriptPage: FC = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8" container={{type: 'fluid'}}>
+      <Block className="u-pt-8 u-pb-8" >
         <SectionIntro
           title="JavaScript API Reference"
           text="Comprehensive documentation for all Atomix JavaScript classes, functions, and utilities."

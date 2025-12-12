@@ -89,7 +89,7 @@ const DesignTokensGridPage = () => {
         }
       />
 
-      <Block spacing="sm" container={{type: 'fluid'}}>
+      <Block spacing="sm" >
         <SectionIntro
           title="Grid System Design Tokens"
           text={`Atomix uses a flexible 12-column grid system with responsive breakpoints and customizable gutters. The grid system is built on ${breakpointsTokens.length} breakpoint tokens and ${gutterSpacingTokens.length} spacing tokens that provide the foundation for creating consistent, responsive layouts across your application.`}

@@ -428,7 +428,7 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
         }
       />
 
-      <Block spacing="md" container={{type: 'fluid'}}>
+      <Block spacing="md" >
         <SectionIntro
           title="Development Standards"
           text="Follow these comprehensive guidelines to ensure consistency and quality across all components in the Atomix design system."
@@ -443,7 +443,7 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
         </div>
       </Block>
 
-      <Block background="secondary" container={{type: 'fluid'}}>
+      <Block background="secondary" >
         <Callout variant="info" title="Getting Started">
           <p className="u-mb-3">
             New to component development? Start with our{' '}

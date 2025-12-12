@@ -111,7 +111,7 @@ const LayoutsOverviewPage: FC = () => {
         }
       />
 
-      <Block spacing="md" container={{type: 'fluid'}}>
+      <Block spacing="md" >
         <SectionIntro 
           title="Building Responsive Layouts"
           text="Create flexible, responsive layouts with our collection of layout components designed for modern web applications."
@@ -154,7 +154,7 @@ const LayoutsOverviewPage: FC = () => {
         </Row>
       </Block>
 
-      <Block spacing="md" background="secondary" container={{type: 'fluid'}}>
+      <Block spacing="md" background="secondary" >
         <SectionIntro
           title="Why Use Atomix Layouts?"
           text="Our layout system provides everything you need to build modern, responsive interfaces"
