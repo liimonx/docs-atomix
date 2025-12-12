@@ -111,25 +111,23 @@ const DesignTokensOverviewPage: FC = () => {
               <div 
                 className="u-h-100" 
                 style={{
-                  background:'rgba(255,255,255,0.95)',
-                  backdropFilter:'blur(20px)',
-                  border:'1px solid rgba(124,58,237,0.15)',
+                  background:'var(--atomix-secondary-bg-subtle)',
+                  border:'1px solid var(--atomix-border-color)',
                   borderRadius:'var(--atomix-border-radius-xl)',
-                  transition:'all 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
+                  transition:'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                   overflow:'hidden',
                   position:'relative',
-                  padding:'var(--atomix-spacing-6)',
-                  boxShadow:'0 4px 16px rgba(0,0,0,0.04)'
+                  padding:'var(--atomix-spacing-6)'
                 }} 
                 onMouseEnter={(e)=>{
                   e.currentTarget.style.transform='translateY(-8px)';
-                  e.currentTarget.style.boxShadow='0 12px 32px rgba(124,58,237,0.12)';
-                  e.currentTarget.style.borderColor='rgba(124,58,237,0.25)';
+                  e.currentTarget.style.boxShadow='var(--atomix-box-shadow)';
+                  e.currentTarget.style.borderColor='var(--atomix-border-color-translucent)';
                 }} 
                 onMouseLeave={(e)=>{
                   e.currentTarget.style.transform='translateY(0)';
-                  e.currentTarget.style.boxShadow='0 4px 16px rgba(0,0,0,0.04)';
-                  e.currentTarget.style.borderColor='rgba(124,58,237,0.15)';
+                  e.currentTarget.style.boxShadow='var(--atomix-box-shadow-xs)';
+                  e.currentTarget.style.borderColor='var(--atomix-border-color)';
                 }}
               >
                 <div style={{

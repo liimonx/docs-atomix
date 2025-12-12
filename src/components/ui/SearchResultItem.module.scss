@@ -7,7 +7,7 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  margin-bottom: var(--atomix-spacing-sm);
+  margin-bottom: var(--atomix-spacing-2);
 }
 
 // Block: Base search result item card
@@ -20,7 +20,7 @@
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: var(--atomix-shadow-md);
+    box-shadow: var(--atomix-box-shadow-md);
   }
 }
 
@@ -29,17 +29,17 @@
 .searchResultItem__content {
   display: flex;
   align-items: flex-start;
-  gap: var(--atomix-spacing-md);
-  padding: var(--atomix-spacing-sm);
+  gap: var(--atomix-spacing-4);
+  padding: var(--atomix-spacing-2);
 }
 
 .searchResultItem__icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--atomix-spacing-sm);
-  background-color: var(--atomix-color-bg-secondary);
-  border-radius: var(--atomix-radius-sm);
+  padding: var(--atomix-spacing-2);
+  background-color: var(--atomix-secondary-bg-subtle);
+  border-radius: var(--atomix-border-radius-sm);
   flex-shrink: 0;
 }
 
@@ -50,8 +50,8 @@
 
 .searchResultItem__title {
   font-weight: var(--atomix-font-weight-medium);
-  margin-bottom: var(--atomix-spacing-xs);
-  color: var(--atomix-color-text-primary);
+  margin-bottom: var(--atomix-spacing-2);
+  color: var(--atomix-primary-text-emphasis);
 }
 
 .searchResultItem__description {
@@ -60,14 +60,14 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-size: var(--atomix-font-size-sm);
-  color: var(--atomix-color-text-secondary);
-  margin-bottom: var(--atomix-spacing-xs);
+  color: var(--atomix-secondary-text-emphasis);
+  margin-bottom: var(--atomix-spacing-2);
 }
 
 .searchResultItem__meta {
   font-size: var(--atomix-font-size-xs);
-  color: var(--atomix-color-text-secondary);
-  margin-top: var(--atomix-spacing-xs);
+  color: var(--atomix-secondary-text-emphasis);
+  margin-top: var(--atomix-spacing-2);
 }
 
 // Accessibility
@@ -76,7 +76,7 @@
   &:focus-visible {
     outline: 2px solid var(--atomix-focus-border-color);
     outline-offset: 2px;
-    border-radius: var(--atomix-radius-md);
+    border-radius: var(--atomix-border-radius);
   }
 }
 

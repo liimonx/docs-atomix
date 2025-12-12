@@ -10,26 +10,26 @@
   top: -100px;
   left: 0;
   z-index: var(--atomix-z-tooltip);
-  padding: var(--atomix-spacing-sm) var(--atomix-spacing-md);
+  padding: var(--atomix-spacing-2) var(--atomix-spacing-4);
   background-color: var(--atomix-primary);
-  color: var(--atomix-color-text-invert);
+  color: var(--atomix-invert-text-emphasis);
   text-decoration: none;
   font-weight: var(--atomix-font-weight-semibold);
-  border-radius: var(--atomix-radius-md);
+  border-radius: var(--atomix-border-radius);
   transition: top 0.2s ease-in-out;
 
   &:focus {
-    top: var(--atomix-spacing-xs);
+    top: var(--atomix-spacing-2);
     outline: 2px solid var(--atomix-focus-border-color);
     outline-offset: 2px;
-    border-radius: var(--atomix-radius-md);
+    border-radius: var(--atomix-border-radius);
   }
   
   &:focus-visible {
-    top: var(--atomix-spacing-xs);
+    top: var(--atomix-spacing-2);
     outline: 2px solid var(--atomix-focus-border-color);
     outline-offset: 2px;
-    border-radius: var(--atomix-radius-md);
+    border-radius: var(--atomix-border-radius);
   }
 
   &:hover {

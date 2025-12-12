@@ -7,7 +7,7 @@
 .errorBoundary {
   box-sizing: border-box;
   
-  padding: var(--atomix-spacing-xl);
+  padding: var(--atomix-spacing-8);
   max-width: 800px;
   margin: 0 auto;
 }
@@ -15,7 +15,7 @@
 // Elements
 // =============================================================================
 .errorBoundary__details {
-  margin-top: var(--atomix-spacing-md);
+  margin-top: var(--atomix-spacing-4);
 }
 
 .errorBoundary__summary {
@@ -25,26 +25,26 @@
   &:focus-visible {
     outline: 2px solid var(--atomix-focus-border-color);
     outline-offset: 2px;
-    border-radius: var(--atomix-radius-md);
+    border-radius: var(--atomix-border-radius);
   }
 }
 
 .errorBoundary__pre {
-  margin-top: var(--atomix-spacing-xs);
-  padding: var(--atomix-spacing-md);
-  background-color: var(--atomix-color-bg-tertiary);
-  border-radius: var(--atomix-radius-md);
+  margin-top: var(--atomix-spacing-2);
+  padding: var(--atomix-spacing-4);
+  background-color: var(--atomix-tertiary-bg-subtle);
+  border-radius: var(--atomix-border-radius);
   overflow: auto;
   font-size: var(--atomix-font-size-sm);
-  line-height: var(--atomix-line-height-normal);
-  color: var(--atomix-color-text-primary);
-  border: 1px solid var(--atomix-color-border);
+  line-height: var(--atomix-line-height-base);
+  color: var(--atomix-primary-text-emphasis);
+  border: 1px solid var(--atomix-border-color);
 }
 
 .errorBoundary__actions {
-  margin-top: var(--atomix-spacing-md);
+  margin-top: var(--atomix-spacing-4);
   display: flex;
-  gap: var(--atomix-spacing-md);
+  gap: var(--atomix-spacing-4);
   flex-wrap: wrap;
 }
 
@@ -65,8 +65,8 @@
   
   .errorBoundary__summary {
     border: 1px solid currentColor;
-    padding: var(--atomix-spacing-xs);
-    border-radius: var(--atomix-radius-sm);
+    padding: var(--atomix-spacing-2);
+    border-radius: var(--atomix-border-radius-sm);
   }
 }
 

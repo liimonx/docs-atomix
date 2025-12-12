@@ -6,31 +6,31 @@
 .designTokensDisplay {
   box-sizing: border-box;
   
-  padding: var(--atomix-spacing-md) 0;
+  padding: var(--atomix-spacing-4) 0;
 }
 
 .designTokensDisplay__empty {
   padding: var(--atomix-spacing-lg);
   text-align: center;
-  color: var(--atomix-color-text-secondary);
+  color: var(--atomix-secondary-text-emphasis);
 }
 
 // Elements - Overview Section
 // =============================================================================
 .designTokensDisplay__overview {
-  margin-bottom: var(--atomix-spacing-xl);
+  margin-bottom: var(--atomix-spacing-8);
 }
 
 .designTokensDisplay__title {
   font-size: var(--atomix-font-size-xl);
   font-weight: var(--atomix-font-weight-bold);
-  color: var(--atomix-color-text-primary);
-  margin-bottom: var(--atomix-spacing-sm);
+  color: var(--atomix-primary-text-emphasis);
+  margin-bottom: var(--atomix-spacing-2);
 }
 
 .designTokensDisplay__description {
   font-size: var(--atomix-font-size-md);
-  color: var(--atomix-color-text-secondary);
+  color: var(--atomix-secondary-text-emphasis);
   line-height: var(--atomix-line-height-relaxed);
 }
 
@@ -39,37 +39,37 @@
 .designTokensDisplay__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--atomix-spacing-md);
-  margin-bottom: var(--atomix-spacing-xl);
+  gap: var(--atomix-spacing-4);
+  margin-bottom: var(--atomix-spacing-8);
 }
 
 // Elements - Token Card
 // =============================================================================
 .designTokensDisplay__tokenCard {
-  padding: var(--atomix-spacing-md);
+  padding: var(--atomix-spacing-4);
 }
 
 .designTokensDisplay__tokenHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--atomix-spacing-md);
+  margin-bottom: var(--atomix-spacing-4);
 }
 
 .designTokensDisplay__tokenName {
   font-size: var(--atomix-font-size-lg);
   font-weight: var(--atomix-font-weight-semibold);
-  color: var(--atomix-color-text-primary);
+  color: var(--atomix-primary-text-emphasis);
   margin: 0;
 }
 
 // Elements - Token Preview
 // =============================================================================
 .designTokensDisplay__preview {
-  margin-bottom: var(--atomix-spacing-md);
-  padding: var(--atomix-spacing-md);
-  background-color: var(--atomix-color-bg-secondary);
-  border-radius: var(--atomix-radius-md);
+  margin-bottom: var(--atomix-spacing-4);
+  padding: var(--atomix-spacing-4);
+  background-color: var(--atomix-secondary-bg-subtle);
+  border-radius: var(--atomix-border-radius);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,8 +79,8 @@
 .designTokensDisplay__colorPreview {
   width: 100%;
   height: 60px;
-  border-radius: var(--atomix-radius-sm);
-  border: 1px solid var(--atomix-color-border);
+  border-radius: var(--atomix-border-radius-sm);
+  border: 1px solid var(--atomix-border-color);
 }
 
 .designTokensDisplay__spacingPreview {
@@ -91,13 +91,13 @@
 }
 
 .designTokensDisplay__spacingBox {
-  background-color: var(--atomix-color-primary);
+  background-color: var(--atomix-primary);
   opacity: 0.3;
-  border-radius: var(--atomix-radius-sm);
+  border-radius: var(--atomix-border-radius-sm);
 }
 
 .designTokensDisplay__typographyPreview {
-  color: var(--atomix-color-text-primary);
+  color: var(--atomix-primary-text-emphasis);
   text-align: center;
 }
 
@@ -106,19 +106,19 @@
 .designTokensDisplay__details {
   display: flex;
   flex-direction: column;
-  gap: var(--atomix-spacing-sm);
+  gap: var(--atomix-spacing-2);
 }
 
 .designTokensDisplay__value {
   display: flex;
   flex-direction: column;
-  gap: var(--atomix-spacing-xxs);
+  gap: var(--atomix-spacing-1);
 }
 
 .designTokensDisplay__label {
   font-size: var(--atomix-font-size-sm);
   font-weight: var(--atomix-font-weight-semibold);
-  color: var(--atomix-color-text-secondary);
+  color: var(--atomix-secondary-text-emphasis);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -126,45 +126,45 @@
 .designTokensDisplay__code {
   font-family: 'Courier New', monospace;
   font-size: var(--atomix-font-size-sm);
-  background-color: var(--atomix-color-bg-tertiary);
-  padding: var(--atomix-spacing-xxs) var(--atomix-spacing-xs);
-  border-radius: var(--atomix-radius-sm);
-  color: var(--atomix-color-primary);
-  border: 1px solid var(--atomix-color-border);
+  background-color: var(--atomix-tertiary-bg-subtle);
+  padding: var(--atomix-spacing-1) var(--atomix-spacing-2);
+  border-radius: var(--atomix-border-radius-sm);
+  color: var(--atomix-primary);
+  border: 1px solid var(--atomix-border-color);
 }
 
 .designTokensDisplay__tokenDescription {
   font-size: var(--atomix-font-size-sm);
-  color: var(--atomix-color-text-secondary);
-  line-height: var(--atomix-line-height-normal);
+  color: var(--atomix-secondary-text-emphasis);
+  line-height: var(--atomix-line-height-base);
   margin: 0;
 }
 
 .designTokensDisplay__css {
   display: flex;
   flex-direction: column;
-  gap: var(--atomix-spacing-xxs);
+  gap: var(--atomix-spacing-1);
 }
 
 // Elements - Theming Guide
 // =============================================================================
 .designTokensDisplay__themingGuide {
-  padding: var(--atomix-spacing-lg);
-  background-color: var(--atomix-color-bg-secondary);
-  border-radius: var(--atomix-radius-lg);
-  border: 1px solid var(--atomix-color-border);
+  padding: var(--atomix-spacing-6);
+  background-color: var(--atomix-secondary-bg-subtle);
+  border-radius: var(--atomix-border-radius-lg);
+  border: 1px solid var(--atomix-border-color);
 }
 
 .designTokensDisplay__themingTitle {
   font-size: var(--atomix-font-size-lg);
   font-weight: var(--atomix-font-weight-bold);
-  color: var(--atomix-color-text-primary);
-  margin-bottom: var(--atomix-spacing-sm);
+  color: var(--atomix-primary-text-emphasis);
+  margin-bottom: var(--atomix-spacing-2);
 }
 
 .designTokensDisplay__themingText {
   font-size: var(--atomix-font-size-md);
-  color: var(--atomix-color-text-secondary);
+  color: var(--atomix-secondary-text-emphasis);
   line-height: var(--atomix-line-height-relaxed);
   margin: 0;
 }
@@ -179,7 +179,7 @@
   .designTokensDisplay__tokenHeader {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--atomix-spacing-xs);
+    gap: var(--atomix-spacing-2);
   }
 }
 
@@ -189,7 +189,7 @@
   &:focus-visible {
     outline: 2px solid var(--atomix-focus-border-color);
     outline-offset: 2px;
-    border-radius: var(--atomix-radius-md);
+    border-radius: var(--atomix-border-radius);
   }
 }
 

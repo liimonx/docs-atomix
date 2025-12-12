@@ -104,8 +104,8 @@ html {
 
 .atomix-card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: var(--atomix-shadow-lg);
-  border-color: var(--atomix-color-primary);
+  box-shadow: var(--atomix-box-shadow-lg);
+  border-color: var(--atomix-primary);
 }
 
 /* Max width utility */

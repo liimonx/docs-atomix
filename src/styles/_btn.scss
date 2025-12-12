@@ -1,13 +1,13 @@
 .c-btn--primary {
   --atomix-btn-color: var(--atomix-light);
-  --atomix-btn-bg: var(--atomix-primary-bg-subtle);
+  --atomix-btn-bg: var(--atomix-primary);
   --atomix-btn-border-color: var(--atomix-primary);
   --atomix-btn-hover-color: var(--atomix-light);
   --atomix-btn-hover-bg: var(--atomix-primary-hover);
   --atomix-btn-hover-border-color: var(--atomix-primary-hover);
   --atomix-btn-active-color: var(--atomix-light);
-  --atomix-btn-active-bg: var(--atomix-primary-8);
-  --atomix-btn-active-border-color: var(--atomix-primary-8);
+  --atomix-btn-active-bg: var(--atomix-primary-7);
+  --atomix-btn-active-border-color: var(--atomix-primary-7);
   --atomix-btn-disabled-color: var(--atomix-light);
   --atomix-btn-disabled-bg: var(--atomix-primary-3);
   --atomix-btn-disabled-border-color: var(--atomix-primary-3);
@@ -36,11 +36,11 @@
   --atomix-btn-hover-bg: var(--atomix-success-hover);
   --atomix-btn-hover-border-color: var(--atomix-success-hover);
   --atomix-btn-active-color: var(--atomix-light);
-  --atomix-btn-active-bg: #059669; /* Fixed missing variable reference */
-  --atomix-btn-active-border-color: #059669; /* Fixed missing variable reference */
+  --atomix-btn-active-bg: var(--atomix-green-7);
+  --atomix-btn-active-border-color: var(--atomix-green-7);
   --atomix-btn-disabled-color: var(--atomix-light);
-  --atomix-btn-disabled-bg: #c7f8e0; /* Fixed missing variable reference */
-  --atomix-btn-disabled-border-color: #c7f8e0; /* Fixed missing variable reference */
+  --atomix-btn-disabled-bg: var(--atomix-green-3);
+  --atomix-btn-disabled-border-color: var(--atomix-green-3);
 }
 
 .c-btn--error {
@@ -51,11 +51,11 @@
   --atomix-btn-hover-bg: var(--atomix-error-hover);
   --atomix-btn-hover-border-color: var(--atomix-error-hover);
   --atomix-btn-active-color: var(--atomix-light);
-  --atomix-btn-active-bg: #dc2626; /* Fixed missing variable reference */
-  --atomix-btn-active-border-color: #dc2626; /* Fixed missing variable reference */
+  --atomix-btn-active-bg: var(--atomix-red-7);
+  --atomix-btn-active-border-color: var(--atomix-red-7);
   --atomix-btn-disabled-color: var(--atomix-light);
-  --atomix-btn-disabled-bg: #fecaca; /* Fixed missing variable reference */
-  --atomix-btn-disabled-border-color: #fecaca; /* Fixed missing variable reference */
+  --atomix-btn-disabled-bg: var(--atomix-red-3);
+  --atomix-btn-disabled-border-color: var(--atomix-red-3);
 }
 
 .c-btn--warning {
@@ -66,11 +66,11 @@
   --atomix-btn-hover-bg: var(--atomix-warning-hover);
   --atomix-btn-hover-border-color: var(--atomix-warning-hover);
   --atomix-btn-active-color: var(--atomix-light);
-  --atomix-btn-active-bg: #d97706; /* Fixed missing variable reference */
-  --atomix-btn-active-border-color: #d97706; /* Fixed missing variable reference */
+  --atomix-btn-active-bg: var(--atomix-yellow-7);
+  --atomix-btn-active-border-color: var(--atomix-yellow-7);
   --atomix-btn-disabled-color: var(--atomix-light);
-  --atomix-btn-disabled-bg: #fde68a; /* Fixed missing variable reference */
-  --atomix-btn-disabled-border-color: #fde68a; /* Fixed missing variable reference */
+  --atomix-btn-disabled-bg: var(--atomix-yellow-3);
+  --atomix-btn-disabled-border-color: var(--atomix-yellow-3);
 }
 
 .c-btn--info {
@@ -81,11 +81,11 @@
   --atomix-btn-hover-bg: var(--atomix-info-hover);
   --atomix-btn-hover-border-color: var(--atomix-info-hover);
   --atomix-btn-active-color: var(--atomix-light);
-  --atomix-btn-active-bg: #0284c7; /* Fixed missing variable reference */
-  --atomix-btn-active-border-color: #0284c7; /* Fixed missing variable reference */
+  --atomix-btn-active-bg: var(--atomix-blue-7);
+  --atomix-btn-active-border-color: var(--atomix-blue-7);
   --atomix-btn-disabled-color: var(--atomix-light);
-  --atomix-btn-disabled-bg: #e0f2fe; /* Fixed missing variable reference */
-  --atomix-btn-disabled-border-color: #e0f2fe; /* Fixed missing variable reference */
+  --atomix-btn-disabled-bg: var(--atomix-blue-3);
+  --atomix-btn-disabled-border-color: var(--atomix-blue-3);
 }
 
 .c-btn--light {
@@ -130,9 +130,9 @@
   --atomix-btn-bg: transparent;
   --atomix-btn-border-width: 1px;
   --atomix-btn-border-color: transparent;
-  --atomix-btn-border-radius: var(--atomix-border-radius-lg);
+  --atomix-btn-border-radius: var(--atomix-border-radius);
   --atomix-btn-hover-border-color: transparent;
-  --atomix-btn-box-shadow: var(--atomix-shadow-sm);
+  --atomix-btn-box-shadow: var(--atomix-box-shadow-sm);
   --atomix-btn-disabled-opacity: 0.65;
   --atomix-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--atomix-btn-focus-shadow-rgb), 0.25);
   --atomix-btn-inner-gap: 0.5rem;

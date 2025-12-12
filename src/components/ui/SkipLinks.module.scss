@@ -12,8 +12,8 @@
   z-index: var(--atomix-z-tooltip);
   display: flex;
   flex-direction: column;
-  gap: var(--atomix-spacing-sm);
-  padding: var(--atomix-spacing-sm);
+  gap: var(--atomix-spacing-2);
+  padding: var(--atomix-spacing-2);
 }
 
 // Element: Individual skip link
@@ -22,14 +22,14 @@
   box-sizing: border-box;
   
   position: absolute;
-  top: calc(var(--atomix-spacing-sm) * -1);
-  left: calc(var(--atomix-spacing-sm) * -1);
-  padding: var(--atomix-spacing-sm) var(--atomix-spacing-md);
+  top: calc(var(--atomix-spacing-2) * -1);
+  left: calc(var(--atomix-spacing-2) * -1);
+  padding: var(--atomix-spacing-2) var(--atomix-spacing-4);
   background-color: var(--atomix-primary);
-  color: var(--atomix-color-text-invert);
+  color: var(--atomix-invert-text-emphasis);
   text-decoration: none;
   font-weight: var(--atomix-font-weight-semibold);
-  border-radius: var(--atomix-radius-md);
+  border-radius: var(--atomix-border-radius);
   opacity: 0;
   pointer-events: none;
   transform: translateY(-100%);
@@ -42,7 +42,7 @@
     transform: translateY(0);
     outline: 2px solid var(--atomix-focus-border-color);
     outline-offset: 2px;
-    border-radius: var(--atomix-radius-md);
+    border-radius: var(--atomix-border-radius);
   }
   
   &:focus-visible {
@@ -51,7 +51,7 @@
     transform: translateY(0);
     outline: 2px solid var(--atomix-focus-border-color);
     outline-offset: 2px;
-    border-radius: var(--atomix-radius-md);
+    border-radius: var(--atomix-border-radius);
   }
 
   &:hover {
