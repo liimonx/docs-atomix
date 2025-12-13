@@ -28,6 +28,7 @@ import {
   GuidesAtomixGlassPerformancePage,
   GuidesAtomixGlassThemingPage,
   GeneralThemingGuidePage,
+  ThemeStudioPage,
   
   // Layout Pages
   LayoutsOverviewPage,
@@ -118,6 +119,7 @@ class PageComponentRegistry {
     this.idMap.set('guides:theming', GeneralThemingGuidePage);
     this.idMap.set('guides:atomix-glass-performance', GuidesAtomixGlassPerformancePage);
     this.idMap.set('guides:atomix-glass-theming', GuidesAtomixGlassThemingPage);
+    this.idMap.set('guides:theme-studio', ThemeStudioPage);
     this.categoryMap.set('guides', GuidesAtomixGlassThemingPage);
 
     // Layout Pages

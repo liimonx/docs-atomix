@@ -9,6 +9,7 @@ import {
   Image,
   Shield,
   Settings,
+  Link,
 } from 'lucide-react';
 import {
   Hero,
@@ -97,16 +98,18 @@ const LayoutsMasonryGridPage: FC = () => {
           <div className={styles.pageHero__actions}>
             <Button
               glass
-              icon={<Icon name="Code" size={16} />}
+              icon={<Icon name="Lightning" size={16} />}
               label="View Examples"
               href="/docs/examples/common-patterns"
-            />
+              linkComponent={Link}
+                />
             <Button
               glass
               variant="secondary"
               label="Performance Guide"
-              icon={<Icon name="Zap" size={16} />}
+              icon={<Icon name="Lightning" size={16} />}
               href="/docs/layouts/performance"
+              linkComponent={Link}
             />
           </div>
         }

@@ -553,6 +553,18 @@ export const navigationData: NavigationSection[] = [
         category: 'guides',
         searchTerms: ['glass', 'theming', 'customization'],
         priority: 3
+      },
+      {
+        id: 'theme-studio',
+        title: 'Theme Studio',
+        path: '/docs/guides/theme-studio',
+        icon: 'Palette',
+        description: 'Interactive theme builder and visualizer',
+        category: 'guides',
+        searchTerms: ['theme', 'studio', 'builder', 'creator', 'customize'],
+        badge: createBadge('New', 'new'),
+        isNew: true,
+        priority: 4
       }
     ]
   },

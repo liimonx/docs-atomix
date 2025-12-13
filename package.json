@@ -12,7 +12,8 @@
     "test:all": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
-    "validate:components": "ts-node scripts/validate-component-metadata.ts"
+    "validate:components": "ts-node scripts/validate-component-metadata.ts",
+    "generate:tokens": "ts-node --esm scripts/generateTokens.ts"
   },
   "keywords": [
     "design-system",

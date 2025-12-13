@@ -126,6 +126,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
                       icon={<Icon name="Download" size={16} />}
                       label="Get Started"
                       href="/docs/getting-started/installation"
+                      linkComponent={Link}
                     />
                     <Button
                       glass
@@ -133,12 +134,13 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
                       label="Browse Components"
                       icon={<Icon name="BookOpen" size={16} />}
                       href="/docs/components/overview"
+                      linkComponent={Link}
                     />
                   </div>
                 }
               />
 
-              <Block spacing="md" container={{ type: "fluid" }}>
+              <Block spacing="md">
                 <SectionIntro
                   title="What is Atomix?"
                   text="A comprehensive design system that provides everything you need to build modern web applications"
@@ -219,7 +221,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
               <Block
                 spacing="md"
                 background="secondary"
-                container={{ type: "fluid" }}
+              
               >
                 <SectionIntro
                   title="Key Features"
@@ -254,7 +256,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
               <Block
                 spacing="md"
                 background="brand"
-                container={{ type: "fluid" }}
+              
               >
                 <Row justifyContent="center">
                   <GridCol lg={8}>
@@ -347,7 +349,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
                 }
               />
 
-              <Block spacing="md" container={{ type: "fluid" }}>
+              <Block spacing="md">
                 <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">
                   Prerequisites
                 </h2>
@@ -411,7 +413,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
               <Block
                 spacing="md"
                 background="secondary"
-                container={{ type: "fluid" }}
+              
               >
                 <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">
                   Installation Methods
@@ -565,7 +567,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Row>
               </Block>
 
-              <Block spacing="md" container={{ type: "fluid" }}>
+              <Block spacing="md">
                 <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">
                   Next Steps
                 </h2>
@@ -666,6 +668,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
                       }
                       label="Installation Guide"
                       href="/docs/getting-started/installation"
+                      linkComponent={Link}
                     />
                     <Button
                       glass
@@ -679,12 +682,13 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
                       }
                       label="Browse Components"
                       href="/docs/components/overview"
+                      linkComponent={Link}
                     />
                   </>
                 }
               />
 
-              <Block spacing="sm" container={{ type: "fluid" }}>
+              <Block spacing="sm">
                 {/* Prerequisites */}
 
                 <Card>

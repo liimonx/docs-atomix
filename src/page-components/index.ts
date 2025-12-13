@@ -27,6 +27,7 @@ export { default as MigrationPage } from "./getting-started/MigrationPage";
 export { default as GeneralThemingGuidePage } from "./guides/GeneralThemingGuidePage";
 export { default as GuidesAtomixGlassPerformancePage } from "./guides/GuidesAtomixGlassPerformancePage";
 export { default as GuidesAtomixGlassThemingPage } from "./guides/GuidesAtomixGlassThemingPage";
+export { default as ThemeStudioPage } from "./guides/ThemeStudioPage";
 
 // Layout Pages
 export { default as LayoutsOverviewPage } from "./layouts/LayoutsOverviewPage";

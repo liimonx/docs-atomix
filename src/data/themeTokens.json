@@ -1,0 +1,3282 @@
+{
+  "light": {
+    "--atomix-blue-1": "#ecfeff",
+    "--atomix-blue-10": "#164e63",
+    "--atomix-blue-2": "#cffafe",
+    "--atomix-blue-3": "#a5f3fc",
+    "--atomix-blue-4": "#67e8f9",
+    "--atomix-blue-5": "#22d3ee",
+    "--atomix-blue-6": "#06b6d4",
+    "--atomix-blue-7": "#0891b2",
+    "--atomix-blue-8": "#0e7490",
+    "--atomix-blue-9": "#155e75",
+    "--atomix-body-bg": "#ffffff",
+    "--atomix-body-color": "#0a0a0f",
+    "--atomix-body-font-family": "var(--atomix-font-sans-serif)",
+    "--atomix-body-font-size": "1rem",
+    "--atomix-body-font-weight": "400",
+    "--atomix-body-line-height": "1.65",
+    "--atomix-border-color": "#e8ecf0",
+    "--atomix-border-color-translucent": "rgba(139, 92, 246, 0.18)",
+    "--atomix-border-radius": "1rem",
+    "--atomix-border-radius-2xl": "var(--atomix-border-radius-xxl)",
+    "--atomix-border-radius-3xl": "3rem",
+    "--atomix-border-radius-4xl": "4rem",
+    "--atomix-border-radius-lg": "1.25rem",
+    "--atomix-border-radius-pill": "50rem",
+    "--atomix-border-radius-sm": "0.625rem",
+    "--atomix-border-radius-xl": "1.75rem",
+    "--atomix-border-radius-xxl": "2.25rem",
+    "--atomix-border-style": "solid",
+    "--atomix-border-width": "1px",
+    "--atomix-box-shadow": "0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px -4px rgba(139, 92, 246, 0.25), 0 6px 16px -2px rgba(0, 0, 0, 0.05)",
+    "--atomix-box-shadow-2xl": "0 16px 32px rgba(0, 0, 0, 0.1), 0 60px 128px -12px rgba(139, 92, 246, 0.4), 0 24px 64px -8px rgba(0, 0, 0, 0.12)",
+    "--atomix-box-shadow-error": "0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px -4px rgba(244, 63, 94, 0.25)",
+    "--atomix-box-shadow-glow": "0 0 20px rgba(139, 92, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.2)",
+    "--atomix-box-shadow-glow-lg": "0 0 40px rgba(139, 92, 246, 0.5), 0 0 80px rgba(139, 92, 246, 0.3)",
+    "--atomix-box-shadow-info": "0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px -4px rgba(6, 182, 212, 0.25)",
+    "--atomix-box-shadow-inset": "inset 0 2px 4px rgba(0, 0, 0, 0.06), inset 0 1px 2px rgba(139, 92, 246, 0.1)",
+    "--atomix-box-shadow-lg": "0 6px 12px rgba(0, 0, 0, 0.06), 0 24px 64px -6px rgba(139, 92, 246, 0.3), 0 10px 28px -4px rgba(0, 0, 0, 0.07)",
+    "--atomix-box-shadow-md": "0 4px 6px rgba(0, 0, 0, 0.05), 0 8px 20px -2px rgba(139, 92, 246, 0.22)",
+    "--atomix-box-shadow-sm": "0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 12px -1px rgba(139, 92, 246, 0.2)",
+    "--atomix-box-shadow-success": "0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px -4px rgba(20, 184, 166, 0.25)",
+    "--atomix-box-shadow-warning": "0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px -4px rgba(245, 158, 11, 0.25)",
+    "--atomix-box-shadow-xl": "0 10px 20px rgba(0, 0, 0, 0.08), 0 40px 96px -10px rgba(139, 92, 246, 0.35), 0 16px 48px -6px rgba(0, 0, 0, 0.1)",
+    "--atomix-box-shadow-xs": "0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(139, 92, 246, 0.15)",
+    "--atomix-brand-bg-subtle": "#ede9fe",
+    "--atomix-brand-border-subtle": "#8b5cf6",
+    "--atomix-brand-text-emphasis": "#7c3aed",
+    "--atomix-breakpoint-lg": "1024px",
+    "--atomix-breakpoint-md": "768px",
+    "--atomix-breakpoint-sm": "640px",
+    "--atomix-breakpoint-xl": "1280px",
+    "--atomix-breakpoint-xs": "0",
+    "--atomix-breakpoint-xxl": "1536px",
+    "--atomix-dark": "#0a0a0f",
+    "--atomix-dark-bg-subtle": "#0a0a0f",
+    "--atomix-dark-border-subtle": "#1e293b",
+    "--atomix-dark-gradient": "linear-gradient(135deg, #334155, #1e293b, #0a0a0f)",
+    "--atomix-dark-hover": "#1e293b",
+    "--atomix-dark-rgb": "10, 10, 15",
+    "--atomix-dark-text-emphasis": "#0a0a0f",
+    "--atomix-disabled-text-emphasis": "#94a3b8",
+    "--atomix-display-1": "5rem",
+    "--atomix-display-2": "4rem",
+    "--atomix-display-3": "3rem",
+    "--atomix-easing-base": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--atomix-easing-bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+    "--atomix-easing-ease-in": "cubic-bezier(0.4, 0, 1, 1)",
+    "--atomix-easing-ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--atomix-easing-ease-linear": "linear",
+    "--atomix-easing-ease-out": "cubic-bezier(0, 0, 0.2, 1)",
+    "--atomix-error": "#f43f5e",
+    "--atomix-error-bg-subtle": "#fff1f2",
+    "--atomix-error-border-subtle": "#f43f5e",
+    "--atomix-error-gradient": "linear-gradient(135deg, #fff1f2 0%, #fb7185 50%, #f43f5e 100%)",
+    "--atomix-error-hover": "#e11d48",
+    "--atomix-error-rgb": "244, 63, 94",
+    "--atomix-error-text-emphasis": "#f43f5e",
+    "--atomix-focus-border-color": "#8b5cf6",
+    "--atomix-focus-ring-offset": "2px",
+    "--atomix-focus-ring-opacity": "0.3",
+    "--atomix-focus-ring-width": "4px",
+    "--atomix-font-display": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "--atomix-font-monospace": "\"JetBrains Mono\", \"Fira Code\", \"SF Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+    "--atomix-font-sans-serif": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Inter\", \"Roboto\", \"Helvetica Neue\", Arial, sans-serif",
+    "--atomix-font-size-2xl": "2rem",
+    "--atomix-font-size-3xl": "2.5rem",
+    "--atomix-font-size-4xl": "3rem",
+    "--atomix-font-size-5xl": "3.75rem",
+    "--atomix-font-size-6xl": "4.5rem",
+    "--atomix-font-size-7xl": "5.25rem",
+    "--atomix-font-size-8xl": "6rem",
+    "--atomix-font-size-9xl": "7.5rem",
+    "--atomix-font-size-base": "1rem",
+    "--atomix-font-size-lg": "1.125rem",
+    "--atomix-font-size-sm": "0.875rem",
+    "--atomix-font-size-xl": "1.5rem",
+    "--atomix-font-size-xs": "0.75rem",
+    "--atomix-font-weight-black": "900",
+    "--atomix-font-weight-bold": "700",
+    "--atomix-font-weight-heavy": "800",
+    "--atomix-font-weight-light": "300",
+    "--atomix-font-weight-medium": "500",
+    "--atomix-font-weight-normal": "400",
+    "--atomix-font-weight-semibold": "600",
+    "--atomix-form-invalid-border-color": "#f43f5e",
+    "--atomix-form-invalid-color": "#f43f5e",
+    "--atomix-form-valid-border-color": "#14b8a6",
+    "--atomix-form-valid-color": "#14b8a6",
+    "--atomix-gradient": "linear-gradient(135deg, #f5f3ff, #ddd6fe, #c4b5fd)",
+    "--atomix-gray-1": "#fafbfc",
+    "--atomix-gray-10": "#0a0a0f",
+    "--atomix-gray-2": "#f4f6f8",
+    "--atomix-gray-3": "#e8ecf0",
+    "--atomix-gray-4": "#d1d9e0",
+    "--atomix-gray-5": "#9ca8b5",
+    "--atomix-gray-6": "#6b7a8a",
+    "--atomix-gray-7": "#4a5568",
+    "--atomix-gray-8": "#2d3748",
+    "--atomix-gray-9": "#1a202c",
+    "--atomix-green-1": "#f0fdfa",
+    "--atomix-green-10": "#134e4a",
+    "--atomix-green-2": "#ccfbf1",
+    "--atomix-green-3": "#99f6e4",
+    "--atomix-green-4": "#5eead4",
+    "--atomix-green-5": "#2dd4bf",
+    "--atomix-green-6": "#14b8a6",
+    "--atomix-green-7": "#0d9488",
+    "--atomix-green-8": "#0f766e",
+    "--atomix-green-9": "#115e59",
+    "--atomix-heading-color": "#09090b",
+    "--atomix-highlight-bg": "#fde047",
+    "--atomix-info": "#06b6d4",
+    "--atomix-info-bg-subtle": "#ecfeff",
+    "--atomix-info-border-subtle": "#06b6d4",
+    "--atomix-info-gradient": "linear-gradient(135deg, #ecfeff 0%, #22d3ee 50%, #06b6d4 100%)",
+    "--atomix-info-hover": "#0891b2",
+    "--atomix-info-rgb": "6, 182, 212",
+    "--atomix-info-text-emphasis": "#0891b2",
+    "--atomix-invert-bg-subtle": "#0a0a0f",
+    "--atomix-invert-text-emphasis": "#f8fafc",
+    "--atomix-letter-spacing-h1": "-0.03em",
+    "--atomix-letter-spacing-h2": "-0.025em",
+    "--atomix-letter-spacing-h3": "-0.02em",
+    "--atomix-letter-spacing-h4": "-0.015em",
+    "--atomix-letter-spacing-h5": "-0.01em",
+    "--atomix-letter-spacing-h6": "-0.005em",
+    "--atomix-letter-spacing-normal": "0",
+    "--atomix-letter-spacing-tight": "-0.025em",
+    "--atomix-letter-spacing-tighter": "-0.05em",
+    "--atomix-letter-spacing-wide": "0.025em",
+    "--atomix-letter-spacing-wider": "0.05em",
+    "--atomix-letter-spacing-widest": "0.1em",
+    "--atomix-light": "#ffffff",
+    "--atomix-light-bg-subtle": "#ffffff",
+    "--atomix-light-border-subtle": "#ecfeff",
+    "--atomix-light-gradient": "linear-gradient(135deg, #ffffff, #f8fafc, #f1f5f9)",
+    "--atomix-light-hover": "#f8fafc",
+    "--atomix-light-rgb": "255, 255, 255",
+    "--atomix-light-text-emphasis": "#ffffff",
+    "--atomix-line-height-base": "1.5",
+    "--atomix-line-height-lg": "1.75",
+    "--atomix-line-height-loose": "2",
+    "--atomix-line-height-none": "1",
+    "--atomix-line-height-relaxed": "1.625",
+    "--atomix-line-height-sm": "1.65",
+    "--atomix-line-height-snug": "1.375",
+    "--atomix-line-height-tight": "1.25",
+    "--atomix-link-color": "#8b5cf6",
+    "--atomix-link-color-rgb": "var(--atomix-primary-rgb)",
+    "--atomix-link-decoration": "none",
+    "--atomix-link-hover-color": "#7c3aed",
+    "--atomix-link-hover-color-rgb": "124, 58, 237",
+    "--atomix-primary": "#8b5cf6",
+    "--atomix-primary-1": "#f5f3ff",
+    "--atomix-primary-10": "#4c1d95",
+    "--atomix-primary-2": "#ede9fe",
+    "--atomix-primary-3": "#ddd6fe",
+    "--atomix-primary-4": "#c4b5fd",
+    "--atomix-primary-5": "#a78bfa",
+    "--atomix-primary-6": "#8b5cf6",
+    "--atomix-primary-7": "#7c3aed",
+    "--atomix-primary-8": "#6d28d9",
+    "--atomix-primary-9": "#5b21b6",
+    "--atomix-primary-bg-subtle": "#f5f3ff",
+    "--atomix-primary-border-subtle": "#ddd6fe",
+    "--atomix-primary-gradient": "linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #7c3aed 100%)",
+    "--atomix-primary-hover": "#7c3aed",
+    "--atomix-primary-rgb": "139, 92, 246",
+    "--atomix-primary-text-emphasis": "#1e293b",
+    "--atomix-red-1": "#fff1f2",
+    "--atomix-red-10": "#881337",
+    "--atomix-red-2": "#ffe4e6",
+    "--atomix-red-3": "#fecdd3",
+    "--atomix-red-4": "#fda4af",
+    "--atomix-red-5": "#fb7185",
+    "--atomix-red-6": "#f43f5e",
+    "--atomix-red-7": "#e11d48",
+    "--atomix-red-8": "#be123c",
+    "--atomix-red-9": "#9f1239",
+    "--atomix-secondary": "#f8fafc",
+    "--atomix-secondary-bg-subtle": "#f8fafc",
+    "--atomix-secondary-border-subtle": "#1e293b",
+    "--atomix-secondary-gradient": "linear-gradient(135deg, #f8fafc, #e2e8f0, #cbd5e1)",
+    "--atomix-secondary-hover": "#e2e8f0",
+    "--atomix-secondary-rgb": "248, 250, 252",
+    "--atomix-secondary-text-emphasis": "#334155",
+    "--atomix-spacing-0": "0rem",
+    "--atomix-spacing-1": "0.25rem",
+    "--atomix-spacing-10": "2.5rem",
+    "--atomix-spacing-11": "2.75rem",
+    "--atomix-spacing-12": "3rem",
+    "--atomix-spacing-14": "3.5rem",
+    "--atomix-spacing-16": "4rem",
+    "--atomix-spacing-2": "0.5rem",
+    "--atomix-spacing-20": "5rem",
+    "--atomix-spacing-200": "50rem",
+    "--atomix-spacing-24": "6rem",
+    "--atomix-spacing-28": "7rem",
+    "--atomix-spacing-3": "0.75rem",
+    "--atomix-spacing-32": "8rem",
+    "--atomix-spacing-36": "9rem",
+    "--atomix-spacing-4": "1rem",
+    "--atomix-spacing-40": "10rem",
+    "--atomix-spacing-44": "11rem",
+    "--atomix-spacing-48": "12rem",
+    "--atomix-spacing-5": "1.25rem",
+    "--atomix-spacing-52": "13rem",
+    "--atomix-spacing-56": "14rem",
+    "--atomix-spacing-6": "1.5rem",
+    "--atomix-spacing-60": "15rem",
+    "--atomix-spacing-64": "16rem",
+    "--atomix-spacing-7": "1.75rem",
+    "--atomix-spacing-72": "18rem",
+    "--atomix-spacing-8": "2rem",
+    "--atomix-spacing-80": "20rem",
+    "--atomix-spacing-9": "2.25rem",
+    "--atomix-spacing-90": "22.5rem",
+    "--atomix-spacing-px-10": "0.625rem",
+    "--atomix-spacing-px-14": "0.875rem",
+    "--atomix-spacing-px-22": "1.375rem",
+    "--atomix-spacing-px-30": "1.875rem",
+    "--atomix-spacing-px-6": "0.375rem",
+    "--atomix-success": "#14b8a6",
+    "--atomix-success-bg-subtle": "#f0fdfa",
+    "--atomix-success-border-subtle": "#10b981",
+    "--atomix-success-gradient": "linear-gradient(135deg, #ecfdf5 0%, #5eead4 50%, #14b8a6 100%)",
+    "--atomix-success-hover": "#0d9488",
+    "--atomix-success-rgb": "20, 184, 166",
+    "--atomix-success-text-emphasis": "#14b8a6",
+    "--atomix-tertiary-bg-subtle": "#f1f5f9",
+    "--atomix-tertiary-text-emphasis": "#64748b",
+    "--atomix-transition-base": "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    "--atomix-transition-duration-base": "0.3s",
+    "--atomix-transition-duration-fast": "0.15s",
+    "--atomix-transition-duration-slow": "0.5s",
+    "--atomix-transition-duration-slower": "0.75s",
+    "--atomix-transition-fast": "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "--atomix-transition-slow": "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+    "--atomix-warning": "#f59e0b",
+    "--atomix-warning-bg-subtle": "#fffbeb",
+    "--atomix-warning-border-subtle": "#f59e0b",
+    "--atomix-warning-gradient": "linear-gradient(135deg, #fffbeb 0%, #fbbf24 50%, #f59e0b 100%)",
+    "--atomix-warning-hover": "#d97706",
+    "--atomix-warning-rgb": "245, 158, 11",
+    "--atomix-warning-text-emphasis": "#f59e0b",
+    "--atomix-yellow-1": "#fffbeb",
+    "--atomix-yellow-10": "#78350f",
+    "--atomix-yellow-2": "#fef3c7",
+    "--atomix-yellow-3": "#fde68a",
+    "--atomix-yellow-4": "#fcd34d",
+    "--atomix-yellow-5": "#fbbf24",
+    "--atomix-yellow-6": "#f59e0b",
+    "--atomix-yellow-7": "#d97706",
+    "--atomix-yellow-8": "#b45309",
+    "--atomix-yellow-9": "#92400e",
+    "--atomix-z-0": "0",
+    "--atomix-z-1": "1",
+    "--atomix-z-2": "2",
+    "--atomix-z-3": "3",
+    "--atomix-z-4": "4",
+    "--atomix-z-5": "5",
+    "--atomix-z-drawer": "1070",
+    "--atomix-z-dropdown": "1000",
+    "--atomix-z-fixed": "1030",
+    "--atomix-z-modal": "1040",
+    "--atomix-z-n1": "-1",
+    "--atomix-z-popover": "1050",
+    "--atomix-z-sticky": "1020",
+    "--atomix-z-tooltip": "1060"
+  },
+  "dark": {
+    "--atomix-accent": "#22d3ee",
+    "--atomix-accent-rgb": "34, 211, 238",
+    "--atomix-body-bg": "#0a0a0f",
+    "--atomix-body-color": "#fafafa",
+    "--atomix-body-font-family": "var(--atomix-font-sans-serif)",
+    "--atomix-body-font-size": "1rem",
+    "--atomix-body-font-weight": "400",
+    "--atomix-body-line-height": "1.65",
+    "--atomix-border-color": "#2d2d35",
+    "--atomix-border-color-translucent": "rgba(167, 139, 250, 0.2)",
+    "--atomix-border-radius": "1rem",
+    "--atomix-border-radius-2xl": "var(--atomix-border-radius-xxl)",
+    "--atomix-border-radius-3xl": "3rem",
+    "--atomix-border-radius-4xl": "4rem",
+    "--atomix-border-radius-lg": "1.25rem",
+    "--atomix-border-radius-pill": "50rem",
+    "--atomix-border-radius-sm": "0.625rem",
+    "--atomix-border-radius-xl": "1.75rem",
+    "--atomix-border-radius-xxl": "2.25rem",
+    "--atomix-box-shadow": "0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 32px -4px rgba(167, 139, 250, 0.4), 0 6px 16px -2px rgba(0, 0, 0, 0.4)",
+    "--atomix-box-shadow-2xl": "0 16px 32px rgba(0, 0, 0, 0.5), 0 60px 128px -12px rgba(167, 139, 250, 0.55), 0 24px 64px -8px rgba(0, 0, 0, 0.6)",
+    "--atomix-box-shadow-error": "0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 32px -4px rgba(251, 113, 133, 0.4)",
+    "--atomix-box-shadow-glow": "0 0 20px rgba(167, 139, 250, 0.5), 0 0 40px rgba(167, 139, 250, 0.3)",
+    "--atomix-box-shadow-glow-lg": "0 0 40px rgba(167, 139, 250, 0.6), 0 0 80px rgba(167, 139, 250, 0.4)",
+    "--atomix-box-shadow-info": "0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 32px -4px rgba(34, 211, 238, 0.4)",
+    "--atomix-box-shadow-inset": "inset 0 2px 4px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(167, 139, 250, 0.2)",
+    "--atomix-box-shadow-lg": "0 6px 12px rgba(0, 0, 0, 0.4), 0 24px 64px -6px rgba(167, 139, 250, 0.45), 0 10px 28px -4px rgba(0, 0, 0, 0.5)",
+    "--atomix-box-shadow-md": "0 4px 6px rgba(0, 0, 0, 0.35), 0 8px 20px -2px rgba(167, 139, 250, 0.38)",
+    "--atomix-box-shadow-sm": "0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 12px -1px rgba(167, 139, 250, 0.35)",
+    "--atomix-box-shadow-success": "0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 32px -4px rgba(94, 234, 212, 0.4)",
+    "--atomix-box-shadow-warning": "0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 32px -4px rgba(251, 191, 36, 0.4)",
+    "--atomix-box-shadow-xl": "0 10px 20px rgba(0, 0, 0, 0.45), 0 40px 96px -10px rgba(167, 139, 250, 0.5), 0 16px 48px -6px rgba(0, 0, 0, 0.55)",
+    "--atomix-box-shadow-xs": "0 1px 2px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(167, 139, 250, 0.3)",
+    "--atomix-brand-bg-subtle": "#4c1d95",
+    "--atomix-brand-border-subtle": "#8b5cf6",
+    "--atomix-brand-text-emphasis": "#a78bfa",
+    "--atomix-code-color": "#fb7185",
+    "--atomix-dark": "#18181b",
+    "--atomix-dark-bg-subtle": "#0a0a0f",
+    "--atomix-dark-border-subtle": "#18181b",
+    "--atomix-dark-gradient": "linear-gradient(135deg, #000000 0%, #0a0a0f 50%, #1a1a1f 100%)",
+    "--atomix-dark-hover": "#25252a",
+    "--atomix-dark-rgb": "10, 10, 15",
+    "--atomix-dark-text-emphasis": "#18181b",
+    "--atomix-disabled-text-emphasis": "#52525b",
+    "--atomix-display-1": "5rem",
+    "--atomix-display-2": "4rem",
+    "--atomix-display-3": "3rem",
+    "--atomix-easing-base": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--atomix-easing-bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+    "--atomix-easing-ease-in": "cubic-bezier(0.4, 0, 1, 1)",
+    "--atomix-easing-ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--atomix-easing-ease-linear": "linear",
+    "--atomix-easing-ease-out": "cubic-bezier(0, 0, 0.2, 1)",
+    "--atomix-error": "#fb7185",
+    "--atomix-error-bg-subtle": "#881337",
+    "--atomix-error-border-subtle": "#fb7185",
+    "--atomix-error-gradient": "linear-gradient(135deg, #881337 0%, #fb7185 50%, #fecdd3 100%)",
+    "--atomix-error-hover": "#f43f5e",
+    "--atomix-error-rgb": "251, 113, 133",
+    "--atomix-error-text-emphasis": "#fb7185",
+    "--atomix-focus-border-color": "#a78bfa",
+    "--atomix-focus-ring-offset": "2px",
+    "--atomix-focus-ring-opacity": "0.35",
+    "--atomix-focus-ring-width": "4px",
+    "--atomix-font-size-2xl": "2rem",
+    "--atomix-font-size-3xl": "2.5rem",
+    "--atomix-font-size-4xl": "3rem",
+    "--atomix-font-size-5xl": "3.75rem",
+    "--atomix-font-size-6xl": "4.5rem",
+    "--atomix-font-size-7xl": "5.25rem",
+    "--atomix-font-size-8xl": "6rem",
+    "--atomix-font-size-9xl": "7.5rem",
+    "--atomix-font-size-base": "1rem",
+    "--atomix-font-size-lg": "1.125rem",
+    "--atomix-font-size-sm": "0.875rem",
+    "--atomix-font-size-xl": "1.5rem",
+    "--atomix-font-size-xs": "0.75rem",
+    "--atomix-font-weight-black": "900",
+    "--atomix-font-weight-bold": "700",
+    "--atomix-font-weight-heavy": "800",
+    "--atomix-font-weight-light": "300",
+    "--atomix-font-weight-medium": "500",
+    "--atomix-font-weight-normal": "400",
+    "--atomix-font-weight-semibold": "600",
+    "--atomix-form-invalid-border-color": "#fb7185",
+    "--atomix-form-invalid-color": "#fb7185",
+    "--atomix-form-valid-border-color": "#5eead4",
+    "--atomix-form-valid-color": "#5eead4",
+    "--atomix-gradient": "linear-gradient(135deg, #1a1a1f 0%, #25252a 50%, #2d2d35 100%)",
+    "--atomix-heading-color": "#ffffff",
+    "--atomix-info": "#22d3ee",
+    "--atomix-info-bg-subtle": "#0c4a6e",
+    "--atomix-info-border-subtle": "#22d3ee",
+    "--atomix-info-gradient": "linear-gradient(135deg, #0c4a6e 0%, #22d3ee 50%, #67e8f9 100%)",
+    "--atomix-info-hover": "#67e8f9",
+    "--atomix-info-rgb": "34, 211, 238",
+    "--atomix-info-text-emphasis": "#67e8f9",
+    "--atomix-invert-bg-subtle": "#fafafa",
+    "--atomix-invert-text-emphasis": "#18181b",
+    "--atomix-letter-spacing-h1": "-0.03em",
+    "--atomix-letter-spacing-h2": "-0.025em",
+    "--atomix-letter-spacing-h3": "-0.02em",
+    "--atomix-letter-spacing-h4": "-0.015em",
+    "--atomix-letter-spacing-h5": "-0.01em",
+    "--atomix-letter-spacing-h6": "-0.005em",
+    "--atomix-letter-spacing-normal": "0",
+    "--atomix-letter-spacing-tight": "-0.025em",
+    "--atomix-letter-spacing-tighter": "-0.05em",
+    "--atomix-letter-spacing-wide": "0.025em",
+    "--atomix-letter-spacing-wider": "0.05em",
+    "--atomix-letter-spacing-widest": "0.1em",
+    "--atomix-light": "#fafafa",
+    "--atomix-light-bg-subtle": "#fafafa",
+    "--atomix-light-border-subtle": "#fafafa",
+    "--atomix-light-gradient": "linear-gradient(135deg, #1a1a1f 0%, #25252a 50%, #2d2d35 100%)",
+    "--atomix-light-hover": "#e4e4e7",
+    "--atomix-light-rgb": "250, 250, 250",
+    "--atomix-light-text-emphasis": "#fafafa",
+    "--atomix-line-height-base": "1.5",
+    "--atomix-line-height-lg": "1.75",
+    "--atomix-line-height-loose": "2",
+    "--atomix-line-height-none": "1",
+    "--atomix-line-height-relaxed": "1.625",
+    "--atomix-line-height-sm": "1.65",
+    "--atomix-line-height-snug": "1.375",
+    "--atomix-line-height-tight": "1.25",
+    "--atomix-link-color": "#a78bfa",
+    "--atomix-link-color-rgb": "167, 139, 250",
+    "--atomix-link-hover-color": "#c4b5fd",
+    "--atomix-link-hover-color-rgb": "196, 181, 253",
+    "--atomix-primary": "#a78bfa",
+    "--atomix-primary-bg-subtle": "#1a1a1f",
+    "--atomix-primary-border-subtle": "#2d2d35",
+    "--atomix-primary-gradient": "linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%)",
+    "--atomix-primary-hover": "#8b5cf6",
+    "--atomix-primary-rgb": "167, 139, 250",
+    "--atomix-primary-text-emphasis": "#fafafa",
+    "--atomix-secondary": "#18181b",
+    "--atomix-secondary-bg-subtle": "#25252a",
+    "--atomix-secondary-border-subtle": "#3a3a44",
+    "--atomix-secondary-gradient": "linear-gradient(135deg, #0a0a0f 0%, #1a1a1f 50%, #25252a 100%)",
+    "--atomix-secondary-hover": "#2d2d35",
+    "--atomix-secondary-rgb": "24, 24, 27",
+    "--atomix-secondary-text-emphasis": "#e4e4e7",
+    "--atomix-success": "#5eead4",
+    "--atomix-success-bg-subtle": "#134e4a",
+    "--atomix-success-border-subtle": "#5eead4",
+    "--atomix-success-gradient": "linear-gradient(135deg, #134e4a 0%, #5eead4 50%, #99f6e4 100%)",
+    "--atomix-success-hover": "#2dd4bf",
+    "--atomix-success-rgb": "94, 234, 212",
+    "--atomix-success-text-emphasis": "#5eead4",
+    "--atomix-surface-1": "#1a1a1f",
+    "--atomix-surface-2": "#25252a",
+    "--atomix-surface-3": "#2d2d35",
+    "--atomix-tertiary-bg-subtle": "#2d2d35",
+    "--atomix-tertiary-text-emphasis": "#a1a1aa",
+    "--atomix-transition-base": "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    "--atomix-transition-duration-base": "0.3s",
+    "--atomix-transition-duration-fast": "0.15s",
+    "--atomix-transition-duration-slow": "0.5s",
+    "--atomix-transition-duration-slower": "0.75s",
+    "--atomix-transition-fast": "all 0.15s cubic-bezier(0.4, 0, 0.2, 1)",
+    "--atomix-transition-slow": "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+    "--atomix-warning": "#fbbf24",
+    "--atomix-warning-bg-subtle": "#78350f",
+    "--atomix-warning-border-subtle": "#fbbf24",
+    "--atomix-warning-gradient": "linear-gradient(135deg, #78350f 0%, #fbbf24 50%, #fcd34d 100%)",
+    "--atomix-warning-hover": "#fcd34d",
+    "--atomix-warning-rgb": "251, 191, 36",
+    "--atomix-warning-text-emphasis": "#fcd34d"
+  },
+  "metadata": {
+    "light": [
+      {
+        "name": "--atomix-blue-1",
+        "displayName": "Blue 1",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-blue-10",
+        "displayName": "Blue 10",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-blue-2",
+        "displayName": "Blue 2",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-blue-3",
+        "displayName": "Blue 3",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-blue-4",
+        "displayName": "Blue 4",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-blue-5",
+        "displayName": "Blue 5",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-blue-6",
+        "displayName": "Blue 6",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-blue-7",
+        "displayName": "Blue 7",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-blue-8",
+        "displayName": "Blue 8",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-blue-9",
+        "displayName": "Blue 9",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-body-bg",
+        "displayName": "Body Bg",
+        "type": "color",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-body-color",
+        "displayName": "Body Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-body-font-family",
+        "displayName": "Body Font Family",
+        "type": "font-family",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-body-font-size",
+        "displayName": "Body Font Size",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-body-font-weight",
+        "displayName": "Body Font Weight",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-body-line-height",
+        "displayName": "Body Line Height",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-border-color",
+        "displayName": "Border Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-border-color-translucent",
+        "displayName": "Border Color Translucent",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-border-radius",
+        "displayName": "Border Radius",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-2xl",
+        "displayName": "Border Radius 2xl",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-3xl",
+        "displayName": "Border Radius 3xl",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-4xl",
+        "displayName": "Border Radius 4xl",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-lg",
+        "displayName": "Border Radius Lg",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-pill",
+        "displayName": "Border Radius Pill",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-sm",
+        "displayName": "Border Radius Sm",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-xl",
+        "displayName": "Border Radius Xl",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-xxl",
+        "displayName": "Border Radius Xxl",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-style",
+        "displayName": "Border Style",
+        "type": "text",
+        "category": "borders"
+      },
+      {
+        "name": "--atomix-border-width",
+        "displayName": "Border Width",
+        "type": "number",
+        "category": "borders"
+      },
+      {
+        "name": "--atomix-box-shadow",
+        "displayName": "Box Shadow",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-2xl",
+        "displayName": "Box Shadow 2xl",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-error",
+        "displayName": "Box Shadow Error",
+        "type": "shadow",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-box-shadow-glow",
+        "displayName": "Box Shadow Glow",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-glow-lg",
+        "displayName": "Box Shadow Glow Lg",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-info",
+        "displayName": "Box Shadow Info",
+        "type": "shadow",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-box-shadow-inset",
+        "displayName": "Box Shadow Inset",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-lg",
+        "displayName": "Box Shadow Lg",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-md",
+        "displayName": "Box Shadow Md",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-sm",
+        "displayName": "Box Shadow Sm",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-success",
+        "displayName": "Box Shadow Success",
+        "type": "shadow",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-box-shadow-warning",
+        "displayName": "Box Shadow Warning",
+        "type": "shadow",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-box-shadow-xl",
+        "displayName": "Box Shadow Xl",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-xs",
+        "displayName": "Box Shadow Xs",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-brand-bg-subtle",
+        "displayName": "Brand Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-brand-border-subtle",
+        "displayName": "Brand Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-brand-text-emphasis",
+        "displayName": "Brand Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-breakpoint-lg",
+        "displayName": "Breakpoint Lg",
+        "type": "breakpoint",
+        "category": "breakpoints"
+      },
+      {
+        "name": "--atomix-breakpoint-md",
+        "displayName": "Breakpoint Md",
+        "type": "breakpoint",
+        "category": "breakpoints"
+      },
+      {
+        "name": "--atomix-breakpoint-sm",
+        "displayName": "Breakpoint Sm",
+        "type": "breakpoint",
+        "category": "breakpoints"
+      },
+      {
+        "name": "--atomix-breakpoint-xl",
+        "displayName": "Breakpoint Xl",
+        "type": "breakpoint",
+        "category": "breakpoints"
+      },
+      {
+        "name": "--atomix-breakpoint-xs",
+        "displayName": "Breakpoint Xs",
+        "type": "breakpoint",
+        "category": "breakpoints"
+      },
+      {
+        "name": "--atomix-breakpoint-xxl",
+        "displayName": "Breakpoint Xxl",
+        "type": "breakpoint",
+        "category": "breakpoints"
+      },
+      {
+        "name": "--atomix-dark",
+        "displayName": "Dark",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-bg-subtle",
+        "displayName": "Dark Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-border-subtle",
+        "displayName": "Dark Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-gradient",
+        "displayName": "Dark Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-hover",
+        "displayName": "Dark Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-rgb",
+        "displayName": "Dark Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-text-emphasis",
+        "displayName": "Dark Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-disabled-text-emphasis",
+        "displayName": "Disabled Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-display-1",
+        "displayName": "Display 1",
+        "type": "font-size",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-display-2",
+        "displayName": "Display 2",
+        "type": "font-size",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-display-3",
+        "displayName": "Display 3",
+        "type": "font-size",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-easing-base",
+        "displayName": "Easing Base",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-easing-bounce",
+        "displayName": "Easing Bounce",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-easing-ease-in",
+        "displayName": "Easing Ease In",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-easing-ease-in-out",
+        "displayName": "Easing Ease In Out",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-easing-ease-linear",
+        "displayName": "Easing Ease Linear",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-easing-ease-out",
+        "displayName": "Easing Ease Out",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-error",
+        "displayName": "Error",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-bg-subtle",
+        "displayName": "Error Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-border-subtle",
+        "displayName": "Error Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-gradient",
+        "displayName": "Error Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-hover",
+        "displayName": "Error Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-rgb",
+        "displayName": "Error Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-text-emphasis",
+        "displayName": "Error Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-focus-border-color",
+        "displayName": "Focus Border Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-focus-ring-offset",
+        "displayName": "Focus Ring Offset",
+        "type": "number",
+        "category": "forms"
+      },
+      {
+        "name": "--atomix-focus-ring-opacity",
+        "displayName": "Focus Ring Opacity",
+        "type": "text",
+        "category": "forms"
+      },
+      {
+        "name": "--atomix-focus-ring-width",
+        "displayName": "Focus Ring Width",
+        "type": "number",
+        "category": "forms"
+      },
+      {
+        "name": "--atomix-font-display",
+        "displayName": "Font Display",
+        "type": "font-family",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-monospace",
+        "displayName": "Font Monospace",
+        "type": "font-family",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-sans-serif",
+        "displayName": "Font Sans Serif",
+        "type": "font-family",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-2xl",
+        "displayName": "Font Size 2xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-3xl",
+        "displayName": "Font Size 3xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-4xl",
+        "displayName": "Font Size 4xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-5xl",
+        "displayName": "Font Size 5xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-6xl",
+        "displayName": "Font Size 6xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-7xl",
+        "displayName": "Font Size 7xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-8xl",
+        "displayName": "Font Size 8xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-9xl",
+        "displayName": "Font Size 9xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-base",
+        "displayName": "Font Size Base",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-lg",
+        "displayName": "Font Size Lg",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-sm",
+        "displayName": "Font Size Sm",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-xl",
+        "displayName": "Font Size Xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-xs",
+        "displayName": "Font Size Xs",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-black",
+        "displayName": "Font Weight Black",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-bold",
+        "displayName": "Font Weight Bold",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-heavy",
+        "displayName": "Font Weight Heavy",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-light",
+        "displayName": "Font Weight Light",
+        "type": "font-weight",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-font-weight-medium",
+        "displayName": "Font Weight Medium",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-normal",
+        "displayName": "Font Weight Normal",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-semibold",
+        "displayName": "Font Weight Semibold",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-form-invalid-border-color",
+        "displayName": "Form Invalid Border Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-form-invalid-color",
+        "displayName": "Form Invalid Color",
+        "type": "color",
+        "category": "forms"
+      },
+      {
+        "name": "--atomix-form-valid-border-color",
+        "displayName": "Form Valid Border Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-form-valid-color",
+        "displayName": "Form Valid Color",
+        "type": "color",
+        "category": "forms"
+      },
+      {
+        "name": "--atomix-gradient",
+        "displayName": "Gradient",
+        "type": "gradient",
+        "category": "gradients"
+      },
+      {
+        "name": "--atomix-gray-1",
+        "displayName": "Gray 1",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-gray-10",
+        "displayName": "Gray 10",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-gray-2",
+        "displayName": "Gray 2",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-gray-3",
+        "displayName": "Gray 3",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-gray-4",
+        "displayName": "Gray 4",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-gray-5",
+        "displayName": "Gray 5",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-gray-6",
+        "displayName": "Gray 6",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-gray-7",
+        "displayName": "Gray 7",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-gray-8",
+        "displayName": "Gray 8",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-gray-9",
+        "displayName": "Gray 9",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-green-1",
+        "displayName": "Green 1",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-green-10",
+        "displayName": "Green 10",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-green-2",
+        "displayName": "Green 2",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-green-3",
+        "displayName": "Green 3",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-green-4",
+        "displayName": "Green 4",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-green-5",
+        "displayName": "Green 5",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-green-6",
+        "displayName": "Green 6",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-green-7",
+        "displayName": "Green 7",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-green-8",
+        "displayName": "Green 8",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-green-9",
+        "displayName": "Green 9",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-heading-color",
+        "displayName": "Heading Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-highlight-bg",
+        "displayName": "Highlight Bg",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info",
+        "displayName": "Info",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-bg-subtle",
+        "displayName": "Info Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-border-subtle",
+        "displayName": "Info Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-gradient",
+        "displayName": "Info Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-hover",
+        "displayName": "Info Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-rgb",
+        "displayName": "Info Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-text-emphasis",
+        "displayName": "Info Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-invert-bg-subtle",
+        "displayName": "Invert Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-invert-text-emphasis",
+        "displayName": "Invert Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-letter-spacing-h1",
+        "displayName": "Letter Spacing H1",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-h2",
+        "displayName": "Letter Spacing H2",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-h3",
+        "displayName": "Letter Spacing H3",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-h4",
+        "displayName": "Letter Spacing H4",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-h5",
+        "displayName": "Letter Spacing H5",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-h6",
+        "displayName": "Letter Spacing H6",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-normal",
+        "displayName": "Letter Spacing Normal",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-tight",
+        "displayName": "Letter Spacing Tight",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-tighter",
+        "displayName": "Letter Spacing Tighter",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-wide",
+        "displayName": "Letter Spacing Wide",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-wider",
+        "displayName": "Letter Spacing Wider",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-widest",
+        "displayName": "Letter Spacing Widest",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-light",
+        "displayName": "Light",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-bg-subtle",
+        "displayName": "Light Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-border-subtle",
+        "displayName": "Light Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-gradient",
+        "displayName": "Light Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-hover",
+        "displayName": "Light Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-rgb",
+        "displayName": "Light Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-text-emphasis",
+        "displayName": "Light Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-line-height-base",
+        "displayName": "Line Height Base",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-lg",
+        "displayName": "Line Height Lg",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-loose",
+        "displayName": "Line Height Loose",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-none",
+        "displayName": "Line Height None",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-relaxed",
+        "displayName": "Line Height Relaxed",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-sm",
+        "displayName": "Line Height Sm",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-snug",
+        "displayName": "Line Height Snug",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-tight",
+        "displayName": "Line Height Tight",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-link-color",
+        "displayName": "Link Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-link-color-rgb",
+        "displayName": "Link Color Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-link-decoration",
+        "displayName": "Link Decoration",
+        "type": "text",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-link-hover-color",
+        "displayName": "Link Hover Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-link-hover-color-rgb",
+        "displayName": "Link Hover Color Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary",
+        "displayName": "Primary",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-1",
+        "displayName": "Primary 1",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-10",
+        "displayName": "Primary 10",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-2",
+        "displayName": "Primary 2",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-3",
+        "displayName": "Primary 3",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-4",
+        "displayName": "Primary 4",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-5",
+        "displayName": "Primary 5",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-6",
+        "displayName": "Primary 6",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-7",
+        "displayName": "Primary 7",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-8",
+        "displayName": "Primary 8",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-9",
+        "displayName": "Primary 9",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-bg-subtle",
+        "displayName": "Primary Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-border-subtle",
+        "displayName": "Primary Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-gradient",
+        "displayName": "Primary Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-hover",
+        "displayName": "Primary Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-rgb",
+        "displayName": "Primary Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-text-emphasis",
+        "displayName": "Primary Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-red-1",
+        "displayName": "Red 1",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-red-10",
+        "displayName": "Red 10",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-red-2",
+        "displayName": "Red 2",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-red-3",
+        "displayName": "Red 3",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-red-4",
+        "displayName": "Red 4",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-red-5",
+        "displayName": "Red 5",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-red-6",
+        "displayName": "Red 6",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-red-7",
+        "displayName": "Red 7",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-red-8",
+        "displayName": "Red 8",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-red-9",
+        "displayName": "Red 9",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary",
+        "displayName": "Secondary",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-bg-subtle",
+        "displayName": "Secondary Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-border-subtle",
+        "displayName": "Secondary Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-gradient",
+        "displayName": "Secondary Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-hover",
+        "displayName": "Secondary Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-rgb",
+        "displayName": "Secondary Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-text-emphasis",
+        "displayName": "Secondary Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-spacing-0",
+        "displayName": "Spacing 0",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-1",
+        "displayName": "Spacing 1",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-10",
+        "displayName": "Spacing 10",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-11",
+        "displayName": "Spacing 11",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-12",
+        "displayName": "Spacing 12",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-14",
+        "displayName": "Spacing 14",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-16",
+        "displayName": "Spacing 16",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-2",
+        "displayName": "Spacing 2",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-20",
+        "displayName": "Spacing 20",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-200",
+        "displayName": "Spacing 200",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-24",
+        "displayName": "Spacing 24",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-28",
+        "displayName": "Spacing 28",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-3",
+        "displayName": "Spacing 3",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-32",
+        "displayName": "Spacing 32",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-36",
+        "displayName": "Spacing 36",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-4",
+        "displayName": "Spacing 4",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-40",
+        "displayName": "Spacing 40",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-44",
+        "displayName": "Spacing 44",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-48",
+        "displayName": "Spacing 48",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-5",
+        "displayName": "Spacing 5",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-52",
+        "displayName": "Spacing 52",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-56",
+        "displayName": "Spacing 56",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-6",
+        "displayName": "Spacing 6",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-60",
+        "displayName": "Spacing 60",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-64",
+        "displayName": "Spacing 64",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-7",
+        "displayName": "Spacing 7",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-72",
+        "displayName": "Spacing 72",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-8",
+        "displayName": "Spacing 8",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-80",
+        "displayName": "Spacing 80",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-9",
+        "displayName": "Spacing 9",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-90",
+        "displayName": "Spacing 90",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-px-10",
+        "displayName": "Spacing Px 10",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-px-14",
+        "displayName": "Spacing Px 14",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-px-22",
+        "displayName": "Spacing Px 22",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-px-30",
+        "displayName": "Spacing Px 30",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-spacing-px-6",
+        "displayName": "Spacing Px 6",
+        "type": "spacing",
+        "category": "spacing"
+      },
+      {
+        "name": "--atomix-success",
+        "displayName": "Success",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-bg-subtle",
+        "displayName": "Success Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-border-subtle",
+        "displayName": "Success Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-gradient",
+        "displayName": "Success Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-hover",
+        "displayName": "Success Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-rgb",
+        "displayName": "Success Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-text-emphasis",
+        "displayName": "Success Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-tertiary-bg-subtle",
+        "displayName": "Tertiary Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-tertiary-text-emphasis",
+        "displayName": "Tertiary Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-transition-base",
+        "displayName": "Transition Base",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-duration-base",
+        "displayName": "Transition Duration Base",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-duration-fast",
+        "displayName": "Transition Duration Fast",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-duration-slow",
+        "displayName": "Transition Duration Slow",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-duration-slower",
+        "displayName": "Transition Duration Slower",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-fast",
+        "displayName": "Transition Fast",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-slow",
+        "displayName": "Transition Slow",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-warning",
+        "displayName": "Warning",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-bg-subtle",
+        "displayName": "Warning Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-border-subtle",
+        "displayName": "Warning Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-gradient",
+        "displayName": "Warning Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-hover",
+        "displayName": "Warning Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-rgb",
+        "displayName": "Warning Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-text-emphasis",
+        "displayName": "Warning Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-yellow-1",
+        "displayName": "Yellow 1",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-yellow-10",
+        "displayName": "Yellow 10",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-yellow-2",
+        "displayName": "Yellow 2",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-yellow-3",
+        "displayName": "Yellow 3",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-yellow-4",
+        "displayName": "Yellow 4",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-yellow-5",
+        "displayName": "Yellow 5",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-yellow-6",
+        "displayName": "Yellow 6",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-yellow-7",
+        "displayName": "Yellow 7",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-yellow-8",
+        "displayName": "Yellow 8",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-yellow-9",
+        "displayName": "Yellow 9",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-z-0",
+        "displayName": "Z 0",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-1",
+        "displayName": "Z 1",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-2",
+        "displayName": "Z 2",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-3",
+        "displayName": "Z 3",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-4",
+        "displayName": "Z 4",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-5",
+        "displayName": "Z 5",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-drawer",
+        "displayName": "Z Drawer",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-dropdown",
+        "displayName": "Z Dropdown",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-fixed",
+        "displayName": "Z Fixed",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-modal",
+        "displayName": "Z Modal",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-n1",
+        "displayName": "Z N1",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-popover",
+        "displayName": "Z Popover",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-sticky",
+        "displayName": "Z Sticky",
+        "type": "text",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-z-tooltip",
+        "displayName": "Z Tooltip",
+        "type": "text",
+        "category": "other"
+      }
+    ],
+    "dark": [
+      {
+        "name": "--atomix-accent",
+        "displayName": "Accent",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-accent-rgb",
+        "displayName": "Accent Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-body-bg",
+        "displayName": "Body Bg",
+        "type": "color",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-body-color",
+        "displayName": "Body Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-body-font-family",
+        "displayName": "Body Font Family",
+        "type": "font-family",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-body-font-size",
+        "displayName": "Body Font Size",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-body-font-weight",
+        "displayName": "Body Font Weight",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-body-line-height",
+        "displayName": "Body Line Height",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-border-color",
+        "displayName": "Border Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-border-color-translucent",
+        "displayName": "Border Color Translucent",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-border-radius",
+        "displayName": "Border Radius",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-2xl",
+        "displayName": "Border Radius 2xl",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-3xl",
+        "displayName": "Border Radius 3xl",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-4xl",
+        "displayName": "Border Radius 4xl",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-lg",
+        "displayName": "Border Radius Lg",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-pill",
+        "displayName": "Border Radius Pill",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-sm",
+        "displayName": "Border Radius Sm",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-xl",
+        "displayName": "Border Radius Xl",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-border-radius-xxl",
+        "displayName": "Border Radius Xxl",
+        "type": "border-radius",
+        "category": "border-radius"
+      },
+      {
+        "name": "--atomix-box-shadow",
+        "displayName": "Box Shadow",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-2xl",
+        "displayName": "Box Shadow 2xl",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-error",
+        "displayName": "Box Shadow Error",
+        "type": "shadow",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-box-shadow-glow",
+        "displayName": "Box Shadow Glow",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-glow-lg",
+        "displayName": "Box Shadow Glow Lg",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-info",
+        "displayName": "Box Shadow Info",
+        "type": "shadow",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-box-shadow-inset",
+        "displayName": "Box Shadow Inset",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-lg",
+        "displayName": "Box Shadow Lg",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-md",
+        "displayName": "Box Shadow Md",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-sm",
+        "displayName": "Box Shadow Sm",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-success",
+        "displayName": "Box Shadow Success",
+        "type": "shadow",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-box-shadow-warning",
+        "displayName": "Box Shadow Warning",
+        "type": "shadow",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-box-shadow-xl",
+        "displayName": "Box Shadow Xl",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-box-shadow-xs",
+        "displayName": "Box Shadow Xs",
+        "type": "shadow",
+        "category": "shadows"
+      },
+      {
+        "name": "--atomix-brand-bg-subtle",
+        "displayName": "Brand Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-brand-border-subtle",
+        "displayName": "Brand Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-brand-text-emphasis",
+        "displayName": "Brand Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-code-color",
+        "displayName": "Code Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark",
+        "displayName": "Dark",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-bg-subtle",
+        "displayName": "Dark Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-border-subtle",
+        "displayName": "Dark Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-gradient",
+        "displayName": "Dark Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-hover",
+        "displayName": "Dark Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-rgb",
+        "displayName": "Dark Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-dark-text-emphasis",
+        "displayName": "Dark Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-disabled-text-emphasis",
+        "displayName": "Disabled Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-display-1",
+        "displayName": "Display 1",
+        "type": "font-size",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-display-2",
+        "displayName": "Display 2",
+        "type": "font-size",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-display-3",
+        "displayName": "Display 3",
+        "type": "font-size",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-easing-base",
+        "displayName": "Easing Base",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-easing-bounce",
+        "displayName": "Easing Bounce",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-easing-ease-in",
+        "displayName": "Easing Ease In",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-easing-ease-in-out",
+        "displayName": "Easing Ease In Out",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-easing-ease-linear",
+        "displayName": "Easing Ease Linear",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-easing-ease-out",
+        "displayName": "Easing Ease Out",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-error",
+        "displayName": "Error",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-bg-subtle",
+        "displayName": "Error Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-border-subtle",
+        "displayName": "Error Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-gradient",
+        "displayName": "Error Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-hover",
+        "displayName": "Error Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-rgb",
+        "displayName": "Error Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-error-text-emphasis",
+        "displayName": "Error Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-focus-border-color",
+        "displayName": "Focus Border Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-focus-ring-offset",
+        "displayName": "Focus Ring Offset",
+        "type": "number",
+        "category": "forms"
+      },
+      {
+        "name": "--atomix-focus-ring-opacity",
+        "displayName": "Focus Ring Opacity",
+        "type": "text",
+        "category": "forms"
+      },
+      {
+        "name": "--atomix-focus-ring-width",
+        "displayName": "Focus Ring Width",
+        "type": "number",
+        "category": "forms"
+      },
+      {
+        "name": "--atomix-font-size-2xl",
+        "displayName": "Font Size 2xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-3xl",
+        "displayName": "Font Size 3xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-4xl",
+        "displayName": "Font Size 4xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-5xl",
+        "displayName": "Font Size 5xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-6xl",
+        "displayName": "Font Size 6xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-7xl",
+        "displayName": "Font Size 7xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-8xl",
+        "displayName": "Font Size 8xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-9xl",
+        "displayName": "Font Size 9xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-base",
+        "displayName": "Font Size Base",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-lg",
+        "displayName": "Font Size Lg",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-sm",
+        "displayName": "Font Size Sm",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-xl",
+        "displayName": "Font Size Xl",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-size-xs",
+        "displayName": "Font Size Xs",
+        "type": "font-size",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-black",
+        "displayName": "Font Weight Black",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-bold",
+        "displayName": "Font Weight Bold",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-heavy",
+        "displayName": "Font Weight Heavy",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-light",
+        "displayName": "Font Weight Light",
+        "type": "font-weight",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-font-weight-medium",
+        "displayName": "Font Weight Medium",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-normal",
+        "displayName": "Font Weight Normal",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-font-weight-semibold",
+        "displayName": "Font Weight Semibold",
+        "type": "font-weight",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-form-invalid-border-color",
+        "displayName": "Form Invalid Border Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-form-invalid-color",
+        "displayName": "Form Invalid Color",
+        "type": "color",
+        "category": "forms"
+      },
+      {
+        "name": "--atomix-form-valid-border-color",
+        "displayName": "Form Valid Border Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-form-valid-color",
+        "displayName": "Form Valid Color",
+        "type": "color",
+        "category": "forms"
+      },
+      {
+        "name": "--atomix-gradient",
+        "displayName": "Gradient",
+        "type": "gradient",
+        "category": "gradients"
+      },
+      {
+        "name": "--atomix-heading-color",
+        "displayName": "Heading Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info",
+        "displayName": "Info",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-bg-subtle",
+        "displayName": "Info Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-border-subtle",
+        "displayName": "Info Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-gradient",
+        "displayName": "Info Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-hover",
+        "displayName": "Info Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-rgb",
+        "displayName": "Info Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-info-text-emphasis",
+        "displayName": "Info Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-invert-bg-subtle",
+        "displayName": "Invert Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-invert-text-emphasis",
+        "displayName": "Invert Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-letter-spacing-h1",
+        "displayName": "Letter Spacing H1",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-h2",
+        "displayName": "Letter Spacing H2",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-h3",
+        "displayName": "Letter Spacing H3",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-h4",
+        "displayName": "Letter Spacing H4",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-h5",
+        "displayName": "Letter Spacing H5",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-h6",
+        "displayName": "Letter Spacing H6",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-normal",
+        "displayName": "Letter Spacing Normal",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-tight",
+        "displayName": "Letter Spacing Tight",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-tighter",
+        "displayName": "Letter Spacing Tighter",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-wide",
+        "displayName": "Letter Spacing Wide",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-wider",
+        "displayName": "Letter Spacing Wider",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-letter-spacing-widest",
+        "displayName": "Letter Spacing Widest",
+        "type": "letter-spacing",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-light",
+        "displayName": "Light",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-bg-subtle",
+        "displayName": "Light Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-border-subtle",
+        "displayName": "Light Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-gradient",
+        "displayName": "Light Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-hover",
+        "displayName": "Light Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-rgb",
+        "displayName": "Light Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-light-text-emphasis",
+        "displayName": "Light Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-line-height-base",
+        "displayName": "Line Height Base",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-lg",
+        "displayName": "Line Height Lg",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-loose",
+        "displayName": "Line Height Loose",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-none",
+        "displayName": "Line Height None",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-relaxed",
+        "displayName": "Line Height Relaxed",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-sm",
+        "displayName": "Line Height Sm",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-snug",
+        "displayName": "Line Height Snug",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-line-height-tight",
+        "displayName": "Line Height Tight",
+        "type": "line-height",
+        "category": "typography"
+      },
+      {
+        "name": "--atomix-link-color",
+        "displayName": "Link Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-link-color-rgb",
+        "displayName": "Link Color Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-link-hover-color",
+        "displayName": "Link Hover Color",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-link-hover-color-rgb",
+        "displayName": "Link Hover Color Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary",
+        "displayName": "Primary",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-bg-subtle",
+        "displayName": "Primary Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-border-subtle",
+        "displayName": "Primary Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-gradient",
+        "displayName": "Primary Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-hover",
+        "displayName": "Primary Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-rgb",
+        "displayName": "Primary Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-primary-text-emphasis",
+        "displayName": "Primary Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary",
+        "displayName": "Secondary",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-bg-subtle",
+        "displayName": "Secondary Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-border-subtle",
+        "displayName": "Secondary Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-gradient",
+        "displayName": "Secondary Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-hover",
+        "displayName": "Secondary Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-rgb",
+        "displayName": "Secondary Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-secondary-text-emphasis",
+        "displayName": "Secondary Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success",
+        "displayName": "Success",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-bg-subtle",
+        "displayName": "Success Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-border-subtle",
+        "displayName": "Success Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-gradient",
+        "displayName": "Success Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-hover",
+        "displayName": "Success Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-rgb",
+        "displayName": "Success Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-success-text-emphasis",
+        "displayName": "Success Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-surface-1",
+        "displayName": "Surface 1",
+        "type": "color",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-surface-2",
+        "displayName": "Surface 2",
+        "type": "color",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-surface-3",
+        "displayName": "Surface 3",
+        "type": "color",
+        "category": "other"
+      },
+      {
+        "name": "--atomix-tertiary-bg-subtle",
+        "displayName": "Tertiary Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-tertiary-text-emphasis",
+        "displayName": "Tertiary Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-transition-base",
+        "displayName": "Transition Base",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-duration-base",
+        "displayName": "Transition Duration Base",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-duration-fast",
+        "displayName": "Transition Duration Fast",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-duration-slow",
+        "displayName": "Transition Duration Slow",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-duration-slower",
+        "displayName": "Transition Duration Slower",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-fast",
+        "displayName": "Transition Fast",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-transition-slow",
+        "displayName": "Transition Slow",
+        "type": "transition",
+        "category": "transitions"
+      },
+      {
+        "name": "--atomix-warning",
+        "displayName": "Warning",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-bg-subtle",
+        "displayName": "Warning Bg Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-border-subtle",
+        "displayName": "Warning Border Subtle",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-gradient",
+        "displayName": "Warning Gradient",
+        "type": "gradient",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-hover",
+        "displayName": "Warning Hover",
+        "type": "color",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-rgb",
+        "displayName": "Warning Rgb",
+        "type": "text",
+        "category": "colors"
+      },
+      {
+        "name": "--atomix-warning-text-emphasis",
+        "displayName": "Warning Text Emphasis",
+        "type": "color",
+        "category": "colors"
+      }
+    ],
+    "categories": [
+      {
+        "id": "border-radius",
+        "title": "Border Radius",
+        "description": "Border radius tokens for rounded corners"
+      },
+      {
+        "id": "borders",
+        "title": "Borders",
+        "description": "Border width, style, and color tokens"
+      },
+      {
+        "id": "breakpoints",
+        "title": "Breakpoints",
+        "description": "Responsive breakpoint tokens"
+      },
+      {
+        "id": "colors",
+        "title": "Colors",
+        "description": "Color tokens including primary, secondary, semantic colors, and color scales"
+      },
+      {
+        "id": "forms",
+        "title": "Forms",
+        "description": "Form validation and focus state tokens"
+      },
+      {
+        "id": "gradients",
+        "title": "Gradients",
+        "description": "Gradient definitions for visual effects"
+      },
+      {
+        "id": "other",
+        "title": "Other",
+        "description": "Other design tokens"
+      },
+      {
+        "id": "shadows",
+        "title": "Shadows",
+        "description": "Box shadow tokens for elevation and depth"
+      },
+      {
+        "id": "spacing",
+        "title": "Spacing",
+        "description": "Spacing scale tokens for consistent layout spacing"
+      },
+      {
+        "id": "transitions",
+        "title": "Transitions",
+        "description": "Transition duration and easing tokens"
+      },
+      {
+        "id": "typography",
+        "title": "Typography",
+        "description": "Font families, sizes, weights, line heights, and letter spacing"
+      }
+    ]
+  }
+}
