@@ -52,7 +52,7 @@ export const BreadcrumbNavigation: FC = () => {
   }
 
   return (
-    <div className="breadcrumb-navigation">
+    <div className="u-pt-2">
       <Breadcrumb
         items={breadcrumbItems.map((item, index) => ({
           label: item.label,
