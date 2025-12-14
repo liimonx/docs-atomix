@@ -8,7 +8,6 @@ import {
   Shield,
   Palette,
   Zap,
-  CheckCircle,
   Settings,
 } from 'lucide-react';
 import {

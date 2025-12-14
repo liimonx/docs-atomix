@@ -24,7 +24,6 @@ interface GettingStartedPageProps {
 const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
   const [copiedCode, setCopiedCode] = React.useState<string | null>(null);
   const [isMounted, setIsMounted] = React.useState(false);
-  const heroGlass: GlassProps = { padding: "20px" } as any;
 
   // Prevent hydration mismatch by only rendering glass effect on client
   React.useEffect(() => {

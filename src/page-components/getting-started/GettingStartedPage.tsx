@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { FC } from 'react';
+import React, { FC } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import {
@@ -16,7 +16,7 @@ import {
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
 import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
-import styles from '@/styles/PageHero.module.scss';
+import styles from "@/styles/PageHero.module.scss";
 
 interface GettingStartedPageProps {
   type: "introduction" | "installation" | "quickstart" | "theming";
@@ -25,7 +25,6 @@ interface GettingStartedPageProps {
 const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
   const [copiedCode, setCopiedCode] = React.useState<string | null>(null);
   const [isMounted, setIsMounted] = React.useState(false);
-  const heroGlass: GlassProps = { padding: "20px" } as any;
 
   // Prevent hydration mismatch by only rendering glass effect on client
   React.useEffect(() => {
@@ -92,15 +91,17 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
   const getPageContent = () => {
     switch (type) {
       case "introduction":
-        const introductionGlass: GlassProps | undefined = isMounted ? {
-          displacementScale: 30,
-          blurAmount: 5,
-          elasticity: 0,
-          enableLiquidBlur: true,
-          padding: "20px",
-          cornerRadius: 30,
-          children: null,
-        } : undefined;
+        const introductionGlass: GlassProps | undefined = isMounted
+          ? {
+              displacementScale: 30,
+              blurAmount: 5,
+              elasticity: 0,
+              enableLiquidBlur: true,
+              padding: "20px",
+              cornerRadius: 30,
+              children: null,
+            }
+          : undefined;
 
         return {
           title: "Introduction to Atomix",
@@ -137,7 +138,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 }
               />
 
-              <Block spacing="md" >
+              <Block spacing="md">
                 <SectionIntro
                   title="What is Atomix?"
                   text="A comprehensive design system that provides everything you need to build modern web applications"
@@ -145,10 +146,10 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 />
                 <p
                   className="u-text-secondary-emphasis u-mb-6 u-text-center"
-                  style={{ 
+                  style={{
                     lineHeight: "var(--atomix-line-height-relaxed)",
-                    maxWidth: '800px',
-                    margin: '0 auto 2rem'
+                    maxWidth: "800px",
+                    margin: "0 auto 2rem",
                   }}
                 >
                   Atomix is a comprehensive design system that provides
@@ -193,11 +194,11 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                     <GridCol key={index} md={6} lg={3} className="u-mb-4">
                       <Card className="u-h-100 u-p-6 u-transition-fast u-hover-transform-up">
                         <div className="u-d-flex u-flex-column u-h-100">
-                          <div 
+                          <div
                             className={`u-w-16 u-h-16 u-br-md u-d-flex u-align-items-center u-justify-content-center u-mb-4`}
                             style={{
                               backgroundColor: `var(--atomix-color-${feature.color}-subtle)`,
-                              color: `var(--atomix-color-${feature.color}-emphasis)`
+                              color: `var(--atomix-color-${feature.color}-emphasis)`,
                             }}
                           >
                             {feature.icon}
@@ -205,9 +206,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
                             {feature.title}
                           </h3>
-                          <p
-                            className="u-text-secondary-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed"
-                          >
+                          <p className="u-text-secondary-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed">
                             {feature.description}
                           </p>
                         </div>
@@ -217,7 +216,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Row>
               </Block>
 
-              <Block spacing="md" background="secondary" >
+              <Block spacing="md" background="secondary">
                 <SectionIntro
                   title="Key Features"
                   text="Everything you need to build modern, accessible, and performant user interfaces"
@@ -236,15 +235,24 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                     "Tree-shakable and SSR compatible",
                   ].map((feature, index) => (
                     <GridCol key={index} md={6} lg={4} className="u-mb-4">
-                      <Card className="u-p-4 u-transition-fast u-hover-transform-up" icon={<Icon name="CheckCircle" size={20} className="u-text-success-emphasis" />} title={feature} row={true}>
-                       
-                      </Card>
+                      <Card
+                        className="u-p-4 u-transition-fast u-hover-transform-up"
+                        icon={
+                          <Icon
+                            name="CheckCircle"
+                            size={20}
+                            className="u-text-success-emphasis"
+                          />
+                        }
+                        title={feature}
+                        row={true}
+                      ></Card>
                     </GridCol>
                   ))}
                 </Row>
               </Block>
 
-              <Block spacing="md" background="brand" >
+              <Block spacing="md" background="brand">
                 <Row justifyContent="center">
                   <GridCol lg={8}>
                     <Card className="u-p-8 u-text-center">
@@ -254,12 +262,12 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <p
                         className="u-text-secondary-emphasis u-mb-6 u-line-height-relaxed"
                         style={{
-                          maxWidth: '600px',
-                          margin: '0 auto 2rem'
+                          maxWidth: "600px",
+                          margin: "0 auto 2rem",
                         }}
                       >
-                        Install Atomix in your React project and start
-                        building amazing user interfaces today.
+                        Install Atomix in your React project and start building
+                        amazing user interfaces today.
                       </p>
                       <div className="u-d-flex u-gap-3 u-flex-wrap u-justify-content-center">
                         <Button
@@ -289,15 +297,17 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
         };
 
       case "installation":
-        const installationGlass: GlassProps | undefined = isMounted ? {
-          displacementScale: 30,
-          blurAmount: 5,
-          elasticity: 0,
-          enableLiquidBlur: true,
-          padding: "20px",
-          cornerRadius: 30,
-          children: null,
-        } : undefined;
+        const installationGlass: GlassProps | undefined = isMounted
+          ? {
+              displacementScale: 30,
+              blurAmount: 5,
+              elasticity: 0,
+              enableLiquidBlur: true,
+              padding: "20px",
+              cornerRadius: 30,
+              children: null,
+            }
+          : undefined;
 
         return {
           title: "Installation",
@@ -334,13 +344,20 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 }
               />
 
-              <Block spacing="md" >
-                <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">Prerequisites</h2>
+              <Block spacing="md">
+                <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">
+                  Prerequisites
+                </h2>
                 <p
                   className="u-text-secondary-emphasis u-mb-6 u-text-center"
-                  style={{ lineHeight: "var(--atomix-line-height-relaxed)", maxWidth: '600px', margin: '0 auto 2rem' }}
+                  style={{
+                    lineHeight: "var(--atomix-line-height-relaxed)",
+                    maxWidth: "600px",
+                    margin: "0 auto 2rem",
+                  }}
                 >
-                  Before installing Atomix, make sure you have the following requirements met:
+                  Before installing Atomix, make sure you have the following
+                  requirements met:
                 </p>
                 <Row>
                   {[
@@ -366,11 +383,11 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                     <GridCol key={index} md={4} className="u-mb-4">
                       <Card className="u-h-100 u-p-6">
                         <div className="u-d-flex u-flex-column u-h-100">
-                          <div 
+                          <div
                             className={`u-w-16 u-h-16 u-br-md u-d-flex u-align-items-center u-justify-content-center u-mb-4`}
                             style={{
                               backgroundColor: `var(--atomix-color-${item.color}-subtle)`,
-                              color: `var(--atomix-color-${item.color}-emphasis)`
+                              color: `var(--atomix-color-${item.color}-emphasis)`,
                             }}
                           >
                             {item.icon}
@@ -388,12 +405,16 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Row>
               </Block>
 
-              <Block spacing="md" background="secondary" >
+              <Block spacing="md" background="secondary">
                 <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">
                   Installation Methods
                 </h2>
-                <p className="u-text-secondary-emphasis u-mb-6 u-text-center" style={{ maxWidth: '600px', margin: '0 auto 2rem' }}>
-                  Choose the installation method that best fits your project setup. All methods install the same package.
+                <p
+                  className="u-text-secondary-emphasis u-mb-6 u-text-center"
+                  style={{ maxWidth: "600px", margin: "0 auto 2rem" }}
+                >
+                  Choose the installation method that best fits your project
+                  setup. All methods install the same package.
                 </p>
                 <Row>
                   <GridCol md={4} className="u-mb-6">
@@ -408,7 +429,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           </h3>
                         </div>
                         <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
-                          Install via npm package manager. Recommended for most projects.
+                          Install via npm package manager. Recommended for most
+                          projects.
                         </p>
                       </div>
                       <div className="u-p-6">
@@ -453,7 +475,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           </h3>
                         </div>
                         <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
-                          Install via yarn package manager. Great for monorepos and workspaces.
+                          Install via yarn package manager. Great for monorepos
+                          and workspaces.
                         </p>
                       </div>
                       <div className="u-p-6">
@@ -498,7 +521,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           </h3>
                         </div>
                         <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
-                          Install via pnpm package manager. Fast and efficient disk space usage.
+                          Install via pnpm package manager. Fast and efficient
+                          disk space usage.
                         </p>
                       </div>
                       <div className="u-p-6">
@@ -534,10 +558,16 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Row>
               </Block>
 
-              <Block spacing="md" >
-                <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">Next Steps</h2>
-                <p className="u-text-secondary-emphasis u-mb-6 u-text-center" style={{ maxWidth: '600px', margin: '0 auto 2rem' }}>
-                  Once installed, explore these resources to get the most out of Atomix
+              <Block spacing="md">
+                <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">
+                  Next Steps
+                </h2>
+                <p
+                  className="u-text-secondary-emphasis u-mb-6 u-text-center"
+                  style={{ maxWidth: "600px", margin: "0 auto 2rem" }}
+                >
+                  Once installed, explore these resources to get the most out of
+                  Atomix
                 </p>
                 <Row>
                   <GridCol md={6} className="u-mb-4">
@@ -555,10 +585,9 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               Quick Start Guide
                             </h3>
                           </div>
-                          <p
-                            className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed"
-                          >
-                            Learn how to build your first application with Atomix components in just 5 minutes
+                          <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                            Learn how to build your first application with
+                            Atomix components in just 5 minutes
                           </p>
                           <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
                             <span className="u-me-2">Get Started</span>
@@ -583,10 +612,9 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               Setup Theming
                             </h3>
                           </div>
-                          <p
-                            className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed"
-                          >
-                            Customize Atomix to match your brand with our comprehensive theming system
+                          <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                            Customize Atomix to match your brand with our
+                            comprehensive theming system
                           </p>
                           <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
                             <span className="u-me-2">Learn More</span>
@@ -931,9 +959,7 @@ export default App;`}
                   </div>
                   <Row>
                     <GridCol md={4} className="u-mb-4">
-                      <Card
-                        className="u-h-100"
-                      >
+                      <Card className="u-h-100">
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center u-mb-4"
                           style={{
@@ -978,9 +1004,7 @@ export default App;`}
                       </Card>
                     </GridCol>
                     <GridCol md={4} className="u-mb-4">
-                      <Card
-                        className="u-h-100"
-                      >
+                      <Card className="u-h-100">
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center u-mb-4"
                           style={{
@@ -1025,9 +1049,7 @@ export default App;`}
                       </Card>
                     </GridCol>
                     <GridCol md={4} className="u-mb-4">
-                      <Card
-                        className="u-lh-100"
-                      >
+                      <Card className="u-lh-100">
                         <div
                           className="u-d-flex u-align-items-center u-justify-content-center u-mb-4"
                           style={{

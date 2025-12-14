@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { FC } from 'react';
+import { FC } from "react";
 import {
   Hero,
   SectionIntro,
@@ -10,10 +10,10 @@ import {
   Block,
   Button,
   Icon,
-} from '@shohojdhara/atomix';
-import Link from 'next/link';
-import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
-import styles from '@/styles/PageHero.module.scss';
+} from "@shohojdhara/atomix";
+import Link from "next/link";
+import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
+import styles from "@/styles/PageHero.module.scss";
 
 // Theming Guide Page Component
 
@@ -51,9 +51,9 @@ const GeneralThemingGuidePage: FC = () => {
                 </Button>
               </div>
               <p>
-                The Atomix theme system is built on a foundation of design tokens and provides
-                comprehensive theming capabilities. Get started by wrapping your app with
-                ThemeProvider.
+                The Atomix theme system is built on a foundation of design
+                tokens and provides comprehensive theming capabilities. Get
+                started by wrapping your app with ThemeProvider.
               </p>
 
               <div className="u-mt-4">
@@ -94,8 +94,9 @@ function ThemeSelector() {
             <Card className="u-p-6 u-h-100">
               <h3>JavaScript Themes</h3>
               <p>
-                Create themes programmatically using the <code>createTheme</code> function.
-                All CSS variables are automatically generated for you.
+                Create themes programmatically using the{" "}
+                <code>createTheme</code> function. All CSS variables are
+                automatically generated for you.
               </p>
 
               <div className="u-mt-4">
@@ -141,14 +142,20 @@ setTheme(customTheme);`}
               </div>
 
               <div className="u-mt-4">
-                <h4 className="u-fs-md u-fw-semibold u-mb-2">Auto-Generated CSS Variables</h4>
+                <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  Auto-Generated CSS Variables
+                </h4>
                 <p className="u-fs-sm u-text-secondary-emphasis">
-                  When you create a JavaScript theme, the system automatically generates:
+                  When you create a JavaScript theme, the system automatically
+                  generates:
                 </p>
                 <ul className="u-fs-sm u-mt-2">
                   <li>Color scales (1-10 steps) for all colors</li>
                   <li>RGB variants for transparency support</li>
-                  <li>Text emphasis variants (primary, secondary, tertiary, disabled)</li>
+                  <li>
+                    Text emphasis variants (primary, secondary, tertiary,
+                    disabled)
+                  </li>
                   <li>Background and border subtle variants</li>
                   <li>Gradient tokens for all colors</li>
                   <li>Hover state colors</li>
@@ -161,8 +168,8 @@ setTheme(customTheme);`}
             <Card className="u-p-6 u-h-100">
               <h3>CSS Themes</h3>
               <p>
-                Define themes in CSS files and load them dynamically. Perfect for
-                pre-built theme packages.
+                Define themes in CSS files and load them dynamically. Perfect
+                for pre-built theme packages.
               </p>
 
               <div className="u-mt-4">
@@ -195,9 +202,12 @@ export default config;`}
               </div>
 
               <div className="u-mt-4">
-                <h4 className="u-fs-md u-fw-semibold u-mb-2">CSS Theme Structure</h4>
+                <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  CSS Theme Structure
+                </h4>
                 <p className="u-fs-sm u-text-secondary-emphasis">
-                  CSS themes use CSS custom properties and are applied via classes:
+                  CSS themes use CSS custom properties and are applied via
+                  classes:
                 </p>
                 <div className="u-mt-2">
                   <EnhancedCodeBlock
@@ -320,7 +330,8 @@ const mergedTheme = mergeTheme(
             <Card className="u-p-6 u-h-100">
               <h3>CSS Variables</h3>
               <p>
-                Use generated CSS variables in your styles for full theme compatibility.
+                Use generated CSS variables in your styles for full theme
+                compatibility.
               </p>
 
               <div className="u-mt-4">
@@ -342,13 +353,29 @@ const mergedTheme = mergeTheme(
               </div>
 
               <div className="u-mt-4">
-                <h4 className="u-fs-md u-fw-semibold u-mb-2">Available Variables</h4>
+                <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  Available Variables
+                </h4>
                 <ul className="u-fs-sm">
-                  <li><code>--atomix-primary</code>, <code>--atomix-secondary</code>, etc.</li>
-                  <li><code>--atomix-primary-rgb</code> (for transparency)</li>
-                  <li><code>--atomix-text-primary-emphasis</code>, <code>--atomix-text-secondary-emphasis</code></li>
-                  <li><code>--atomix-primary-gradient</code>, <code>--atomix-secondary-gradient</code></li>
-                  <li><code>--atomix-spacing-0</code> through <code>--atomix-spacing-200</code></li>
+                  <li>
+                    <code>--atomix-primary</code>,{" "}
+                    <code>--atomix-secondary</code>, etc.
+                  </li>
+                  <li>
+                    <code>--atomix-primary-rgb</code> (for transparency)
+                  </li>
+                  <li>
+                    <code>--atomix-text-primary-emphasis</code>,{" "}
+                    <code>--atomix-text-secondary-emphasis</code>
+                  </li>
+                  <li>
+                    <code>--atomix-primary-gradient</code>,{" "}
+                    <code>--atomix-secondary-gradient</code>
+                  </li>
+                  <li>
+                    <code>--atomix-spacing-0</code> through{" "}
+                    <code>--atomix-spacing-200</code>
+                  </li>
                 </ul>
               </div>
             </Card>
@@ -362,9 +389,12 @@ const mergedTheme = mergeTheme(
 
               <Row className="u-mt-4">
                 <GridCol md={6}>
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">Error Handling</h4>
+                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    Error Handling
+                  </h4>
                   <p className="u-fs-sm u-text-secondary-emphasis u-mb-3">
-                    Wrap ThemeProvider with ThemeErrorBoundary for graceful error handling:
+                    Wrap ThemeProvider with ThemeErrorBoundary for graceful
+                    error handling:
                   </p>
                   <EnhancedCodeBlock
                     language="tsx"
@@ -384,7 +414,9 @@ const mergedTheme = mergeTheme(
                 </GridCol>
 
                 <GridCol md={6}>
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">Theme Preloading</h4>
+                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    Theme Preloading
+                  </h4>
                   <p className="u-fs-sm u-text-secondary-emphasis u-mb-3">
                     Preload themes for better performance:
                   </p>
@@ -410,7 +442,9 @@ function App() {
 
               <Row className="u-mt-4">
                 <GridCol md={6}>
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">Theme Validation</h4>
+                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    Theme Validation
+                  </h4>
                   <p className="u-fs-sm u-text-secondary-emphasis u-mb-3">
                     Validate themes for accessibility and correctness:
                   </p>
@@ -459,37 +493,54 @@ if (!result.valid) {
 
               <Row className="u-mt-4">
                 <GridCol md={6}>
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">1. Use ThemeProvider</h4>
+                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    1. Use ThemeProvider
+                  </h4>
                   <p className="u-fs-sm u-text-secondary-emphasis">
-                    Always use ThemeProvider for React applications instead of direct
-                    ThemeManager usage.
+                    Always use ThemeProvider for React applications instead of
+                    direct ThemeManager usage.
                   </p>
 
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2 u-mt-4">2. Error Boundaries</h4>
+                  <h4 className="u-fs-md u-fw-semibold u-mb-2 u-mt-4">
+                    2. Error Boundaries
+                  </h4>
                   <p className="u-fs-sm u-text-secondary-emphasis">
-                    Wrap ThemeProvider with ThemeErrorBoundary for graceful error handling.
+                    Wrap ThemeProvider with ThemeErrorBoundary for graceful
+                    error handling.
                   </p>
 
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2 u-mt-4">3. Type Safety</h4>
+                  <h4 className="u-fs-md u-fw-semibold u-mb-2 u-mt-4">
+                    3. Type Safety
+                  </h4>
                   <p className="u-fs-sm u-text-secondary-emphasis">
-                    Use TypeScript types from the theme module for full type safety.
+                    Use TypeScript types from the theme module for full type
+                    safety.
                   </p>
                 </GridCol>
 
                 <GridCol md={6}>
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">4. Performance</h4>
+                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    4. Performance
+                  </h4>
                   <p className="u-fs-sm u-text-secondary-emphasis">
-                    Enable caching, use lazy loading for themes, and preload critical themes.
+                    Enable caching, use lazy loading for themes, and preload
+                    critical themes.
                   </p>
 
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2 u-mt-4">5. Accessibility</h4>
+                  <h4 className="u-fs-md u-fw-semibold u-mb-2 u-mt-4">
+                    5. Accessibility
+                  </h4>
                   <p className="u-fs-sm u-text-secondary-emphasis">
-                    Validate themes for contrast ratios and ensure keyboard navigation works.
+                    Validate themes for contrast ratios and ensure keyboard
+                    navigation works.
                   </p>
 
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2 u-mt-4">6. CSS Variables</h4>
+                  <h4 className="u-fs-md u-fw-semibold u-mb-2 u-mt-4">
+                    6. CSS Variables
+                  </h4>
                   <p className="u-fs-sm u-text-secondary-emphasis">
-                    Always use CSS variables in your styles for theme compatibility.
+                    Always use CSS variables in your styles for theme
+                    compatibility.
                   </p>
                 </GridCol>
               </Row>
@@ -511,8 +562,9 @@ if (!result.valid) {
                     Interactive Theme Creation
                   </h3>
                   <p className="u-text-primary-emphasis u-mb-4">
-                    Use the Theme Studio to create and preview themes interactively. Visualize
-                    your theme in real-time and export it for use in your application.
+                    Use the Theme Studio to create and preview themes
+                    interactively. Visualize your theme in real-time and export
+                    it for use in your application.
                   </p>
                   <Button
                     as={Link}
@@ -534,6 +586,6 @@ if (!result.valid) {
   );
 };
 
-GeneralThemingGuidePage.displayName = 'GeneralThemingGuidePage';
+GeneralThemingGuidePage.displayName = "GeneralThemingGuidePage";
 
 export default GeneralThemingGuidePage;

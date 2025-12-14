@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState, FC } from "react";
 import { useParams } from "next/navigation";
@@ -37,16 +37,19 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
     ? componentMetadata.find((c) => c.id === componentId)
     : null;
 
-  const copyToClipboard = React.useCallback(async (code: string, id: string) => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopiedCode(id);
-      toast.success("Code copied to clipboard!");
-      setTimeout(() => setCopiedCode(null), 2000);
-    } catch (err) {
-      toast.error("Failed to copy code");
-    }
-  }, []);
+  const copyToClipboard = React.useCallback(
+    async (code: string, id: string) => {
+      try {
+        await navigator.clipboard.writeText(code);
+        setCopiedCode(id);
+        toast.success("Code copied to clipboard!");
+        setTimeout(() => setCopiedCode(null), 2000);
+      } catch (err) {
+        toast.error("Failed to copy code");
+      }
+    },
+    []
+  );
 
   // Prepare tab items for Atomix Tabs component
   // Must be called before early return to follow Rules of Hooks
@@ -54,173 +57,192 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
     if (!componentDoc) {
       return [];
     }
-    
+
     return [
-    {
-      id: "overview",
-      label: "Overview",
-      content: (
-        <div className="u-mt-4">
-          <Grid>
-            <GridCol md={8} className="u-mb-6">
-              <Card>
-                <h3 className="u-fs-xl u-fw-bold u-mb-4">Features</h3>
-                <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
-                  {componentDoc.features.map((feature, index) => (
-                    <li
-                      key={index}
-                      className="u-d-flex u-align-items-start u-gap-2"
-                    >
-                      <Icon
-                        name="CheckCircle"
-                        size={16}
-                        className="u-text-success u-flex-shrink-0"
-                        style={{ marginTop: "2px" }}
-                      />
-                      <span className="u-text-secondary-emphasis">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </GridCol>
-            <GridCol md={4}>
-              <Card>
-                <h3 className="u-fs-xl u-fw-bold u-mb-4">Dependencies</h3>
-                {componentDoc.dependencies.length > 0 ? (
+      {
+        id: "overview",
+        label: "Overview",
+        content: (
+          <div className="u-mt-4">
+            <Grid>
+              <GridCol md={8} className="u-mb-6">
+                <Card>
+                  <h3 className="u-fs-xl u-fw-bold u-mb-4">Features</h3>
                   <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
-                    {componentDoc.dependencies.map((dep, index) => (
-                      <li key={index}>
-                        <Badge variant="warning" label={dep} />
+                    {componentDoc.features.map((feature, index) => (
+                      <li
+                        key={index}
+                        className="u-d-flex u-align-items-start u-gap-2"
+                      >
+                        <Icon
+                          name="CheckCircle"
+                          size={16}
+                          className="u-text-success u-flex-shrink-0"
+                          style={{ marginTop: "2px" }}
+                        />
+                        <span className="u-text-secondary-emphasis">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
-                ) : (
-                  <p className="u-text-secondary-emphasis u-m-0">
-                    No external dependencies
-                  </p>
-                )}
-              </Card>
-            </GridCol>
-          </Grid>
+                </Card>
+              </GridCol>
+              <GridCol md={4}>
+                <Card>
+                  <h3 className="u-fs-xl u-fw-bold u-mb-4">Dependencies</h3>
+                  {componentDoc.dependencies.length > 0 ? (
+                    <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
+                      {componentDoc.dependencies.map((dep, index) => (
+                        <li key={index}>
+                          <Badge variant="warning" label={dep} />
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="u-text-secondary-emphasis u-m-0">
+                      No external dependencies
+                    </p>
+                  )}
+                </Card>
+              </GridCol>
+            </Grid>
 
-          <Card>
-            <h3 className="u-fs-xl u-fw-bold u-mb-4">Installation</h3>
-            <EnhancedCodeBlock
-              code="npm install @shohojdhara/atomix"
-              language="bash"
-              showLineNumbers={false}
-            />
-          </Card>
+            <Card>
+              <h3 className="u-fs-xl u-fw-bold u-mb-4">Installation</h3>
+              <EnhancedCodeBlock
+                code="npm install @shohojdhara/atomix"
+                language="bash"
+                showLineNumbers={false}
+              />
+            </Card>
 
-          <Card>
-            <h3 className="u-fs-xl u-fw-bold u-mb-4">Basic Usage</h3>
-            <EnhancedCodeBlock
-              code={`import { ${componentDoc.name} } from '${componentDoc.importPath}';`}
-              language="typescript"
-              showLineNumbers={false}
-            />
-          </Card>
-        </div>
-      ),
-    },
-    {
-      id: "examples",
-      label: "Examples",
-      content: (() => {
-        const examples = componentDoc.examples.map((example, index) => ({
-          id: `example-${index}`,
-          title: example.title,
-          description: example.description,
-          code: example.code,
-          language: "jsx",
-          category: "basic" as const,
-          preview: example.preview === null ? undefined : example.preview,
-        }));
+            <Card>
+              <h3 className="u-fs-xl u-fw-bold u-mb-4">Basic Usage</h3>
+              <EnhancedCodeBlock
+                code={`import { ${componentDoc.name} } from '${componentDoc.importPath}';`}
+                language="typescript"
+                showLineNumbers={false}
+              />
+            </Card>
+          </div>
+        ),
+      },
+      {
+        id: "examples",
+        label: "Examples",
+        content: (() => {
+          const examples = componentDoc.examples.map((example, index) => ({
+            id: `example-${index}`,
+            title: example.title,
+            description: example.description,
+            code: example.code,
+            language: "jsx",
+            category: "basic" as const,
+            preview: example.preview === null ? undefined : example.preview,
+          }));
 
-        // Create a wrapper function that matches the expected signature
-        const handleCopy = (code: string) => {
-          const example = examples.find((ex) => ex.code === code);
-          const exampleId = example?.id || examples[0]?.id || "";
-          copyToClipboard(code, exampleId);
-        };
-
-        return (
-          <ComponentExamples
-            examples={examples}
-            onCopy={handleCopy}
-            copiedCode={copiedCode}
-          />
-        );
-      })(),
-    },
-    {
-      id: "props",
-      label: "Props",
-      content: <ComponentProps props={componentDoc.props} />,
-    },
-    {
-      id: "accessibility",
-      label: "Accessibility",
-      content: (() => {
-        // Transform accessibility data to match expected format
-        const transformAccessibility = (acc: any) => {
-          if (!acc) {
-            return {
-              overview: "Accessibility information not available",
-              guidelines: [],
-              wcagLevel: "AA" as const,
-              keyboardSupport: [],
-              ariaAttributes: [],
-            };
-          }
-
-          // Transform keyboardSupport from string array to object array
-          const keyboardSupport = Array.isArray(acc.keyboardSupport)
-            ? acc.keyboardSupport.map((item: string | { key: string; action: string; context?: string }) => {
-                if (typeof item === 'string') {
-                  const [key, ...actionParts] = item.split(' - ');
-                  return {
-                    key: key.trim(),
-                    action: actionParts.join(' - ').trim() || key.trim(),
-                  };
-                }
-                return item;
-              })
-            : [];
-
-          // Transform ariaAttributes from string array to object array
-          const ariaAttributes = Array.isArray(acc.ariaAttributes)
-            ? acc.ariaAttributes.map((item: string | { attribute: string; description: string; required: boolean; defaultValue?: string }) => {
-                if (typeof item === 'string') {
-                  const [attribute, ...descParts] = item.split(' - ');
-                  return {
-                    attribute: attribute.trim(),
-                    description: descParts.join(' - ').trim() || attribute.trim(),
-                    required: false,
-                  };
-                }
-                return item;
-              })
-            : [];
-
-          return {
-            overview: acc.overview || "Accessibility information not available",
-            guidelines: acc.guidelines || [],
-            wcagLevel: acc.wcagLevel || ("AA" as const),
-            keyboardSupport,
-            ariaAttributes,
+          // Create a wrapper function that matches the expected signature
+          const handleCopy = (code: string) => {
+            const example = examples.find((ex) => ex.code === code);
+            const exampleId = example?.id || examples[0]?.id || "";
+            copyToClipboard(code, exampleId);
           };
-        };
 
-        return (
-          <ComponentAccessibility
-            accessibility={transformAccessibility(componentDoc.accessibility)}
-          />
-        );
-      })(),
-    },
+          return (
+            <ComponentExamples
+              examples={examples}
+              onCopy={handleCopy}
+              copiedCode={copiedCode}
+            />
+          );
+        })(),
+      },
+      {
+        id: "props",
+        label: "Props",
+        content: <ComponentProps props={componentDoc.props} />,
+      },
+      {
+        id: "accessibility",
+        label: "Accessibility",
+        content: (() => {
+          // Transform accessibility data to match expected format
+          const transformAccessibility = (acc: any) => {
+            if (!acc) {
+              return {
+                overview: "Accessibility information not available",
+                guidelines: [],
+                wcagLevel: "AA" as const,
+                keyboardSupport: [],
+                ariaAttributes: [],
+              };
+            }
+
+            // Transform keyboardSupport from string array to object array
+            const keyboardSupport = Array.isArray(acc.keyboardSupport)
+              ? acc.keyboardSupport.map(
+                  (
+                    item:
+                      | string
+                      | { key: string; action: string; context?: string }
+                  ) => {
+                    if (typeof item === "string") {
+                      const [key, ...actionParts] = item.split(" - ");
+                      return {
+                        key: key.trim(),
+                        action: actionParts.join(" - ").trim() || key.trim(),
+                      };
+                    }
+                    return item;
+                  }
+                )
+              : [];
+
+            // Transform ariaAttributes from string array to object array
+            const ariaAttributes = Array.isArray(acc.ariaAttributes)
+              ? acc.ariaAttributes.map(
+                  (
+                    item:
+                      | string
+                      | {
+                          attribute: string;
+                          description: string;
+                          required: boolean;
+                          defaultValue?: string;
+                        }
+                  ) => {
+                    if (typeof item === "string") {
+                      const [attribute, ...descParts] = item.split(" - ");
+                      return {
+                        attribute: attribute.trim(),
+                        description:
+                          descParts.join(" - ").trim() || attribute.trim(),
+                        required: false,
+                      };
+                    }
+                    return item;
+                  }
+                )
+              : [];
+
+            return {
+              overview:
+                acc.overview || "Accessibility information not available",
+              guidelines: acc.guidelines || [],
+              wcagLevel: acc.wcagLevel || ("AA" as const),
+              keyboardSupport,
+              ariaAttributes,
+            };
+          };
+
+          return (
+            <ComponentAccessibility
+              accessibility={transformAccessibility(componentDoc.accessibility)}
+            />
+          );
+        })(),
+      },
     ];
   }, [componentDoc, copiedCode, copyToClipboard]);
 
@@ -248,7 +270,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
 
   if (!componentDoc) {
     return (
-      <Block >
+      <Block>
         <div className="u-text-center u-py-8">
           <h1 className="u-fs-3xl u-fw-bold u-mb-4">Component Not Found</h1>
           <p className="u-text-secondary-emphasis u-mb-6">
@@ -266,7 +288,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
     <div className="u-min-h-screen u-pb-xl">
       <BreadcrumbNavigation />
 
-      <Block >
+      <Block>
         <div className="u-mb-8">
           <Link
             href="/docs/components"

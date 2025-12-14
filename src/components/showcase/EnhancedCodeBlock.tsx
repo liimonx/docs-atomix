@@ -1,11 +1,18 @@
-'use client';
+"use client";
 
-import React, { FC, useState, useMemo } from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Card, Button, Icon, Tooltip, Badge, Callout } from '@shohojdhara/atomix';
-import toast from 'react-hot-toast';
-import styles from './EnhancedCodeBlock.module.scss';
+import { FC, useState, useMemo } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import {
+  Card,
+  Button,
+  Icon,
+  Tooltip,
+  Badge,
+  Callout,
+} from "@shohojdhara/atomix";
+import toast from "react-hot-toast";
+import styles from "./EnhancedCodeBlock.module.scss";
 
 interface EnhancedCodeBlockProps {
   code: string;
@@ -19,47 +26,47 @@ interface EnhancedCodeBlockProps {
 
 // Map common language aliases to Prism language names
 const languageMap: Record<string, string> = {
-  'tsx': 'tsx',
-  'jsx': 'jsx',
-  'ts': 'typescript',
-  'js': 'javascript',
-  'typescript': 'typescript',
-  'javascript': 'javascript',
-  'json': 'json',
-  'css': 'css',
-  'scss': 'scss',
-  'sass': 'sass',
-  'html': 'markup',
-  'xml': 'markup',
-  'bash': 'bash',
-  'shell': 'bash',
-  'sh': 'bash',
-  'yaml': 'yaml',
-  'yml': 'yaml',
-  'md': 'markdown',
-  'markdown': 'markdown',
-  'sql': 'sql',
-  'python': 'python',
-  'py': 'python',
-  'java': 'java',
-  'c': 'c',
-  'cpp': 'cpp',
-  'go': 'go',
-  'rust': 'rust',
-  'php': 'php',
-  'ruby': 'ruby',
-  'swift': 'swift',
-  'kotlin': 'kotlin',
+  tsx: "tsx",
+  jsx: "jsx",
+  ts: "typescript",
+  js: "javascript",
+  typescript: "typescript",
+  javascript: "javascript",
+  json: "json",
+  css: "css",
+  scss: "scss",
+  sass: "sass",
+  html: "markup",
+  xml: "markup",
+  bash: "bash",
+  shell: "bash",
+  sh: "bash",
+  yaml: "yaml",
+  yml: "yaml",
+  md: "markdown",
+  markdown: "markdown",
+  sql: "sql",
+  python: "python",
+  py: "python",
+  java: "java",
+  c: "c",
+  cpp: "cpp",
+  go: "go",
+  rust: "rust",
+  php: "php",
+  ruby: "ruby",
+  swift: "swift",
+  kotlin: "kotlin",
 };
 
 export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
   code,
-  language = 'typescript',
+  language = "typescript",
   showLineNumbers = true,
   startingLineNumber = 1,
   highlightLines = [],
   title,
-  className = '',
+  className = "",
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -71,26 +78,26 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
 
   // Format code - remove leading/trailing whitespace but preserve relative indentation
   const formattedCode = useMemo(() => {
-    if (!code) return '';
-    
-    const lines = code.split('\n');
-    
+    if (!code) return "";
+
+    const lines = code.split("\n");
+
     // Find minimum indentation (excluding empty lines)
-    const nonEmptyLines = lines.filter(line => line.trim().length > 0);
+    const nonEmptyLines = lines.filter((line) => line.trim().length > 0);
     if (nonEmptyLines.length === 0) return code;
-    
+
     const minIndent = Math.min(
-      ...nonEmptyLines.map(line => {
+      ...nonEmptyLines.map((line) => {
         const match = line.match(/^(\s*)/);
         return match ? match[1].length : 0;
       })
     );
-    
+
     // Remove common indentation
     if (minIndent > 0) {
-      return lines.map(line => line.slice(minIndent)).join('\n');
+      return lines.map((line) => line.slice(minIndent)).join("\n");
     }
-    
+
     return code;
   }, [code]);
 
@@ -152,39 +159,39 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
   };
 
   // Custom line number renderer with highlighting support
-  const customLineNumberRenderer = (lineNumber: number) => {
-    const isHighlighted = highlightLines.includes(lineNumber);
-    return (
-      <span
-        style={{
-          display: 'inline-block',
-          width: '3em',
-          paddingRight: '1em',
-          textAlign: 'right',
-          userSelect: 'none',
-          opacity: 0.5,
-          color: isHighlighted ? 'var(--atomix-primary)' : 'inherit',
-          fontWeight: isHighlighted ? 'bold' : 'normal',
-        }}
-      >
-        {lineNumber}
-      </span>
-    );
-  };
+  // const customLineNumberRenderer = (lineNumber: number) => {
+  //   const isHighlighted = highlightLines.includes(lineNumber);
+  //   return (
+  //     <span
+  //       style={{
+  //         display: "inline-block",
+  //         width: "3em",
+  //         paddingRight: "1em",
+  //         textAlign: "right",
+  //         userSelect: "none",
+  //         opacity: 0.5,
+  //         color: isHighlighted ? "var(--atomix-primary)" : "inherit",
+  //         fontWeight: isHighlighted ? "bold" : "normal",
+  //       }}
+  //     >
+  //       {lineNumber}
+  //     </span>
+  //   );
+  // };
 
   // Custom line renderer for highlighting
   const customLineRenderer = (lineNumber: number) => {
     const isHighlighted = highlightLines.includes(lineNumber);
     return {
-      className: isHighlighted ? 'highlighted-line' : '',
-          style: isHighlighted
+      className: isHighlighted ? "highlighted-line" : "",
+      style: isHighlighted
         ? {
-            backgroundColor: 'rgba(139, 92, 246, 0.1)',
-            display: 'block',
-            paddingLeft: '0.5em',
-            marginLeft: '-0.5em',
-            marginRight: '-0.5em',
-            borderLeft: '3px solid var(--atomix-primary)',
+            backgroundColor: "rgba(139, 92, 246, 0.1)",
+            display: "block",
+            paddingLeft: "0.5em",
+            marginLeft: "-0.5em",
+            marginRight: "-0.5em",
+            borderLeft: "3px solid var(--atomix-primary)",
           }
         : {},
     };
@@ -208,49 +215,52 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
           />
         </div>
         <div className="u-d-flex u-gap-2 u-align-items-center">
-          <Tooltip content={copied ? 'Copied!' : 'Copy code to clipboard'}>
+          <Tooltip content={copied ? "Copied!" : "Copy code to clipboard"}>
             <Button
-              variant={copied ? 'success' : 'outline-secondary'}
+              variant={copied ? "success" : "outline-secondary"}
               size="sm"
               onClick={handleCopy}
-              aria-label={copied ? 'Code copied' : 'Copy code'}
+              aria-label={copied ? "Code copied" : "Copy code"}
               className="u-d-flex u-align-items-center u-gap-2"
             >
-              <Icon name={copied ? 'CheckCircle' : 'Copy'} size="sm" />
-              {copied ? 'Copied' : 'Copy'}
+              <Icon name={copied ? "CheckCircle" : "Copy"} size="sm" />
+              {copied ? "Copied" : "Copy"}
             </Button>
           </Tooltip>
         </div>
       </div>
 
       {/* Code Block */}
-      <div className={`u-overflow-x-auto u-bg-secondary ${styles['enhanced-code-block']}`}>
+      <div
+        className={`u-overflow-x-auto u-bg-secondary ${styles["enhanced-code-block"]}`}
+      >
         <SyntaxHighlighter
           language={normalizedLanguage}
           style={vscDarkPlus}
           showLineNumbers={showLineNumbers}
           startingLineNumber={startingLineNumber}
           lineNumberStyle={{
-            minWidth: '3em',
-            paddingRight: '1em',
-            textAlign: 'right',
-            userSelect: 'none',
+            minWidth: "3em",
+            paddingRight: "1em",
+            textAlign: "right",
+            userSelect: "none",
             opacity: 0.5,
-            color: 'rgba(255, 255, 255, 0.5)',
+            color: "rgba(255, 255, 255, 0.5)",
           }}
           customStyle={{
             margin: 0,
-            padding: '1rem',
-            fontSize: '0.875rem',
-            lineHeight: '1.6',
-            fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
-            background: 'var(--atomix-secondary)',
+            padding: "1rem",
+            fontSize: "0.875rem",
+            lineHeight: "1.6",
+            fontFamily:
+              'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+            background: "var(--atomix-secondary)",
             borderRadius: 0,
           }}
           lineProps={(lineNumber) => customLineRenderer(lineNumber)}
           codeTagProps={{
             style: {
-              fontFamily: 'inherit',
+              fontFamily: "inherit",
             },
           }}
           PreTag="div"
@@ -262,7 +272,8 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
       {/* Footer with line count */}
       <div className="u-d-flex u-align-items-center u-justify-content-between u-px-3 u-py-2 u-bg-tertiary u-border-t u-border-subtle">
         <span className="u-fs-xs u-text-secondary-emphasis">
-          {formattedCode.split('\n').length} line{formattedCode.split('\n').length !== 1 ? 's' : ''}
+          {formattedCode.split("\n").length} line
+          {formattedCode.split("\n").length !== 1 ? "s" : ""}
         </span>
         <span className="u-fs-xs u-text-secondary-emphasis">
           {formattedCode.length} characters
@@ -271,4 +282,3 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
     </Card>
   );
 };
-

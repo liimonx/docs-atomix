@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import React, { useState, FC } from "react";
 import { Card, Button, Tabs, Badge } from "@shohojdhara/atomix";
 import { ComponentExample } from "@/types";
 import { CodePreview } from "./CodePreview";
 import { EnhancedCodeBlock } from "./EnhancedCodeBlock";
-import styles from './ComponentExamples.module.scss';
+import styles from "./ComponentExamples.module.scss";
 
 interface ComponentExamplesProps {
   examples: ComponentExample[];
@@ -52,7 +52,9 @@ export const ComponentExamples: FC<ComponentExamplesProps> = ({
           <div className="u-d-flex u-gap-2 u-justify-content-center">
             {examples.map((example, index) => (
               <Button
-                variant={activeExample === index ? "primary" : "outline-primary"}
+                variant={
+                  activeExample === index ? "primary" : "outline-primary"
+                }
                 size="sm"
                 key={example.id || `example-${index}`}
                 onClick={() => {
@@ -78,9 +80,9 @@ export const ComponentExamples: FC<ComponentExamplesProps> = ({
             icon: "Eye" as any,
             content: (
               <div className="u-mt-4">
-                <div className={`${styles['preview-container']}`}>
+                <div className={`${styles["preview-container"]}`}>
                   {/* Preview Badge */}
-                  <div className={styles['preview-badge']}>
+                  <div className={styles["preview-badge"]}>
                     <Badge
                       variant="info"
                       size="sm"
@@ -89,11 +91,11 @@ export const ComponentExamples: FC<ComponentExamplesProps> = ({
                     />
                   </div>
                   {example.preview && typeof example.preview !== "boolean" ? (
-                    <div className={styles['preview-content']}>
+                    <div className={styles["preview-content"]}>
                       {example.preview as React.ReactNode}
                     </div>
                   ) : (
-                    <div className={styles['preview-content']}>
+                    <div className={styles["preview-content"]}>
                       <CodePreview
                         code={example.code}
                         language={example.language}
@@ -112,7 +114,7 @@ export const ComponentExamples: FC<ComponentExamplesProps> = ({
               <div className="u-mt-4">
                 <EnhancedCodeBlock
                   code={example.code}
-                  language={example.language || 'tsx'}
+                  language={example.language || "tsx"}
                   showLineNumbers={true}
                   title={example.title}
                 />
@@ -130,7 +132,7 @@ export const ComponentExamples: FC<ComponentExamplesProps> = ({
           >
             <Card className="u-mb-6" elevation="lg">
               <div className="u-mb-4">
-                <div className={styles['example-header']}>
+                <div className={styles["example-header"]}>
                   <h3 className="u-fs-xl u-fw-bold u-mb-0">{example.title}</h3>
                   {example.language && (
                     <Badge
