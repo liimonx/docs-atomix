@@ -1,0 +1,45 @@
+// Component: ComponentShowcase
+// =============================================================================
+
+// Block: Component showcase
+// =============================================================================
+.componentShowcase {
+  width: 100%;
+}
+
+.componentShowcase__card {
+  padding: var(--atomix-spacing-6);
+}
+
+.componentShowcase__section {
+  margin-top: var(--atomix-spacing-6);
+  
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.componentShowcase__row {
+  display: flex;
+  gap: var(--atomix-spacing-2);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.componentShowcase__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-2);
+}
+
+.componentShowcase__typography {
+  margin-top: var(--atomix-spacing-3);
+}
+
+.componentShowcase__colorSample {
+  padding: var(--atomix-spacing-3);
+  border-radius: var(--atomix-border-radius);
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-medium);
+}
+

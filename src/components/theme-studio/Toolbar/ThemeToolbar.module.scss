@@ -1,0 +1,60 @@
+// Component: ThemeToolbar
+// =============================================================================
+
+// Block: Theme toolbar
+// =============================================================================
+.themeToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--atomix-spacing-3);
+  padding: var(--atomix-spacing-3) var(--atomix-spacing-4);
+  background-color: var(--atomix-secondary-bg-subtle);
+  border-bottom: 1px solid var(--atomix-border-color);
+  flex-wrap: wrap;
+  position: relative;
+  z-index: var(--atomix-z-3);
+}
+
+.themeToolbar__left {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+}
+
+.themeToolbar__center {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+  flex: 1;
+  justify-content: center;
+}
+
+.themeToolbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+}
+
+.themeToolbar__button {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+  white-space: nowrap;
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .themeToolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .themeToolbar__left,
+  .themeToolbar__center,
+  .themeToolbar__right {
+    justify-content: center;
+  }
+}
+

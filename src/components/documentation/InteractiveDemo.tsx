@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useState } from 'react';
-import { Button, Tabs, Select, Card } from '@shohojdhara/atomix';
+import { Tabs, Select, Card } from '@shohojdhara/atomix';
 import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
 import type { ComponentDocumentation } from '@/types/index';
 

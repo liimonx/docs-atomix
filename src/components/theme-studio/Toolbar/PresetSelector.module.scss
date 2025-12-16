@@ -1,0 +1,38 @@
+// Component: PresetSelector
+// =============================================================================
+
+// Block: Preset selector
+// =============================================================================
+.presetSelector {
+  position: relative;
+}
+
+.presetSelector__button {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+}
+
+.presetSelector__caret {
+  margin-left: var(--atomix-spacing-1);
+}
+
+.presetSelector__dropdown {
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.presetSelector__preview {
+  display: flex;
+  gap: var(--atomix-spacing-1);
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.presetSelector__color {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--atomix-border-radius-sm);
+  border: 1px solid var(--atomix-border-color);
+}
+

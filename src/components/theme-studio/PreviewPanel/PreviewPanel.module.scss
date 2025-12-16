@@ -1,0 +1,24 @@
+// Component: PreviewPanel
+// =============================================================================
+
+// Block: Preview panel
+// =============================================================================
+.previewPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--atomix-spacing-6);
+  background-color: var(--atomix-body-bg);
+}
+
+.previewPanel__header {
+  margin-bottom: var(--atomix-spacing-6);
+  flex-shrink: 0;
+}
+
+.previewPanel__content {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+

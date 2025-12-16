@@ -1,0 +1,62 @@
+// Component: ColorInput
+// =============================================================================
+
+// Block: Color input
+// =============================================================================
+.colorInput {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-2);
+}
+
+.colorInput__row {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+}
+
+.colorInput__swatch {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform var(--atomix-transition-duration-fast) var(--atomix-easing-base);
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .colorInput__swatch {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.colorInput__text {
+  flex: 1;
+  font-size: var(--atomix-font-size-sm);
+}
+
+.colorInput__picker {
+  padding: var(--atomix-spacing-3);
+  background-color: var(--atomix-secondary-bg-subtle);
+  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+  box-shadow: var(--atomix-box-shadow-lg);
+}
+
+

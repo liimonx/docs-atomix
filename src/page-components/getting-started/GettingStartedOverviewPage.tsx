@@ -126,7 +126,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
                       icon={<Icon name="Download" size={16} />}
                       label="Get Started"
                       href="/docs/getting-started/installation"
-                      linkComponent={Link}
+                      as={Link}
                     />
                     <Button
                       glass
@@ -134,7 +134,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
                       label="Browse Components"
                       icon={<Icon name="BookOpen" size={16} />}
                       href="/docs/components/overview"
-                      linkComponent={Link}
+                      as={Link}
                     />
                   </div>
                 }
@@ -668,7 +668,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
                       }
                       label="Installation Guide"
                       href="/docs/getting-started/installation"
-                      linkComponent={Link}
+                      as={Link}
                     />
                     <Button
                       glass
@@ -682,7 +682,7 @@ const GettingStartedOverviewPage: FC<GettingStartedPageProps> = ({ type }) => {
                       }
                       label="Browse Components"
                       href="/docs/components/overview"
-                      linkComponent={Link}
+                      as={Link}
                     />
                   </>
                 }

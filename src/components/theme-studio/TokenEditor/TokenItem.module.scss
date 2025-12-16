@@ -1,0 +1,49 @@
+// Component: TokenItem
+// =============================================================================
+
+// Block: Token item
+// =============================================================================
+
+.tokenItem__header {
+  margin-bottom: var(--atomix-spacing-3);
+}
+
+.tokenItem__titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--atomix-spacing-2);
+  margin-bottom: var(--atomix-spacing-2);
+}
+
+.tokenItem__label {
+  flex: 1;
+}
+
+.tokenItem__badges {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+}
+
+.tokenItem__favorite {
+  min-width: auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+.tokenItem__favoriteIcon {
+  color: inherit;
+}
+
+.tokenItem__name {
+  font-size: var(--atomix-font-size-xs);
+  background-color: var(--atomix-tertiary-bg-subtle);
+  padding: var(--atomix-spacing-1) var(--atomix-spacing-2);
+  border-radius: var(--atomix-border-radius-sm);
+  word-break: break-all;
+}
+
+.tokenItem__input {
+  margin-top: var(--atomix-spacing-3);
+}

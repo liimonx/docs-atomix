@@ -1,0 +1,83 @@
+// Component: TokenRelationshipGraph
+// =============================================================================
+
+
+
+// Block: Token relationship graph
+// =============================================================================
+.tokenRelationshipGraph {
+  padding: var(--atomix-spacing-4);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.tokenRelationshipGraph__empty {
+  text-align: center;
+  padding: var(--atomix-spacing-8);
+  color: var(--atomix-secondary-text-emphasis);
+}
+
+.tokenRelationshipGraph__title {
+  font-size: var(--atomix-font-size-lg);
+  font-weight: var(--atomix-font-weight-semibold);
+  margin: 0 0 var(--atomix-spacing-4) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+}
+
+.tokenRelationshipGraph__subtitle {
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-normal);
+  color: var(--atomix-secondary-text-emphasis);
+}
+
+.tokenRelationshipGraph__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-3);
+}
+
+.tokenRelationshipGraph__item {
+  padding: var(--atomix-spacing-3);
+  background-color: var(--atomix-secondary-bg-subtle);
+  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+}
+
+.tokenRelationshipGraph__token {
+  margin-bottom: var(--atomix-spacing-2);
+}
+
+.tokenRelationshipGraph__tokenName {
+  font-size: var(--atomix-font-size-sm);
+  font-family: var(--atomix-font-monospace);
+  color: var(--atomix-primary);
+  background-color: var(--atomix-primary-bg-subtle);
+  padding: var(--atomix-spacing-1) var(--atomix-spacing-2);
+  border-radius: var(--atomix-border-radius-sm);
+}
+
+.tokenRelationshipGraph__deps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--atomix-spacing-2);
+  align-items: center;
+}
+
+.tokenRelationshipGraph__depsLabel {
+  font-size: var(--atomix-font-size-xs);
+  color: var(--atomix-secondary-text-emphasis);
+  font-weight: var(--atomix-font-weight-medium);
+}
+
+.tokenRelationshipGraph__dep {
+  font-size: var(--atomix-font-size-xs);
+  font-family: var(--atomix-font-monospace);
+  color: var(--atomix-secondary-text-emphasis);
+  background-color: var(--atomix-body-bg);
+  padding: var(--atomix-spacing-1) var(--atomix-spacing-2);
+  border-radius: var(--atomix-border-radius-sm);
+  border: 1px solid var(--atomix-border-color);
+}
+
