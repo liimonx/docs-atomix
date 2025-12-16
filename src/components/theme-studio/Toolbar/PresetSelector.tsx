@@ -59,7 +59,7 @@ export const PresetSelector: FC = () => {
       <Dropdown
         id={dropdownId}
         variant="primary"
-        defaultOpen={isOpen}
+        isOpen={isOpen}
         onOpenChange={setIsOpen as any}
         trigger="click"
         style={{ width: '200px' }}
