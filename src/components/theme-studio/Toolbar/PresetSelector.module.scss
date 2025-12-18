@@ -36,3 +36,42 @@
   border: 1px solid var(--atomix-border-color);
 }
 
+.presetSelector__item {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+  width: 100%;
+}
+
+.presetSelector__label {
+  flex: 1;
+}
+
+.presetSelector__separator {
+  height: 1px;
+  background-color: var(--atomix-border-color);
+  margin: var(--atomix-spacing-2) 0;
+}
+
+.presetSelector__saveForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-4);
+  padding: var(--atomix-spacing-4);
+}
+
+.presetSelector__formLabel {
+  display: block;
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-medium);
+  color: var(--atomix-heading-color);
+  margin-bottom: var(--atomix-spacing-2);
+}
+
+.presetSelector__formActions {
+  display: flex;
+  gap: var(--atomix-spacing-2);
+  justify-content: flex-end;
+  margin-top: var(--atomix-spacing-2);
+}
+

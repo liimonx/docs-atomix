@@ -43,3 +43,52 @@
   font-weight: var(--atomix-font-weight-medium);
 }
 
+.componentShowcase__header {
+  margin-bottom: var(--atomix-spacing-4);
+}
+
+.componentShowcase__filter {
+  margin-top: var(--atomix-spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-3);
+}
+
+.componentShowcase__searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.componentShowcase__searchIcon {
+  position: absolute;
+  left: var(--atomix-spacing-3);
+  color: var(--atomix-secondary-text-emphasis);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.componentShowcase__searchInput {
+  padding-left: calc(var(--atomix-spacing-3) * 2 + 18px);
+  width: 100%;
+}
+
+.componentShowcase__clearFilter {
+  position: absolute;
+  right: var(--atomix-spacing-2);
+  min-width: auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+.componentShowcase__noResults {
+  padding: var(--atomix-spacing-8);
+  text-align: center;
+  color: var(--atomix-secondary-text-emphasis);
+  
+  p {
+    margin-bottom: var(--atomix-spacing-4);
+  }
+}
+

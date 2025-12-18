@@ -3,6 +3,7 @@ import { Card } from '@shohojdhara/atomix';
 import { TokenSearch } from './TokenSearch';
 import { CategoryNav } from './CategoryNav';
 import { TokenList } from './TokenList';
+import { BulkOperations } from './BulkOperations';
 import styles from './TokenEditorPanel.module.scss';
 
 export const TokenEditorPanel: FC = () => {
@@ -11,6 +12,8 @@ export const TokenEditorPanel: FC = () => {
       <Card className="u-mb-4">
         <TokenSearch />
       </Card>
+      
+      <BulkOperations />
       
       <div className={styles.tokenEditorPanel__content}>
         <aside className={styles.tokenEditorPanel__sidebar} aria-label="Token categories">

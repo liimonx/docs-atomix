@@ -1,0 +1,38 @@
+// Component: ResponsivePreview
+// =============================================================================
+
+// Block: Responsive preview controls
+// =============================================================================
+.responsivePreview {
+  margin-bottom: var(--atomix-spacing-4);
+  padding: var(--atomix-spacing-4);
+  background-color: var(--atomix-surface);
+  border: 1px solid var(--atomix-border);
+  border-radius: var(--atomix-border-radius-md);
+}
+
+.responsivePreview__controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-3);
+}
+
+.responsivePreview__label {
+  display: block;
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-medium);
+  color: var(--atomix-heading-color);
+  margin-bottom: var(--atomix-spacing-2);
+}
+
+.responsivePreview__info {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+  padding: var(--atomix-spacing-2);
+  background-color: var(--atomix-tertiary-bg-subtle);
+  border-radius: var(--atomix-border-radius-sm);
+  font-size: var(--atomix-font-size-sm);
+  color: var(--atomix-body-color);
+}
+

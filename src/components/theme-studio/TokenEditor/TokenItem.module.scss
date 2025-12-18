@@ -47,3 +47,24 @@
 .tokenItem__input {
   margin-top: var(--atomix-spacing-3);
 }
+
+.tokenItem__validation {
+  margin-top: var(--atomix-spacing-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-2);
+}
+
+.tokenItem__error,
+.tokenItem__warning {
+  font-size: var(--atomix-font-size-sm);
+}
+
+.tokenItem__selected {
+  border: 2px solid var(--atomix-primary);
+  box-shadow: 0 0 0 2px var(--atomix-primary-bg-subtle);
+}
+
+.tokenItem__checkbox {
+  margin-right: var(--atomix-spacing-2);
+}

@@ -1,8 +1,9 @@
 "use client";
 
-import { FC, useEffect, useRef, useMemo } from "react";
-import { Hero } from "@shohojdhara/atomix";
+import { FC, useEffect, useRef, useMemo, useState } from "react";
+import { Hero, Callout } from "@shohojdhara/atomix";
 import { ThemeStudioLayout } from "@/components/theme-studio/ThemeStudioLayout";
+import { KeyboardShortcutsModal } from "@/components/theme-studio/KeyboardShortcutsModal";
 import { useThemeStudioStore } from "@/stores/themeStudioStore";
 import {
   applyThemeToDocument,
@@ -10,6 +11,7 @@ import {
 } from "@/utils/themeTokenUtils";
 import themeTokensData from "@/data/themeTokens.json";
 import { useUndoRedo } from "@/hooks/useUndoRedo";
+import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 import styles from "@/styles/PageHero.module.scss";
 
 interface ThemeTokensData {
@@ -39,6 +41,11 @@ const ThemeStudioPage: FC = () => {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const applyTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const [showShortcutsModal, setShowShortcutsModal] = useState(false);
+  const [notification, setNotification] = useState<{
+    type: 'success' | 'error' | 'info';
+    message: string;
+  } | null>(null);
 
   // Create serialized versions of tokens for reliable change detection
   const lightTokensSerialized = useMemo(
@@ -90,6 +97,104 @@ const ThemeStudioPage: FC = () => {
   // Enable undo/redo keyboard shortcuts
   useUndoRedo();
 
+  // Additional keyboard shortcuts for Theme Studio
+  useKeyboardShortcuts({
+    'Cmd+k': (e) => {
+      e.preventDefault();
+      // Focus search input
+      const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.select();
+      }
+    },
+    'Ctrl+k': (e) => {
+      e.preventDefault();
+      // Focus search input
+      const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.select();
+      }
+    },
+    'Cmd+f': (e) => {
+      e.preventDefault();
+      // Focus search input
+      const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.select();
+      }
+    },
+    'Ctrl+f': (e) => {
+      e.preventDefault();
+      // Focus search input
+      const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.select();
+      }
+    },
+    'Cmd+p': (e) => {
+      e.preventDefault();
+      // Toggle split view
+      const { splitViewEnabled, setSplitViewEnabled } = useThemeStudioStore.getState();
+      setSplitViewEnabled(!splitViewEnabled);
+    },
+    'Ctrl+p': (e) => {
+      e.preventDefault();
+      // Toggle split view
+      const { splitViewEnabled, setSplitViewEnabled } = useThemeStudioStore.getState();
+      setSplitViewEnabled(!splitViewEnabled);
+    },
+    'Cmd+b': (e) => {
+      e.preventDefault();
+      // Toggle color tools
+      const { colorToolsOpen, setColorToolsOpen } = useThemeStudioStore.getState();
+      setColorToolsOpen(!colorToolsOpen);
+    },
+    'Ctrl+b': (e) => {
+      e.preventDefault();
+      // Toggle color tools
+      const { colorToolsOpen, setColorToolsOpen } = useThemeStudioStore.getState();
+      setColorToolsOpen(!colorToolsOpen);
+    },
+    'Cmd+/': (e) => {
+      e.preventDefault();
+      setShowShortcutsModal(true);
+    },
+    'Ctrl+/': (e) => {
+      e.preventDefault();
+      setShowShortcutsModal(true);
+    },
+    'Cmd+e': (e) => {
+      e.preventDefault();
+      // Trigger export (focus export button)
+      const exportButton = document.querySelector('[aria-label="Export theme"]') as HTMLButtonElement;
+      if (exportButton) {
+        exportButton.click();
+      }
+    },
+    'Ctrl+e': (e) => {
+      e.preventDefault();
+      // Trigger export (focus export button)
+      const exportButton = document.querySelector('[aria-label="Export theme"]') as HTMLButtonElement;
+      if (exportButton) {
+        exportButton.click();
+      }
+    },
+    'Cmd+i': (e) => {
+      e.preventDefault();
+      // Trigger import
+      handleImport();
+    },
+    'Ctrl+i': (e) => {
+      e.preventDefault();
+      // Trigger import
+      handleImport();
+    },
+  });
+
   // Handle import
   const handleImport = () => {
     fileInputRef.current?.click();
@@ -107,7 +212,11 @@ const ThemeStudioPage: FC = () => {
 
         const validation = validateImportedTheme(data);
         if (!validation.valid) {
-          alert(`Invalid theme file: ${validation.error}`);
+          setNotification({
+            type: 'error',
+            message: `Invalid theme file: ${validation.error || 'Unknown error'}`,
+          });
+          setTimeout(() => setNotification(null), 5000);
           return;
         }
 
@@ -118,10 +227,25 @@ const ThemeStudioPage: FC = () => {
           },
           "Theme imported"
         );
-        alert("Theme imported successfully!");
+        setNotification({
+          type: 'success',
+          message: 'Theme imported successfully!',
+        });
+        setTimeout(() => setNotification(null), 3000);
       } catch (error) {
-        alert("Error parsing theme file. Please ensure it is valid JSON.");
+        setNotification({
+          type: 'error',
+          message: 'Error parsing theme file. Please ensure it is valid JSON.',
+        });
+        setTimeout(() => setNotification(null), 5000);
       }
+    };
+    reader.onerror = () => {
+      setNotification({
+        type: 'error',
+        message: 'Error reading file. Please try again.',
+      });
+      setTimeout(() => setNotification(null), 5000);
     };
     reader.readAsText(file);
 
@@ -149,6 +273,32 @@ const ThemeStudioPage: FC = () => {
         onChange={handleFileChange}
         style={{ display: "none" }}
         aria-label="Import theme file"
+      />
+
+      {/* Notification */}
+      {notification && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            zIndex: 10000,
+            maxWidth: '400px',
+          }}
+        >
+          <Callout
+            variant={notification.type === 'error' ? 'error' : notification.type === 'success' ? 'success' : 'info'}
+            title={notification.type === 'error' ? 'Error' : notification.type === 'success' ? 'Success' : 'Info'}
+            onClose={() => setNotification(null)}
+          >
+            {notification.message}
+          </Callout>
+        </div>
+      )}
+
+      <KeyboardShortcutsModal
+        isOpen={showShortcutsModal}
+        onClose={() => setShowShortcutsModal(false)}
       />
 
       <ThemeStudioLayout onImport={handleImport} />

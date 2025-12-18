@@ -14,6 +14,7 @@ import Link from "next/link";
 interface DocumentationSidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpen?: () => void;
 }
 
 const EmptySearchState = () => (
@@ -25,6 +26,7 @@ const EmptySearchState = () => (
 export const DocumentationSidebar = ({
   isOpen,
   onClose,
+  onOpen,
 }: DocumentationSidebarProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -90,7 +92,11 @@ export const DocumentationSidebar = ({
   }, [pathname, isOpen, onClose, mounted]);
 
   const handleOpenChange = (open: boolean) => {
-    if (!open) {
+    if (open) {
+      // Handle opening - sync with parent state if onOpen callback provided
+      onOpen?.();
+    } else {
+      // Handle closing - always sync with parent state
       setSearchTerm(""); // Clear search when closing
       onClose();
     }
@@ -107,8 +113,8 @@ export const DocumentationSidebar = ({
       onOpenChange={handleOpenChange}
       position="start"
       mode="push"
-      backdrop={false}
-      closeOnBackdropClick={false}
+      backdrop={true}
+      closeOnBackdropClick={true}
       closeOnEscape={true}
       style={{top: '56px'}}
     >

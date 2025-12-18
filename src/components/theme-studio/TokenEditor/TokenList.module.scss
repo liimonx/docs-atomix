@@ -19,11 +19,23 @@
   width: 100%;
 }
 
+.tokenList__categoryHeader {
+  padding: var(--atomix-spacing-3) 0;
+  border-bottom: 1px solid var(--atomix-border-color);
+}
+
 .tokenList__categoryTitle {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--atomix-spacing-2);
+  margin: 0;
+  font-size: var(--atomix-font-size-lg);
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-heading-color);
+}
+
+.tokenList__count {
+  margin-left: var(--atomix-spacing-2);
 }
 
 .tokenList__items {

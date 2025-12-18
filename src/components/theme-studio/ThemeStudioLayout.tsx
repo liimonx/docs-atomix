@@ -20,6 +20,7 @@ export const ThemeStudioLayout: FC<ThemeStudioLayoutProps> = ({ onImport }) => {
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     setIsDragging(true);
     e.preventDefault();
+    e.stopPropagation();
   }, []);
 
   const handleMouseMove = useCallback(
@@ -29,7 +30,9 @@ export const ThemeStudioLayout: FC<ThemeStudioLayoutProps> = ({ onImport }) => {
       const containerRect = containerRef.current.getBoundingClientRect();
       const newWidth =
         ((e.clientX - containerRect.left) / containerRect.width) * 100;
-      setPanelWidth(newWidth);
+      // Clamp between 20% and 80%
+      const clampedWidth = Math.max(20, Math.min(80, newWidth));
+      setPanelWidth(clampedWidth);
     },
     [isDragging, setPanelWidth]
   );
@@ -41,11 +44,20 @@ export const ThemeStudioLayout: FC<ThemeStudioLayoutProps> = ({ onImport }) => {
   // Add global mouse event listeners
   useEffect(() => {
     if (isDragging) {
-      window.addEventListener("mousemove", handleMouseMove);
+      // Prevent text selection while dragging
+      document.body.style.cursor = 'col-resize';
+      document.body.style.userSelect = 'none';
+      
+      window.addEventListener("mousemove", handleMouseMove, { passive: false });
       window.addEventListener("mouseup", handleMouseUp);
+      window.addEventListener("mouseleave", handleMouseUp); // Handle mouse leaving window
+      
       return () => {
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
         window.removeEventListener("mousemove", handleMouseMove);
         window.removeEventListener("mouseup", handleMouseUp);
+        window.removeEventListener("mouseleave", handleMouseUp);
       };
     }
   }, [isDragging, handleMouseMove, handleMouseUp]);
@@ -54,7 +66,7 @@ export const ThemeStudioLayout: FC<ThemeStudioLayoutProps> = ({ onImport }) => {
     <Block container={{ type: 'fluid' }}>
       <ThemeToolbar onImport={onImport} />
 
-      <div className={styles.themeStudioLayout__content}>
+      <div ref={containerRef} className={styles.themeStudioLayout__content}>
         {splitViewEnabled ? (
           <>
             <div
@@ -69,7 +81,20 @@ export const ThemeStudioLayout: FC<ThemeStudioLayoutProps> = ({ onImport }) => {
               role="separator"
               aria-label="Resize panels"
               aria-orientation="vertical"
+              aria-valuemin={20}
+              aria-valuemax={80}
+              aria-valuenow={panelWidth}
               tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                  e.preventDefault();
+                  const step = e.shiftKey ? 10 : 5;
+                  const newWidth = e.key === 'ArrowLeft' 
+                    ? Math.max(20, panelWidth - step)
+                    : Math.min(80, panelWidth + step);
+                  setPanelWidth(newWidth);
+                }
+              }}
             >
               <div className={styles.themeStudioLayout__dividerHandle} />
             </div>

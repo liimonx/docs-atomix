@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { Badge, Icon, Card, Button } from "@shohojdhara/atomix";
+import { FC, useMemo } from "react";
+import { Badge, Icon, Card, Button, Callout, Checkbox } from "@shohojdhara/atomix";
 import { useThemeStudioStore } from "@/stores/themeStudioStore";
-import { detectTokenType } from "@/utils/themeTokenUtils";
+import { detectTokenType, validateTokenValue } from "@/utils/themeTokenUtils";
 import { ColorInput } from "./inputs/ColorInput";
 import { NumberInput } from "./inputs/NumberInput";
 import { ShadowInput } from "./inputs/ShadowInput";
@@ -22,9 +22,22 @@ interface TokenItemProps {
 }
 
 export const TokenItem: FC<TokenItemProps> = ({ token, value }) => {
-  const { updateToken, toggleFavorite, favoriteTokens } = useThemeStudioStore();
+  const {
+    updateToken,
+    toggleFavorite,
+    favoriteTokens,
+    bulkEditMode,
+    selectedTokens,
+    toggleTokenSelection,
+  } = useThemeStudioStore();
   const isFavorite = favoriteTokens.has(token.name);
+  const isSelected = selectedTokens.has(token.name);
   const tokenType = detectTokenType(value);
+
+  // Validate token value
+  const validation = useMemo(() => {
+    return validateTokenValue(token.name, value, tokenType);
+  }, [token.name, value, tokenType]);
 
   const handleValueChange = (newValue: string) => {
     updateToken(token.name, newValue, `Updated ${token.displayName}`);
@@ -46,9 +59,23 @@ export const TokenItem: FC<TokenItemProps> = ({ token, value }) => {
   };
 
   return (
-    <Card  appearance="filled" hoverable hoverElevation="lg" selected={isFavorite}>
+    <Card
+      appearance="filled"
+      hoverable
+      hoverElevation="lg"
+      selected={isFavorite || isSelected}
+      className={isSelected ? styles.tokenItem__selected : ''}
+    >
       <div className={styles.tokenItem__header}>
         <div className={styles.tokenItem__titleRow}>
+          {bulkEditMode && (
+            <Checkbox
+              checked={isSelected}
+              onChange={() => toggleTokenSelection(token.name)}
+              aria-label={`Select ${token.displayName} for bulk edit`}
+              className={styles.tokenItem__checkbox}
+            />
+          )}
           <label
             className={styles.tokenItem__label}
             htmlFor={`token-${token.name}`}
@@ -80,6 +107,37 @@ export const TokenItem: FC<TokenItemProps> = ({ token, value }) => {
       <div className={styles.tokenItem__input} id={`token-${token.name}`}>
         {renderInput()}
       </div>
+
+      {/* Validation messages */}
+      {validation.errors.length > 0 && (
+        <div className={styles.tokenItem__validation} role="alert">
+          {validation.errors.map((error, index) => (
+            <Callout
+              key={index}
+              variant="error"
+              title="Validation Error"
+              className={styles.tokenItem__error}
+            >
+              {error}
+            </Callout>
+          ))}
+        </div>
+      )}
+
+      {validation.warnings.length > 0 && (
+        <div className={styles.tokenItem__validation} role="status">
+          {validation.warnings.map((warning, index) => (
+            <Callout
+              key={index}
+              variant="warning"
+              title="Warning"
+              className={styles.tokenItem__warning}
+            >
+              {warning}
+            </Callout>
+          ))}
+        </div>
+      )}
     </Card>
   );
 };

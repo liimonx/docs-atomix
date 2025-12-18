@@ -1,0 +1,50 @@
+// Component: BulkOperations
+// =============================================================================
+
+// Block: Bulk operations toolbar
+// =============================================================================
+.bulkOperations {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--atomix-surface);
+  border-bottom: 2px solid var(--atomix-primary);
+  padding: var(--atomix-spacing-3);
+  margin-bottom: var(--atomix-spacing-4);
+  border-radius: var(--atomix-border-radius-md);
+}
+
+.bulkOperations__toggle {
+  margin-bottom: var(--atomix-spacing-3);
+}
+
+.bulkOperations__header {
+  margin-bottom: var(--atomix-spacing-3);
+}
+
+.bulkOperations__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--atomix-spacing-2);
+}
+
+.bulkOperations__close {
+  min-width: auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+.bulkOperations__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-3);
+}
+
+.bulkOperations__group {
+  display: flex;
+  gap: var(--atomix-spacing-2);
+  flex-wrap: wrap;
+}
+

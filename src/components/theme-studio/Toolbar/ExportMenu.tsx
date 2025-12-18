@@ -7,6 +7,9 @@ import {
   exportAsSCSS,
   exportAsTypeScript,
   exportAsFigma,
+  exportAsTailwindConfig,
+  exportAsStyleDictionary,
+  exportAsDesignTokens,
   downloadFile,
 } from '@/utils/themeTokenUtils';
 import styles from './ExportMenu.module.scss';
@@ -17,7 +20,7 @@ export const ExportMenu: FC = () => {
   const [copied, setCopied] = useState<string | null>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleExport = (format: 'json' | 'css' | 'scss' | 'typescript' | 'figma') => {
+  const handleExport = (format: 'json' | 'css' | 'scss' | 'typescript' | 'figma' | 'tailwind' | 'style-dictionary' | 'design-tokens') => {
     let content = '';
     let filename = '';
     let mimeType = '';
@@ -29,8 +32,7 @@ export const ExportMenu: FC = () => {
         mimeType = 'application/json';
         break;
       case 'css':
-        // Export with theme name for ThemeManager compatibility
-        content = exportAsCSS(lightTokens, darkTokens, 'custom-theme');
+        content = exportAsCSS(lightTokens, darkTokens);
         filename = 'theme.css';
         mimeType = 'text/css';
         break;
@@ -47,6 +49,21 @@ export const ExportMenu: FC = () => {
       case 'figma':
         content = exportAsFigma(lightTokens, darkTokens);
         filename = 'theme.figma.json';
+        mimeType = 'application/json';
+        break;
+      case 'tailwind':
+        content = exportAsTailwindConfig(lightTokens, darkTokens);
+        filename = 'tailwind.config.js';
+        mimeType = 'text/javascript';
+        break;
+      case 'style-dictionary':
+        content = exportAsStyleDictionary(lightTokens, darkTokens);
+        filename = 'tokens.json';
+        mimeType = 'application/json';
+        break;
+      case 'design-tokens':
+        content = exportAsDesignTokens(lightTokens, darkTokens);
+        filename = 'design-tokens.json';
         mimeType = 'application/json';
         break;
     }
@@ -112,56 +129,97 @@ export const ExportMenu: FC = () => {
       
       {isOpen && (
         <div className={styles.exportMenu__dropdown} role="menu" aria-label="Export options">
-          <button
-            onClick={() => handleExport('json')}
-            className={styles.exportMenu__item}
-            role="menuitem"
-            aria-label="Export as JSON"
-          >
-            <Icon name="FileCode" size={16} />
-            <span>JSON</span>
-            {copied === 'json' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
-          </button>
-          <button
-            onClick={() => handleExport('css')}
-            className={styles.exportMenu__item}
-            role="menuitem"
-            aria-label="Export as CSS"
-          >
-            <Icon name="FileCode" size={16} />
-            <span>CSS</span>
-            {copied === 'css' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
-          </button>
-          <button
-            onClick={() => handleExport('scss')}
-            className={styles.exportMenu__item}
-            role="menuitem"
-            aria-label="Export as SCSS"
-          >
-            <Icon name="FileCode" size={16} />
-            <span>SCSS</span>
-            {copied === 'scss' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
-          </button>
-          <button
-            onClick={() => handleExport('typescript')}
-            className={styles.exportMenu__item}
-            role="menuitem"
-            aria-label="Export as TypeScript"
-          >
-            <Icon name="FileCode" size={16} />
-            <span>TypeScript</span>
-            {copied === 'typescript' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
-          </button>
-          <button
-            onClick={() => handleExport('figma')}
-            className={styles.exportMenu__item}
-            role="menuitem"
-            aria-label="Export as Figma Variables"
-          >
-            <Icon name="FileCode" size={16} />
-            <span>Figma Variables</span>
-            {copied === 'figma' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
-          </button>
+          <div className={styles.exportMenu__group}>
+            <div className={styles.exportMenu__groupLabel}>CSS Formats</div>
+            <button
+              onClick={() => handleExport('css')}
+              className={styles.exportMenu__item}
+              role="menuitem"
+              aria-label="Export as CSS"
+            >
+              <Icon name="FileCode" size={16} />
+              <span>CSS Variables</span>
+              {copied === 'css' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
+            </button>
+            <button
+              onClick={() => handleExport('scss')}
+              className={styles.exportMenu__item}
+              role="menuitem"
+              aria-label="Export as SCSS"
+            >
+              <Icon name="FileCode" size={16} />
+              <span>SCSS Map</span>
+              {copied === 'scss' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
+            </button>
+          </div>
+
+          <div className={styles.exportMenu__group}>
+            <div className={styles.exportMenu__groupLabel}>Config Formats</div>
+            <button
+              onClick={() => handleExport('json')}
+              className={styles.exportMenu__item}
+              role="menuitem"
+              aria-label="Export as JSON"
+            >
+              <Icon name="FileCode" size={16} />
+              <span>JSON</span>
+              {copied === 'json' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
+            </button>
+            <button
+              onClick={() => handleExport('typescript')}
+              className={styles.exportMenu__item}
+              role="menuitem"
+              aria-label="Export as TypeScript"
+            >
+              <Icon name="FileCode" size={16} />
+              <span>TypeScript</span>
+              {copied === 'typescript' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
+            </button>
+            <button
+              onClick={() => handleExport('tailwind')}
+              className={styles.exportMenu__item}
+              role="menuitem"
+              aria-label="Export as Tailwind Config"
+            >
+              <Icon name="FileCode" size={16} />
+              <span>Tailwind Config</span>
+              {copied === 'tailwind' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
+            </button>
+          </div>
+
+          <div className={styles.exportMenu__group}>
+            <div className={styles.exportMenu__groupLabel}>Design Tools</div>
+            <button
+              onClick={() => handleExport('figma')}
+              className={styles.exportMenu__item}
+              role="menuitem"
+              aria-label="Export as Figma Variables"
+            >
+              <Icon name="FileCode" size={16} />
+              <span>Figma Variables</span>
+              {copied === 'figma' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
+            </button>
+            <button
+              onClick={() => handleExport('style-dictionary')}
+              className={styles.exportMenu__item}
+              role="menuitem"
+              aria-label="Export as Style Dictionary"
+            >
+              <Icon name="FileCode" size={16} />
+              <span>Style Dictionary</span>
+              {copied === 'style-dictionary' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
+            </button>
+            <button
+              onClick={() => handleExport('design-tokens')}
+              className={styles.exportMenu__item}
+              role="menuitem"
+              aria-label="Export as W3C Design Tokens"
+            >
+              <Icon name="FileCode" size={16} />
+              <span>W3C Design Tokens</span>
+              {copied === 'design-tokens' && <Icon name="CheckCircle" size={16} aria-label="Exported" />}
+            </button>
+          </div>
         </div>
       )}
     </div>

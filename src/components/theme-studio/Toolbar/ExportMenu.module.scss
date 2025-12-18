@@ -28,8 +28,26 @@
   border-radius: var(--atomix-border-radius);
   box-shadow: var(--atomix-box-shadow-lg);
   z-index: var(--atomix-z-dropdown);
-  min-width: 200px;
-  overflow: hidden;
+  min-width: 220px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.exportMenu__group {
+  padding: var(--atomix-spacing-2) 0;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--atomix-border-color);
+  }
+}
+
+.exportMenu__groupLabel {
+  padding: var(--atomix-spacing-2) var(--atomix-spacing-3);
+  font-size: var(--atomix-font-size-xs);
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-secondary-text-emphasis);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .exportMenu__item {

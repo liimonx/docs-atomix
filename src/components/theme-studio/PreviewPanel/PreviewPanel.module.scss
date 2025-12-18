@@ -4,21 +4,12 @@
 // Block: Preview panel
 // =============================================================================
 .previewPanel {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
   height: 100%;
-  padding: var(--atomix-spacing-6);
-  background-color: var(--atomix-body-bg);
+  overflow: auto;
 }
 
-.previewPanel__header {
-  margin-bottom: var(--atomix-spacing-6);
-  flex-shrink: 0;
+.previewPanel__viewport {
+  background-color: var(--atomix-surface);
+  transition: max-width 0.3s ease, max-height 0.3s ease;
 }
-
-.previewPanel__content {
-  flex: 1;
-  overflow-y: auto;
-  min-height: 0;
-}
-

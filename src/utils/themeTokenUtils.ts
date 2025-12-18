@@ -9,6 +9,15 @@ export interface ThemeTokens {
 }
 
 /**
+ * Validation result interface
+ */
+export interface ValidationResult {
+  valid: boolean;
+  errors: string[];
+  warnings: string[];
+}
+
+/**
  * Detect token type from value
  */
 export function detectTokenType(value: string): string {
@@ -49,6 +58,162 @@ export function detectTokenType(value: string): string {
   }
 
   return "text";
+}
+
+/**
+ * Validate token value
+ */
+export function validateTokenValue(
+  tokenName: string,
+  value: string,
+  tokenType?: string
+): ValidationResult {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const trimmedValue = value.trim();
+
+  // Empty value check
+  if (!trimmedValue) {
+    errors.push("Token value cannot be empty");
+    return { valid: false, errors, warnings };
+  }
+
+  const detectedType = tokenType || detectTokenType(trimmedValue);
+
+  // Type-specific validation
+  if (detectedType === "color") {
+    // Validate hex colors
+    if (trimmedValue.startsWith("#")) {
+      const hexPattern = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/;
+      if (!hexPattern.test(trimmedValue)) {
+        errors.push("Invalid hex color format. Use #RGB, #RRGGBB, or #RRGGBBAA");
+      }
+    }
+    // Validate RGB/RGBA
+    else if (trimmedValue.startsWith("rgb")) {
+      const rgbPattern = /^rgba?\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*(,\s*[\d.]+\s*)?\)$/;
+      if (!rgbPattern.test(trimmedValue)) {
+        errors.push("Invalid RGB/RGBA format. Use rgb(r, g, b) or rgba(r, g, b, a)");
+      }
+    }
+    // Validate named colors
+    else if (!/^[a-z]+$/.test(trimmedValue.toLowerCase())) {
+      const validNamedColors = [
+        "red", "blue", "green", "yellow", "white", "black", "transparent",
+        "currentcolor", "inherit", "initial", "unset"
+      ];
+      if (!validNamedColors.includes(trimmedValue.toLowerCase())) {
+        warnings.push("Unknown named color. Consider using hex or RGB format");
+      }
+    }
+  } else if (detectedType === "number") {
+    const numberPattern = /^-?\d+(\.\d+)?(rem|px|em|%|s|ms|vh|vw|ch|ex|vmin|vmax)$/;
+    if (!numberPattern.test(trimmedValue)) {
+      errors.push("Invalid number format. Use a number followed by a unit (rem, px, em, %, s, ms, etc.)");
+    } else {
+      // Check for negative values where they might not make sense
+      if (trimmedValue.startsWith("-") && (tokenName.includes("size") || tokenName.includes("spacing"))) {
+        warnings.push("Negative values may not be appropriate for size/spacing tokens");
+      }
+    }
+  } else if (detectedType === "shadow") {
+    // Basic shadow validation - should contain numbers and color
+    if (!trimmedValue.includes("px") && !trimmedValue.includes("rem")) {
+      warnings.push("Shadow values typically include offset values in px or rem");
+    }
+  } else if (detectedType === "gradient") {
+    if (!trimmedValue.includes("linear-gradient") && !trimmedValue.includes("radial-gradient") && !trimmedValue.includes("conic-gradient")) {
+      warnings.push("Gradient should use linear-gradient, radial-gradient, or conic-gradient");
+    }
+  }
+
+  // Accessibility checks for color tokens
+  if (detectedType === "color" && tokenName.includes("text")) {
+    // This is a text color - check if it's likely to have contrast issues
+    if (trimmedValue.toLowerCase() === "white" || trimmedValue === "#ffffff" || trimmedValue === "#fff") {
+      warnings.push("White text may have contrast issues on light backgrounds");
+    }
+    if (trimmedValue.toLowerCase() === "black" || trimmedValue === "#000000" || trimmedValue === "#000") {
+      warnings.push("Black text may have contrast issues on dark backgrounds");
+    }
+  }
+
+  // Check for common mistakes
+  if (trimmedValue.includes("  ")) {
+    warnings.push("Multiple consecutive spaces detected. Consider using a single space");
+  }
+
+  if (trimmedValue.endsWith(" ") || trimmedValue.startsWith(" ")) {
+    warnings.push("Value has leading or trailing spaces");
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+    warnings,
+  };
+}
+
+/**
+ * Calculate contrast ratio between two colors
+ */
+export function calculateContrastRatio(color1: string, color2: string): number {
+  // Simplified contrast calculation - would need a proper color library for accurate results
+  // This is a placeholder that returns a basic ratio
+  try {
+    const getLuminance = (color: string): number => {
+      // Convert color to RGB
+      let r = 0, g = 0, b = 0;
+      
+      if (color.startsWith("#")) {
+        const hex = color.slice(1);
+        r = parseInt(hex.slice(0, 2), 16) / 255;
+        g = parseInt(hex.slice(2, 4), 16) / 255;
+        b = parseInt(hex.slice(4, 6), 16) / 255;
+      } else if (color.startsWith("rgb")) {
+        const matches = color.match(/\d+/g);
+        if (matches && matches.length >= 3) {
+          r = parseInt(matches[0]) / 255;
+          g = parseInt(matches[1]) / 255;
+          b = parseInt(matches[2]) / 255;
+        }
+      }
+      
+      // Calculate relative luminance
+      const [rs, gs, bs] = [r, g, b].map(c => {
+        c = c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+        return c;
+      });
+      
+      return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+    };
+    
+    const l1 = getLuminance(color1);
+    const l2 = getLuminance(color2);
+    
+    const lighter = Math.max(l1, l2);
+    const darker = Math.min(l1, l2);
+    
+    return (lighter + 0.05) / (darker + 0.05);
+  } catch {
+    return 1; // Default to minimum contrast if calculation fails
+  }
+}
+
+/**
+ * Check if contrast ratio meets WCAG standards
+ */
+export function checkContrastCompliance(
+  foreground: string,
+  background: string
+): { aa: boolean; aaa: boolean; ratio: number } {
+  const ratio = calculateContrastRatio(foreground, background);
+  
+  return {
+    ratio,
+    aa: ratio >= 4.5, // WCAG AA standard for normal text
+    aaa: ratio >= 7, // WCAG AAA standard for normal text
+  };
 }
 
 /**
@@ -384,6 +549,177 @@ function hexToRgbForFigma(hex: string): { r: number; g: number; b: number } | nu
     g: parseInt(result[2], 16) / 255,
     b: parseInt(result[3], 16) / 255,
   };
+}
+
+/**
+ * Export theme as Tailwind CSS config
+ */
+export function exportAsTailwindConfig(
+  lightTokens: Record<string, string>,
+  darkTokens: Record<string, string>
+): string {
+  let config = `/** @type {import('tailwindcss').Config} */\n`;
+  config += `module.exports = {\n`;
+  config += `  theme: {\n`;
+  config += `    extend: {\n`;
+  config += `      colors: {\n`;
+  
+  // Extract color tokens
+  const colorTokens: Record<string, string> = {};
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    if (name.includes('color') || name.includes('bg') || name.includes('border') || name.includes('text')) {
+      const key = name.replace(/^--atomix-/, '').replace(/-/g, '_');
+      colorTokens[key] = value;
+    }
+  });
+  
+  Object.entries(colorTokens).forEach(([key, value]) => {
+    config += `        '${key}': '${value}',\n`;
+  });
+  
+  config += `      },\n`;
+  config += `      spacing: {\n`;
+  
+  // Extract spacing tokens
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    if (name.includes('space') || name.includes('padding') || name.includes('margin')) {
+      const key = name.replace(/^--atomix-/, '').replace(/-/g, '_');
+      config += `        '${key}': '${value}',\n`;
+    }
+  });
+  
+  config += `      },\n`;
+  config += `      fontSize: {\n`;
+  
+  // Extract font size tokens
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    if (name.includes('font-size')) {
+      const key = name.replace(/^--atomix-/, '').replace(/-/g, '_');
+      config += `        '${key}': '${value}',\n`;
+    }
+  });
+  
+  config += `      },\n`;
+  config += `      borderRadius: {\n`;
+  
+  // Extract border radius tokens
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    if (name.includes('radius') || name.includes('rounded')) {
+      const key = name.replace(/^--atomix-/, '').replace(/-/g, '_');
+      config += `        '${key}': '${value}',\n`;
+    }
+  });
+  
+  config += `      },\n`;
+  config += `    },\n`;
+  config += `  },\n`;
+  config += `  plugins: [],\n`;
+  config += `}\n`;
+  
+  return config;
+}
+
+/**
+ * Export theme as Style Dictionary format
+ */
+export function exportAsStyleDictionary(
+  lightTokens: Record<string, string>,
+  darkTokens: Record<string, string>
+): string {
+  const styleDictionary: any = {
+    color: {},
+    size: {},
+    font: {},
+  };
+  
+  // Process light tokens
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    const cleanName = name.replace(/^--atomix-/, '');
+    const parts = cleanName.split('-');
+    
+    if (name.includes('color') || name.includes('bg') || name.includes('border') || name.includes('text')) {
+      let current = styleDictionary.color;
+      parts.forEach((part, index) => {
+        if (index === parts.length - 1) {
+          current[part] = { value, type: 'color' };
+        } else {
+          current[part] = current[part] || {};
+          current = current[part];
+        }
+      });
+    } else if (name.includes('space') || name.includes('padding') || name.includes('margin') || name.includes('radius')) {
+      let current = styleDictionary.size;
+      parts.forEach((part, index) => {
+        if (index === parts.length - 1) {
+          current[part] = { value, type: 'dimension' };
+        } else {
+          current[part] = current[part] || {};
+          current = current[part];
+        }
+      });
+    } else if (name.includes('font')) {
+      let current = styleDictionary.font;
+      parts.forEach((part, index) => {
+        if (index === parts.length - 1) {
+          current[part] = { value, type: name.includes('size') ? 'dimension' : 'string' };
+        } else {
+          current[part] = current[part] || {};
+          current = current[part];
+        }
+      });
+    }
+  });
+  
+  return JSON.stringify(styleDictionary, null, 2);
+}
+
+/**
+ * Export theme as W3C Design Tokens format
+ */
+export function exportAsDesignTokens(
+  lightTokens: Record<string, string>,
+  darkTokens: Record<string, string>
+): string {
+  const tokens: any = {};
+  
+  // Process light tokens
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    const cleanName = name.replace(/^--atomix-/, '');
+    const tokenType = detectTokenType(value);
+    
+    tokens[cleanName] = {
+      $value: value,
+      $type: tokenType === 'color' ? 'color' : 
+             tokenType === 'number' ? 'dimension' : 
+             tokenType === 'shadow' ? 'shadow' : 
+             'string',
+      $description: `Token for ${cleanName}`,
+    };
+  });
+  
+  const w3cFormat = {
+    $schema: 'https://design-tokens.github.io/community-group/format/schema.json',
+    $version: '1.0.0',
+    $description: 'Atomix Design System Tokens',
+    tokens,
+    modes: {
+      light: {},
+      dark: {},
+    },
+  };
+  
+  // Add mode-specific values
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    const cleanName = name.replace(/^--atomix-/, '');
+    w3cFormat.modes.light[cleanName] = { $value: value };
+  });
+  
+  Object.entries(darkTokens).forEach(([name, value]) => {
+    const cleanName = name.replace(/^--atomix-/, '');
+    w3cFormat.modes.dark[cleanName] = { $value: value };
+  });
+  
+  return JSON.stringify(w3cFormat, null, 2);
 }
 
 /**

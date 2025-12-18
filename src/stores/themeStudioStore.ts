@@ -40,10 +40,20 @@ export interface ThemeStudioState {
   previewComponent: string;
   splitViewEnabled: boolean;
   panelWidth: number; // Percentage for split view
+  responsiveMode: 'desktop' | 'tablet' | 'mobile' | 'custom';
+  customViewportWidth: number;
+  customViewportHeight: number;
   
   // Color tools
   colorToolsOpen: boolean;
   activeColorTool: 'contrast' | 'palette' | 'harmonies' | null;
+  
+  // Bulk operations
+  selectedTokens: Set<string>;
+  bulkEditMode: boolean;
+  
+  // Custom presets
+  customPresets: Record<string, { name: string; description?: string; light: Record<string, string>; dark: Record<string, string> }>;
   
   // Actions
   setActiveMode: (mode: 'light' | 'dark') => void;
@@ -69,10 +79,26 @@ export interface ThemeStudioState {
   setPreviewComponent: (component: string) => void;
   setSplitViewEnabled: (enabled: boolean) => void;
   setPanelWidth: (width: number) => void;
+  setResponsiveMode: (mode: 'desktop' | 'tablet' | 'mobile' | 'custom') => void;
+  setCustomViewportSize: (width: number, height: number) => void;
   
   // Color tools actions
   setColorToolsOpen: (open: boolean) => void;
   setActiveColorTool: (tool: 'contrast' | 'palette' | 'harmonies' | null) => void;
+  
+  // Bulk operations actions
+  toggleTokenSelection: (tokenName: string) => void;
+  selectAllTokens: () => void;
+  clearTokenSelection: () => void;
+  setBulkEditMode: (enabled: boolean) => void;
+  bulkUpdateTokens: (updates: Record<string, string>, description?: string) => void;
+  bulkCopyToMode: (targetMode: 'light' | 'dark') => void;
+  bulkResetTokens: (description?: string) => void;
+  
+  // Custom presets actions
+  saveCustomPreset: (id: string, name: string, description?: string) => void;
+  deleteCustomPreset: (id: string) => void;
+  loadCustomPresets: () => void;
   
   // Reset
   reset: () => void;
@@ -97,8 +123,14 @@ const createInitialState = (initialTokens: ThemeData): Partial<ThemeStudioState>
   previewComponent: 'all',
   splitViewEnabled: true,
   panelWidth: 50,
+  responsiveMode: 'desktop',
+  customViewportWidth: 1920,
+  customViewportHeight: 1080,
   colorToolsOpen: false,
   activeColorTool: 'contrast',
+  selectedTokens: new Set<string>(),
+  bulkEditMode: false,
+  customPresets: {},
 });
 
 export const useThemeStudioStore = create<ThemeStudioState>((set, get) => {
@@ -277,12 +309,176 @@ export const useThemeStudioStore = create<ThemeStudioState>((set, get) => {
       set({ panelWidth: Math.max(20, Math.min(80, width)) });
     },
     
+    setResponsiveMode: (mode) => {
+      set({ responsiveMode: mode });
+      // If switching to preset, update viewport size based on preset
+      if (mode !== 'custom') {
+        const preset = mode === 'desktop' ? { width: 1920, height: 1080 } :
+                      mode === 'tablet' ? { width: 768, height: 1024 } :
+                      { width: 375, height: 667 };
+        set({
+          customViewportWidth: preset.width,
+          customViewportHeight: preset.height,
+        });
+      }
+    },
+    
+    setCustomViewportSize: (width, height) => {
+      set({
+        customViewportWidth: Math.max(320, Math.min(3840, width)),
+        customViewportHeight: Math.max(240, Math.min(2160, height)),
+        responsiveMode: 'custom', // Switch to custom when manually adjusting
+      });
+    },
+    
     setColorToolsOpen: (open) => {
       set({ colorToolsOpen: open });
     },
     
     setActiveColorTool: (tool) => {
       set({ activeColorTool: tool });
+    },
+    
+    toggleTokenSelection: (tokenName) => {
+      set(
+        produce(get(), (draft) => {
+          if (draft.selectedTokens.has(tokenName)) {
+            draft.selectedTokens.delete(tokenName);
+          } else {
+            draft.selectedTokens.add(tokenName);
+          }
+        })
+      );
+    },
+    
+    selectAllTokens: () => {
+      const state = get();
+      const allTokens = new Set([
+        ...Object.keys(state.lightTokens),
+        ...Object.keys(state.darkTokens),
+      ]);
+      set({ selectedTokens: allTokens });
+    },
+    
+    clearTokenSelection: () => {
+      set({ selectedTokens: new Set<string>() });
+    },
+    
+    setBulkEditMode: (enabled) => {
+      set({ bulkEditMode: enabled });
+      if (!enabled) {
+        set({ selectedTokens: new Set<string>() });
+      }
+    },
+    
+    bulkUpdateTokens: (updates, description) => {
+      const state = get();
+      const newState = produce(state, (draft) => {
+        Object.entries(updates).forEach(([tokenName, value]) => {
+          if (state.selectedTokens.has(tokenName)) {
+            if (state.activeMode === 'light') {
+              draft.lightTokens[tokenName] = value;
+            } else {
+              draft.darkTokens[tokenName] = value;
+            }
+          }
+        });
+      });
+      
+      set(newState);
+      get().addHistoryEntry(description || 'Bulk updated tokens');
+      get().clearTokenSelection();
+    },
+    
+    bulkCopyToMode: (targetMode) => {
+      const state = get();
+      const sourceTokens = state.activeMode === 'light' ? state.lightTokens : state.darkTokens;
+      const targetTokens = targetMode === 'light' ? state.lightTokens : state.darkTokens;
+      
+      const updates: Record<string, string> = {};
+      state.selectedTokens.forEach((tokenName) => {
+        if (sourceTokens[tokenName]) {
+          updates[tokenName] = sourceTokens[tokenName];
+        }
+      });
+      
+      const newState = produce(state, (draft) => {
+        Object.entries(updates).forEach(([tokenName, value]) => {
+          if (targetMode === 'light') {
+            draft.lightTokens[tokenName] = value;
+          } else {
+            draft.darkTokens[tokenName] = value;
+          }
+        });
+      });
+      
+      set(newState);
+      get().addHistoryEntry(`Copied ${state.selectedTokens.size} tokens to ${targetMode} mode`);
+      get().clearTokenSelection();
+    },
+    
+    bulkResetTokens: (description) => {
+      // This would need access to default tokens - for now, just clear selection
+      get().clearTokenSelection();
+      get().addHistoryEntry(description || 'Bulk reset tokens');
+    },
+    
+    saveCustomPreset: (id, name, description) => {
+      const state = get();
+      const preset = {
+        name,
+        description,
+        light: { ...state.lightTokens },
+        dark: { ...state.darkTokens },
+      };
+      
+      set(
+        produce(state, (draft) => {
+          draft.customPresets[id] = preset;
+        })
+      );
+      
+      // Save to localStorage
+      if (typeof window !== 'undefined') {
+        try {
+          const allPresets = { ...state.customPresets, [id]: preset };
+          localStorage.setItem('atomix-custom-presets', JSON.stringify(allPresets));
+        } catch (error) {
+          console.error('Failed to save custom preset to localStorage:', error);
+        }
+      }
+    },
+    
+    deleteCustomPreset: (id) => {
+      set(
+        produce(get(), (draft) => {
+          delete draft.customPresets[id];
+        })
+      );
+      
+      // Update localStorage
+      if (typeof window !== 'undefined') {
+        try {
+          const state = get();
+          localStorage.setItem('atomix-custom-presets', JSON.stringify(state.customPresets));
+        } catch (error) {
+          console.error('Failed to update localStorage:', error);
+        }
+      }
+    },
+    
+    loadCustomPresets: () => {
+      if (typeof window === 'undefined') return;
+      
+      try {
+        const stored = localStorage.getItem('atomix-custom-presets');
+        if (stored) {
+          const presets = JSON.parse(stored);
+          set({ customPresets: presets });
+        }
+      } catch (error) {
+        console.error('Failed to load custom presets from localStorage:', error);
+      }
     },
     
     reset: () => {

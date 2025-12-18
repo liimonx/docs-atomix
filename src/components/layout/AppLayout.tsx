@@ -79,6 +79,10 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
     setSidebarOpen(false);
   }, []);
 
+  const handleSidebarOpen = useCallback(() => {
+    setSidebarOpen(true);
+  }, []);
+
   const handleSearchChange = useCallback((query: string) => {
     setSearchQuery(query);
   }, []);
@@ -111,6 +115,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
     () => ({
       isOpen: sidebarOpen,
       onClose: handleSidebarClose,
+      onOpen: handleSidebarOpen,
       searchQuery,
       onSearchChange: handleSearchChange,
       onItemSelect: handleSidebarClose, // Close sidebar on mobile after navigation
@@ -118,6 +123,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
     [
       sidebarOpen,
       handleSidebarClose,
+      handleSidebarOpen,
       searchQuery,
       handleSearchChange,
     ]

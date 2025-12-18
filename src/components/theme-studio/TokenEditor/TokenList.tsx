@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, useMemo } from 'react';
 import { Block, Badge } from '@shohojdhara/atomix';
 import { useThemeStudioStore } from '@/stores/themeStudioStore';
@@ -81,6 +83,7 @@ export const TokenList: FC = () => {
     });
     return grouped;
   }, [filteredTokens]);
+
 
   if (filteredTokens.length === 0) {
     return (

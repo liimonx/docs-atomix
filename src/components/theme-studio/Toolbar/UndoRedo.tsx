@@ -9,17 +9,17 @@ export const UndoRedo: FC = () => {
   const { canUndo, canRedo } = useUndoRedo();
 
   return (
-    <div className={styles.undoRedo}>
+    <div className={styles.undoRedo} role="group" aria-label="History controls">
       <Button
         variant="outline-secondary"
         size="sm"
         onClick={undo}
         disabled={!canUndo}
         className={styles.undoRedo__button}
-        aria-label="Undo"
+        aria-label={canUndo ? "Undo last change (Cmd/Ctrl+Z)" : "Nothing to undo"}
         title="Undo (Cmd/Ctrl+Z)"
       >
-        <Icon name="ArrowCounterClockwise" size={16} />
+        <Icon name="ArrowCounterClockwise" size={16} aria-hidden="true" />
       </Button>
       <Button
         variant="outline-secondary"
@@ -27,10 +27,10 @@ export const UndoRedo: FC = () => {
         onClick={redo}
         disabled={!canRedo}
         className={styles.undoRedo__button}
-        aria-label="Redo"
+        aria-label={canRedo ? "Redo last undone change (Cmd/Ctrl+Shift+Z)" : "Nothing to redo"}
         title="Redo (Cmd/Ctrl+Shift+Z)"
       >
-        <Icon name="ArrowClockwise" size={16} />
+        <Icon name="ArrowClockwise" size={16} aria-hidden="true" />
       </Button>
     </div>
   );

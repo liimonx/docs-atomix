@@ -86,6 +86,7 @@ export const HomePageLayout: FC<{ children: React.ReactNode }> = ({ children }) 
         <DocumentationSidebar
           isOpen={sidebarOpen}
           onClose={() => setSidebarOpen(false)}
+          onOpen={() => setSidebarOpen(true)}
         />
 
         {/* Page Content - no sidebar for home page */}

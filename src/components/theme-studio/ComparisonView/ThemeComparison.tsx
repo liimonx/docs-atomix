@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Card, Button } from '@shohojdhara/atomix';
+import { FC, useState } from 'react';
+import { Card, Button, Callout } from '@shohojdhara/atomix';
 import { useThemeStudioStore } from '@/stores/themeStudioStore';
 import { DiffViewer } from './DiffViewer';
 import styles from './ThemeComparison.module.scss';
@@ -14,6 +14,7 @@ export const ThemeComparison: FC = () => {
     setComparisonMode,
     setComparisonTheme,
   } = useThemeStudioStore();
+  const [error, setError] = useState<string | null>(null);
 
   const currentTokens = activeMode === 'light' ? lightTokens : darkTokens;
 
@@ -23,6 +24,16 @@ export const ThemeComparison: FC = () => {
         <div className={styles.themeComparison__empty}>
           <h3>Theme Comparison</h3>
           <p>Load a theme to compare with your current theme.</p>
+          {error && (
+            <Callout
+              variant="error"
+              title="Error"
+              onClose={() => setError(null)}
+              className={styles.themeComparison__error}
+            >
+              {error}
+            </Callout>
+          )}
           <Button
             variant="primary"
             onClick={() => {
@@ -43,9 +54,13 @@ export const ThemeComparison: FC = () => {
                       dark: data.dark || {},
                     });
                     setComparisonMode(true);
+                    setError(null);
                   } catch (error) {
-                    alert('Error parsing theme file');
+                    setError('Error parsing theme file. Please ensure it is valid JSON.');
                   }
+                };
+                reader.onerror = () => {
+                  setError('Error reading file. Please try again.');
                 };
                 reader.readAsText(file);
               };
