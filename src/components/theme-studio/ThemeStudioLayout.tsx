@@ -1,5 +1,5 @@
 import { FC, ReactNode, useState, useRef, useCallback, useEffect } from "react";
-import { Container, Block } from "@shohojdhara/atomix";
+import { Block } from "@shohojdhara/atomix";
 import { useThemeStudioStore } from "@/stores/themeStudioStore";
 import { ThemeToolbar } from "./Toolbar/ThemeToolbar";
 import { TokenEditorPanel } from "./TokenEditor/TokenEditorPanel";
