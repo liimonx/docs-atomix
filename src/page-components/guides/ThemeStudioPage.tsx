@@ -19,9 +19,6 @@ import {
 import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 import {
   applyThemeToDocument,
-  exportAsJSON,
-  exportAsCSS,
-  exportAsSCSS,
   validateImportedTheme,
   downloadFile,
   detectTokenType,
@@ -41,14 +38,26 @@ interface ThemeTokensData {
   light: Record<string, string>;
   dark: Record<string, string>;
   metadata: {
-    light: TokenMetadata[];
-    dark: TokenMetadata[];
+    light: Array<{
+      name: string;
+      displayName: string;
+      type: string;
+      category: string;
+    }>;
+    dark: Array<{
+      name: string;
+      displayName: string;
+      type: string;
+      category: string;
+    }>;
     categories: Array<{ id: string; title: string; description: string }>;
   };
 }
 
 const ThemeStudioPage: FC = () => {
   const tokensData = themeTokensData as ThemeTokensData;
+  const { lightTokens, darkTokens, activeMode, setTheme } =
+    useThemeStudioStore();
 
   // State
   const [lightThemeTokens, setLightThemeTokens] = useState<
@@ -68,8 +77,6 @@ const ThemeStudioPage: FC = () => {
     new Set()
   );
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // Debounce timer for applying theme
   const applyTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Get current tokens based on active mode
@@ -125,6 +132,11 @@ const ThemeStudioPage: FC = () => {
 
   // Apply theme to document with debounce
   useEffect(() => {
+    // Skip if tokens are empty (not initialized yet)
+    if (Object.keys(lightTokens).length === 0 && Object.keys(darkTokens).length === 0) {
+      return;
+    }
+
     if (applyTimerRef.current) {
       clearTimeout(applyTimerRef.current);
     }
@@ -242,9 +254,11 @@ const ThemeStudioPage: FC = () => {
     []
   );
 
-  // Render token input based on type
-  const renderTokenInput = (token: TokenMetadata, value: string) => {
-    const tokenType = detectTokenType(value);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const content = e.target?.result as string;
+        const data = JSON.parse(content);
 
     switch (tokenType) {
       case "color":
@@ -338,6 +352,12 @@ const ThemeStudioPage: FC = () => {
             placeholder="Enter value..."
           />
         );
+        alert("Theme imported successfully!");
+      } catch (error) {
+        alert("Error parsing theme file. Please ensure it is valid JSON.");
+      }
+    };
+    reader.readAsText(file);
 
       default:
         return (
@@ -373,7 +393,8 @@ const ThemeStudioPage: FC = () => {
         className={styles.pageHero}
         backgroundImageSrc="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Theme Studio"
-        text="Create and customize themes interactively with real-time preview"
+        subtitle="Create and customize themes interactively with real-time preview"
+        text="Customize every design token from your Atomix design system. Switch between light and dark modes, preview changes in real-time, and export your theme for use in your application."
         alignment="center"
       />
 

@@ -365,6 +365,63 @@ export default function Page() {
         </Container>
       </Block>
 
+            {/* AtomixGlass: The New Era Section */}
+            <Block 
+        spacing="lg" 
+        container={{ type: "fluid" }} 
+        className="u-overflow-hidden"
+        style={{ background: "var(--atomix-primary-gradient)" }}
+      >
+        <Container>
+          <div className="u-position-relative">
+            <AtomixGlass
+              displacementScale={150}
+              blurAmount={1.5}
+              mode="shader"
+              cornerRadius={32}
+              enableLiquidBlur={true}
+              padding="3rem 2rem"
+              saturation={200}
+              elasticity={0}
+            >
+              <div className="u-text-center">
+                <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-mb-4 u-p-3">
+                  <Icon name="Sparkle" size={32} />
+                </div>
+                <h2 className="u-fs-2xl u-fw-700 u-mb-3 u-text-primary-emphasis">
+                  AtomixGlass: The New Era of Design
+                </h2>
+                <p className="u-fs-lg u-text-secondary-emphasis u-lh-relaxed u-mb-4 u-max-w-2xl u-mx-auto">
+                  Experience the future of interface design with hardware-accelerated glass morphism. 
+                  Where beauty meets performance, and interaction becomes liquid.
+                </p>
+                <div className="u-d-flex u-flex-wrap u-justify-content-center u-gap-3 u-mt-5">
+                  <Button
+                    glass={{ blurAmount: 0 }}
+                    variant="primary"
+                    icon={<Icon name="Rocket" />}
+                    href="/docs/components/atomix-glass"
+                    as={Link}
+                  >
+                    Discover AtomixGlass
+                  </Button>
+                  <Button
+                    glass={{ blurAmount: 0 }}
+                    variant="outline-secondary"
+                    icon={<Icon name="ArrowRight" />}
+                    href="/docs/components/atomix-glass"
+                    as={Link}
+                  >
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+            </AtomixGlass>
+          </div>
+        </Container>
+      </Block>
+
+
       {/* Quick Links Section */}
       <Block spacing="md" container={{ type: "fluid" }}>
         <Container>

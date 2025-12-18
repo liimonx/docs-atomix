@@ -1,0 +1,64 @@
+// Component: TokenSearch
+// =============================================================================
+
+// Block: Token search
+// =============================================================================
+.tokenSearch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-2);
+}
+
+.tokenSearch__inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.tokenSearch__icon {
+  position: absolute;
+  left: var(--atomix-spacing-3);
+  color: var(--atomix-secondary-text-emphasis);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tokenSearch__input {
+  padding-left: calc(var(--atomix-spacing-3) * 2 + 20px);
+  padding-right: calc(var(--atomix-spacing-3) * 2 + 20px);
+}
+
+.tokenSearch__clear {
+  position: absolute;
+  right: var(--atomix-spacing-2);
+  min-width: auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--atomix-secondary-text-emphasis);
+  
+  &:hover {
+    background-color: var(--atomix-secondary-bg-subtle);
+    color: var(--atomix-body-color);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+  }
+}
+
+.tokenSearch__quickFilters {
+  display: flex;
+  gap: var(--atomix-spacing-2);
+  flex-wrap: wrap;
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .tokenSearch__clear {
+    transition: none;
+  }
+}
+

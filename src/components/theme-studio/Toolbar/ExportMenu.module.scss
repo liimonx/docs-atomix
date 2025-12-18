@@ -1,0 +1,69 @@
+// Component: ExportMenu
+// =============================================================================
+
+
+
+// Block: Export menu
+// =============================================================================
+.exportMenu {
+  position: relative;
+}
+
+.exportMenu__button {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-2);
+}
+
+.exportMenu__caret {
+  margin-left: var(--atomix-spacing-1);
+}
+
+.exportMenu__dropdown {
+  position: absolute;
+  top: calc(100% + var(--atomix-spacing-2));
+  right: 0;
+  background-color: var(--atomix-secondary-bg-subtle);
+  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+  box-shadow: var(--atomix-box-shadow-lg);
+  z-index: var(--atomix-z-dropdown);
+  min-width: 200px;
+  overflow: hidden;
+}
+
+.exportMenu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-3);
+  width: 100%;
+  padding: var(--atomix-spacing-3);
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color var(--atomix-transition-duration-fast) var(--atomix-easing-base);
+  
+  &:hover {
+    background-color: var(--atomix-tertiary-bg-subtle);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: -2px;
+    background-color: var(--atomix-tertiary-bg-subtle);
+  }
+  
+  span {
+    flex: 1;
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .exportMenu__item {
+    transition: none;
+  }
+}
+

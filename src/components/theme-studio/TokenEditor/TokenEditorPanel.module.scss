@@ -1,0 +1,43 @@
+// Component: TokenEditorPanel
+// =============================================================================
+
+// Block: Token editor panel
+// =============================================================================
+
+
+.tokenEditorPanel__content {
+  display: flex;
+  flex: 1;
+  gap: var(--atomix-spacing-4);
+  overflow: hidden;
+  min-height: 0;
+}
+
+.tokenEditorPanel__sidebar {
+  flex-shrink: 0;
+  width: 200px;
+  padding-right: var(--atomix-spacing-4);
+  border-right: 1px solid var(--atomix-border-color);
+  overflow-y: auto;
+}
+
+.tokenEditorPanel__main {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  height: calc(100vh - 300px);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .tokenEditorPanel__content {
+    flex-direction: column;
+  }
+  
+  .tokenEditorPanel__sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--atomix-border-color);
+  }
+}

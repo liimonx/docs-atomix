@@ -1,0 +1,116 @@
+// Component: ContrastChecker
+// =============================================================================
+
+
+
+// Block: Contrast checker
+// =============================================================================
+.contrastChecker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-4);
+}
+
+.contrastChecker__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-3);
+}
+
+.contrastChecker__inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-2);
+}
+
+.contrastChecker__label {
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-medium);
+  color: var(--atomix-body-color);
+}
+
+.contrastChecker__colorRow {
+  display: flex;
+  gap: var(--atomix-spacing-2);
+  align-items: center;
+}
+
+.contrastChecker__colorPicker {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.contrastChecker__textInput {
+  flex: 1;
+}
+
+.contrastChecker__preview {
+  padding: var(--atomix-spacing-4);
+  background-color: var(--atomix-secondary-bg-subtle);
+  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+}
+
+.contrastChecker__sample {
+  padding: var(--atomix-spacing-4);
+  font-size: var(--atomix-font-size-lg);
+  font-weight: var(--atomix-font-weight-medium);
+  border-radius: var(--atomix-border-radius);
+  text-align: center;
+}
+
+.contrastChecker__results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-3);
+}
+
+.contrastChecker__ratio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--atomix-spacing-3);
+  background-color: var(--atomix-secondary-bg-subtle);
+  border-radius: var(--atomix-border-radius);
+}
+
+.contrastChecker__ratioLabel {
+  font-size: var(--atomix-font-size-sm);
+  color: var(--atomix-secondary-text-emphasis);
+}
+
+.contrastChecker__ratioValue {
+  font-size: var(--atomix-font-size-xl);
+  font-weight: var(--atomix-font-weight-bold);
+  color: var(--atomix-body-color);
+}
+
+.contrastChecker__compliance {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-3);
+}
+
+.contrastChecker__level {
+  display: flex;
+  justify-content: center;
+}
+
+.contrastChecker__checks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-2);
+}
+
+.contrastChecker__check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--atomix-spacing-2);
+  font-size: var(--atomix-font-size-sm);
+}
+

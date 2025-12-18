@@ -1,0 +1,32 @@
+// Component: ThemeComparison
+// =============================================================================
+
+// Block: Theme comparison
+// =============================================================================
+.themeComparison {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--atomix-spacing-4);
+  min-height: 0;
+}
+
+.themeComparison__empty {
+  text-align: center;
+  padding: var(--atomix-spacing-8);
+}
+
+.themeComparison__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--atomix-spacing-4);
+  flex-shrink: 0;
+}
+
+.themeComparison__header h3 {
+  margin: 0;
+  font-size: var(--atomix-font-size-lg);
+  font-weight: var(--atomix-font-weight-semibold);
+}
+

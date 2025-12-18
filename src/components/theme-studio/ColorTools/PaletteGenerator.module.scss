@@ -1,0 +1,84 @@
+// Component: PaletteGenerator
+// =============================================================================
+
+
+
+// Block: Palette generator
+// =============================================================================
+.paletteGenerator {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-4);
+}
+
+.paletteGenerator__input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-2);
+}
+
+.paletteGenerator__label {
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-medium);
+  color: var(--atomix-body-color);
+}
+
+.paletteGenerator__colorRow {
+  display: flex;
+  gap: var(--atomix-spacing-2);
+  align-items: center;
+}
+
+.paletteGenerator__colorPicker {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.paletteGenerator__textInput {
+  flex: 1;
+}
+
+.paletteGenerator__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-3);
+}
+
+.paletteGenerator__sectionTitle {
+  font-size: var(--atomix-font-size-base);
+  font-weight: var(--atomix-font-weight-semibold);
+  margin: 0;
+}
+
+.paletteGenerator__swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--atomix-spacing-2);
+}
+
+.paletteGenerator__swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--atomix-spacing-1);
+  min-width: 80px;
+}
+
+.paletteGenerator__swatchColor {
+  width: 100%;
+  height: 60px;
+  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+}
+
+.paletteGenerator__swatchValue {
+  font-size: var(--atomix-font-size-xs);
+  font-family: var(--atomix-font-monospace);
+  color: var(--atomix-secondary-text-emphasis);
+  text-align: center;
+  word-break: break-all;
+}
+

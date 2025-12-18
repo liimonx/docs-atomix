@@ -1,0 +1,7 @@
+.colorToolsPanel__toggle {
+  position: fixed;
+  right: var(--atomix-spacing-4);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: var(--atomix-z-dropdown);
+}

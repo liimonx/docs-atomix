@@ -145,11 +145,15 @@ export default async function DynamicDocsPage({ params }: DynamicPageProps) {
   // Some components need specific props (e.g., GettingStartedPage needs 'type')
   const componentProps = navigationItem ? getComponentProps(navigationItem) : {};
   
+  // Filter out any non-standard props that shouldn't be passed to page components
+  // This prevents React warnings about unrecognized DOM props
+  const { defaultOpen, ...safeProps } = componentProps;
+  
   // Wrap in Suspense to handle async boundaries properly
   // This prevents React errors when async server components render client components
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <PageComponent {...componentProps} />
+      <PageComponent {...safeProps} />
     </Suspense>
   );
 }

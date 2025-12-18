@@ -30,17 +30,9 @@
     "--atomix-border-style": "solid",
     "--atomix-border-width": "1px",
     "--atomix-box-shadow": "0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px -4px rgba(139, 92, 246, 0.25), 0 6px 16px -2px rgba(0, 0, 0, 0.05)",
-    "--atomix-box-shadow-2xl": "0 16px 32px rgba(0, 0, 0, 0.1), 0 60px 128px -12px rgba(139, 92, 246, 0.4), 0 24px 64px -8px rgba(0, 0, 0, 0.12)",
-    "--atomix-box-shadow-error": "0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px -4px rgba(244, 63, 94, 0.25)",
-    "--atomix-box-shadow-glow": "0 0 20px rgba(139, 92, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.2)",
-    "--atomix-box-shadow-glow-lg": "0 0 40px rgba(139, 92, 246, 0.5), 0 0 80px rgba(139, 92, 246, 0.3)",
-    "--atomix-box-shadow-info": "0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px -4px rgba(6, 182, 212, 0.25)",
     "--atomix-box-shadow-inset": "inset 0 2px 4px rgba(0, 0, 0, 0.06), inset 0 1px 2px rgba(139, 92, 246, 0.1)",
     "--atomix-box-shadow-lg": "0 6px 12px rgba(0, 0, 0, 0.06), 0 24px 64px -6px rgba(139, 92, 246, 0.3), 0 10px 28px -4px rgba(0, 0, 0, 0.07)",
-    "--atomix-box-shadow-md": "0 4px 6px rgba(0, 0, 0, 0.05), 0 8px 20px -2px rgba(139, 92, 246, 0.22)",
     "--atomix-box-shadow-sm": "0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 12px -1px rgba(139, 92, 246, 0.2)",
-    "--atomix-box-shadow-success": "0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px -4px rgba(20, 184, 166, 0.25)",
-    "--atomix-box-shadow-warning": "0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px -4px rgba(245, 158, 11, 0.25)",
     "--atomix-box-shadow-xl": "0 10px 20px rgba(0, 0, 0, 0.08), 0 40px 96px -10px rgba(139, 92, 246, 0.35), 0 16px 48px -6px rgba(0, 0, 0, 0.1)",
     "--atomix-box-shadow-xs": "0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(139, 92, 246, 0.15)",
     "--atomix-brand-bg-subtle": "#ede9fe",
@@ -61,10 +53,7 @@
     "--atomix-dark-text-emphasis": "#0a0a0f",
     "--atomix-disabled-text-emphasis": "#94a3b8",
     "--atomix-display-1": "5rem",
-    "--atomix-display-2": "4rem",
-    "--atomix-display-3": "3rem",
     "--atomix-easing-base": "cubic-bezier(0.4, 0, 0.2, 1)",
-    "--atomix-easing-bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
     "--atomix-easing-ease-in": "cubic-bezier(0.4, 0, 1, 1)",
     "--atomix-easing-ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
     "--atomix-easing-ease-linear": "linear",
@@ -80,22 +69,10 @@
     "--atomix-focus-ring-offset": "2px",
     "--atomix-focus-ring-opacity": "0.3",
     "--atomix-focus-ring-width": "4px",
-    "--atomix-font-display": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
     "--atomix-font-monospace": "\"JetBrains Mono\", \"Fira Code\", \"SF Mono\", SFMono-Regular, Menlo, Monaco, Consolas, monospace",
     "--atomix-font-sans-serif": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Inter\", \"Roboto\", \"Helvetica Neue\", Arial, sans-serif",
     "--atomix-font-size-2xl": "2rem",
-    "--atomix-font-size-3xl": "2.5rem",
-    "--atomix-font-size-4xl": "3rem",
-    "--atomix-font-size-5xl": "3.75rem",
-    "--atomix-font-size-6xl": "4.5rem",
-    "--atomix-font-size-7xl": "5.25rem",
-    "--atomix-font-size-8xl": "6rem",
-    "--atomix-font-size-9xl": "7.5rem",
-    "--atomix-font-size-base": "1rem",
-    "--atomix-font-size-lg": "1.125rem",
-    "--atomix-font-size-sm": "0.875rem",
     "--atomix-font-size-xl": "1.5rem",
-    "--atomix-font-size-xs": "0.75rem",
     "--atomix-font-weight-black": "900",
     "--atomix-font-weight-bold": "700",
     "--atomix-font-weight-heavy": "800",
@@ -145,12 +122,6 @@
     "--atomix-letter-spacing-h4": "-0.015em",
     "--atomix-letter-spacing-h5": "-0.01em",
     "--atomix-letter-spacing-h6": "-0.005em",
-    "--atomix-letter-spacing-normal": "0",
-    "--atomix-letter-spacing-tight": "-0.025em",
-    "--atomix-letter-spacing-tighter": "-0.05em",
-    "--atomix-letter-spacing-wide": "0.025em",
-    "--atomix-letter-spacing-wider": "0.05em",
-    "--atomix-letter-spacing-widest": "0.1em",
     "--atomix-light": "#ffffff",
     "--atomix-light-bg-subtle": "#ffffff",
     "--atomix-light-border-subtle": "#ecfeff",
@@ -160,12 +131,7 @@
     "--atomix-light-text-emphasis": "#ffffff",
     "--atomix-line-height-base": "1.5",
     "--atomix-line-height-lg": "1.75",
-    "--atomix-line-height-loose": "2",
-    "--atomix-line-height-none": "1",
-    "--atomix-line-height-relaxed": "1.625",
     "--atomix-line-height-sm": "1.65",
-    "--atomix-line-height-snug": "1.375",
-    "--atomix-line-height-tight": "1.25",
     "--atomix-link-color": "#8b5cf6",
     "--atomix-link-color-rgb": "var(--atomix-primary-rgb)",
     "--atomix-link-decoration": "none",
@@ -290,8 +256,6 @@
     "--atomix-z-tooltip": "1060"
   },
   "dark": {
-    "--atomix-accent": "#22d3ee",
-    "--atomix-accent-rgb": "34, 211, 238",
     "--atomix-body-bg": "#0a0a0f",
     "--atomix-body-color": "#fafafa",
     "--atomix-body-font-family": "var(--atomix-font-sans-serif)",
@@ -310,17 +274,9 @@
     "--atomix-border-radius-xl": "1.75rem",
     "--atomix-border-radius-xxl": "2.25rem",
     "--atomix-box-shadow": "0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 32px -4px rgba(167, 139, 250, 0.4), 0 6px 16px -2px rgba(0, 0, 0, 0.4)",
-    "--atomix-box-shadow-2xl": "0 16px 32px rgba(0, 0, 0, 0.5), 0 60px 128px -12px rgba(167, 139, 250, 0.55), 0 24px 64px -8px rgba(0, 0, 0, 0.6)",
-    "--atomix-box-shadow-error": "0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 32px -4px rgba(251, 113, 133, 0.4)",
-    "--atomix-box-shadow-glow": "0 0 20px rgba(167, 139, 250, 0.5), 0 0 40px rgba(167, 139, 250, 0.3)",
-    "--atomix-box-shadow-glow-lg": "0 0 40px rgba(167, 139, 250, 0.6), 0 0 80px rgba(167, 139, 250, 0.4)",
-    "--atomix-box-shadow-info": "0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 32px -4px rgba(34, 211, 238, 0.4)",
     "--atomix-box-shadow-inset": "inset 0 2px 4px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(167, 139, 250, 0.2)",
     "--atomix-box-shadow-lg": "0 6px 12px rgba(0, 0, 0, 0.4), 0 24px 64px -6px rgba(167, 139, 250, 0.45), 0 10px 28px -4px rgba(0, 0, 0, 0.5)",
-    "--atomix-box-shadow-md": "0 4px 6px rgba(0, 0, 0, 0.35), 0 8px 20px -2px rgba(167, 139, 250, 0.38)",
     "--atomix-box-shadow-sm": "0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 12px -1px rgba(167, 139, 250, 0.35)",
-    "--atomix-box-shadow-success": "0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 32px -4px rgba(94, 234, 212, 0.4)",
-    "--atomix-box-shadow-warning": "0 2px 4px rgba(0, 0, 0, 0.3), 0 12px 32px -4px rgba(251, 191, 36, 0.4)",
     "--atomix-box-shadow-xl": "0 10px 20px rgba(0, 0, 0, 0.45), 0 40px 96px -10px rgba(167, 139, 250, 0.5), 0 16px 48px -6px rgba(0, 0, 0, 0.55)",
     "--atomix-box-shadow-xs": "0 1px 2px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(167, 139, 250, 0.3)",
     "--atomix-brand-bg-subtle": "#4c1d95",
@@ -336,10 +292,7 @@
     "--atomix-dark-text-emphasis": "#18181b",
     "--atomix-disabled-text-emphasis": "#52525b",
     "--atomix-display-1": "5rem",
-    "--atomix-display-2": "4rem",
-    "--atomix-display-3": "3rem",
     "--atomix-easing-base": "cubic-bezier(0.4, 0, 0.2, 1)",
-    "--atomix-easing-bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
     "--atomix-easing-ease-in": "cubic-bezier(0.4, 0, 1, 1)",
     "--atomix-easing-ease-in-out": "cubic-bezier(0.4, 0, 0.2, 1)",
     "--atomix-easing-ease-linear": "linear",
@@ -356,18 +309,7 @@
     "--atomix-focus-ring-opacity": "0.35",
     "--atomix-focus-ring-width": "4px",
     "--atomix-font-size-2xl": "2rem",
-    "--atomix-font-size-3xl": "2.5rem",
-    "--atomix-font-size-4xl": "3rem",
-    "--atomix-font-size-5xl": "3.75rem",
-    "--atomix-font-size-6xl": "4.5rem",
-    "--atomix-font-size-7xl": "5.25rem",
-    "--atomix-font-size-8xl": "6rem",
-    "--atomix-font-size-9xl": "7.5rem",
-    "--atomix-font-size-base": "1rem",
-    "--atomix-font-size-lg": "1.125rem",
-    "--atomix-font-size-sm": "0.875rem",
     "--atomix-font-size-xl": "1.5rem",
-    "--atomix-font-size-xs": "0.75rem",
     "--atomix-font-weight-black": "900",
     "--atomix-font-weight-bold": "700",
     "--atomix-font-weight-heavy": "800",
@@ -396,12 +338,6 @@
     "--atomix-letter-spacing-h4": "-0.015em",
     "--atomix-letter-spacing-h5": "-0.01em",
     "--atomix-letter-spacing-h6": "-0.005em",
-    "--atomix-letter-spacing-normal": "0",
-    "--atomix-letter-spacing-tight": "-0.025em",
-    "--atomix-letter-spacing-tighter": "-0.05em",
-    "--atomix-letter-spacing-wide": "0.025em",
-    "--atomix-letter-spacing-wider": "0.05em",
-    "--atomix-letter-spacing-widest": "0.1em",
     "--atomix-light": "#fafafa",
     "--atomix-light-bg-subtle": "#fafafa",
     "--atomix-light-border-subtle": "#fafafa",
@@ -411,12 +347,7 @@
     "--atomix-light-text-emphasis": "#fafafa",
     "--atomix-line-height-base": "1.5",
     "--atomix-line-height-lg": "1.75",
-    "--atomix-line-height-loose": "2",
-    "--atomix-line-height-none": "1",
-    "--atomix-line-height-relaxed": "1.625",
     "--atomix-line-height-sm": "1.65",
-    "--atomix-line-height-snug": "1.375",
-    "--atomix-line-height-tight": "1.25",
     "--atomix-link-color": "#a78bfa",
     "--atomix-link-color-rgb": "167, 139, 250",
     "--atomix-link-hover-color": "#c4b5fd",
@@ -442,9 +373,6 @@
     "--atomix-success-hover": "#2dd4bf",
     "--atomix-success-rgb": "94, 234, 212",
     "--atomix-success-text-emphasis": "#5eead4",
-    "--atomix-surface-1": "#1a1a1f",
-    "--atomix-surface-2": "#25252a",
-    "--atomix-surface-3": "#2d2d35",
     "--atomix-tertiary-bg-subtle": "#2d2d35",
     "--atomix-tertiary-text-emphasis": "#a1a1aa",
     "--atomix-transition-base": "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -645,36 +573,6 @@
         "category": "shadows"
       },
       {
-        "name": "--atomix-box-shadow-2xl",
-        "displayName": "Box Shadow 2xl",
-        "type": "shadow",
-        "category": "shadows"
-      },
-      {
-        "name": "--atomix-box-shadow-error",
-        "displayName": "Box Shadow Error",
-        "type": "shadow",
-        "category": "colors"
-      },
-      {
-        "name": "--atomix-box-shadow-glow",
-        "displayName": "Box Shadow Glow",
-        "type": "shadow",
-        "category": "shadows"
-      },
-      {
-        "name": "--atomix-box-shadow-glow-lg",
-        "displayName": "Box Shadow Glow Lg",
-        "type": "shadow",
-        "category": "shadows"
-      },
-      {
-        "name": "--atomix-box-shadow-info",
-        "displayName": "Box Shadow Info",
-        "type": "shadow",
-        "category": "colors"
-      },
-      {
         "name": "--atomix-box-shadow-inset",
         "displayName": "Box Shadow Inset",
         "type": "shadow",
@@ -687,28 +585,10 @@
         "category": "shadows"
       },
       {
-        "name": "--atomix-box-shadow-md",
-        "displayName": "Box Shadow Md",
-        "type": "shadow",
-        "category": "shadows"
-      },
-      {
         "name": "--atomix-box-shadow-sm",
         "displayName": "Box Shadow Sm",
         "type": "shadow",
         "category": "shadows"
-      },
-      {
-        "name": "--atomix-box-shadow-success",
-        "displayName": "Box Shadow Success",
-        "type": "shadow",
-        "category": "colors"
-      },
-      {
-        "name": "--atomix-box-shadow-warning",
-        "displayName": "Box Shadow Warning",
-        "type": "shadow",
-        "category": "colors"
       },
       {
         "name": "--atomix-box-shadow-xl",
@@ -831,26 +711,8 @@
         "category": "other"
       },
       {
-        "name": "--atomix-display-2",
-        "displayName": "Display 2",
-        "type": "font-size",
-        "category": "other"
-      },
-      {
-        "name": "--atomix-display-3",
-        "displayName": "Display 3",
-        "type": "font-size",
-        "category": "other"
-      },
-      {
         "name": "--atomix-easing-base",
         "displayName": "Easing Base",
-        "type": "transition",
-        "category": "transitions"
-      },
-      {
-        "name": "--atomix-easing-bounce",
-        "displayName": "Easing Bounce",
         "type": "transition",
         "category": "transitions"
       },
@@ -945,12 +807,6 @@
         "category": "forms"
       },
       {
-        "name": "--atomix-font-display",
-        "displayName": "Font Display",
-        "type": "font-family",
-        "category": "typography"
-      },
-      {
         "name": "--atomix-font-monospace",
         "displayName": "Font Monospace",
         "type": "font-family",
@@ -969,74 +825,8 @@
         "category": "typography"
       },
       {
-        "name": "--atomix-font-size-3xl",
-        "displayName": "Font Size 3xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-4xl",
-        "displayName": "Font Size 4xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-5xl",
-        "displayName": "Font Size 5xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-6xl",
-        "displayName": "Font Size 6xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-7xl",
-        "displayName": "Font Size 7xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-8xl",
-        "displayName": "Font Size 8xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-9xl",
-        "displayName": "Font Size 9xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-base",
-        "displayName": "Font Size Base",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-lg",
-        "displayName": "Font Size Lg",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-sm",
-        "displayName": "Font Size Sm",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
         "name": "--atomix-font-size-xl",
         "displayName": "Font Size Xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-xs",
-        "displayName": "Font Size Xs",
         "type": "font-size",
         "category": "typography"
       },
@@ -1335,42 +1125,6 @@
         "category": "typography"
       },
       {
-        "name": "--atomix-letter-spacing-normal",
-        "displayName": "Letter Spacing Normal",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-letter-spacing-tight",
-        "displayName": "Letter Spacing Tight",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-letter-spacing-tighter",
-        "displayName": "Letter Spacing Tighter",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-letter-spacing-wide",
-        "displayName": "Letter Spacing Wide",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-letter-spacing-wider",
-        "displayName": "Letter Spacing Wider",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-letter-spacing-widest",
-        "displayName": "Letter Spacing Widest",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
         "name": "--atomix-light",
         "displayName": "Light",
         "type": "color",
@@ -1425,38 +1179,8 @@
         "category": "typography"
       },
       {
-        "name": "--atomix-line-height-loose",
-        "displayName": "Line Height Loose",
-        "type": "line-height",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-line-height-none",
-        "displayName": "Line Height None",
-        "type": "line-height",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-line-height-relaxed",
-        "displayName": "Line Height Relaxed",
-        "type": "line-height",
-        "category": "typography"
-      },
-      {
         "name": "--atomix-line-height-sm",
         "displayName": "Line Height Sm",
-        "type": "line-height",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-line-height-snug",
-        "displayName": "Line Height Snug",
-        "type": "line-height",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-line-height-tight",
-        "displayName": "Line Height Tight",
         "type": "line-height",
         "category": "typography"
       },
@@ -2195,18 +1919,6 @@
     ],
     "dark": [
       {
-        "name": "--atomix-accent",
-        "displayName": "Accent",
-        "type": "color",
-        "category": "colors"
-      },
-      {
-        "name": "--atomix-accent-rgb",
-        "displayName": "Accent Rgb",
-        "type": "text",
-        "category": "colors"
-      },
-      {
         "name": "--atomix-body-bg",
         "displayName": "Body Bg",
         "type": "color",
@@ -2315,36 +2027,6 @@
         "category": "shadows"
       },
       {
-        "name": "--atomix-box-shadow-2xl",
-        "displayName": "Box Shadow 2xl",
-        "type": "shadow",
-        "category": "shadows"
-      },
-      {
-        "name": "--atomix-box-shadow-error",
-        "displayName": "Box Shadow Error",
-        "type": "shadow",
-        "category": "colors"
-      },
-      {
-        "name": "--atomix-box-shadow-glow",
-        "displayName": "Box Shadow Glow",
-        "type": "shadow",
-        "category": "shadows"
-      },
-      {
-        "name": "--atomix-box-shadow-glow-lg",
-        "displayName": "Box Shadow Glow Lg",
-        "type": "shadow",
-        "category": "shadows"
-      },
-      {
-        "name": "--atomix-box-shadow-info",
-        "displayName": "Box Shadow Info",
-        "type": "shadow",
-        "category": "colors"
-      },
-      {
         "name": "--atomix-box-shadow-inset",
         "displayName": "Box Shadow Inset",
         "type": "shadow",
@@ -2357,28 +2039,10 @@
         "category": "shadows"
       },
       {
-        "name": "--atomix-box-shadow-md",
-        "displayName": "Box Shadow Md",
-        "type": "shadow",
-        "category": "shadows"
-      },
-      {
         "name": "--atomix-box-shadow-sm",
         "displayName": "Box Shadow Sm",
         "type": "shadow",
         "category": "shadows"
-      },
-      {
-        "name": "--atomix-box-shadow-success",
-        "displayName": "Box Shadow Success",
-        "type": "shadow",
-        "category": "colors"
-      },
-      {
-        "name": "--atomix-box-shadow-warning",
-        "displayName": "Box Shadow Warning",
-        "type": "shadow",
-        "category": "colors"
       },
       {
         "name": "--atomix-box-shadow-xl",
@@ -2471,26 +2135,8 @@
         "category": "other"
       },
       {
-        "name": "--atomix-display-2",
-        "displayName": "Display 2",
-        "type": "font-size",
-        "category": "other"
-      },
-      {
-        "name": "--atomix-display-3",
-        "displayName": "Display 3",
-        "type": "font-size",
-        "category": "other"
-      },
-      {
         "name": "--atomix-easing-base",
         "displayName": "Easing Base",
-        "type": "transition",
-        "category": "transitions"
-      },
-      {
-        "name": "--atomix-easing-bounce",
-        "displayName": "Easing Bounce",
         "type": "transition",
         "category": "transitions"
       },
@@ -2591,74 +2237,8 @@
         "category": "typography"
       },
       {
-        "name": "--atomix-font-size-3xl",
-        "displayName": "Font Size 3xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-4xl",
-        "displayName": "Font Size 4xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-5xl",
-        "displayName": "Font Size 5xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-6xl",
-        "displayName": "Font Size 6xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-7xl",
-        "displayName": "Font Size 7xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-8xl",
-        "displayName": "Font Size 8xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-9xl",
-        "displayName": "Font Size 9xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-base",
-        "displayName": "Font Size Base",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-lg",
-        "displayName": "Font Size Lg",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-sm",
-        "displayName": "Font Size Sm",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
         "name": "--atomix-font-size-xl",
         "displayName": "Font Size Xl",
-        "type": "font-size",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-font-size-xs",
-        "displayName": "Font Size Xs",
         "type": "font-size",
         "category": "typography"
       },
@@ -2831,42 +2411,6 @@
         "category": "typography"
       },
       {
-        "name": "--atomix-letter-spacing-normal",
-        "displayName": "Letter Spacing Normal",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-letter-spacing-tight",
-        "displayName": "Letter Spacing Tight",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-letter-spacing-tighter",
-        "displayName": "Letter Spacing Tighter",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-letter-spacing-wide",
-        "displayName": "Letter Spacing Wide",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-letter-spacing-wider",
-        "displayName": "Letter Spacing Wider",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-letter-spacing-widest",
-        "displayName": "Letter Spacing Widest",
-        "type": "letter-spacing",
-        "category": "typography"
-      },
-      {
         "name": "--atomix-light",
         "displayName": "Light",
         "type": "color",
@@ -2921,38 +2465,8 @@
         "category": "typography"
       },
       {
-        "name": "--atomix-line-height-loose",
-        "displayName": "Line Height Loose",
-        "type": "line-height",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-line-height-none",
-        "displayName": "Line Height None",
-        "type": "line-height",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-line-height-relaxed",
-        "displayName": "Line Height Relaxed",
-        "type": "line-height",
-        "category": "typography"
-      },
-      {
         "name": "--atomix-line-height-sm",
         "displayName": "Line Height Sm",
-        "type": "line-height",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-line-height-snug",
-        "displayName": "Line Height Snug",
-        "type": "line-height",
-        "category": "typography"
-      },
-      {
-        "name": "--atomix-line-height-tight",
-        "displayName": "Line Height Tight",
         "type": "line-height",
         "category": "typography"
       },
@@ -3105,24 +2619,6 @@
         "displayName": "Success Text Emphasis",
         "type": "color",
         "category": "colors"
-      },
-      {
-        "name": "--atomix-surface-1",
-        "displayName": "Surface 1",
-        "type": "color",
-        "category": "other"
-      },
-      {
-        "name": "--atomix-surface-2",
-        "displayName": "Surface 2",
-        "type": "color",
-        "category": "other"
-      },
-      {
-        "name": "--atomix-surface-3",
-        "displayName": "Surface 3",
-        "type": "color",
-        "category": "other"
       },
       {
         "name": "--atomix-tertiary-bg-subtle",
