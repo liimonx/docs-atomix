@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import { useState, useEffect, FC } from "react";
-import Link from 'next/link';
+import Link from "next/link";
 import {
   Grid3X3,
   LayoutGrid,
@@ -9,7 +9,7 @@ import {
   Zap,
   Settings,
   ArrowRight,
-} from 'lucide-react';
+} from "lucide-react";
 import {
   Button,
   Card,
@@ -21,7 +21,7 @@ import {
   Icon,
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
-import styles from '@/styles/PageHero.module.scss';
+import styles from "@/styles/PageHero.module.scss";
 
 const LayoutsOverviewPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -31,49 +31,56 @@ const LayoutsOverviewPage: FC = () => {
     setIsMounted(true);
   }, []);
 
-  const glass: GlassProps | undefined = isMounted ? {
-    displacementScale: 30,
-    blurAmount: 5,
-    elasticity: 0,
-    enableLiquidBlur: true,
-    padding: "20px",
-    cornerRadius: 30,
-    children: null,
-  } : undefined;
+  const glass: GlassProps | undefined = isMounted
+    ? {
+        displacementScale: 30,
+        blurAmount: 5,
+        elasticity: 0,
+        enableLiquidBlur: true,
+        padding: "20px",
+        cornerRadius: 30,
+        children: null,
+      }
+    : undefined;
 
   const layoutFeatures = [
     {
       icon: <Grid3X3 size={24} />,
       title: "Grid System",
-      description: "A powerful 12-column responsive grid system for creating consistent layouts across all devices and screen sizes.",
+      description:
+        "A powerful 12-column responsive grid system for creating consistent layouts across all devices and screen sizes.",
       href: "/docs/layouts/grid",
       color: "primary",
     },
     {
       icon: <LayoutGrid size={24} />,
       title: "Masonry Grid",
-      description: "Create Pinterest-style dynamic layouts with our flexible masonry grid component that automatically positions items.",
+      description:
+        "Create Pinterest-style dynamic layouts with our flexible masonry grid component that automatically positions items.",
       href: "/docs/layouts/masonry-grid",
       color: "success",
     },
     {
       icon: <Smartphone size={24} />,
       title: "Responsive Patterns",
-      description: "Learn best practices and common patterns for creating responsive layouts that work beautifully on any device.",
+      description:
+        "Learn best practices and common patterns for creating responsive layouts that work beautifully on any device.",
       href: "/docs/layouts/responsive-patterns",
       color: "warning",
     },
     {
       icon: <Zap size={24} />,
       title: "Performance",
-      description: "Optimize your layouts for maximum performance with our performance optimization guides and best practices.",
+      description:
+        "Optimize your layouts for maximum performance with our performance optimization guides and best practices.",
       href: "/docs/layouts/performance",
       color: "secondary",
     },
     {
       icon: <Settings size={24} />,
       title: "Customization",
-      description: "Customize and extend layout components to match your unique requirements with CSS variables and SCSS.",
+      description:
+        "Customize and extend layout components to match your unique requirements with CSS variables and SCSS.",
       href: "/docs/layouts/customization",
       color: "error",
     },
@@ -96,7 +103,7 @@ const LayoutsOverviewPage: FC = () => {
           <div className={styles.pageHero__actions}>
             <Button
               glass
-                icon={<Icon name="GridFour" />}
+              icon={<Icon name="GridFour" />}
               label="Grid System"
               href="/docs/layouts/grid"
               as={Link}
@@ -105,7 +112,7 @@ const LayoutsOverviewPage: FC = () => {
               glass
               variant="secondary"
               label="Masonry Grid"
-                    icon={<Icon name="GridFour" />}
+              icon={<Icon name="GridFour" />}
               href="/docs/layouts/masonry-grid"
               as={Link}
             />
@@ -113,13 +120,13 @@ const LayoutsOverviewPage: FC = () => {
         }
       />
 
-      <Block spacing="md" >
-        <SectionIntro 
+      <Block spacing="md">
+        <SectionIntro
           title="Building Responsive Layouts"
           text="Create flexible, responsive layouts with our collection of layout components designed for modern web applications."
           alignment="center"
         />
-        
+
         <Row>
           {layoutFeatures.map((feature, index) => (
             <GridCol key={index} md={6} lg={4} className="u-mb-4">
@@ -129,11 +136,11 @@ const LayoutsOverviewPage: FC = () => {
               >
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-d-flex u-flex-column u-h-100">
-                    <div 
+                    <div
                       className={`u-w-16 u-h-16 u-br-md u-d-flex u-align-items-center u-justify-content-center u-mb-4`}
                       style={{
                         backgroundColor: `var(--atomix-color-${feature.color}-subtle)`,
-                        color: `var(--atomix-color-${feature.color}-emphasis)`
+                        color: `var(--atomix-color-${feature.color}-emphasis)`,
                       }}
                     >
                       {feature.icon}
@@ -156,7 +163,7 @@ const LayoutsOverviewPage: FC = () => {
         </Row>
       </Block>
 
-      <Block spacing="md" background="secondary" >
+      <Block spacing="md" background="secondary">
         <SectionIntro
           title="Why Use Atomix Layouts?"
           text="Our layout system provides everything you need to build modern, responsive interfaces"
@@ -166,22 +173,26 @@ const LayoutsOverviewPage: FC = () => {
           {[
             {
               title: "12-Column Grid",
-              description: "Flexible column-based layouts with 6 responsive breakpoints",
+              description:
+                "Flexible column-based layouts with 6 responsive breakpoints",
               icon: <Grid3X3 size={20} />,
             },
             {
               title: "Mobile-First",
-              description: "Built with mobile-first responsive design principles",
+              description:
+                "Built with mobile-first responsive design principles",
               icon: <Smartphone size={20} />,
             },
             {
               title: "Performance Optimized",
-              description: "Optimized for speed with efficient CSS and minimal JavaScript",
+              description:
+                "Optimized for speed with efficient CSS and minimal JavaScript",
               icon: <Zap size={20} />,
             },
             {
               title: "Fully Customizable",
-              description: "Customize with CSS variables, SCSS, or component props",
+              description:
+                "Customize with CSS variables, SCSS, or component props",
               icon: <Settings size={20} />,
             },
           ].map((benefit, index) => (
@@ -207,6 +218,6 @@ const LayoutsOverviewPage: FC = () => {
   );
 };
 
-LayoutsOverviewPage.displayName = 'LayoutsOverviewPage';
+LayoutsOverviewPage.displayName = "LayoutsOverviewPage";
 
 export default LayoutsOverviewPage;

@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, Fragment, FC } from "react";
+import { Fragment, FC } from "react";
 import {
   Hero,
   SectionIntro,
   Card,
   GridCol,
   Block,
-  Button,
   Badge,
   Grid,
   Callout,
@@ -16,12 +15,9 @@ import {
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
 import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
-import styles from '@/styles/PageHero.module.scss';
-
-import toast from "react-hot-toast";
+import styles from "@/styles/PageHero.module.scss";
 
 const GuidesAtomixGlassPerformancePage: FC = () => {
-
   return (
     <div>
       <Hero
@@ -42,7 +38,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
         alignment="center"
       />
 
-      <Block className="u-pt-8 u-pb-8" >
+      <Block className="u-pt-8 u-pb-8">
         <SectionIntro
           title="Performance Optimization Guide"
           text="The AtomixGlass component creates stunning glass morphism effects but can be performance-intensive. This guide provides best practices, optimization techniques, and monitoring strategies to ensure smooth, performant experiences across all devices."
@@ -94,7 +90,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
           </GridCol>
           <GridCol md={3} sm={6}>
             <Card>
-                <div className="u-fs-sm u-text-error-emphasis">≤0.1</div>
+              <div className="u-fs-sm u-text-error-emphasis">≤0.1</div>
               <div className="u-fs-sm u-text-error-emphasis">
                 Layout Shift Score
               </div>
@@ -1041,6 +1037,7 @@ const MemoizedGlassCard = memo(({ title, content }) => {
   );
 };
 
-GuidesAtomixGlassPerformancePage.displayName = 'GuidesAtomixGlassPerformancePage';
+GuidesAtomixGlassPerformancePage.displayName =
+  "GuidesAtomixGlassPerformancePage";
 
 export default GuidesAtomixGlassPerformancePage;

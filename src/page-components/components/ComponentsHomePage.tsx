@@ -2,7 +2,6 @@
 
 import { useMemo, useState, useEffect, FC } from "react";
 import Link from "next/link";
-import { Layers, Shield, Star, Grid3X3, ArrowRight } from "lucide-react";
 
 import {
   Button,

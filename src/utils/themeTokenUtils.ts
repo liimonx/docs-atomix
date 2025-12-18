@@ -16,30 +16,39 @@ export function detectTokenType(value: string): string {
 
   // Colors
   if (
-    val.startsWith('#') ||
-    val.startsWith('rgb(') ||
-    val.startsWith('rgba(') ||
-    /^[a-z]+$/.test(val) && ['red', 'blue', 'green', 'yellow', 'white', 'black', 'transparent'].includes(val)
+    val.startsWith("#") ||
+    val.startsWith("rgb(") ||
+    val.startsWith("rgba(") ||
+    (/^[a-z]+$/.test(val) &&
+      [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "white",
+        "black",
+        "transparent",
+      ].includes(val))
   ) {
-    return 'color';
+    return "color";
   }
 
   // Numbers with units
   if (/^-?\d+(\.\d+)?(rem|px|em|%|s|ms)$/.test(val)) {
-    return 'number';
+    return "number";
   }
 
   // Gradients
-  if (val.includes('gradient')) {
-    return 'gradient';
+  if (val.includes("gradient")) {
+    return "gradient";
   }
 
   // Shadows
-  if (val.includes('shadow') || val.includes('box-shadow')) {
-    return 'shadow';
+  if (val.includes("shadow") || val.includes("box-shadow")) {
+    return "shadow";
   }
 
-  return 'text';
+  return "text";
 }
 
 /**
@@ -54,19 +63,22 @@ export function formatTokenValue(value: string): string {
  */
 export function parseTokenValue(value: string, type: string): string {
   const trimmed = value.trim();
-  
+
   // For colors, ensure valid format
-  if (type === 'color') {
+  if (type === "color") {
     // If it's a hex without #, add it
     if (/^[0-9a-fA-F]{6}$/.test(trimmed)) {
       return `#${trimmed}`;
     }
     // If it's a 3-digit hex, expand it
     if (/^[0-9a-fA-F]{3}$/.test(trimmed)) {
-      return `#${trimmed.split('').map(c => c + c).join('')}`;
+      return `#${trimmed
+        .split("")
+        .map((c) => c + c)
+        .join("")}`;
     }
   }
-  
+
   return trimmed;
 }
 
@@ -76,22 +88,16 @@ export function parseTokenValue(value: string, type: string): string {
  */
 export function applyThemeToDocument(
   tokens: Record<string, string>,
-  mode: 'light' | 'dark'
+  mode: "light" | "dark"
 ): void {
-  if (typeof document === 'undefined') {
+  if (typeof document === "undefined") {
     return;
   }
 
   const root = document.documentElement;
 
-  // Set color mode attribute for Atomix components
-  root.setAttribute('data-atomix-color-mode', mode);
-  
-  // Optionally set data-theme attribute for ThemeManager compatibility
-  // This allows the exported theme to work with ThemeManager
-  if (!root.hasAttribute('data-theme')) {
-    root.setAttribute('data-theme', 'theme-studio-preview');
-  }
+  // Set color mode attribute
+  root.setAttribute("data-atomix-color-mode", mode);
 
   // Apply all tokens as CSS variables
   Object.entries(tokens).forEach(([name, value]) => {
@@ -102,13 +108,16 @@ export function applyThemeToDocument(
 /**
  * Export theme as JSON
  */
-export function exportAsJSON(lightTokens: Record<string, string>, darkTokens: Record<string, string>): string {
+export function exportAsJSON(
+  lightTokens: Record<string, string>,
+  darkTokens: Record<string, string>
+): string {
   return JSON.stringify(
     {
       light: lightTokens,
       dark: darkTokens,
-      version: '1.0.0',
-      generated: new Date().toISOString()
+      version: "1.0.0",
+      generated: new Date().toISOString(),
     },
     null,
     2
@@ -120,104 +129,108 @@ export function exportAsJSON(lightTokens: Record<string, string>, darkTokens: Re
  * Supports both data-atomix-color-mode (for mode switching) and data-theme (for ThemeManager)
  */
 export function exportAsCSS(
-  lightTokens: Record<string, string>, 
-  darkTokens: Record<string, string>,
-  themeName?: string
+  lightTokens: Record<string, string>,
+  darkTokens: Record<string, string>
 ): string {
-  // Use theme name if provided, otherwise use color-mode attribute
-  const lightSelector = themeName 
-    ? `:root[data-theme="${themeName}"],\n[data-theme="${themeName}"][data-atomix-color-mode=light]`
-    : ':root,\n[data-atomix-color-mode=light]';
-  
-  const darkSelector = themeName
-    ? `[data-theme="${themeName}"][data-atomix-color-mode=dark]`
-    : '[data-atomix-color-mode=dark]';
-  
-  let css = `${lightSelector} {\n`;
-  
+  let css = ":root,\n[data-atomix-color-mode=light] {\n";
+
   Object.entries(lightTokens)
     .sort(([a], [b]) => a.localeCompare(b))
     .forEach(([name, value]) => {
       css += `  ${name}: ${value};\n`;
     });
-  
-  css += '}\n\n';
-  
-  if (darkTokens && Object.keys(darkTokens).length > 0) {
-    css += `${darkSelector} {\n`;
-    
-    Object.entries(darkTokens)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .forEach(([name, value]) => {
-        css += `  ${name}: ${value};\n`;
-      });
-    
-    css += '}\n';
-  }
-  
+
+  css += "}\n\n[data-atomix-color-mode=dark] {\n";
+
+  Object.entries(darkTokens)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .forEach(([name, value]) => {
+      css += `  ${name}: ${value};\n`;
+    });
+
+  css += "}\n";
+
   return css;
 }
 
 /**
  * Export theme as SCSS map
  */
-export function exportAsSCSS(lightTokens: Record<string, string>, darkTokens: Record<string, string>): string {
-  let scss = '$theme-tokens: (\n';
+export function exportAsSCSS(
+  lightTokens: Record<string, string>,
+  darkTokens: Record<string, string>
+): string {
+  let scss = "$theme-tokens: (\n";
   scss += "  'light': (\n";
-  
+
   Object.entries(lightTokens)
     .sort(([a], [b]) => a.localeCompare(b))
     .forEach(([name, value]) => {
       // Remove --atomix- prefix for SCSS map keys
-      const key = name.replace(/^--atomix-/, '');
+      const key = name.replace(/^--atomix-/, "");
       // Escape quotes in value if needed
       const escapedValue = value.replace(/'/g, "\\'");
       scss += `    '${key}': ${escapedValue},\n`;
     });
-  
-  scss += '  ),\n';
+
+  scss += "  ),\n";
   scss += "  'dark': (\n";
-  
+
   Object.entries(darkTokens)
     .sort(([a], [b]) => a.localeCompare(b))
     .forEach(([name, value]) => {
-      const key = name.replace(/^--atomix-/, '');
+      const key = name.replace(/^--atomix-/, "");
       const escapedValue = value.replace(/'/g, "\\'");
       scss += `    '${key}': ${escapedValue},\n`;
     });
-  
-  scss += '  ),\n';
-  scss += ');\n';
-  
+
+  scss += "  ),\n";
+  scss += ");\n";
+
   return scss;
 }
 
 /**
  * Validate imported theme structure
  */
-export function validateImportedTheme(data: any): { valid: boolean; error?: string } {
-  if (!data || typeof data !== 'object') {
-    return { valid: false, error: 'Theme data must be an object' };
+export function validateImportedTheme(data: any): {
+  valid: boolean;
+  error?: string;
+} {
+  if (!data || typeof data !== "object") {
+    return { valid: false, error: "Theme data must be an object" };
   }
 
-  if (!data.light || typeof data.light !== 'object') {
-    return { valid: false, error: 'Theme must have a "light" property with token values' };
+  if (!data.light || typeof data.light !== "object") {
+    return {
+      valid: false,
+      error: 'Theme must have a "light" property with token values',
+    };
   }
 
-  if (!data.dark || typeof data.dark !== 'object') {
-    return { valid: false, error: 'Theme must have a "dark" property with token values' };
+  if (!data.dark || typeof data.dark !== "object") {
+    return {
+      valid: false,
+      error: 'Theme must have a "dark" property with token values',
+    };
   }
 
   // Check that all values are strings
   const lightValues = Object.values(data.light);
   const darkValues = Object.values(data.dark);
 
-  if (lightValues.some(v => typeof v !== 'string')) {
-    return { valid: false, error: 'All light theme token values must be strings' };
+  if (lightValues.some((v) => typeof v !== "string")) {
+    return {
+      valid: false,
+      error: "All light theme token values must be strings",
+    };
   }
 
-  if (darkValues.some(v => typeof v !== 'string')) {
-    return { valid: false, error: 'All dark theme token values must be strings' };
+  if (darkValues.some((v) => typeof v !== "string")) {
+    return {
+      valid: false,
+      error: "All dark theme token values must be strings",
+    };
   }
 
   return { valid: true };
@@ -376,14 +389,18 @@ function hexToRgbForFigma(hex: string): { r: number; g: number; b: number } | nu
 /**
  * Download file with given content and filename
  */
-export function downloadFile(content: string, filename: string, mimeType: string = 'text/plain'): void {
-  if (typeof window === 'undefined') {
+export function downloadFile(
+  content: string,
+  filename: string,
+  mimeType: string = "text/plain"
+): void {
+  if (typeof window === "undefined") {
     return;
   }
 
   const blob = new Blob([content], { type: mimeType });
   const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
+  const link = document.createElement("a");
   link.href = url;
   link.download = filename;
   document.body.appendChild(link);
@@ -391,4 +408,3 @@ export function downloadFile(content: string, filename: string, mimeType: string
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 }
-

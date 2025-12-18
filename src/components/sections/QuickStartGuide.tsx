@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { FC } from 'react';
-import { Button, Card, Icon, Steps } from '@shohojdhara/atomix';
-import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
-import { useRouter } from 'next/navigation';
+import { FC } from "react";
+import { Button, Card, Icon, Steps } from "@shohojdhara/atomix";
+import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
+import { useRouter } from "next/navigation";
 
 export const QuickStartGuide: FC = () => {
   const router = useRouter();
@@ -22,7 +22,7 @@ yarn add @shohojdhara/atomix`}
             showLineNumbers={false}
           />
         </div>
-      )
+      ),
     },
     {
       number: 2,
@@ -36,7 +36,7 @@ import '@shohojdhara/atomix/css';`}
             showLineNumbers={false}
           />
         </div>
-      )
+      ),
     },
     {
       number: 3,
@@ -51,8 +51,8 @@ import '@shohojdhara/atomix/css';`}
             showLineNumbers={false}
           />
         </div>
-      )
-    }
+      ),
+    },
   ];
 
   return (
@@ -63,25 +63,21 @@ import '@shohojdhara/atomix/css';`}
       </div>
 
       <Card className="quick-start-card">
-        <Steps
-          items={steps}
-          activeIndex={0}
-          vertical={true}
-        />
-        
+        <Steps items={steps} activeIndex={0} vertical={true} />
+
         <div className="quick-start-actions">
           <Button
             size="lg"
-            onClick={() => router.push('/docs/getting-started/installation')}
+            onClick={() => router.push("/docs/getting-started/installation")}
           >
             <Icon name="BookOpen" size="sm" />
             Read Full Guide
           </Button>
-          
+
           <Button
             variant="outline-primary"
             size="lg"
-            onClick={() => router.push('/docs/components/overview')}
+            onClick={() => router.push("/docs/components/overview")}
           >
             <Icon name="Stack" size="sm" />
             Browse Components
