@@ -101,7 +101,7 @@ export const TokenList: FC = () => {
           <section key={categoryId} className={styles.tokenList__category} aria-labelledby={`category-${categoryId}`}>
             <h2 id={`category-${categoryId}`} className={styles.tokenList__categoryTitle}>
               {category?.title || categoryId}
-              <Badge variant="secondary" size="xs" label={tokens.length.toString()} className={styles.tokenList__count} />
+              <Badge variant="secondary" size="sm" label={tokens.length.toString()} className={styles.tokenList__count} />
             </h2>
             <div className={styles.tokenList__items} role="list">
               {tokens.map((token) => (
