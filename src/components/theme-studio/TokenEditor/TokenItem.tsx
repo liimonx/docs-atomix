@@ -30,8 +30,8 @@ export const TokenItem: FC<TokenItemProps> = ({ token, value }) => {
     selectedTokens,
     toggleTokenSelection,
   } = useThemeStudioStore();
-  const isFavorite = favoriteTokens.has(token.name);
-  const isSelected = selectedTokens.has(token.name);
+  const isFavorite = favoriteTokens instanceof Set && favoriteTokens.has(token.name);
+  const isSelected = selectedTokens instanceof Set && selectedTokens.has(token.name);
   const tokenType = detectTokenType(value);
 
   // Validate token value

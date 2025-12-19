@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { memo } from 'react';
 import Link from 'next/link';
 import {
   Button,
@@ -20,15 +20,11 @@ interface DocumentationHeaderProps {
   showMenuButton?: boolean;
 }
 
-export const DocumentationHeader: FC<DocumentationHeaderProps> = ({
+const DocumentationHeader = memo(function DocumentationHeader({
   onMenuToggle,
   sidebarOpen,
   showMenuButton = true,
-}) => {
-
-
-
-
+}: DocumentationHeaderProps) {
   const externalLinks = [
     {
       label: 'GitHub',
@@ -43,7 +39,7 @@ export const DocumentationHeader: FC<DocumentationHeaderProps> = ({
   ];
 
   return (
-    <header role="banner" suppressHydrationWarning>
+    <header role="banner">
       <Navbar
         glass={{
           displacementScale: 20,
@@ -80,11 +76,10 @@ export const DocumentationHeader: FC<DocumentationHeaderProps> = ({
         aria-label="Main navigation"
         position="fixed"
       >
-        {/* Navigation Items - Desktop Only */}
         <Nav className="u-d-flex u-align-items-center u-gap-2" aria-label="Primary navigation" alignment='end'>
-           {/* Search */}
-           <div className="u-position-relative">
-            <GlobalSearch  />
+          {/* Search */}
+          <div className="u-position-relative">
+            <GlobalSearch />
           </div>
         </Nav>
 
@@ -109,10 +104,12 @@ export const DocumentationHeader: FC<DocumentationHeaderProps> = ({
           </div>
 
           {/* Theme Toggle */}
-          <ColorModeToggle aria-label="Toggle theme"  defaultValue='dark' />
-        
+          <ColorModeToggle aria-label="Toggle theme" defaultValue='dark' />
+
         </Nav>
       </Navbar>
     </header>
   );
-};
+});
+
+export { DocumentationHeader };

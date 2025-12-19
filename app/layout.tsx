@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Toaster } from 'react-hot-toast';
 import { ResponsiveProvider } from '@/hooks/useResponsive';
 import { SearchProvider } from '@/hooks/useSearch';
+import { Providers } from '@/components/providers/Providers';
 import '@shohojdhara/atomix/css';
 import '../src/styles/globals.scss';
 
@@ -50,30 +51,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body suppressHydrationWarning>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var colorMode = localStorage.getItem('atomix-color-mode') || 'dark';
-                  document.documentElement.setAttribute('data-atomix-color-mode', colorMode);
-                  document.body.setAttribute('data-atomix-color-mode', colorMode);
-                } catch (e) {
-                  document.documentElement.setAttribute('data-atomix-color-mode', 'dark');
-                  document.body.setAttribute('data-atomix-color-mode', 'dark');
-                }
-              })();
-            `,
-          }}
-        />
-        <ResponsiveProvider>
-          <SearchProvider>
-            {children}
-          </SearchProvider>
-        </ResponsiveProvider>
+        <Providers>
+          <ResponsiveProvider>
+            <SearchProvider>
+              {children}
+            </SearchProvider>
+          </ResponsiveProvider>
+        </Providers>
         <Toaster />
       </body>
     </html>
   );
 }
-

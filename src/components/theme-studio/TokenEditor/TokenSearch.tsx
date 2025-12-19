@@ -38,10 +38,10 @@ export const TokenSearch: FC = () => {
       <span id="search-help" className="u-fs-sm u-text-secondary-emphasis u-mt-2 u-d-block">
         Use Cmd/Ctrl+K or Cmd/Ctrl+F to focus this search field
       </span>
-      
-      {(favoriteTokens.size > 0 || recentlyEdited.length > 0) && (
+
+      {((favoriteTokens instanceof Set && favoriteTokens.size > 0) || recentlyEdited.length > 0) && (
         <div className={styles.tokenSearch__quickFilters} role="status" aria-live="polite">
-          {favoriteTokens.size > 0 && (
+          {favoriteTokens instanceof Set && favoriteTokens.size > 0 && (
             <Badge variant="info" size="sm" label={`${favoriteTokens.size} favorites`} />
           )}
           {recentlyEdited.length > 0 && (

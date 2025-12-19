@@ -389,26 +389,22 @@ const StylesArchitecturePage: FC = () => {
               </div>
               <div className="u-d-flex u-flex-column u-gap-2">
                 <code
-                  className="u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm"
-                  className={pageStyles.stylesArchitecturePage__codeExample}
+                  className={`u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   _settings.{"{feature}"}.scss
                 </code>
                 <code
-                  className="u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm"
-                  className={pageStyles.stylesArchitecturePage__codeExample}
+                  className={`u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   _tools.{"{feature}"}.scss
                 </code>
                 <code
-                  className="u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm"
-                  className={pageStyles.stylesArchitecturePage__codeExample}
+                  className={`u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   _components.{"{feature}"}.scss
                 </code>
                 <code
-                  className="u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm"
-                  className={pageStyles.stylesArchitecturePage__codeExample}
+                  className={`u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   _utilities.{"{feature}"}.scss
                 </code>
@@ -431,8 +427,7 @@ const StylesArchitecturePage: FC = () => {
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
                 <pre
-                  className="u-m-0 u-fs-sm"
-                  className={pageStyles.stylesArchitecturePage__codeExample}
+                  className={`u-m-0 u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   {`@use '../01-settings/colors';
 @use '../02-tools/breakpoints';
@@ -541,8 +536,7 @@ const StylesArchitecturePage: FC = () => {
               </p>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded u-mb-4">
                 <pre
-                  className="u-m-0 u-fs-sm"
-                  className={pageStyles.stylesArchitecturePage__codeExample}
+                  className={`u-m-0 u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   {`// Import everything
 @use 'atomix/styles' as *;

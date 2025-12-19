@@ -62,8 +62,8 @@ export const TokenList: FC = () => {
 
     // Sort: favorites first, then by name
     filtered.sort((a, b) => {
-      const aIsFavorite = favoriteTokens.has(a.name);
-      const bIsFavorite = favoriteTokens.has(b.name);
+      const aIsFavorite = favoriteTokens instanceof Set && favoriteTokens.has(a.name);
+      const bIsFavorite = favoriteTokens instanceof Set && favoriteTokens.has(b.name);
       if (aIsFavorite && !bIsFavorite) return -1;
       if (!aIsFavorite && bIsFavorite) return 1;
       return a.name.localeCompare(b.name);

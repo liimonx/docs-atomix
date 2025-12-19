@@ -47,29 +47,29 @@ const CategoryCard: FC<UtilityCategoryProps> = ({
       className={`u-p-6 u-h-100 u-border-left atomix-card-hover ${pageStyles.stylesUtilitiesPage__categoryCard} ${pageStyles[`stylesUtilitiesPage__categoryCard--${colorClass}`]}`}
     >
       <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
-        <Icon 
-          name={icon as any} 
-          size={24} 
+        <Icon
+          name={icon as any}
+          size={24}
           className={pageStyles[`stylesUtilitiesPage__categoryIcon--${colorClass}`]}
         />
         <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
       </div>
-    <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
-    <div className="u-d-flex u-flex-column u-gap-2">
-      {examples.map((ex, idx) => (
-        <div key={idx} className="u-d-flex u-align-items-center u-gap-2">
-          <code
-            className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded"
-          >
-            {ex.class}
-          </code>
-          <span className="u-fs-sm u-text-secondary-emphasis">
-            {ex.description}
-          </span>
-        </div>
-      ))}
-    </div>
-  </Card>
+      <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
+      <div className="u-d-flex u-flex-column u-gap-2">
+        {examples.map((ex, idx) => (
+          <div key={idx} className="u-d-flex u-align-items-center u-gap-2">
+            <code
+              className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded"
+            >
+              {ex.class}
+            </code>
+            <span className="u-fs-sm u-text-secondary-emphasis">
+              {ex.description}
+            </span>
+          </div>
+        ))}
+      </div>
+    </Card>
   );
 };
 
@@ -235,8 +235,7 @@ const StylesUtilitiesPage: FC = () => {
                   </p>
                   <div className="u-bg-tertiary-subtle u-p-4 u-rounded u-mb-4">
                     <pre
-                      className="u-m-0 u-fs-sm"
-                      className={pageStyles.stylesUtilitiesPage__codeBlock}
+                      className={`u-m-0 u-fs-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
                     >
                       {`.u-{property}-{value}
 .u-{property}-{breakpoint}-{value}`}
@@ -258,8 +257,8 @@ const StylesUtilitiesPage: FC = () => {
           <GridCol md={12}>
             <h2 className="u-fs-2xl u-fw-bold u-mb-4">Utility Categories</h2>
             <p className="u-text-secondary-emphasis u-mb-4">
-              Explore our comprehensive collection of utility classes organized by category. 
-              Each category contains a set of related utilities that help you build consistent, 
+              Explore our comprehensive collection of utility classes organized by category.
+              Each category contains a set of related utilities that help you build consistent,
               responsive designs faster.
             </p>
           </GridCol>
@@ -277,8 +276,8 @@ const StylesUtilitiesPage: FC = () => {
           <GridCol md={12}>
             <h2 className="u-fs-2xl u-fw-bold u-mb-4">Responsive Utilities</h2>
             <p className="u-text-secondary-emphasis u-mb-4">
-              All utilities support responsive breakpoints, allowing you to create adaptive designs 
-              that work across all device sizes. Simply prefix any utility with a breakpoint name 
+              All utilities support responsive breakpoints, allowing you to create adaptive designs
+              that work across all device sizes. Simply prefix any utility with a breakpoint name
               to apply it only at that breakpoint and above.
             </p>
           </GridCol>
@@ -302,8 +301,7 @@ const StylesUtilitiesPage: FC = () => {
               </p>
               <div className="u-overflow-x-auto">
                 <table
-                  className="u-w-100"
-                  className={pageStyles.stylesUtilitiesPage__referenceTable}
+                  className={`u-w-100 ${pageStyles.stylesUtilitiesPage__referenceTable}`}
                 >
                   <thead className="u-bg-tertiary-subtle">
                     <tr>
@@ -417,8 +415,7 @@ const StylesUtilitiesPage: FC = () => {
               </div>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
                 <pre
-                  className="u-m-0 u-fs-sm"
-                  className={pageStyles.stylesUtilitiesPage__codeBlock}
+                  className={`u-m-0 u-fs-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
                 >
                   {`<div class="u-d-grid u-grid-cols-1 
      u-md-grid-cols-2 
@@ -445,8 +442,7 @@ const StylesUtilitiesPage: FC = () => {
               </div>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
                 <pre
-                  className="u-m-0 u-fs-sm"
-                  className={pageStyles.stylesUtilitiesPage__codeBlock}
+                  className={`u-m-0 u-fs-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
                 >
                   {`<div class="u-d-flex 
      u-justify-content-between 
@@ -507,7 +503,7 @@ const StylesUtilitiesPage: FC = () => {
             </Card>
           </GridCol>
         </Row>
-        
+
         <Row className="u-mt-6 u-mb-8">
           <GridCol md={12}>
             <Card className="u-p-6 u-bg-warning-subtle">
