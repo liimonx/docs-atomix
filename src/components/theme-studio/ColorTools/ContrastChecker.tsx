@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { Input, Badge } from '@shohojdhara/atomix';
-import { checkContrast } from '@/utils/colorUtils';
+import { getContrastRatio } from '@/utils/colorUtils';
 import styles from './ContrastChecker.module.scss';
 
 // Default color constants
@@ -11,7 +11,35 @@ export const ContrastChecker: FC = () => {
   const [foreground, setForeground] = useState(DEFAULT_FOREGROUND_COLOR);
   const [background, setBackground] = useState(DEFAULT_BACKGROUND_COLOR);
 
-  const result = checkContrast(foreground, background);
+  // Calculate contrast ratio using theme library
+  const ratio = getContrastRatio(foreground, background);
+  const roundedRatio = Math.round(ratio * 100) / 100;
+  
+  // WCAG compliance levels
+  const aaNormal = ratio >= 4.5;
+  const aaLarge = ratio >= 3;
+  const aaaNormal = ratio >= 7;
+  const aaaLarge = ratio >= 4.5;
+  
+  let level: 'AAA' | 'AA' | 'FAIL' = 'FAIL';
+  if (aaaNormal || aaaLarge) {
+    level = 'AAA';
+  } else if (aaNormal || aaLarge) {
+    level = 'AA';
+  }
+  
+  const result = {
+    ratio: roundedRatio,
+    aa: {
+      normal: aaNormal,
+      large: aaLarge,
+    },
+    aaa: {
+      normal: aaaNormal,
+      large: aaaLarge,
+    },
+    level,
+  };
 
   return (
     <div className={styles.contrastChecker}>

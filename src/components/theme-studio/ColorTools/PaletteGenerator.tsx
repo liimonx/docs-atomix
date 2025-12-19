@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { Input, Button } from '@shohojdhara/atomix';
-import { generateColorScale, generateTintsAndShades } from '@/utils/colorUtils';
+import { lighten, darken, generateColorScale } from '@/utils/colorUtils';
 import styles from './PaletteGenerator.module.scss';
 
 // Default color constants
@@ -13,8 +13,25 @@ export const PaletteGenerator: FC = () => {
   const [shades, setShades] = useState<string[]>([]);
 
   const handleGenerate = () => {
+    // Generate color scale using existing utility (keeps HSL-based scale for better results)
     const newScale = generateColorScale(baseColor, 10);
-    const { tints: newTints, shades: newShades } = generateTintsAndShades(baseColor);
+    
+    // Use colorUtils lighten/darken for tints and shades (HSL-based for better color results)
+    const newTints: string[] = [];
+    const newShades: string[] = [];
+    
+    // Generate tints (lighter) - using percentage-based lightening
+    for (let i = 1; i <= 5; i++) {
+      const amount = i * 15; // 15%, 30%, 45%, 60%, 75% lighter
+      newTints.push(lighten(baseColor, amount));
+    }
+    
+    // Generate shades (darker) - using percentage-based darkening
+    for (let i = 1; i <= 5; i++) {
+      const amount = i * 15; // 15%, 30%, 45%, 60%, 75% darker
+      newShades.push(darken(baseColor, amount));
+    }
+    
     setScale(newScale);
     setTints(newTints);
     setShades(newShades);
