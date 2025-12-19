@@ -10,69 +10,69 @@
 // Elements - Category Card
 // =============================================================================
 .stylesUtilitiesPage__categoryCard {
-  border-left-width: 4px;
+  border-left-width: var(--atomix-spacing-1);
   border-left-style: solid;
 }
 
 // Color Modifiers for Category Card Border
 // =============================================================================
 .stylesUtilitiesPage__categoryCard--blue {
-  border-left-color: #3b82f6;
+  border-left-color: var(--atomix-info);
 }
 
 .stylesUtilitiesPage__categoryCard--purple {
-  border-left-color: #8b5cf6;
+  border-left-color: var(--atomix-primary);
 }
 
 .stylesUtilitiesPage__categoryCard--pink {
-  border-left-color: #ec4899;
+  border-left-color: var(--atomix-secondary);
 }
 
 .stylesUtilitiesPage__categoryCard--orange {
-  border-left-color: #f97316;
+  border-left-color: var(--atomix-warning);
 }
 
 .stylesUtilitiesPage__categoryCard--green {
-  border-left-color: #22c55e;
+  border-left-color: var(--atomix-success);
 }
 
 .stylesUtilitiesPage__categoryCard--yellow {
-  border-left-color: #eab308;
+  border-left-color: var(--atomix-warning);
 }
 
 .stylesUtilitiesPage__categoryCard--red {
-  border-left-color: #ef4444;
+  border-left-color: var(--atomix-error);
 }
 
 // Elements - Category Icon
 // =============================================================================
 // Color Modifiers for Category Icon
 .stylesUtilitiesPage__categoryIcon--blue {
-  color: #3b82f6;
+  color: var(--atomix-info);
 }
 
 .stylesUtilitiesPage__categoryIcon--purple {
-  color: #8b5cf6;
+  color: var(--atomix-primary);
 }
 
 .stylesUtilitiesPage__categoryIcon--pink {
-  color: #ec4899;
+  color: var(--atomix-secondary);
 }
 
 .stylesUtilitiesPage__categoryIcon--orange {
-  color: #f97316;
+  color: var(--atomix-warning);
 }
 
 .stylesUtilitiesPage__categoryIcon--green {
-  color: #22c55e;
+  color: var(--atomix-success);
 }
 
 .stylesUtilitiesPage__categoryIcon--yellow {
-  color: #eab308;
+  color: var(--atomix-warning);
 }
 
 .stylesUtilitiesPage__categoryIcon--red {
-  color: #ef4444;
+  color: var(--atomix-error);
 }
 
 // Elements - Code Block
@@ -91,7 +91,7 @@
 // =============================================================================
 @media (max-width: 768px) {
   .stylesUtilitiesPage__categoryCard {
-    border-left-width: 3px;
+    border-left-width: var(--atomix-spacing-1);
   }
 }
 
@@ -99,7 +99,7 @@
 // =============================================================================
 @media (prefers-contrast: high) {
   .stylesUtilitiesPage__categoryCard {
-    border-left-width: 5px;
+    border-left-width: var(--atomix-spacing-2);
   }
 }
 

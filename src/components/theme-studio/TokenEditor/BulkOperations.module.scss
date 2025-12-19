@@ -8,7 +8,7 @@
   top: 0;
   z-index: 10;
   background-color: var(--atomix-surface);
-  border-bottom: 2px solid var(--atomix-primary);
+  border-bottom: calc(var(--atomix-border-width) * 2) solid var(--atomix-primary);
   padding: var(--atomix-spacing-3);
   margin-bottom: var(--atomix-spacing-4);
   border-radius: var(--atomix-border-radius-md);
@@ -31,8 +31,8 @@
 
 .bulkOperations__close {
   min-width: auto;
-  width: 32px;
-  height: 32px;
+  width: var(--atomix-spacing-8);
+  height: var(--atomix-spacing-8);
   padding: 0;
 }
 
@@ -46,5 +46,13 @@
   display: flex;
   gap: var(--atomix-spacing-2);
   flex-wrap: wrap;
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .bulkOperations {
+    border-bottom-width: calc(var(--atomix-border-width) * 3);
+  }
 }
 

@@ -3,8 +3,11 @@ import { Input, Button } from '@shohojdhara/atomix';
 import { generateColorScale, generateTintsAndShades } from '@/utils/colorUtils';
 import styles from './PaletteGenerator.module.scss';
 
+// Default color constants
+const DEFAULT_PRIMARY_COLOR = '#8b5cf6'; // Purple primary color
+
 export const PaletteGenerator: FC = () => {
-  const [baseColor, setBaseColor] = useState('#8b5cf6');
+  const [baseColor, setBaseColor] = useState(DEFAULT_PRIMARY_COLOR);
   const [scale, setScale] = useState<string[]>([]);
   const [tints, setTints] = useState<string[]>([]);
   const [shades, setShades] = useState<string[]>([]);

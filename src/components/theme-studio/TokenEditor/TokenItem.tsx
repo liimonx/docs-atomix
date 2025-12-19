@@ -61,6 +61,7 @@ export const TokenItem: FC<TokenItemProps> = ({ token, value }) => {
   return (
     <Card
       appearance="filled"
+      size="sm"
       hoverable
       hoverElevation="lg"
       selected={isFavorite || isSelected}
@@ -82,7 +83,7 @@ export const TokenItem: FC<TokenItemProps> = ({ token, value }) => {
           >
             {token.displayName}
           </label>
-          <Badge size="sm" label={token.type} />
+          <Badge size="xs" label={token.type} />
           <Button
             iconOnly={true}
             variant="ghost"

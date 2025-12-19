@@ -5,35 +5,43 @@
 // =============================================================================
 .tokenSearch {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: var(--atomix-spacing-2);
+  flex-wrap: wrap;
 }
 
 .tokenSearch__inputWrapper {
   position: relative;
   display: flex;
   align-items: center;
+  min-width: 180px;
+  max-width: 250px;
 }
 
 .tokenSearch__icon {
   position: absolute;
-  left: var(--atomix-spacing-3);
+  left: var(--atomix-spacing-2);
   color: var(--atomix-secondary-text-emphasis);
   pointer-events: none;
   z-index: 1;
+  width: 14px;
+  height: 14px;
 }
 
 .tokenSearch__input {
-  padding-left: calc(var(--atomix-spacing-3) * 2 + 20px);
-  padding-right: calc(var(--atomix-spacing-3) * 2 + 20px);
+  padding-left: calc(var(--atomix-spacing-2) * 2 + 14px);
+  padding-right: calc(var(--atomix-spacing-2) * 2 + 14px);
+  width: 100%;
+  height: 28px;
+  font-size: var(--atomix-font-size-sm);
 }
 
 .tokenSearch__clear {
   position: absolute;
-  right: var(--atomix-spacing-2);
+  right: var(--atomix-spacing-1);
   min-width: auto;
-  width: 32px;
-  height: 32px;
+  width: var(--atomix-spacing-6);
+  height: var(--atomix-spacing-6);
   padding: 0;
   color: var(--atomix-secondary-text-emphasis);
   
@@ -43,8 +51,8 @@
   }
   
   &:focus-visible {
-    outline: 2px solid var(--atomix-focus-border-color);
-    outline-offset: 2px;
+    outline: var(--atomix-focus-ring-width) solid var(--atomix-focus-border-color);
+    outline-offset: var(--atomix-focus-ring-offset);
   }
 }
 
@@ -52,6 +60,25 @@
   display: flex;
   gap: var(--atomix-spacing-2);
   flex-wrap: wrap;
+  align-items: center;
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: var(--atomix-breakpoint-md)) {
+  .tokenSearch {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  
+  .tokenSearch__inputWrapper {
+    max-width: 100%;
+  }
+  
+  .tokenSearch__quickFilters {
+    justify-content: center;
+  }
 }
 
 // Accessibility Enhancements
@@ -59,6 +86,16 @@
 @media (prefers-reduced-motion: reduce) {
   .tokenSearch__clear {
     transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .tokenSearch__clear {
+    border: var(--atomix-border-width) solid var(--atomix-border-color);
+    
+    &:focus-visible {
+      border-width: calc(var(--atomix-border-width) * 2);
+    }
   }
 }
 

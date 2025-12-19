@@ -11,5 +11,14 @@
 
 .previewPanel__viewport {
   background-color: var(--atomix-surface);
-  transition: max-width 0.3s ease, max-height 0.3s ease;
+  transition: max-width var(--atomix-transition-duration-base) var(--atomix-easing-base), 
+              max-height var(--atomix-transition-duration-base) var(--atomix-easing-base);
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .previewPanel__viewport {
+    transition: none;
+  }
 }

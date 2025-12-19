@@ -7,14 +7,28 @@
   display: flex;
   align-items: center;
   gap: var(--atomix-spacing-1);
-  border-radius: var(--atomix-border-radius);
+  border-radius: var(--atomix-border-radius-sm);
   padding: var(--atomix-spacing-1);
-  background-color: var(--atomix-secondary-bg-subtle);
-  border: 1px solid var(--atomix-border-color);
+  background-color: var(--atomix-tertiary-bg-subtle);
+  border: var(--atomix-border-width) solid var(--atomix-border-color);
 }
 
 .undoRedo__button {
-  min-width: auto;
-  padding: var(--atomix-spacing-2);
+  min-width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: var(--atomix-border-radius-sm);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--atomix-secondary-bg-subtle);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .undoRedo {
+    border-width: calc(var(--atomix-border-width) * 2);
+  }
 }
 

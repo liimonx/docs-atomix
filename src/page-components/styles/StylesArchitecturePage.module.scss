@@ -10,40 +10,40 @@
 // Elements - Layer Card
 // =============================================================================
 .stylesArchitecturePage__layerCard {
-  border-left-width: 4px;
+  border-left-width: var(--atomix-spacing-1);
   border-left-style: solid;
   height: 100%;
-  padding: 1.5rem;
+  padding: var(--atomix-spacing-6);
 }
 
 // Color Modifiers for Layer Card Border
 // =============================================================================
 .stylesArchitecturePage__layerCard--red {
-  border-left-color: #ef4444;
+  border-left-color: var(--atomix-error);
 }
 
 .stylesArchitecturePage__layerCard--orange {
-  border-left-color: #f97316;
+  border-left-color: var(--atomix-warning);
 }
 
 .stylesArchitecturePage__layerCard--yellow {
-  border-left-color: #eab308;
+  border-left-color: var(--atomix-warning);
 }
 
 .stylesArchitecturePage__layerCard--green {
-  border-left-color: #22c55e;
+  border-left-color: var(--atomix-success);
 }
 
 .stylesArchitecturePage__layerCard--blue {
-  border-left-color: #3b82f6;
+  border-left-color: var(--atomix-info);
 }
 
 .stylesArchitecturePage__layerCard--purple {
-  border-left-color: #8b5cf6;
+  border-left-color: var(--atomix-primary);
 }
 
 .stylesArchitecturePage__layerCard--pink {
-  border-left-color: #ec4899;
+  border-left-color: var(--atomix-secondary);
 }
 
 // Elements - Layer Number Badge
@@ -54,46 +54,46 @@
   justify-content: center;
   font-weight: var(--atomix-font-weight-bold);
   font-size: var(--atomix-font-size-lg);
-  width: 3rem;
-  height: 3rem;
+  width: var(--atomix-spacing-12);
+  height: var(--atomix-spacing-12);
   border-radius: var(--atomix-border-radius-md);
 }
 
 // Color Modifiers for Layer Number Badge
 // =============================================================================
 .stylesArchitecturePage__layerNumberBadge--red {
-  background-color: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
+  background-color: var(--atomix-error-bg-subtle, color-mix(in srgb, var(--atomix-error) 20%, transparent));
+  color: var(--atomix-error);
 }
 
 .stylesArchitecturePage__layerNumberBadge--orange {
-  background-color: rgba(249, 115, 22, 0.2);
-  color: #f97316;
+  background-color: var(--atomix-warning-bg-subtle, color-mix(in srgb, var(--atomix-warning) 20%, transparent));
+  color: var(--atomix-warning);
 }
 
 .stylesArchitecturePage__layerNumberBadge--yellow {
-  background-color: rgba(234, 179, 8, 0.2);
-  color: #eab308;
+  background-color: var(--atomix-warning-bg-subtle, color-mix(in srgb, var(--atomix-warning) 20%, transparent));
+  color: var(--atomix-warning);
 }
 
 .stylesArchitecturePage__layerNumberBadge--green {
-  background-color: rgba(34, 197, 94, 0.2);
-  color: #22c55e;
+  background-color: var(--atomix-success-bg-subtle, color-mix(in srgb, var(--atomix-success) 20%, transparent));
+  color: var(--atomix-success);
 }
 
 .stylesArchitecturePage__layerNumberBadge--blue {
-  background-color: rgba(59, 130, 246, 0.2);
-  color: #3b82f6;
+  background-color: var(--atomix-info-bg-subtle, color-mix(in srgb, var(--atomix-info) 20%, transparent));
+  color: var(--atomix-info);
 }
 
 .stylesArchitecturePage__layerNumberBadge--purple {
-  background-color: rgba(139, 92, 246, 0.2);
-  color: #8b5cf6;
+  background-color: var(--atomix-primary-bg-subtle, color-mix(in srgb, var(--atomix-primary) 20%, transparent));
+  color: var(--atomix-primary);
 }
 
 .stylesArchitecturePage__layerNumberBadge--pink {
-  background-color: rgba(236, 72, 153, 0.2);
-  color: #ec4899;
+  background-color: var(--atomix-secondary-bg-subtle, color-mix(in srgb, var(--atomix-secondary) 20%, transparent));
+  color: var(--atomix-secondary);
 }
 
 // Elements - Code Example
@@ -105,7 +105,7 @@
 // Elements - Info Card
 // =============================================================================
 .stylesArchitecturePage__infoCard {
-  padding: 1.5rem;
+  padding: var(--atomix-spacing-6);
   height: 100%;
 }
 
@@ -113,18 +113,18 @@
 // =============================================================================
 @media (max-width: 768px) {
   .stylesArchitecturePage__layerCard {
-    padding: 1rem;
-    border-left-width: 3px;
+    padding: var(--atomix-spacing-4);
+    border-left-width: var(--atomix-spacing-1);
   }
 
   .stylesArchitecturePage__layerNumberBadge {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: var(--atomix-spacing-10);
+    height: var(--atomix-spacing-10);
     font-size: var(--atomix-font-size-base);
   }
 
   .stylesArchitecturePage__infoCard {
-    padding: 1rem;
+    padding: var(--atomix-spacing-4);
   }
 }
 
@@ -132,7 +132,7 @@
 // =============================================================================
 @media (prefers-contrast: high) {
   .stylesArchitecturePage__layerCard {
-    border-left-width: 5px;
+    border-left-width: var(--atomix-spacing-2);
   }
 }
 

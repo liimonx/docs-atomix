@@ -36,9 +36,9 @@
 }
 
 .contrastChecker__colorPicker {
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--atomix-border-color);
+  width: var(--atomix-spacing-10);
+  height: var(--atomix-spacing-10);
+  border: var(--atomix-border-width) solid var(--atomix-border-color);
   border-radius: var(--atomix-border-radius);
   cursor: pointer;
   flex-shrink: 0;
@@ -51,7 +51,7 @@
 .contrastChecker__preview {
   padding: var(--atomix-spacing-4);
   background-color: var(--atomix-secondary-bg-subtle);
-  border: 1px solid var(--atomix-border-color);
+  border: var(--atomix-border-width) solid var(--atomix-border-color);
   border-radius: var(--atomix-border-radius);
 }
 
@@ -112,5 +112,17 @@
   justify-content: space-between;
   padding: var(--atomix-spacing-2);
   font-size: var(--atomix-font-size-sm);
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .contrastChecker__colorPicker {
+    border-width: calc(var(--atomix-border-width) * 2);
+  }
+  
+  .contrastChecker__preview {
+    border-width: calc(var(--atomix-border-width) * 2);
+  }
 }
 

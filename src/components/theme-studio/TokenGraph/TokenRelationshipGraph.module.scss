@@ -7,7 +7,7 @@
 // =============================================================================
 .tokenRelationshipGraph {
   padding: var(--atomix-spacing-4);
-  max-height: 600px;
+  max-height: calc(37.5rem); // 600px
   overflow-y: auto;
 }
 
@@ -41,7 +41,7 @@
 .tokenRelationshipGraph__item {
   padding: var(--atomix-spacing-3);
   background-color: var(--atomix-secondary-bg-subtle);
-  border: 1px solid var(--atomix-border-color);
+  border: var(--atomix-border-width) solid var(--atomix-border-color);
   border-radius: var(--atomix-border-radius);
 }
 
@@ -78,6 +78,18 @@
   background-color: var(--atomix-body-bg);
   padding: var(--atomix-spacing-1) var(--atomix-spacing-2);
   border-radius: var(--atomix-border-radius-sm);
-  border: 1px solid var(--atomix-border-color);
+  border: var(--atomix-border-width) solid var(--atomix-border-color);
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .tokenRelationshipGraph__item {
+    border-width: calc(var(--atomix-border-width) * 2);
+  }
+  
+  .tokenRelationshipGraph__dep {
+    border-width: calc(var(--atomix-border-width) * 2);
+  }
 }
 

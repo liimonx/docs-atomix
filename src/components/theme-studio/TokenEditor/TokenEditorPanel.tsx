@@ -1,6 +1,4 @@
 import { FC } from 'react';
-import { Card } from '@shohojdhara/atomix';
-import { TokenSearch } from './TokenSearch';
 import { CategoryNav } from './CategoryNav';
 import { TokenList } from './TokenList';
 import { BulkOperations } from './BulkOperations';
@@ -9,10 +7,6 @@ import styles from './TokenEditorPanel.module.scss';
 export const TokenEditorPanel: FC = () => {
   return (
     <div className="u-mt-4 u-px-2">
-      <Card className="u-mb-4">
-        <TokenSearch />
-      </Card>
-      
       <BulkOperations />
       
       <div className={styles.tokenEditorPanel__content}>

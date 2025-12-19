@@ -5,16 +5,28 @@
 // =============================================================================
 .presetSelector {
   position: relative;
-  width: 100%;
-}
-
-// Button Element
-// =============================================================================
-.presetSelector__button {
-  width: 100%;
   display: flex;
   align-items: center;
-  gap: var(--atomix-spacing-2);
+  height: 28px;
+}
+
+.presetSelector__button {
+  display: flex;
+  align-items: center;
+  gap: var(--atomix-spacing-1);
+  padding: var(--atomix-spacing-1) var(--atomix-spacing-2);
+  height: 28px;
+  min-height: 28px;
+  border-radius: var(--atomix-border-radius-sm);
+  
+  &:hover {
+    background-color: var(--atomix-secondary-bg-subtle);
+  }
+}
+
+.presetSelector__text {
+  font-size: var(--atomix-font-size-sm);
+  white-space: nowrap;
 }
 
 // Menu Element
@@ -43,7 +55,7 @@
 
 // Responsive Design
 // =============================================================================
-@media (max-width: 768px) {
+@media (max-width: var(--atomix-breakpoint-md)) {
   .presetSelector__saveForm {
     padding: var(--atomix-spacing-3);
   }

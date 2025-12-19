@@ -5,3 +5,11 @@
   transform: translateY(-50%);
   z-index: var(--atomix-z-dropdown);
 }
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .colorToolsPanel__toggle {
+    border: var(--atomix-border-width) solid var(--atomix-border-color);
+  }
+}

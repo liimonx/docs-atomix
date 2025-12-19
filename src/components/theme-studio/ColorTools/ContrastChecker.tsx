@@ -3,9 +3,13 @@ import { Input, Badge } from '@shohojdhara/atomix';
 import { checkContrast } from '@/utils/colorUtils';
 import styles from './ContrastChecker.module.scss';
 
+// Default color constants
+const DEFAULT_FOREGROUND_COLOR = '#000000'; // Black
+const DEFAULT_BACKGROUND_COLOR = '#ffffff'; // White
+
 export const ContrastChecker: FC = () => {
-  const [foreground, setForeground] = useState('#000000');
-  const [background, setBackground] = useState('#ffffff');
+  const [foreground, setForeground] = useState(DEFAULT_FOREGROUND_COLOR);
+  const [background, setBackground] = useState(DEFAULT_BACKGROUND_COLOR);
 
   const result = checkContrast(foreground, background);
 

@@ -12,11 +12,20 @@
 .exportMenu__button {
   display: flex;
   align-items: center;
-  gap: var(--atomix-spacing-2);
+  gap: var(--atomix-spacing-1);
+  padding: var(--atomix-spacing-1) var(--atomix-spacing-2);
+  min-height: 28px;
+  border-radius: var(--atomix-border-radius-sm);
+}
+
+.exportMenu__text {
+  font-size: var(--atomix-font-size-sm);
+  white-space: nowrap;
 }
 
 .exportMenu__caret {
   margin-left: var(--atomix-spacing-1);
+  opacity: 0.7;
 }
 
 .exportMenu__dropdown {
@@ -24,12 +33,12 @@
   top: calc(100% + var(--atomix-spacing-2));
   right: 0;
   background-color: var(--atomix-secondary-bg-subtle);
-  border: 1px solid var(--atomix-border-color);
+  border: var(--atomix-border-width) solid var(--atomix-border-color);
   border-radius: var(--atomix-border-radius);
   box-shadow: var(--atomix-box-shadow-lg);
   z-index: var(--atomix-z-dropdown);
-  min-width: 220px;
-  max-height: 500px;
+  min-width: calc(13.75rem); // 220px
+  max-height: calc(31.25rem); // 500px
   overflow-y: auto;
 }
 
@@ -37,7 +46,7 @@
   padding: var(--atomix-spacing-2) 0;
   
   &:not(:last-child) {
-    border-bottom: 1px solid var(--atomix-border-color);
+    border-bottom: var(--atomix-border-width) solid var(--atomix-border-color);
   }
 }
 
@@ -47,7 +56,7 @@
   font-weight: var(--atomix-font-weight-semibold);
   color: var(--atomix-secondary-text-emphasis);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--atomix-letter-spacing-h4);
 }
 
 .exportMenu__item {
@@ -67,8 +76,8 @@
   }
   
   &:focus-visible {
-    outline: 2px solid var(--atomix-focus-border-color);
-    outline-offset: -2px;
+    outline: var(--atomix-focus-ring-width) solid var(--atomix-focus-border-color);
+    outline-offset: calc(-1 * var(--atomix-focus-ring-offset));
     background-color: var(--atomix-tertiary-bg-subtle);
   }
   
@@ -82,6 +91,18 @@
 @media (prefers-reduced-motion: reduce) {
   .exportMenu__item {
     transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .exportMenu__dropdown {
+    border-width: calc(var(--atomix-border-width) * 2);
+  }
+  
+  .exportMenu__item {
+    &:focus-visible {
+      border: var(--atomix-border-width) solid var(--atomix-focus-border-color);
+    }
   }
 }
 

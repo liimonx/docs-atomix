@@ -8,8 +8,11 @@ import {
 } from '@/utils/colorUtils';
 import styles from './ColorHarmonies.module.scss';
 
+// Default color constants
+const DEFAULT_PRIMARY_COLOR = '#8b5cf6'; // Purple primary color
+
 export const ColorHarmonies: FC = () => {
-  const [baseColor, setBaseColor] = useState('#8b5cf6');
+  const [baseColor, setBaseColor] = useState(DEFAULT_PRIMARY_COLOR);
   const [complementary, setComplementary] = useState<string>('');
   const [analogous, setAnalogous] = useState<string[]>([]);
   const [triadic, setTriadic] = useState<string[]>([]);

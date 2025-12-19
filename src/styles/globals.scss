@@ -59,3 +59,11 @@ body {
 .u-max-w-600 {
   max-width: 600px;
 }
+
+/* Atomix Input component overrides */
+.c-input.c-input--sm {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 6px;
+  padding-right: 6px;
+}

@@ -4,6 +4,8 @@ import { ModeToggle } from './ModeToggle';
 import { UndoRedo } from './UndoRedo';
 import { PresetSelector } from './PresetSelector';
 import { ExportMenu } from './ExportMenu';
+import { ResponsivePreview } from '../PreviewPanel/ResponsivePreview';
+import { TokenSearch } from '../TokenEditor/TokenSearch';
 import styles from './ThemeToolbar.module.scss';
 
 interface ThemeToolbarProps {
@@ -16,23 +18,26 @@ export const ThemeToolbar: FC<ThemeToolbarProps> = ({ onImport }) => {
       <div className={styles.themeToolbar__left} role="group" aria-label="Theme mode and history">
         <ModeToggle />
         <UndoRedo />
+        <TokenSearch />
       </div>
       
       <div className={styles.themeToolbar__center} role="group" aria-label="Theme presets">
         <PresetSelector />
+        <ResponsivePreview />
       </div>
       
       <div className={styles.themeToolbar__right} role="group" aria-label="Import and export">
         {onImport && (
           <Button
-            variant="outline-secondary"
+            variant="ghost"
             size="sm"
             onClick={onImport}
             className={styles.themeToolbar__button}
             aria-label="Import theme from file (Cmd/Ctrl+I)"
+            title="Import theme (Cmd/Ctrl+I)"
           >
-            <Icon name="Upload" size={16} aria-hidden="true" />
-            Import
+            <Icon name="Upload" size={14} aria-hidden="true" />
+            <span>Import</span>
           </Button>
         )}
         <ExportMenu />

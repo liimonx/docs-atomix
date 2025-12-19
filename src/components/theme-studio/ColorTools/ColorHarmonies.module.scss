@@ -30,9 +30,9 @@
 }
 
 .colorHarmonies__colorPicker {
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--atomix-border-color);
+  width: var(--atomix-spacing-10);
+  height: var(--atomix-spacing-10);
+  border: var(--atomix-border-width) solid var(--atomix-border-color);
   border-radius: var(--atomix-border-radius);
   cursor: pointer;
   flex-shrink: 0;
@@ -64,13 +64,13 @@
   display: flex;
   flex-direction: column;
   gap: var(--atomix-spacing-1);
-  min-width: 80px;
+  min-width: var(--atomix-spacing-20);
 }
 
 .colorHarmonies__swatchColor {
   width: 100%;
-  height: 60px;
-  border: 1px solid var(--atomix-border-color);
+  height: calc(3.75rem); // 60px
+  border: var(--atomix-border-width) solid var(--atomix-border-color);
   border-radius: var(--atomix-border-radius);
 }
 
@@ -80,5 +80,17 @@
   color: var(--atomix-secondary-text-emphasis);
   text-align: center;
   word-break: break-all;
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .colorHarmonies__colorPicker {
+    border-width: calc(var(--atomix-border-width) * 2);
+  }
+  
+  .colorHarmonies__swatchColor {
+    border-width: calc(var(--atomix-border-width) * 2);
+  }
 }
 

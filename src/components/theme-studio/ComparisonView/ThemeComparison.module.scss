@@ -34,3 +34,11 @@
   margin-bottom: var(--atomix-spacing-4);
 }
 
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .themeComparison {
+    border: var(--atomix-border-width) solid var(--atomix-border-color);
+  }
+}
+

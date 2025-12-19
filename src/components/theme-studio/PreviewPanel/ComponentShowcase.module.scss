@@ -72,8 +72,8 @@
   position: absolute;
   right: var(--atomix-spacing-2);
   min-width: auto;
-  width: 32px;
-  height: 32px;
+  width: var(--atomix-spacing-8);
+  height: var(--atomix-spacing-8);
   padding: 0;
 }
 
@@ -84,6 +84,18 @@
   
   p {
     margin-bottom: var(--atomix-spacing-4);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .componentShowcase__clearFilter {
+    border: var(--atomix-border-width) solid var(--atomix-border-color);
+    
+    &:focus-visible {
+      border-width: calc(var(--atomix-border-width) * 2);
+    }
   }
 }
 

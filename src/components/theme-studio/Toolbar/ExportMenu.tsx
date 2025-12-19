@@ -117,12 +117,13 @@ export const ExportMenu: FC = () => {
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label="Export theme"
+        title="Export theme"
       >
-        <Icon name="Download" size={16} />
-        Export
+        <Icon name="Download" size={14} />
+        <span className={styles.exportMenu__text}>Export</span>
         <Icon
           name={isOpen ? 'CaretUp' : 'CaretDown'}
-          size={14}
+          size={12}
           className={styles.exportMenu__caret}
         />
       </Button>

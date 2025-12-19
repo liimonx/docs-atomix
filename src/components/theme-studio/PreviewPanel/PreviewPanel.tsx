@@ -1,7 +1,6 @@
 import { FC, useEffect, useRef, useMemo } from "react";
 import { Block, Row, GridCol } from "@shohojdhara/atomix";
 import { ComponentShowcase } from "./ComponentShowcase";
-import { ResponsivePreview } from "./ResponsivePreview";
 import { useThemeStudioStore } from "@/stores/themeStudioStore";
 import styles from "./PreviewPanel.module.scss";
 
@@ -67,7 +66,6 @@ export const PreviewPanel: FC = () => {
       <Block container={{ type: 'fluid' }} spacing="md">
         <Row>
           <GridCol md={12}>
-            <ResponsivePreview />
             <div
               className={styles.previewPanel__viewport}
               style={{

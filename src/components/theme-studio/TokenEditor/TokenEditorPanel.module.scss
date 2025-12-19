@@ -15,9 +15,9 @@
 
 .tokenEditorPanel__sidebar {
   flex-shrink: 0;
-  width: 200px;
+  width: calc(12.5rem); // 200px
   padding-right: var(--atomix-spacing-4);
-  border-right: 1px solid var(--atomix-border-color);
+  border-right: var(--atomix-border-width) solid var(--atomix-border-color);
   overflow-y: auto;
 }
 
@@ -30,7 +30,7 @@
 
 // Responsive Design
 // =============================================================================
-@media (max-width: 768px) {
+@media (max-width: var(--atomix-breakpoint-md)) {
   .tokenEditorPanel__content {
     flex-direction: column;
   }
@@ -38,6 +38,6 @@
   .tokenEditorPanel__sidebar {
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid var(--atomix-border-color);
+    border-bottom: var(--atomix-border-width) solid var(--atomix-border-color);
   }
 }

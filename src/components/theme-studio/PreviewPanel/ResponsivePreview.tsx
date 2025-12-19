@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react';
-import {  Icon, Select, Input, Row, GridCol } from '@shohojdhara/atomix';
+import { Icon, Select, Input } from '@shohojdhara/atomix';
 import { useThemeStudioStore } from '@/stores/themeStudioStore';
 import styles from './ResponsivePreview.module.scss';
 
@@ -81,71 +81,70 @@ export const ResponsivePreview: FC = () => {
   return (
     <div className={styles.responsivePreview}>
       <div className={styles.responsivePreview__controls}>
-        <Row>
-          <GridCol md={6}>
+        <label className={styles.responsivePreview__label}>
+          Device Preset
+        </label>
+        <div className={styles.responsivePreview__selectWrapper}>
+          <Select
+            options={[
+              { value: 'desktop', label: DEVICE_PRESETS.desktop.label },
+              { value: 'laptop', label: DEVICE_PRESETS.laptop.label },
+              { value: 'tablet', label: DEVICE_PRESETS.tablet.label },
+              { value: 'tablet-landscape', label: DEVICE_PRESETS['tablet-landscape'].label },
+              { value: 'mobile', label: DEVICE_PRESETS.mobile.label },
+              { value: 'mobile-landscape', label: DEVICE_PRESETS['mobile-landscape'].label },
+              { value: 'custom', label: 'Custom Size' },
+            ]}
+            value={getCurrentPresetValue()}
+            onChange={handlePresetChange}
+            aria-label="Select device preset"
+            size="sm"
+          />
+        </div>
+        
+        {responsiveMode === 'custom' && (
+          <>
             <label className={styles.responsivePreview__label}>
-              Device Preset
+              Width (px)
             </label>
-            <Select
-              options={[
-                { value: 'desktop', label: DEVICE_PRESETS.desktop.label },
-                { value: 'laptop', label: DEVICE_PRESETS.laptop.label },
-                { value: 'tablet', label: DEVICE_PRESETS.tablet.label },
-                { value: 'tablet-landscape', label: DEVICE_PRESETS['tablet-landscape'].label },
-                { value: 'mobile', label: DEVICE_PRESETS.mobile.label },
-                { value: 'mobile-landscape', label: DEVICE_PRESETS['mobile-landscape'].label },
-                { value: 'custom', label: 'Custom Size' },
-              ]}
-              value={getCurrentPresetValue()}
-              onChange={handlePresetChange}
-              aria-label="Select device preset"
+            <Input
+              type="number"
+              value={customViewportWidth}
+              onChange={(e) => {
+                const width = parseInt(e.target.value, 10);
+                if (!isNaN(width)) {
+                  setCustomViewportSize(width, customViewportHeight);
+                }
+              }}
+              min={320}
+              max={3840}
+              aria-label="Custom viewport width"
+              size="sm"
+              style={{ width: '80px' }}
             />
-          </GridCol>
-          
-          {responsiveMode === 'custom' && (
-            <>
-              <GridCol md={3}>
-                <label className={styles.responsivePreview__label}>
-                  Width (px)
-                </label>
-                <Input
-                  type="number"
-                  value={customViewportWidth}
-                  onChange={(e) => {
-                    const width = parseInt(e.target.value, 10);
-                    if (!isNaN(width)) {
-                      setCustomViewportSize(width, customViewportHeight);
-                    }
-                  }}
-                  min={320}
-                  max={3840}
-                  aria-label="Custom viewport width"
-                />
-              </GridCol>
-              <GridCol md={3}>
-                <label className={styles.responsivePreview__label}>
-                  Height (px)
-                </label>
-                <Input
-                  type="number"
-                  value={customViewportHeight}
-                  onChange={(e) => {
-                    const height = parseInt(e.target.value, 10);
-                    if (!isNaN(height)) {
-                      setCustomViewportSize(customViewportWidth, height);
-                    }
-                  }}
-                  min={240}
-                  max={2160}
-                  aria-label="Custom viewport height"
-                />
-              </GridCol>
-            </>
-          )}
-        </Row>
+            <label className={styles.responsivePreview__label}>
+              Height (px)
+            </label>
+            <Input
+              type="number"
+              value={customViewportHeight}
+              onChange={(e) => {
+                const height = parseInt(e.target.value, 10);
+                if (!isNaN(height)) {
+                  setCustomViewportSize(customViewportWidth, height);
+                }
+              }}
+              min={240}
+              max={2160}
+              aria-label="Custom viewport height"
+              size="sm"
+              style={{ width: '80px' }}
+            />
+          </>
+        )}
         
         <div className={styles.responsivePreview__info}>
-          <Icon name="Monitor" size={16} aria-hidden="true" />
+          <Icon name="Monitor" size={12} aria-hidden="true" />
           <span>
             Viewport: {currentViewport.width} × {currentViewport.height}px
           </span>

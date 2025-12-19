@@ -10,69 +10,69 @@
 // Elements - API Section Card
 // =============================================================================
 .stylesAPIReferencePage__apiSectionCard {
-  border-left-width: 4px;
+  border-left-width: var(--atomix-spacing-1);
   border-left-style: solid;
 }
 
 // Color Modifiers for API Section Card Border
 // =============================================================================
 .stylesAPIReferencePage__apiSectionCard--blue {
-  border-left-color: #3b82f6;
+  border-left-color: var(--atomix-info);
 }
 
 .stylesAPIReferencePage__apiSectionCard--purple {
-  border-left-color: #8b5cf6;
+  border-left-color: var(--atomix-primary);
 }
 
 .stylesAPIReferencePage__apiSectionCard--pink {
-  border-left-color: #ec4899;
+  border-left-color: var(--atomix-secondary);
 }
 
 .stylesAPIReferencePage__apiSectionCard--orange {
-  border-left-color: #f97316;
+  border-left-color: var(--atomix-warning);
 }
 
 .stylesAPIReferencePage__apiSectionCard--green {
-  border-left-color: #22c55e;
+  border-left-color: var(--atomix-success);
 }
 
 .stylesAPIReferencePage__apiSectionCard--yellow {
-  border-left-color: #eab308;
+  border-left-color: var(--atomix-warning);
 }
 
 .stylesAPIReferencePage__apiSectionCard--red {
-  border-left-color: #ef4444;
+  border-left-color: var(--atomix-error);
 }
 
 // Elements - API Section Icon
 // =============================================================================
 // Color Modifiers for API Section Icon
 .stylesAPIReferencePage__apiSectionIcon--blue {
-  color: #3b82f6;
+  color: var(--atomix-info);
 }
 
 .stylesAPIReferencePage__apiSectionIcon--purple {
-  color: #8b5cf6;
+  color: var(--atomix-primary);
 }
 
 .stylesAPIReferencePage__apiSectionIcon--pink {
-  color: #ec4899;
+  color: var(--atomix-secondary);
 }
 
 .stylesAPIReferencePage__apiSectionIcon--orange {
-  color: #f97316;
+  color: var(--atomix-warning);
 }
 
 .stylesAPIReferencePage__apiSectionIcon--green {
-  color: #22c55e;
+  color: var(--atomix-success);
 }
 
 .stylesAPIReferencePage__apiSectionIcon--yellow {
-  color: #eab308;
+  color: var(--atomix-warning);
 }
 
 .stylesAPIReferencePage__apiSectionIcon--red {
-  color: #ef4444;
+  color: var(--atomix-error);
 }
 
 // Elements - Code Block
@@ -85,7 +85,7 @@
 // =============================================================================
 @media (max-width: 768px) {
   .stylesAPIReferencePage__apiSectionCard {
-    border-left-width: 3px;
+    border-left-width: var(--atomix-spacing-1);
   }
 }
 
@@ -93,7 +93,7 @@
 // =============================================================================
 @media (prefers-contrast: high) {
   .stylesAPIReferencePage__apiSectionCard {
-    border-left-width: 5px;
+    border-left-width: var(--atomix-spacing-2);
   }
 }
 

@@ -9,26 +9,26 @@ export const ModeToggle: FC = () => {
   return (
     <div className={styles.modeToggle} role="group" aria-label="Color mode selection">
       <Button
-        variant={activeMode === 'light' ? 'primary' : 'outline-secondary'}
+        variant={activeMode === 'light' ? 'primary' : 'ghost'}
         size="sm"
         onClick={() => setActiveMode('light')}
         className={styles.modeToggle__button}
         aria-label="Switch to light mode"
         aria-pressed={activeMode === 'light'}
+        title="Light mode"
       >
-        <Icon name="Sun" size={16} aria-hidden="true" />
-        Light
+        <Icon name="Sun" size={14} aria-hidden="true" />
       </Button>
       <Button
-        variant={activeMode === 'dark' ? 'primary' : 'outline-secondary'}
+        variant={activeMode === 'dark' ? 'primary' : 'ghost'}
         size="sm"
         onClick={() => setActiveMode('dark')}
         className={styles.modeToggle__button}
         aria-label="Switch to dark mode"
         aria-pressed={activeMode === 'dark'}
+        title="Dark mode"
       >
-        <Icon name="Moon" size={16} aria-hidden="true" />
-        Dark
+        <Icon name="Moon" size={14} aria-hidden="true" />
       </Button>
     </div>
   );

@@ -4,32 +4,39 @@
 // Block: Token item
 // =============================================================================
 
+// Make the card more compact
+:global(.c-card--sm) {
+  padding: var(--atomix-spacing-2) !important;
+}
+
 .tokenItem__header {
-  margin-bottom: var(--atomix-spacing-3);
+  margin-bottom: var(--atomix-spacing-2);
 }
 
 .tokenItem__titleRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--atomix-spacing-2);
-  margin-bottom: var(--atomix-spacing-2);
+  gap: var(--atomix-spacing-1);
+  margin-bottom: var(--atomix-spacing-1);
 }
 
 .tokenItem__label {
   flex: 1;
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-medium);
 }
 
 .tokenItem__badges {
   display: flex;
   align-items: center;
-  gap: var(--atomix-spacing-2);
+  gap: var(--atomix-spacing-1);
 }
 
 .tokenItem__favorite {
   min-width: auto;
-  width: 32px;
-  height: 32px;
+  width: var(--atomix-spacing-6);
+  height: var(--atomix-spacing-6);
   padding: 0;
 }
 .tokenItem__favoriteIcon {
@@ -42,17 +49,18 @@
   padding: var(--atomix-spacing-1) var(--atomix-spacing-2);
   border-radius: var(--atomix-border-radius-sm);
   word-break: break-all;
+  line-height: 1.3;
 }
 
 .tokenItem__input {
-  margin-top: var(--atomix-spacing-3);
+  margin-top: var(--atomix-spacing-2);
 }
 
 .tokenItem__validation {
-  margin-top: var(--atomix-spacing-3);
+  margin-top: var(--atomix-spacing-2);
   display: flex;
   flex-direction: column;
-  gap: var(--atomix-spacing-2);
+  gap: var(--atomix-spacing-1);
 }
 
 .tokenItem__error,
@@ -61,10 +69,19 @@
 }
 
 .tokenItem__selected {
-  border: 2px solid var(--atomix-primary);
+  border: var(--atomix-border-width) solid var(--atomix-primary);
   box-shadow: 0 0 0 2px var(--atomix-primary-bg-subtle);
 }
 
 .tokenItem__checkbox {
-  margin-right: var(--atomix-spacing-2);
+  margin-right: var(--atomix-spacing-1);
+  flex-shrink: 0;
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .tokenItem__selected {
+    border-width: calc(var(--atomix-border-width) * 2);
+  }
 }
