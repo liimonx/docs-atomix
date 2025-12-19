@@ -23,6 +23,7 @@ import {
   GettingStartedPage,
   GettingStartedOverviewPage,
   MigrationPage,
+  CLIPage,
   
   // Guide Pages
   GuidesAtomixGlassPerformancePage,
@@ -113,6 +114,7 @@ class PageComponentRegistry {
     this.idMap.set('getting-started:installation', GettingStartedPage);
     this.idMap.set('getting-started:quick-start', GettingStartedPage);
     this.idMap.set('getting-started:migration', MigrationPage);
+    this.idMap.set('getting-started:cli', CLIPage);
     this.categoryMap.set('getting-started', GettingStartedOverviewPage);
 
     // Guide Pages

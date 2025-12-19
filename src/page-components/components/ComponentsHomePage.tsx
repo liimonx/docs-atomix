@@ -87,6 +87,7 @@ const ComponentsHomePage: FC = () => {
               icon={<Icon name="Download" size={16} />}
               label="Get Started"
               href="/docs/getting-started/installation"
+              as={Link}
             />
             <Button
               glass
@@ -94,6 +95,7 @@ const ComponentsHomePage: FC = () => {
               icon={<Icon name="GridFour" size={16} />}
               label="Browse Components"
               href="/docs/components/overview"
+              as={Link}
             />
           </div>
         }

@@ -13,6 +13,7 @@ import {
 } from "@shohojdhara/atomix";
 import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 import styles from "@/styles/PageHero.module.scss";
+import pageStyles from "./StylesCustomizationPage.module.scss";
 
 interface CustomizationMethodProps {
   icon: string;
@@ -31,30 +32,37 @@ const MethodCard: FC<CustomizationMethodProps> = ({
   code,
   color,
 }) => {
-  const complexityColors = {
-    Low: "#22c55e",
-    Medium: "#eab308",
-    High: "#ef4444",
+  // Map hex colors to CSS class names
+  const colorToClass: Record<string, string> = {
+    "#3b82f6": "blue",
+    "#8b5cf6": "purple",
+    "#ec4899": "pink",
+    "#f97316": "orange",
+    "#22c55e": "green",
+    "#eab308": "yellow",
+    "#ef4444": "red",
   };
+
+  const colorClass = colorToClass[color] || "blue";
+  const complexityClass = complexity.toLowerCase();
 
   return (
     <Card
-      className="u-p-6 u-h-100 u-border-left"
-      style={{ borderLeftWidth: "4px", borderLeftColor: color }}
+      className={`u-p-6 u-h-100 u-border-left ${pageStyles.stylesCustomizationPage__methodCard} ${pageStyles[`stylesCustomizationPage__methodCard--${colorClass}`]}`}
     >
       <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
-        <Icon name={icon as any} size={24} style={{ color }} />
+        <Icon 
+          name={icon as any} 
+          size={24} 
+          className={pageStyles[`stylesCustomizationPage__methodIcon--${colorClass}`]}
+        />
         <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
       </div>
       <Badge
         variant="secondary"
         size="sm"
-        className="u-mb-3"
+        className={`u-mb-3 ${pageStyles.stylesCustomizationPage__complexityBadge} ${pageStyles[`stylesCustomizationPage__complexityBadge--${complexityClass}`]}`}
         label={`${complexity} Complexity`}
-        style={{
-          backgroundColor: `${complexityColors[complexity]}20`,
-          color: complexityColors[complexity],
-        }}
       />
       <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
       <EnhancedCodeBlock
@@ -205,7 +213,7 @@ const StylesCustomizationPage: FC = () => {
           <GridCol md={12}>
             <h2 className="u-fs-2xl u-fw-bold u-mb-4">Customization Levels</h2>
             <div className="u-overflow-x-auto">
-              <table className="u-w-100" style={{ borderCollapse: "collapse" }}>
+              <table className={`u-w-100 ${pageStyles.stylesCustomizationPage__comparisonTable}`}>
                 <thead className="u-bg-tertiary-subtle">
                   <tr>
                     <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
@@ -313,8 +321,7 @@ const StylesCustomizationPage: FC = () => {
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
                 <pre
-                  className="u-m-0 u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={`u-m-0 u-fs-sm ${pageStyles.stylesCustomizationPage__codeBlock}`}
                 >
                   {`$brand-primary: #your-color;
 
@@ -342,8 +349,7 @@ const StylesCustomizationPage: FC = () => {
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
                 <pre
-                  className="u-m-0 u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={`u-m-0 u-fs-sm ${pageStyles.stylesCustomizationPage__codeBlock}`}
                 >
                   {`@use 'atomix/styles' with (
   $font-family-base: ('Your Font', sans-serif),
@@ -373,8 +379,7 @@ const StylesCustomizationPage: FC = () => {
               </p>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
                 <pre
-                  className="u-m-0 u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={`u-m-0 u-fs-sm ${pageStyles.stylesCustomizationPage__codeBlock}`}
                 >
                   {`// JavaScript theme switching
 document.documentElement.setAttribute('data-theme', 'dark');

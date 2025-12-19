@@ -1,0 +1,101 @@
+// Component: LayoutsPerformancePage
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.layoutsPerformancePage {
+  // Base styles if needed
+}
+
+// Elements - Issue Icon Container
+// =============================================================================
+.layoutsPerformancePage__issueIconContainer {
+  width: var(--atomix-spacing-12);
+  height: var(--atomix-spacing-12);
+  border-radius: var(--atomix-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--atomix-spacing-3);
+}
+
+// Elements - Metric Icon Container
+// =============================================================================
+.layoutsPerformancePage__metricIconContainer {
+  width: var(--atomix-spacing-16);
+  height: var(--atomix-spacing-16);
+  border-radius: var(--atomix-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--atomix-spacing-3);
+}
+
+// Elements - Practice Icon Container
+// =============================================================================
+.layoutsPerformancePage__practiceIconContainer {
+  width: var(--atomix-spacing-12);
+  height: var(--atomix-spacing-12);
+  border-radius: var(--atomix-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--atomix-spacing-3);
+}
+
+// Color Modifiers (shared across all icon containers)
+// =============================================================================
+.layoutsPerformancePage__iconContainer--primary {
+  background-color: var(--atomix-color-primary-subtle);
+  color: var(--atomix-color-primary-emphasis);
+}
+
+.layoutsPerformancePage__iconContainer--success {
+  background-color: var(--atomix-color-success-subtle);
+  color: var(--atomix-color-success-emphasis);
+}
+
+.layoutsPerformancePage__iconContainer--warning {
+  background-color: var(--atomix-color-warning-subtle);
+  color: var(--atomix-color-warning-emphasis);
+}
+
+.layoutsPerformancePage__iconContainer--secondary {
+  background-color: var(--atomix-color-secondary-subtle);
+  color: var(--atomix-color-secondary-emphasis);
+}
+
+.layoutsPerformancePage__iconContainer--error {
+  background-color: var(--atomix-color-error-subtle);
+  color: var(--atomix-color-error-emphasis);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .layoutsPerformancePage__issueIconContainer,
+  .layoutsPerformancePage__metricIconContainer,
+  .layoutsPerformancePage__practiceIconContainer {
+    width: var(--atomix-spacing-10);
+    height: var(--atomix-spacing-10);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .layoutsPerformancePage__issueIconContainer,
+  .layoutsPerformancePage__metricIconContainer,
+  .layoutsPerformancePage__practiceIconContainer {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .layoutsPerformancePage__issueIconContainer,
+  .layoutsPerformancePage__metricIconContainer,
+  .layoutsPerformancePage__practiceIconContainer {
+    border: 2px solid currentColor;
+  }
+}
+

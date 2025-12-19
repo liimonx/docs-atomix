@@ -555,8 +555,7 @@ function hexToRgbForFigma(hex: string): { r: number; g: number; b: number } | nu
  * Export theme as Tailwind CSS config
  */
 export function exportAsTailwindConfig(
-  lightTokens: Record<string, string>,
-  darkTokens: Record<string, string>
+  lightTokens: Record<string, string>
 ): string {
   let config = `/** @type {import('tailwindcss').Config} */\n`;
   config += `module.exports = {\n`;
@@ -623,8 +622,7 @@ export function exportAsTailwindConfig(
  * Export theme as Style Dictionary format
  */
 export function exportAsStyleDictionary(
-  lightTokens: Record<string, string>,
-  darkTokens: Record<string, string>
+  lightTokens: Record<string, string>
 ): string {
   const styleDictionary: any = {
     color: {},
@@ -697,21 +695,21 @@ export function exportAsDesignTokens(
     };
   });
   
-  const w3cFormat = {
+  const w3cFormat: any = {
     $schema: 'https://design-tokens.github.io/community-group/format/schema.json',
     $version: '1.0.0',
     $description: 'Atomix Design System Tokens',
     tokens,
     modes: {
-      light: {},
-      dark: {},
+      light: {} as Record<string, any>,
+      dark: {} as Record<string, any>,
     },
   };
   
   // Add mode-specific values
   Object.entries(lightTokens).forEach(([name, value]) => {
     const cleanName = name.replace(/^--atomix-/, '');
-    w3cFormat.modes.light[cleanName] = { $value: value };
+    w3cFormat.modes.light[cleanName] = { $value: value } as Record<string, any>;
   });
   
   Object.entries(darkTokens).forEach(([name, value]) => {

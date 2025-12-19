@@ -254,6 +254,7 @@ const DocumentationOverviewPage: FC = () => {
                 icon={<Download size={16} />}
                 label="Get Started"
                 href="/docs/getting-started/installation"
+                as={Link}
               />
               <Button
                 glass
@@ -261,6 +262,7 @@ const DocumentationOverviewPage: FC = () => {
                 label="Browse Components"
                 icon={<Layers size={16} />}
                 href="/docs/components/overview"
+                as={Link}
               />
             </div>
           }
@@ -489,12 +491,14 @@ const DocumentationOverviewPage: FC = () => {
                     icon={<Download size={16} />}
                     label="Get Started"
                     href="/docs/getting-started/installation"
+                    as={Link}
                   />
                   <Button
                     variant="outline"
                     icon={<Layers size={16} />}
                     label="Browse Components"
                     href="/docs/components/overview"
+                    as={Link}
                   />
                 </div>
               </Card>

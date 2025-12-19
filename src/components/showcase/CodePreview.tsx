@@ -21,11 +21,21 @@ export const CodePreview: FC<CodePreviewProps> = ({ code, language }) => {
       const jsxElements = extractJSXElements(code);
       
       if (jsxElements.length === 0) {
+        if (process.env.NODE_ENV === 'development') {
+          console.debug('CodePreview: No JSX elements extracted from code:', code.substring(0, 100));
+        }
         return null;
       }
 
+      if (process.env.NODE_ENV === 'development') {
+        console.debug('CodePreview: Extracted', jsxElements.length, 'JSX elements');
+      }
+
       return jsxElements;
-    } catch {
+    } catch (error) {
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('CodePreview: Error extracting JSX elements:', error);
+      }
       return null;
     }
   }, [code, language]);
@@ -53,30 +63,152 @@ export const CodePreview: FC<CodePreviewProps> = ({ code, language }) => {
 function extractJSXElements(code: string): React.ReactNode[] {
   const elements: React.ReactNode[] = [];
   
-  // Remove comments
+  // Skip if code contains hooks or state management (can't be statically rendered)
+  if (/\b(useState|useEffect|useCallback|useMemo|useRef|useContext|useReducer|const\s+\[.*\]\s*=)/.test(code)) {
+    return [];
+  }
+
+  // Remove comments and import statements
   let cleanCode = code
     .replace(/\/\*[\s\S]*?\*\//g, '')
     .replace(/\/\/.*$/gm, '')
+    .replace(/^import\s+.*?from\s+['"].*?['"];?\s*/gm, '')
     .trim();
 
-  // Extract JSX from return statements or direct JSX
-  // Pattern 1: return (<JSX>);
-  const returnMatch = cleanCode.match(/return\s*\(?\s*([\s\S]*?)\s*\)?\s*;?\s*}/);
+  // Extract JSX from return statements - improved pattern
+  // Pattern 1: return (<JSX>); or return <JSX>;
+  // Match return statement and extract content until the closing brace of the function
+  // Improved to handle multi-line returns better
+  const returnMatch = cleanCode.match(/return\s*(\([\s\S]*?\)|[\s\S]*?)(?=\s*;?\s*[}\n]|$)/);
   if (returnMatch) {
     cleanCode = returnMatch[1].trim();
+    // Remove outer parentheses if present
+    if (cleanCode.startsWith('(') && cleanCode.endsWith(')')) {
+      cleanCode = cleanCode.slice(1, -1).trim();
+    }
   }
 
-  // Pattern 2: Direct JSX without function wrapper
-  // Find all JSX elements in the code (handle both self-closing and with children)
-  // Match patterns like: <Component /> or <Component>content</Component>
-  const jsxPattern = /<(\w+)([^>]*?)(\/>|>([\s\S]*?)<\/\1>)/g;
-  let match;
+  // Pattern 2: Extract JSX from inside JSX fragments or div wrappers
+  // Remove wrapper divs if they only contain JSX elements
+  const wrapperMatch = cleanCode.match(/^<div[^>]*>([\s\S]*)<\/div>$/);
+  if (wrapperMatch) {
+    cleanCode = wrapperMatch[1].trim();
+  }
+
+  // Pattern 3: Extract from JSX fragments
+  const fragmentMatch = cleanCode.match(/^<>([\s\S]*)<\/>$/);
+  if (fragmentMatch) {
+    cleanCode = fragmentMatch[1].trim();
+  }
+
+  // Find all top-level JSX elements
+  // Strategy: Find JSX elements that are not nested inside other JSX
+  // We'll process from the start and match JSX elements one by one
+  const jsxElements: Array<{ name: string; props: string; children: string; isSelfClosing: boolean; start: number }> = [];
+  let pos = 0;
   
-  while ((match = jsxPattern.exec(cleanCode)) !== null) {
-    const componentName = match[1];
-    const propsString = match[2] || '';
-    const isSelfClosing = match[3] === '/>';
-    const children = match[4] || '';
+  while (pos < cleanCode.length) {
+    // Find the next JSX opening tag (skip whitespace)
+    const remainingCode = cleanCode.slice(pos);
+    const openTagMatch = remainingCode.match(/<(\w+)([^>]*?)(\/>|>)/);
+    if (!openTagMatch) break;
+    
+    const componentName = openTagMatch[1];
+    const propsString = openTagMatch[2] || '';
+    const isSelfClosing = openTagMatch[3] === '/>';
+    const tagStart = pos + openTagMatch.index!;
+    const tagEnd = tagStart + openTagMatch[0].length;
+    
+    if (isSelfClosing) {
+      // Self-closing tag
+      jsxElements.push({
+        name: componentName,
+        props: propsString,
+        children: '',
+        isSelfClosing: true,
+        start: tagStart
+      });
+      pos = tagEnd;
+    } else {
+      // Find matching closing tag
+      let depth = 1;
+      let searchPos = tagEnd;
+      let found = false;
+      
+      while (searchPos < cleanCode.length && depth > 0) {
+        // Look for opening tags of the same component
+        const nextOpenPattern = new RegExp(`<${componentName}(?:\\s|>)`, 'g');
+        nextOpenPattern.lastIndex = searchPos;
+        const nextOpenMatch = nextOpenPattern.exec(cleanCode);
+        const nextOpen = nextOpenMatch ? nextOpenMatch.index : -1;
+        
+        // Look for closing tags
+        const nextClose = cleanCode.indexOf(`</${componentName}>`, searchPos);
+        
+        if (nextClose === -1) break;
+        
+        if (nextOpen !== -1 && nextOpen < nextClose) {
+          depth++;
+          searchPos = nextOpen + 1;
+        } else {
+          depth--;
+          if (depth === 0) {
+            const children = cleanCode.slice(tagEnd, nextClose);
+            jsxElements.push({
+              name: componentName,
+              props: propsString,
+              children: children.trim(),
+              isSelfClosing: false,
+              start: tagStart
+            });
+            pos = nextClose + `</${componentName}>`.length;
+            found = true;
+            break;
+          }
+          searchPos = nextClose + 1;
+        }
+      }
+      
+      if (!found) {
+        // Couldn't find matching closing tag, try to treat as self-closing or skip
+        // This might be a fragment or incomplete JSX
+        pos = tagEnd;
+      }
+    }
+  }
+  
+  // If no elements found with the complex parser, try a simpler fallback
+  // This handles cases with simple, flat JSX structures
+  if (jsxElements.length === 0) {
+    const simplePattern = /<(\w+)([^>]*?)(\/>|>([\s\S]*?)<\/\1>)/g;
+    let simpleMatch;
+    while ((simpleMatch = simplePattern.exec(cleanCode)) !== null) {
+      const componentName = simpleMatch[1];
+      const propsString = simpleMatch[2] || '';
+      const isSelfClosing = simpleMatch[3] === '/>';
+      const children = simpleMatch[4] || '';
+      
+      // Only add if it's a top-level element (not already processed)
+      const matchStart = simpleMatch.index;
+      const isDuplicate = jsxElements.some(el => Math.abs(el.start - matchStart) < 10);
+      if (!isDuplicate) {
+        jsxElements.push({
+          name: componentName,
+          props: propsString,
+          children: children.trim(),
+          isSelfClosing,
+          start: matchStart
+        });
+      }
+    }
+  }
+  
+  // Process each found JSX element
+  for (const jsxElement of jsxElements) {
+    const componentName = jsxElement.name;
+    const propsString = jsxElement.props;
+    const isSelfClosing = jsxElement.isSelfClosing;
+    const children = jsxElement.children;
     
     // Check if it's an HTML element (lowercase) or React component (PascalCase)
     const isHTMLElement = componentName.charAt(0) === componentName.charAt(0).toLowerCase();
@@ -91,6 +223,9 @@ function extractJSXElements(code: string): React.ReactNode[] {
       
       // Skip if component not found in Atomix
       if (!Component) {
+        if (process.env.NODE_ENV === 'development') {
+          console.warn(`CodePreview: Component "${componentName}" not found in Atomix. Available components:`, Object.keys(Atomix).filter(k => k[0] === k[0].toUpperCase()));
+        }
         continue;
       }
     }
@@ -112,35 +247,37 @@ function extractJSXElements(code: string): React.ReactNode[] {
     // For HTML elements, filter out invalid props and convert valid ones to lowercase
     if (isHTMLElement) {
       const filteredProps: Record<string, any> = {};
-      const standardReactProps = new Set(['key', 'ref', 'children', 'className', 'tabIndex', 'contentEditable', 'spellCheck']);
+      const standardReactProps = new Set(['key', 'ref', 'children', 'className', 'tabIndex', 'contentEditable', 'spellCheck', 'dangerouslySetInnerHTML']);
       
       for (const [key, value] of Object.entries(props)) {
         const lowerKey = key.toLowerCase();
         const firstChar = key.charAt(0);
         
-        // Filter out PascalCase props that look like React component names
-        // (e.g., "Button", "Card", etc.) - these are invalid for DOM elements
+        // CRITICAL: Filter out ALL PascalCase props that look like React component names
+        // (e.g., "Button", "Card", "Icon", etc.) - these are invalid for DOM elements
+        // Only allow standard React props that are PascalCase
         if (firstChar === firstChar.toUpperCase() && firstChar !== firstChar.toLowerCase()) {
-          // Only allow standard React props that are PascalCase
           if (!standardReactProps.has(key)) {
-            continue; // Skip invalid PascalCase props
+            // Skip invalid PascalCase props like "Icon", "Button", "Card", etc.
+            continue;
           }
         }
         
         // Keep valid props: lowercase, camelCase React props, data-*, aria-*, and event handlers
-        // Convert to lowercase for HTML attributes (except standard React props)
+        // Convert to lowercase for HTML attributes (except standard React props and event handlers)
         if (standardReactProps.has(key)) {
           filteredProps[key] = value; // Keep camelCase for standard React props
+        } else if (key.startsWith('on') && key.length > 2 && key[2] === key[2].toUpperCase()) {
+          // Event handlers like onClick, onMouseEnter, etc.
+          filteredProps[key] = value; // Keep camelCase for event handlers
         } else if (
-          key === lowerKey || // Already lowercase
           key.startsWith('data-') ||
           key.startsWith('aria-') ||
-          key.startsWith('on') || // Event handlers
-          lowerKey.startsWith('data-') ||
-          lowerKey.startsWith('aria-')
+          key === lowerKey // Already lowercase
         ) {
-          filteredProps[lowerKey] = value; // Convert to lowercase
+          filteredProps[lowerKey] = value; // Convert to lowercase for HTML attributes
         }
+        // All other props are filtered out (including any remaining PascalCase props)
       }
       props = filteredProps;
     }
@@ -148,18 +285,42 @@ function extractJSXElements(code: string): React.ReactNode[] {
     // Render the component
     try {
       if (!isSelfClosing && children.trim()) {
-        // Handle text children - remove quotes and trim
-        let textChildren = children.trim();
-        // Remove surrounding quotes if present
-        if ((textChildren.startsWith('"') && textChildren.endsWith('"')) ||
-            (textChildren.startsWith("'") && textChildren.endsWith("'"))) {
-          textChildren = textChildren.slice(1, -1);
+        // Check if children contain JSX (nested components)
+        // For now, we'll only handle text children or simple nested JSX
+        const hasNestedJSX = /<[A-Z]/.test(children);
+        
+        if (hasNestedJSX) {
+          // Recursively process nested JSX
+          const nestedElements = extractJSXElements(children);
+          if (nestedElements.length > 0) {
+            elements.push(React.createElement(Component, { key: elements.length, ...props }, ...nestedElements));
+          } else {
+            // Fallback: try to render as text
+            let textChildren = children.trim();
+            if ((textChildren.startsWith('"') && textChildren.endsWith('"')) ||
+                (textChildren.startsWith("'") && textChildren.endsWith("'"))) {
+              textChildren = textChildren.slice(1, -1);
+            }
+            elements.push(React.createElement(Component, { key: elements.length, ...props }, textChildren));
+          }
+        } else {
+          // Handle text children - remove quotes and trim
+          let textChildren = children.trim();
+          // Remove surrounding quotes if present
+          if ((textChildren.startsWith('"') && textChildren.endsWith('"')) ||
+              (textChildren.startsWith("'") && textChildren.endsWith("'"))) {
+            textChildren = textChildren.slice(1, -1);
+          }
+          elements.push(React.createElement(Component, { key: elements.length, ...props }, textChildren));
         }
-        elements.push(React.createElement(Component, { key: elements.length, ...props }, textChildren));
       } else {
         elements.push(React.createElement(Component, { key: elements.length, ...props }));
       }
-    } catch {
+    } catch (error) {
+      // Log error in development for debugging
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(`Failed to render component ${componentName}:`, error);
+      }
       // Silently skip components that fail to render
     }
   }

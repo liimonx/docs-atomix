@@ -28,6 +28,7 @@
   transition: all 0.2s ease-in-out;
   font-size: var(--atomix-font-size-base);
   line-height: var(--atomix-line-height-base);
+  // Note: rgba values in box-shadow for decorative shadow effects - acceptable for visual effects
 
   &:hover {
     transform: translateY(-1px);
@@ -46,6 +47,7 @@
   border: 1px solid rgba(139, 92, 246, 0.3);
   color: var(--atomix-primary-10);
   box-shadow: none;
+  // Note: rgba values for glass morphism effect - acceptable for decorative overlays
 
   &:hover {
     background: rgba(255, 255, 255, 0.3);
@@ -109,6 +111,7 @@
   position: relative;
   overflow: hidden;
   box-shadow: inset 0 2px 8px rgba(139, 92, 246, 0.05);
+  // Note: rgba value in box-shadow for decorative inset shadow - acceptable for visual effects
 }
 
 .designTokensGridPage__visualExampleOverlay {
@@ -125,6 +128,7 @@
     rgba(139, 92, 246, 0.1) 16.66%
   );
   pointer-events: none;
+  // Note: rgba values in gradient for decorative overlay pattern - acceptable for visual effects
 }
 
 // Grid Column Examples
@@ -140,11 +144,13 @@
   border: 1px solid rgba(139, 92, 246, 0.2);
   box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
   transition: all 0.2s ease;
+  // Note: rgba values for decorative border and shadow - acceptable for visual effects
 }
 
 .designTokensGridPage__gridColumn--large {
   padding: var(--atomix-spacing-4);
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+  // Note: rgba value in box-shadow for decorative shadow - acceptable for visual effects
 }
 
 // Responsive Design

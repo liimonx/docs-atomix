@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import Link from 'next/link';
 
 import { useState, useEffect } from "react";
 import {
@@ -48,11 +49,13 @@ const StylesOverviewPage: FC = () => {
             <Button 
               label="Architecture Guide"
               href="/docs/styles/architecture"
+              as={Link}
             />
             <Button 
               variant="secondary" 
               label="Utility Classes"
               href="/docs/styles/utilities"
+              as={Link}
             />
           </div>
         }
@@ -74,6 +77,7 @@ const StylesOverviewPage: FC = () => {
                   label="Architecture Guide" 
                   size="sm"
                   href="/docs/styles/architecture"
+                  as={Link}
                 />
               </Card>
             </GridCol>
@@ -87,6 +91,7 @@ const StylesOverviewPage: FC = () => {
                   label="Utility Classes" 
                   size="sm"
                   href="/docs/styles/utilities"
+                  as={Link}
                 />
               </Card>
             </GridCol>
@@ -100,6 +105,7 @@ const StylesOverviewPage: FC = () => {
                   label="Customization Guide" 
                   size="sm"
                   href="/docs/styles/customization"
+                  as={Link}
                 />
               </Card>
             </GridCol>

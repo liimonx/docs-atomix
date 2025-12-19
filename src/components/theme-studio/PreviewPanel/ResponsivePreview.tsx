@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react';
-import { Button, Icon, Select, Input, Row, GridCol } from '@shohojdhara/atomix';
+import {  Icon, Select, Input, Row, GridCol } from '@shohojdhara/atomix';
 import { useThemeStudioStore } from '@/stores/themeStudioStore';
 import styles from './ResponsivePreview.module.scss';
 
@@ -67,10 +67,8 @@ export const ResponsivePreview: FC = () => {
           mode = 'desktop'; // Laptop maps to desktop mode
         }
         
-        // Set viewport size and mode together
-        // Use store's setCustomViewportSize but then override the mode
-        setCustomViewportSize(devicePreset.width, devicePreset.height);
-        // Use store's direct state update to set mode without triggering custom
+        // Set viewport size and mode together in a single state update
+        // This avoids the redundant setCustomViewportSize call which would set mode to 'custom'
         useThemeStudioStore.setState({ 
           customViewportWidth: devicePreset.width,
           customViewportHeight: devicePreset.height,

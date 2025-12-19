@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import Link from 'next/link';
 import { Button, Card, Icon, Row, GridCol } from '@shohojdhara/atomix';
 
 const NotFoundPage: FC = () => {
@@ -55,7 +56,7 @@ const NotFoundPage: FC = () => {
 
         {/* Action Buttons */}
         <div className="u-d-flex u-gap-3 u-mb-12 u-flex-wrap u-justify-content-center">
-          <Button size="lg" href="/">
+          <Button size="lg" href="/" as={Link}>
             <Icon name="House" size="sm" className="u-mr-2" />
             Go Home
           </Button>
@@ -75,19 +76,23 @@ const NotFoundPage: FC = () => {
           <Row>
             {popularLinks.map((link, index) => (
               <GridCol key={index} md={6} lg={3}>
-                <Card
-                  className="u-cursor-pointer u-transition-fast u-border u-border-subtle atomix-card-hover"
+                <Link
                   href={link.path}
+                  className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
                 >
-                  <div className="u-p-6">
-                    <h4 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
-                      {link.title}
-                    </h4>
-                    <p className="u-text-secondary-emphasis u-m-0">
-                      {link.description}
-                    </p>
-                  </div>
-                </Card>
+                  <Card
+                    className="u-cursor-pointer u-transition-fast u-border u-border-subtle atomix-card-hover u-h-100"
+                  >
+                    <div className="u-p-6">
+                      <h4 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
+                        {link.title}
+                      </h4>
+                      <p className="u-text-secondary-emphasis u-m-0">
+                        {link.description}
+                      </p>
+                    </div>
+                  </Card>
+                </Link>
               </GridCol>
             ))}
           </Row>
@@ -106,6 +111,7 @@ const NotFoundPage: FC = () => {
             <Button 
               variant="outline"
               href="/docs/introduction"
+              as={Link}
             >
               Browse Documentation
             </Button>

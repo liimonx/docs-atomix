@@ -1,7 +1,6 @@
 export { 
   ThemeProvider, 
-  useTheme,
-  ThemeManager
+  useTheme
 } from '@shohojdhara/atomix';
 
 export type { 
@@ -10,6 +9,5 @@ export type {
   ThemeChangeEvent, 
   ThemeLoadOptions,
   Theme,
-  ThemeOptions,
   UseThemeReturn
 } from '@shohojdhara/atomix';

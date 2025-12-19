@@ -1,0 +1,101 @@
+// Component: LayoutsResponsivePatternsPage
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.layoutsResponsivePatternsPage {
+  // Base styles if needed
+}
+
+// Elements - Principle Icon Container
+// =============================================================================
+.layoutsResponsivePatternsPage__principleIconContainer {
+  width: var(--atomix-spacing-16);
+  height: var(--atomix-spacing-16);
+  border-radius: var(--atomix-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--atomix-spacing-4);
+}
+
+// Elements - Pattern Icon Container
+// =============================================================================
+.layoutsResponsivePatternsPage__patternIconContainer {
+  width: var(--atomix-spacing-16);
+  height: var(--atomix-spacing-16);
+  border-radius: var(--atomix-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--atomix-spacing-4);
+}
+
+// Elements - Practice Icon Container
+// =============================================================================
+.layoutsResponsivePatternsPage__practiceIconContainer {
+  width: var(--atomix-spacing-12);
+  height: var(--atomix-spacing-12);
+  border-radius: var(--atomix-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--atomix-spacing-3);
+}
+
+// Color Modifiers (shared across all icon containers)
+// =============================================================================
+.layoutsResponsivePatternsPage__iconContainer--primary {
+  background-color: var(--atomix-color-primary-subtle);
+  color: var(--atomix-color-primary-emphasis);
+}
+
+.layoutsResponsivePatternsPage__iconContainer--success {
+  background-color: var(--atomix-color-success-subtle);
+  color: var(--atomix-color-success-emphasis);
+}
+
+.layoutsResponsivePatternsPage__iconContainer--warning {
+  background-color: var(--atomix-color-warning-subtle);
+  color: var(--atomix-color-warning-emphasis);
+}
+
+.layoutsResponsivePatternsPage__iconContainer--secondary {
+  background-color: var(--atomix-color-secondary-subtle);
+  color: var(--atomix-color-secondary-emphasis);
+}
+
+.layoutsResponsivePatternsPage__iconContainer--error {
+  background-color: var(--atomix-color-error-subtle);
+  color: var(--atomix-color-error-emphasis);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .layoutsResponsivePatternsPage__principleIconContainer,
+  .layoutsResponsivePatternsPage__patternIconContainer,
+  .layoutsResponsivePatternsPage__practiceIconContainer {
+    width: var(--atomix-spacing-10);
+    height: var(--atomix-spacing-10);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .layoutsResponsivePatternsPage__principleIconContainer,
+  .layoutsResponsivePatternsPage__patternIconContainer,
+  .layoutsResponsivePatternsPage__practiceIconContainer {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .layoutsResponsivePatternsPage__principleIconContainer,
+  .layoutsResponsivePatternsPage__patternIconContainer,
+  .layoutsResponsivePatternsPage__practiceIconContainer {
+    border: 2px solid currentColor;
+  }
+}
+

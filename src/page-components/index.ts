@@ -22,6 +22,7 @@ export { default as DesignTokensGridPage } from "./design-tokens/DesignTokensGri
 export { default as GettingStartedPage } from "./getting-started/GettingStartedPage";
 export { default as GettingStartedOverviewPage } from "./getting-started/GettingStartedOverviewPage";
 export { default as MigrationPage } from "./getting-started/MigrationPage";
+export { default as CLIPage } from "./getting-started/CLIPage";
 
 // Guide Pages
 export { default as GeneralThemingGuidePage } from "./guides/GeneralThemingGuidePage";

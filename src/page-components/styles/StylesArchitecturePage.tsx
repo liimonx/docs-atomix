@@ -12,6 +12,7 @@ import {
   SectionIntro,
 } from "@shohojdhara/atomix";
 import styles from '@/styles/PageHero.module.scss';
+import pageStyles from './StylesArchitecturePage.module.scss';
 
 interface LayerCardProps {
   number: string;
@@ -31,54 +32,57 @@ const LayerCard: FC<LayerCardProps> = ({
   specificity,
   examples,
   color,
-}) => (
-  <Card
-    style={{
-      borderLeft: `4px solid ${color}`,
-      height: "100%",
-      padding: "1.5rem",
-    }}
-  >
-    <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
-      <div
-        className="u-d-flex u-align-items-center u-justify-content-center u-fw-bold u-fs-lg"
-        style={{
-          backgroundColor: `${color}20`,
-          color,
-          width: "3rem",
-          height: "3rem",
-          borderRadius: "0.5rem",
-        }}
-      >
-        {number}
-      </div>
-      <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
-    </div>
-    <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
-    <div className="u-d-flex u-flex-wrap u-gap-2 u-mb-3">
-      <Badge variant="secondary" size="sm" label={`Output: ${output}`} />
-      <Badge
-        variant="secondary"
-        size="sm"
-        label={`Specificity: ${specificity}`}
-      />
-    </div>
-    <div className="u-bg-tertiary-subtle u-p-3 u-rounded u-fs-sm">
-      <p className="u-m-0 u-mb-2 u-fw-medium u-text-secondary-emphasis">
-        Examples:
-      </p>
-      {examples.map((example, idx) => (
-        <code
-          key={idx}
-          className="u-d-block u-mb-1"
-          style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+}) => {
+  // Map hex colors to CSS class names
+  const colorToClass: Record<string, string> = {
+    "#ef4444": "red",
+    "#f97316": "orange",
+    "#eab308": "yellow",
+    "#22c55e": "green",
+    "#3b82f6": "blue",
+    "#8b5cf6": "purple",
+    "#ec4899": "pink",
+  };
+
+  const colorClass = colorToClass[color] || "blue";
+
+  return (
+    <Card
+      className={`${pageStyles.stylesArchitecturePage__layerCard} ${pageStyles[`stylesArchitecturePage__layerCard--${colorClass}`]}`}
+    >
+      <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
+        <div
+          className={`u-d-flex u-align-items-center u-justify-content-center u-fw-bold u-fs-lg ${pageStyles.stylesArchitecturePage__layerNumberBadge} ${pageStyles[`stylesArchitecturePage__layerNumberBadge--${colorClass}`]}`}
         >
-          {example}
-        </code>
-      ))}
-    </div>
-  </Card>
-);
+          {number}
+        </div>
+        <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
+      </div>
+      <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
+      <div className="u-d-flex u-flex-wrap u-gap-2 u-mb-3">
+        <Badge variant="secondary" size="sm" label={`Output: ${output}`} />
+        <Badge
+          variant="secondary"
+          size="sm"
+          label={`Specificity: ${specificity}`}
+        />
+      </div>
+      <div className="u-bg-tertiary-subtle u-p-3 u-rounded u-fs-sm">
+        <p className="u-m-0 u-mb-2 u-fw-medium u-text-secondary-emphasis">
+          Examples:
+        </p>
+        {examples.map((example, idx) => (
+          <code
+            key={idx}
+            className={`u-d-block u-mb-1 ${pageStyles.stylesArchitecturePage__codeExample}`}
+          >
+            {example}
+          </code>
+        ))}
+      </div>
+    </Card>
+  );
+};
 
 const StylesArchitecturePage: FC = () => {
   const layers: LayerCardProps[] = [
@@ -234,7 +238,7 @@ const StylesArchitecturePage: FC = () => {
 
         <Grid className="u-mt-8">
           <GridCol md={6}>
-            <Card style={{ padding: "1.5rem", height: "100%" }}>
+            <Card className={pageStyles.stylesArchitecturePage__infoCard}>
               <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="CheckCircle"
@@ -299,7 +303,7 @@ const StylesArchitecturePage: FC = () => {
           </GridCol>
 
           <GridCol md={6}>
-            <Card style={{ padding: "1.5rem", height: "100%" }}>
+            <Card className={pageStyles.stylesArchitecturePage__infoCard}>
               <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Code"
@@ -372,7 +376,7 @@ const StylesArchitecturePage: FC = () => {
 
         <Grid>
           <GridCol md={6}>
-            <Card style={{ padding: "1.5rem", height: "100%" }}>
+            <Card className={pageStyles.stylesArchitecturePage__infoCard}>
               <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="FileText"
@@ -386,25 +390,25 @@ const StylesArchitecturePage: FC = () => {
               <div className="u-d-flex u-flex-column u-gap-2">
                 <code
                   className="u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={pageStyles.stylesArchitecturePage__codeExample}
                 >
                   _settings.{"{feature}"}.scss
                 </code>
                 <code
                   className="u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={pageStyles.stylesArchitecturePage__codeExample}
                 >
                   _tools.{"{feature}"}.scss
                 </code>
                 <code
                   className="u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={pageStyles.stylesArchitecturePage__codeExample}
                 >
                   _components.{"{feature}"}.scss
                 </code>
                 <code
                   className="u-d-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={pageStyles.stylesArchitecturePage__codeExample}
                 >
                   _utilities.{"{feature}"}.scss
                 </code>
@@ -413,7 +417,7 @@ const StylesArchitecturePage: FC = () => {
           </GridCol>
 
           <GridCol md={6}>
-            <Card style={{ padding: "1.5rem", height: "100%" }}>
+            <Card className={pageStyles.stylesArchitecturePage__infoCard}>
               <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Package"
@@ -428,7 +432,7 @@ const StylesArchitecturePage: FC = () => {
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
                 <pre
                   className="u-m-0 u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={pageStyles.stylesArchitecturePage__codeExample}
                 >
                   {`@use '../01-settings/colors';
 @use '../02-tools/breakpoints';
@@ -538,7 +542,7 @@ const StylesArchitecturePage: FC = () => {
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded u-mb-4">
                 <pre
                   className="u-m-0 u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={pageStyles.stylesArchitecturePage__codeExample}
                 >
                   {`// Import everything
 @use 'atomix/styles' as *;

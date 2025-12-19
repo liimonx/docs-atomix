@@ -106,6 +106,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
     () => ({
       onMenuToggle: handleMenuToggle,
       sidebarOpen,
+      showMenuButton: true, // Always show menu button on docs pages
     }),
     [handleMenuToggle, sidebarOpen]
   );

@@ -52,12 +52,12 @@ export const ExportMenu: FC = () => {
         mimeType = 'application/json';
         break;
       case 'tailwind':
-        content = exportAsTailwindConfig(lightTokens, darkTokens);
+        content = exportAsTailwindConfig(lightTokens);
         filename = 'tailwind.config.js';
         mimeType = 'text/javascript';
         break;
       case 'style-dictionary':
-        content = exportAsStyleDictionary(lightTokens, darkTokens);
+        content = exportAsStyleDictionary(lightTokens);
         filename = 'tokens.json';
         mimeType = 'application/json';
         break;

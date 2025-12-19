@@ -1,0 +1,135 @@
+// Component: StylesCustomizationPage
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.stylesCustomizationPage {
+  // Base styles if needed
+}
+
+// Elements - Method Card
+// =============================================================================
+.stylesCustomizationPage__methodCard {
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+
+// Color Modifiers for Method Card Border
+// =============================================================================
+.stylesCustomizationPage__methodCard--blue {
+  border-left-color: #3b82f6;
+}
+
+.stylesCustomizationPage__methodCard--purple {
+  border-left-color: #8b5cf6;
+}
+
+.stylesCustomizationPage__methodCard--pink {
+  border-left-color: #ec4899;
+}
+
+.stylesCustomizationPage__methodCard--orange {
+  border-left-color: #f97316;
+}
+
+.stylesCustomizationPage__methodCard--green {
+  border-left-color: #22c55e;
+}
+
+.stylesCustomizationPage__methodCard--yellow {
+  border-left-color: #eab308;
+}
+
+.stylesCustomizationPage__methodCard--red {
+  border-left-color: #ef4444;
+}
+
+// Elements - Method Icon
+// =============================================================================
+.stylesCustomizationPage__methodIcon {
+  // Color will be set via inline style as it's dynamic per method
+  // This is acceptable for dynamic colors that vary per instance
+}
+
+// Color Modifiers for Method Icon
+// =============================================================================
+.stylesCustomizationPage__methodIcon--blue {
+  color: #3b82f6;
+}
+
+.stylesCustomizationPage__methodIcon--purple {
+  color: #8b5cf6;
+}
+
+.stylesCustomizationPage__methodIcon--pink {
+  color: #ec4899;
+}
+
+.stylesCustomizationPage__methodIcon--orange {
+  color: #f97316;
+}
+
+.stylesCustomizationPage__methodIcon--green {
+  color: #22c55e;
+}
+
+.stylesCustomizationPage__methodIcon--yellow {
+  color: #eab308;
+}
+
+.stylesCustomizationPage__methodIcon--red {
+  color: #ef4444;
+}
+
+// Elements - Complexity Badge
+// =============================================================================
+.stylesCustomizationPage__complexityBadge {
+  // Base styles handled by Badge component
+}
+
+// Complexity Modifiers for Badge
+// =============================================================================
+.stylesCustomizationPage__complexityBadge--low {
+  background-color: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.stylesCustomizationPage__complexityBadge--medium {
+  background-color: rgba(234, 179, 8, 0.2);
+  color: #eab308;
+}
+
+.stylesCustomizationPage__complexityBadge--high {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+// Elements - Comparison Table
+// =============================================================================
+.stylesCustomizationPage__comparisonTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+// Elements - Code Block
+// =============================================================================
+.stylesCustomizationPage__codeBlock {
+  font-family: var(--atomix-font-family-mono);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .stylesCustomizationPage__methodCard {
+    border-left-width: 3px;
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .stylesCustomizationPage__methodCard {
+    border-left-width: 5px;
+  }
+}
+

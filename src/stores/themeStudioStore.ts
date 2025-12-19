@@ -393,7 +393,6 @@ export const useThemeStudioStore = create<ThemeStudioState>((set, get) => {
     bulkCopyToMode: (targetMode) => {
       const state = get();
       const sourceTokens = state.activeMode === 'light' ? state.lightTokens : state.darkTokens;
-      const targetTokens = targetMode === 'light' ? state.lightTokens : state.darkTokens;
       
       const updates: Record<string, string> = {};
       state.selectedTokens.forEach((tokenName) => {

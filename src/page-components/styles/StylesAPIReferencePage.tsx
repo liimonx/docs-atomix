@@ -12,6 +12,7 @@ import {
   Badge,
 } from '@shohojdhara/atomix';
 import styles from '@/styles/PageHero.module.scss';
+import pageStyles from './StylesAPIReferencePage.module.scss';
 
 interface APISection {
   icon: string;
@@ -21,20 +22,39 @@ interface APISection {
   color: string;
 }
 
-const APICard: FC<APISection> = ({ icon, title, description, code, color }) => (
-  <Card className="u-p-6 u-h-100 u-border-left" style={{ borderLeftWidth: '4px', borderLeftColor: color }}>
-    <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
-      <Icon name={icon as any} size={24} style={{ color }} />
-      <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
-    </div>
-    <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
-    <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
-      <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-        <code>{code}</code>
-      </pre>
-    </div>
-  </Card>
-);
+const APICard: FC<APISection> = ({ icon, title, description, code, color }) => {
+  // Map hex colors to CSS class names
+  const colorToClass: Record<string, string> = {
+    "#3b82f6": "blue",
+    "#8b5cf6": "purple",
+    "#ec4899": "pink",
+    "#f97316": "orange",
+    "#22c55e": "green",
+    "#eab308": "yellow",
+    "#ef4444": "red",
+  };
+
+  const colorClass = colorToClass[color] || "blue";
+
+  return (
+    <Card className={`u-p-6 u-h-100 u-border-left ${pageStyles.stylesAPIReferencePage__apiSectionCard} ${pageStyles[`stylesAPIReferencePage__apiSectionCard--${colorClass}`]}`}>
+      <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
+        <Icon 
+          name={icon as any} 
+          size={24} 
+          className={pageStyles[`stylesAPIReferencePage__apiSectionIcon--${colorClass}`]}
+        />
+        <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
+      </div>
+      <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
+      <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
+        <pre className={`u-m-0 u-fs-sm ${pageStyles.stylesAPIReferencePage__codeBlock}`}>
+          <code>{code}</code>
+        </pre>
+      </div>
+    </Card>
+  );
+};
 
 const StylesAPIReferencePage: FC = () => {
   const mixins: APISection[] = [
@@ -119,7 +139,7 @@ const StylesAPIReferencePage: FC = () => {
                     <Badge variant="secondary" size="sm" label="Breakpoints" />
                   </div>
                   <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
-                    <pre className="u-m-0 u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+                    <pre className={`u-m-0 u-fs-sm ${pageStyles.stylesAPIReferencePage__codeBlock}`}>
 {`// Color scales (1-10)
 $primary-6: #7c3aed;  // Base
 $red-6: #ef4444;

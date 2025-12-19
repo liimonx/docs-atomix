@@ -1,0 +1,112 @@
+// Component: LayoutsCustomizationPage
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.layoutsCustomizationPage {
+  // Base styles if needed
+}
+
+// Elements - Icon Container
+// =============================================================================
+.layoutsCustomizationPage__iconContainer {
+  width: var(--atomix-spacing-16);
+  height: var(--atomix-spacing-16);
+  border-radius: var(--atomix-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--atomix-spacing-4);
+}
+
+// Color Modifiers for Icon Container
+// =============================================================================
+.layoutsCustomizationPage__iconContainer--primary {
+  background-color: var(--atomix-color-primary-subtle);
+  color: var(--atomix-color-primary-emphasis);
+}
+
+.layoutsCustomizationPage__iconContainer--success {
+  background-color: var(--atomix-color-success-subtle);
+  color: var(--atomix-color-success-emphasis);
+}
+
+.layoutsCustomizationPage__iconContainer--warning {
+  background-color: var(--atomix-color-warning-subtle);
+  color: var(--atomix-color-warning-emphasis);
+}
+
+.layoutsCustomizationPage__iconContainer--secondary {
+  background-color: var(--atomix-color-secondary-subtle);
+  color: var(--atomix-color-secondary-emphasis);
+}
+
+.layoutsCustomizationPage__iconContainer--error {
+  background-color: var(--atomix-color-error-subtle);
+  color: var(--atomix-color-error-emphasis);
+}
+
+// Elements - Practice Icon Container
+// =============================================================================
+.layoutsCustomizationPage__practiceIconContainer {
+  width: var(--atomix-spacing-12);
+  height: var(--atomix-spacing-12);
+  border-radius: var(--atomix-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--atomix-spacing-3);
+}
+
+// Color Modifiers for Practice Icon Container
+// =============================================================================
+.layoutsCustomizationPage__practiceIconContainer--primary {
+  background-color: var(--atomix-color-primary-subtle);
+  color: var(--atomix-color-primary-emphasis);
+}
+
+.layoutsCustomizationPage__practiceIconContainer--success {
+  background-color: var(--atomix-color-success-subtle);
+  color: var(--atomix-color-success-emphasis);
+}
+
+.layoutsCustomizationPage__practiceIconContainer--warning {
+  background-color: var(--atomix-color-warning-subtle);
+  color: var(--atomix-color-warning-emphasis);
+}
+
+.layoutsCustomizationPage__practiceIconContainer--secondary {
+  background-color: var(--atomix-color-secondary-subtle);
+  color: var(--atomix-color-secondary-emphasis);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .layoutsCustomizationPage__iconContainer {
+    width: var(--atomix-spacing-12);
+    height: var(--atomix-spacing-12);
+  }
+
+  .layoutsCustomizationPage__practiceIconContainer {
+    width: var(--atomix-spacing-10);
+    height: var(--atomix-spacing-10);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .layoutsCustomizationPage__iconContainer,
+  .layoutsCustomizationPage__practiceIconContainer {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .layoutsCustomizationPage__iconContainer,
+  .layoutsCustomizationPage__practiceIconContainer {
+    border: 2px solid currentColor;
+  }
+}
+

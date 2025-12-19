@@ -17,11 +17,13 @@ import type { GlassProps } from '@/types/atomix-components';
 interface DocumentationHeaderProps {
   onMenuToggle: () => void;
   sidebarOpen: boolean;
+  showMenuButton?: boolean;
 }
 
 export const DocumentationHeader: FC<DocumentationHeaderProps> = ({
   onMenuToggle,
-  sidebarOpen
+  sidebarOpen,
+  showMenuButton = true,
 }) => {
 
 
@@ -51,16 +53,18 @@ export const DocumentationHeader: FC<DocumentationHeaderProps> = ({
         } as GlassProps}
         brand={
           <div className="u-d-flex u-align-items-center u-gap-2">
-            {/* Mobile menu toggle */}
-            <Button
-              variant="outline-secondary"
-              size="sm"
-              onClick={onMenuToggle}
-              aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
-              className="u-d-lg-none"
-            >
-              <Icon name={sidebarOpen ? 'X' : 'List'} size="sm" />
-            </Button>
+            {/* Mobile menu toggle - only show on docs pages */}
+            {showMenuButton && (
+              <Button
+                variant="outline-secondary"
+                size="sm"
+                onClick={onMenuToggle}
+                aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
+                className="u-d-lg-none"
+              >
+                <Icon name={sidebarOpen ? 'X' : 'List'} size="sm" />
+              </Button>
+            )}
 
             {/* Logo and Brand */}
             <Link

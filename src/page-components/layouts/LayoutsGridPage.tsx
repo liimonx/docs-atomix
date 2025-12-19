@@ -22,6 +22,7 @@ import {
 } from '@shohojdhara/atomix';
 import { GlassProps } from '@/types/atomix-components';
 import styles from '@/styles/PageHero.module.scss';
+import pageStyles from './LayoutsGridPage.module.scss';
 import Link from 'next/link';
 
 const LayoutsGridPage: FC = () => {
@@ -125,7 +126,7 @@ const LayoutsGridPage: FC = () => {
         <Row>
           <GridCol md={12}>
             <Card className="u-p-6">
-              <p className="u-text-secondary-emphasis u-mb-6 u-text-center u-line-height-relaxed" style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
+              <p className={`u-text-secondary-emphasis u-mb-6 u-text-center u-line-height-relaxed ${pageStyles.layoutsGridPage__introText}`}>
                 The Grid System is based on a 12-column layout with responsive breakpoints and flexible alignment options. It follows the ITCSS architecture and uses semantic class names for maximum clarity and maintainability.
               </p>
               
@@ -135,11 +136,7 @@ const LayoutsGridPage: FC = () => {
                     <Card className="u-p-4 u-h-100">
                       <div className="u-d-flex u-align-items-center u-mb-3">
                         <div 
-                          className={`u-w-12 u-h-12 u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3`}
-                          style={{
-                            backgroundColor: `var(--atomix-color-${feature.color}-subtle)`,
-                            color: `var(--atomix-color-${feature.color}-emphasis)`
-                          }}
+                          className={`${pageStyles.layoutsGridPage__featureIconContainer} ${pageStyles[`layoutsGridPage__featureIconContainer--${feature.color}`]}`}
                         >
                           {feature.icon}
                         </div>
@@ -179,7 +176,7 @@ const LayoutsGridPage: FC = () => {
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
                     <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">TypeScript / React</span>
                   </div>
-                  <pre className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+                  <pre className={`u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis ${pageStyles.layoutsGridPage__codeBlock}`}>
 {`import { Container, Row, GridCol } from '@shohojdhara/atomix';
 
 <Container>
@@ -208,7 +205,7 @@ const LayoutsGridPage: FC = () => {
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
                     <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">Example</span>
                   </div>
-                  <pre className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+                  <pre className={`u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis ${pageStyles.layoutsGridPage__codeBlock}`}>
 {`<Row>
   <GridCol md={4}>Content</GridCol>
   <GridCol md={4}>Content</GridCol>
@@ -232,7 +229,7 @@ const LayoutsGridPage: FC = () => {
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
                     <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">Responsive Example</span>
                   </div>
-                  <pre className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+                  <pre className={`u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis ${pageStyles.layoutsGridPage__codeBlock}`}>
 {`<Row>
   <GridCol xs={12} sm={6} md={4} lg={3}>
     Responsive column

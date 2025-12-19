@@ -394,9 +394,10 @@ export const ComponentShowcase: FC = () => {
     if (componentSearch.trim()) {
       const searchLower = componentSearch.toLowerCase();
       return allTabs.filter(tab => {
+        // Only search by label since tab.content is a React JSX element
+        // which cannot be meaningfully stringified for search
         const labelMatch = tab.label.toLowerCase().includes(searchLower);
-        const contentMatch = JSON.stringify(tab.content).toLowerCase().includes(searchLower);
-        return labelMatch || contentMatch;
+        return labelMatch;
       });
     }
 

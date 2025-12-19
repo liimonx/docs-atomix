@@ -12,6 +12,7 @@ import {
   Badge,
 } from "@shohojdhara/atomix";
 import styles from '@/styles/PageHero.module.scss';
+import pageStyles from './StylesUtilitiesPage.module.scss';
 
 interface UtilityCategoryProps {
   icon: string;
@@ -27,15 +28,32 @@ const CategoryCard: FC<UtilityCategoryProps> = ({
   description,
   examples,
   color,
-}) => (
-  <Card
-    className="u-p-6 u-h-100 u-border-left atomix-card-hover"
-    style={{ borderLeftWidth: "4px", borderLeftColor: color }}
-  >
-    <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
-      <Icon name={icon as any} size={24} style={{ color }} />
-      <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
-    </div>
+}) => {
+  // Map hex colors to CSS class names
+  const colorToClass: Record<string, string> = {
+    "#3b82f6": "blue",
+    "#8b5cf6": "purple",
+    "#ec4899": "pink",
+    "#f97316": "orange",
+    "#22c55e": "green",
+    "#eab308": "yellow",
+    "#ef4444": "red",
+  };
+
+  const colorClass = colorToClass[color] || "blue";
+
+  return (
+    <Card
+      className={`u-p-6 u-h-100 u-border-left atomix-card-hover ${pageStyles.stylesUtilitiesPage__categoryCard} ${pageStyles[`stylesUtilitiesPage__categoryCard--${colorClass}`]}`}
+    >
+      <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
+        <Icon 
+          name={icon as any} 
+          size={24} 
+          className={pageStyles[`stylesUtilitiesPage__categoryIcon--${colorClass}`]}
+        />
+        <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
+      </div>
     <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
     <div className="u-d-flex u-flex-column u-gap-2">
       {examples.map((ex, idx) => (
@@ -52,7 +70,8 @@ const CategoryCard: FC<UtilityCategoryProps> = ({
       ))}
     </div>
   </Card>
-);
+  );
+};
 
 const StylesUtilitiesPage: FC = () => {
   const categories: UtilityCategoryProps[] = [
@@ -217,7 +236,7 @@ const StylesUtilitiesPage: FC = () => {
                   <div className="u-bg-tertiary-subtle u-p-4 u-rounded u-mb-4">
                     <pre
                       className="u-m-0 u-fs-sm"
-                      style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                      className={pageStyles.stylesUtilitiesPage__codeBlock}
                     >
                       {`.u-{property}-{value}
 .u-{property}-{breakpoint}-{value}`}
@@ -284,7 +303,7 @@ const StylesUtilitiesPage: FC = () => {
               <div className="u-overflow-x-auto">
                 <table
                   className="u-w-100"
-                  style={{ borderCollapse: "collapse" }}
+                  className={pageStyles.stylesUtilitiesPage__referenceTable}
                 >
                   <thead className="u-bg-tertiary-subtle">
                     <tr>
@@ -399,7 +418,7 @@ const StylesUtilitiesPage: FC = () => {
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
                 <pre
                   className="u-m-0 u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={pageStyles.stylesUtilitiesPage__codeBlock}
                 >
                   {`<div class="u-d-grid u-grid-cols-1 
      u-md-grid-cols-2 
@@ -427,7 +446,7 @@ const StylesUtilitiesPage: FC = () => {
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
                 <pre
                   className="u-m-0 u-fs-sm"
-                  style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                  className={pageStyles.stylesUtilitiesPage__codeBlock}
                 >
                   {`<div class="u-d-flex 
      u-justify-content-between 

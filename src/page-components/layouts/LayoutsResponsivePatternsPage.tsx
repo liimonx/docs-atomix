@@ -2,15 +2,30 @@
 
 import { useState, useEffect, FC } from 'react';
 import {
+  Smartphone,
+  LayoutGrid,
+  Monitor,
+  Code,
+  Image,
+  Target,
+  Layers,
+  Zap,
+} from 'lucide-react';
+import {
   Hero,
   SectionIntro,
   Card,
   GridCol,
   Row,
   Block,
+  Icon,
+  Button,
 } from '@shohojdhara/atomix';
 import { GlassProps } from '@/types/atomix-components';
 import styles from '@/styles/PageHero.module.scss';
+import pageStyles from './LayoutsResponsivePatternsPage.module.scss';
+import Link from 'next/link';
+import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
 
 const LayoutsResponsivePatternsPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -20,60 +35,191 @@ const LayoutsResponsivePatternsPage: FC = () => {
     setIsMounted(true);
   }, []);
 
+  const glass: GlassProps | undefined = isMounted ? {
+    displacementScale: 30,
+    blurAmount: 5,
+    elasticity: 0,
+    enableLiquidBlur: true,
+    padding: "20px",
+    cornerRadius: 30,
+    children: null,
+  } : undefined;
+
+  const responsivePrinciples = [
+    {
+      icon: <Smartphone size={24} />,
+      title: "Mobile-First",
+      description: "Start with mobile and enhance for larger screens",
+      color: "primary",
+    },
+    {
+      icon: <Target size={24} />,
+      title: "Progressive Enhancement",
+      description: "Layer features based on device capabilities",
+      color: "success",
+    },
+    {
+      icon: <LayoutGrid size={24} />,
+      title: "Flexible Grids",
+      description: "Use relative units and flexible layouts",
+      color: "warning",
+    },
+    {
+      icon: <Image size={24} />,
+      title: "Responsive Media",
+      description: "Images and media that adapt to containers",
+      color: "secondary",
+    },
+    {
+      icon: <Layers size={24} />,
+      title: "Consistent Spacing",
+      description: "Maintain visual hierarchy across breakpoints",
+      color: "primary",
+    },
+  ];
+
+  const layoutPatterns = [
+    {
+      title: "Sidebar Layout",
+      description: "Perfect for blogs, documentation, and admin dashboards",
+      icon: <LayoutGrid size={24} />,
+      color: "primary",
+    },
+    {
+      title: "Card Grid Layout",
+      description: "Ideal for dashboards, galleries, and product listings",
+      icon: <Monitor size={24} />,
+      color: "success",
+    },
+    {
+      title: "Masonry Layout",
+      description: "Pinterest-style layouts for varying content heights",
+      icon: <Layers size={24} />,
+      color: "warning",
+    },
+    {
+      title: "Full-Width Hero",
+      description: "Large hero sections with responsive content below",
+      icon: <Zap size={24} />,
+      color: "secondary",
+    },
+  ];
+
   return (
     <div>
       <Hero
-        glass={isMounted ? {
-          displacementScale: 30,
-          blurAmount: 5,
-          elasticity: 0,
-          enableLiquidBlur: true,
-          padding: "20px",
-          cornerRadius: 30,
-        } as GlassProps : undefined}
+        glass={glass}
         className={styles.pageHero}
         backgroundImageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Layouts Responsive Patterns"
-        text="Responsive design patterns and techniques for adaptive layouts"
+        subtitle="Adaptive Design Solutions"
+        text="Learn common responsive design patterns and best practices using the Atomix Layout system. Create flexible, accessible layouts that work beautifully across all devices and screen sizes."
         alignment="center"
+        showOverlay={true}
+        fullViewportHeight={false}
+        contentWidth="900px"
+        actions={
+          <div className={styles.pageHero__actions}>
+            <Button
+              glass
+              icon={<Icon name="GridFour" />}
+              label="Grid System"
+              href="/docs/layouts/grid"
+              as={Link}
+            />
+            <Button
+              glass
+              variant="secondary"
+              label="Masonry Grid"
+              icon={<Icon name="GridFour" />}
+              href="/docs/layouts/masonry-grid"
+              as={Link}
+            />
+          </div>
+        }
       />
 
-      <Block className="u-pt-8 u-pb-8" >
+      <Block spacing="md">
         <SectionIntro
-          title="Responsive Design Patterns"
-          text="This guide covers common responsive design patterns and best practices using the Atomix Layout system. Learn how to create flexible, accessible layouts that work beautifully across all devices and screen sizes."
+          title="Responsive Design Principles"
+          text="Responsive design patterns are reusable solutions for common layout challenges. These patterns have been tested across devices and proven to provide excellent user experiences while maintaining accessibility and performance."
+          alignment="center"
         />
-        
-        <Row className="u-mt-8">
-          <GridCol md={12}>
-            <Card className="u-p-6">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Overview</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Responsive design patterns are reusable solutions for common layout challenges. These patterns have been tested across devices and proven to provide excellent user experiences while maintaining accessibility and performance.</p>
-              
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Key Principles</h4>
-              <ul className="u-list-none u-d-flex u-flex-column u-gap-3">
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">📱 Mobile-First</strong> - Start with mobile and enhance for larger screens</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🎯 Progressive Enhancement</strong> - Layer features based on device capabilities</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">⚖️ Flexible Grids</strong> - Use relative units and flexible layouts</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🖼️ Responsive Media</strong> - Images and media that adapt to containers</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">🎨 Consistent Spacing</strong> - Maintain visual hierarchy across breakpoints</li>
-              </ul>
-            </Card>
-          </GridCol>
+
+        <Row>
+          {responsivePrinciples.map((principle, index) => (
+            <GridCol key={index} md={6} lg={4} className="u-mb-4">
+              <Card className="u-p-6 u-h-100">
+                <div className="u-d-flex u-flex-column u-h-100">
+                  <div
+                    className={`${pageStyles.layoutsResponsivePatternsPage__principleIconContainer} ${pageStyles[`layoutsResponsivePatternsPage__iconContainer--${principle.color}`]}`}
+                  >
+                    {principle.icon}
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
+                    {principle.title}
+                  </h3>
+                  <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
+                    {principle.description}
+                  </p>
+                </div>
+              </Card>
+            </GridCol>
+          ))}
         </Row>
+      </Block>
         
+      <Block spacing="md" background="secondary">
+        <SectionIntro
+          title="Common Layout Patterns"
+          text="Reusable layout patterns that work across all devices and screen sizes"
+          alignment="center"
+        />
+
+        <Row>
+          {layoutPatterns.map((pattern, index) => (
+            <GridCol key={index} md={6} lg={3} className="u-mb-4">
+              <Card className="u-p-6 u-h-100">
+                <div className="u-d-flex u-flex-column u-h-100">
+                  <div
+                    className={`${pageStyles.layoutsResponsivePatternsPage__patternIconContainer} ${pageStyles[`layoutsResponsivePatternsPage__iconContainer--${pattern.color}`]}`}
+                  >
+                    {pattern.icon}
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
+                    {pattern.title}
+                  </h3>
+                  <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
+                    {pattern.description}
+                  </p>
+                </div>
+              </Card>
+            </GridCol>
+          ))}
+        </Row>
+
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Common Layout Patterns</h3>
+              <div className="u-d-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
+                  <Code size={24} />
+                </div>
+                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  Sidebar Layout Pattern
+                </h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                Perfect for blogs, documentation, and admin dashboards. The sidebar is hidden on mobile and visible on desktop.
+              </p>
               
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">1. Sidebar Layout</h4>
-              <p className="u-text-secondary-emphasis u-mb-2">Perfect for blogs, documentation, and admin dashboards.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`function SidebarLayout({ children, sidebar }) {
+              <EnhancedCodeBlock
+                code={`import { Container, Row, GridCol } from '@shohojdhara/atomix';
+
+function SidebarLayout({ children, sidebar }) {
   return (
     <Container>
-      <Grid>
+      <Row>
         {/* Sidebar - Hidden on mobile, visible on desktop */}
         <GridCol xs={12} lg={3} className="d-none d-lg-block">
           <aside className="sidebar">
@@ -87,16 +233,37 @@ const LayoutsResponsivePatternsPage: FC = () => {
             {children}
           </main>
         </GridCol>
-      </Grid>
+      </Row>
     </Container>
   );
 }`}
-              </pre>
+                language="tsx"
+                title="Sidebar Layout Example"
+                showLineNumbers={true}
+              />
+            </Card>
+          </GridCol>
+        </Row>
+
+        <Row className="u-mt-4">
+          <GridCol md={12}>
+            <Card className="u-p-6">
+              <div className="u-d-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
+                  <LayoutGrid size={24} />
+                </div>
+                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  Card Grid Layout Pattern
+                </h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                Ideal for dashboards, galleries, and product listings. Cards automatically adjust based on screen size.
+              </p>
               
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">2. Card Grid Layout</h4>
-              <p className="u-text-secondary-emphasis u-mb-2">Ideal for dashboards, galleries, and product listings.</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`function CardGridLayout({ cards }) {
+              <EnhancedCodeBlock
+                code={`import { Container, Row, GridCol, Card } from '@shohojdhara/atomix';
+
+function CardGridLayout({ cards }) {
   return (
     <Container>
       <Row>
@@ -111,67 +278,182 @@ const LayoutsResponsivePatternsPage: FC = () => {
     </Container>
   );
 }`}
-              </pre>
+                language="tsx"
+                title="Card Grid Layout Example"
+                showLineNumbers={true}
+              />
             </Card>
           </GridCol>
         </Row>
+      </Block>
         
-        <Row className="u-mt-4">
+      <Block spacing="md">
+        <SectionIntro
+          title="Breakpoints & Media"
+          text="Understanding breakpoints and responsive media handling"
+          alignment="center"
+        />
+
+        <Row>
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Breakpoint Strategy</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Atomix uses a mobile-first approach with 6 breakpoints:</p>
-              <ul className="u-list-none u-d-flex u-flex-column u-gap-2 u-mb-4">
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">xs</strong> - Extra small (0px and up)</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">sm</strong> - Small (576px and up)</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">md</strong> - Medium (768px and up)</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">lg</strong> - Large (992px and up)</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">xl</strong> - Extra large (1200px and up)</li>
-                <li className="u-text-secondary-emphasis"><strong className="u-text-primary-emphasis">xxl</strong> - Extra extra large (1400px and up)</li>
-              </ul>
+              <div className="u-d-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
+                  <Smartphone size={24} />
+                </div>
+                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  Breakpoint Strategy
+                </h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                Atomix uses a mobile-first approach with 6 breakpoints:
+              </p>
+              <div className="u-d-flex u-flex-column u-gap-2 u-mb-4">
+                {[
+                  { name: 'xs', size: 'Extra small (0px and up)' },
+                  { name: 'sm', size: 'Small (576px and up)' },
+                  { name: 'md', size: 'Medium (768px and up)' },
+                  { name: 'lg', size: 'Large (992px and up)' },
+                  { name: 'xl', size: 'Extra large (1200px and up)' },
+                  { name: 'xxl', size: 'Extra extra large (1400px and up)' },
+                ].map((bp, index) => (
+                  <div key={index} className="u-d-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md">
+                    <div className="u-w-10 u-h-10 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis u-fw-bold">
+                      {bp.name}
+                    </div>
+                    <span className="u-text-secondary-emphasis">{bp.size}</span>
+                  </div>
+                ))}
+              </div>
               
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Usage Example</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`<GridCol xs={12} sm={6} md={4} lg={3}>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
+                Usage Example
+              </h4>
+              <EnhancedCodeBlock
+                code={`<GridCol xs={12} sm={6} md={4} lg={3}>
   Responsive column
 </GridCol>`}
-              </pre>
+                language="tsx"
+                title="Responsive Column"
+                showLineNumbers={true}
+              />
             </Card>
           </GridCol>
           
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <h3 className="u-fs-xl u-fw-semibold u-mb-4">Responsive Media</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">Ensure images and media adapt to their containers:</p>
+              <div className="u-d-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
+                  <Image size={24} />
+                </div>
+                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  Responsive Media
+                </h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                Ensure images and media adapt to their containers:
+              </p>
               
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Images</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`<img 
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
+                Images
+              </h4>
+              <EnhancedCodeBlock
+                code={`<img 
   src="image.jpg" 
   alt="Description"
   className="u-w-100 u-h-auto"
+  loading="lazy"
 />`}
-              </pre>
+                language="tsx"
+                title="Responsive Image"
+                showLineNumbers={true}
+              />
               
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Videos</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`<div className="u-ratio u-ratio-16x9">
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
+                Videos
+              </h4>
+              <EnhancedCodeBlock
+                code={`<div className="u-ratio u-ratio-16x9">
   <iframe 
     src="video.mp4"
     className="u-ratio-item"
+    title="Video"
   />
 </div>`}
-              </pre>
+                language="tsx"
+                title="Responsive Video"
+                showLineNumbers={true}
+              />
               
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2">Typography</h4>
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
+                Typography
+              </h4>
               <p className="u-text-secondary-emphasis u-mb-2">Use responsive font sizes:</p>
-              <pre className="u-mt-3 u-p-3 u-bg-tertiary u-br-md u-overflow-x-auto u-fs-sm" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
-{`.u-font-size-responsive {
+              <EnhancedCodeBlock
+                code={`.u-font-size-responsive {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
 }`}
-              </pre>
+                language="css"
+                title="Responsive Typography"
+                showLineNumbers={true}
+              />
             </Card>
           </GridCol>
+        </Row>
+      </Block>
+
+      <Block spacing="md" background="secondary">
+        <SectionIntro
+          title="Best Practices"
+          text="Follow these guidelines for creating effective responsive layouts"
+          alignment="center"
+        />
+
+        <Row>
+          {[
+            {
+              title: "Start Mobile-First",
+              description: "Design for mobile devices first, then enhance for larger screens. This ensures a solid foundation.",
+              icon: <Smartphone size={20} />,
+              color: "primary",
+            },
+            {
+              title: "Use Relative Units",
+              description: "Prefer rem, em, and percentages over fixed pixel values for better scalability.",
+              icon: <Target size={20} />,
+              color: "success",
+            },
+            {
+              title: "Test All Breakpoints",
+              description: "Test your layouts at all breakpoints to ensure consistent behavior across devices.",
+              icon: <Monitor size={20} />,
+              color: "warning",
+            },
+            {
+              title: "Optimize Images",
+              description: "Use appropriate image formats, lazy loading, and proper sizing for performance.",
+              icon: <Image size={20} />,
+              color: "secondary",
+            },
+          ].map((practice, index) => (
+            <GridCol key={index} md={6} lg={3} className="u-mb-4">
+              <Card className="u-h-100 u-p-6">
+                <div className="u-d-flex u-align-items-center u-mb-3">
+                  <div
+                    className={`${pageStyles.layoutsResponsivePatternsPage__practiceIconContainer} ${pageStyles[`layoutsResponsivePatternsPage__iconContainer--${practice.color}`]}`}
+                  >
+                    {practice.icon}
+                  </div>
+                  <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                    {practice.title}
+                  </h3>
+                </div>
+                <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                  {practice.description}
+                </p>
+              </Card>
+            </GridCol>
+          ))}
         </Row>
       </Block>
     </div>

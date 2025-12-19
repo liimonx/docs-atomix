@@ -1,0 +1,89 @@
+// Component: LayoutsMasonryGridPage
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.layoutsMasonryGridPage {
+  // Base styles if needed
+}
+
+// Elements - Intro Text
+// =============================================================================
+.layoutsMasonryGridPage__introText {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+// Elements - Feature Icon Container
+// =============================================================================
+.layoutsMasonryGridPage__featureIconContainer {
+  width: var(--atomix-spacing-12);
+  height: var(--atomix-spacing-12);
+  border-radius: var(--atomix-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--atomix-spacing-3);
+}
+
+// Color Modifiers for Feature Icon Container
+// =============================================================================
+.layoutsMasonryGridPage__featureIconContainer--primary {
+  background-color: var(--atomix-color-primary-subtle);
+  color: var(--atomix-color-primary-emphasis);
+}
+
+.layoutsMasonryGridPage__featureIconContainer--success {
+  background-color: var(--atomix-color-success-subtle);
+  color: var(--atomix-color-success-emphasis);
+}
+
+.layoutsMasonryGridPage__featureIconContainer--warning {
+  background-color: var(--atomix-color-warning-subtle);
+  color: var(--atomix-color-warning-emphasis);
+}
+
+.layoutsMasonryGridPage__featureIconContainer--secondary {
+  background-color: var(--atomix-color-secondary-subtle);
+  color: var(--atomix-color-secondary-emphasis);
+}
+
+.layoutsMasonryGridPage__featureIconContainer--error {
+  background-color: var(--atomix-color-error-subtle);
+  color: var(--atomix-color-error-emphasis);
+}
+
+// Elements - Code Block
+// =============================================================================
+.layoutsMasonryGridPage__codeBlock {
+  font-family: var(--atomix-font-family-mono);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .layoutsMasonryGridPage__introText {
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+  }
+
+  .layoutsMasonryGridPage__featureIconContainer {
+    width: var(--atomix-spacing-10);
+    height: var(--atomix-spacing-10);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .layoutsMasonryGridPage__featureIconContainer {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .layoutsMasonryGridPage__featureIconContainer {
+    border: 2px solid currentColor;
+  }
+}
+

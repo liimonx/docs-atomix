@@ -22,6 +22,7 @@ import {
 } from "@shohojdhara/atomix";
 import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
+import pageStyles from "./LayoutsOverviewPage.module.scss";
 
 const LayoutsOverviewPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -137,11 +138,7 @@ const LayoutsOverviewPage: FC = () => {
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-d-flex u-flex-column u-h-100">
                     <div
-                      className={`u-w-16 u-h-16 u-br-md u-d-flex u-align-items-center u-justify-content-center u-mb-4`}
-                      style={{
-                        backgroundColor: `var(--atomix-color-${feature.color}-subtle)`,
-                        color: `var(--atomix-color-${feature.color}-emphasis)`,
-                      }}
+                      className={`${pageStyles.layoutsOverviewPage__featureIconContainer} ${pageStyles[`layoutsOverviewPage__featureIconContainer--${feature.color}`]}`}
                     >
                       {feature.icon}
                     </div>

@@ -8,9 +8,6 @@
   flex-direction: column;
   height: calc(100vh - 56px);
   width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
 
 .themeStudioLayout__toolbar {
@@ -57,7 +54,6 @@
   touch-action: none;
   transition: background-color var(--atomix-transition-duration-fast)
     var(--atomix-easing-base);
-  z-index: 100;
 
   &:hover,
   &:focus-visible {

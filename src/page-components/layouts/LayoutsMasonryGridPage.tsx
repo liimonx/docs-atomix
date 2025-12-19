@@ -23,6 +23,7 @@ import {
 } from '@shohojdhara/atomix';
 import { GlassProps } from '@/types/atomix-components';
 import styles from '@/styles/PageHero.module.scss';
+import pageStyles from './LayoutsMasonryGridPage.module.scss';
 
 const LayoutsMasonryGridPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -125,7 +126,7 @@ const LayoutsMasonryGridPage: FC = () => {
         <Row>
           <GridCol md={12}>
             <Card className="u-p-6">
-              <p className="u-text-secondary-emphasis u-mb-6 u-text-center u-line-height-relaxed" style={{ maxWidth: '800px', margin: '0 auto 2rem' }}>
+              <p className={`u-text-secondary-emphasis u-mb-6 u-text-center u-line-height-relaxed ${pageStyles.layoutsMasonryGridPage__introText}`}>
                 The Masonry Grid uses JavaScript to calculate optimal positioning for items of varying heights, creating a visually appealing layout that maximizes space usage. Items are positioned column by column, with each new item placed in the column with the shortest current height.
               </p>
               
@@ -135,11 +136,7 @@ const LayoutsMasonryGridPage: FC = () => {
                     <Card className="u-p-4 u-h-100">
                       <div className="u-d-flex u-align-items-center u-mb-3">
                         <div 
-                          className={`u-w-12 u-h-12 u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3`}
-                          style={{
-                            backgroundColor: `var(--atomix-color-${feature.color}-subtle)`,
-                            color: `var(--atomix-color-${feature.color}-emphasis)`
-                          }}
+                          className={`${pageStyles.layoutsMasonryGridPage__featureIconContainer} ${pageStyles[`layoutsMasonryGridPage__featureIconContainer--${feature.color}`]}`}
                         >
                           {feature.icon}
                         </div>
@@ -179,7 +176,7 @@ const LayoutsMasonryGridPage: FC = () => {
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
                     <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">TypeScript / React</span>
                   </div>
-                  <pre className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+                  <pre className={`u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis ${pageStyles.layoutsMasonryGridPage__codeBlock}`}>
 {`import { MasonryGrid, MasonryGridItem } from '@shohojdhara/atomix';
 
 <MasonryGrid 
@@ -259,7 +256,7 @@ const LayoutsMasonryGridPage: FC = () => {
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
                     <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">Responsive Example</span>
                   </div>
-                  <pre className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis" style={{ fontFamily: 'var(--atomix-font-family-mono)' }}>
+                  <pre className={`u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis ${pageStyles.layoutsMasonryGridPage__codeBlock}`}>
 {`<MasonryGrid 
   columns={{
     xs: 1,

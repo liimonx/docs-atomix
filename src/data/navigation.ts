@@ -56,6 +56,16 @@ export const navigationData: NavigationSection[] = [
         category: 'getting-started',
         searchTerms: ['migration', 'upgrade', 'move', 'switch'],
         priority: 4
+      },
+      {
+        id: 'cli',
+        title: 'CLI Reference',
+        path: '/docs/getting-started/cli',
+        icon: 'Terminal',
+        description: 'Complete command-line interface documentation',
+        category: 'getting-started',
+        searchTerms: ['cli', 'command', 'terminal', 'command line', 'cli reference'],
+        priority: 5
       }
     ]
   },
@@ -512,6 +522,256 @@ export const navigationData: NavigationSection[] = [
         category: 'components',
         searchTerms: ['upload', 'form', 'field'],
         priority: 26
+      },
+      {
+        id: 'block',
+        title: 'Block',
+        path: '/docs/components/block',
+        icon: 'Square',
+        description: 'Flexible layout container for creating consistent section layouts',
+        category: 'components',
+        searchTerms: ['block', 'layout', 'container', 'section'],
+        priority: 27
+      },
+      {
+        id: 'callout',
+        title: 'Callout',
+        path: '/docs/components/callout',
+        icon: 'Info',
+        description: 'Display important messages, notifications, alerts, or highlighted information',
+        category: 'components',
+        searchTerms: ['callout', 'alert', 'notification', 'message', 'info'],
+        priority: 28
+      },
+      {
+        id: 'countdown',
+        title: 'Countdown',
+        path: '/docs/components/countdown',
+        icon: 'Clock',
+        description: 'Real-time countdown timer to a specified target date/time',
+        category: 'components',
+        searchTerms: ['countdown', 'timer', 'clock', 'time', 'event'],
+        priority: 29
+      },
+      {
+        id: 'hero',
+        title: 'Hero',
+        path: '/docs/components/hero',
+        icon: 'Image',
+        description: 'Impactful banner sections for landing pages and feature highlights',
+        category: 'components',
+        searchTerms: ['hero', 'banner', 'landing', 'header', 'background'],
+        priority: 30
+      },
+      {
+        id: 'icon',
+        title: 'Icon',
+        path: '/docs/components/icon',
+        icon: 'Icon',
+        description: 'Consistent way to display icons using the Phosphor Icons library',
+        category: 'components',
+        searchTerms: ['icon', 'icons', 'phosphor', 'symbol'],
+        priority: 31
+      },
+      {
+        id: 'list',
+        title: 'List',
+        path: '/docs/components/list',
+        icon: 'ListBullets',
+        description: 'Flexible way to display ordered and unordered lists with various styling options',
+        category: 'components',
+        searchTerms: ['list', 'ordered', 'unordered', 'items', 'collection'],
+        priority: 32
+      },
+      {
+        id: 'messages',
+        title: 'Messages',
+        path: '/docs/components/messages',
+        icon: 'ChatCircle',
+        description: 'Complete chat interface for displaying conversations between users',
+        category: 'components',
+        searchTerms: ['messages', 'chat', 'conversation', 'messaging', 'communication'],
+        priority: 33
+      },
+      {
+        id: 'navbar',
+        title: 'Navbar',
+        path: '/docs/components/navbar',
+        icon: 'Navigation',
+        description: 'Responsive navigation header with brand, menu items, and collapsible mobile menu',
+        category: 'components',
+        searchTerms: ['navbar', 'navigation', 'header', 'menu', 'responsive'],
+        priority: 34
+      },
+      {
+        id: 'pagination',
+        title: 'Pagination',
+        path: '/docs/components/pagination',
+        icon: 'CaretDoubleLeft',
+        description: 'Navigation controls for paginated content across multiple pages',
+        category: 'components',
+        searchTerms: ['pagination', 'navigation', 'pages', 'pager', 'controls'],
+        priority: 35
+      },
+      {
+        id: 'popover',
+        title: 'Popover',
+        path: '/docs/components/popover',
+        icon: 'ChatCircleDots',
+        description: 'Floating content component that appears relative to a trigger element',
+        category: 'components',
+        searchTerms: ['popover', 'tooltip', 'overlay', 'floating', 'contextual'],
+        priority: 36
+      },
+      {
+        id: 'steps',
+        title: 'Steps',
+        path: '/docs/components/steps',
+        icon: 'Steps',
+        description: 'Visual representation of a multi-step process with customizable step indicators',
+        category: 'components',
+        searchTerms: ['steps', 'wizard', 'progress', 'multi-step', 'workflow'],
+        priority: 37
+      },
+      {
+        id: 'section-intro',
+        title: 'SectionIntro',
+        path: '/docs/components/section-intro',
+        icon: 'TextAlignLeft',
+        description: 'Consistent section introductions with titles, descriptions, and optional badges',
+        category: 'components',
+        searchTerms: ['section', 'intro', 'header', 'title', 'description'],
+        priority: 38
+      },
+      {
+        id: 'container',
+        title: 'Container',
+        path: '/docs/components/container',
+        icon: 'Square',
+        description: 'Responsive container with consistent max-width constraints and padding',
+        category: 'components',
+        searchTerms: ['container', 'layout', 'responsive', 'wrapper', 'max-width'],
+        priority: 39
+      },
+      {
+        id: 'grid',
+        title: 'Grid',
+        path: '/docs/components/grid',
+        icon: 'GridFour',
+        description: 'Flexible 12-column responsive grid system for creating complex layouts',
+        category: 'components',
+        searchTerms: ['grid', 'layout', 'responsive', 'columns', '12-column'],
+        priority: 40
+      },
+      {
+        id: 'grid-col',
+        title: 'GridCol',
+        path: '/docs/components/grid-col',
+        icon: 'Columns',
+        description: 'Column component for use within the Grid system with responsive breakpoints',
+        category: 'components',
+        searchTerms: ['grid', 'column', 'layout', 'responsive', 'breakpoint'],
+        priority: 41
+      },
+      {
+        id: 'row',
+        title: 'Row',
+        path: '/docs/components/row',
+        icon: 'Rows',
+        description: 'Row component for organizing content horizontally within the grid system',
+        category: 'components',
+        searchTerms: ['row', 'layout', 'grid', 'horizontal', 'flexbox'],
+        priority: 42
+      },
+      {
+        id: 'river',
+        title: 'River',
+        path: '/docs/components/river',
+        icon: 'Flow',
+        description: 'Flexible layout component for prominent content sections with titles, text, and actions',
+        category: 'components',
+        searchTerms: ['river', 'layout', 'cta', 'call-to-action', 'hero', 'section'],
+        priority: 43
+      },
+      {
+        id: 'masonry-grid',
+        title: 'MasonryGrid',
+        path: '/docs/components/masonry-grid',
+        icon: 'GridFour',
+        description: 'Dynamic grid layout that arranges items in a masonry (Pinterest-style) layout',
+        category: 'components',
+        searchTerms: ['masonry', 'grid', 'layout', 'pinterest', 'dynamic', 'columns'],
+        priority: 44
+      },
+      {
+        id: 'data-table',
+        title: 'DataTable',
+        path: '/docs/components/data-table',
+        icon: 'Table',
+        description: 'Advanced table component with sorting, filtering, pagination, and selection',
+        category: 'components',
+        searchTerms: ['table', 'data', 'sorting', 'filtering', 'pagination', 'grid'],
+        priority: 45
+      },
+      {
+        id: 'edge-panel',
+        title: 'EdgePanel',
+        path: '/docs/components/edge-panel',
+        icon: 'Sidebar',
+        description: 'Side panel component that slides in from the edge of the screen',
+        category: 'components',
+        searchTerms: ['panel', 'sidebar', 'overlay', 'drawer', 'navigation', 'edge'],
+        priority: 46
+      },
+      {
+        id: 'side-menu',
+        title: 'SideMenu',
+        path: '/docs/components/side-menu',
+        icon: 'List',
+        description: 'Vertical navigation menu component designed for sidebars and navigation panels',
+        category: 'components',
+        searchTerms: ['menu', 'navigation', 'sidebar', 'vertical', 'nav'],
+        priority: 47
+      },
+      {
+        id: 'nav',
+        title: 'Nav',
+        path: '/docs/components/nav',
+        icon: 'Navigation',
+        description: 'Flexible navigation component for creating horizontal or vertical navigation menus',
+        category: 'components',
+        searchTerms: ['nav', 'navigation', 'menu', 'horizontal', 'vertical'],
+        priority: 48
+      },
+      {
+        id: 'nav-item',
+        title: 'NavItem',
+        path: '/docs/components/nav-item',
+        icon: 'Link',
+        description: 'Navigation item component for use within Nav with active states and icons',
+        category: 'components',
+        searchTerms: ['nav', 'navigation', 'item', 'link', 'menu'],
+        priority: 49
+      },
+      {
+        id: 'nav-dropdown',
+        title: 'NavDropdown',
+        path: '/docs/components/nav-dropdown',
+        icon: 'CaretDown',
+        description: 'Dropdown menu component for use within Nav with nested navigation items',
+        category: 'components',
+        searchTerms: ['nav', 'navigation', 'dropdown', 'menu', 'submenu'],
+        priority: 50
+      },
+      {
+        id: 'virtualized-grid',
+        title: 'VirtualizedGrid',
+        path: '/docs/components/virtualized-grid',
+        icon: 'GridFour',
+        description: 'High-performance grid component using virtualization for large datasets',
+        category: 'components',
+        searchTerms: ['virtualized', 'grid', 'performance', 'large-data', 'scroll', 'optimization'],
+        priority: 51
       },
     ]
   },

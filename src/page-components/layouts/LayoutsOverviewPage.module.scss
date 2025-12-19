@@ -1,0 +1,71 @@
+// Component: LayoutsOverviewPage
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.layoutsOverviewPage {
+  // Base styles if needed
+}
+
+// Elements - Feature Icon Container
+// =============================================================================
+.layoutsOverviewPage__featureIconContainer {
+  width: var(--atomix-spacing-16);
+  height: var(--atomix-spacing-16);
+  border-radius: var(--atomix-border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--atomix-spacing-4);
+}
+
+// Color Modifiers for Feature Icon Container
+// =============================================================================
+.layoutsOverviewPage__featureIconContainer--primary {
+  background-color: var(--atomix-color-primary-subtle);
+  color: var(--atomix-color-primary-emphasis);
+}
+
+.layoutsOverviewPage__featureIconContainer--success {
+  background-color: var(--atomix-color-success-subtle);
+  color: var(--atomix-color-success-emphasis);
+}
+
+.layoutsOverviewPage__featureIconContainer--warning {
+  background-color: var(--atomix-color-warning-subtle);
+  color: var(--atomix-color-warning-emphasis);
+}
+
+.layoutsOverviewPage__featureIconContainer--secondary {
+  background-color: var(--atomix-color-secondary-subtle);
+  color: var(--atomix-color-secondary-emphasis);
+}
+
+.layoutsOverviewPage__featureIconContainer--error {
+  background-color: var(--atomix-color-error-subtle);
+  color: var(--atomix-color-error-emphasis);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .layoutsOverviewPage__featureIconContainer {
+    width: var(--atomix-spacing-10);
+    height: var(--atomix-spacing-10);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .layoutsOverviewPage__featureIconContainer {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .layoutsOverviewPage__featureIconContainer {
+    border: 2px solid currentColor;
+  }
+}
+

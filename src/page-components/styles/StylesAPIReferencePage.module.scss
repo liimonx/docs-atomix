@@ -1,0 +1,99 @@
+// Component: StylesAPIReferencePage
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.stylesAPIReferencePage {
+  // Base styles if needed
+}
+
+// Elements - API Section Card
+// =============================================================================
+.stylesAPIReferencePage__apiSectionCard {
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+
+// Color Modifiers for API Section Card Border
+// =============================================================================
+.stylesAPIReferencePage__apiSectionCard--blue {
+  border-left-color: #3b82f6;
+}
+
+.stylesAPIReferencePage__apiSectionCard--purple {
+  border-left-color: #8b5cf6;
+}
+
+.stylesAPIReferencePage__apiSectionCard--pink {
+  border-left-color: #ec4899;
+}
+
+.stylesAPIReferencePage__apiSectionCard--orange {
+  border-left-color: #f97316;
+}
+
+.stylesAPIReferencePage__apiSectionCard--green {
+  border-left-color: #22c55e;
+}
+
+.stylesAPIReferencePage__apiSectionCard--yellow {
+  border-left-color: #eab308;
+}
+
+.stylesAPIReferencePage__apiSectionCard--red {
+  border-left-color: #ef4444;
+}
+
+// Elements - API Section Icon
+// =============================================================================
+// Color Modifiers for API Section Icon
+.stylesAPIReferencePage__apiSectionIcon--blue {
+  color: #3b82f6;
+}
+
+.stylesAPIReferencePage__apiSectionIcon--purple {
+  color: #8b5cf6;
+}
+
+.stylesAPIReferencePage__apiSectionIcon--pink {
+  color: #ec4899;
+}
+
+.stylesAPIReferencePage__apiSectionIcon--orange {
+  color: #f97316;
+}
+
+.stylesAPIReferencePage__apiSectionIcon--green {
+  color: #22c55e;
+}
+
+.stylesAPIReferencePage__apiSectionIcon--yellow {
+  color: #eab308;
+}
+
+.stylesAPIReferencePage__apiSectionIcon--red {
+  color: #ef4444;
+}
+
+// Elements - Code Block
+// =============================================================================
+.stylesAPIReferencePage__codeBlock {
+  font-family: var(--atomix-font-family-mono);
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .stylesAPIReferencePage__apiSectionCard {
+    border-left-width: 3px;
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .stylesAPIReferencePage__apiSectionCard {
+    border-left-width: 5px;
+  }
+}
+

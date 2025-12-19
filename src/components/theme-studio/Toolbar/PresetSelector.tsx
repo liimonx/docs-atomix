@@ -1,7 +1,15 @@
-'use client';
+"use client";
 
-import { FC, useState, ReactNode, useId, useEffect, useRef } from "react";
-import { Button, Icon, Dropdown, Input, Modal } from "@shohojdhara/atomix";
+import { FC, useState, useEffect, useRef } from "react";
+import {
+  Button,
+  Icon,
+  Dropdown,
+  Input,
+  Modal,
+  Menu,
+  MenuItem,
+} from "@shohojdhara/atomix";
 import { useThemeStudioStore } from "@/stores/themeStudioStore";
 import { themePresets } from "@/data/themePresets";
 import styles from "./PresetSelector.module.scss";
@@ -9,16 +17,13 @@ import styles from "./PresetSelector.module.scss";
 export const PresetSelector: FC = () => {
   const {
     setTheme,
-    lightTokens,
-    darkTokens,
     customPresets,
     saveCustomPreset,
-    deleteCustomPreset,
     loadCustomPresets,
   } = useThemeStudioStore();
   const [showSaveModal, setShowSaveModal] = useState(false);
-  const [presetName, setPresetName] = useState('');
-  const [presetDescription, setPresetDescription] = useState('');
+  const [presetName, setPresetName] = useState("");
+  const [presetDescription, setPresetDescription] = useState("");
   const [mounted, setMounted] = useState(false);
   const nameInputRef = useRef<HTMLInputElement>(null);
 
@@ -41,7 +46,7 @@ export const PresetSelector: FC = () => {
       );
       return;
     }
-    
+
     // Check built-in presets
     const preset = themePresets[presetId];
     if (preset) {
@@ -57,39 +62,35 @@ export const PresetSelector: FC = () => {
 
   const handleSavePreset = () => {
     if (!presetName.trim()) return;
-    
+
     const id = `custom-${Date.now()}`;
-    saveCustomPreset(id, presetName.trim(), presetDescription.trim() || undefined);
+    saveCustomPreset(
+      id,
+      presetName.trim(),
+      presetDescription.trim() || undefined
+    );
     setShowSaveModal(false);
-    setPresetName('');
-    setPresetDescription('');
+    setPresetName("");
+    setPresetDescription("");
   };
 
-  const handleDeletePreset = (presetId: string) => {
-    if (confirm('Are you sure you want to delete this custom preset?')) {
-      deleteCustomPreset(presetId);
-    }
-  };
 
-  const builtInItems = Object.entries(themePresets).map(
-    ([id, preset]) => ({
-      label: preset.name,
-      onClick: () => handlePresetSelect(id),
-    })
-  );
 
-  const customItems = Object.entries(customPresets).map(
-    ([id, preset]) => ({
-      label: `${preset.name} (Custom)`,
-      onClick: () => handlePresetSelect(id),
-    })
-  );
+  const builtInItems = Object.entries(themePresets).map(([id, preset]) => ({
+    label: preset.name,
+    onClick: () => handlePresetSelect(id),
+  }));
+
+  const customItems = Object.entries(customPresets).map(([id, preset]) => ({
+    label: `${preset.name} (Custom)`,
+    onClick: () => handlePresetSelect(id),
+  }));
 
   const dropdownItems = [
     ...builtInItems,
     ...customItems,
     {
-      label: '💾 Save Current Theme',
+      label: "💾 Save Current Theme",
       onClick: () => {
         setShowSaveModal(true);
         setTimeout(() => nameInputRef.current?.focus(), 100);
@@ -105,7 +106,7 @@ export const PresetSelector: FC = () => {
           variant="outline-secondary"
           size="sm"
           aria-label="Select theme preset"
-          style={{ width: '100%' }}
+          className={styles.presetSelector__button}
           disabled
         >
           <Icon name="Palette" size={16} aria-hidden="true" /> Presets
@@ -117,69 +118,88 @@ export const PresetSelector: FC = () => {
   return (
     <div className={styles.presetSelector}>
       <Dropdown
-        trigger={
-          <Button
-            variant="outline-secondary"
-            size="sm"
-            aria-label="Select theme preset"
-            style={{ width: '100%' }}
-          >
-            <Icon name="Palette" size={16} aria-hidden="true" /> Presets
-          </Button>
-        }
-        items={dropdownItems}
+        trigger="click"
+        menu={(
+          <Menu className={styles.presetSelector__menu}>
+            {dropdownItems.map((item) => (
+              <MenuItem
+                key={item.label}
+                children={item.label}
+                onClick={item.onClick}
+              />
+            ))}
+          </Menu>
+        )}
         placement="bottom-start"
-      />
+      >
+        <Button
+          variant="outline-secondary"
+          size="sm"
+          aria-label="Select theme preset"
+          className={styles.presetSelector__button}
+        >
+          <Icon name="Palette" size={16} aria-hidden="true" /> Presets
+        </Button>
+      </Dropdown>
 
       <Modal
         isOpen={showSaveModal}
         onClose={() => {
           setShowSaveModal(false);
-          setPresetName('');
-          setPresetDescription('');
+          setPresetName("");
+          setPresetDescription("");
         }}
         title="Save Custom Preset"
         size="md"
+        style={{ position: "fixed"}}
       >
-        <div className={styles.presetSelector__saveForm}>
-          <div>
+        <div className={`${styles.presetSelector__saveForm} u-d-flex u-flex-col u-gap-4`}>
+          <div className="u-d-flex u-flex-col">
             <label className={styles.presetSelector__formLabel}>
               Preset Name *
             </label>
-            <Input
-              ref={nameInputRef}
-              type="text"
-              value={presetName}
-              onChange={(e) => setPresetName(e.target.value)}
-              placeholder="My Custom Theme"
-              aria-label="Preset name"
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && presetName.trim()) {
+            <div
+              onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
+                if (e.key === "Enter" && presetName.trim()) {
+                  e.preventDefault();
                   handleSavePreset();
                 }
               }}
-            />
+            >
+              <Input
+                ref={nameInputRef}
+                type="text"
+                value={presetName}
+                onChange={(e) => setPresetName(e.target.value)}
+                placeholder="My Custom Theme"
+                aria-label="Preset name"
+              />
+            </div>
           </div>
-          
-          <div>
+
+          <div className="u-d-flex u-flex-col">
             <label className={styles.presetSelector__formLabel}>
               Description (optional)
             </label>
-            <Input
-              type="text"
-              value={presetDescription}
-              onChange={(e) => setPresetDescription(e.target.value)}
-              placeholder="A brief description of this theme"
-              aria-label="Preset description"
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && presetName.trim()) {
+            <div
+              onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
+                if (e.key === "Enter" && presetDescription.trim()) {
+                  e.preventDefault();
                   handleSavePreset();
                 }
               }}
-            />
+            >
+              <Input
+                type="text"
+                value={presetDescription}
+                onChange={(e) => setPresetDescription(e.target.value)}
+                placeholder="A brief description of this theme"
+                aria-label="Preset description"
+              />
+            </div>
           </div>
 
-          <div className={styles.presetSelector__formActions}>
+          <div className={`${styles.presetSelector__formActions} u-d-flex u-gap-2 u-justify-content-end`}>
             <Button
               variant="primary"
               onClick={handleSavePreset}
@@ -191,8 +211,8 @@ export const PresetSelector: FC = () => {
               variant="outline-secondary"
               onClick={() => {
                 setShowSaveModal(false);
-                setPresetName('');
-                setPresetDescription('');
+                setPresetName("");
+                setPresetDescription("");
               }}
             >
               Cancel

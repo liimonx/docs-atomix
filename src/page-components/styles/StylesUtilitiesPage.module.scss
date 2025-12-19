@@ -1,0 +1,105 @@
+// Component: StylesUtilitiesPage
+// =============================================================================
+
+// Block: Base component
+// =============================================================================
+.stylesUtilitiesPage {
+  // Base styles if needed
+}
+
+// Elements - Category Card
+// =============================================================================
+.stylesUtilitiesPage__categoryCard {
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+
+// Color Modifiers for Category Card Border
+// =============================================================================
+.stylesUtilitiesPage__categoryCard--blue {
+  border-left-color: #3b82f6;
+}
+
+.stylesUtilitiesPage__categoryCard--purple {
+  border-left-color: #8b5cf6;
+}
+
+.stylesUtilitiesPage__categoryCard--pink {
+  border-left-color: #ec4899;
+}
+
+.stylesUtilitiesPage__categoryCard--orange {
+  border-left-color: #f97316;
+}
+
+.stylesUtilitiesPage__categoryCard--green {
+  border-left-color: #22c55e;
+}
+
+.stylesUtilitiesPage__categoryCard--yellow {
+  border-left-color: #eab308;
+}
+
+.stylesUtilitiesPage__categoryCard--red {
+  border-left-color: #ef4444;
+}
+
+// Elements - Category Icon
+// =============================================================================
+// Color Modifiers for Category Icon
+.stylesUtilitiesPage__categoryIcon--blue {
+  color: #3b82f6;
+}
+
+.stylesUtilitiesPage__categoryIcon--purple {
+  color: #8b5cf6;
+}
+
+.stylesUtilitiesPage__categoryIcon--pink {
+  color: #ec4899;
+}
+
+.stylesUtilitiesPage__categoryIcon--orange {
+  color: #f97316;
+}
+
+.stylesUtilitiesPage__categoryIcon--green {
+  color: #22c55e;
+}
+
+.stylesUtilitiesPage__categoryIcon--yellow {
+  color: #eab308;
+}
+
+.stylesUtilitiesPage__categoryIcon--red {
+  color: #ef4444;
+}
+
+// Elements - Code Block
+// =============================================================================
+.stylesUtilitiesPage__codeBlock {
+  font-family: var(--atomix-font-family-mono);
+}
+
+// Elements - Reference Table
+// =============================================================================
+.stylesUtilitiesPage__referenceTable {
+  border-collapse: collapse;
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .stylesUtilitiesPage__categoryCard {
+    border-left-width: 3px;
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-contrast: high) {
+  .stylesUtilitiesPage__categoryCard {
+    border-left-width: 5px;
+  }
+}
+

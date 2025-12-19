@@ -31,6 +31,24 @@ import { uploadMetadata } from './Upload';
 import { countdownMetadata } from './Countdown';
 import { blockMetadata } from './Block';
 import { navbarMetadata } from './Navbar';
+import { checkboxMetadata } from './Checkbox';
+import { radioMetadata } from './Radio';
+import { datePickerMetadata } from './DatePicker';
+import { sectionIntroMetadata } from './SectionIntro';
+import { containerMetadata } from './Container';
+import { gridMetadata } from './Grid';
+import { gridColMetadata } from './GridCol';
+import { rowMetadata } from './Row';
+import { riverMetadata } from './River';
+import { masonryGridMetadata } from './MasonryGrid';
+import { masonryGridItemMetadata } from './MasonryGridItem';
+import { dataTableMetadata } from './DataTable';
+import { edgePanelMetadata } from './EdgePanel';
+import { sideMenuMetadata } from './SideMenu';
+import { navMetadata } from './Nav';
+import { navItemMetadata } from './NavItem';
+import { navDropdownMetadata } from './NavDropdown';
+import { virtualizedGridMetadata } from './VirtualizedGrid';
 
 export {
   buttonMetadata,
@@ -64,7 +82,25 @@ export {
   uploadMetadata,
   countdownMetadata,
   blockMetadata,
-  navbarMetadata
+  navbarMetadata,
+  checkboxMetadata,
+  radioMetadata,
+  datePickerMetadata,
+  sectionIntroMetadata,
+  containerMetadata,
+  gridMetadata,
+  gridColMetadata,
+  rowMetadata,
+  riverMetadata,
+  masonryGridMetadata,
+  masonryGridItemMetadata,
+  dataTableMetadata,
+  edgePanelMetadata,
+  sideMenuMetadata,
+  navMetadata,
+  navItemMetadata,
+  navDropdownMetadata,
+  virtualizedGridMetadata
 };
 
 export const componentMetadata = [
@@ -100,6 +136,24 @@ export const componentMetadata = [
   countdownMetadata,
   blockMetadata,
   navbarMetadata,
+  checkboxMetadata,
+  radioMetadata,
+  datePickerMetadata,
+  sectionIntroMetadata,
+  containerMetadata,
+  gridMetadata,
+  gridColMetadata,
+  rowMetadata,
+  riverMetadata,
+  masonryGridMetadata,
+  masonryGridItemMetadata,
+  dataTableMetadata,
+  edgePanelMetadata,
+  sideMenuMetadata,
+  navMetadata,
+  navItemMetadata,
+  navDropdownMetadata,
+  virtualizedGridMetadata,
 ];
 
 export const getComponentById = (id: string) => {
