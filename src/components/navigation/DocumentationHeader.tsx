@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import Link from 'next/link';
 import {
   Button,
@@ -38,6 +38,25 @@ const DocumentationHeader = memo(function DocumentationHeader({
     }
   ];
 
+  const [highlightMenuButton, setHighlightMenuButton] = useState(false);
+
+  useEffect(() => {
+    if (!showMenuButton) {
+      return;
+    }
+
+    setHighlightMenuButton(true);
+    const timeoutId = window.setTimeout(() => {
+      setHighlightMenuButton(false);
+    }, 3000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [showMenuButton]);
+
+  const menuToggleClassName = highlightMenuButton
+    ? 'u-d-lg-none docs-menu-toggle-highlight'
+    : 'u-d-lg-none';
+
   return (
     <header role="banner">
       <Navbar
@@ -56,7 +75,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
                 size="sm"
                 onClick={onMenuToggle}
                 aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
-                className="u-d-lg-none"
+                className={menuToggleClassName}
               >
                 <Icon name={sidebarOpen ? 'X' : 'List'} size="sm" />
               </Button>

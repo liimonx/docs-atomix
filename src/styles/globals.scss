@@ -67,3 +67,35 @@ body {
   padding-left: 6px;
   padding-right: 6px;
 }
+
+/* Docs mobile menu toggle highlight */
+@keyframes docsMenuToggleHighlight {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  20% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+}
+
+.docs-menu-toggle-highlight {
+  position: relative;
+  overflow: visible;
+}
+
+.docs-menu-toggle-highlight::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  border: 2px solid var(--atomix-focus-border-color);
+  opacity: 0;
+  pointer-events: none;
+  animation: docsMenuToggleHighlight 2.4s ease-out 1;
+}
