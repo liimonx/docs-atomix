@@ -1,16 +1,7 @@
 'use client';
 
 import { useState, useEffect, FC } from 'react';
-import {
-  Smartphone,
-  LayoutGrid,
-  Monitor,
-  Code,
-  Image,
-  Target,
-  Layers,
-  Zap,
-} from 'lucide-react';
+
 import {
   Hero,
   SectionIntro,
@@ -47,31 +38,31 @@ const LayoutsResponsivePatternsPage: FC = () => {
 
   const responsivePrinciples = [
     {
-      icon: <Smartphone size={24} />,
+      icon: <Icon name="Phone" size="lg" />,
       title: "Mobile-First",
       description: "Start with mobile and enhance for larger screens",
       color: "primary",
     },
     {
-      icon: <Target size={24} />,
+      icon: <Icon name="Target" size="lg" />,
       title: "Progressive Enhancement",
       description: "Layer features based on device capabilities",
       color: "success",
     },
     {
-      icon: <LayoutGrid size={24} />,
+      icon: <Icon name="GridFour" size="lg" />,
       title: "Flexible Grids",
       description: "Use relative units and flexible layouts",
       color: "warning",
     },
     {
-      icon: <Image size={24} />,
+      icon: <Icon name="Image" size="lg" />,
       title: "Responsive Media",
       description: "Images and media that adapt to containers",
       color: "secondary",
     },
     {
-      icon: <Layers size={24} />,
+      icon: <Icon name="Stack" size="lg" />,
       title: "Consistent Spacing",
       description: "Maintain visual hierarchy across breakpoints",
       color: "primary",
@@ -82,25 +73,25 @@ const LayoutsResponsivePatternsPage: FC = () => {
     {
       title: "Sidebar Layout",
       description: "Perfect for blogs, documentation, and admin dashboards",
-      icon: <LayoutGrid size={24} />,
+      icon: <Icon name="GridFour" size="lg" />,
       color: "primary",
     },
     {
       title: "Card Grid Layout",
       description: "Ideal for dashboards, galleries, and product listings",
-      icon: <Monitor size={24} />,
+      icon: <Icon name="Monitor" size="lg" />,
       color: "success",
     },
     {
       title: "Masonry Layout",
       description: "Pinterest-style layouts for varying content heights",
-      icon: <Layers size={24} />,
+      icon: <Icon name="Stack" size="lg" />,
       color: "warning",
     },
     {
       title: "Full-Width Hero",
       description: "Large hero sections with responsive content below",
-      icon: <Zap size={24} />,
+      icon: <Icon name="Lightning" size="lg" />,
       color: "secondary",
     },
   ];
@@ -203,7 +194,7 @@ const LayoutsResponsivePatternsPage: FC = () => {
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                  <Code size={24} />
+                  <Icon name="Code" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Sidebar Layout Pattern
@@ -250,7 +241,7 @@ function SidebarLayout({ children, sidebar }) {
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                  <LayoutGrid size={24} />
+                  <Icon name="GridFour" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Card Grid Layout Pattern
@@ -299,7 +290,7 @@ function CardGridLayout({ cards }) {
             <Card className="u-p-6 u-h-100">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                  <Smartphone size={24} />
+                    <Icon name="Phone" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Breakpoint Strategy
@@ -344,7 +335,7 @@ function CardGridLayout({ cards }) {
             <Card className="u-p-6 u-h-100">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                  <Image size={24} />
+                  <Icon name="Image" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Responsive Media
@@ -414,25 +405,25 @@ function CardGridLayout({ cards }) {
             {
               title: "Start Mobile-First",
               description: "Design for mobile devices first, then enhance for larger screens. This ensures a solid foundation.",
-              icon: <Smartphone size={20} />,
+              icon: <Icon name="Phone" size="lg" />,
               color: "primary",
             },
             {
               title: "Use Relative Units",
               description: "Prefer rem, em, and percentages over fixed pixel values for better scalability.",
-              icon: <Target size={20} />,
+              icon: <Icon name="Target" size="lg" />,
               color: "success",
             },
             {
               title: "Test All Breakpoints",
               description: "Test your layouts at all breakpoints to ensure consistent behavior across devices.",
-              icon: <Monitor size={20} />,
+              icon: <Icon name="Monitor" size="lg" />,
               color: "warning",
             },
             {
               title: "Optimize Images",
               description: "Use appropriate image formats, lazy loading, and proper sizing for performance.",
-              icon: <Image size={20} />,
+              icon: <Icon name="Image" size="lg" />,
               color: "secondary",
             },
           ].map((practice, index) => (

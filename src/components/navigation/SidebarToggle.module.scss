@@ -1,0 +1,13 @@
+.sidebarToggle {
+  position: fixed !important;
+  bottom: var(--atomix-spacing-4, 1rem) !important;
+  right: var(--atomix-spacing-4, 1rem) !important;
+  width: var(--atomix-spacing-14, 56px) !important;
+  height: var(--atomix-spacing-14, 56px) !important;
+  z-index: var(--atomix-z-drawer, 1070) !important; // Using z-index for drawers (sidebars)
+  border-radius: var(--atomix-border-radius-pill, 50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: var(--atomix-box-shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 12px -1px rgba(139, 92, 246, 0.2)) !important;
+}

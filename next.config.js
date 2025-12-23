@@ -69,12 +69,30 @@ const nextConfig = {
       path.resolve(__dirname, 'node_modules'),
     ];
 
-    // Fix for @phosphor-icons/react with static export
+    // Fix for packages that use Node.js modules in client-side code
+    // The atomix package includes Node.js code (fs, path) that shouldn't run in the browser
+    // Setting these to false tells webpack to ignore these modules in client bundles
     if (!isServer) {
       config.resolve.fallback = {
-        ...config.resolve.fallback,
+        ...(config.resolve.fallback || {}),
         fs: false,
+        path: false,
+        os: false,
+        crypto: false,
+        stream: false,
+        util: false,
+        buffer: false,
+        process: false,
       };
+
+      // Ignore require() calls for Node.js modules in the atomix package
+      // This prevents webpack from trying to resolve these modules
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^(fs|path|os|crypto|stream|util|buffer|process)$/,
+          contextRegExp: /node_modules\/@shohojdhara\/atomix/,
+        })
+      );
     }
 
     // Ensure proper module resolution for ESM packages

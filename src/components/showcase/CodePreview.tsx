@@ -252,15 +252,16 @@ function extractJSXElements(code: string): React.ReactNode[] {
       for (const [key, value] of Object.entries(props)) {
         const lowerKey = key.toLowerCase();
         const firstChar = key.charAt(0);
+        const isPascalCase = firstChar === firstChar.toUpperCase() && firstChar !== firstChar.toLowerCase();
         
-        // CRITICAL: Filter out ALL PascalCase props that look like React component names
+        // CRITICAL: Filter out ALL PascalCase props that are not standard React props or event handlers
         // (e.g., "Button", "Card", "Icon", etc.) - these are invalid for DOM elements
-        // Only allow standard React props that are PascalCase
-        if (firstChar === firstChar.toUpperCase() && firstChar !== firstChar.toLowerCase()) {
-          if (!standardReactProps.has(key)) {
-            // Skip invalid PascalCase props like "Icon", "Button", "Card", etc.
-            continue;
+        if (isPascalCase && !standardReactProps.has(key) && !(key.startsWith('on') && key.length > 2 && key[2] === key[2].toUpperCase())) {
+          // Skip invalid PascalCase props like "Icon", "Button", "Card", etc.
+          if (process.env.NODE_ENV === 'development') {
+            console.debug(`CodePreview: Filtering out invalid PascalCase prop "${key}" for HTML element "${componentName}"`);
           }
+          continue;
         }
         
         // Keep valid props: lowercase, camelCase React props, data-*, aria-*, and event handlers
@@ -276,8 +277,12 @@ function extractJSXElements(code: string): React.ReactNode[] {
           key === lowerKey // Already lowercase
         ) {
           filteredProps[lowerKey] = value; // Convert to lowercase for HTML attributes
+        } else if (!isPascalCase) {
+          // Allow other lowercase/camelCase props that aren't PascalCase
+          // Convert camelCase to lowercase for HTML attributes
+          filteredProps[lowerKey] = value;
         }
-        // All other props are filtered out (including any remaining PascalCase props)
+        // All other props (including any remaining PascalCase props) are filtered out
       }
       props = filteredProps;
     }

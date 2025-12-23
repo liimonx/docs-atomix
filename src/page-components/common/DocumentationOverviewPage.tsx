@@ -2,27 +2,13 @@
 
 import { useState, useEffect, FC } from "react";
 import Link from 'next/link';
-import {
-  BookOpen,
-  Palette,
-  Grid3X3,
-  Code,
-  Layers,
-  Zap,
-  Users,
-  Map,
-  ArrowRight,
-  Sparkles,
-  Building,
 
-  FileText,
-  Download,
-} from "lucide-react";
 import {
   Button,
   Card,
   Hero,
   GridCol,
+  Icon,
   Row,
   Block,
   SectionIntro,
@@ -65,7 +51,7 @@ const DocumentationOverviewPage: FC = () => {
       id: "getting-started",
       title: "Getting Started",
       description: "Everything you need to get up and running with Atomix",
-      icon: <BookOpen size={24} />,
+      icon: <Icon name="BookOpen" size="lg" />,
       color: "primary",
       items: [
         {
@@ -89,7 +75,7 @@ const DocumentationOverviewPage: FC = () => {
       id: "design-tokens",
       title: "Design Tokens",
       description: "The foundation of the Atomix Design System",
-      icon: <Palette size={24} />,
+      icon: <Icon name="Palette" size="lg" />,
       color: "secondary",
       items: [
         {
@@ -118,7 +104,7 @@ const DocumentationOverviewPage: FC = () => {
       id: "styles",
       title: "Styles System",
       description: "CSS architecture and utilities built on ITCSS",
-      icon: <Building size={24} />,
+      icon: <Icon name="Building" size="lg" />,
       color: "tertiary",
       items: [
         {
@@ -147,7 +133,7 @@ const DocumentationOverviewPage: FC = () => {
       id: "layouts",
       title: "Layouts",
       description: "Powerful layout system for responsive interfaces",
-      icon: <Grid3X3 size={24} />,
+        icon: <Icon name="GridFour" size="lg" />,
       color: "brand",
       items: [
         {
@@ -176,7 +162,7 @@ const DocumentationOverviewPage: FC = () => {
       id: "components",
       title: "Components",
       description: "40+ components with React and vanilla JS",
-      icon: <Layers size={24} />,
+      icon: <Icon name="Stack" size="lg" />,
       color: "success",
       items: [
         {
@@ -205,7 +191,7 @@ const DocumentationOverviewPage: FC = () => {
       id: "guides",
       title: "Guides",
       description: "In-depth guides and tutorials",
-      icon: <Zap size={24} />,
+      icon: <Icon name="Lightning" size="lg" />,
       color: "warning",
       items: [
         {
@@ -227,10 +213,10 @@ const DocumentationOverviewPage: FC = () => {
     value: string;
     icon: ReactNode;
   }> = [
-    { label: "Components", value: "40+", icon: <Layers size={20} /> },
-    { label: "Design Tokens", value: "200+", icon: <Palette size={20} /> },
-    { label: "Utility Classes", value: "500+", icon: <Code size={20} /> },
-    { label: "Chart Types", value: "15+", icon: <Sparkles size={20} /> },
+    { label: "Components", value: "40+", icon: <Icon name="Stack" size="lg" /> },
+    { label: "Design Tokens", value: "200+", icon: <Icon name="Palette" size="lg" /> },
+    { label: "Utility Classes", value: "500+", icon: <Icon name="Code" size="lg" /> },
+    { label: "Chart Types", value: "15+", icon: <Icon name="Sparkle" size="lg" /> },
   ];
 
   return (
@@ -251,7 +237,7 @@ const DocumentationOverviewPage: FC = () => {
             <div className={styles.pageHero__actions}>
               <Button
                 glass
-                icon={<Download size={16} />}
+                icon={<Icon name="Download" size="lg" />}
                 label="Get Started"
                 href="/docs/getting-started/installation"
                 as={Link}
@@ -260,7 +246,7 @@ const DocumentationOverviewPage: FC = () => {
                 glass
                 variant="secondary"
                 label="Browse Components"
-                icon={<Layers size={16} />}
+                icon={<Icon name="Stack" size="lg" />}
                 href="/docs/components/overview"
                 as={Link}
               />
@@ -342,7 +328,7 @@ const DocumentationOverviewPage: FC = () => {
                             </p>
                             <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
                               <span className="u-me-2">Learn more</span>
-                              <ArrowRight size={16} />
+                              <Icon name="ArrowRight" size="lg" />
                             </div>
                           </div>
                         </Card>
@@ -368,19 +354,19 @@ const DocumentationOverviewPage: FC = () => {
                 title: "React API",
                 description: "React component reference and props",
                 path: "/docs/api/react",
-                icon: <Code size={24} />,
+                icon: <Icon name="Code" size="lg" />,
               },
               {
                 title: "JavaScript API",
                 description: "Vanilla JS class reference",
                 path: "/docs/api/javascript",
-                icon: <FileText size={24} />,
+                icon: <Icon name="FileText" size="lg" />,
               },
               {
                 title: "CSS API",
                 description: "CSS classes and custom properties",
                 path: "/docs/api/css",
-                icon: <Palette size={24} />,
+                icon: <Icon name="Palette" size="lg" />,
               },
             ].map((api, index) => (
               <GridCol key={index} md={4} className="u-mb-6">
@@ -405,7 +391,7 @@ const DocumentationOverviewPage: FC = () => {
                       </p>
                       <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
                         <span className="u-me-2">View Reference</span>
-                        <ArrowRight size={16} />
+                        <Icon name="ArrowRight" size="lg" />
                       </div>
                     </div>
                   </Card>
@@ -428,19 +414,19 @@ const DocumentationOverviewPage: FC = () => {
                 title: "Roadmap",
                 description: "Development roadmap and future plans",
                 path: "/docs/resources/roadmap",
-                icon: <Map size={24} />,
+                icon: <Icon name="Globe" size="lg" />,
               },
               {
                 title: "Contributing",
                 description: "How to contribute to the project",
                 path: "/docs/resources/contributing",
-                icon: <Users size={24} />,
+                icon: <Icon name="Users" size="lg" />,
               },
               {
                 title: "Examples",
                 description: "Real-world patterns and implementations",
                 path: "/docs/examples/common-patterns",
-                icon: <Sparkles size={24} />,
+                icon: <Icon name="Sparkle" size="lg" />,
               },
             ].map((resource, index) => (
               <GridCol key={index} md={4} className="u-mb-6">
@@ -465,7 +451,7 @@ const DocumentationOverviewPage: FC = () => {
                       </p>
                       <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
                         <span className="u-me-2">Explore</span>
-                        <ArrowRight size={16} />
+                        <Icon name="CaretRight" size="lg" />
                       </div>
                     </div>
                   </Card>
@@ -488,14 +474,14 @@ const DocumentationOverviewPage: FC = () => {
                 </p>
                 <div className="u-d-flex u-gap-4 u-flex-wrap u-justify-content-center">
                   <Button
-                    icon={<Download size={16} />}
+                    icon={<Icon name="Download" size="lg" />}
                     label="Get Started"
                     href="/docs/getting-started/installation"
                     as={Link}
                   />
                   <Button
                     variant="outline"
-                    icon={<Layers size={16} />}
+                    icon={<Icon name="Stack" size="lg" />}
                     label="Browse Components"
                     href="/docs/components/overview"
                     as={Link}

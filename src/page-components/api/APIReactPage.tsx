@@ -36,7 +36,7 @@ const APIReactPage: FC = () => {
         alignment="center"
       />
 
-      <Block spacing="md" container={{ type: "fluid" }}>
+      <Block spacing="md" >
         <Container>
           <SectionIntro
             title="React API Reference"

@@ -3,14 +3,6 @@
 import { useState, useEffect, FC } from "react";
 import Link from "next/link";
 import {
-  Grid3X3,
-  LayoutGrid,
-  Smartphone,
-  Zap,
-  Settings,
-  ArrowRight,
-} from "lucide-react";
-import {
   Button,
   Card,
   Hero,
@@ -46,7 +38,7 @@ const LayoutsOverviewPage: FC = () => {
 
   const layoutFeatures = [
     {
-      icon: <Grid3X3 size={24} />,
+      icon: <Icon name="GridFour" size="lg" />,
       title: "Grid System",
       description:
         "A powerful 12-column responsive grid system for creating consistent layouts across all devices and screen sizes.",
@@ -54,7 +46,7 @@ const LayoutsOverviewPage: FC = () => {
       color: "primary",
     },
     {
-      icon: <LayoutGrid size={24} />,
+      icon: <Icon name="GridFour" size="lg" />,
       title: "Masonry Grid",
       description:
         "Create Pinterest-style dynamic layouts with our flexible masonry grid component that automatically positions items.",
@@ -62,7 +54,7 @@ const LayoutsOverviewPage: FC = () => {
       color: "success",
     },
     {
-      icon: <Smartphone size={24} />,
+      icon: <Icon name="Phone" size="lg" />,
       title: "Responsive Patterns",
       description:
         "Learn best practices and common patterns for creating responsive layouts that work beautifully on any device.",
@@ -70,7 +62,7 @@ const LayoutsOverviewPage: FC = () => {
       color: "warning",
     },
     {
-      icon: <Zap size={24} />,
+      icon: <Icon name="Lightning" size="lg" />,
       title: "Performance",
       description:
         "Optimize your layouts for maximum performance with our performance optimization guides and best practices.",
@@ -78,7 +70,7 @@ const LayoutsOverviewPage: FC = () => {
       color: "secondary",
     },
     {
-      icon: <Settings size={24} />,
+      icon: <Icon name="Gear" size="lg" />,
       title: "Customization",
       description:
         "Customize and extend layout components to match your unique requirements with CSS variables and SCSS.",
@@ -150,7 +142,7 @@ const LayoutsOverviewPage: FC = () => {
                     </p>
                     <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
                       <span className="u-me-2">Learn more</span>
-                      <ArrowRight size={16} />
+                      <Icon name="CaretRight" size="lg" />
                     </div>
                   </div>
                 </Card>
@@ -172,25 +164,25 @@ const LayoutsOverviewPage: FC = () => {
               title: "12-Column Grid",
               description:
                 "Flexible column-based layouts with 6 responsive breakpoints",
-              icon: <Grid3X3 size={20} />,
+              icon: <Icon name="GridFour" size="lg" />,
             },
             {
               title: "Mobile-First",
               description:
                 "Built with mobile-first responsive design principles",
-              icon: <Smartphone size={20} />,
+              icon: <Icon name="Phone" size="lg" />,
             },
             {
               title: "Performance Optimized",
               description:
                 "Optimized for speed with efficient CSS and minimal JavaScript",
-              icon: <Zap size={20} />,
+              icon: <Icon name="Lightning" size="lg" />,
             },
             {
               title: "Fully Customizable",
               description:
                 "Customize with CSS variables, SCSS, or component props",
-              icon: <Settings size={20} />,
+              icon: <Icon name="Gear" size="lg" />,
             },
           ].map((benefit, index) => (
             <GridCol key={index} md={6} lg={3} className="u-mb-4">

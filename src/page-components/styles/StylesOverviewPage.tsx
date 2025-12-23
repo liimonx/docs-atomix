@@ -61,7 +61,7 @@ const StylesOverviewPage: FC = () => {
         }
       />
 
-      <Block container={{ type: "fluid" }}>
+      <Block >
           <SectionIntro 
             title="Modern CSS Architecture"
             text="Explore our CSS architecture designed for scalability, maintainability, and performance."

@@ -1,14 +1,7 @@
 'use client';
 
 import { useState, useEffect, FC } from 'react';
-import {
-  Palette,
-  Settings,
-  Code,
-  Layers,
-  Zap,
-  Sparkles,
-} from 'lucide-react';
+
 import {
   Hero,
   SectionIntro,
@@ -45,7 +38,7 @@ const LayoutsCustomizationPage: FC = () => {
 
   const customizationLevels = [
     {
-      icon: <Palette size={24} />,
+      icon: <Icon name="Palette" size="lg" />,
       title: "CSS Custom Properties",
       description: "Runtime theming and quick adjustments without rebuilding",
       color: "primary",
@@ -57,7 +50,7 @@ const LayoutsCustomizationPage: FC = () => {
       ],
     },
     {
-      icon: <Settings size={24} />,
+      icon: <Icon name="Gear" size="lg" />,
       title: "SCSS Variables",
       description: "Build-time configuration for deep customization",
       color: "success",
@@ -69,7 +62,7 @@ const LayoutsCustomizationPage: FC = () => {
       ],
     },
     {
-      icon: <Code size={24} />,
+      icon: <Icon name="Code" size="lg" />,
       title: "Component Props",
       description: "Dynamic behavior and styling per component instance",
       color: "warning",
@@ -81,7 +74,7 @@ const LayoutsCustomizationPage: FC = () => {
       ],
     },
     {
-      icon: <Layers size={24} />,
+      icon: <Icon name="Stack" size="lg" />,
       title: "Custom Components",
       description: "Extend and create new layout patterns",
       color: "secondary",
@@ -178,7 +171,7 @@ const LayoutsCustomizationPage: FC = () => {
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                  <Palette size={24} />
+                  <Icon name="Palette" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Grid System Properties
@@ -223,7 +216,7 @@ const LayoutsCustomizationPage: FC = () => {
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                  <Layers size={24} />
+                  <Icon name="Stack" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Masonry Grid Properties
@@ -264,7 +257,7 @@ const LayoutsCustomizationPage: FC = () => {
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                  <Settings size={24} />
+                  <Icon name="Gear" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Build-Time Configuration
@@ -309,7 +302,7 @@ $container-max-widths: (
             <Card className="u-p-6 u-h-100">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
-                  <Code size={24} />
+                  <Icon name="Code" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Container & Row
@@ -348,7 +341,7 @@ $container-max-widths: (
             <Card className="u-p-6 u-h-100">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-secondary-emphasis">
-                  <Zap size={24} />
+                  <Icon name="Lightning" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   GridCol Options
@@ -395,7 +388,7 @@ $container-max-widths: (
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-secondary-emphasis">
-                  <Sparkles size={24} />
+                  <Icon name="Sparkle" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Extending Components
@@ -447,7 +440,7 @@ function MyPage() {
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                  <Layers size={24} />
+                  <Icon name="Stack" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   CSS Modules Approach
@@ -510,25 +503,25 @@ function CustomLayout() {
             {
               title: "Start with CSS Variables",
               description: "Use CSS custom properties for quick adjustments and runtime theming. They're the easiest way to customize without rebuilding.",
-              icon: <Palette size={20} />,
+              icon: <Icon name="Palette" size="lg" />,
               color: "primary",
             },
             {
               title: "Use SCSS for System-Wide Changes",
               description: "When you need to change the entire system (like column count or breakpoints), use SCSS variables at build time.",
-              icon: <Settings size={20} />,
+              icon: <Icon name="Gear" size="lg" />,
               color: "success",
             },
             {
               title: "Props for Instance-Level Control",
               description: "Use component props when you need different configurations for different instances of the same component.",
-              icon: <Code size={20} />,
+              icon: <Icon name="Code" size="lg" />,
               color: "warning",
             },
             {
               title: "Extend for Complex Patterns",
               description: "Create custom components when you need completely new layout patterns or complex styling requirements.",
-              icon: <Sparkles size={20} />,
+              icon: <Icon name="Sparkle" size="lg" />,
               color: "secondary",
             },
           ].map((practice, index) => (

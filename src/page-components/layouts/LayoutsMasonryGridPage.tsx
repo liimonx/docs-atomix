@@ -2,16 +2,6 @@
 
 import { useState, useEffect, FC } from 'react';
 import {
-  LayoutGrid,
-  Smartphone,
-  Code,
-  Zap,
-  Image,
-  Shield,
-  Settings,
-  Link,
-} from 'lucide-react';
-import {
   Hero,
   SectionIntro,
   Card,
@@ -24,6 +14,7 @@ import {
 import { GlassProps } from '@/types/atomix-components';
 import styles from '@/styles/PageHero.module.scss';
 import pageStyles from './LayoutsMasonryGridPage.module.scss';
+import Link from 'next/link';
 
 const LayoutsMasonryGridPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -45,37 +36,37 @@ const LayoutsMasonryGridPage: FC = () => {
 
   const features = [
     {
-      icon: <LayoutGrid size={24} />,
+      icon: <Icon name="GridFour" size="lg" />,
       title: "Dynamic Positioning",
       description: "Automatic optimal item placement",
       color: "primary",
     },
     {
-      icon: <Smartphone size={24} />,
+      icon: <Icon name="Phone" size="lg" />,
       title: "Responsive Design",
       description: "Configurable columns per breakpoint",
       color: "success",
     },
     {
-      icon: <Image size={24} />,
+      icon: <Icon name="Image" size="lg" />,
       title: "Image Loading Support",
       description: "Handles image loading and layout recalculation",
       color: "warning",
     },
     {
-      icon: <Zap size={24} />,
+      icon: <Icon name="Lightning" size="lg" />,
       title: "Performance Optimized",
       description: "ResizeObserver and efficient algorithms",
       color: "secondary",
     },
     {
-      icon: <Code size={24} />,
+      icon: <Icon name="Code" size="lg" />,
       title: "Smooth Animations",
       description: "Optional item transition animations",
       color: "error",
     },
     {
-      icon: <Shield size={24} />,
+      icon: <Icon name="Shield" size="lg" />,
       title: "Accessible",
       description: "Maintains semantic HTML structure",
       color: "primary",
@@ -99,7 +90,7 @@ const LayoutsMasonryGridPage: FC = () => {
           <div className={styles.pageHero__actions}>
             <Button
               glass
-              icon={<Icon name="Lightning" size={16} />}
+              icon={<Icon name="Lightning" size="lg" />}
               label="View Examples"
               href="/docs/examples/common-patterns"
               as={Link}
@@ -108,7 +99,7 @@ const LayoutsMasonryGridPage: FC = () => {
               glass
               variant="secondary"
               label="Performance Guide"
-              icon={<Icon name="Lightning" size={16} />}
+              icon={<Icon name="Lightning" size="lg" />}
               href="/docs/layouts/performance"
               as={Link}
             />
@@ -167,7 +158,7 @@ const LayoutsMasonryGridPage: FC = () => {
               <Card className="u-p-6">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                    <LayoutGrid size={24} />
+                    <Icon name="GridFour" size="lg" />
                   </div>
                   <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">MasonryGrid</h3>
                 </div>
@@ -202,7 +193,7 @@ const LayoutsMasonryGridPage: FC = () => {
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                    <Settings size={24} />
+                    <Icon name="Gear" size="lg" />
                   </div>
                   <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">Props</h3>
                 </div>
@@ -247,7 +238,7 @@ const LayoutsMasonryGridPage: FC = () => {
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
-                    <Smartphone size={24} />
+                    <Icon name="Phone" size="lg" />
                   </div>
                   <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">Responsive Configuration</h3>
                 </div>
@@ -282,7 +273,7 @@ const LayoutsMasonryGridPage: FC = () => {
                   ].map((tip, index) => (
                     <div key={index} className="u-d-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md">
                       <div className="u-w-8 u-h-8 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
-                        <Zap size={16} />
+                        <Icon name="Lightning" size="lg" />
                       </div>
                       <span className="u-text-secondary-emphasis">{tip}</span>
                     </div>

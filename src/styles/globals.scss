@@ -4,11 +4,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Ensure body is scrollable */
-body {
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-}
 
 .desktop-only {
   display: block;

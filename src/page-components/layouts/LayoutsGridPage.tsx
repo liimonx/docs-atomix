@@ -1,15 +1,7 @@
 'use client';
 
 import { useState, useEffect, FC } from 'react';
-import {
-  Grid3X3,
-  Smartphone,
-  Code,
-  Shield,
-  Palette,
-  Zap,
-  Settings,
-} from 'lucide-react';
+
 import {
   Hero,
   SectionIntro,
@@ -45,37 +37,37 @@ const LayoutsGridPage: FC = () => {
 
   const features = [
     {
-      icon: <Grid3X3 size={24} />,
+      icon: <Icon name="GridFour" size="lg" />,
       title: "12-Column System",
       description: "Flexible column-based layouts",
       color: "primary",
     },
     {
-      icon: <Smartphone size={24} />,
+      icon: <Icon name="Phone" size="lg" />,
       title: "Mobile-First",
       description: "Responsive design with 6 breakpoints",
       color: "success",
     },
     {
-      icon: <Code size={24} />,
+      icon: <Icon name="Code" size="lg" />,
       title: "Semantic Classes",
       description: "Clear, predictable class names",
       color: "warning",
     },
     {
-      icon: <Zap size={24} />,
+      icon: <Icon name="Lightning" size="lg" />,
       title: "Flexbox & CSS Grid",
       description: "Modern CSS technologies",
       color: "secondary",
     },
     {
-      icon: <Shield size={24} />,
+      icon: <Icon name="Shield" size="lg" />,
       title: "Accessible",
       description: "WCAG 2.1 AA compliant",
       color: "error",
     },
     {
-      icon: <Palette size={24} />,
+      icon: <Icon name="Palette" size="lg" />,
       title: "Customizable",
       description: "CSS custom properties and SCSS variables",
       color: "primary",
@@ -167,7 +159,7 @@ const LayoutsGridPage: FC = () => {
               <Card className="u-p-6">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                    <Code size={24} />
+                    <Icon name="Code" size="lg" />
                   </div>
                   <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">Container</h3>
                 </div>
@@ -196,7 +188,7 @@ const LayoutsGridPage: FC = () => {
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                    <Grid3X3 size={24} />
+                    <Icon name="GridFour" size="lg" />
                   </div>
                   <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">Row</h3>
                 </div>
@@ -220,7 +212,7 @@ const LayoutsGridPage: FC = () => {
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
-                    <Code size={24} />
+                    <Icon name="Code" size="lg" />
                   </div>
                   <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">GridCol</h3>
                 </div>
@@ -248,7 +240,7 @@ const LayoutsGridPage: FC = () => {
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                    <Smartphone size={24} />
+                    <Icon name="Phone" size="lg" />
                   </div>
                   <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">Responsive Breakpoints</h3>
                 </div>
@@ -277,7 +269,7 @@ const LayoutsGridPage: FC = () => {
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                    <Settings size={24} />
+                    <Icon name="Gear" size="lg" />
                   </div>
                   <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">Column Options</h3>
                 </div>

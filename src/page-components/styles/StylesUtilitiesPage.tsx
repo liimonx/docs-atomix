@@ -211,7 +211,7 @@ const StylesUtilitiesPage: FC = () => {
         alignment="center"
       />
 
-      <Block container={{ type: "fluid" }}>
+      <Block >
         <SectionIntro
           title="Utility Classes"
           text="Atomix provides a comprehensive set of utility classes for rapid UI development. These classes follow a consistent naming convention and cover spacing, layout, typography, colors, and more."

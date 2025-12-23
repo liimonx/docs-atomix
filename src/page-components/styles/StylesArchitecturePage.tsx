@@ -177,7 +177,7 @@ const StylesArchitecturePage: FC = () => {
         alignment="center"
       />
 
-      <Block container={{ type: "fluid" }}>
+      <Block>
         <Card>
           <div className="u-d-flex u-align-items-start u-gap-4">
             <Icon name="Stack" size={32} className="u-text-primary-emphasis" />

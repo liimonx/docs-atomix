@@ -2,19 +2,7 @@
 
 import { FC, useState, useEffect } from 'react';
 import Link from 'next/link';
-import {
-  ArrowRight,
-  CheckCircle,
-  Code,
-  FileText,
-  Palette,
-  Zap,
-  Shield,
-  Download,
-  Layers,
-  GitBranch,
-  Settings,
-} from 'lucide-react';
+
 import {
   Button,
   Card,
@@ -25,6 +13,7 @@ import {
   SectionIntro,
   Callout,
   Badge,
+  Icon,
 } from '@shohojdhara/atomix';
 import { GlassProps } from '@/types/atomix-components';
 import styles from '@/styles/PageHero.module.scss';
@@ -52,35 +41,35 @@ const MigrationPage: FC = () => {
       step: 1,
       title: 'Assess Current Usage',
       description: 'Audit your existing components and styles to understand what needs to be migrated. Document all current implementations and dependencies.',
-      icon: <FileText size={24} />,
+      icon: <Icon name="FileText" size="lg" />,
       color: 'primary',
     },
     {
       step: 2,
       title: 'Plan the Migration',
       description: 'Prioritize components and create a timeline for the migration process. Identify critical paths and dependencies.',
-      icon: <Code size={24} />,
+      icon: <Icon name="Code" size="lg" />,
       color: 'secondary',
     },
     {
       step: 3,
       title: 'Set Up Atomix',
       description: 'Install and configure Atomix alongside your existing system. Set up design tokens and theme configuration.',
-      icon: <Zap size={24} />,
+      icon: <Icon name="Lightning" size="lg" />,
       color: 'success',
     },
     {
       step: 4,
       title: 'Migrate Incrementally',
       description: 'Replace components one by one, testing as you go. Start with low-risk components and gradually move to critical ones.',
-      icon: <ArrowRight size={24} />,
+      icon: <Icon name="CaretRight" size="lg" />,
       color: 'warning',
     },
     {
       step: 5,
       title: 'Clean Up',
       description: 'Remove old dependencies and unused code once migration is complete. Optimize bundle size and performance.',
-      icon: <CheckCircle size={24} />,
+      icon: <Icon name="CheckCircle" size="lg" />,
       color: 'error',
     },
   ];
@@ -89,25 +78,25 @@ const MigrationPage: FC = () => {
     {
       title: 'Modern Architecture',
       description: 'ITCSS methodology and CSS custom properties for scalable, maintainable styles',
-      icon: <Palette size={24} />,
+      icon: <Icon name="Palette" size="lg" />,
       color: 'primary',
     },
     {
       title: 'Better Performance',
       description: 'Smaller bundle size and optimized CSS with tree-shaking support',
-      icon: <Zap size={24} />,
+      icon: <Icon name="Lightning" size="lg" />,
       color: 'success',
     },
     {
       title: 'Enhanced Accessibility',
       description: 'WCAG 2.1 AA compliance built-in with comprehensive keyboard navigation',
-      icon: <Shield size={24} />,
+      icon: <Icon name="Shield" size="lg" />,
       color: 'warning',
     },
     {
       title: 'Developer Experience',
       description: 'Better TypeScript support, comprehensive documentation, and tooling',
-      icon: <Code size={24} />,
+      icon: <Icon name="Code" size="lg" />,
       color: 'secondary',
     },
   ];
@@ -116,19 +105,19 @@ const MigrationPage: FC = () => {
     {
       title: 'Class Mapping Guide',
       description: 'Comprehensive mapping from popular frameworks to Atomix utilities',
-      icon: <GitBranch size={24} />,
+      icon: <Icon name="GitBranch" size="lg" />,
       href: '/docs/styles/utilities',
     },
     {
       title: 'Component Migration',
       description: 'Step-by-step guides for migrating common component patterns',
-      icon: <Layers size={24} />,
+        icon: <Icon name="Stack" size="lg" />,
       href: '/docs/components/overview',
     },
     {
       title: 'Theme Configuration',
       description: 'Learn how to configure Atomix to match your existing design',
-      icon: <Settings size={24} />,
+      icon: <Icon name="Gear" size="lg" />,
       href: '/docs/guides/theming',
     },
   ];
@@ -150,7 +139,7 @@ const MigrationPage: FC = () => {
           <div className={styles.pageHero__actions}>
             <Button
               glass
-              icon={<Download size={16} />}
+              icon={<Icon name="Download" size="lg" />}
               label="Install Atomix"
               href="/docs/getting-started/installation"
               as={Link}
@@ -159,7 +148,7 @@ const MigrationPage: FC = () => {
               glass
               variant="secondary"
               label="Quick Start"
-              icon={<Zap size={16} />}
+              icon={<Icon name="Lightning" size="lg" />}
               href="/docs/getting-started/quick-start"
               as={Link}
             />
@@ -274,7 +263,7 @@ const MigrationPage: FC = () => {
                     </p>
                     <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
                       <span className="u-me-2">Learn more</span>
-                      <ArrowRight size={16} />
+                      <Icon name="CaretRight" size="lg" />
                     </div>
                   </div>
                 </Card>
@@ -307,14 +296,14 @@ const MigrationPage: FC = () => {
             <Button 
               variant="primary"
               href="/docs/getting-started/quick-start"
-              icon={<Zap size={16} />}
+              icon={<Icon name="Lightning" size="lg" />}
             >
               View Quick Start Guide
             </Button>
             <Button 
               variant="outline"
               href="/docs/getting-started/installation"
-              icon={<Download size={16} />}
+                icon={<Icon name="Download" size="lg" />}
             >
               Installation Guide
             </Button>

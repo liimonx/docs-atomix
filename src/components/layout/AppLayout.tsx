@@ -7,6 +7,8 @@ import { DocumentationFooter } from "./DocumentationFooter";
 import { DocumentationSidebar } from "@/components/navigation/DocumentationSidebar";
 import { SkipLinks } from "@/components/ui/SkipLinks";
 import { PageTransition } from "./PageTransition";
+import { usePathname } from "next/navigation";
+import { SidebarToggle } from "@/components/navigation/SidebarToggle";
 
 // Memoize static components to prevent re-renders
 const MemoizedSkipLinks = React.memo(SkipLinks);
@@ -20,6 +22,8 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
   const [isDesktop, setIsDesktop] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const pathname = usePathname();
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   // Check if we're on desktop and handle resize
   const initialCheckRef = useRef(true);
@@ -101,15 +105,21 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
     return () => window.removeEventListener("popstate", handler);
   }, [isDesktop, mounted]);
 
-  // Memoize header props to prevent re-renders
-  const headerProps = useMemo(
-    () => ({
-      onMenuToggle: handleMenuToggle,
-      sidebarOpen,
-      showMenuButton: true, // Always show menu button on docs pages
-    }),
-    [handleMenuToggle, sidebarOpen]
-  );
+  // Keyboard shortcut: Cmd/Ctrl + B to toggle sidebar
+  useEffect(() => {
+    if (!mounted) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Cmd/Ctrl + B
+      if ((e.metaKey || e.ctrlKey) && e.key === 'b') {
+        e.preventDefault();
+        setSidebarOpen((prev) => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mounted]);
 
   // Memoize sidebar props to prevent re-renders - remove activeItem dependency
   const sidebarProps = useMemo(
@@ -120,6 +130,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
       searchQuery,
       onSearchChange: handleSearchChange,
       onItemSelect: handleSidebarClose, // Close sidebar on mobile after navigation
+      toggleButtonRef,
     }),
     [
       sidebarOpen,
@@ -130,11 +141,14 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
     ]
   );
 
+  // Check if we're on a documentation page
+  const isDocsPage = pathname.startsWith('/docs');
+
   return (
     <div>
       <MemoizedSkipLinks />
       {/* Header - ALWAYS visible - rendered first for proper DOM order */}
-      <DocumentationHeader {...headerProps} />
+      <DocumentationHeader />
 
       {/* Main content area */}
       <Container type="fluid">
@@ -150,6 +164,16 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
           </GridCol>
         </Grid>
       </Container>
+      
+      {/* Floating sidebar toggle for documentation pages */}
+      {isDocsPage && (
+        <SidebarToggle 
+          ref={toggleButtonRef}
+          onClick={handleMenuToggle}
+          isOpen={sidebarOpen}
+        />
+      )}
+      
       <MemoizedDocumentationFooter />
     </div>
   );

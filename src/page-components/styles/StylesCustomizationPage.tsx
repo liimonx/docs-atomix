@@ -134,15 +134,17 @@ const StylesCustomizationPage: FC = () => {
 
   return (
     <div>
-      <Hero
-        className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
-        title="Styles Customization"
-        text="Theming, brand integration, and extending Atomix"
-        alignment="center"
-      />
+      <div suppressHydrationWarning>
+        <Hero
+          className={styles.pageHero}
+          backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
+          title="Styles Customization"
+          text="Theming, brand integration, and extending Atomix"
+          alignment="center"
+        />
+      </div>
 
-      <Block container={{ type: "fluid" }}>
+      <Block>
         <SectionIntro
           title="Customization Philosophy"
           text="Atomix provides multiple levels of customization while maintaining system integrity and accessibility standards."

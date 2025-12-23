@@ -8,3 +8,5 @@ out
 tsconfig.tsbuildinfo
 atomix-doc-in-md
 .amazonq
+.idea
+.qodo

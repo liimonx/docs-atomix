@@ -3,28 +3,18 @@
 import { memo } from 'react';
 import Link from 'next/link';
 import {
-  Button,
   AtomixLogo,
   Icon,
   Navbar,
   Nav,
   ColorModeToggle,
+  Button
 
 } from '@shohojdhara/atomix';
 import { GlobalSearch } from '@/components/ui/GlobalSearch';
 import type { GlassProps } from '@/types/atomix-components';
 
-interface DocumentationHeaderProps {
-  onMenuToggle: () => void;
-  sidebarOpen: boolean;
-  showMenuButton?: boolean;
-}
-
-const DocumentationHeader = memo(function DocumentationHeader({
-  onMenuToggle,
-  sidebarOpen,
-  showMenuButton = true,
-}: DocumentationHeaderProps) {
+const DocumentationHeader = memo(function DocumentationHeader() {
   const externalLinks = [
     {
       label: 'GitHub',
@@ -49,19 +39,6 @@ const DocumentationHeader = memo(function DocumentationHeader({
         } as GlassProps}
         brand={
           <div className="u-d-flex u-align-items-center u-gap-2">
-            {/* Mobile menu toggle - only show on docs pages */}
-            {showMenuButton && (
-              <Button
-                variant="outline-secondary"
-                size="sm"
-                onClick={onMenuToggle}
-                aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
-                className="u-d-lg-none"
-              >
-                <Icon name={sidebarOpen ? 'X' : 'List'} size="sm" />
-              </Button>
-            )}
-
             {/* Logo and Brand */}
             <Link
               href="/"

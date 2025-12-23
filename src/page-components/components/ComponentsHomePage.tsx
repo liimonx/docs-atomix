@@ -102,7 +102,7 @@ const ComponentsHomePage: FC = () => {
       />
       <BreadcrumbNavigation />
 
-      <Block spacing="sm" container={{ type: "fluid" }}>
+      <Block spacing="sm" >
         <SectionIntro
           title="By the Numbers"
           text="Atomix provides a comprehensive component library for building modern interfaces"
@@ -154,7 +154,7 @@ const ComponentsHomePage: FC = () => {
         </Grid>
       </Block>
 
-      <Block spacing="md" background="secondary" container={{ type: "fluid" }}>
+      <Block spacing="md" background="secondary" >
         <div className="u-d-flex u-align-items-center u-mb-6">
           <SectionIntro
             title="Categories"
@@ -201,7 +201,7 @@ const ComponentsHomePage: FC = () => {
         </Grid>
       </Block>
 
-      <Block spacing="md" container={{ type: "fluid" }}>
+      <Block spacing="md" >
         <SectionIntro
           title="Featured Components"
           text="Stable, production-ready components you can use right away"
@@ -255,7 +255,7 @@ const ComponentsHomePage: FC = () => {
         </Grid>
       </Block>
 
-      <Block spacing="md" background="brand" container={{ type: "fluid" }}>
+      <Block spacing="md" background="brand" >
         <div className="u-d-flex u-align-items-center u-mb-6">
           <SectionIntro
             title="Recently Updated"

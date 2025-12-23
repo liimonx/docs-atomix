@@ -2,18 +2,6 @@
 
 import { useState, useEffect, FC } from 'react';
 import {
-  Zap,
-  Gauge,
-  TrendingUp,
-  AlertTriangle,
-  Code,
-  Layers,
-  Cpu,
-  BarChart3,
-  Target,
-  Rocket,
-} from 'lucide-react';
-import {
   Hero,
   SectionIntro,
   Card,
@@ -49,31 +37,31 @@ const LayoutsPerformancePage: FC = () => {
 
   const performanceIssues = [
     {
-      icon: <AlertTriangle size={24} />,
+      icon: <Icon name="WaveTriangle" size="lg" />,
       title: "Layout Shifts (CLS)",
       description: "Visual instability as content moves",
       color: "error",
     },
     {
-      icon: <Gauge size={24} />,
+      icon: <Icon name="Gauge" size="lg" />,
       title: "Slow Rendering",
       description: "Delayed paint and layout operations",
       color: "warning",
     },
     {
-      icon: <BarChart3 size={24} />,
+      icon: <Icon name="ChartLine" size="lg" />,
       title: "Janky Animations",
       description: "Inconsistent frame rates",
       color: "secondary",
     },
     {
-      icon: <Cpu size={24} />,
+      icon: <Icon name="Cpu" size="lg" />,
       title: "Memory Leaks",
       description: "Accumulating DOM nodes and event listeners",
       color: "error",
     },
     {
-      icon: <Layers size={24} />,
+      icon: <Icon name="Stack" size="lg" />,
       title: "Bundle Bloat",
       description: "Unnecessary CSS and JavaScript",
       color: "warning",
@@ -82,25 +70,25 @@ const LayoutsPerformancePage: FC = () => {
 
   const performanceMetrics = [
     {
-      icon: <Target size={24} />,
+      icon: <Icon name="Target" size="lg" />,
       title: "Cumulative Layout Shift (CLS)",
       description: "Visual stability score",
       color: "primary",
     },
     {
-      icon: <TrendingUp size={24} />,
+      icon: <Icon name="ChartLine" size="lg" />,
       title: "First Contentful Paint (FCP)",
       description: "Time to first rendered content",
       color: "success",
     },
     {
-      icon: <BarChart3 size={24} />,
+      icon: <Icon name="ChartLine" size="lg" />,
       title: "Largest Contentful Paint (LCP)",
       description: "Time to largest content element",
       color: "warning",
     },
     {
-      icon: <Rocket size={24} />,
+      icon: <Icon name="Clock" size="lg" />,
       title: "Time to Interactive (TTI)",
       description: "Time until page is fully interactive",
       color: "secondary",
@@ -153,7 +141,7 @@ const LayoutsPerformancePage: FC = () => {
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                  <Gauge size={24} />
+                  <Icon name="Gauge" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Performance Issues
@@ -193,7 +181,7 @@ const LayoutsPerformancePage: FC = () => {
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                  <BarChart3 size={24} />
+                    <Icon name="ChartLine" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Key Performance Metrics
@@ -241,7 +229,7 @@ const LayoutsPerformancePage: FC = () => {
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
-                  <Code size={24} />
+                  <Icon name="Code" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Efficient Column Calculations
@@ -309,7 +297,7 @@ function OptimizedGrid({ items }) {
             <Card className="u-p-6 u-h-100">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                  <Target size={24} />
+                  <Icon name="Target" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Minimizing Layout Shifts
@@ -357,7 +345,7 @@ function OptimizedGrid({ items }) {
             <Card className="u-p-6 u-h-100">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                  <Zap size={24} />
+                  <Icon name="Lightning" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Virtualization
@@ -417,7 +405,7 @@ function OptimizedGrid({ items }) {
             <Card className="u-p-6 u-h-100">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
-                  <Rocket size={24} />
+                  <Icon name="Clock" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Critical CSS
@@ -454,7 +442,7 @@ function OptimizedGrid({ items }) {
             <Card className="u-p-6 u-h-100">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-secondary-emphasis">
-                  <Layers size={24} />
+                  <Icon name="Stack" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   CSS Containment
@@ -496,25 +484,25 @@ function OptimizedGrid({ items }) {
             {
               title: "Use Memoization",
               description: "Memoize expensive calculations and component renders to avoid unnecessary recalculations.",
-              icon: <Cpu size={20} />,
+              icon: <Icon name="Cpu" size="lg" />,
               color: "primary",
             },
             {
               title: "Optimize Images",
               description: "Use proper image formats, lazy loading, and aspect ratios to prevent layout shifts.",
-              icon: <Layers size={20} />,
+              icon: <Icon name="Stack" size="lg" />,
               color: "success",
             },
             {
               title: "Virtualize Lists",
               description: "For large datasets, use virtualization to render only visible items.",
-              icon: <Zap size={20} />,
+              icon: <Icon name="Lightning" size="lg" />,
               color: "warning",
             },
             {
               title: "Monitor Metrics",
               description: "Regularly monitor Core Web Vitals to identify and fix performance issues.",
-              icon: <BarChart3 size={20} />,
+              icon: <Icon name="ChartLine" size="lg" />,
               color: "secondary",
             },
           ].map((practice, index) => (

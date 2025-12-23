@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState, useMemo, useEffect, useRef } from 'react';
+import { FC, useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { 
   EdgePanel,
   Icon,
@@ -10,15 +10,22 @@ import {
 import { navigationData } from '@/data/navigation';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { trapFocus, prefersReducedMotion } from '@/utils/accessibility';
 
 interface MobileNavigationProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const EmptySearchState = () => (
-  <div className="u-p-4 u-text-center u-color-muted u-fs-sm">
-    <p>No navigation items found. Try a different search term.</p>
+const EmptySearchState = ({ searchTerm }: { searchTerm: string }) => (
+  <div className="u-p-6 u-text-center" role="status" aria-live="polite">
+    <Icon name="Search" size="lg" className="u-mb-3 u-color-muted" />
+    <p className="u-fs-md u-color-text-secondary u-mb-2">
+      No results found for "{searchTerm}"
+    </p>
+    <p className="u-fs-sm u-color-muted">
+      Try a different search term or browse the sections below.
+    </p>
   </div>
 );
 
@@ -27,16 +34,29 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
   onClose
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const prevPathnameRef = useRef(pathname);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const focusTrapCleanupRef = useRef<(() => void) | null>(null);
+
+  // Debounce search input for better performance
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
 
   const filteredSections = useMemo(() => {
-    if (!searchTerm.trim()) {
+    if (!debouncedSearchTerm.trim()) {
       return navigationData;
     }
 
-    const searchLower = searchTerm.toLowerCase();
+    const searchLower = debouncedSearchTerm.toLowerCase();
 
     return navigationData
       .map((section) => ({
@@ -51,7 +71,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
         ),
       }))
       .filter((section) => section.items.length > 0);
-  }, [searchTerm]);
+  }, [debouncedSearchTerm]);
 
   const totalItems = filteredSections.reduce(
     (sum, section) => sum + section.items.length,
@@ -63,6 +83,35 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
     setMounted(true);
   }, []);
 
+  // Focus management: trap focus when open, focus search input
+  useEffect(() => {
+    if (!mounted) return;
+
+    if (isOpen && panelRef.current) {
+      // Focus search input when sidebar opens
+      const focusTimer = setTimeout(() => {
+        // Try to focus via ref first, fallback to querySelector
+        if (searchInputRef.current) {
+          searchInputRef.current.focus();
+        } else {
+          const input = panelRef.current?.querySelector<HTMLInputElement>(
+            'input[type="text"][aria-label*="Search"]'
+          );
+          input?.focus();
+        }
+      }, 100);
+
+      // Set up focus trap
+      focusTrapCleanupRef.current = trapFocus(panelRef.current);
+
+      return () => {
+        clearTimeout(focusTimer);
+        focusTrapCleanupRef.current?.();
+        focusTrapCleanupRef.current = null;
+      };
+    }
+  }, [isOpen, mounted]);
+
   const menuItems = useMemo(() => {
     return filteredSections.map((section) => ({
       title: section.title,
@@ -72,9 +121,30 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
         icon: <Icon name={item.icon} />,
         active: pathname === item.path,
         linkComponent: Link as any,
+        'aria-current': pathname === item.path ? 'page' : undefined,
       })),
     }));
   }, [filteredSections, pathname]);
+
+  // Find active item and scroll to it when sidebar opens
+  useEffect(() => {
+    if (isOpen && mounted && panelRef.current) {
+      const timer = setTimeout(() => {
+        const activeLink = panelRef.current?.querySelector<HTMLAnchorElement>(
+          'a[aria-current="page"]'
+        );
+        if (activeLink) {
+          const shouldUseSmooth = !prefersReducedMotion();
+          activeLink.scrollIntoView({
+            behavior: shouldUseSmooth ? 'smooth' : 'auto',
+            block: 'center',
+          });
+        }
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, mounted, pathname]);
 
   // Close panel when pathname changes (navigation occurred)
   useEffect(() => {
@@ -96,12 +166,25 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
     }
   };
 
-  const panelTitle = searchTerm.trim()
+  const panelTitle = debouncedSearchTerm.trim()
     ? `Documentation (${totalItems} found)`
     : `Documentation (${totalItems})`;
 
+  const handleClearSearch = useCallback(() => {
+    setSearchTerm("");
+    searchInputRef.current?.focus();
+  }, []);
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === 'Escape' && searchTerm) {
+      e.stopPropagation(); // Prevent closing the panel
+      handleClearSearch();
+    }
+  }, [searchTerm, handleClearSearch]);
+
   return (
     <EdgePanel
+      id="mobile-navigation"
       title={panelTitle}
       isOpen={isOpen}
       onOpenChange={handleOpenChange}
@@ -110,31 +193,52 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
       backdrop={true}
       closeOnBackdropClick={true}
       closeOnEscape={true}
+      aria-label="Mobile documentation navigation"
+      role="navigation"
     >
-      <div className="u-pt-4">
+      <div ref={panelRef} className="u-pt-4">
         {/* Search */}
         <div className="u-mb-6 u-px-2">
           <div className="u-position-relative u-mb-3">
             <Input
+              ref={searchInputRef}
               type="text"
               placeholder="Search documentation..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleKeyDown}
               size="md"
               aria-label="Search documentation navigation"
+              aria-describedby={searchTerm ? "mobile-search-results-count" : undefined}
               className="u-w-100"
             />
             {searchTerm && (
               <button
-                onClick={() => setSearchTerm("")}
-                className="u-position-absolute u-end-0 u-top-0 u-mt-2 u-me-2 u-bg-transparent u-border-0 u-cursor-pointer u-p-1"
-                aria-label="Clear search"
+                onClick={handleClearSearch}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleClearSearch();
+                  }
+                }}
+                className="u-position-absolute u-end-0 u-top-0 u-mt-2 u-me-2 u-bg-transparent u-border-0 u-cursor-pointer u-p-1 u-d-flex u-align-items-center u-justify-content-center"
+                aria-label={`Clear search for "${searchTerm}"`}
                 type="button"
+                tabIndex={0}
               >
                 <Icon name="X" size="sm" />
               </button>
             )}
           </div>
+          {searchTerm && (
+            <div id="mobile-search-results-count" className="u-fs-xs u-color-muted u-mt-2" aria-live="polite">
+              {totalItems === 0 ? (
+                <span>No results found</span>
+              ) : (
+                <span>{totalItems} {totalItems === 1 ? 'result' : 'results'} found</span>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Navigation */}
@@ -148,13 +252,13 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
               {null}
             </AtomixSideMenu>
           ) : (
-            <EmptySearchState />
+            <EmptySearchState searchTerm={debouncedSearchTerm} />
           )}
         </div>
 
         {/* Footer Stats */}
         {filteredSections.length > 0 && (
-          <div className="u-mt-6 u-pt-4 u-border-top u-px-3 u-fs-xs u-color-muted">
+          <div className="u-mt-6 u-pt-4 u-border-top u-px-3 u-fs-xs u-color-muted" role="status">
             <div className="u-d-flex u-justify-content-between u-mb-2">
               <span>Sections: {filteredSections.length}</span>
               <span>Items: {totalItems}</span>

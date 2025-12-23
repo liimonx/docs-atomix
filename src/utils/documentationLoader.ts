@@ -321,11 +321,10 @@ function MyComponent() {
       {
         title: 'With Icon',
         description: 'Using Button with an icon',
-        code: `import { Button } from '@shohojdhara/atomix';
-import { Star } from 'lucide-react';
+        code: `import { Button, Icon } from '@shohojdhara/atomix';
 
 function MyComponent() {
-  return <Button icon={<Star size={16} />}>Favorite</Button>;
+  return <Button icon={<Icon name="Star" size="lg" />}>Favorite</Button>;
 }`,
         language: 'tsx'
       }

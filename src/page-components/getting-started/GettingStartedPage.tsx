@@ -686,7 +686,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 }
               />
 
-              <Block spacing="sm" container={{ type: "fluid" }}>
+              <Block spacing="sm" >
                 {/* Prerequisites */}
 
                 <Card>
