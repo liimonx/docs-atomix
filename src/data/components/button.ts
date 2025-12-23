@@ -333,7 +333,7 @@ function MyComponent() {
 <Button
   label="Go to Dashboard"
   variant="primary"
-  as={Link}
+  linkComponent={Link}
   to="/dashboard"
 />`,
       preview: null

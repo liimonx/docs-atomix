@@ -142,7 +142,7 @@ const MigrationPage: FC = () => {
               icon={<Icon name="Download" size="lg" />}
               label="Install Atomix"
               href="/docs/getting-started/installation"
-              as={Link}
+              linkComponent={Link}
             />
             <Button
               glass
@@ -150,7 +150,7 @@ const MigrationPage: FC = () => {
               label="Quick Start"
               icon={<Icon name="Lightning" size="lg" />}
               href="/docs/getting-started/quick-start"
-              as={Link}
+              linkComponent={Link}
             />
           </div>
         }

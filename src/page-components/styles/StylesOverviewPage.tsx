@@ -49,13 +49,13 @@ const StylesOverviewPage: FC = () => {
             <Button 
               label="Architecture Guide"
               href="/docs/styles/architecture"
-              as={Link}
+              linkComponent={Link}
             />
             <Button 
               variant="secondary" 
               label="Utility Classes"
               href="/docs/styles/utilities"
-              as={Link}
+              linkComponent={Link}
             />
           </div>
         }
@@ -77,7 +77,7 @@ const StylesOverviewPage: FC = () => {
                   label="Architecture Guide" 
                   size="sm"
                   href="/docs/styles/architecture"
-                  as={Link}
+                  linkComponent={Link}
                 />
               </Card>
             </GridCol>
@@ -91,7 +91,7 @@ const StylesOverviewPage: FC = () => {
                   label="Utility Classes" 
                   size="sm"
                   href="/docs/styles/utilities"
-                  as={Link}
+                  linkComponent={Link}
                 />
               </Card>
             </GridCol>
@@ -105,7 +105,7 @@ const StylesOverviewPage: FC = () => {
                   label="Customization Guide" 
                   size="sm"
                   href="/docs/styles/customization"
-                  as={Link}
+                  linkComponent={Link}
                 />
               </Card>
             </GridCol>

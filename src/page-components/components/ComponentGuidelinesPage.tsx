@@ -418,13 +418,13 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
             <Button
               label="Browse Components"
               href="/docs/components/overview"
-              as={Link}
+              linkComponent={Link}
             />
             <Button
               variant="secondary"
               label="Quick Start"
               href="/docs/getting-started/quick-start"
-              as={Link}
+              linkComponent={Link}
             />
           </>
         }
@@ -468,7 +468,7 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
             <Button
               variant="primary"
               href="/docs/components/overview"
-              as={Link}
+              linkComponent={Link}
             >
               <Icon name="GridFour" size={16} className="u-me-2" />
               Browse Components
@@ -476,7 +476,7 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
             <Button
               variant="outline"
               href="/docs/getting-started/quick-start"
-              as={Link}
+              linkComponent={Link}
             >
               <Icon name="Rocket" size={16} className="u-me-2" />
               Quick Start Guide
@@ -484,7 +484,7 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
             <Button
               variant="outline"
               href="/docs/resources/contributing"
-              as={Link}
+              linkComponent={Link}
             >
               <Icon name="Code" size={16} className="u-me-2" />
               Contributing Guide

@@ -268,7 +268,7 @@ export default function Page() {
               variant="primary"
               icon={<Icon name="Rocket" />}
               href="/docs/getting-started/installation"
-              as={Link}
+              linkComponent={Link}
             >
               Get Started
             </Button>
@@ -277,7 +277,7 @@ export default function Page() {
               variant="outline-secondary"
               icon={<Icon name="Code" />}
               href="/docs/components"
-              as={Link}
+              linkComponent={Link}
             >
               View Components
             </Button>
@@ -401,7 +401,7 @@ export default function Page() {
                     variant="primary"
                     icon={<Icon name="Rocket" />}
                     href="/docs/components/atomix-glass"
-                    as={Link}
+                    linkComponent={Link}
                   >
                     Discover AtomixGlass
                   </Button>
@@ -410,7 +410,7 @@ export default function Page() {
                     variant="outline-secondary"
                     icon={<Icon name="ArrowRight" />}
                     href="/docs/components/atomix-glass"
-                    as={Link}
+                    linkComponent={Link}
                   >
                     Learn More
                   </Button>

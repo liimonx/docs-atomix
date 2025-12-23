@@ -93,7 +93,7 @@ const LayoutsMasonryGridPage: FC = () => {
               icon={<Icon name="Lightning" size="lg" />}
               label="View Examples"
               href="/docs/examples/common-patterns"
-              as={Link}
+              linkComponent={Link}
                 />
             <Button
               glass
@@ -101,7 +101,7 @@ const LayoutsMasonryGridPage: FC = () => {
               label="Performance Guide"
               icon={<Icon name="Lightning" size="lg" />}
               href="/docs/layouts/performance"
-              as={Link}
+              linkComponent={Link}
             />
           </div>
         }

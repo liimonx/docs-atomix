@@ -40,7 +40,7 @@ const GeneralThemingGuidePage: FC = () => {
               <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-4">
                 <h3 className="u-m-0">Quick Start</h3>
                 <Button
-                  as={Link}
+                  linkComponent={Link}
                   href="/docs/guides/theme-studio"
                   variant="primary"
                   size="sm"
@@ -567,7 +567,7 @@ if (!result.valid) {
                     it for use in your application.
                   </p>
                   <Button
-                    as={Link}
+                    linkComponent={Link}
                     href="/docs/guides/theme-studio"
                     variant="primary"
                     size="md"
