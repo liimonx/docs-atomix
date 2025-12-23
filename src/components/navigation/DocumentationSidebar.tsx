@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import {
+  Badge,
   Icon,
   Input,
   SideMenu as AtomixSideMenu,
@@ -195,9 +196,16 @@ export const DocumentationSidebar = ({
     }
   };
 
-  const panelTitle = debouncedSearchTerm.trim()
-    ? `Documentation (${totalItems} found)`
-    : `Documentation (${totalItems})`;
+  const panelTitleLabel = searchTerm.trim()
+    ? `${totalItems} found`
+    : totalItems.toString();
+
+  const panelTitle = (
+    <div className="u-d-flex u-align-items-center u-gap-2">
+      <span>Documentation</span>
+      <Badge variant="primary" size="sm" label={panelTitleLabel} />
+    </div>
+  );
 
   const handleClearSearch = useCallback(() => {
     setSearchTerm("");

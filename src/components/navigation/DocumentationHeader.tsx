@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import Link from 'next/link';
 import {
   AtomixLogo,
@@ -28,6 +28,31 @@ const DocumentationHeader = memo(function DocumentationHeader() {
     }
   ];
 
+  const [highlightMenuButton, setHighlightMenuButton] = useState(false);
+  const showMenuButton = highlightMenuButton
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const onMenuToggle = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  useEffect(() => {
+    if (!showMenuButton) {
+      return;
+    }
+
+    setHighlightMenuButton(true);
+    const timeoutId = window.setTimeout(() => {
+      setHighlightMenuButton(false);
+    }, 3000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [showMenuButton]);
+
+  const menuToggleClassName = highlightMenuButton
+    ? 'u-d-lg-none docs-menu-toggle-highlight'
+    : 'u-d-lg-none';
+
   return (
     <header role="banner">
       <Navbar
@@ -39,6 +64,19 @@ const DocumentationHeader = memo(function DocumentationHeader() {
         } as GlassProps}
         brand={
           <div className="u-d-flex u-align-items-center u-gap-2">
+            {/* Mobile menu toggle - only show on docs pages */}
+            {showMenuButton && (
+              <Button
+                variant="outline-secondary"
+                size="sm"
+                onClick={onMenuToggle}
+                aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
+                className={menuToggleClassName}
+              >
+                <Icon name={sidebarOpen ? 'X' : 'List'} size="sm" />
+              </Button>
+            )}
+
             {/* Logo and Brand */}
             <Link
               href="/"
