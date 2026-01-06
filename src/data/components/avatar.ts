@@ -98,7 +98,7 @@ export const avatarMetadata = {
   alt="User avatar"
   name="John Doe"
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Initials Avatar',
@@ -106,7 +106,7 @@ export const avatarMetadata = {
       code: `<Avatar name="John Doe" />
 <Avatar name="Jane Smith" />
 <Avatar initials="AB" />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Icon Avatar',
@@ -115,7 +115,7 @@ export const avatarMetadata = {
   icon={<Icon name="User" />}
   name="Guest User"
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Avatar Sizes',
@@ -124,7 +124,7 @@ export const avatarMetadata = {
 <Avatar name="Medium" size="md" />
 <Avatar name="Large" size="lg" />
 <Avatar name="Extra Large" size="xl" />`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Status',
@@ -141,7 +141,7 @@ export const avatarMetadata = {
   name="Busy User"
   status="busy"
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Avatar Shapes',
@@ -149,7 +149,7 @@ export const avatarMetadata = {
       code: `<Avatar name="Circle" shape="circle" />
 <Avatar name="Square" shape="square" />
 <Avatar name="Rounded" shape="rounded" />`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

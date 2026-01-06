@@ -1,0 +1,23 @@
+/**
+ * Pagination Component Variable Overrides
+ * 
+ * Modern pagination design with comfortable spacing.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.pagination' with (
+  // Pagination Size - Better touch targets
+  $pagination-size: 36px, // Larger for better usability
+  $pagination-size-sm: 28px, // Small size
+  $pagination-size-lg: 44px, // Large size
+
+  // Pagination Padding - Comfortable spacing
+  $pagination-padding-x: 0.75rem, // 12px - More horizontal space
+  $pagination-padding-y: 0.75rem, // 12px - More vertical space
+
+  // Pagination Typography - Better readability
+  $pagination-font-size: 0.875rem, // 14px
+
+  // Pagination Border Radius - Fully rounded
+  $pagination-border-radius: 0.5rem, // Rounded corners
+);
+

@@ -344,6 +344,16 @@ export const navigationData: NavigationSection[] = [
         priority: 8
       },
       {
+        id: 'button-group',
+        title: 'ButtonGroup',
+        path: '/docs/components/button-group',
+        icon: 'SquaresFour',
+        description: 'Group related buttons together',
+        category: 'components',
+        searchTerms: ['button', 'group', 'toolbar'],
+        priority: 8
+      },
+      {
         id: 'card',
         title: 'Card',
         path: '/docs/components/card',
@@ -825,6 +835,126 @@ export const navigationData: NavigationSection[] = [
         badge: createBadge('New', 'new'),
         isNew: true,
         priority: 4
+      },
+      {
+        id: 'devtools',
+        title: 'Devtools',
+        path: '/docs/guides/devtools',
+        icon: 'Wrench',
+        description: 'Development tools for theme creation and debugging',
+        category: 'guides',
+        searchTerms: ['devtools', 'development', 'tools', 'debug', 'inspect'],
+        badge: createBadge('New', 'new'),
+        isNew: true,
+        priority: 5
+      },
+      {
+        id: 'devtools-inspector',
+        title: 'Theme Inspector',
+        path: '/docs/guides/devtools/inspector',
+        icon: 'MagnifyingGlass',
+        description: 'Deep inspection and validation for themes',
+        category: 'guides',
+        searchTerms: ['inspector', 'validate', 'debug', 'analyze', 'devtools'],
+        badge: createBadge('New', 'new'),
+        isNew: true,
+        priority: 6
+      },
+      {
+        id: 'devtools-preview',
+        title: 'Theme Preview',
+        path: '/docs/guides/devtools/preview',
+        icon: 'Eye',
+        description: 'Live preview of themes with sample components',
+        category: 'guides',
+        searchTerms: ['preview', 'visualize', 'test', 'components', 'devtools'],
+        badge: createBadge('New', 'new'),
+        isNew: true,
+        priority: 7
+      },
+      {
+        id: 'devtools-comparator',
+        title: 'Theme Comparator',
+        path: '/docs/guides/devtools/comparator',
+        icon: 'GitCompare',
+        description: 'Side-by-side theme comparison',
+        category: 'guides',
+        searchTerms: ['compare', 'diff', 'differences', 'versions', 'devtools'],
+        badge: createBadge('New', 'new'),
+        isNew: true,
+        priority: 8
+      },
+      {
+        id: 'devtools-live-editor',
+        title: 'Live Editor',
+        path: '/docs/guides/devtools/live-editor',
+        icon: 'PencilSimple',
+        description: 'Real-time theme editing with instant preview',
+        category: 'guides',
+        searchTerms: ['editor', 'edit', 'create', 'build', 'devtools'],
+        badge: createBadge('New', 'new'),
+        isNew: true,
+        priority: 9
+      },
+      {
+        id: 'devtools-cli',
+        title: 'CLI Tool',
+        path: '/docs/guides/devtools/cli',
+        icon: 'Terminal',
+        description: 'Command-line interface for theme development',
+        category: 'guides',
+        searchTerms: ['cli', 'command', 'terminal', 'automation', 'devtools'],
+        badge: createBadge('New', 'new'),
+        isNew: true,
+        priority: 10
+      },
+      {
+        id: 'devtools-live-editor-example',
+        title: 'Try Live Editor',
+        path: '/docs/guides/devtools/live-editor-example',
+        icon: 'Sparkle',
+        description: 'Interactive theme editor - try it yourself',
+        category: 'guides',
+        searchTerms: ['live', 'editor', 'interactive', 'try', 'example', 'demo', 'devtools'],
+        badge: createBadge('Try It', 'new'),
+        isNew: true,
+        priority: 11
+      },
+      {
+        id: 'devtools-inspector-example',
+        title: 'Try Inspector',
+        path: '/docs/guides/devtools/inspector-example',
+        icon: 'Sparkle',
+        description: 'Interactive theme inspector - try it yourself',
+        category: 'guides',
+        searchTerms: ['inspector', 'validate', 'debug', 'interactive', 'try', 'example', 'demo', 'devtools'],
+        badge: createBadge('Try It', 'new'),
+        isNew: true,
+        priority: 12
+      },
+      {
+        id: 'devtools-preview-example',
+        title: 'Try Preview',
+        path: '/docs/guides/devtools/preview-example',
+        icon: 'Sparkle',
+        description: 'Interactive theme preview - try it yourself',
+        category: 'guides',
+        searchTerms: ['preview', 'visualize', 'components', 'interactive', 'try', 'example', 'demo', 'devtools'],
+        badge: createBadge('Try It', 'new'),
+        isNew: true,
+        priority: 13
+      },
+      {
+        id: 'devtools-comparator-example',
+        title: 'Try Comparator',
+        path: '/docs/guides/devtools/comparator-example',
+        icon: 'Sparkle',
+        description: 'Interactive theme comparator - try it yourself',
+        category: 'guides',
+        searchTerms: ['comparator', 'compare', 'diff', 'versions', 'interactive', 'try', 'example', 'demo', 'devtools'],
+        badge: createBadge('Try It', 'new'),
+        isNew: true,
+        priority: 14
       }
     ]
   },
@@ -883,6 +1013,65 @@ export const navigationData: NavigationSection[] = [
         category: 'api',
         searchTerms: ['css', 'classes', 'properties', 'styles'],
         priority: 3
+      }
+    ]
+  },
+  {
+    id: 'cli',
+    title: 'CLI',
+    description: 'Command-line interface documentation and guides',
+    priority: 8,
+    collapsed: true,
+    items: [
+      {
+        id: 'overview',
+        title: 'Overview',
+        path: '/docs/cli',
+        icon: 'Terminal',
+        description: 'Complete CLI documentation index',
+        category: 'cli',
+        searchTerms: ['cli', 'overview', 'index', 'documentation'],
+        priority: 1
+      },
+      {
+        id: 'user-guide',
+        title: 'User Guide',
+        path: '/docs/cli/user-guide',
+        icon: 'BookOpen',
+        description: 'Complete guide for using the Atomix CLI',
+        category: 'cli',
+        searchTerms: ['cli', 'user guide', 'commands', 'usage', 'tutorial'],
+        priority: 2
+      },
+      {
+        id: 'api-reference',
+        title: 'API Reference',
+        path: '/docs/cli/api-reference',
+        icon: 'Code',
+        description: 'Programmatic API for CLI utilities',
+        category: 'cli',
+        searchTerms: ['cli', 'api', 'reference', 'programmatic', 'utilities'],
+        priority: 3
+      },
+      {
+        id: 'migration-guide',
+        title: 'Migration Guide',
+        path: '/docs/cli/migration-guide',
+        icon: 'ArrowRight',
+        description: 'Migrate from other CSS frameworks to Atomix',
+        category: 'cli',
+        searchTerms: ['cli', 'migration', 'tailwind', 'bootstrap', 'scss'],
+        priority: 4
+      },
+      {
+        id: 'security-guide',
+        title: 'Security Guide',
+        path: '/docs/cli/security-guide',
+        icon: 'Shield',
+        description: 'Security best practices and features',
+        category: 'cli',
+        searchTerms: ['cli', 'security', 'best practices', 'vulnerability'],
+        priority: 5
       }
     ]
   },

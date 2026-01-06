@@ -56,7 +56,7 @@ const NotFoundPage: FC = () => {
 
         {/* Action Buttons */}
         <div className="u-d-flex u-gap-3 u-mb-12 u-flex-wrap u-justify-content-center">
-          <Button size="lg" href="/" linkComponent={Link}>
+          <Button size="lg" href="/" LinkComponent={Link}>
             <Icon name="House" size="sm" className="u-mr-2" />
             Go Home
           </Button>
@@ -111,7 +111,7 @@ const NotFoundPage: FC = () => {
             <Button 
               variant="outline"
               href="/docs/introduction"
-              linkComponent={Link}
+              LinkComponent={Link}
             >
               Browse Documentation
             </Button>

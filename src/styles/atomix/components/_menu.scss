@@ -1,0 +1,42 @@
+/**
+ * Menu Component Variable Overrides
+ * 
+ * Modern menu design with comfortable spacing and clear hierarchy.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.menu' with (
+  // Menu Base - Better sizing
+  $menu-min-width: 180px, // Slightly wider minimum
+
+  // Menu Padding - Comfortable spacing
+  $menu-padding-x: 0.5rem, // 8px
+  $menu-padding-y: 0.5rem, // 8px
+
+  // Menu Border Radius - Modern, rounded corners
+  $menu-border-radius: 1rem, // Very rounded
+
+  // Menu Items Gap - Better spacing
+  $menu-items-gap: 0.5rem, // 8px - More space between items
+
+  // Menu Item Padding - Comfortable spacing
+  $menu-item-padding-x: 0.75rem, // 12px - More horizontal space
+  $menu-item-padding-y: 0.75rem, // 12px - More vertical space
+  $menu-item-inner-gap: 0.75rem, // 12px - More space between icon and text
+
+  // Menu Item Typography - Better readability
+  $menu-item-font-size: 1rem, // 16px - Better readability
+  $menu-item-font-weight: 500, // Medium weight
+
+  // Menu Item Icon - Better visibility
+  $menu-item-icon-size: 1.25rem, // 20px - More prominent
+
+  // Menu Mega - Generous spacing
+  $menu-mega-padding-x: 4rem, // 64px
+  $menu-mega-padding-y: 2rem, // 32px - More vertical space
+  $menu-mega-grid-gap: 2.5rem, // 40px - More space between columns
+
+  // Menu Mega Header - Clear typography
+  $menu-mega-header-title-font-size: 1.125rem, // 18px - More prominent
+  $menu-mega-header-title-font-weight: 600, // Semibold
+);
+

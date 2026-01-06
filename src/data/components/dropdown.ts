@@ -84,7 +84,7 @@ export const dropdownMetadata = {
     { label: 'Logout', onClick: () => console.log('Logout') }
   ]}
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Icons',
@@ -97,7 +97,7 @@ export const dropdownMetadata = {
     { label: 'Share', icon: <Icon name="Share" />, onClick: () => {} }
   ]}
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Placement Options',
@@ -112,7 +112,7 @@ export const dropdownMetadata = {
   placement="right"
   items={[...]}
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Separators',
@@ -129,7 +129,7 @@ export const dropdownMetadata = {
     { label: 'Exit', onClick: () => {} }
   ]}
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Hover Trigger',
@@ -142,7 +142,30 @@ export const dropdownMetadata = {
     { label: 'Item 2', onClick: () => {} }
   ]}
 />`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'Controlled Dropdown',
+      description: 'Dropdown with controlled open state',
+      code: `import { Dropdown, Button } from '@shohojdhara/atomix';
+import { useState } from 'react';
+
+function ControlledDropdown() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dropdown
+      trigger={<Button>Controlled Menu</Button>}
+      open={open}
+      onOpenChange={setOpen}
+      items={[
+        { label: 'Item 1', onClick: () => setOpen(false) },
+        { label: 'Item 2', onClick: () => setOpen(false) }
+      ]}
+    />
+  );
+}`,
+      preview: true
     }
   ],
   accessibility: {

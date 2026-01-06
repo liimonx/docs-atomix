@@ -109,7 +109,7 @@ function BasicDataTable() {
 
   return <DataTable data={data} columns={columns} />;
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Sortable DataTable',
@@ -132,7 +132,7 @@ function BasicDataTable() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'DataTable with Pagination',
@@ -147,7 +147,7 @@ function BasicDataTable() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Selectable DataTable',
@@ -164,7 +164,7 @@ function BasicDataTable() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

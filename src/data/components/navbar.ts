@@ -155,7 +155,7 @@ function BasicNavbar() {
     </Navbar>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Fixed Navbar',
@@ -174,7 +174,7 @@ function BasicNavbar() {
     </Navbar>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Navbar with Brand Logo',
@@ -196,7 +196,7 @@ function BasicNavbar() {
     </Navbar>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Navbar Variants',
@@ -224,7 +224,7 @@ function BasicNavbar() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Controlled Navbar',
@@ -248,7 +248,7 @@ function ControlledNavbar() {
     </Navbar>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

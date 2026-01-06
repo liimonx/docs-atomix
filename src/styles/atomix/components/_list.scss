@@ -1,0 +1,22 @@
+/**
+ * List Component Variable Overrides
+ * 
+ * Modern list design with comfortable spacing.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.list' with (
+  // List Typography - Better readability
+  $list-font-size: 1rem, // 16px - Better readability
+  $list-font-weight: 400, // Normal weight
+
+  // List Item Gap - Better spacing
+  $list-item-gap: 0.5rem, // 8px - More space between items
+
+  // List Padding - Comfortable indentation
+  $list-padding-left: 1.25rem, // 20px - More padding
+
+  // List Item Dash - Better visibility
+  $list-item-dash-width: 14px, // Slightly wider
+  $list-item-dash-height: 2px, // Standard height
+);
+

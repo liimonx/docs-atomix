@@ -77,7 +77,7 @@ export const formMetadata = {
   />
   <Button type="submit">Submit</Button>
 </Form>`,
-      preview: null
+      preview: true
     },
     {
       title: 'Form with Validation',
@@ -101,7 +101,7 @@ export const formMetadata = {
   />
   <Button type="submit">Sign In</Button>
 </Form>`,
-      preview: null
+      preview: true
     },
     {
       title: 'Complex Form',
@@ -114,7 +114,7 @@ export const formMetadata = {
   <Button type="submit">Submit</Button>
   <Button type="reset" variant="outline">Reset</Button>
 </Form>`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

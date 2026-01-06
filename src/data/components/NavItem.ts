@@ -80,7 +80,7 @@ function BasicNavItem() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Active NavItem',
@@ -93,7 +93,7 @@ function BasicNavItem() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'NavItem with Icon',
@@ -112,7 +112,7 @@ function NavItemWithIcon() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Disabled NavItem',
@@ -127,7 +127,7 @@ function NavItemWithIcon() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

@@ -24,11 +24,28 @@ export { default as GettingStartedOverviewPage } from "./getting-started/Getting
 export { default as MigrationPage } from "./getting-started/MigrationPage";
 export { default as CLIPage } from "./getting-started/CLIPage";
 
+// CLI Pages
+export { default as CLIOverviewPage } from "./cli/CLIOverviewPage";
+export { default as CLIUserGuidePage } from "./cli/CLIUserGuidePage";
+export { default as CLIAPIReferencePage } from "./cli/CLIAPIReferencePage";
+export { default as CLIMigrationGuidePage } from "./cli/CLIMigrationGuidePage";
+export { default as CLISecurityGuidePage } from "./cli/CLISecurityGuidePage";
+
 // Guide Pages
 export { default as GeneralThemingGuidePage } from "./guides/GeneralThemingGuidePage";
 export { default as GuidesAtomixGlassPerformancePage } from "./guides/GuidesAtomixGlassPerformancePage";
 export { default as GuidesAtomixGlassThemingPage } from "./guides/GuidesAtomixGlassThemingPage";
 export { default as ThemeStudioPage } from "./guides/ThemeStudioPage";
+export { default as DevtoolsOverviewPage } from "./guides/DevtoolsOverviewPage";
+export { default as DevtoolsInspectorPage } from "./guides/DevtoolsInspectorPage";
+export { default as DevtoolsPreviewPage } from "./guides/DevtoolsPreviewPage";
+export { default as DevtoolsComparatorPage } from "./guides/DevtoolsComparatorPage";
+export { default as DevtoolsLiveEditorPage } from "./guides/DevtoolsLiveEditorPage";
+export { default as DevtoolsCLIPage } from "./guides/DevtoolsCLIPage";
+export { default as DevtoolsLiveEditorExamplePage } from "./guides/DevtoolsLiveEditorExamplePage";
+export { default as DevtoolsInspectorExamplePage } from "./guides/DevtoolsInspectorExamplePage";
+export { default as DevtoolsPreviewExamplePage } from "./guides/DevtoolsPreviewExamplePage";
+export { default as DevtoolsComparatorExamplePage } from "./guides/DevtoolsComparatorExamplePage";
 
 // Layout Pages
 export { default as LayoutsOverviewPage } from "./layouts/LayoutsOverviewPage";

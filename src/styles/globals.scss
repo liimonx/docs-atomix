@@ -1,96 +1,15 @@
+/**
+ * Global Styles
+ * 
+ * Main stylesheet that imports Atomix with custom variable overrides
+ * and runtime theme tokens (CSS custom properties).
+ */
 
-/* Global styles for smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+// Import Atomix with SCSS variable overrides
+// =============================================================================
+// All SCSS variable overrides are defined in styles/atomix/
+// Uncomment variables in those files to customize the design system
+// Using @use - variables are loaded first, then Atomix loads and uses them
+@use './atomix/index' as *;
 
 
-.desktop-only {
-  display: block;
-}
-
-.mobile-only {
-  display: none;
-}
-
-@media (max-width: 1024px) {
-  .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: block;
-  }
-}
-
-/* Animation utilities */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.3s ease forwards;
-}
-
-/* Card hover effect utility */
-.atomix-card-hover {
-  transition: var(--atomix-transition-fast);
-}
-
-.atomix-card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--atomix-box-shadow-lg);
-  border-color: var(--atomix-primary);
-}
-
-/* Max width utility */
-.u-max-w-600 {
-  max-width: 600px;
-}
-
-/* Atomix Input component overrides */
-.c-input.c-input--sm {
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 6px;
-  padding-right: 6px;
-}
-
-/* Docs mobile menu toggle highlight */
-@keyframes docsMenuToggleHighlight {
-  0% {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  20% {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.15);
-  }
-}
-
-.docs-menu-toggle-highlight {
-  position: relative;
-  overflow: visible;
-}
-
-.docs-menu-toggle-highlight::after {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: inherit;
-  border: 2px solid var(--atomix-focus-border-color);
-  opacity: 0;
-  pointer-events: none;
-  animation: docsMenuToggleHighlight 2.4s ease-out 1;
-}

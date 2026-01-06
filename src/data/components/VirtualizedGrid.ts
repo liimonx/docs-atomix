@@ -100,7 +100,7 @@ function BasicVirtualizedGrid() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'VirtualizedGrid with Dynamic Heights',
@@ -121,7 +121,7 @@ function BasicVirtualizedGrid() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Multi-column VirtualizedGrid',
@@ -138,7 +138,7 @@ function BasicVirtualizedGrid() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

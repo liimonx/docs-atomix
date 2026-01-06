@@ -170,12 +170,15 @@ function BasicSelect() {
     </FormGroup>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Multiple Selection',
       description: 'Select multiple options from a list',
-      code: `function MultipleSelect() {
+      code: `import { Select, FormGroup } from '@shohojdhara/atomix';
+import { useState } from 'react';
+
+function MultipleSelect() {
   const [values, setValues] = useState([]);
 
   const languages = [
@@ -203,7 +206,28 @@ function BasicSelect() {
     </FormGroup>
   );
 }`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'With Disabled Options',
+      description: 'Select with some options disabled',
+      code: `import { Select, FormGroup } from '@shohojdhara/atomix';
+
+function SelectWithDisabled() {
+  const options = [
+    { value: 'active1', label: 'Active Option 1' },
+    { value: 'active2', label: 'Active Option 2' },
+    { value: 'disabled1', label: 'Disabled Option', disabled: true },
+    { value: 'active3', label: 'Active Option 3' },
+  ];
+
+  return (
+    <FormGroup label="Select with disabled options">
+      <Select options={options} placeholder="Choose an option" />
+    </FormGroup>
+  );
+}`,
+      preview: true
     },
     {
       title: 'Validation States',
@@ -257,7 +281,7 @@ function BasicSelect() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Select Sizes',
@@ -282,7 +306,31 @@ function BasicSelect() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'Disabled State',
+      description: 'Select in disabled state',
+      code: `import { Select, FormGroup } from '@shohojdhara/atomix';
+
+function DisabledSelect() {
+  const options = [
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+  ];
+
+  return (
+    <FormGroup label="Disabled Select">
+      <Select
+        options={options}
+        value="1"
+        disabled
+        placeholder="This select is disabled"
+      />
+    </FormGroup>
+  );
+}`,
+      preview: true
     },
     {
       title: 'Glass Effect',
@@ -303,7 +351,37 @@ function BasicSelect() {
     </FormGroup>
   );
 }`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'Custom Glass Configuration',
+      description: 'Select with custom glass morphism settings',
+      code: `import { Select, FormGroup } from '@shohojdhara/atomix';
+
+function CustomGlassSelect() {
+  const options = [
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+  ];
+
+  return (
+    <FormGroup label="Custom Glass">
+      <Select
+        options={options}
+        glass={{
+          displacementScale: 60,
+          blurAmount: 1,
+          saturation: 180,
+          aberrationIntensity: 0.2,
+          cornerRadius: 12,
+          mode: 'shader',
+        }}
+        placeholder="Custom glass select"
+      />
+    </FormGroup>
+  );
+}`,
+      preview: true
     }
   ],
   accessibility: {

@@ -3,216 +3,218 @@
 export const buttonMetadata = {
   id: 'button',
   name: 'Button',
-  description: 'A fundamental interactive element that allows users to trigger actions or navigate through your application. It supports multiple variants, sizes, icons, and states to fit various use cases.',
+  description: 'A comprehensive, interactive element for triggering actions or navigation. The Button component is designed for flexibility, supporting various variants, sizes, states, and compositions to fit any UI requirement.',
   category: 'Actions',
   status: 'stable' as const,
   version: '1.2.0',
   importPath: '@shohojdhara/atomix/Button',
   dependencies: ['react'],
-  tags: ['button', 'action', 'ui', 'interactive', 'click', 'submit'],
-  relatedComponents: ['Icon', 'Link', 'Card', 'Form'],
+  tags: ['button', 'action', 'ui', 'interactive', 'click', 'submit', 'form'],
+  relatedComponents: ['Icon', 'Link', 'Card', 'ButtonGroup'],
   features: [
-    'Multiple variants (primary, secondary, success, info, warning, error, light, dark, and outline variants)',
-    'Multiple sizes (sm: 32px, md: 40px, lg: 48px)',
-    'Icon support with configurable position (start/end)',
-    'Icon-only button option',
-    'Loading state with spinner and custom loading text',
-    'Disabled and active states',
-    'Rounded (pill) styling option',
-    'Full width and block display options',
-    'Can render as different elements (button, anchor, or custom component)',
-    'Glass morphism effect support',
-    'Comprehensive event handlers (onClick, onHover, onFocus, onBlur)',
-    'Full accessibility support with ARIA attributes'
+    'Extensive styling variants (Solid, Outline, Ghost, Link)',
+    'Responsive sizing (sm, md, lg)',
+    'Flexible icon positioning (start/end) and icon-only mode',
+    'Intelligent built-in loading state management',
+    'Polymorphic rendering (render as button, anchor, or custom component)',
+    'Accessibility-first design (ARIA support, keyboard navigation)',
+    'Full-width and block-level display options',
+    'Glassmorphism effect support for modern aesthetics',
   ],
   props: [
     {
+      name: 'variant',
+      type: "Variant | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error' | 'light' | 'dark' | 'outline-primary' | 'outline-secondary' | 'outline-success' | 'outline-info' | 'outline-warning' | 'outline-error' | 'outline-light' | 'outline-dark' | 'link'",
+      description: 'The visual style of the button. Supports solid variants (primary, secondary, success, info, warning, error, light, dark), outline variants (outline-*), and link variant for text-only appearance.',
+      required: false,
+      defaultValue: "'primary'",
+      examples: ["'primary'", "'secondary'", "'outline-primary'", "'outline-error'", "'link'"]
+    },
+    {
+      name: 'size',
+      type: "'sm' | 'md' | 'lg'",
+      description: 'Controls the size of the button, affecting padding and font size.',
+      required: false,
+      defaultValue: "'md'"
+    },
+    {
       name: 'label',
       type: 'string',
-      description: 'The text content of the button (use label OR children)',
+      description: 'The text content to display. Can be used instead of children.',
       required: false
     },
     {
       name: 'children',
       type: 'ReactNode',
-      description: 'Button content (use label OR children)',
-      required: false
-    },
-    {
-      name: 'variant',
-      type: "Variant | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error' | 'light' | 'dark' | 'outline-primary' | 'outline-secondary' | 'outline-success' | 'outline-info' | 'outline-warning' | 'outline-error' | 'outline-light' | 'outline-dark' | 'link'",
-      description: 'Visual style variant of the button',
-      required: false,
-      defaultValue: "'primary'"
-    },
-    {
-      name: 'size',
-      type: "'sm' | 'md' | 'lg'",
-      description: 'Size of the button',
-      required: false,
-      defaultValue: "'md'"
-    },
-    {
-      name: 'disabled',
-      type: 'boolean',
-      description: 'Whether the button is disabled',
-      required: false,
-      defaultValue: 'false'
-    },
-    {
-      name: 'loading',
-      type: 'boolean',
-      description: 'Loading state - shows spinner and disables button',
-      required: false,
-      defaultValue: 'false'
-    },
-    {
-      name: 'loadingText',
-      type: 'string',
-      description: 'Custom loading text (replaces label when loading)',
+      description: 'The content of the button. Preferred over label for complex content.',
       required: false
     },
     {
       name: 'icon',
       type: 'ReactNode',
-      description: 'Optional icon element to display',
+      description: 'An icon element to display within the button.',
       required: false
     },
     {
       name: 'iconPosition',
       type: "'start' | 'end'",
-      description: 'Icon position relative to text',
+      description: 'Position of the icon relative to the text content.',
       required: false,
       defaultValue: "'start'"
     },
     {
       name: 'iconOnly',
       type: 'boolean',
-      description: 'Whether to show only the icon (hides label visually)',
+      description: 'Optimizes the button for a single icon, ensuring a square aspect ratio and centering.',
+      required: false,
+      defaultValue: 'false'
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      description: 'Disables the button, preventing user interaction and interaction events.',
+      required: false,
+      defaultValue: 'false'
+    },
+    {
+      name: 'loading',
+      type: 'boolean',
+      description: 'Sets the button to a loading state, showing a spinner and disabling interaction.',
+      required: false,
+      defaultValue: 'false'
+    },
+    {
+      name: 'loadingText',
+      type: 'string',
+      description: 'Text to display alongside the spinner when in valid loading state.',
+      required: false
+    },
+    {
+      name: 'fullWidth',
+      type: 'boolean',
+      description: 'Makes the button span the full width of its parent container.',
       required: false,
       defaultValue: 'false'
     },
     {
       name: 'rounded',
       type: 'boolean',
-      description: 'Whether to apply fully rounded (pill) styling',
+      description: 'Applies full rounded corners (pill shape).',
       required: false,
       defaultValue: 'false'
     },
     {
-      name: 'fullWidth',
-      type: 'boolean',
-      description: 'Full width button (takes 100% of container width)',
+      name: 'glass',
+      type: 'boolean | AtomixGlassProps',
+      description: 'Glass morphism effect for the button.',
       required: false,
       defaultValue: 'false'
+    },
+    {
+      name: 'as',
+      type: 'ElementType',
+      description: 'Polymorphic prop to render the component as a different element or component (e.g. "a", Link).',
+      required: false,
+      defaultValue: "'button'"
     },
     {
       name: 'block',
       type: 'boolean',
-      description: 'Block-level button (full width with block display)',
+      description: 'Block-level button (full width with block display).',
       required: false,
       defaultValue: 'false'
     },
     {
       name: 'active',
       type: 'boolean',
-      description: 'Active state styling',
+      description: 'Active state styling.',
       required: false,
       defaultValue: 'false'
     },
     {
       name: 'selected',
       type: 'boolean',
-      description: 'Selected state styling',
+      description: 'Selected state styling.',
       required: false,
       defaultValue: 'false'
     },
     {
       name: 'type',
       type: "'button' | 'submit' | 'reset'",
-      description: 'Button type attribute',
+      description: 'Button type attribute.',
       required: false,
       defaultValue: "'button'"
     },
     {
       name: 'onClick',
-      type: '(event: MouseEvent) => void',
-      description: 'Click event handler',
+      type: '(event: React.MouseEvent) => void',
+      description: 'Callback fired when the button is clicked.',
       required: false
     },
     {
       name: 'onHover',
-      type: '(event: MouseEvent) => void',
-      description: 'Hover event handler',
+      type: '(event: React.MouseEvent) => void',
+      description: 'Hover event handler.',
       required: false
     },
     {
       name: 'onFocus',
-      type: '(event: FocusEvent) => void',
-      description: 'Focus event handler',
+      type: '(event: React.FocusEvent) => void',
+      description: 'Focus event handler.',
       required: false
     },
     {
       name: 'onBlur',
-      type: '(event: FocusEvent) => void',
-      description: 'Blur event handler',
+      type: '(event: React.FocusEvent) => void',
+      description: 'Blur event handler.',
       required: false
     },
     {
-      name: 'as',
-      type: 'ElementType',
-      description: 'The element type to render as',
-      required: false,
-      defaultValue: "'button'"
-    },
-    {
-      name: 'className',
+      name: 'href',
       type: 'string',
-      description: 'Additional CSS classes',
-      required: false,
-      defaultValue: "''"
+      description: 'When provided, automatically renders as an anchor element.',
+      required: false
     },
     {
-      name: 'glass',
-      type: 'boolean | AtomixGlassProps',
-      description: 'Glass morphism effect for the button',
-      required: false,
-      defaultValue: 'false'
+      name: 'target',
+      type: 'string',
+      description: 'Target attribute for anchor elements (e.g., "_blank").',
+      required: false
     },
     {
       name: 'style',
       type: 'React.CSSProperties',
-      description: 'Custom style for the button',
+      description: 'Custom style for the button.',
       required: false
     },
     {
       name: 'ariaLabel',
       type: 'string',
-      description: 'ARIA label for accessibility',
+      description: 'ARIA label for accessibility.',
       required: false
     },
     {
       name: 'ariaDescribedBy',
       type: 'string',
-      description: 'ARIA described by reference',
+      description: 'ARIA described by reference.',
       required: false
     },
     {
       name: 'ariaExpanded',
       type: 'boolean',
-      description: 'ARIA expanded state (for toggle buttons)',
+      description: 'ARIA expanded state (for toggle buttons).',
       required: false
     },
     {
       name: 'ariaControls',
       type: 'string',
-      description: 'ARIA controls reference',
+      description: 'ARIA controls reference.',
       required: false
     },
     {
       name: 'tabIndex',
       type: 'number',
-      description: 'Tab index for keyboard navigation',
+      description: 'Tab index for keyboard navigation.',
       required: false,
       defaultValue: '0'
     }
@@ -220,195 +222,271 @@ export const buttonMetadata = {
   examples: [
     {
       title: 'Basic Usage',
-      description: 'Using label prop or children for button content',
+      description: 'The fundamental usage of the Button component with different variants.',
       code: `import { Button } from '@shohojdhara/atomix';
 
-function MyComponent() {
+export default function BasicButtons() {
   return (
-    <div>
-      {/* Using label prop */}
-      <Button label="Primary Button" />
-      <Button label="Secondary Button" variant="secondary" />
-      <Button label="Disabled Button" disabled />
+    <div className="u-d-flex u-gap-3 u-flex-wrap">
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="success">Success</Button>
+      <Button variant="error">Error</Button>
+    </div>
+  );
+}`,
+      preview: true
+    },
+    {
+      title: 'Outline Variants',
+      description: 'Outline buttons usually indicate secondary actions.',
+      code: `import { Button } from '@shohojdhara/atomix';
+
+export default function OutlineButtons() {
+  return (
+    <div className="u-d-flex u-gap-3 u-flex-wrap u-p-4 u-bg-dark u-rounded">
+      <Button variant="outline-primary">Primary</Button>
+      <Button variant="outline-success">Success</Button>
+      <Button variant="outline-warning">Warning</Button>
+      <Button variant="outline-light">Light</Button>
+    </div>
+  );
+}`,
+      preview: true
+    },
+    {
+      title: 'Sizes & Shapes',
+      description: 'Buttons come in multiple sizes and can be fully rounded.',
+      code: `import { Button } from '@shohojdhara/atomix';
+
+export default function ButtonSizes() {
+  return (
+    <div className="u-d-flex u-align-items-center u-gap-3 u-flex-wrap">
+      <Button size="sm" variant="secondary">Small</Button>
+      <Button size="md" variant="primary">Medium</Button>
+      <Button size="lg" variant="secondary">Large</Button>
       
-      {/* Using children */}
-      <Button variant="primary">
-        Button with Children
+      <div className="u-w-1 u-bg-subtle u-h-8 u-mx-2"></div>
+      
+      <Button rounded variant="primary">Rounded</Button>
+    </div>
+  );
+}`,
+      preview: true
+    },
+    {
+      title: 'Icons & Loading',
+      description: 'Buttons effectively communicate state and context with icons and loading indicators.',
+      code: `import { Button, Icon } from '@shohojdhara/atomix';
+
+export default function IconButtonExample() {
+  return (
+    <div className="u-d-flex u-gap-3 u-flex-wrap">
+      {/* Icon at Start */}
+      <Button 
+        variant="primary" 
+        icon={<Icon name="Plus" />}
+      >
+        Create New
+      </Button>
+
+      {/* Icon at End */}
+      <Button 
+        variant="secondary" 
+        icon={<Icon name="ArrowRight" />} 
+        iconPosition="end"
+      >
+        Continue
+      </Button>
+
+      {/* Icon Only */}
+      <Button 
+        variant="outline-error" 
+        icon={<Icon name="Trash" />} 
+        iconOnly 
+        ariaLabel="Delete" 
+      />
+
+      {/* Loading State */}
+      <Button 
+        variant="primary" 
+        loading 
+        loadingText="Saving..."
+      >
+        Save Changes
       </Button>
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
-      title: 'Button Variants',
-      description: 'Solid, outline, and link variants',
-      code: `// Solid variants
-<Button label="Primary" variant="primary" />
-<Button label="Secondary" variant="secondary" />
-<Button label="Success" variant="success" />
-<Button label="Error" variant="error" />
+      title: 'Full Width & Block',
+      description: 'Utility props to control layout behavior.',
+      code: `import { Button, Card } from '@shohojdhara/atomix';
 
-// Outline variants
-<Button label="Outline Primary" variant="outline-primary" />
-<Button label="Outline Secondary" variant="outline-secondary" />
-
-// Link variant
-<Button label="Link Button" variant="link" />`,
-      preview: null
+export default function FullWidthExample() {
+  return (
+    <Card className="u-max-w-sm u-p-4">
+      <h4 className="u-mb-4">Sign In</h4>
+      <div className="u-d-flex u-flex-column u-gap-3">
+        <Button fullWidth variant="primary">
+          Sign In
+        </Button>
+        <Button fullWidth variant="outline-secondary">
+          Create Account
+        </Button>
+      </div>
+    </Card>
+  );
+}`,
+      preview: true
     },
     {
-      title: 'Button Sizes',
-      description: 'Three different button sizes (sm: 32px, md: 40px, lg: 48px)',
-      code: `<Button label="Small" variant="primary" size="sm" />
-<Button label="Medium" variant="primary" size="md" />
-<Button label="Large" variant="primary" size="lg" />`,
-      preview: null
-    },
-    {
-      title: 'Buttons with Icons',
-      description: 'Icons at start, end, or icon-only buttons',
-      code: `import { Icon } from '@shohojdhara/atomix';
+      title: 'Social Login Groups',
+      description: 'Common pattern for social authentication buttons.',
+      code: `import { Button, Icon } from '@shohojdhara/atomix';
 
-// Button with icon and text (icon at start)
-<Button
-  label="Save Document"
-  variant="primary"
-  icon={<Icon name="Save" />}
-/>
-
-// Button with icon at end
-<Button
-  label="Next"
-  variant="primary"
-  icon={<Icon name="ArrowRight" />}
-  iconPosition="end"
-/>
-
-// Icon-only button
-<Button
-  label="Delete"
-  variant="error"
-  icon={<Icon name="Trash" />}
-  iconOnly
-  ariaLabel="Delete item"
-/>`,
-      preview: null
-    },
-    {
-      title: 'Rounded Buttons',
-      description: 'Pill-shaped buttons with rounded styling',
-      code: `<Button label="Rounded Button" variant="primary" rounded />
-<Button
-  label="Rounded with Icon"
-  variant="secondary"
-  icon={<Icon name="Heart" />}
-  rounded
-/>`,
-      preview: null
-    },
-    {
-      title: 'Button States',
-      description: 'Disabled, loading, active, and selected states',
-      code: `<Button label="Disabled" disabled />
-<Button label="Loading" loading />
-<Button label="Loading with Text" loading loadingText="Saving..." />
-<Button label="Active" active />
-<Button label="Selected" selected />`,
-      preview: null
+export default function SocialLoginExample() {
+  return (
+    <div className="u-d-flex u-flex-column u-gap-3 u-max-w-sm">
+      <Button 
+        variant="outline-secondary" 
+        fullWidth
+        icon={<Icon name="GithubLogo" />} 
+        style={{ borderColor: '#333', color: '#333' }}
+      >
+        Continue with GitHub
+      </Button>
+      
+      <Button 
+        variant="outline-secondary" 
+        fullWidth
+        icon={<Icon name="TwitterLogo" />} 
+        style={{ borderColor: '#1DA1F2', color: '#1DA1F2' }}
+      >
+        Continue with Twitter
+      </Button>
+      
+      <Button 
+        variant="outline-secondary" 
+        fullWidth
+        icon={<Icon name="GoogleLogo" />}
+      >
+        Continue with Google
+      </Button>
+    </div>
+  );
+}`,
+      preview: true
     },
     {
       title: 'Button as Link',
-      description: 'Rendering button as anchor tag or React Router Link',
-      code: `// Render as an anchor tag
-<Button
-  label="Visit Website"
-  variant="link"
-  as="a"
-  href="https://example.com"
-  target="_blank"
-/>
+      description: 'The Button component automatically renders as an anchor element when the href prop is provided.',
+      code: `import { Button } from '@shohojdhara/atomix';
 
-// Render with React Router Link
-<Button
-  label="Go to Dashboard"
-  variant="primary"
-  linkComponent={Link}
-  to="/dashboard"
-/>`,
-      preview: null
+export default function ButtonAsLink() {
+  return (
+    <div className="u-d-flex u-gap-3 u-flex-wrap">
+      {/* Simple link button (automatically renders as <a>) */}
+      <Button
+        label="Visit Website"
+        variant="primary"
+        href="https://example.com"
+        target="_blank"
+      />
+
+      {/* Link button with different variant */}
+      <Button
+        label="Learn More"
+        variant="outline-primary"
+        href="/about"
+      />
+    </div>
+  );
+}`,
+      preview: true
     },
     {
-      title: 'Full Width Buttons',
-      description: 'Buttons that span the full width of their container',
-      code: `<Button label="Full Width" variant="primary" fullWidth />
-<Button label="Block Button" variant="secondary" block />`,
-      preview: null
+      title: 'Active and Selected States',
+      description: 'Buttons can have active and selected states for toggle functionality.',
+      code: `import { Button } from '@shohojdhara/atomix';
+import { useState } from 'react';
+
+export default function ToggleButton() {
+  const [isActive, setIsActive] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
+
+  return (
+    <div className="u-d-flex u-gap-3 u-flex-wrap">
+      <Button
+        label="Toggle Active"
+        variant="primary"
+        active={isActive}
+        onClick={() => setIsActive(!isActive)}
+      />
+      <Button
+        label="Toggle Selected"
+        variant="secondary"
+        selected={isSelected}
+        onClick={() => setIsSelected(!isSelected)}
+      />
+    </div>
+  );
+}`,
+      preview: true
+    },
+    {
+      title: 'Event Handlers',
+      description: 'Buttons support various event handlers for interactive behavior.',
+      code: `import { Button } from '@shohojdhara/atomix';
+
+export default function EventHandlers() {
+  const handleClick = () => console.log('Clicked');
+  const handleHover = () => console.log('Hovered');
+  const handleFocus = () => console.log('Focused');
+  const handleBlur = () => console.log('Blurred');
+
+  return (
+    <Button
+      label="Interactive Button"
+      variant="primary"
+      onClick={handleClick}
+      onHover={handleHover}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+    />
+  );
+}`,
+      preview: true
     }
   ],
   accessibility: {
-    overview: 'The Button component follows WCAG 2.1 guidelines for accessibility with proper focus management, keyboard navigation, and ARIA attributes. It supports all standard button interactions and can be used with screen readers.',
+    overview: 'The Button component strictly adheres to WAI-ARIA practices. It handles role assignment, focus management, and keyboard event mapping automatically.',
     keyboardSupport: [
-      {
-        key: 'Enter',
-        action: 'Activates the button'
-      },
-      {
-        key: 'Space',
-        action: 'Activates the button'
-      },
-      {
-        key: 'Tab',
-        action: 'Moves focus to the next focusable element'
-      },
-      {
-        key: 'Shift + Tab',
-        action: 'Moves focus to the previous focusable element'
-      }
+      { key: 'Enter', action: 'Activates the button' },
+      { key: 'Space', action: 'Activates the button' },
+      { key: 'Tab', action: 'Moves focus to the button' },
+      { key: 'Shift + Tab', action: 'Moves focus away from the button' }
     ],
     ariaAttributes: [
-      {
-        attribute: 'aria-disabled',
-        description: 'Set to true when the button is disabled',
-        required: false
-      },
-      {
-        attribute: 'aria-label',
-        description: 'ARIA label for accessibility (especially important for icon-only buttons)',
-        required: false
-      },
-      {
-        attribute: 'aria-describedby',
-        description: 'ARIA described by reference',
-        required: false
-      },
-      {
-        attribute: 'aria-expanded',
-        description: 'ARIA expanded state (for toggle buttons)',
-        required: false
-      },
-      {
-        attribute: 'aria-controls',
-        description: 'ARIA controls reference',
-        required: false
-      }
+      { attribute: 'aria-label', description: 'Essential for icon-only buttons to provide context to screen readers.', required: false },
+      { attribute: 'aria-disabled', description: 'Indicates the button is disabled to assistive technology.', required: false },
+      { attribute: 'aria-busy', description: 'Indicates the button is in a loading state.', required: false },
+      { attribute: 'aria-expanded', description: 'Indicates expanded state for toggle buttons.', required: false },
+      { attribute: 'aria-controls', description: 'References the element controlled by the button.', required: false },
+      { attribute: 'aria-describedby', description: 'References additional descriptive text.', required: false },
+      { attribute: 'role', description: 'Automatically applied when using non-button elements.', required: false }
     ],
     guidelines: [
-      'Buttons should have clear, descriptive text or labels',
-      'Icon-only buttons must have aria-label for accessibility',
-      'Disabled buttons should have appropriate styling and not receive focus',
-      'Buttons should be focusable and operable via keyboard',
-      'Loading states should be communicated to screen readers',
-      'Buttons used for navigation should use appropriate semantic elements (as prop)'
+      'Always provide an aria-label for buttons that do not have visible text.',
+      'Use disabled state sparingly; consider showing an error message instead if interaction is restricted.',
+      'Ensure high color contrast for custom variants.'
     ],
-    wcagLevel: 'AA' as const,
-    screenReaderSupport: true,
+    wcagLevel: 'AA',
     focusManagement: [
-      'Button receives focus when tabbed to',
-      'Button maintains clear focus indicator',
-      'Focus is not trapped within the button',
-      'Disabled buttons do not receive focus',
-      'Loading buttons remain focusable but disabled'
+      'Focus styles are automatically applied using the standard outline ring.',
+      'The focus ring is suppressed on mouse click but visible on keyboard navigation.'
     ]
   }
 };

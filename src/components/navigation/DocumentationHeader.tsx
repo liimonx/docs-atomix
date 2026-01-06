@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useEffect, useState } from 'react';
+import { memo } from 'react';
 import Link from 'next/link';
 import {
   AtomixLogo,
@@ -14,7 +14,18 @@ import {
 import { GlobalSearch } from '@/components/ui/GlobalSearch';
 import type { GlassProps } from '@/types/atomix-components';
 
-const DocumentationHeader = memo(function DocumentationHeader() {
+
+interface DocumentationHeaderProps {
+  isSidebarOpen?: boolean;
+  onSidebarToggle?: () => void;
+  showSidebarToggle?: boolean;
+}
+
+const DocumentationHeader = memo(function DocumentationHeader({
+  isSidebarOpen,
+  onSidebarToggle,
+  showSidebarToggle = false
+}: DocumentationHeaderProps) {
   const externalLinks = [
     {
       label: 'GitHub',
@@ -28,31 +39,6 @@ const DocumentationHeader = memo(function DocumentationHeader() {
     }
   ];
 
-  const [highlightMenuButton, setHighlightMenuButton] = useState(false);
-  const showMenuButton = highlightMenuButton
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const onMenuToggle = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
-
-  useEffect(() => {
-    if (!showMenuButton) {
-      return;
-    }
-
-    setHighlightMenuButton(true);
-    const timeoutId = window.setTimeout(() => {
-      setHighlightMenuButton(false);
-    }, 3000);
-
-    return () => window.clearTimeout(timeoutId);
-  }, [showMenuButton]);
-
-  const menuToggleClassName = highlightMenuButton
-    ? 'u-d-lg-none docs-menu-toggle-highlight'
-    : 'u-d-lg-none';
-
   return (
     <header role="banner">
       <Navbar
@@ -65,15 +51,15 @@ const DocumentationHeader = memo(function DocumentationHeader() {
         brand={
           <div className="u-d-flex u-align-items-center u-gap-2">
             {/* Mobile menu toggle - only show on docs pages */}
-            {showMenuButton && (
+            {showSidebarToggle && onSidebarToggle && (
               <Button
-                variant="outline-secondary"
+                variant="ghost"
                 size="sm"
-                onClick={onMenuToggle}
-                aria-label={sidebarOpen ? 'Close menu' : 'Open menu'}
-                className={menuToggleClassName}
+                onClick={onSidebarToggle}
+                aria-label={isSidebarOpen ? 'Close menu' : 'Open menu'}
+                className="u-d-lg-none"
               >
-                <Icon name={sidebarOpen ? 'X' : 'List'} size="sm" />
+                <Icon name={isSidebarOpen ? 'X' : 'List'} size="sm" />
               </Button>
             )}
 

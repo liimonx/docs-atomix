@@ -1,0 +1,24 @@
+/**
+ * Spinner Component Variable Overrides
+ * 
+ * Modern spinner design with smooth animations.
+ */
+
+@use 'sass:map';
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.spinner' with (
+  // Spinner Sizes - Better visibility
+  $spinner-sizes: (
+    sm: 18px, // Slightly larger small
+    md: 28px, // Slightly larger medium
+    lg: 36px, // Slightly larger large
+  ),
+
+  // Spinner Border Width - More prominent
+  $spinner-border-width: 3px, // Standard width
+  $spinner-border-width-sm: 2px, // Small width
+
+  // Spinner Animation - Smooth, modern speed
+  $spinner-animation-speed: 0.8s, // Slightly faster
+);
+

@@ -11,16 +11,16 @@ export const HomePageLayout: FC<{ children: React.ReactNode }> = ({ children }) 
       <SkipLinks />
       {/* Header - ALWAYS visible - rendered first for proper DOM order */}
       <DocumentationHeader
-        onMenuToggle={() => {}}
-        sidebarOpen={false}
-        showMenuButton={false}
+        onSidebarToggle={() => { }}
+        isSidebarOpen={false}
+        showSidebarToggle={false}
       />
 
       {/* Main content area - no sidebar for home page */}
       <main id="main-content" role="main">
         {children}
       </main>
-      
+
       <DocumentationFooter />
     </div>
   );

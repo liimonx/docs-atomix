@@ -1,0 +1,25 @@
+/**
+ * Nav Component Variable Overrides
+ * 
+ * Modern navigation design with comfortable spacing.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.nav' with (
+  // Nav Item Gap - Better spacing
+  $nav-item-gap-x: 0.5rem, // 8px - More space between items
+
+  // Nav Link Padding - Comfortable spacing
+  $nav-link-padding-x: 1rem, // 16px - More horizontal space
+  $nav-link-padding-y: 0.75rem, // 12px - More vertical space
+
+  // Nav Link Typography - Better readability
+  $nav-link-font-size: 1rem, // 16px - Better readability
+  $nav-link-font-weight: 500, // Medium weight
+
+  // Nav Link Inner Gap - Better spacing
+  $nav-link-inner-gap: 0.5rem, // 8px - More space between icon and text
+
+  // Nav Icon - Better visibility
+  $nav-icon-size: 1.25rem, // 20px - More prominent
+);
+

@@ -130,7 +130,7 @@ function ProductReview() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Read-only Rating Display',
@@ -163,7 +163,7 @@ function ProductReview() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Half-star Ratings',
@@ -185,7 +185,7 @@ function ProductReview() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Rating Sizes',
@@ -208,7 +208,7 @@ function ProductReview() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

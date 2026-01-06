@@ -196,7 +196,7 @@ function BasicTextarea() {
     </FormGroup>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Character Count',
@@ -228,7 +228,7 @@ function BasicTextarea() {
     </FormGroup>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Validation States',
@@ -277,7 +277,7 @@ function BasicTextarea() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Textarea Sizes',
@@ -297,7 +297,7 @@ function BasicTextarea() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Glass Effect',
@@ -313,7 +313,35 @@ function BasicTextarea() {
     </FormGroup>
   );
 }`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'Disabled and Readonly',
+      description: 'Textarea in disabled and readonly states',
+      code: `import { Textarea, FormGroup } from '@shohojdhara/atomix';
+
+function DisabledTextarea() {
+  return (
+    <div className="u-gap-4">
+      <FormGroup label="Disabled Textarea">
+        <Textarea
+          value="This textarea is disabled"
+          disabled
+          rows={4}
+        />
+      </FormGroup>
+      
+      <FormGroup label="Readonly Textarea">
+        <Textarea
+          value="This textarea is read-only"
+          readOnly
+          rows={4}
+        />
+      </FormGroup>
+    </div>
+  );
+}`,
+      preview: true
     }
   ],
   accessibility: {

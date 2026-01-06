@@ -92,7 +92,7 @@ function BasicGridCol() {
     </Grid>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Responsive Columns',
@@ -115,7 +115,7 @@ function BasicGridCol() {
     </Grid>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Column with Offset',
@@ -129,7 +129,7 @@ function BasicGridCol() {
     </Grid>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

@@ -1,0 +1,36 @@
+/**
+ * Modal Component Variable Overrides
+ * 
+ * Modern modal design with generous spacing and elegant backdrop effects.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.modal' with (
+  // Modal Inner Padding - Generous spacing
+  $modal-inner-padding: 1.5rem, // 24px - More breathing room
+
+  // Modal Content - Modern appearance
+  $modal-content-border-radius: 1rem, // Very rounded corners
+
+  // Modal Header - Clear typography hierarchy
+  $modal-header-padding-bottom: 1rem, // 16px - Better spacing
+  $modal-title-font-size: 1.25rem, // 20px - More prominent
+  $modal-sub-margin-top: 0.5rem, // 8px
+  $modal-sub-font-size: 1rem, // 16px - Better readability
+
+  // Modal Footer - Comfortable spacing
+  $modal-footer-items-gap: 0.75rem, // 12px - More space between actions
+
+  // Modal Backdrop - Enhanced visual effect
+  $modal-backdrop-opacity: 0.6, // More visible backdrop
+  $modal-backdrop-blur: 12px, // More blur for modern glass effect
+
+  // Modal Close Icon - Better visibility
+  $modal-close-icon-size: 32px, // Slightly larger for better UX
+
+  // Modal Sizes - Responsive breakpoints
+  $modal-sm: 420px, // Slightly larger small modal
+  $modal-md: 840px, // Slightly larger medium modal
+  $modal-lg: 1040px, // Slightly larger large modal
+  $modal-xl: 1200px, // Slightly larger xl modal
+);
+

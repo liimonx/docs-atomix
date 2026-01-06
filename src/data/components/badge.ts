@@ -90,7 +90,7 @@ export const badgeMetadata = {
 <Badge label="Hot" variant="error" />
 <Badge label="Sale" variant="warning" />
 <Badge label="Featured" variant="info" />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Badge Sizes',
@@ -100,7 +100,7 @@ export const badgeMetadata = {
   <Badge label="Medium" variant="primary" size="md" />
   <Badge label="Large" variant="primary" size="lg" />
 </div>`,
-      preview: null
+      preview: true
     },
     {
       title: 'Badges with Icons',
@@ -132,7 +132,7 @@ export const badgeMetadata = {
   variant="warning"
   icon={<Icon name="Star" size="xs" />}
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Notification Badges',
@@ -158,7 +158,7 @@ export const badgeMetadata = {
 // Usage
 <NotificationBadge count={5} />
 <NotificationBadge count={150} max={99} />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Tag Badges',
@@ -184,7 +184,7 @@ export const badgeMetadata = {
   { id: 2, name: 'TypeScript' },
   { id: 3, name: 'CSS' }
 ]} />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Status Indicators',
@@ -217,7 +217,70 @@ export const badgeMetadata = {
     </div>
   );
 }`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'Interactive Badges',
+      description: 'Badges can be made interactive for selection or filtering',
+      code: `import { Badge } from '@shohojdhara/atomix';
+import { useState } from 'react';
+
+function InteractiveBadges() {
+  const [selectedTags, setSelectedTags] = useState([]);
+  const availableTags = ['JavaScript', 'React', 'Vue', 'Angular'];
+
+  const toggleTag = (tag) => {
+    setSelectedTags(prev =>
+      prev.includes(tag)
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    );
+  };
+
+  return (
+    <div className="interactive-badges">
+      {availableTags.map(tag => (
+        <Badge
+          key={tag}
+          label={tag}
+          variant={selectedTags.includes(tag) ? 'primary' : 'light'}
+          className="cursor-pointer"
+          onClick={() => toggleTag(tag)}
+        />
+      ))}
+    </div>
+  );
+}`,
+      preview: true
+    },
+    {
+      title: 'Product Categories',
+      description: 'Using badges to display product categories and labels',
+      code: `import { Badge, Card } from '@shohojdhara/atomix';
+
+function ProductCard({ product }) {
+  return (
+    <Card>
+      <div className="product-badges">
+        {product.isNew && <Badge label="New" variant="primary" size="sm" />}
+        {product.onSale && <Badge label="Sale" variant="error" size="sm" />}
+        {product.isFeatured && <Badge label="Featured" variant="warning" size="sm" />}
+      </div>
+      <h3>{product.name}</h3>
+      <div className="product-categories">
+        {product.categories.map(category => (
+          <Badge
+            key={category}
+            label={category}
+            variant="light"
+            size="sm"
+          />
+        ))}
+      </div>
+    </Card>
+  );
+}`,
+      preview: true
     }
   ],
   accessibility: {
@@ -237,7 +300,12 @@ export const badgeMetadata = {
       },
       {
         attribute: 'aria-label',
-        description: 'For dot badges or badges without clear text content',
+        description: 'For dot badges or badges without clear text content. Essential for numeric badges to provide context.',
+        required: false
+      },
+      {
+        attribute: 'role',
+        description: 'When badges are interactive, they should have appropriate role (e.g., "button")',
         required: false
       }
     ],

@@ -1,0 +1,117 @@
+/**
+ * Component Variable Overrides - Main Entry Point
+ * 
+ * This file imports all component variable overrides.
+ * Override component variables here to customize component appearance at build time.
+ * 
+ * @see https://atomix.design/docs/guides/theming
+ */
+
+// Import component variable overrides by component
+// =============================================================================
+// Using @use to bring variables into scope
+// Variables with !default will be used by Atomix component modules when they load
+// Since we load first, our values are set, then Atomix's !default variables
+// will see they're already defined and use our values instead
+
+// 1. Button - Button component overrides
+@use './button' as *;
+
+// 2. Badge - Badge component overrides
+@use './badge' as *;
+
+// 3. Card - Card component overrides
+@use './card' as *;
+
+// 4. Input - Input component overrides
+@use './input' as *;
+
+// 5. Form - Form component overrides (commented out - no variables to override yet)
+// @use './form' as *;
+
+// 6. Modal - Modal component overrides
+@use './modal' as *;
+
+// 7. Navbar - Navbar component overrides (commented out - no variables to override yet)
+// @use './navbar' as *;
+
+// 8. Hero - Hero component overrides
+@use './hero' as *;
+
+// 9. Select - Select component overrides
+@use './select' as *;
+
+// 10. Accordion - Accordion component overrides
+@use './accordion' as *;
+
+// 11. Callout - Callout component overrides
+@use './callout' as *;
+
+// 12. Tabs - Tabs component overrides
+@use './tabs' as *;
+
+// 13. Progress - Progress component overrides
+@use './progress' as *;
+
+// 14. Pagination - Pagination component overrides
+@use './pagination' as *;
+
+// 15. Breadcrumb - Breadcrumb component overrides
+@use './breadcrumb' as *;
+
+// 16. Dropdown - Dropdown component overrides
+@use './dropdown' as *;
+
+// 17. Checkbox - Checkbox component overrides
+@use './checkbox' as *;
+
+// 18. Spinner - Spinner component overrides
+@use './spinner' as *;
+
+// 19. Steps - Steps component overrides
+@use './steps' as *;
+
+// 20. Toggle - Toggle component overrides
+@use './toggle' as *;
+
+// 21. Slider - Slider component overrides
+@use './slider' as *;
+
+// 22. Rating - Rating component overrides
+@use './rating' as *;
+
+// 23. List - List component overrides
+@use './list' as *;
+
+// 24. Avatar - Avatar component overrides
+@use './avatar' as *;
+
+// 25. Messages - Messages component overrides
+@use './messages' as *;
+
+// 26. Tooltip - Tooltip component overrides
+@use './tooltip' as *;
+
+// 27. Popover - Popover component overrides
+@use './popover' as *;
+
+// 28. Menu - Menu component overrides
+@use './menu' as *;
+
+// 29. Nav - Nav component overrides
+@use './nav' as *;
+
+// 30. Skeleton - Skeleton component overrides
+@use './skeleton' as *;
+
+// 31. DataTable - DataTable component overrides
+@use './data-table' as *;
+
+// 32. DatePicker - DatePicker component overrides
+@use './datepicker' as *;
+
+// Additional components (commented out - no variables to override yet or minimal customization needed):
+// @use './textarea' as *; // Uses input settings
+// @use './form' as *; // Minimal customization needed
+// @use './navbar' as *; // Minimal customization needed
+

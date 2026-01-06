@@ -3,7 +3,6 @@ import { Toaster } from 'react-hot-toast';
 import { ResponsiveProvider } from '@/hooks/useResponsive';
 import { SearchProvider } from '@/hooks/useSearch';
 import { Providers } from '@/components/providers/Providers';
-import '@shohojdhara/atomix/css';
 import '../src/styles/globals.scss';
 
 export const viewport: Viewport = {

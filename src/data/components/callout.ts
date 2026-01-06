@@ -138,7 +138,7 @@ function BasicCallouts() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Dismissible Callouts',
@@ -159,7 +159,7 @@ function BasicCallouts() {
     </Callout>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Callouts with Actions',
@@ -183,7 +183,7 @@ function CalloutsWithActions() {
     </Callout>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'One-line Callouts',
@@ -209,7 +209,7 @@ function CalloutsWithActions() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

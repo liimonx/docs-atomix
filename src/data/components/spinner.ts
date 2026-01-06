@@ -103,7 +103,7 @@ function BasicSpinners() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Loading Buttons',
@@ -129,7 +129,7 @@ function BasicSpinners() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Fullscreen Loading',
@@ -156,7 +156,7 @@ function BasicSpinners() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Overlay Spinner',
@@ -177,7 +177,7 @@ function BasicSpinners() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Glass Effect',
@@ -191,7 +191,7 @@ function BasicSpinners() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

@@ -186,19 +186,19 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
       className: isHighlighted ? "highlighted-line" : "",
       style: isHighlighted
         ? {
-            backgroundColor: "rgba(139, 92, 246, 0.1)",
-            display: "block",
-            paddingLeft: "0.5em",
-            marginLeft: "-0.5em",
-            marginRight: "-0.5em",
-            borderLeft: "3px solid var(--atomix-primary)",
-          }
+          backgroundColor: "rgba(139, 92, 246, 0.1)",
+          display: "block",
+          paddingLeft: "0.5em",
+          marginLeft: "-0.5em",
+          marginRight: "-0.5em",
+          borderLeft: "3px solid var(--atomix-primary)",
+        }
         : {},
     };
   };
 
   return (
-    <Card className={`u-p-0 u-overflow-hidden ${className}`} elevation="sm">
+    <Card className={`u-p-0  ${className}`} elevation="sm">
       {/* Header */}
       <div className="u-d-flex u-align-items-center u-justify-content-between u-p-3 u-bg-tertiary u-border-b u-border-subtle">
         <div className="u-d-flex u-align-items-center u-gap-3">
@@ -232,7 +232,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
 
       {/* Code Block */}
       <div
-        className={`u-overflow-x-auto u-bg-secondary ${styles["enhanced-code-block"]}`}
+        className={`u-overflow-x-auto ${styles["enhanced-code-block"]}`}
       >
         <SyntaxHighlighter
           language={normalizedLanguage}
@@ -254,7 +254,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
             lineHeight: "1.6",
             fontFamily:
               'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
-            background: "var(--atomix-secondary)",
+            background: "var(--atomix-dark-bg-subtle)",
             borderRadius: 0,
           }}
           lineProps={(lineNumber) => customLineRenderer(lineNumber)}

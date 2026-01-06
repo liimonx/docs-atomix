@@ -1,0 +1,490 @@
+/**
+ * Atomix Documentation Site Theme
+ * Premium theme optimized for documentation sites
+ */
+
+// Light Theme
+// =============================================================================
+:root,
+[data-atomix-color-mode="light"] {
+  // Core Colors - Premium Documentation Palette
+  --atomix-primary: #6366f1;
+  --atomix-primary-1: #eef2ff;
+  --atomix-primary-2: #e0e7ff;
+  --atomix-primary-3: #c7d2fe;
+  --atomix-primary-4: #a5b4fc;
+  --atomix-primary-5: #818cf8;
+  --atomix-primary-6: #6366f1;
+  --atomix-primary-7: #4f46e5;
+  --atomix-primary-8: #4338ca;
+  --atomix-primary-9: #3730a3;
+  --atomix-primary-10: #312e81;
+  --atomix-primary-rgb: 99, 102, 241;
+  --atomix-primary-hover: #4f46e5;
+  --atomix-primary-text-emphasis: #1e293b;
+  --atomix-primary-bg-subtle: #f0f4ff;
+  --atomix-primary-border-subtle: #c7d2fe;
+  --atomix-primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #4338ca 100%);
+
+  // Secondary
+  --atomix-secondary: #f8fafc;
+  --atomix-secondary-rgb: 248, 250, 252;
+  --atomix-secondary-hover: #f1f5f9;
+  --atomix-secondary-text-emphasis: #475569;
+  --atomix-secondary-bg-subtle: #f8fafc;
+  --atomix-secondary-border-subtle: #e2e8f0;
+  --atomix-secondary-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+
+  // Semantic Colors
+  --atomix-success: #10b981;
+  --atomix-success-rgb: 16, 185, 129;
+  --atomix-success-hover: #059669;
+  --atomix-success-text-emphasis: #047857;
+  --atomix-success-bg-subtle: #ecfdf5;
+  --atomix-success-border-subtle: #6ee7b7;
+  --atomix-success-gradient: linear-gradient(135deg, #ecfdf5 0%, #6ee7b7 50%, #10b981 100%);
+
+  --atomix-error: #ef4444;
+  --atomix-error-rgb: 239, 68, 68;
+  --atomix-error-hover: #dc2626;
+  --atomix-error-text-emphasis: #b91c1c;
+  --atomix-error-bg-subtle: #fef2f2;
+  --atomix-error-border-subtle: #fca5a5;
+  --atomix-error-gradient: linear-gradient(135deg, #fef2f2 0%, #fca5a5 50%, #ef4444 100%);
+
+  --atomix-warning: #f59e0b;
+  --atomix-warning-rgb: 245, 158, 11;
+  --atomix-warning-hover: #d97706;
+  --atomix-warning-text-emphasis: #b45309;
+  --atomix-warning-bg-subtle: #fffbeb;
+  --atomix-warning-border-subtle: #fcd34d;
+  --atomix-warning-gradient: linear-gradient(135deg, #fffbeb 0%, #fcd34d 50%, #f59e0b 100%);
+
+  --atomix-info: #3b82f6;
+  --atomix-info-rgb: 6, 182, 212;
+  --atomix-info-hover: #2563eb;
+  --atomix-info-text-emphasis: #1e40af;
+  --atomix-info-bg-subtle: #eff6ff;
+  --atomix-info-border-subtle: #93c5fd;
+  --atomix-info-gradient: linear-gradient(135deg, #eff6ff 0%, #93c5fd 50%, #3b82f6 100%);
+
+  // Typography
+  --atomix-body-bg: #ffffff;
+  --atomix-body-color: #1e293b;
+  --atomix-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --atomix-body-font-size: 1rem;
+  --atomix-body-font-weight: 400;
+  --atomix-body-line-height: 1.7;
+
+  --atomix-heading-color: #0f172a;
+  --atomix-link-color: #6366f1;
+  --atomix-link-color-rgb: 99, 102, 241;
+  --atomix-link-hover-color: #4f46e5;
+  --atomix-link-hover-color-rgb: 79, 70, 229;
+  --atomix-link-decoration: none;
+
+  // Font Sizes
+  --atomix-font-size-xs: 0.75rem;
+  --atomix-font-size-sm: 0.875rem;
+  --atomix-font-size-md: 1rem;
+  --atomix-font-size-lg: 1.125rem;
+  --atomix-font-size-xl: 1.25rem;
+  --atomix-font-size-2xl: 1.5rem;
+
+  // Font Weights
+  --atomix-font-weight-light: 300;
+  --atomix-font-weight-normal: 400;
+  --atomix-font-weight-medium: 500;
+  --atomix-font-weight-semibold: 600;
+  --atomix-font-weight-bold: 700;
+  --atomix-font-weight-heavy: 800;
+  --atomix-font-weight-black: 900;
+
+  // Line Heights
+  --atomix-line-height-base: 1.7;
+  --atomix-line-height-sm: 1.6;
+  --atomix-line-height-lg: 1.8;
+
+  // Letter Spacing
+  --atomix-letter-spacing-h1: -0.025em;
+  --atomix-letter-spacing-h2: -0.02em;
+  --atomix-letter-spacing-h3: -0.015em;
+  --atomix-letter-spacing-h4: -0.01em;
+  --atomix-letter-spacing-h5: -0.005em;
+  --atomix-letter-spacing-h6: 0;
+
+  // Font Families
+  --atomix-font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --atomix-font-monospace: "JetBrains Mono", "Fira Code", "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  // Spacing
+  --atomix-spacing-0: 0rem;
+  --atomix-spacing-1: 0.25rem;
+  --atomix-spacing-2: 0.5rem;
+  --atomix-spacing-3: 0.75rem;
+  --atomix-spacing-4: 1rem;
+  --atomix-spacing-5: 1.25rem;
+  --atomix-spacing-6: 1.5rem;
+  --atomix-spacing-8: 2rem;
+  --atomix-spacing-10: 2.5rem;
+  --atomix-spacing-12: 3rem;
+  --atomix-spacing-16: 4rem;
+  --atomix-spacing-20: 5rem;
+  --atomix-spacing-24: 6rem;
+
+  // Borders
+  --atomix-border-color: #e2e8f0;
+  --atomix-border-color-translucent: rgba(99, 102, 241, 0.15);
+  --atomix-border-style: solid;
+  --atomix-border-width: 1px;
+  --atomix-focus-border-color: #6366f1;
+  --atomix-focus-ring-width: 3px;
+  --atomix-focus-ring-offset: 2px;
+  --atomix-focus-ring-opacity: 0.3;
+
+  // Border Radius
+  --atomix-border-radius-sm: 0.375rem;
+  --atomix-border-radius: 0.5rem;
+  --atomix-border-radius-md: 0.5rem;
+  --atomix-border-radius-lg: 0.75rem;
+  --atomix-border-radius-xl: 1rem;
+  --atomix-border-radius-2xl: 1.25rem;
+  --atomix-border-radius-3xl: 1.5rem;
+  --atomix-border-radius-4xl: 2rem;
+  --atomix-border-radius-pill: 9999px;
+  --atomix-border-radius-xxl: 1.5rem;
+
+  // Shadows
+  --atomix-box-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --atomix-box-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --atomix-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(99, 102, 241, 0.05);
+  --atomix-box-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --atomix-box-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(99, 102, 241, 0.08);
+  --atomix-box-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(99, 102, 241, 0.1);
+  --atomix-box-shadow-inset: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  // Transitions
+  --atomix-transition-duration-fast: 0.15s;
+  --atomix-transition-duration-base: 0.2s;
+  --atomix-transition-duration-slow: 0.3s;
+  --atomix-transition-duration-slower: 0.5s;
+  --atomix-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --atomix-transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --atomix-transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --atomix-easing-base: cubic-bezier(0.4, 0, 0.2, 1);
+  --atomix-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --atomix-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --atomix-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --atomix-easing-ease-linear: linear;
+
+  // Text Emphasis
+  --atomix-text-primary: #0f172a;
+  --atomix-text-secondary: #475569;
+  --atomix-text-tertiary: #64748b;
+  --atomix-disabled-text-emphasis: #94a3b8;
+
+  // Background Subtle
+  --atomix-tertiary-bg-subtle: #f1f5f9;
+  --atomix-tertiary-text-emphasis: #64748b;
+  --atomix-invert-bg-subtle: #0f172a;
+  --atomix-invert-text-emphasis: #f8fafc;
+
+  // Form Validation
+  --atomix-form-valid-color: #10b981;
+  --atomix-form-valid-border-color: #10b981;
+  --atomix-form-invalid-color: #ef4444;
+  --atomix-form-invalid-border-color: #ef4444;
+
+  // Brand Colors
+  --atomix-brand-bg-subtle: #eef2ff;
+  --atomix-brand-border-subtle: #6366f1;
+  --atomix-brand-text-emphasis: #4f46e5;
+
+  // Light/Dark Base
+  --atomix-light: #ffffff;
+  --atomix-light-rgb: 255, 255, 255;
+  --atomix-light-bg-subtle: #ffffff;
+  --atomix-light-border-subtle: #f1f5f9;
+  --atomix-light-text-emphasis: #ffffff;
+  --atomix-light-hover: #f8fafc;
+  --atomix-light-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+
+  --atomix-dark: #0f172a;
+  --atomix-dark-rgb: 15, 23, 42;
+  --atomix-dark-bg-subtle: #1e293b;
+  --atomix-dark-border-subtle: #334155;
+  --atomix-dark-text-emphasis: #0f172a;
+  --atomix-dark-hover: #1e293b;
+  --atomix-dark-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+
+  // Z-Index
+  --atomix-z-0: 0;
+  --atomix-z-1: 1;
+  --atomix-z-2: 2;
+  --atomix-z-3: 3;
+  --atomix-z-4: 4;
+  --atomix-z-5: 5;
+  --atomix-z-n1: -1;
+  --atomix-z-sticky: 1020;
+  --atomix-z-dropdown: 1000;
+  --atomix-z-fixed: 1030;
+  --atomix-z-modal: 1040;
+  --atomix-z-popover: 1050;
+  --atomix-z-tooltip: 1060;
+  --atomix-z-drawer: 1070;
+
+  // Breakpoints
+  --atomix-breakpoint-xs: 0;
+  --atomix-breakpoint-sm: 640px;
+  --atomix-breakpoint-md: 768px;
+  --atomix-breakpoint-lg: 1024px;
+  --atomix-breakpoint-xl: 1280px;
+  --atomix-breakpoint-2xl: 1536px;
+
+  // Display
+  --atomix-display-1: 5rem;
+}
+
+// Dark Theme
+// =============================================================================
+[data-atomix-color-mode="dark"] {
+  // Core Colors
+  --atomix-primary: #818cf8;
+  --atomix-primary-1: #1e293b;
+  --atomix-primary-2: #334155;
+  --atomix-primary-3: #475569;
+  --atomix-primary-4: #64748b;
+  --atomix-primary-5: #818cf8;
+  --atomix-primary-6: #818cf8;
+  --atomix-primary-7: #a5b4fc;
+  --atomix-primary-8: #c7d2fe;
+  --atomix-primary-9: #e0e7ff;
+  --atomix-primary-10: #eef2ff;
+  --atomix-primary-rgb: 129, 140, 248;
+  --atomix-primary-hover: #a5b4fc;
+  --atomix-primary-text-emphasis: #e0e7ff;
+  --atomix-primary-bg-subtle: #1e293b;
+  --atomix-primary-border-subtle: #334155;
+  --atomix-primary-gradient: linear-gradient(135deg, #4338ca 0%, #6366f1 50%, #818cf8 100%);
+
+  // Secondary
+  --atomix-secondary: #1e293b;
+  --atomix-secondary-rgb: 30, 41, 59;
+  --atomix-secondary-hover: #334155;
+  --atomix-secondary-text-emphasis: #cbd5e1;
+  --atomix-secondary-bg-subtle: #1e293b;
+  --atomix-secondary-border-subtle: #334155;
+  --atomix-secondary-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+
+  // Semantic Colors
+  --atomix-success: #34d399;
+  --atomix-success-rgb: 52, 211, 153;
+  --atomix-success-hover: #6ee7b7;
+  --atomix-success-text-emphasis: #34d399;
+  --atomix-success-bg-subtle: #064e3b;
+  --atomix-success-border-subtle: #34d399;
+  --atomix-success-gradient: linear-gradient(135deg, #064e3b 0%, #34d399 50%, #6ee7b7 100%);
+
+  --atomix-error: #f87171;
+  --atomix-error-rgb: 248, 113, 113;
+  --atomix-error-hover: #fca5a5;
+  --atomix-error-text-emphasis: #f87171;
+  --atomix-error-bg-subtle: #7f1d1d;
+  --atomix-error-border-subtle: #f87171;
+  --atomix-error-gradient: linear-gradient(135deg, #7f1d1d 0%, #f87171 50%, #fca5a5 100%);
+
+  --atomix-warning: #fbbf24;
+  --atomix-warning-rgb: 251, 191, 36;
+  --atomix-warning-hover: #fcd34d;
+  --atomix-warning-text-emphasis: #fbbf24;
+  --atomix-warning-bg-subtle: #78350f;
+  --atomix-warning-border-subtle: #fbbf24;
+  --atomix-warning-gradient: linear-gradient(135deg, #78350f 0%, #fbbf24 50%, #fcd34d 100%);
+
+  --atomix-info: #60a5fa;
+  --atomix-info-rgb: 96, 165, 250;
+  --atomix-info-hover: #93c5fd;
+  --atomix-info-text-emphasis: #60a5fa;
+  --atomix-info-bg-subtle: #1e3a8a;
+  --atomix-info-border-subtle: #60a5fa;
+  --atomix-info-gradient: linear-gradient(135deg, #1e3a8a 0%, #60a5fa 50%, #93c5fd 100%);
+
+  // Typography
+  --atomix-body-bg: #0f172a;
+  --atomix-body-color: #e2e8f0;
+  --atomix-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --atomix-body-font-size: 1rem;
+  --atomix-body-font-weight: 400;
+  --atomix-body-line-height: 1.7;
+
+  --atomix-heading-color: #f8fafc;
+  --atomix-link-color: #818cf8;
+  --atomix-link-color-rgb: 129, 140, 248;
+  --atomix-link-hover-color: #a5b4fc;
+  --atomix-link-hover-color-rgb: 165, 180, 252;
+  --atomix-link-decoration: none;
+
+  // Font Sizes (same as light)
+  --atomix-font-size-xs: 0.75rem;
+  --atomix-font-size-sm: 0.875rem;
+  --atomix-font-size-md: 1rem;
+  --atomix-font-size-lg: 1.125rem;
+  --atomix-font-size-xl: 1.25rem;
+  --atomix-font-size-2xl: 1.5rem;
+
+  // Font Weights (same as light)
+  --atomix-font-weight-light: 300;
+  --atomix-font-weight-normal: 400;
+  --atomix-font-weight-medium: 500;
+  --atomix-font-weight-semibold: 600;
+  --atomix-font-weight-bold: 700;
+  --atomix-font-weight-heavy: 800;
+  --atomix-font-weight-black: 900;
+
+  // Line Heights (same as light)
+  --atomix-line-height-base: 1.7;
+  --atomix-line-height-sm: 1.6;
+  --atomix-line-height-lg: 1.8;
+
+  // Letter Spacing (same as light)
+  --atomix-letter-spacing-h1: -0.025em;
+  --atomix-letter-spacing-h2: -0.02em;
+  --atomix-letter-spacing-h3: -0.015em;
+  --atomix-letter-spacing-h4: -0.01em;
+  --atomix-letter-spacing-h5: -0.005em;
+  --atomix-letter-spacing-h6: 0;
+
+  // Font Families (same as light)
+  --atomix-font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --atomix-font-monospace: "JetBrains Mono", "Fira Code", "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  // Spacing (same as light)
+  --atomix-spacing-0: 0rem;
+  --atomix-spacing-1: 0.25rem;
+  --atomix-spacing-2: 0.5rem;
+  --atomix-spacing-3: 0.75rem;
+  --atomix-spacing-4: 1rem;
+  --atomix-spacing-5: 1.25rem;
+  --atomix-spacing-6: 1.5rem;
+  --atomix-spacing-8: 2rem;
+  --atomix-spacing-10: 2.5rem;
+  --atomix-spacing-12: 3rem;
+  --atomix-spacing-16: 4rem;
+  --atomix-spacing-20: 5rem;
+  --atomix-spacing-24: 6rem;
+
+  // Borders
+  --atomix-border-color: #334155;
+  --atomix-border-color-translucent: rgba(129, 140, 248, 0.2);
+  --atomix-border-style: solid;
+  --atomix-border-width: 1px;
+  --atomix-focus-border-color: #818cf8;
+  --atomix-focus-ring-width: 3px;
+  --atomix-focus-ring-offset: 2px;
+  --atomix-focus-ring-opacity: 0.4;
+
+  // Border Radius (same as light)
+  --atomix-border-radius-sm: 0.375rem;
+  --atomix-border-radius: 0.5rem;
+  --atomix-border-radius-md: 0.5rem;
+  --atomix-border-radius-lg: 0.75rem;
+  --atomix-border-radius-xl: 1rem;
+  --atomix-border-radius-2xl: 1.25rem;
+  --atomix-border-radius-3xl: 1.5rem;
+  --atomix-border-radius-4xl: 2rem;
+  --atomix-border-radius-pill: 9999px;
+  --atomix-border-radius-xxl: 1.5rem;
+
+  // Shadows - Dark Mode (softer, more subtle)
+  --atomix-box-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --atomix-box-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+  --atomix-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(129, 140, 248, 0.1);
+  --atomix-box-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --atomix-box-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(129, 140, 248, 0.15);
+  --atomix-box-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(129, 140, 248, 0.2);
+  --atomix-box-shadow-inset: inset 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+
+  // Transitions (same as light)
+  --atomix-transition-duration-fast: 0.15s;
+  --atomix-transition-duration-base: 0.2s;
+  --atomix-transition-duration-slow: 0.3s;
+  --atomix-transition-duration-slower: 0.5s;
+  --atomix-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --atomix-transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --atomix-transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --atomix-easing-base: cubic-bezier(0.4, 0, 0.2, 1);
+  --atomix-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --atomix-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --atomix-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --atomix-easing-ease-linear: linear;
+
+  // Text Emphasis - Dark Mode
+  --atomix-text-primary: #f8fafc;
+  --atomix-text-secondary: #cbd5e1;
+  --atomix-text-tertiary: #94a3b8;
+  --atomix-disabled-text-emphasis: #64748b;
+
+  // Background Subtle Colors - Dark Mode
+  --atomix-tertiary-bg-subtle: #1e293b;
+  --atomix-tertiary-text-emphasis: #94a3b8;
+  --atomix-invert-bg-subtle: #f8fafc;
+  --atomix-invert-text-emphasis: #0f172a;
+
+  // Form Validation (same as light)
+  --atomix-form-valid-color: #34d399;
+  --atomix-form-valid-border-color: #34d399;
+  --atomix-form-invalid-color: #f87171;
+  --atomix-form-invalid-border-color: #f87171;
+
+  // Brand Colors - Dark Mode
+  --atomix-brand-bg-subtle: #1e293b;
+  --atomix-brand-border-subtle: #818cf8;
+  --atomix-brand-text-emphasis: #a5b4fc;
+
+  // Light/Dark Base Colors - Dark Mode
+  --atomix-light: #f8fafc;
+  --atomix-light-rgb: 248, 250, 252;
+  --atomix-light-bg-subtle: #f8fafc;
+  --atomix-light-border-subtle: #f8fafc;
+  --atomix-light-text-emphasis: #f8fafc;
+  --atomix-light-hover: #e2e8f0;
+  --atomix-light-gradient: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+
+  --atomix-dark: #0f172a;
+  --atomix-dark-rgb: 15, 23, 42;
+  --atomix-dark-bg-subtle: #0f172a;
+  --atomix-dark-border-subtle: #1e293b;
+  --atomix-dark-text-emphasis: #0f172a;
+  --atomix-dark-hover: #1e293b;
+  --atomix-dark-gradient: linear-gradient(135deg, #000000 0%, #0f172a 50%, #1e293b 100%);
+
+  // Z-Index (same as light)
+  --atomix-z-0: 0;
+  --atomix-z-1: 1;
+  --atomix-z-2: 2;
+  --atomix-z-3: 3;
+  --atomix-z-4: 4;
+  --atomix-z-5: 5;
+  --atomix-z-n1: -1;
+  --atomix-z-sticky: 1020;
+  --atomix-z-dropdown: 1000;
+  --atomix-z-fixed: 1030;
+  --atomix-z-modal: 1040;
+  --atomix-z-popover: 1050;
+  --atomix-z-tooltip: 1060;
+  --atomix-z-drawer: 1070;
+
+  // Breakpoints (same as light)
+  --atomix-breakpoint-xs: 0;
+  --atomix-breakpoint-sm: 640px;
+  --atomix-breakpoint-md: 768px;
+  --atomix-breakpoint-lg: 1024px;
+  --atomix-breakpoint-xl: 1280px;
+  --atomix-breakpoint-2xl: 1536px;
+
+  // Display (same as light)
+  --atomix-display-1: 5rem;
+
+  // Code Colors - Dark Mode Specific
+  --atomix-code-color: #f87171;
+}

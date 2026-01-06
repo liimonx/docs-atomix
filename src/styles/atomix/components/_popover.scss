@@ -1,0 +1,26 @@
+/**
+ * Popover Component Variable Overrides
+ * 
+ * Modern popover design with generous spacing and elegant appearance.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.popover' with (
+  // Popover Max Width - Better content display
+  $popover-max-width: 320px, // Slightly wider
+
+  // Popover Padding - Generous spacing
+  $popover-padding-x: 1.25rem, // 20px - More horizontal space
+  $popover-padding-y: 1.25rem, // 20px - More vertical space
+
+  // Popover Inner Gap - Better spacing
+  $popover-inner-gap-x: 0.75rem, // 12px - More space between elements
+  $popover-inner-gap-y: 1rem, // 16px - More vertical space
+
+  // Popover Border Radius - Modern, rounded corners
+  $popover-border-radius: 1rem, // Very rounded
+
+  // Popover Arrow - Better visibility
+  $popover-arrow-size: 0.75rem, // 12px - Standard size
+  $popover-arrow-offset: 8px, // Slightly more offset
+);
+

@@ -1,0 +1,23 @@
+/**
+ * DataTable Component Variable Overrides
+ * 
+ * Modern data table design with comfortable spacing and clear hierarchy.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.data-table' with (
+  // DataTable Border Radius - Modern, rounded corners
+  $data-table-border-radius: 0.75rem, // More rounded
+
+  // DataTable Header - Clear typography
+  $data-table-header-font-weight: 600, // Semibold - More prominent
+
+  // DataTable Cell Padding - Comfortable spacing
+  $data-table-cell-padding-y: 1rem, // 16px - More vertical space
+  $data-table-cell-padding-x: 1.25rem, // 20px - More horizontal space
+  $data-table-cell-padding-y-sm: 0.75rem, // 12px - Small size
+  $data-table-cell-padding-x-sm: 1rem, // 16px - Small size
+
+  // DataTable Pagination - Comfortable spacing
+  $data-table-pagination-padding-y: 0.75rem, // 12px - More vertical space
+  $data-table-pagination-padding-x: 1rem, // 16px - More horizontal space
+);

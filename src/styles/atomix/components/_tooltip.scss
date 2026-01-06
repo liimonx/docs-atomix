@@ -1,0 +1,25 @@
+/**
+ * Tooltip Component Variable Overrides
+ * 
+ * Modern tooltip design with comfortable spacing and clear typography.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.tooltip' with (
+  // Tooltip Max Width - Better readability
+  $tooltip-max-width: 280px, // Slightly wider for better text display
+
+  // Tooltip Padding - Comfortable spacing
+  $tooltip-padding-x: 0.75rem, // 12px - More horizontal space
+  $tooltip-padding-y: 0.5rem, // 8px - More vertical space
+
+  // Tooltip Typography - Better readability
+  $tooltip-font-size: 0.75rem, // 12px - Standard size
+  $tooltip-font-weight: 400, // Normal weight
+
+  // Tooltip Border Radius - Modern, rounded corners
+  $tooltip-border-radius: 0.5rem, // More rounded
+
+  // Tooltip Arrow - Better visibility
+  $tooltip-arrow-size: 0.75rem, // 12px - Standard size
+);
+

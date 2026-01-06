@@ -1,0 +1,27 @@
+/**
+ * Badge Component Variable Overrides
+ * 
+ * Modern badge design with balanced spacing and typography.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.badge' with (
+  // Badge Typography - Clear, readable
+  $badge-font-size: 0.75rem, // 12px
+  $badge-font-weight: 500, // Medium - Slightly bolder for visibility
+
+  // Badge Padding - Balanced horizontal and vertical spacing
+  $badge-padding-x: 0.75rem, // 12px - More generous
+  $badge-padding-y: 0.25rem, // 4px
+  $badge-padding-y-sm: 0.25rem, // 4px
+  $badge-padding-y-lg: 0.5rem, // 8px
+
+  // Badge Border Radius - Fully rounded for modern look
+  $badge-border-radius: 9999px, // Pill shape
+
+  // Badge Icon - Proportional sizing
+  $badge-icon-size: 1rem, // 16px
+
+  // Badge Inner Items Gap - Comfortable spacing between icon and text
+  $badge-inner-items-gap: 0.5rem, // 8px - More space
+);
+

@@ -1,0 +1,6 @@
+@use "../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.background" with (
+    $background-enable-gradient-overlay: true,
+    $background-transparency-enable: true,
+    $background-enable-with-shadow: true,
+    $background-transparency: 0.5,
+);

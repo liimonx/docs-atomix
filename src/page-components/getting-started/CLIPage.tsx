@@ -716,7 +716,7 @@ npx atomix tokens validate`}
                   icon={<Icon name="BookOpen" size={16} />}
                   label="View Full Documentation"
                   href="/docs/getting-started/installation"
-                  linkComponent={Link}
+                  LinkComponent={Link}
                 />
                 <Button
                   variant="outline-primary"

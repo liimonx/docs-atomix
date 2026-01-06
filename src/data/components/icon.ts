@@ -82,7 +82,7 @@ function BasicIcons() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Icon Sizes',
@@ -99,7 +99,7 @@ function BasicIcons() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Icon Weights',
@@ -116,7 +116,7 @@ function BasicIcons() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Colored Icons',
@@ -134,7 +134,7 @@ function BasicIcons() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Interactive Icons',
@@ -160,7 +160,7 @@ function InteractiveIcons() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Icons in Buttons',
@@ -189,7 +189,7 @@ function IconsInButtons() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

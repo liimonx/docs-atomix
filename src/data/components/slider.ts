@@ -184,7 +184,7 @@ function MyComponent() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Multiple Slides Per View',
@@ -205,7 +205,7 @@ function MyComponent() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Transition Effects',
@@ -246,7 +246,7 @@ function MyComponent() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Slider with Thumbnails',
@@ -266,7 +266,7 @@ function MyComponent() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

@@ -169,7 +169,7 @@ function BasicHero() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Hero with Background Image',
@@ -186,7 +186,7 @@ function BasicHero() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Hero with Video Background',
@@ -208,7 +208,7 @@ function BasicHero() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Hero with Background Slider',
@@ -234,7 +234,7 @@ function BasicHero() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Hero with Parallax',
@@ -251,7 +251,7 @@ function BasicHero() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

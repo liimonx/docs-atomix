@@ -66,7 +66,7 @@ const CallToActionSectionDocumentation: FC = () => {
                 <Button 
                   variant="primary"
                   href="/docs/getting-started/installation"
-                  linkComponent={Link}
+                  LinkComponent={Link}
                 >
                   View Installation Guide
                   <Icon name="ArrowRight" size={16} className="u-ms-2" />

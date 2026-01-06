@@ -149,7 +149,7 @@ function ChatInterface() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Messages with Images',
@@ -182,7 +182,7 @@ function ChatInterface() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Messages with File Attachments',
@@ -211,7 +211,7 @@ function ChatInterface() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Custom Sized Messages',
@@ -229,7 +229,7 @@ function ChatInterface() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

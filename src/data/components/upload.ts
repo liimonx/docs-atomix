@@ -159,7 +159,7 @@ function FileUploadForm() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Multiple File Upload',
@@ -181,7 +181,7 @@ function FileUploadForm() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Custom File Types',
@@ -202,7 +202,7 @@ function FileUploadForm() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Image Upload Only',
@@ -218,7 +218,7 @@ function FileUploadForm() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

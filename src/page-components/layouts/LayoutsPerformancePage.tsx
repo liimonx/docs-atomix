@@ -115,7 +115,7 @@ const LayoutsPerformancePage: FC = () => {
               icon={<Icon name="GridFour" />}
               label="Grid System"
               href="/docs/layouts/grid"
-              linkComponent={Link}
+              LinkComponent={Link}
             />
             <Button
               glass
@@ -123,7 +123,7 @@ const LayoutsPerformancePage: FC = () => {
               label="Customization"
               icon={<Icon name="Gear" />}
               href="/docs/layouts/customization"
-              linkComponent={Link}
+              LinkComponent={Link}
             />
           </div>
         }

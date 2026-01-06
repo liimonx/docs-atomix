@@ -37,14 +37,14 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
   }, []);
 
   // Find navigation item for the component
-  const navigationItem = useMemo(() => 
+  const navigationItem = useMemo(() =>
     componentId ? findNavigationItem(componentId) : null,
-  [componentId]);
+    [componentId]);
 
   // Get component documentation directly (no loading state needed)
-  const componentData = useMemo(() => 
+  const componentData = useMemo(() =>
     getComponentDocumentation(componentId || ""),
-  [componentId]);
+    [componentId]);
 
   const componentDoc: ComponentDocumentation = useMemo(() => {
     const fallback = {
@@ -124,9 +124,9 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
         wcagLevel: "AA" as const,
       },
     };
-    
+
     if (!componentData) return fallback;
-    
+
     // Ensure all arrays exist
     return {
       ...componentData,
@@ -169,208 +169,208 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
   // Memoize tab items to prevent unnecessary re-renders
   const tabItems = useMemo(() => {
     const items = [
-    {
-      label: "Overview",
-      content: (
-        <div>
-          <Grid>
-            <GridCol md={8}>
-              <Card>
-                <h3 className="u-fs-xl u-fw-bold u-mb-4">
-                  <Icon name="Sparkle" /> Features
-                </h3>
-                <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-wrap u-gap-2">
-                  {(componentDoc.features || []).map((feature, index) => (
-                    <li
-                      key={index}
-                      className="u-d-flex u-align-items-start u-gap-4"
-                    >
-                      {feature.supported ? (
-                        <>
-                          <Icon name="CheckCircle" />
-                          <div className="u-flex-grow-1">
-                            <div className="u-fw-semibold u-text-brand-emphasis u-mb-1">
-                              {feature.title}
+      {
+        label: "Overview",
+        content: (
+          <div>
+            <Grid>
+              <GridCol md={8}>
+                <Card>
+                  <h3 className="u-fs-xl u-fw-bold u-mb-4">
+                    <Icon name="Sparkle" /> Features
+                  </h3>
+                  <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-wrap u-gap-2">
+                    {(componentDoc.features || []).map((feature, index) => (
+                      <li
+                        key={index}
+                        className="u-d-flex u-align-items-start u-gap-4"
+                      >
+                        {feature.supported ? (
+                          <>
+                            <Icon name="CheckCircle" />
+                            <div className="u-flex-grow-1">
+                              <div className="u-fw-semibold u-text-brand-emphasis u-mb-1">
+                                {feature.title}
+                              </div>
+                              <p className="u-text-secondary-emphasis u-fs-sm u-m-0">
+                                {feature.description}
+                              </p>
                             </div>
-                            <p className="u-text-secondary-emphasis u-fs-sm u-m-0">
-                              {feature.description}
-                            </p>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <Icon name="Warning" />
-                          <div className="u-flex-grow-1">
-                            <div className="u-fw-semibold u-text-brand-emphasis u-mb-1">
-                              {feature.title}
+                          </>
+                        ) : (
+                          <>
+                            <Icon name="Warning" />
+                            <div className="u-flex-grow-1">
+                              <div className="u-fw-semibold u-text-brand-emphasis u-mb-1">
+                                {feature.title}
+                              </div>
+                              <p className="u-text-secondary-emphasis u-fs-sm u-m-0">
+                                {feature.description}
+                              </p>
                             </div>
-                            <p className="u-text-secondary-emphasis u-fs-sm u-m-0">
-                              {feature.description}
-                            </p>
-                          </div>
-                        </>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-
-              <Card className="u-mt-4">
-                <h3 className="u-fs-xl u-fw-bold u-mb-4">
-                  <Icon name="Package" /> Installation
-                </h3>
-                <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
-                  <pre
-                    className="u-m-0 u-fs-sm"
-                    style={{ fontFamily: "var(--atomix-font-family-mono)" }}
-                  >
-                    <code>npm install @shohojdhara/atomix</code>
-                  </pre>
+                          </>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
                 </Card>
-              </Card>
 
-              <Card className="u-mt-4">
-                <h3 className="u-fs-xl u-fw-bold u-mb-4">
-                  <Icon name="Rocket" /> Basic Usage
-                </h3>
-                <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
-                  <pre
-                    className="u-m-0 u-fs-sm"
-                    style={{ fontFamily: "var(--atomix-font-family-mono)" }}
-                  >
-                    <code>{`import { ${componentDoc.name} } from '${componentDoc.importPath}';
+                <Card className="u-mt-4">
+                  <h3 className="u-fs-xl u-fw-bold u-mb-4">
+                    <Icon name="Package" /> Installation
+                  </h3>
+                  <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
+                    <pre
+                      className="u-m-0 u-fs-sm"
+                      style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                    >
+                      <code>npm install @shohojdhara/atomix</code>
+                    </pre>
+                  </Card>
+                </Card>
+
+                <Card className="u-mt-4">
+                  <h3 className="u-fs-xl u-fw-bold u-mb-4">
+                    <Icon name="Rocket" /> Basic Usage
+                  </h3>
+                  <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
+                    <pre
+                      className="u-m-0 u-fs-sm"
+                      style={{ fontFamily: "var(--atomix-font-family-mono)" }}
+                    >
+                      <code>{`import { ${componentDoc.name} } from '${componentDoc.importPath}';
 
 // Example usage
 <${componentDoc.name} />
 `}</code>
-                  </pre>
+                    </pre>
+                  </Card>
                 </Card>
-              </Card>
 
-              <Callout variant="info" className="u-mt-4">
-                <h4 className="u-fs-lg u-fw-semibold u-mb-2">
-                  <Icon name="Lightbulb" /> Quick Tip
-                </h4>
-                <p className="u-mb-0">
-                  Check out the Examples tab for more detailed usage patterns
-                  and the Props tab for a complete API reference.
-                </p>
-              </Callout>
-            </GridCol>
+                <Callout variant="info" className="u-mt-4">
+                  <h4 className="u-fs-lg u-fw-semibold u-mb-2">
+                    <Icon name="Lightbulb" /> Quick Tip
+                  </h4>
+                  <p className="u-mb-0">
+                    Check out the Examples tab for more detailed usage patterns
+                    and the Props tab for a complete API reference.
+                  </p>
+                </Callout>
+              </GridCol>
 
-            <GridCol md={4}>
-              <div className="u-d-flex u-flex-column u-gap-4">
-                <Card>
-                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">
-                    <Icon name="Book" /> Dependencies
-                  </h3>
-                  {(componentDoc.dependencies || []).length > 0 ? (
-                    <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
-                      {(componentDoc.dependencies || []).map((dep, index) => (
-                        <li key={index}>
-                          <Badge variant="warning" label={dep as string} />
-                        </li>
+              <GridCol md={4}>
+                <div className="u-d-flex u-flex-column u-gap-4">
+                  <Card>
+                    <h3 className="u-fs-lg u-fw-semibold u-mb-4">
+                      <Icon name="Book" /> Dependencies
+                    </h3>
+                    {(componentDoc.dependencies || []).length > 0 ? (
+                      <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
+                        {(componentDoc.dependencies || []).map((dep, index) => (
+                          <li key={index}>
+                            <Badge variant="warning" label={dep as string} />
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="u-text-secondary-emphasis u-fs-sm u-font-style-italic u-m-0">
+                        No external dependencies
+                      </p>
+                    )}
+                  </Card>
+
+                  <Card>
+                    <h3 className="u-fs-lg u-fw-semibold u-mb-4">
+                      <Icon name="Tag" /> Tags
+                    </h3>
+                    <div className="u-d-flex u-flex-wrap u-gap-2">
+                      {(componentDoc.tags || []).map((tag, index) => (
+                        <Badge
+                          key={index}
+                          variant="secondary"
+                          size="sm"
+                          label={tag as string}
+                        />
                       ))}
-                    </ul>
-                  ) : (
-                    <p className="u-text-secondary-emphasis u-fs-sm u-font-style-italic u-m-0">
-                      No external dependencies
-                    </p>
-                  )}
-                </Card>
+                    </div>
+                  </Card>
 
-                <Card>
-                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">
-                    <Icon name="Tag" /> Tags
-                  </h3>
-                  <div className="u-d-flex u-flex-wrap u-gap-2">
-                    {(componentDoc.tags || []).map((tag, index) => (
-                      <Badge
-                        key={index}
-                        variant="secondary"
+                  <Card>
+                    <h3 className="u-fs-lg u-fw-semibold u-mb-4">
+                      <Icon name="Link" /> Quick Links
+                    </h3>
+                    <div className="u-d-flex u-flex-column u-gap-2">
+                      <Button
+                        variant="outline-secondary"
                         size="sm"
-                        label={tag as string}
-                      />
-                    ))}
-                  </div>
-                </Card>
+                        onClick={() =>
+                          window.open(
+                            `https://github.com/shohojdhara/atomix/tree/main/src/components/${componentDoc.name}`,
+                            "_blank"
+                          )
+                        }
+                        className="u-w-100 u-justify-content-start"
+                      >
+                        <Icon name="GithubLogo" />
+                        Source Code
+                      </Button>
+                      <Button
+                        variant="outline-secondary"
+                        size="sm"
+                        onClick={() =>
+                          window.open(
+                            `https://atomix-storybook.netlify.app/?path=/story/components-${componentId}`,
+                            "_blank"
+                          )
+                        }
+                        className="u-w-100 u-justify-content-start"
+                      >
+                        <Icon name="BookOpen" />
+                        Storybook
+                      </Button>
+                    </div>
+                  </Card>
+                </div>
+              </GridCol>
+            </Grid>
+          </div>
+        ),
+      },
+      {
+        label: "Examples",
+        content: (() => {
+          // Create a wrapper function that matches the expected signature
+          const handleCopy = (code: string, exampleId: string) => {
+            copyToClipboard(code, exampleId);
+          };
 
-                <Card>
-                  <h3 className="u-fs-lg u-fw-semibold u-mb-4">
-                    <Icon name="Link" /> Quick Links
-                  </h3>
-                  <div className="u-d-flex u-flex-column u-gap-2">
-                    <Button
-                      variant="outline-secondary"
-                      size="sm"
-                      onClick={() =>
-                        window.open(
-                          `https://github.com/shohojdhara/atomix/tree/main/src/components/${componentDoc.name}`,
-                          "_blank"
-                        )
-                      }
-                      className="u-w-100 u-justify-content-start"
-                    >
-                      <Icon name="GithubLogo" />
-                      Source Code
-                    </Button>
-                    <Button
-                      variant="outline-secondary"
-                      size="sm"
-                      onClick={() =>
-                        window.open(
-                          `https://atomix-storybook.netlify.app/?path=/story/components-${componentId}`,
-                          "_blank"
-                        )
-                      }
-                      className="u-w-100 u-justify-content-start"
-                    >
-                      <Icon name="BookOpen" />
-                      Storybook
-                    </Button>
-                  </div>
-                </Card>
-              </div>
-            </GridCol>
-          </Grid>
-        </div>
-      ),
-    },
-    {
-      label: "Examples",
-      content: (() => {
-        // Create a wrapper function that matches the expected signature
-        const handleCopy = (code: string, exampleId: string) => {
-          copyToClipboard(code, exampleId);
-        };
+          return (
+            <ComponentExamples
+              examples={componentDoc.examples || []}
+              onCopy={handleCopy}
+              copiedCode={copiedCode}
+            />
+          );
+        })(),
+      },
+      {
+        label: "Props",
+        content: <ComponentProps props={componentDoc.props || []} />,
+      },
+      {
+        label: "Accessibility",
+        content: (
+          <ComponentAccessibility accessibility={componentDoc.accessibility || {
+            overview: "Accessibility information not available",
+            guidelines: [],
+            wcagLevel: "AA" as const,
+            keyboardSupport: [],
+            ariaAttributes: []
+          }} />
+        ),
+      },
+    ];
 
-        return (
-          <ComponentExamples
-            examples={componentDoc.examples || []}
-            onCopy={handleCopy}
-            copiedCode={copiedCode}
-          />
-        );
-      })(),
-    },
-    {
-      label: "Props",
-      content: <ComponentProps props={componentDoc.props || []} />,
-    },
-    {
-      label: "Accessibility",
-      content: (
-        <ComponentAccessibility accessibility={componentDoc.accessibility || {
-          overview: "Accessibility information not available",
-          guidelines: [],
-          wcagLevel: "AA" as const,
-          keyboardSupport: [],
-          ariaAttributes: []
-        }} />
-      ),
-    },
-  ];
-    
     // Ensure all items have required properties
     return items.filter(item => item && item.label && item.content);
   }, [componentDoc, copiedCode, copyToClipboard, componentId]);
@@ -379,20 +379,20 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
   if (!isMounted) {
     return <div>Loading...</div>;
   }
-  
+
   return (
     <div className="u-min-h-screen u-pb-xl">
       <Hero
         glass={
           isMounted
             ? ({
-                displacementScale: 30,
-                blurAmount: 5,
-                elasticity: 0,
-                enableLiquidBlur: true,
-                padding: "20px",
-                cornerRadius: 30,
-              } as GlassProps)
+              displacementScale: 30,
+              blurAmount: 5,
+              elasticity: 0,
+              enableLiquidBlur: true,
+              padding: "20px",
+              cornerRadius: 30,
+            } as GlassProps)
             : undefined
         }
         className={styles.pageHero}

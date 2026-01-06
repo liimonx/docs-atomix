@@ -1,0 +1,32 @@
+/**
+ * Card Component Variable Overrides
+ * 
+ * Modern card design with generous spacing, elegant typography, and smooth interactions.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.card' with (
+  // Card Spacing - Generous, breathable layout
+  $card-spacer-y: 1.25rem, // 20px - More vertical space
+  $card-spacer-x: 1.25rem, // 20px - More horizontal space
+  $card-row-spacer-y: 1rem, // 16px
+  $card-row-spacer-x: 1rem, // 16px
+  $card-title-spacer-y: 0.5rem, // 8px - Better title spacing
+  $card-action-spacer-y: 1rem, // 16px - More action spacing
+  $card-header-spacer-y: 1rem, // 16px - Better header spacing
+
+  // Card Typography - Clear hierarchy
+  $card-title-font-size: 1.125rem, // 18px - More prominent titles
+  $card-text-font-size: 1rem, // 16px - Better readability
+
+  // Card Border Radius - Modern, rounded corners
+  $card-border-radius: var(--a-border-radius-xl), // 1rem - Very rounded
+  $card-image-border-radius: var(--a-border-radius-lg), // 0.75rem
+
+  // Card Icon - Balanced sizing
+  $card-icon-size: 1.5rem, // 24px - More prominent
+  $card-icon-padding: 0.75rem, // 12px - Better padding
+
+  // Card Hover - Enable smooth hover effects
+  $card-hover: false, // Enable hover state for interactive cards
+);
+

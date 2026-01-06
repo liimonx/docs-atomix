@@ -73,7 +73,7 @@ export const tooltipMetadata = {
       code: `<Tooltip content="This is a tooltip">
   <Button>Hover me</Button>
 </Tooltip>`,
-      preview: null
+      preview: true
     },
     {
       title: 'Tooltip Placements',
@@ -90,7 +90,7 @@ export const tooltipMetadata = {
 <Tooltip content="Right tooltip" placement="right">
   <Button>Right</Button>
 </Tooltip>`,
-      preview: null
+      preview: true
     },
     {
       title: 'Rich Content Tooltip',
@@ -105,7 +105,7 @@ export const tooltipMetadata = {
 >
   <Button>Hover for details</Button>
 </Tooltip>`,
-      preview: null
+      preview: true
     },
     {
       title: 'Focus Trigger',
@@ -116,7 +116,7 @@ export const tooltipMetadata = {
 >
   <Input placeholder="Focus me" />
 </Tooltip>`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Icon',
@@ -124,7 +124,7 @@ export const tooltipMetadata = {
       code: `<Tooltip content="Delete item">
   <Button icon={<Icon name="Trash" />} variant="ghost" />
 </Tooltip>`,
-      preview: null
+      preview: true
     },
     {
       title: 'Custom Delay',
@@ -135,7 +135,7 @@ export const tooltipMetadata = {
 >
   <Button>Hover me</Button>
 </Tooltip>`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

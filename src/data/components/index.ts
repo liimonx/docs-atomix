@@ -1,5 +1,6 @@
 // Component metadata index
 import { buttonMetadata } from './Button';
+import { buttonGroupMetadata } from './ButtonGroup';
 import { badgeMetadata } from './Badge';
 import { cardMetadata } from './Card';
 import { accordionMetadata } from './Accordion';
@@ -22,7 +23,7 @@ import { popoverMetadata } from './Popover';
 import { ratingMetadata } from './Rating';
 import { paginationMetadata } from './Pagination';
 import { stepsMetadata } from './Steps';
-import { sliderMetadata } from './Slider';
+import { sliderMetadata } from './slider';
 import { listMetadata } from './List';
 import { calloutMetadata } from './Callout';
 import { heroMetadata } from './Hero';
@@ -52,6 +53,7 @@ import { virtualizedGridMetadata } from './VirtualizedGrid';
 
 export {
   buttonMetadata,
+  buttonGroupMetadata,
   badgeMetadata,
   cardMetadata,
   accordionMetadata,
@@ -105,6 +107,7 @@ export {
 
 export const componentMetadata = [
   buttonMetadata,
+  buttonGroupMetadata,
   badgeMetadata,
   cardMetadata,
   accordionMetadata,

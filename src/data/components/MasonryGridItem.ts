@@ -51,7 +51,7 @@ function BasicMasonryGridItem() {
     </MasonryGrid>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'MasonryGridItem with Card',
@@ -70,7 +70,7 @@ function ItemWithCard() {
     </MasonryGrid>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

@@ -155,7 +155,7 @@ function RadioGroup() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Horizontal Layout',
@@ -189,7 +189,7 @@ function RadioGroup() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Descriptions',
@@ -230,7 +230,7 @@ function RadioGroup() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Disabled Options',
@@ -265,7 +265,7 @@ function RadioGroup() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Validation States',
@@ -307,7 +307,48 @@ function RadioGroup() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'Glass Effect',
+      description: 'Radio group with glass morphism effect',
+      code: `import { Radio } from '@shohojdhara/atomix';
+import { useState } from 'react';
+
+function GlassRadioGroup() {
+  const [selected, setSelected] = useState('option1');
+
+  return (
+    <div
+      style={{
+        background: 'url(https://example.com/background.jpg)',
+        padding: '2rem',
+        borderRadius: '12px',
+        backgroundSize: 'cover',
+      }}
+    >
+      <div className="u-gap-3">
+        <Radio
+          name="glass-choice"
+          label="Option 1"
+          value="option1"
+          checked={selected === 'option1'}
+          onChange={(e) => setSelected(e.target.value)}
+          glass={true}
+        />
+        <Radio
+          name="glass-choice"
+          label="Option 2"
+          value="option2"
+          checked={selected === 'option2'}
+          onChange={(e) => setSelected(e.target.value)}
+          glass={true}
+        />
+      </div>
+    </div>
+  );
+}`,
+      preview: true
     }
   ],
   accessibility: {

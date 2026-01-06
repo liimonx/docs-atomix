@@ -137,7 +137,7 @@ function BasicPopover() {
     </Popover>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Hover Triggered Popover',
@@ -154,7 +154,7 @@ function BasicPopover() {
     </Popover>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Different Positions',
@@ -186,7 +186,7 @@ function BasicPopover() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Controlled Popover',
@@ -212,7 +212,7 @@ function ControlledPopover() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

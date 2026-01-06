@@ -52,7 +52,7 @@ function BasicContainer() {
     </Container>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Container Types',
@@ -78,7 +78,7 @@ function BasicContainer() {
     </>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Container with Grid',
@@ -99,7 +99,7 @@ function ContainerWithGrid() {
     </Container>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

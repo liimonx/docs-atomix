@@ -1,0 +1,31 @@
+/**
+ * Select Component Variable Overrides
+ * 
+ * Modern select design with comfortable spacing and clear visual hierarchy.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.select' with (
+  // Select Base Styles - Comfortable spacing
+  $select-padding-x: 1rem, // 16px - More horizontal space
+  $select-padding-y: 1rem, // 16px - More vertical space
+  $select-font-size: 1rem, // 16px - Better readability
+  $select-font-size-lg: 1.125rem, // 18px
+
+  // Select Icon - Better visibility
+  $select-icon-toggle-size: 1.25rem, // 20px
+  $select-dropdown-icon-size: 1.5rem, // 24px
+
+  // Select Border Radius - Modern, rounded corners
+  $select-border-radius: 0.75rem, // More rounded
+
+  // Select Panel - Generous spacing
+  $select-panel-padding-x: 0.75rem, // 12px
+  $select-panel-padding-y: 0.75rem, // 12px
+  $select-panel-spacer-y: 0.5rem, // 8px
+
+  // Select Item - Comfortable padding
+  $select-item-padding-x: 0.75rem, // 12px
+  $select-item-padding-y: 0.75rem, // 12px
+  $select-item-border-radius: 0.5rem, // Rounded items
+);
+

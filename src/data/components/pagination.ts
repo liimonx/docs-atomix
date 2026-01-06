@@ -107,7 +107,7 @@ function BasicPagination() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Pagination Sizes',
@@ -150,7 +150,7 @@ function BasicPagination() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Custom Sibling Count',
@@ -193,7 +193,7 @@ function BasicPagination() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Without First/Last Buttons',
@@ -211,7 +211,7 @@ function BasicPagination() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

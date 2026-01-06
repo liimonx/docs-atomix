@@ -1,0 +1,37 @@
+/**
+ * DatePicker Component Variable Overrides
+ * 
+ * Modern datepicker design with comfortable spacing and clear typography.
+ * Note: Using px units to match the original datepicker calculation requirements.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.datepicker' with (
+  // DatePicker Padding - Comfortable spacing (using px for calculation compatibility)
+  $datepicker-padding-x: 16px, // More horizontal space
+  $datepicker-padding-y: 16px, // More vertical space
+
+  // DatePicker Border Radius - Modern, rounded corners
+  $datepicker-border-radius: 1rem, // Very rounded
+
+  // DatePicker Body Padding - Better spacing (using px for calculation compatibility)
+  $datepicker-body-padding-x: 8px, // More spacing
+  $datepicker-body-padding-y: 8px, // More spacing
+
+  // DatePicker Month/Year Typography - Clear hierarchy
+  $datepicker-month-font-size: 0.875rem, // 14px - Better readability
+  $datepicker-month-font-weight: 600, // Semibold
+  $datepicker-year-font-size: 0.875rem, // 14px
+  $datepicker-year-font-weight: 600, // Semibold
+
+  // DatePicker Week Typography - Better readability (using px for calculation compatibility)
+  $datepicker-week-font-size: 0.75rem, // 12px
+  $datepicker-week-width: 44px, // Slightly larger - must use px for width calculation
+  $datepicker-week-height: 44px, // Slightly larger
+
+  // DatePicker Day - Better touch targets (using px for calculation compatibility)
+  $datepicker-day-font-size: 0.875rem, // 14px - Better readability
+  $datepicker-day-width: 44px, // Slightly larger for better touch targets - must use px
+  $datepicker-day-height: 44px, // Slightly larger
+  $datepicker-day-border-radius: 9999px, // Fully rounded
+);
+

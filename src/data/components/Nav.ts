@@ -67,7 +67,7 @@ function BasicNav() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Nav with Alignment',
@@ -81,7 +81,7 @@ function BasicNav() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Vertical Nav',
@@ -95,7 +95,7 @@ function BasicNav() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Nav with Dropdown',
@@ -113,7 +113,7 @@ function NavWithDropdown() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

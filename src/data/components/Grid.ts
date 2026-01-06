@@ -68,7 +68,7 @@ function BasicGrid() {
     </Grid>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Responsive Grid',
@@ -91,7 +91,7 @@ function BasicGrid() {
     </Grid>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Grid with Gap',
@@ -111,7 +111,7 @@ function BasicGrid() {
     </Grid>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

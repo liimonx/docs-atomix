@@ -65,7 +65,7 @@ function BasicSectionIntro() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Badge',
@@ -81,7 +81,7 @@ function SectionIntroWithBadge() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Centered Alignment',
@@ -95,7 +95,7 @@ function SectionIntroWithBadge() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

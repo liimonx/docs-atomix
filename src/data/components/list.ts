@@ -90,7 +90,7 @@ function BasicLists() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'List Variants',
@@ -122,7 +122,7 @@ function BasicLists() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Ordered Lists',
@@ -135,7 +135,7 @@ function BasicLists() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Inline Lists',
@@ -148,7 +148,7 @@ function BasicLists() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

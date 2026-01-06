@@ -1,0 +1,19 @@
+/**
+ * Avatar Component Variable Overrides
+ * 
+ * Modern avatar design with balanced sizing.
+ */
+
+@use 'sass:map';
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.avatar' with (
+  // Avatar Sizes - Better proportions
+  $avatar-size: (
+    xs: 28px, // Slightly larger
+    sm: 36px, // Slightly larger
+    md: 44px, // Slightly larger
+    lg: 52px, // Slightly larger
+    xl: 64px, // Slightly larger
+  ),
+);
+

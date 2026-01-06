@@ -71,7 +71,7 @@ function BasicRow() {
     </Row>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Row with Alignment',
@@ -88,7 +88,7 @@ function BasicRow() {
     </Row>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Row with Gap',
@@ -108,7 +108,7 @@ function BasicRow() {
     </Row>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

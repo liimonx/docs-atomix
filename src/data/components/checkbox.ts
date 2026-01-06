@@ -142,7 +142,7 @@ function BasicCheckbox() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Checkbox Group',
@@ -182,7 +182,7 @@ function BasicCheckbox() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Indeterminate State',
@@ -239,7 +239,7 @@ function BasicCheckbox() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Description',
@@ -260,7 +260,33 @@ function BasicCheckbox() {
     />
   );
 }`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'Disabled State',
+      description: 'Checkboxes in disabled states',
+      code: `import { Checkbox } from '@shohojdhara/atomix';
+
+function DisabledCheckbox() {
+  return (
+    <div className="u-gap-3">
+      <Checkbox
+        label="Enabled checkbox"
+        checked={true}
+      />
+      <Checkbox
+        label="Disabled unchecked"
+        disabled
+      />
+      <Checkbox
+        label="Disabled checked"
+        checked={true}
+        disabled
+      />
+    </div>
+  );
+}`,
+      preview: true
     },
     {
       title: 'Validation States',
@@ -291,7 +317,31 @@ function BasicCheckbox() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'Glass Effect',
+      description: 'Checkbox with glass morphism effect',
+      code: `import { Checkbox } from '@shohojdhara/atomix';
+
+function GlassCheckbox() {
+  return (
+    <div
+      style={{
+        background: 'url(https://example.com/background.jpg)',
+        padding: '2rem',
+        borderRadius: '12px',
+        backgroundSize: 'cover',
+      }}
+    >
+      <Checkbox
+        label="Glass effect checkbox"
+        glass={true}
+      />
+    </div>
+  );
+}`,
+      preview: true
     }
   ],
   accessibility: {

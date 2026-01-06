@@ -1,0 +1,28 @@
+/**
+ * Slider Component Variable Overrides
+ * 
+ * Modern slider design with smooth interactions.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.slider' with (
+  // Slider Speed - Smooth, modern transitions
+  $slider-speed: 300ms, // Smooth transitions
+  $slider-easing: cubic-bezier(0.23, 1, 0.32, 1), // Modern easing
+
+  // Slider Navigation - Better visibility
+  $slider-nav-size: 48px, // Larger navigation buttons
+  $slider-nav-size-mobile: 40px, // Mobile size
+  $slider-nav-offset: 1rem, // 16px offset
+  $slider-nav-offset-mobile: 0.75rem, // 12px mobile offset
+  $slider-nav-border-radius: 9999px, // Fully rounded
+
+  // Slider Pagination - Better spacing
+  $slider-pagination-offset: 1rem, // 16px offset
+  $slider-pagination-offset-mobile: 0.75rem, // 12px mobile offset
+  $slider-pagination-bullet-size: 10px, // Slightly larger bullets
+  $slider-pagination-bullet-gap: 0.5rem, // 8px gap between bullets
+
+  // Slider Content - Generous padding
+  $slider-content-padding: 1.25rem, // 20px - More padding
+);
+

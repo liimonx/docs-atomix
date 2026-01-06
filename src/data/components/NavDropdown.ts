@@ -77,7 +77,7 @@ function BasicNavDropdown() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'NavDropdown with Icon',
@@ -97,7 +97,7 @@ function NavDropdownWithIcon() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Hover Trigger NavDropdown',
@@ -112,7 +112,7 @@ function NavDropdownWithIcon() {
     </Nav>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

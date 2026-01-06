@@ -84,7 +84,7 @@ function BasicRiver() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Centered River',
@@ -99,7 +99,7 @@ function BasicRiver() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'River with Custom Width',
@@ -115,7 +115,7 @@ function BasicRiver() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'River with Glass Effect',
@@ -131,7 +131,7 @@ function BasicRiver() {
     />
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

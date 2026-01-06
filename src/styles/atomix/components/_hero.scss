@@ -1,0 +1,25 @@
+/**
+ * Hero Component Variable Overrides
+ * 
+ * Modern hero design with impactful typography and generous spacing.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.hero' with (
+  // Hero Padding - Generous vertical spacing
+  $hero-padding-y: 3rem, // 48px - More vertical space
+  $hero-spacer-y: 5rem, // 80px - More spacing between elements
+
+  // Hero Typography - Impactful, clear hierarchy
+  $hero-title-font-size: 3rem, // Large, impactful
+  $hero-subtitle-font-size: 1.125rem, // 18px - More prominent subtitle
+  $hero-text-font-size: 1rem, // 16px
+  $hero-title-font-weight: 700, // Bold, impactful
+  $hero-subtitle-font-weight: 500, // Medium weight
+
+  // Hero Spacing - Clear visual separation
+  $hero-subtitle-margin-bottom: 1rem, // 16px - Better spacing
+  $hero-text-margin-top: 1rem, // 16px - Better spacing
+  $hero-actions-margin-top: 2rem, // 32px - More space before actions
+  $hero-actions-inner-gap: 1rem, // 16px - More space between action buttons
+);
+

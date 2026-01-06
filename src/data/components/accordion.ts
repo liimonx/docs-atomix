@@ -73,7 +73,7 @@ export const accordionMetadata = {
       code: `<Accordion title="Accordion Title">
   <p>This is the content of the accordion. It can contain any type of content including text, images, or other components.</p>
 </Accordion>`,
-      preview: null
+      preview: true
     },
     {
       title: 'Multiple Accordions',
@@ -87,7 +87,7 @@ export const accordionMetadata = {
 <Accordion title="Third Accordion">
   <p>Content of the third accordion.</p>
 </Accordion>`,
-      preview: null
+      preview: true
     },
     {
       title: 'Default Open',
@@ -95,7 +95,27 @@ export const accordionMetadata = {
       code: `<Accordion title="Default Open Accordion" defaultOpen>
   <p>This accordion is open when first rendered.</p>
 </Accordion>`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'Disabled Accordion',
+      description: 'Accordion in disabled state',
+      code: `import { Accordion } from '@shohojdhara/atomix';
+
+<Accordion title="Disabled Accordion" disabled>
+  <p>This accordion cannot be opened.</p>
+</Accordion>`,
+      preview: true
+    },
+    {
+      title: 'Icon Position',
+      description: 'Accordion with icon on the left',
+      code: `import { Accordion } from '@shohojdhara/atomix';
+
+<Accordion title="Left Icon Accordion" iconPosition="left">
+  <p>This accordion has the icon on the left side.</p>
+</Accordion>`,
+      preview: true
     }
   ],
   accessibility: {

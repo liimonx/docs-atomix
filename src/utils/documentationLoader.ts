@@ -13,17 +13,17 @@ function transformMetadata(metadata: any): ComponentDocumentation {
   // Transform features from string array to ComponentFeature array
   const features: ComponentFeature[] = Array.isArray(metadata.features)
     ? metadata.features.map((feature: string | ComponentFeature) => {
-        if (typeof feature === 'string') {
-          // Extract title and description from string format
-          const parts = feature.split(' - ');
-          return {
-            title: parts[0] || feature,
-            description: parts.slice(1).join(' - ') || feature,
-            supported: true
-          };
-        }
-        return feature;
-      })
+      if (typeof feature === 'string') {
+        // Extract title and description from string format
+        const parts = feature.split(' - ');
+        return {
+          title: parts[0] || feature,
+          description: parts.slice(1).join(' - ') || feature,
+          supported: true
+        };
+      }
+      return feature;
+    })
     : [];
 
   // Transform examples to ensure they have required fields
@@ -54,30 +54,30 @@ function transformMetadata(metadata: any): ComponentDocumentation {
     // Transform keyboardSupport from string array to object array
     const keyboardSupport = Array.isArray(acc.keyboardSupport)
       ? acc.keyboardSupport.map((item: string | { key: string; action: string; context?: string }) => {
-          if (typeof item === 'string') {
-            const [key, ...actionParts] = item.split(' - ');
-            return {
-              key: key.trim(),
-              action: actionParts.join(' - ').trim() || key.trim()
-            };
-          }
-          return item;
-        })
+        if (typeof item === 'string') {
+          const [key, ...actionParts] = item.split(' - ');
+          return {
+            key: key.trim(),
+            action: actionParts.join(' - ').trim() || key.trim()
+          };
+        }
+        return item;
+      })
       : [];
 
     // Transform ariaAttributes from string array to object array
     const ariaAttributes = Array.isArray(acc.ariaAttributes)
       ? acc.ariaAttributes.map((item: string | { attribute: string; description: string; required: boolean; defaultValue?: string }) => {
-          if (typeof item === 'string') {
-            const [attribute, ...descParts] = item.split(' - ');
-            return {
-              attribute: attribute.trim(),
-              description: descParts.join(' - ').trim() || attribute.trim(),
-              required: false
-            };
-          }
-          return item;
-        })
+        if (typeof item === 'string') {
+          const [attribute, ...descParts] = item.split(' - ');
+          return {
+            attribute: attribute.trim(),
+            description: descParts.join(' - ').trim() || attribute.trim(),
+            required: false
+          };
+        }
+        return item;
+      })
       : [];
 
     return {
@@ -709,7 +709,7 @@ export function getComponentDocumentation(componentId: string): ComponentDocumen
   if (metadata) {
     return transformMetadata(metadata);
   }
-  
+
   // Fallback to mock data for backward compatibility (should be removed eventually)
   return mockComponentData[componentId] || null;
 }

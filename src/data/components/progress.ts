@@ -120,7 +120,7 @@ function BasicProgress() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Progress Sizes',
@@ -143,7 +143,7 @@ function BasicProgress() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Striped and Animated Progress',
@@ -166,7 +166,7 @@ function BasicProgress() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'File Upload Progress',
@@ -224,7 +224,7 @@ function FileUploadProgress() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

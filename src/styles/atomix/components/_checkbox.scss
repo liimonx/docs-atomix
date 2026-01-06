@@ -1,0 +1,18 @@
+/**
+ * Checkbox Component Variable Overrides
+ * 
+ * Modern checkbox design with clear visual feedback.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.checkbox' with (
+  // Checkbox Size - Better touch targets
+  $checkbox-width: 1.25rem, // 20px - Slightly larger
+  $checkbox-height: 1.25rem, // 20px
+
+  // Checkbox Spacer - Better spacing from label
+  $checkbox-spacer: 0.75rem, // 12px - More space between checkbox and text
+
+  // Checkbox Typography - Better readability
+  $checkbox-font-size: 1rem, // 16px - Better readability
+);
+

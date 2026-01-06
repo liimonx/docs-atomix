@@ -67,7 +67,7 @@ function BasicMasonryGrid() {
     </MasonryGrid>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'MasonryGrid with Cards',
@@ -93,7 +93,7 @@ function MasonryGridWithCards() {
     </MasonryGrid>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Responsive MasonryGrid',
@@ -107,7 +107,7 @@ function MasonryGridWithCards() {
     </MasonryGrid>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

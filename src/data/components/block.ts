@@ -88,7 +88,7 @@ function BasicBlock() {
     </Block>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Spacing Options',
@@ -122,7 +122,7 @@ function BasicBlock() {
     </>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Full Width Blocks',
@@ -135,7 +135,7 @@ function BasicBlock() {
     </Block>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Custom HTML Elements',
@@ -160,7 +160,7 @@ function BasicBlock() {
     </>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

@@ -1,0 +1,26 @@
+/**
+ * Accordion Component Variable Overrides
+ * 
+ * Modern accordion design with generous spacing and clear hierarchy.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.accordion' with (
+  // Accordion Padding - Generous spacing
+  $accordion-padding-x: 1.25rem, // 20px - More horizontal space
+  $accordion-padding-y: 1rem, // 16px - More vertical space
+
+  // Accordion Border Radius - Modern, rounded corners
+  $accordion-border-radius: 0.5rem, // More rounded
+
+  // Accordion Body - Comfortable spacing
+  $accordion-body-padding-x: 1.25rem, // 20px
+  $accordion-body-padding-y: 0.75rem, // 12px - Better content spacing
+
+  // Accordion Header - Clear separation
+  $accordion-header-padding-x: 1.25rem, // 20px
+  $accordion-header-padding-y: 1rem, // 16px
+
+  // Accordion Icon - Better visibility
+  $accordion-icon-size: 1.25rem, // 20px - More prominent
+);
+

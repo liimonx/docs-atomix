@@ -1,0 +1,18 @@
+/**
+ * Progress Component Variable Overrides
+ * 
+ * Modern progress bar design with clear visual feedback.
+ */
+
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.progress' with (
+  // Progress Bar Height - More prominent
+  $progress-height: 8px, // Slightly taller for better visibility
+  $progress-bar-height: 8px,
+
+  // Progress Typography - Better readability
+  $progress-font-size: 0.875rem, // 14px - Slightly larger
+
+  // Progress Border Radius - Fully rounded
+  $progress-border-radius: 9999px, // Pill shape
+);
+

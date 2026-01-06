@@ -94,7 +94,7 @@ const LayoutsGridPage: FC = () => {
               icon={<Icon name="Lightning" size={16} />}
               label="View Examples"
               href="/docs/examples/common-patterns"
-              linkComponent={Link}
+              LinkComponent={Link}
             />
             <Button
               glass
@@ -102,7 +102,7 @@ const LayoutsGridPage: FC = () => {
               label="Customization Guide"
               icon={<Icon name="Gear" size={16} />}
               href="/docs/layouts/customization"
-              linkComponent={Link}
+              LinkComponent={Link}
               />
           </div>
         }

@@ -81,7 +81,7 @@ function BasicSteps() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Vertical Steps',
@@ -104,7 +104,7 @@ function BasicSteps() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Form Wizard with Steps',
@@ -154,7 +154,7 @@ function BasicSteps() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

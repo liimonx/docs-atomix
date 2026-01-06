@@ -23,30 +23,56 @@ export const toggleMetadata = {
   ],
   props: [
     {
-      name: 'initialOn',
+      name: 'checked',
       type: 'boolean',
-      description: 'Whether the toggle is initially on',
+      description: 'Toggle state',
       required: false,
       defaultValue: 'false'
     },
     {
-      name: 'onToggleOn',
-      type: '() => void',
-      description: 'Callback when the toggle is turned on',
-      required: false
-    },
-    {
-      name: 'onToggleOff',
-      type: '() => void',
-      description: 'Callback when the toggle is turned off',
+      name: 'onChange',
+      type: '(checked: boolean) => void',
+      description: 'Change handler',
       required: false
     },
     {
       name: 'disabled',
       type: 'boolean',
-      description: 'Whether the toggle is disabled',
+      description: 'Disabled state',
       required: false,
       defaultValue: 'false'
+    },
+    {
+      name: 'size',
+      type: "'sm' | 'md' | 'lg'",
+      description: 'Toggle size',
+      required: false,
+      defaultValue: "'md'"
+    },
+    {
+      name: 'label',
+      type: 'string',
+      description: 'Toggle label',
+      required: false
+    },
+    {
+      name: 'description',
+      type: 'string',
+      description: 'Additional description',
+      required: false
+    },
+    {
+      name: 'variant',
+      type: "ThemeColor | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error'",
+      description: 'Color variant',
+      required: false,
+      defaultValue: "'primary'"
+    },
+    {
+      name: 'id',
+      type: 'string',
+      description: 'Toggle ID',
+      required: false
     },
     {
       name: 'className',
@@ -56,17 +82,17 @@ export const toggleMetadata = {
       defaultValue: "''"
     },
     {
-      name: 'style',
-      type: 'React.CSSProperties',
-      description: 'Custom style for the toggle',
-      required: false
-    },
-    {
       name: 'glass',
       type: 'boolean | AtomixGlassProps',
       description: 'Glass morphism effect for the toggle',
       required: false,
       defaultValue: 'false'
+    },
+    {
+      name: 'style',
+      type: 'React.CSSProperties',
+      description: 'Custom style for the toggle',
+      required: false
     }
   ],
   examples: [
@@ -121,7 +147,74 @@ function BasicToggles() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
+    },
+    {
+      title: 'Toggle Sizes and Variants',
+      description: 'Different sizes and color variants',
+      code: `import { Toggle } from '@shohojdhara/atomix';
+import { useState } from 'react';
+
+function ToggleSizesVariants() {
+  const [toggleStates, setToggleStates] = useState({
+    small: false,
+    medium: true,
+    large: false
+  });
+
+  const handleToggle = (key) => (checked) => {
+    setToggleStates(prev => ({ ...prev, [key]: checked }));
+  };
+
+  return (
+    <div className="u-gap-6">
+      <div className="u-gap-4">
+        <h3 className="u-fw-semibold">Sizes</h3>
+        <div className="u-gap-3">
+          <div className="u-d-flex u-align-items-center u-gap-3">
+            <Toggle 
+              size="sm"
+              checked={toggleStates.small}
+              onChange={handleToggle('small')}
+            />
+            <span>Small toggle</span>
+          </div>
+          
+          <div className="u-d-flex u-align-items-center u-gap-3">
+            <Toggle 
+              size="md"
+              checked={toggleStates.medium}
+              onChange={handleToggle('medium')}
+            />
+            <span>Medium toggle (default)</span>
+          </div>
+          
+          <div className="u-d-flex u-align-items-center u-gap-3">
+            <Toggle 
+              size="lg"
+              checked={toggleStates.large}
+              onChange={handleToggle('large')}
+            />
+            <span>Large toggle</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="u-gap-4">
+        <h3 className="u-fw-semibold">Color Variants</h3>
+        <div className="u-d-grid u-grid-cols-2 u-gap-3">
+          <Toggle checked variant="primary" label="Primary" />
+          <Toggle checked variant="success" label="Success" />
+          <Toggle checked variant="warning" label="Warning" />
+          <Toggle checked variant="error" label="Error" />
+          <Toggle checked variant="info" label="Info" />
+          <Toggle checked variant="secondary" label="Secondary" />
+        </div>
+      </div>
+    </div>
+  );
+}`,
+      preview: true
     },
     {
       title: 'Settings Panel',
@@ -169,7 +262,7 @@ function BasicToggles() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

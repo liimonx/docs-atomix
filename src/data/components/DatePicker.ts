@@ -197,7 +197,7 @@ function BasicDatePicker() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Date Picker Sizes',
@@ -205,7 +205,7 @@ function BasicDatePicker() {
       code: `<DatePicker size="sm" label="Small" />
 <DatePicker size="md" label="Medium" />
 <DatePicker size="lg" label="Large" />`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Date Constraints',
@@ -224,7 +224,7 @@ function BasicDatePicker() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Validation States',
@@ -242,7 +242,7 @@ function BasicDatePicker() {
   label="Event Date"
   warning="Date is in the past"
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Custom Date Format',
@@ -257,7 +257,7 @@ function BasicDatePicker() {
   dateFormat="YYYY/MM/DD"
   placeholder="YYYY/MM/DD"
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Disabled and Readonly',
@@ -272,7 +272,7 @@ function BasicDatePicker() {
   label="Read-only Date Picker"
   value={new Date()}
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Default Value',
@@ -288,7 +288,7 @@ function BasicDatePicker() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Custom Locale',
@@ -304,7 +304,7 @@ function BasicDatePicker() {
   locale="fr-FR"
   placeholder="Sélectionner une date"
 />`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

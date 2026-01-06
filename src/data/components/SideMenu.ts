@@ -67,7 +67,7 @@ function BasicSideMenu() {
     </SideMenu>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'SideMenu with Badges',
@@ -88,7 +88,7 @@ function SideMenuWithBadges() {
     </SideMenu>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Nested SideMenu',
@@ -108,7 +108,7 @@ function SideMenuWithBadges() {
     </SideMenu>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

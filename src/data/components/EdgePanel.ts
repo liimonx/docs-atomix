@@ -104,7 +104,7 @@ function BasicEdgePanel() {
     </>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Left Edge Panel',
@@ -124,7 +124,7 @@ function BasicEdgePanel() {
     </EdgePanel>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'EdgePanel with SideMenu',
@@ -141,7 +141,7 @@ function EdgePanelWithMenu() {
     </EdgePanel>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

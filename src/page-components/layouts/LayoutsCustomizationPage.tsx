@@ -107,7 +107,7 @@ const LayoutsCustomizationPage: FC = () => {
               icon={<Icon name="GridFour" />}
               label="Grid System"
               href="/docs/layouts/grid"
-              linkComponent={Link}
+              LinkComponent={Link}
             />
             <Button
               glass
@@ -115,7 +115,7 @@ const LayoutsCustomizationPage: FC = () => {
               label="Masonry Grid"
               icon={<Icon name="GridFour" />}
               href="/docs/layouts/masonry-grid"
-              linkComponent={Link}
+              LinkComponent={Link}
             />
           </div>
         }

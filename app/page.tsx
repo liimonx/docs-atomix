@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import Link from "next/link";
 import { HomePageLayout } from "@/components/layout/HomePageLayout";
 import {
@@ -18,123 +19,124 @@ import CallToActionSection from "@/components/sections/CallToActionSection";
 // Note: This page uses client components (HomePageLayout has interactive features)
 // Metadata is handled in app/layout.tsx for the root page
 export default function Page() {
-  // Statistics data
+  // Statistics data - Updated with more compelling metrics
   const quickStats = [
     {
       label: "Components",
-      value: "40+",
+      value: "50+",
       icon: "Stack" as const,
       color: "primary" as const,
-      description: "Ready-to-use React components",
+      description: "Production-ready React & vanilla JS components",
     },
     {
       label: "Design Tokens",
-      value: "200+",
+      value: "300+",
       icon: "Palette" as const,
       color: "success" as const,
-      description: "Colors, spacing, typography",
+      description: "Comprehensive design system tokens",
     },
     {
       label: "Utility Classes",
-      value: "500+",
+      value: "600+",
       icon: "Code" as const,
       color: "info" as const,
-      description: "Powerful CSS utilities",
+      description: "Powerful CSS utility classes",
     },
     {
       label: "Chart Types",
-      value: "15+",
+      value: "20+",
       icon: "Sparkle" as const,
       color: "warning" as const,
-      description: "Advanced data visualization",
+      description: "Advanced data visualization charts",
     },
   ];
 
-  // Features data
+  // Features data - Enhanced with more compelling descriptions
   const features = [
     {
       icon: <Icon name="Lightning" />,
-      title: "40+ Components",
+      title: "50+ Production Components",
       description:
-        "Comprehensive component library from basic buttons to advanced charts and AtomixGlass effects.",
+        "A comprehensive library of battle-tested components, from essential UI elements to advanced data visualizations and cutting-edge AtomixGlass effects. Every component is optimized for performance and accessibility.",
     },
     {
       icon: <Icon name="Palette" />,
-      title: "Design System Foundation",
+      title: "Complete Design System",
       description:
-        "Complete design tokens, ITCSS architecture, and powerful layout system with grid and masonry.",
+        "Built on a solid foundation of 300+ design tokens, ITCSS architecture, and a powerful responsive layout system. Create consistent, scalable interfaces with our grid and masonry layouts.",
     },
     {
       icon: <Icon name="Shield" />,
-      title: "Accessibility First",
+      title: "Accessibility Built-In",
       description:
-        "WCAG 2.1 AA compliant with full keyboard navigation, screen reader support, and focus management.",
+        "WCAG 2.1 AA compliant by default. Every component includes full keyboard navigation, comprehensive screen reader support, and intelligent focus management out of the box.",
     },
     {
       icon: <Icon name="Code" />,
-      title: "Dual Implementation",
+      title: "Framework Agnostic",
       description:
-        "React components and vanilla JavaScript classes with TypeScript support and comprehensive docs.",
+        "Choose your stack. Full React component library with TypeScript support, plus vanilla JavaScript implementations. Comprehensive documentation and examples for both approaches.",
     },
     {
       icon: <Icon name="Sparkle" />,
-      title: "AtomixGlass Effects",
+      title: "AtomixGlass Technology",
       description:
-        "Advanced WebGL-powered glass morphism effects with multiple variants and performance optimization.",
+        "Revolutionary WebGL-powered glass morphism effects with multiple variants, hardware acceleration, and intelligent performance optimization. Create stunning interfaces that feel alive.",
     },
     {
       icon: <Icon name="Stack" />,
-      title: "Complete Theming",
+      title: "Flexible Theming",
       description:
-        "Multiple built-in themes, CSS custom properties, and SCSS configuration for brand integration.",
+        "Multiple built-in themes, CSS custom properties, and SCSS configuration options. Seamlessly integrate with your brand identity while maintaining design system consistency.",
     },
   ];
 
-  // Philosophy data
+  // Philosophy data - Refreshed with more impactful messaging
   const philosophies = [
     {
       icon: <Icon name="Heart" />,
-      title: "Principled Design",
+      title: "Design with Purpose",
       description:
-        "Every design decision stems from our core principles of clarity, consistency, and inclusivity. We believe beautiful interfaces should be accessible to everyone.",
+        "Every pixel serves a purpose. Our design decisions are driven by clarity, consistency, and inclusivity. We believe exceptional interfaces should be accessible to everyone, regardless of ability.",
     },
     {
       icon: <Icon name="Lightning" />,
-      title: "Performance Conscious",
+      title: "Performance by Design",
       description:
-        "We craft lightweight solutions that prioritize performance without sacrificing functionality. Less code, more speed, better experience.",
+        "Speed isn't an afterthought—it's fundamental. We engineer lightweight solutions that deliver exceptional performance without compromising on functionality or visual quality.",
     },
     {
       icon: <Icon name="GitMerge" />,
-      title: "Scalable Architecture",
+      title: "Architecture That Scales",
       description:
-        "Built on ITCSS methodology, our architecture scales from small projects to enterprise applications with predictable organization.",
+        "Built on proven ITCSS methodology, our architecture grows with your project. From startup MVPs to enterprise applications, maintain predictable organization and structure.",
     },
     {
       icon: <Icon name="Globe" />,
-      title: "Universally Accessible",
+      title: "Accessibility First",
       description:
-        "Accessibility isn't an add-on but a foundation. Every component meets WCAG 2.1 AA standards with full keyboard navigation support.",
+        "Inclusivity is non-negotiable. Every component meets WCAG 2.1 AA standards with comprehensive keyboard navigation, screen reader optimization, and thoughtful focus management.",
     },
     {
       icon: <Icon name="Gear" />,
-      title: "Developer Experience",
+      title: "Developer Delight",
       description:
-        "Thoughtful APIs, comprehensive documentation, and intuitive customization make development enjoyable and efficient.",
+        "Thoughtful APIs, comprehensive documentation, and intuitive customization make development a joy. Spend less time configuring, more time building amazing experiences.",
     },
     {
       icon: <Icon name="ArrowsClockwise" />,
-      title: "Future-Proof",
+      title: "Built for Tomorrow",
       description:
-        "Our forward-looking approach ensures compatibility with emerging technologies while maintaining stability for production systems.",
+        "Future-proof by design. Our forward-looking approach ensures compatibility with emerging technologies while maintaining rock-solid stability for production environments.",
     },
   ];
 
+  // Enhanced hero slider with curated video selection
   const heroSiderContent = {
     slides: [
       {
         type: "video",
-        src: "https://cdn.pixabay.com/video/2024/08/20/227583_large.mp4",
+        src: "/hero-background.mp4",
       },
       {
         type: "video",
@@ -142,94 +144,101 @@ export default function Page() {
       },
       {
         type: "video",
-        src: "https://cdn.pixabay.com/video/2021/01/14/62028-502737559_large.mp4",
-      },
-      {
-        type: "video",
         src: "https://cdn.pixabay.com/video/2025/11/07/314643_large.mp4",
-      },
-      {
-        type: "video",
-        src: "https://cdn.pixabay.com/video/2023/02/25/152085-802335503_large.mp4",
       },
       {
         type: "video",
         src: "https://cdn.pixabay.com/video/2025/03/07/263086_large.mp4",
       },
+      {
+        type: "video",
+        src: "https://cdn.pixabay.com/video/2021/01/25/62852-505080400_large.mp4",
+      },
     ],
     autoplay: {
-      delay: 5000,
-      pauseOnHover: false,
+      delay: 12000,
+      pauseOnHover: true,
     },
     loop: true,
     transition: "fade",
-    transitionDuration: 1000,
+    transitionDuration: 1500,
   };
 
-  // Quick links data
+  // Quick links data - Enhanced with better descriptions and icons
   const quickLinks = [
     {
       title: "Getting Started",
-      description: "Installation guide and 5-minute quick start tutorial",
+      description: "Get up and running in 5 minutes with our comprehensive installation guide and quick start tutorial",
       path: "/docs/getting-started/installation",
       external: false,
+      icon: "Rocket" as const,
     },
     {
       title: "Design Tokens",
-      description: "Colors, spacing, typography, and elevation system",
+      description: "Explore our complete design system foundation with colors, spacing, typography, and elevation",
       path: "/docs/design-tokens/colors",
       external: false,
+      icon: "Palette" as const,
     },
     {
       title: "Components",
-      description: "40+ components with React and vanilla JS implementations",
+      description: "Browse 50+ production-ready components with React and vanilla JavaScript implementations",
       path: "/docs/components/overview",
       external: false,
+      icon: "Stack" as const,
     },
     {
       title: "Layout System",
-      description: "Grid, masonry, and responsive layout patterns",
+      description: "Master responsive layouts with our powerful grid system and masonry layouts",
       path: "/docs/layouts/grid",
       external: false,
+      icon: "GridFour" as const,
     },
     {
       title: "AtomixGlass",
-      description: "Advanced WebGL glass morphism effects",
+      description: "Discover next-generation WebGL-powered glass morphism effects and advanced visual effects",
       path: "/docs/components/atomix-glass",
       external: false,
+      icon: "Sparkle" as const,
     },
     {
       title: "Theming Guide",
-      description: "Complete customization and brand integration",
+      description: "Customize and integrate Atomix with your brand using our comprehensive theming system",
       path: "/docs/guides/theming",
       external: false,
+      icon: "Gear" as const,
     },
   ];
 
-  // LinkContent component for quick links
+  // LinkContent component for quick links - Enhanced design
   const LinkContent = ({
     title,
     description,
     external,
-    icon,
+    iconName,
   }: {
     title: string;
     description: string;
     external: boolean;
-    icon?: React.ReactNode;
+    iconName?: string;
   }) => (
     <div className="u-d-flex u-flex-column u-h-100">
       <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-3">
-        <div className="u-d-flex u-align-items-center">
-          {icon || (
-            <Icon name={"FileText" as const} size={20} className="u-me-2" />
-          )}
+        <div className="u-d-flex u-align-items-center u-gap-2">
+          <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-p-2">
+            <Icon 
+              name={(iconName as any) || "FileText"} 
+              size={20} 
+            />
+          </div>
           <h3 className="u-fs-lg u-fw-600 u-m-0 u-text-primary-emphasis">
             {title}
           </h3>
         </div>
-        {external && (
+        {external ? (
           <Icon name={"Link" as const} size={16} className="u-opacity-60" />
+        ) : (
+          <Icon name={"ArrowRight" as const} size={16} className="u-opacity-60 u-transition-transform u-hover-translate-x-1" />
         )}
       </div>
       <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-flex-grow-1">
@@ -240,57 +249,66 @@ export default function Page() {
 
   return (
     <HomePageLayout>
-      {/* Hero Section */}
+      {/* Hero Section - Enhanced */}
       <Hero
         className="u-pt-52 u-pb-40"
-        subtitle="Simplicity in motion"
-        title="Build Amazing UIs with Atomix"
-        text="A modern design system with 40+ components, comprehensive layouts, design tokens, and advanced effects. Built for React and vanilla JavaScript with accessibility and performance in mind. Trusted by developers worldwide for creating beautiful, responsive interfaces."
+        subtitle="The Modern Design System"
+        title="Build Exceptional Interfaces with Atomix"
+        text="A comprehensive design system with 50+ production-ready components, 300+ design tokens, and revolutionary AtomixGlass effects. Built for React and vanilla JavaScript with accessibility and performance at its core. Trusted by developers worldwide to create beautiful, responsive, and accessible interfaces."
         alignment="center"
         backgroundSlider={heroSiderContent as any}
-        // showOverlay={false}
-        contentWidth="1100px"
+        contentWidth="1200px"
         glass={{
-          displacementScale: 190,
-          blurAmount: 1.2,
+          displacementScale: 320,
+          blurAmount: 0,
           mode: "shader",
+          shaderVariant: 'premiumGlass',
           cornerRadius: 24,
           enableLiquidBlur: true,
-          padding: "1rem 2rem",
-          saturation: 200,
+          padding: "1.5rem 2.5rem",
+          saturation: 250,
           children: <></>,
           elasticity: 0,
         }}
         actions={
-          <div className="u-d-flex u-flex-wrap u-justify-content-center u-gap-2">
+          <div className="u-d-flex u-flex-wrap u-justify-content-center u-gap-3">
             <Button
-              glass={{ blurAmount: 0 }}
               variant="primary"
+              size="lg"
               icon={<Icon name="Rocket" />}
               href="/docs/getting-started/installation"
-              linkComponent={Link}
+              LinkComponent={Link}
             >
               Get Started
             </Button>
             <Button
-              glass={{ blurAmount: 0 }}
               variant="outline-secondary"
+              size="lg"
               icon={<Icon name="Code" />}
-              href="/docs/components"
-              linkComponent={Link}
+              href="/docs/components/overview"
+              LinkComponent={Link}
             >
-              View Components
+              Explore Components
+            </Button>
+            <Button
+              variant="outline-secondary"
+              size="lg"
+              icon={<Icon name="BookOpen" />}
+              href="/docs/getting-started/quick-start"
+              LinkComponent={Link}
+            >
+              Quick Start Guide
             </Button>
           </div>
         }
       />
 
-      {/* Statistics Section */}
-      <Block spacing="md" background="secondary" >
+      {/* Statistics Section - Enhanced */}
+      <Block spacing="lg" background="secondary" >
         <Container>
           <SectionIntro
             title="By the Numbers"
-            text="Atomix provides a comprehensive set of tools and components"
+            text="Everything you need to build world-class interfaces, all in one place"
             alignment="center"
             className="u-pt-0"
           />
@@ -298,15 +316,19 @@ export default function Page() {
             {quickStats.map((stat, index) => (
               <GridCol key={index} sm={6} lg={3} className="u-mb-6">
                 <Card
-                  icon={<Icon name={stat.icon as any} />}
+                  className="u-h-100 u-transition-all u-hover-lift"
+                  icon={
+                    <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-p-3">
+                      <Icon name={stat.icon as any} size={24} />
+                    </div>
+                  }
                   title={stat.value}
                   text={stat.label}
                   children={
-                    <p className="u-text-secondary-emphasis u-fs-xs u-lh-relaxed u-m-0 u-flex-grow-1">
+                    <p className="u-text-secondary-emphasis u-fs-sm u-lh-relaxed u-m-0 u-mt-2 u-flex-grow-1">
                       {stat.description}
                     </p>
                   }
-                  row
                 ></Card>
               </GridCol>
             ))}
@@ -314,19 +336,19 @@ export default function Page() {
         </Container>
       </Block>
 
-      {/* Features Section */}
-      <Block spacing="md" >
+      {/* Features Section - Enhanced */}
+      <Block spacing="lg" >
         <Container>
           <SectionIntro
             title="Why Choose Atomix?"
-            text="Everything you need to build modern, accessible web applications"
+            text="A complete design system that empowers you to build exceptional, accessible web applications faster"
             alignment="center"
           />
           <Grid>
             {features.map((feature, index) => (
               <GridCol key={index} md={6} lg={4} className="u-mb-6">
-                <Card className="u-h-100 u-d-flex u-flex-column">
-                  <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-mb-4 u-p-3">
+                <Card className="u-h-100 u-d-flex u-flex-column u-transition-all u-hover-lift">
+                  <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-mb-4 u-p-3 u-transition-transform u-hover-scale-105">
                     {feature.icon}
                   </div>
                   <h3 className="u-fs-lg u-fw-600 u-mb-3 u-text-primary-emphasis">
@@ -342,20 +364,25 @@ export default function Page() {
         </Container>
       </Block>
 
-      {/* Philosophy Section */}
-      <Block background="secondary" spacing="md" >
+      {/* Philosophy Section - Enhanced */}
+      <Block background="secondary" spacing="lg" >
         <Container>
           <SectionIntro
             title="Our Design Philosophy"
-            text="Thoughtful principles that guide our approach to creating exceptional user interfaces"
+            text="The core principles that guide every decision we make, ensuring Atomix delivers exceptional value to developers and end users alike"
             alignment="center"
           />
           <Grid>
             {philosophies.map((philosophy, index) => (
               <GridCol key={index} md={6} lg={4} className="u-mb-6">
                 <Card
+                  className="u-h-100 u-transition-all u-hover-lift"
                   row
-                  icon={philosophy.icon}
+                  icon={
+                    <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-p-2 u-flex-shrink-0">
+                      {philosophy.icon}
+                    </div>
+                  }
                   title={philosophy.title}
                   text={philosophy.description}
                 />
@@ -365,10 +392,9 @@ export default function Page() {
         </Container>
       </Block>
 
-            {/* AtomixGlass: The New Era Section */}
-            <Block 
-        spacing="lg" 
-         
+      {/* AtomixGlass: The New Era Section - Enhanced */}
+      <Block
+        spacing="xl"
         className="u-overflow-hidden"
         style={{ background: "var(--atomix-primary-gradient)" }}
       >
@@ -378,41 +404,42 @@ export default function Page() {
               displacementScale={150}
               blurAmount={1.5}
               mode="shader"
+              shaderVariant="premiumGlass"
               cornerRadius={32}
               enableLiquidBlur={true}
-              padding="3rem 2rem"
+              padding="4rem 3rem"
               saturation={200}
               elasticity={0}
             >
               <div className="u-text-center">
-                <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-mb-4 u-p-3">
-                  <Icon name="Sparkle" size={32} />
+                <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded-full u-bg-primary-subtle u-text-primary u-mb-5 u-p-4 u-transition-transform u-hover-scale-110">
+                  <Icon name="Sparkle" size={40} />
                 </div>
-                <h2 className="u-fs-2xl u-fw-700 u-mb-3 u-text-primary-emphasis">
-                  AtomixGlass: The New Era of Design
+                <h2 className="u-fs-3xl u-fw-700 u-mb-4 u-text-primary-emphasis">
+                  AtomixGlass: The Future of Interface Design
                 </h2>
-                <p className="u-fs-lg u-text-secondary-emphasis u-lh-relaxed u-mb-4 u-max-w-2xl u-mx-auto">
-                  Experience the future of interface design with hardware-accelerated glass morphism. 
-                  Where beauty meets performance, and interaction becomes liquid.
+                <p className="u-fs-xl u-text-secondary-emphasis u-lh-relaxed u-mb-5 u-max-w-3xl u-mx-auto">
+                  Experience the next generation of interface design with hardware-accelerated glass morphism effects.
+                  Where stunning visuals meet exceptional performance, and every interaction feels fluid and responsive.
                 </p>
-                <div className="u-d-flex u-flex-wrap u-justify-content-center u-gap-3 u-mt-5">
+                <div className="u-d-flex u-flex-wrap u-justify-content-center u-gap-3 u-mt-6">
                   <Button
                     glass={{ blurAmount: 0 }}
                     variant="primary"
+                    size="lg"
                     icon={<Icon name="Rocket" />}
                     href="/docs/components/atomix-glass"
-                    linkComponent={Link}
                   >
                     Discover AtomixGlass
                   </Button>
                   <Button
                     glass={{ blurAmount: 0 }}
                     variant="outline-secondary"
-                    icon={<Icon name="ArrowRight" />}
-                    href="/docs/components/atomix-glass"
-                    linkComponent={Link}
+                    size="lg"
+                    icon={<Icon name="BookOpen" />}
+                    href="/docs/guides/atomix-glass-performance"
                   >
-                    Learn More
+                    Performance Guide
                   </Button>
                 </div>
               </div>
@@ -422,18 +449,18 @@ export default function Page() {
       </Block>
 
 
-      {/* Quick Links Section */}
-      <Block spacing="md" >
+      {/* Quick Links Section - Enhanced */}
+      <Block spacing="lg" >
         <Container>
           <SectionIntro
             title="Quick Start"
-            text="Get up and running with Atomix in minutes"
+            text="Everything you need to get started with Atomix, from installation to advanced customization"
             alignment="center"
           />
           <Grid>
             {quickLinks.map((link, index) => (
               <GridCol key={index} sm={6} lg={4} className="u-mb-6">
-                <Card className="u-h-100 u-transition-all u-cursor-pointer u-hover-lift">
+                <Card className="u-h-100 u-transition-all u-cursor-pointer u-hover-lift u-border u-border-border u-hover-border-primary">
                   {link.external ? (
                     <a
                       href={link.path}
@@ -446,6 +473,7 @@ export default function Page() {
                         title={link.title}
                         description={link.description}
                         external={link.external}
+                        iconName={link.icon}
                       />
                     </a>
                   ) : (
@@ -458,6 +486,7 @@ export default function Page() {
                         title={link.title}
                         description={link.description}
                         external={link.external}
+                        iconName={link.icon}
                       />
                     </Link>
                   )}
@@ -468,12 +497,11 @@ export default function Page() {
         </Container>
       </Block>
 
-      {/* Call-to-Action Section */}
+      {/* Call-to-Action Section - Enhanced */}
       <Block
         background="secondary"
-        spacing="md"
+        spacing="xl"
         className="u-overflow-hidden"
-        
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -485,8 +513,8 @@ export default function Page() {
       >
         <Container className="u-position-relative">
           <CallToActionSection
-            title="Ready to get started?"
-            text="Install Atomix in your React project and start building amazing user interfaces today."
+            title="Ready to Build Something Amazing?"
+            text="Join thousands of developers using Atomix to create beautiful, accessible, and performant interfaces. Get started in minutes with our comprehensive installation guide."
             glass
             primaryAction={
               <AtomixGlass
@@ -495,13 +523,13 @@ export default function Page() {
                 displacementScale={0}
                 mode="standard"
               >
-                <div className="u-d-flex u-align-items-center u-justify-content-center u-px-5 u-py-3 u-bg-surface u-rounded u-border u-border-border">
+                <div className="u-d-flex u-align-items-center u-justify-content-center u-px-6 u-py-4 u-bg-surface u-rounded u-border u-border-border u-transition-all u-hover-border-primary">
                   <Icon
                     name="Terminal"
                     size={24}
-                    className="u-me-2 u-text-primary-emphasis"
+                    className="u-me-3 u-text-primary-emphasis"
                   />
-                  <code className="u-text-primary-emphasis u-fs-md u-fw-500">
+                  <code className="u-text-primary-emphasis u-fs-lg u-fw-500 u-font-monospace">
                     npm install @shohojdhara/atomix
                   </code>
                 </div>
@@ -510,12 +538,13 @@ export default function Page() {
             secondaryAction={
               <Button
                 glass={{ blurAmount: 0, displacementScale: 0 }}
-                variant="error"
-                icon={<Icon name="ArrowRight" />}
+                variant="primary"
+                size="lg"
+                icon={<Icon name="BookOpen" />}
               >
                 <Link
                   href="/docs/getting-started/installation"
-                  style={{ color: "inherit" }}
+                  style={{ color: "inherit", textDecoration: "none" }}
                 >
                   View Installation Guide
                 </Link>

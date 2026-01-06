@@ -60,7 +60,7 @@ function BasicBreadcrumb() {
   
   return <Breadcrumb items={items} />;
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'With Icons',
@@ -76,7 +76,7 @@ function BreadcrumbWithIcons() {
   
   return <Breadcrumb items={items} />;
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Custom Separator',
@@ -97,7 +97,7 @@ function BreadcrumbCustomSeparator() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Current Page',
@@ -113,7 +113,7 @@ function BreadcrumbCurrentPage() {
   
   return <Breadcrumb items={items} />;
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

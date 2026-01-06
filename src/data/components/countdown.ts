@@ -90,7 +90,7 @@ function EventCountdown() {
     />
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Custom Time Units',
@@ -112,7 +112,7 @@ function EventCountdown() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Focused Styling',
@@ -132,7 +132,7 @@ function EventCountdown() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Custom Separator',
@@ -156,7 +156,7 @@ function EventCountdown() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     },
     {
       title: 'Dynamic Target Date',
@@ -177,7 +177,7 @@ function FlexibleCountdown() {
     </div>
   );
 }`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

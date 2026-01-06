@@ -7,30 +7,47 @@ import {
   APICSSPage,
   APIJavaScriptPage,
   APIReactPage,
-  
+
   // Component Pages
   ComponentsHomePage,
   ComponentsOverviewPage,
   ComponentPage,
   ComponentGuidelinesPage,
-  
+
   // Design Token Pages
   DesignTokensPage,
   DesignTokensOverviewPage,
   DesignTokensGridPage,
-  
+
   // Getting Started Pages
   GettingStartedPage,
   GettingStartedOverviewPage,
   MigrationPage,
   CLIPage,
-  
+
   // Guide Pages
   GuidesAtomixGlassPerformancePage,
   GuidesAtomixGlassThemingPage,
   GeneralThemingGuidePage,
   ThemeStudioPage,
-  
+  DevtoolsOverviewPage,
+  DevtoolsInspectorPage,
+  DevtoolsPreviewPage,
+  DevtoolsComparatorPage,
+  DevtoolsLiveEditorPage,
+  DevtoolsCLIPage,
+  DevtoolsLiveEditorExamplePage,
+  DevtoolsInspectorExamplePage,
+  DevtoolsPreviewExamplePage,
+  DevtoolsComparatorExamplePage,
+
+  // CLI Pages
+  CLIOverviewPage,
+  CLIUserGuidePage,
+  CLIAPIReferencePage,
+  CLIMigrationGuidePage,
+  CLISecurityGuidePage,
+
   // Layout Pages
   LayoutsOverviewPage,
   LayoutsGridPage,
@@ -38,19 +55,19 @@ import {
   LayoutsCustomizationPage,
   LayoutsPerformancePage,
   LayoutsResponsivePatternsPage,
-  
+
   // Resource Pages
   ResourcesChangelogPage,
   ResourcesContributingPage,
   ResourcesRoadmapPage,
-  
+
   // Style Pages
   StylesOverviewPage,
   StylesArchitecturePage,
   StylesCustomizationPage,
   StylesUtilitiesPage,
   StylesAPIReferencePage,
-  
+
   // Example Pages
   ExamplesCommonPatternsPage,
 } from '@/page-components';
@@ -117,11 +134,29 @@ class PageComponentRegistry {
     this.idMap.set('getting-started:cli', CLIPage);
     this.categoryMap.set('getting-started', GettingStartedOverviewPage);
 
+    // CLI Pages
+    this.idMap.set('cli:overview', CLIOverviewPage);
+    this.idMap.set('cli:user-guide', CLIUserGuidePage);
+    this.idMap.set('cli:api-reference', CLIAPIReferencePage);
+    this.idMap.set('cli:migration-guide', CLIMigrationGuidePage);
+    this.idMap.set('cli:security-guide', CLISecurityGuidePage);
+    this.categoryMap.set('cli', CLIOverviewPage);
+
     // Guide Pages
     this.idMap.set('guides:theming', GeneralThemingGuidePage);
     this.idMap.set('guides:atomix-glass-performance', GuidesAtomixGlassPerformancePage);
     this.idMap.set('guides:atomix-glass-theming', GuidesAtomixGlassThemingPage);
     this.idMap.set('guides:theme-studio', ThemeStudioPage);
+    this.idMap.set('guides:devtools', DevtoolsOverviewPage);
+    this.idMap.set('guides:devtools-inspector', DevtoolsInspectorPage);
+    this.idMap.set('guides:devtools-preview', DevtoolsPreviewPage);
+    this.idMap.set('guides:devtools-comparator', DevtoolsComparatorPage);
+    this.idMap.set('guides:devtools-live-editor', DevtoolsLiveEditorPage);
+    this.idMap.set('guides:devtools-cli', DevtoolsCLIPage);
+    this.idMap.set('guides:devtools-live-editor-example', DevtoolsLiveEditorExamplePage);
+    this.idMap.set('guides:devtools-inspector-example', DevtoolsInspectorExamplePage);
+    this.idMap.set('guides:devtools-preview-example', DevtoolsPreviewExamplePage);
+    this.idMap.set('guides:devtools-comparator-example', DevtoolsComparatorExamplePage);
     this.categoryMap.set('guides', GuidesAtomixGlassThemingPage);
 
     // Layout Pages
@@ -239,7 +274,7 @@ export function getPageComponent(
   if (!item && slug.length === 1 && slug[0] === 'components') {
     return pageComponentRegistry.getComponentById('components', 'index');
   }
-  
+
   if (!item) return null;
   return pageComponentRegistry.getComponent(item, slug);
 }
@@ -252,7 +287,7 @@ export function getPageComponentByPath(path: string): ComponentType<any> | null 
   const routeMapper = require('./routeMapper');
   const item = routeMapper.findNavigationItemByPath(path);
   if (!item) return null;
-  
+
   const slug = routeMapper.pathToSlug(path);
   return getPageComponent(item, slug);
 }

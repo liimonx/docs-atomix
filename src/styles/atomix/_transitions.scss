@@ -1,0 +1,78 @@
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.animations' with (
+    $transition-duration: 0.3s,
+    $easing: cubic-bezier(0.23, 1, 0.32, 1),
+    $transition-base: all 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+    $transition-fast: all 0.15s cubic-bezier(0.23, 1, 0.32, 1),
+    $transition-slow: all 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+);
+
+/**
+ * Transition Variable Overrides
+ * 
+ * Override transition variables to customize animation durations and easing functions.
+ */
+
+// =============================================================================
+// Transition Durations
+// =============================================================================
+
+// Fast transition duration
+// $transition-duration-fast: 0.15s;
+
+// Base transition duration
+// $transition-duration-base: 0.2s;
+
+// Slow transition duration
+// $transition-duration-slow: 0.3s;
+
+// Slower transition duration
+// $transition-duration-slower: 0.5s;
+
+// =============================================================================
+// Transition Properties
+// =============================================================================
+
+// Fast transition (all properties)
+// $transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Base transition (all properties)
+// $transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Slow transition (all properties)
+// $transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+// =============================================================================
+// Easing Functions
+// =============================================================================
+
+// Base easing (standard ease)
+// $easing-base: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Ease in
+// $easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+// Ease out
+// $easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+// Ease in-out
+// $easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Linear
+// $easing-linear: linear;
+
+// =============================================================================
+// Component-Specific Transitions
+// =============================================================================
+
+// Button transition
+// $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+// Link transition
+// $link-transition: color 0.15s ease-in-out;
+
+// Modal transition
+// $modal-transition: transform 0.3s ease-out;
+
+// Dropdown transition
+// $dropdown-transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+

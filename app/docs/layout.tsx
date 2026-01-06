@@ -2,11 +2,11 @@
 
 import { memo, useContext } from 'react';
 import { AppLayout } from '@/components/layout/AppLayout';
-import { SidebarToggle } from '@/components/navigation/SidebarToggle';
-import { usePathname } from 'next/navigation';
 
 // Create a context to share sidebar state
-const SidebarContext = require('react').createContext<{
+import { createContext } from 'react';
+
+const SidebarContext = createContext<{
   isOpen: boolean;
   toggle: () => void;
 } | null>(null);

@@ -78,7 +78,7 @@ export const atomixGlassMetadata = {
     <p>This content is displayed with a glass effect.</p>
   </div>
 </AtomixGlass>`,
-      preview: null
+      preview: true
     },
     {
       title: 'Customized Glass Effect',
@@ -94,7 +94,7 @@ export const atomixGlassMetadata = {
     <p>This glass effect has custom parameters.</p>
   </div>
 </AtomixGlass>`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

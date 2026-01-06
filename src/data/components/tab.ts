@@ -89,7 +89,7 @@ export const tabMetadata = {
     }
   ]}
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Tabs with Icons',
@@ -110,7 +110,7 @@ export const tabMetadata = {
     }
   ]}
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Tab Variants',
@@ -118,7 +118,7 @@ export const tabMetadata = {
       code: `<Tabs variant="default" items={[...]} />
 <Tabs variant="pills" items={[...]} />
 <Tabs variant="underline" items={[...]} />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Vertical Tabs',
@@ -130,7 +130,7 @@ export const tabMetadata = {
     { id: 'tab2', label: 'Tab 2', content: <div>Content 2</div> }
   ]}
 />`,
-      preview: null
+      preview: true
     },
     {
       title: 'Disabled Tabs',
@@ -142,7 +142,7 @@ export const tabMetadata = {
     { id: 'tab3', label: 'Another Tab', content: <div>Content</div> }
   ]}
 />`,
-      preview: null
+      preview: true
     }
   ],
   accessibility: {

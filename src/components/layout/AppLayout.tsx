@@ -8,7 +8,7 @@ import { DocumentationSidebar } from "@/components/navigation/DocumentationSideb
 import { SkipLinks } from "@/components/ui/SkipLinks";
 import { PageTransition } from "./PageTransition";
 import { usePathname } from "next/navigation";
-import { SidebarToggle } from "@/components/navigation/SidebarToggle";
+
 
 // Memoize static components to prevent re-renders
 const MemoizedSkipLinks = React.memo(SkipLinks);
@@ -28,15 +28,15 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
   // Check if we're on desktop and handle resize
   const initialCheckRef = useRef(true);
   const previousIsDesktopRef = useRef<boolean | null>(null);
-  
+
   useEffect(() => {
     setMounted(true);
-    
+
     const checkDesktop = () => {
       const desktop = window.innerWidth >= 1024;
       const wasDesktop = previousIsDesktopRef.current;
       setIsDesktop(desktop);
-      
+
       // Update sidebar state based on screen size
       setSidebarOpen((prev) => {
         // On initial load, open on desktop
@@ -45,7 +45,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
           previousIsDesktopRef.current = desktop;
           return true;
         }
-        
+
         // On resize: only change state when switching between mobile/desktop
         if (wasDesktop !== null) {
           // Switching from mobile to desktop: open it
@@ -59,16 +59,16 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
             return false;
           }
         }
-        
+
         previousIsDesktopRef.current = desktop;
         return prev; // Otherwise maintain current state
       });
-      
+
       if (initialCheckRef.current) {
         initialCheckRef.current = false;
       }
     };
-    
+
     checkDesktop();
     window.addEventListener("resize", checkDesktop);
     return () => window.removeEventListener("resize", checkDesktop);
@@ -148,13 +148,17 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
     <div>
       <MemoizedSkipLinks />
       {/* Header - ALWAYS visible - rendered first for proper DOM order */}
-      <DocumentationHeader />
+      <DocumentationHeader
+        isSidebarOpen={sidebarOpen}
+        onSidebarToggle={handleMenuToggle}
+        showSidebarToggle={isDocsPage} // Only show toggle on docs pages
+      />
 
       {/* Main content area */}
       <Container type="fluid">
         {/* Sidebar (EdgePanel) - Rendered outside grid for all devices */}
         <DocumentationSidebar {...sidebarProps} />
-        
+
         <Grid>
           {/* Page Content - Only this should re-render on route change */}
           <GridCol xs={12}>
@@ -164,16 +168,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
           </GridCol>
         </Grid>
       </Container>
-      
-      {/* Floating sidebar toggle for documentation pages */}
-      {isDocsPage && (
-        <SidebarToggle 
-          ref={toggleButtonRef}
-          onClick={handleMenuToggle}
-          isOpen={sidebarOpen}
-        />
-      )}
-      
+
       <MemoizedDocumentationFooter />
     </div>
   );

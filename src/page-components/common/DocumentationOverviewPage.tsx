@@ -240,7 +240,7 @@ const DocumentationOverviewPage: FC = () => {
                 icon={<Icon name="Download" size="lg" />}
                 label="Get Started"
                 href="/docs/getting-started/installation"
-                linkComponent={Link}
+                LinkComponent={Link}
               />
               <Button
                 glass
@@ -248,7 +248,7 @@ const DocumentationOverviewPage: FC = () => {
                 label="Browse Components"
                 icon={<Icon name="Stack" size="lg" />}
                 href="/docs/components/overview"
-                linkComponent={Link}
+                LinkComponent={Link}
               />
             </div>
           }
@@ -477,14 +477,14 @@ const DocumentationOverviewPage: FC = () => {
                     icon={<Icon name="Download" size="lg" />}
                     label="Get Started"
                     href="/docs/getting-started/installation"
-                    linkComponent={Link}
+                    LinkComponent={Link}
                   />
                   <Button
                     variant="outline"
                     icon={<Icon name="Stack" size="lg" />}
                     label="Browse Components"
                     href="/docs/components/overview"
-                    linkComponent={Link}
+                    LinkComponent={Link}
                   />
                 </div>
               </Card>

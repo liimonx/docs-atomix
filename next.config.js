@@ -15,7 +15,10 @@ const nextConfig = {
     optimizePackageImports: ['@shohojdhara/atomix', '@phosphor-icons/react'],
   },
   
-  // Turbopack configuration (empty to silence warning)
+  // Turbopack configuration
+  // Note: Turbopack handles module resolution differently than webpack
+  // The stub file in node_modules/@shohojdhara/atomix/config/loader.js should satisfy resolution
+  // For Node.js modules (fs, path, etc.), webpack fallbacks are still used when webpack is active
   turbopack: {},
   
   // Transpile packages that need to be processed by Next.js
@@ -45,7 +48,10 @@ const nextConfig = {
   
   // Sass/SCSS configuration
   sassOptions: {
-    includePaths: ['./src'],
+    includePaths: [
+      path.resolve(__dirname, './src'),
+      path.resolve(__dirname, './node_modules'),
+    ],
   },
   
   // Webpack configuration
@@ -76,6 +82,7 @@ const nextConfig = {
       config.resolve.fallback = {
         ...(config.resolve.fallback || {}),
         fs: false,
+        'fs/promises': false,
         path: false,
         os: false,
         crypto: false,
@@ -89,7 +96,7 @@ const nextConfig = {
       // This prevents webpack from trying to resolve these modules
       config.plugins.push(
         new webpack.IgnorePlugin({
-          resourceRegExp: /^(fs|path|os|crypto|stream|util|buffer|process)$/,
+          resourceRegExp: /^(fs|fs\/promises|path|os|crypto|stream|util|buffer|process)$/,
           contextRegExp: /node_modules\/@shohojdhara\/atomix/,
         })
       );

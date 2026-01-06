@@ -30,7 +30,7 @@
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
     "@playwright/test": "^1.56.1",
-    "@shohojdhara/atomix": "^0.3.5",
+    "@shohojdhara/atomix": "^0.3.11",
     "culori": "^4.0.2",
     "date-fns": "^2.29.3",
     "framer-motion": "^10.18.0",
