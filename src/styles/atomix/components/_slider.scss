@@ -1,28 +1,28 @@
 /**
  * Slider Component Variable Overrides
  * 
- * Modern slider design with smooth interactions.
+ * Futuristic slider design with fast transitions and angular sci-fi aesthetics.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.slider' with (
-  // Slider Speed - Smooth, modern transitions
-  $slider-speed: 300ms, // Smooth transitions
-  $slider-easing: cubic-bezier(0.23, 1, 0.32, 1), // Modern easing
+  // Slider Speed - Fast, energetic transitions
+  $slider-speed: 200ms, // Fast transitions
+  $slider-easing: cubic-bezier(0.4, 0, 0.2, 1), // Energetic easing
 
-  // Slider Navigation - Better visibility
-  $slider-nav-size: 48px, // Larger navigation buttons
-  $slider-nav-size-mobile: 40px, // Mobile size
-  $slider-nav-offset: 1rem, // 16px offset
-  $slider-nav-offset-mobile: 0.75rem, // 12px mobile offset
-  $slider-nav-border-radius: 9999px, // Fully rounded
+  // Slider Navigation - Efficient visibility
+  $slider-nav-size: 40px, // Compact navigation buttons
+  $slider-nav-size-mobile: 36px, // Compact mobile size
+  $slider-nav-offset: 0.875rem, // 14px offset
+  $slider-nav-offset-mobile: 0.625rem, // 10px mobile offset
+  $slider-nav-border-radius: 0.375rem, // Angular, less rounded
 
-  // Slider Pagination - Better spacing
-  $slider-pagination-offset: 1rem, // 16px offset
-  $slider-pagination-offset-mobile: 0.75rem, // 12px mobile offset
-  $slider-pagination-bullet-size: 10px, // Slightly larger bullets
-  $slider-pagination-bullet-gap: 0.5rem, // 8px gap between bullets
+  // Slider Pagination - Compact spacing
+  $slider-pagination-offset: 0.875rem, // 14px offset
+  $slider-pagination-offset-mobile: 0.625rem, // 10px mobile offset
+  $slider-pagination-bullet-size: 8px, // Compact bullets
+  $slider-pagination-bullet-gap: 0.375rem, // 6px gap between bullets
 
-  // Slider Content - Generous padding
-  $slider-content-padding: 1.25rem, // 20px - More padding
+  // Slider Content - Compact padding
+  $slider-content-padding: 1rem, // 16px - Efficient padding
 );
 

@@ -1,18 +1,18 @@
 /**
  * Checkbox Component Variable Overrides
  * 
- * Modern checkbox design with clear visual feedback.
+ * Futuristic checkbox design with compact spacing and angular sci-fi aesthetics.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.checkbox' with (
-  // Checkbox Size - Better touch targets
-  $checkbox-width: 1.25rem, // 20px - Slightly larger
-  $checkbox-height: 1.25rem, // 20px
+  // Checkbox Size - Efficient touch targets
+  $checkbox-width: 1.125rem, // 18px - Compact size
+  $checkbox-height: 1.125rem, // 18px
 
-  // Checkbox Spacer - Better spacing from label
-  $checkbox-spacer: 0.75rem, // 12px - More space between checkbox and text
+  // Checkbox Spacer - Compact spacing from label
+  $checkbox-spacer: 0.625rem, // 10px - Tighter space between checkbox and text
 
-  // Checkbox Typography - Better readability
-  $checkbox-font-size: 1rem, // 16px - Better readability
+  // Checkbox Typography - Compact readability
+  $checkbox-font-size: 0.9375rem, // 15px - Efficient readability
 );
 

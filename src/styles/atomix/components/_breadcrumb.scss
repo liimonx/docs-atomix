@@ -1,22 +1,22 @@
 /**
  * Breadcrumb Component Variable Overrides
  * 
- * Modern breadcrumb design with clear navigation.
+ * Futuristic breadcrumb design with compact spacing and angular sci-fi aesthetics.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.breadcrumb' with (
-  // Breadcrumb Typography - Better readability
-  $breadcrumb-font-size: 0.875rem, // 14px - Slightly larger
+  // Breadcrumb Typography - Compact readability
+  $breadcrumb-font-size: 0.8125rem, // 13px - Efficient size
 
-  // Breadcrumb Link Padding - Comfortable spacing
-  $breadcrumb-link-padding-y: 0.25rem, // 4px
+  // Breadcrumb Link Padding - Compact spacing
+  $breadcrumb-link-padding-y: 0.1875rem, // 3px
   $breadcrumb-link-padding-x: 0, // No horizontal padding
 
-  // Breadcrumb Items Gap - Better spacing
-  $breadcrumb-items-gap: 0.75rem, // 12px - More space between items
-  $breadcrumb-divider-gap: 0.75rem, // 12px - More space around divider
+  // Breadcrumb Items Gap - Compact spacing
+  $breadcrumb-items-gap: 0.625rem, // 10px - Tighter space between items
+  $breadcrumb-divider-gap: 0.625rem, // 10px - Tighter space around divider
 
-  // Breadcrumb Divider - Better visibility
-  $breadcrumb-divider-size: 1rem, // 16px - Larger divider
+  // Breadcrumb Divider - Precise sizing
+  $breadcrumb-divider-size: 0.875rem, // 14px - Compact divider
 );
 

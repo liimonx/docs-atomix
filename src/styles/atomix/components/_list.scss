@@ -1,22 +1,22 @@
 /**
  * List Component Variable Overrides
  * 
- * Modern list design with comfortable spacing.
+ * Futuristic list design with compact spacing and angular sci-fi aesthetics.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.list' with (
-  // List Typography - Better readability
-  $list-font-size: 1rem, // 16px - Better readability
-  $list-font-weight: 400, // Normal weight
+  // List Typography - Compact readability
+  $list-font-size: 0.9375rem, // 15px - Efficient readability
+  $list-font-weight: 500, // Medium weight - More energetic
 
-  // List Item Gap - Better spacing
-  $list-item-gap: 0.5rem, // 8px - More space between items
+  // List Item Gap - Compact spacing
+  $list-item-gap: 0.375rem, // 6px - Tighter space between items
 
-  // List Padding - Comfortable indentation
-  $list-padding-left: 1.25rem, // 20px - More padding
+  // List Padding - Efficient indentation
+  $list-padding-left: 1rem, // 16px - Compact padding
 
-  // List Item Dash - Better visibility
-  $list-item-dash-width: 14px, // Slightly wider
+  // List Item Dash - Precise visibility
+  $list-item-dash-width: 12px, // Compact width
   $list-item-dash-height: 2px, // Standard height
 );
 

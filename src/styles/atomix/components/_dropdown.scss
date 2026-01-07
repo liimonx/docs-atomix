@@ -1,32 +1,32 @@
 /**
  * Dropdown Component Variable Overrides
  * 
- * Modern dropdown design with comfortable spacing.
+ * Futuristic dropdown design with compact spacing and angular sci-fi aesthetics.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.dropdown' with (
-  // Dropdown Base - Better sizing
-  $dropdown-min-width: 200px, // Slightly wider minimum
+  // Dropdown Base - Efficient sizing
+  $dropdown-min-width: 180px, // Compact minimum width
 
-  // Dropdown Typography - Better readability
-  $dropdown-font-size: 1rem, // 16px
+  // Dropdown Typography - Compact readability
+  $dropdown-font-size: 0.9375rem, // 15px
 
-  // Dropdown Padding - Generous spacing
-  $dropdown-padding-y: 0.5rem, // 8px
-  $dropdown-spacer: 0.5rem, // 8px - More space between items
+  // Dropdown Padding - Compact spacing
+  $dropdown-padding-y: 0.375rem, // 6px
+  $dropdown-spacer: 0.375rem, // 6px - Tighter space between items
 
-  // Dropdown Border Radius - Modern, rounded corners
-  $dropdown-border-radius: 0.75rem, // More rounded
+  // Dropdown Border Radius - Angular, sci-fi aesthetic
+  $dropdown-border-radius: 0.375rem, // Less rounded, more angular
 
-  // Dropdown Item Padding - Comfortable spacing
-  $dropdown-item-padding-x: 1rem, // 16px - More horizontal space
-  $dropdown-item-padding-y: 0.75rem, // 12px - More vertical space
-  $dropdown-link-border-radius: 0.5rem, // Rounded items
+  // Dropdown Item Padding - Compact spacing
+  $dropdown-item-padding-x: 0.875rem, // 14px - Tighter horizontal space
+  $dropdown-item-padding-y: 0.625rem, // 10px - Tighter vertical space
+  $dropdown-link-border-radius: 0.25rem, // Sharp corners
 
-  // Dropdown Divider - Better spacing
-  $dropdown-divider-margin-y: 0.5rem, // 8px - More space around dividers
+  // Dropdown Divider - Compact spacing
+  $dropdown-divider-margin-y: 0.375rem, // 6px - Tighter space around dividers
 
-  // Dropdown Animation - Smooth transitions
-  $dropdown-animation-duration: 0.2s, // Faster, snappier
+  // Dropdown Animation - Fast, energetic transitions
+  $dropdown-animation-duration: 0.1s, // Ultra-fast, snappy
 );
 

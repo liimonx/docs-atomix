@@ -1,24 +1,24 @@
 /**
  * Spinner Component Variable Overrides
  * 
- * Modern spinner design with smooth animations.
+ * Futuristic spinner design with energetic animations and angular aesthetics.
  */
 
 @use 'sass:map';
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.spinner' with (
-  // Spinner Sizes - Better visibility
+  // Spinner Sizes - Efficient visibility
   $spinner-sizes: (
-    sm: 18px, // Slightly larger small
-    md: 28px, // Slightly larger medium
-    lg: 36px, // Slightly larger large
+    sm: 16px, // Compact small
+    md: 24px, // Efficient medium
+    lg: 32px, // Compact large
   ),
 
-  // Spinner Border Width - More prominent
+  // Spinner Border Width - Precise prominence
   $spinner-border-width: 3px, // Standard width
   $spinner-border-width-sm: 2px, // Small width
 
-  // Spinner Animation - Smooth, modern speed
-  $spinner-animation-speed: 0.8s, // Slightly faster
+  // Spinner Animation - Fast, energetic speed
+  $spinner-animation-speed: 0.6s, // Faster, more energetic
 );
 

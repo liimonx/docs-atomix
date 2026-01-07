@@ -1,29 +1,29 @@
 /**
  * Tabs Component Variable Overrides
  * 
- * Modern tabs design with comfortable spacing and clear navigation.
+ * Futuristic tabs design with compact spacing and angular sci-fi aesthetics.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.tabs' with (
-  // Tabs Nav Button - Comfortable padding
-  $tabs-nav-btn-padding-x: 1rem, // 16px - More horizontal space
-  $tabs-nav-btn-padding-y: 0.75rem, // 12px - More vertical space
-  $tabs-nav-btn-font-size: 1rem, // 16px - Better readability
-  $tabs-nav-btn-font-weight: 500, // Medium weight
+  // Tabs Nav Button - Compact padding
+  $tabs-nav-btn-padding-x: 0.875rem, // 14px - Tighter horizontal space
+  $tabs-nav-btn-padding-y: 0.625rem, // 10px - Tighter vertical space
+  $tabs-nav-btn-font-size: 0.9375rem, // 15px - Efficient readability
+  $tabs-nav-btn-font-weight: 600, // Semibold - More energetic
 
-  // Tabs Nav Button Border - Modern appearance
-  $tabs-nav-btn-border-radius: 0.5rem, // Rounded corners
-  $tabs-nav-btn-border-width: 2px, // More visible border
+  // Tabs Nav Button Border - Angular appearance
+  $tabs-nav-btn-border-radius: 0.375rem, // Less rounded, more angular
+  $tabs-nav-btn-border-width: 2px, // Visible border
 
-  // Tabs Nav Buttons Gap - Better spacing
-  $tabs-nav-btns-gap: 0.5rem, // 8px - Space between tabs
-  $tabs-nav-btn-inner-gap: 0.5rem, // 8px - Space between icon and text
+  // Tabs Nav Buttons Gap - Compact spacing
+  $tabs-nav-btns-gap: 0.375rem, // 6px - Tighter space between tabs
+  $tabs-nav-btn-inner-gap: 0.375rem, // 6px - Tighter space between icon and text
 
-  // Tabs Icon - Better visibility
-  $tab-nav-btn-icon-size: 1.25rem, // 20px
+  // Tabs Icon - Precise sizing
+  $tab-nav-btn-icon-size: 1.125rem, // 18px
 
-  // Tabs Panel - Generous padding
-  $tabs-panel-padding-x: 1.25rem, // 20px
-  $tabs-panel-padding-y: 1.25rem, // 20px
+  // Tabs Panel - Compact padding
+  $tabs-panel-padding-x: 1rem, // 16px
+  $tabs-panel-padding-y: 1rem, // 16px
 );
 

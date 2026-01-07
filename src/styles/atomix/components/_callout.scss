@@ -1,23 +1,23 @@
 /**
  * Callout Component Variable Overrides
  * 
- * Modern callout design with generous spacing and clear typography.
+ * Futuristic callout design with compact spacing and angular sci-fi aesthetics.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.callout' with (
-  // Callout Padding - Generous spacing
-  $callout-padding-x: 1.25rem, // 20px - More horizontal space
-  $callout-padding-y: 1.25rem, // 20px - More vertical space
+  // Callout Padding - Compact spacing
+  $callout-padding-x: 1rem, // 16px - Tighter horizontal space
+  $callout-padding-y: 1rem, // 16px - Tighter vertical space
 
-  // Callout Toast Padding - Comfortable spacing
-  $callout-tost-padding-x: 1.25rem, // 20px
-  $callout-tost-padding-y: 1.25rem, // 20px
+  // Callout Toast Padding - Compact spacing
+  $callout-tost-padding-x: 1rem, // 16px
+  $callout-tost-padding-y: 1rem, // 16px
 
-  // Callout Border Radius - Modern, rounded corners
-  $callout-border-radius: 0.75rem, // More rounded
+  // Callout Border Radius - Angular, sci-fi aesthetic
+  $callout-border-radius: 0.5rem, // Less rounded, more angular
 
-  // Callout Title - Clear typography
-  $callout-title-font-size: 1.125rem, // 18px - More prominent
-  $callout-title-font-weight: 600, // Semibold
+  // Callout Title - Bold typography
+  $callout-title-font-size: 1.0625rem, // 17px - Compact but prominent
+  $callout-title-font-weight: 700, // Bold - More energetic
 );
 

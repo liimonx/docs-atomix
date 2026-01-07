@@ -1,19 +1,19 @@
 /**
  * Avatar Component Variable Overrides
  * 
- * Modern avatar design with balanced sizing.
+ * Futuristic avatar design with efficient sizing and angular sci-fi aesthetics.
  */
 
 @use 'sass:map';
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.avatar' with (
-  // Avatar Sizes - Better proportions
+  // Avatar Sizes - Efficient proportions
   $avatar-size: (
-    xs: 28px, // Slightly larger
-    sm: 36px, // Slightly larger
-    md: 44px, // Slightly larger
-    lg: 52px, // Slightly larger
-    xl: 64px, // Slightly larger
+    xs: 24px, // Compact size
+    sm: 32px, // Efficient size
+    md: 40px, // Compact size
+    lg: 48px, // Efficient size
+    xl: 56px, // Compact size
   ),
 );
 

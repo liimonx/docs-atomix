@@ -1,32 +1,32 @@
 /**
  * Card Component Variable Overrides
  * 
- * Modern card design with generous spacing, elegant typography, and smooth interactions.
+ * Futuristic card design with compact spacing, angular aesthetics, and energetic interactions.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.card' with (
-  // Card Spacing - Generous, breathable layout
-  $card-spacer-y: 1.25rem, // 20px - More vertical space
-  $card-spacer-x: 1.25rem, // 20px - More horizontal space
-  $card-row-spacer-y: 1rem, // 16px
-  $card-row-spacer-x: 1rem, // 16px
-  $card-title-spacer-y: 0.5rem, // 8px - Better title spacing
-  $card-action-spacer-y: 1rem, // 16px - More action spacing
-  $card-header-spacer-y: 1rem, // 16px - Better header spacing
+  // Card Spacing - Compact, efficient layout
+  $card-spacer-y: 0.625rem, // 10px - Tighter vertical space
+  $card-spacer-x: 0.625rem, // 10px - Tighter horizontal space
+  $card-row-spacer-y: 0.5rem, // 8px - Efficient spacing
+  $card-row-spacer-x: 0.5rem, // 8px - Efficient spacing
+  $card-title-spacer-y: 0.375rem, // 6px - Compact title spacing
+  $card-action-spacer-y: 0.625rem, // 10px - Tighter action spacing
+  $card-header-spacer-y: 0.625rem, // 10px - Compact header spacing
 
-  // Card Typography - Clear hierarchy
-  $card-title-font-size: 1.125rem, // 18px - More prominent titles
-  $card-text-font-size: 1rem, // 16px - Better readability
+  // Card Typography - Bold, energetic hierarchy
+  $card-title-font-size: 0.9375rem, // 15px - Compact but prominent
+  $card-text-font-size: 0.875rem, // 14px - Efficient readability
 
-  // Card Border Radius - Modern, rounded corners
-  $card-border-radius: var(--a-border-radius-xl), // 1rem - Very rounded
-  $card-image-border-radius: var(--a-border-radius-lg), // 0.75rem
+  // Card Border Radius - Angular, sci-fi aesthetic
+  $card-border-radius: 0.5rem, // Less rounded, more angular
+  $card-image-border-radius: 0.375rem, // Sharp corners
 
-  // Card Icon - Balanced sizing
-  $card-icon-size: 1.5rem, // 24px - More prominent
-  $card-icon-padding: 0.75rem, // 12px - Better padding
+  // Card Icon - Precise sizing
+  $card-icon-size: 1.25rem, // 20px - Compact but visible
+  $card-icon-padding: 0.5rem, // 8px - Tighter padding
 
-  // Card Hover - Enable smooth hover effects
+  // Card Hover - Enable energetic hover effects
   $card-hover: false, // Enable hover state for interactive cards
 );
 

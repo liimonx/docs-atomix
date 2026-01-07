@@ -1,4 +1,12 @@
+/**
+ * Typography Variable Overrides
+ * 
+ * Futuristic typography with compact sizing, increased letter spacing,
+ * and energetic weight distribution for sci-fi aesthetic.
+ */
+
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.typography' with (
+    // Font Weights - Energetic distribution
     $font-weight-light: 300,
     $font-weight-normal: 400,
     $font-weight-medium: 500,
@@ -6,13 +14,15 @@
     $font-weight-bold: 700,
     $font-weight-heavy: 800,
     $font-weight-black: 900,
-    $font-size-base: 1rem,
-    $font-size-xs: 0.75rem,
-    $font-size-sm: 0.875rem,
-    $font-size-md: 1rem,
-    $font-size-lg: 1.125rem,
-    $font-size-xl: 1.25rem,
-    $display-1: 3rem,
+    
+    // Font Sizes - Compact, efficient sizing
+    $font-size-base: 0.9375rem,      // 15px - Slightly smaller base for tech feel
+    $font-size-xs: 0.6875rem,        // 11px - Compact extra small
+    $font-size-sm: 0.8125rem,        // 13px - Compact small
+    $font-size-md: 0.9375rem,        // 15px - Compact medium
+    $font-size-lg: 1.0625rem,        // 17px - Compact large
+    $font-size-xl: 1.1875rem,        // 19px - Compact extra large
+    $display-1: 2.75rem,             // 44px - Compact display (was 3rem/48px)
 );
 
 /**

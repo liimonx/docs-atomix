@@ -1,31 +1,31 @@
 /**
  * Toggle Component Variable Overrides
  * 
- * Modern toggle switch design with clear visual feedback.
+ * Futuristic toggle switch design with angular aesthetics and energetic feedback.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.toggle' with (
-  // Toggle Gap - Better spacing from label
-  $toggle-gap: 0.75rem, // 12px - More space between toggle and label
+  // Toggle Gap - Compact spacing from label
+  $toggle-gap: 0.625rem, // 10px - Tighter space between toggle and label
 
-  // Toggle Switch Sizes - Better touch targets
-  $toggle-switch-width-sm: 52px, // Slightly wider
-  $toggle-switch-height-sm: 28px, // Slightly taller
-  $toggle-switch-width-md: 40px, // Slightly wider
-  $toggle-switch-height-md: 22px, // Slightly taller
+  // Toggle Switch Sizes - Efficient touch targets
+  $toggle-switch-width-sm: 48px, // Compact width
+  $toggle-switch-height-sm: 24px, // Compact height
+  $toggle-switch-width-md: 36px, // Efficient width
+  $toggle-switch-height-md: 20px, // Efficient height
 
-  // Toggle Switch Default - Better proportions
-  $toggle-switch-width: 40px, // Default width
-  $toggle-switch-height: 22px, // Default height
+  // Toggle Switch Default - Efficient proportions
+  $toggle-switch-width: 36px, // Default width
+  $toggle-switch-height: 20px, // Default height
 
-  // Toggle Switch Handle - Better proportions
-  $toggle-switch-handle-width-sm: 22px, // Slightly larger
-  $toggle-switch-handle-width-md: 16px, // Slightly larger
-  $toggle-switch-handle-height-sm: 22px,
-  $toggle-switch-handle-height-md: 16px,
-  $toggle-switch-handle-margin: 3px, // Better margin
+  // Toggle Switch Handle - Precise proportions
+  $toggle-switch-handle-width-sm: 20px, // Compact size
+  $toggle-switch-handle-width-md: 14px, // Efficient size
+  $toggle-switch-handle-height-sm: 20px,
+  $toggle-switch-handle-height-md: 14px,
+  $toggle-switch-handle-margin: 2px, // Tighter margin
 
-  // Toggle Switch Border Radius - More rounded
-  $toggle-switch-border-radius: 0.75rem, // More rounded
+  // Toggle Switch Border Radius - Angular, sci-fi aesthetic
+  $toggle-switch-border-radius: 0.375rem, // Less rounded, more angular
 );
 

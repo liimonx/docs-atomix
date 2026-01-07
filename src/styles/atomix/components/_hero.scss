@@ -1,25 +1,25 @@
 /**
  * Hero Component Variable Overrides
  * 
- * Modern hero design with impactful typography and generous spacing.
+ * Futuristic hero design with bold typography and compact energetic spacing.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.hero' with (
-  // Hero Padding - Generous vertical spacing
-  $hero-padding-y: 3rem, // 48px - More vertical space
-  $hero-spacer-y: 5rem, // 80px - More spacing between elements
+  // Hero Padding - Compact vertical spacing
+  $hero-padding-y: 2.5rem, // 40px - Tighter vertical space
+  $hero-spacer-y: 4rem, // 64px - Tighter spacing between elements
 
-  // Hero Typography - Impactful, clear hierarchy
-  $hero-title-font-size: 3rem, // Large, impactful
-  $hero-subtitle-font-size: 1.125rem, // 18px - More prominent subtitle
-  $hero-text-font-size: 1rem, // 16px
-  $hero-title-font-weight: 700, // Bold, impactful
-  $hero-subtitle-font-weight: 500, // Medium weight
+  // Hero Typography - Bold, energetic hierarchy
+  $hero-title-font-size: 2.75rem, // Compact but impactful
+  $hero-subtitle-font-size: 1.0625rem, // 17px - Compact but prominent subtitle
+  $hero-text-font-size: 0.9375rem, // 15px
+  $hero-title-font-weight: 800, // Extra bold, more energetic
+  $hero-subtitle-font-weight: 600, // Semibold - More energetic
 
-  // Hero Spacing - Clear visual separation
-  $hero-subtitle-margin-bottom: 1rem, // 16px - Better spacing
-  $hero-text-margin-top: 1rem, // 16px - Better spacing
-  $hero-actions-margin-top: 2rem, // 32px - More space before actions
-  $hero-actions-inner-gap: 1rem, // 16px - More space between action buttons
+  // Hero Spacing - Compact visual separation
+  $hero-subtitle-margin-bottom: 0.875rem, // 14px - Tighter spacing
+  $hero-text-margin-top: 0.875rem, // 14px - Tighter spacing
+  $hero-actions-margin-top: 1.75rem, // 28px - Tighter space before actions
+  $hero-actions-inner-gap: 0.875rem, // 14px - Tighter space between action buttons
 );
 

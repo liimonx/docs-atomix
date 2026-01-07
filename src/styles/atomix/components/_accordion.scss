@@ -1,26 +1,26 @@
 /**
  * Accordion Component Variable Overrides
  * 
- * Modern accordion design with generous spacing and clear hierarchy.
+ * Futuristic accordion design with compact spacing and angular sci-fi aesthetics.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.accordion' with (
-  // Accordion Padding - Generous spacing
-  $accordion-padding-x: 1.25rem, // 20px - More horizontal space
-  $accordion-padding-y: 1rem, // 16px - More vertical space
+  // Accordion Padding - Compact spacing
+  $accordion-padding-x: 1rem, // 16px - Tighter horizontal space
+  $accordion-padding-y: 0.875rem, // 14px - Tighter vertical space
 
-  // Accordion Border Radius - Modern, rounded corners
-  $accordion-border-radius: 0.5rem, // More rounded
+  // Accordion Border Radius - Angular, sci-fi aesthetic
+  $accordion-border-radius: 0.375rem, // Less rounded, more angular
 
-  // Accordion Body - Comfortable spacing
-  $accordion-body-padding-x: 1.25rem, // 20px
-  $accordion-body-padding-y: 0.75rem, // 12px - Better content spacing
+  // Accordion Body - Compact spacing
+  $accordion-body-padding-x: 1rem, // 16px
+  $accordion-body-padding-y: 0.625rem, // 10px - Efficient content spacing
 
-  // Accordion Header - Clear separation
-  $accordion-header-padding-x: 1.25rem, // 20px
-  $accordion-header-padding-y: 1rem, // 16px
+  // Accordion Header - Compact separation
+  $accordion-header-padding-x: 1rem, // 16px
+  $accordion-header-padding-y: 0.875rem, // 14px
 
-  // Accordion Icon - Better visibility
-  $accordion-icon-size: 1.25rem, // 20px - More prominent
+  // Accordion Icon - Precise sizing
+  $accordion-icon-size: 1.125rem, // 18px - Compact but visible
 );
 

@@ -1,26 +1,26 @@
 /**
  * Steps Component Variable Overrides
  * 
- * Modern steps design with clear progression indicators.
+ * Futuristic steps design with compact spacing and angular sci-fi aesthetics.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.steps' with (
-  // Steps Item Number - Better visibility
-  $steps-item-number-size: 2rem, // 32px - More prominent
-  $steps-item-number-font-size: 0.875rem, // 14px - Better readability
-  $steps-item-number-border-radius: 9999px, // Fully rounded
+  // Steps Item Number - Compact visibility
+  $steps-item-number-size: 1.75rem, // 28px - Efficient size
+  $steps-item-number-font-size: 0.8125rem, // 13px - Compact readability
+  $steps-item-number-border-radius: 0.375rem, // Angular, less rounded
 
-  // Steps Item Typography - Better readability
-  $steps-item-font-size: 0.875rem, // 14px
+  // Steps Item Typography - Compact readability
+  $steps-item-font-size: 0.8125rem, // 13px
 
-  // Steps Content Gap - Better spacing
-  $steps-item-content-gap: 0.75rem, // 12px - More space between number and text
+  // Steps Content Gap - Compact spacing
+  $steps-item-content-gap: 0.625rem, // 10px - Tighter space between number and text
 
-  // Steps Gap - Better spacing between steps
-  $steps-gap: 1rem, // 16px - More space between steps
+  // Steps Gap - Compact spacing between steps
+  $steps-gap: 0.875rem, // 14px - Tighter space between steps
 
-  // Steps Line - Better visibility
-  $steps-line-width: 48px, // Slightly wider line
-  $steps-line-height-vertical: 48px, // Slightly taller vertical line
+  // Steps Line - Efficient visibility
+  $steps-line-width: 40px, // Compact line
+  $steps-line-height-vertical: 40px, // Compact vertical line
 );
 

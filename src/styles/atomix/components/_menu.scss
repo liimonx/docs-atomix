@@ -1,42 +1,42 @@
 /**
  * Menu Component Variable Overrides
  * 
- * Modern menu design with comfortable spacing and clear hierarchy.
+ * Futuristic menu design with compact spacing and angular sci-fi aesthetics.
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.menu' with (
-  // Menu Base - Better sizing
-  $menu-min-width: 180px, // Slightly wider minimum
+  // Menu Base - Efficient sizing
+  $menu-min-width: 160px, // Compact minimum
 
-  // Menu Padding - Comfortable spacing
-  $menu-padding-x: 0.5rem, // 8px
-  $menu-padding-y: 0.5rem, // 8px
+  // Menu Padding - Compact spacing
+  $menu-padding-x: 0.375rem, // 6px
+  $menu-padding-y: 0.375rem, // 6px
 
-  // Menu Border Radius - Modern, rounded corners
-  $menu-border-radius: 1rem, // Very rounded
+  // Menu Border Radius - Angular, sci-fi aesthetic
+  $menu-border-radius: 0.5rem, // Less rounded, more angular
 
-  // Menu Items Gap - Better spacing
-  $menu-items-gap: 0.5rem, // 8px - More space between items
+  // Menu Items Gap - Compact spacing
+  $menu-items-gap: 0.375rem, // 6px - Tighter space between items
 
-  // Menu Item Padding - Comfortable spacing
-  $menu-item-padding-x: 0.75rem, // 12px - More horizontal space
-  $menu-item-padding-y: 0.75rem, // 12px - More vertical space
-  $menu-item-inner-gap: 0.75rem, // 12px - More space between icon and text
+  // Menu Item Padding - Compact spacing
+  $menu-item-padding-x: 0.625rem, // 10px - Tighter horizontal space
+  $menu-item-padding-y: 0.625rem, // 10px - Tighter vertical space
+  $menu-item-inner-gap: 0.625rem, // 10px - Tighter space between icon and text
 
-  // Menu Item Typography - Better readability
-  $menu-item-font-size: 1rem, // 16px - Better readability
-  $menu-item-font-weight: 500, // Medium weight
+  // Menu Item Typography - Compact readability
+  $menu-item-font-size: 0.9375rem, // 15px - Efficient readability
+  $menu-item-font-weight: 600, // Semibold - More energetic
 
-  // Menu Item Icon - Better visibility
-  $menu-item-icon-size: 1.25rem, // 20px - More prominent
+  // Menu Item Icon - Precise sizing
+  $menu-item-icon-size: 1.125rem, // 18px - Compact but visible
 
-  // Menu Mega - Generous spacing
-  $menu-mega-padding-x: 4rem, // 64px
-  $menu-mega-padding-y: 2rem, // 32px - More vertical space
-  $menu-mega-grid-gap: 2.5rem, // 40px - More space between columns
+  // Menu Mega - Compact spacing
+  $menu-mega-padding-x: 3rem, // 48px
+  $menu-mega-padding-y: 1.5rem, // 24px - Tighter vertical space
+  $menu-mega-grid-gap: 2rem, // 32px - Tighter space between columns
 
-  // Menu Mega Header - Clear typography
-  $menu-mega-header-title-font-size: 1.125rem, // 18px - More prominent
-  $menu-mega-header-title-font-weight: 600, // Semibold
+  // Menu Mega Header - Bold typography
+  $menu-mega-header-title-font-size: 1.0625rem, // 17px - Compact but prominent
+  $menu-mega-header-title-font-weight: 700, // Bold - More energetic
 );
 
