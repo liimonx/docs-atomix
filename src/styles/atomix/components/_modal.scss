@@ -1,36 +1,38 @@
 /**
  * Modal Component Variable Overrides
+ * =============================================================================
  * 
  * Futuristic modal design with compact spacing and angular sci-fi aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/modal
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.modal' with (
-  // Modal Inner Padding - Compact, efficient spacing
-  $modal-inner-padding: 1.25rem, // 20px - Tighter breathing room
+  // Modal Inner Padding - Generous, comfortable spacing
+  $modal-inner-padding: 1.5rem,            // 24px - Better breathing room
 
-  // Modal Content - Angular, sci-fi appearance
-  $modal-content-border-radius: 0.5rem, // Less rounded, more angular
+  // Modal Content - Modern, inviting appearance
+  $modal-content-border-radius: 0.75rem,   // 12px - Softer, more modern
 
-  // Modal Header - Bold typography hierarchy
-  $modal-header-padding-bottom: 0.875rem, // 14px - Compact spacing
-  $modal-title-font-size: 1.125rem, // 18px - Compact but prominent
-  $modal-sub-margin-top: 0.375rem, // 6px
-  $modal-sub-font-size: 0.9375rem, // 15px - Efficient readability
+  // Modal Header - Clear typography hierarchy
+  $modal-header-padding-bottom: 1rem,      // 16px - Better spacing
+  $modal-title-font-size: 1.25rem,         // 20px - More prominent
+  $modal-sub-margin-top: 0.5rem,           // 8px
+  $modal-sub-font-size: 0.9375rem,         // 15px - Good readability
 
-  // Modal Footer - Compact spacing
-  $modal-footer-items-gap: 0.625rem, // 10px - Tighter space between actions
+  // Modal Footer - Comfortable spacing
+  $modal-footer-items-gap: 0.75rem,        // 12px - Better space between actions
 
-  // Modal Backdrop - Enhanced sci-fi visual effect
-  $modal-backdrop-opacity: 0.75, // More visible backdrop for dark theme
-  $modal-backdrop-blur: 16px, // More blur for futuristic glass effect
+  // Modal Backdrop - Balanced visual effect
+  $modal-backdrop-opacity: 0.7,            // Balanced backdrop
+  $modal-backdrop-blur: 12px,              // Subtle blur effect
 
-  // Modal Close Icon - Precise sizing
-  $modal-close-icon-size: 28px, // Compact but accessible
+  // Modal Close Icon - Accessible sizing
+  $modal-close-icon-size: 32px,            // Better accessibility
 
-  // Modal Sizes - Efficient responsive breakpoints
-  $modal-sm: 400px, // Compact small modal
-  $modal-md: 720px, // Efficient medium modal
-  $modal-lg: 960px, // Compact large modal
-  $modal-xl: 1120px, // Efficient xl modal
+  // Modal Sizes - Comfortable responsive breakpoints
+  $modal-sm: 420px,                        // Comfortable small modal
+  $modal-md: 720px,                        // Standard medium modal
+  $modal-lg: 960px,                        // Spacious large modal
+  $modal-xl: 1140px                        // Extra large modal
 );
-

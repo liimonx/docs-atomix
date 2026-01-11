@@ -1,0 +1,27 @@
+/**
+ * Layout Variable Overrides
+ * =============================================================================
+ * 
+ * Grid, containers, and breakpoint configuration.
+ * 
+ * @see https://atomix.design/docs/design-tokens/layout
+ */
+
+// =============================================================================
+// Layout Configuration
+// =============================================================================
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.grid' with (
+  // Grid system - Enhanced for modern layouts
+  $grid-columns: 12,
+  $grid-gutter-width: 32px,  // 2rem - Improved spacing
+  
+  // Container max widths - Refined responsive breakpoints
+  $container-max-widths: (
+    xs: 360px,
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    xxl: 1536px
+  )
+);

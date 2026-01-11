@@ -1,10 +1,11 @@
 /**
  * Atomix SCSS Variable Overrides - Main Entry Point
+ * =============================================================================
  * 
  * This file imports all variable overrides and then imports Atomix.
  * 
  * Usage:
- * 1. Uncomment and customize variables in the individual category files:
+ * 1. Customize variables in the individual category files:
  *    - _colors.scss - Brand and semantic colors
  *    - _typography.scss - Fonts, sizes, weights
  *    - _spacing.scss - Spacing scale
@@ -15,26 +16,23 @@
  *    - _z-index.scss - Layer stacking order
  *    - components/ - Component-specific overrides (button, badge, card, etc.)
  * 
- * 2. Import this file in your main stylesheet (globals.scss)
+ * 2. Import this file in your main stylesheet (globals.scss):
+ *    @import './atomix/index';
  * 
- * Method 1: Using @import (current approach)
- * @import './atomix/index';
- * 
- * Method 2: Using @use with inline configuration (recommended)
- * @use './atomix/variables' as *;
- * @use '@shohojdhara/atomix/styles' as *;
+ * @see https://atomix.design/docs/guides/theming
  */
 
-// Import all variable overrides FIRST
 // =============================================================================
-// Using @use to load variables - they will be forwarded and available in this scope
+// Import Variable Overrides
+// =============================================================================
 // Variables must be loaded before Atomix so they can override defaults
+// Using @use to load variables - they will be forwarded and available in this scope
 @use './variables' as *;
 
-// Import Atomix styles with your customizations
 // =============================================================================
-// Using relative path from node_modules (SCSS doesn't resolve scoped packages well)
+// Import Atomix Styles
+// =============================================================================
 // All variables loaded above will be available to Atomix modules
+// Using relative path from node_modules (SCSS doesn't resolve scoped packages well)
 // From src/styles/atomix/ we need to go up 3 levels to reach project root
-// Using @use - variables from above will be in scope and override Atomix defaults
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/index.scss' as *;

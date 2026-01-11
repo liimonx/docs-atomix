@@ -63,6 +63,96 @@
   margin: 0;
 }
 
+// Elements - Section styling
+// =============================================================================
+.designTokensDisplay__section {
+  margin-bottom: var(--atomix-spacing-8);
+}
+
+.designTokensDisplay__sectionTitle {
+  font-size: var(--atomix-font-size-lg);
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-primary-text-emphasis);
+  margin-bottom: var(--atomix-spacing-4);
+  padding-bottom: var(--atomix-spacing-2);
+  border-bottom: 1px solid var(--atomix-border-color);
+}
+
+// Elements - Color Grid
+// =============================================================================
+.designTokensDisplay__colorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--atomix-spacing-4);
+  margin-bottom: var(--atomix-spacing-8);
+}
+
+// Elements - Color Card
+// =============================================================================
+.designTokensDisplay__colorCard {
+  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+  overflow: hidden;
+  transition: all var(--atomix-transition-duration-base) var(--atomix-easing-base);
+  cursor: pointer;
+  background-color: var(--atomix-body-bg);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--atomix-box-shadow-md);
+    border-color: var(--atomix-primary);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+  }
+}
+
+// Elements - Color Swatch
+// =============================================================================
+.designTokensDisplay__colorSwatch {
+  width: 100%;
+  height: 120px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--atomix-spacing-2);
+}
+
+.designTokensDisplay__colorOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+  pointer-events: none;
+}
+
+// Elements - Color Info
+// =============================================================================
+.designTokensDisplay__colorInfo {
+  padding: var(--atomix-spacing-3);
+  background-color: var(--atomix-secondary-bg-subtle);
+}
+
+.designTokensDisplay__colorName {
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-medium);
+  color: var(--atomix-primary-text-emphasis);
+  margin-bottom: var(--atomix-spacing-1);
+  word-break: break-word;
+}
+
+.designTokensDisplay__colorValue {
+  font-size: var(--atomix-font-size-xs);
+  font-family: var(--atomix-font-monospace);
+  color: var(--atomix-secondary-text-emphasis);
+  word-break: break-all;
+}
+
 // Elements - Token Preview
 // =============================================================================
 .designTokensDisplay__preview {
@@ -104,33 +194,28 @@
 // Elements - Token Details
 // =============================================================================
 .designTokensDisplay__details {
-  display: flex;
-  flex-direction: column;
-  gap: var(--atomix-spacing-2);
+  border-top: 1px solid var(--atomix-border-color);
+  padding-top: var(--atomix-spacing-3);
 }
 
 .designTokensDisplay__value {
-  display: flex;
-  flex-direction: column;
-  gap: var(--atomix-spacing-1);
+  margin-bottom: var(--atomix-spacing-2);
 }
 
 .designTokensDisplay__label {
-  font-size: var(--atomix-font-size-sm);
-  font-weight: var(--atomix-font-weight-semibold);
+  display: block;
+  font-size: var(--atomix-font-size-xs);
   color: var(--atomix-secondary-text-emphasis);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  margin-bottom: var(--atomix-spacing-1);
 }
 
 .designTokensDisplay__code {
-  font-family: 'Courier New', monospace;
-  font-size: var(--atomix-font-size-sm);
+  font-family: var(--atomix-font-monospace);
   background-color: var(--atomix-tertiary-bg-subtle);
   padding: var(--atomix-spacing-1) var(--atomix-spacing-2);
   border-radius: var(--atomix-border-radius-sm);
-  color: var(--atomix-primary);
-  border: 1px solid var(--atomix-border-color);
+  font-size: var(--atomix-font-size-xs);
+  word-break: break-all;
 }
 
 .designTokensDisplay__tokenDescription {
@@ -146,26 +231,25 @@
   gap: var(--atomix-spacing-1);
 }
 
-// Elements - Theming Guide
+// Theming Guide Section
 // =============================================================================
 .designTokensDisplay__themingGuide {
   padding: var(--atomix-spacing-6);
   background-color: var(--atomix-secondary-bg-subtle);
-  border-radius: var(--atomix-border-radius-lg);
-  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+  border-left: 3px solid var(--atomix-primary);
 }
 
 .designTokensDisplay__themingTitle {
   font-size: var(--atomix-font-size-lg);
-  font-weight: var(--atomix-font-weight-bold);
+  font-weight: var(--atomix-font-weight-semibold);
   color: var(--atomix-primary-text-emphasis);
-  margin-bottom: var(--atomix-spacing-2);
+  margin: 0 0 var(--atomix-spacing-2) 0;
 }
 
 .designTokensDisplay__themingText {
-  font-size: var(--atomix-font-size-md);
+  font-size: var(--atomix-font-size-base);
   color: var(--atomix-secondary-text-emphasis);
-  line-height: var(--atomix-line-height-relaxed);
   margin: 0;
 }
 
@@ -183,31 +267,25 @@
   }
 }
 
-// Accessibility
+// Accessibility Enhancements
 // =============================================================================
-.designTokensDisplay__tokenCard {
-  &:focus-visible {
-    outline: 2px solid var(--atomix-focus-border-color);
-    outline-offset: 2px;
-    border-radius: var(--atomix-border-radius);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .designTokensDisplay {
-    * {
-      transition: none;
+  .designTokensDisplay__colorCard {
+    transition: none;
+    
+    &:hover {
+      transform: none;
     }
   }
 }
 
 @media (prefers-contrast: high) {
-  .designTokensDisplay__tokenCard {
+  .designTokensDisplay__colorCard {
     border-width: 2px;
   }
   
-  .designTokensDisplay__colorPreview {
-    border-width: 2px;
+  .designTokensDisplay__colorSwatch {
+    border-bottom: 1px solid var(--atomix-border-color);
   }
 }
 

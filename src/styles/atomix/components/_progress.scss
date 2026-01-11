@@ -1,18 +1,20 @@
 /**
  * Progress Component Variable Overrides
+ * =============================================================================
  * 
  * Futuristic progress bar design with angular aesthetics and energetic feedback.
+ * 
+ * @see https://atomix.design/docs/components/progress
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.progress' with (
   // Progress Bar Height - Compact but visible
-  $progress-height: 6px, // Tighter height for sci-fi aesthetic
+  $progress-height: 6px,            // Tighter height for sci-fi aesthetic
   $progress-bar-height: 6px,
 
   // Progress Typography - Compact readability
-  $progress-font-size: 0.8125rem, // 13px - Efficient size
+  $progress-font-size: 0.8125rem,   // 13px - Efficient size
 
   // Progress Border Radius - Angular, sci-fi aesthetic
-  $progress-border-radius: 0.25rem, // Less rounded, more angular
+  $progress-border-radius: 0.25rem  // Less rounded, more angular
 );
-

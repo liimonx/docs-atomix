@@ -1,25 +1,27 @@
 /**
  * Nav Component Variable Overrides
+ * =============================================================================
  * 
  * Futuristic navigation design with compact spacing and angular sci-fi aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/nav
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.nav' with (
   // Nav Item Gap - Compact spacing
-  $nav-item-gap-x: 0.375rem, // 6px - Tighter space between items
+  $nav-item-gap-x: 0.375rem,      // 6px - Tighter space between items
 
   // Nav Link Padding - Compact spacing
-  $nav-link-padding-x: 0.875rem, // 14px - Tighter horizontal space
-  $nav-link-padding-y: 0.625rem, // 10px - Tighter vertical space
+  $nav-link-padding-x: 0.875rem,  // 14px - Tighter horizontal space
+  $nav-link-padding-y: 0.625rem,  // 10px - Tighter vertical space
 
   // Nav Link Typography - Compact readability
   $nav-link-font-size: 0.9375rem, // 15px - Efficient readability
-  $nav-link-font-weight: 600, // Semibold - More energetic
+  $nav-link-font-weight: 600,     // Semibold - More energetic
 
   // Nav Link Inner Gap - Compact spacing
-  $nav-link-inner-gap: 0.375rem, // 6px - Tighter space between icon and text
+  $nav-link-inner-gap: 0.375rem,  // 6px - Tighter space between icon and text
 
   // Nav Icon - Precise sizing
-  $nav-icon-size: 1.125rem, // 18px - Compact but visible
+  $nav-icon-size: 1.125rem        // 18px - Compact but visible
 );
-

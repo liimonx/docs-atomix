@@ -974,6 +974,16 @@ export const navigationData: NavigationSection[] = [
         category: 'examples',
         searchTerms: ['patterns', 'layouts', 'common'],
         priority: 1
+      },
+      {
+        id: 'landing-page',
+        title: 'Landing Page',
+        path: '/examples/landing-page',
+        icon: 'Image',
+        description: 'Modern landing page example',
+        category: 'examples',
+        searchTerms: ['landing', 'page', 'marketing', 'hero', 'call to action'],
+        priority: 2
       }
     ]
   },

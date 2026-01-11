@@ -7,7 +7,7 @@ import {
   SectionIntro,
   Card,
   GridCol,
-  Row,
+  Grid,
   Block,
   Icon,
   Button,
@@ -128,9 +128,9 @@ const LayoutsCustomizationPage: FC = () => {
           alignment="center"
         />
 
-        <Row>
+        <Grid>
           {customizationLevels.map((level, index) => (
-            <GridCol key={index} md={6} lg={3} className="u-mb-4">
+            <GridCol key={index} md={6} lg={3} className="u-mb-6">
               <Card className="u-h-100 u-p-6 u-border u-border-subtle">
                 <div className="u-d-flex u-flex-column u-h-100">
                   <div
@@ -156,7 +156,7 @@ const LayoutsCustomizationPage: FC = () => {
               </Card>
             </GridCol>
           ))}
-        </Row>
+        </Grid>
       </Block>
 
       <Block spacing="md" background="secondary">
@@ -166,23 +166,23 @@ const LayoutsCustomizationPage: FC = () => {
           alignment="center"
         />
 
-        <Row>
-          <GridCol md={12}>
-            <Card className="u-p-6">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                  <Icon name="Palette" size="lg" />
+          <Grid>
+            <GridCol md={12} className="u-mb-6">
+              <Card className="u-p-6">
+                <div className="u-d-flex u-align-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
+                    <Icon name="Palette" size="lg" />
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                    Grid System Properties
+                  </h3>
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                  Grid System Properties
-                </h3>
-              </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Customize the grid system using CSS custom properties. These can be set globally or scoped to specific components.
-              </p>
-              
-              <EnhancedCodeBlock
-                code={`:root {
+                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                  Customize the grid system using CSS custom properties. These can be set globally or scoped to specific components.
+                </p>
+                
+                <EnhancedCodeBlock
+                  code={`:root {
   /* Container widths */
   --atomix-container-sm: 540px;
   --atomix-container-md: 720px;
@@ -203,31 +203,31 @@ const LayoutsCustomizationPage: FC = () => {
   /* Grid columns */
   --atomix-grid-columns: 12;
 }`}
-                language="css"
-                title="Grid System CSS Variables"
-                showLineNumbers={true}
-              />
-            </Card>
-          </GridCol>
-        </Row>
+                  language="css"
+                  title="Grid System CSS Variables"
+                  showLineNumbers={true}
+                />
+              </Card>
+            </GridCol>
+          </Grid>
 
-        <Row className="u-mt-4">
-          <GridCol md={12}>
-            <Card className="u-p-6">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                  <Icon name="Stack" size="lg" />
+          <Grid className="u-mt-6">
+            <GridCol md={12} className="u-mb-6">
+              <Card className="u-p-6">
+                <div className="u-d-flex u-align-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
+                    <Icon name="Stack" size="lg" />
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                    Masonry Grid Properties
+                  </h3>
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                  Masonry Grid Properties
-                </h3>
-              </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Customize masonry grid spacing and animations using CSS custom properties.
-              </p>
-              
-              <EnhancedCodeBlock
-                code={`:root {
+                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                  Customize masonry grid spacing and animations using CSS custom properties.
+                </p>
+                
+                <EnhancedCodeBlock
+                  code={`:root {
   /* Masonry gaps */
   --atomix-masonry-gap: 1rem;
   --atomix-masonry-gap-sm: 0.75rem;
@@ -236,13 +236,13 @@ const LayoutsCustomizationPage: FC = () => {
   /* Masonry animations */
   --atomix-masonry-transition: transform 0.3s ease;
 }`}
-                language="css"
-                title="Masonry Grid CSS Variables"
-                showLineNumbers={true}
-              />
-            </Card>
-          </GridCol>
-        </Row>
+                  language="css"
+                  title="Masonry Grid CSS Variables"
+                  showLineNumbers={true}
+                />
+              </Card>
+            </GridCol>
+          </Grid>
       </Block>
 
       <Block spacing="md">
@@ -252,23 +252,23 @@ const LayoutsCustomizationPage: FC = () => {
           alignment="center"
         />
 
-        <Row>
-          <GridCol md={12}>
-            <Card className="u-p-6">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                  <Icon name="Gear" size="lg" />
+          <Grid>
+            <GridCol md={12} className="u-mb-6">
+              <Card className="u-p-6">
+                <div className="u-d-flex u-align-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
+                    <Icon name="Gear" size="lg" />
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                    Build-Time Configuration
+                  </h3>
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                  Build-Time Configuration
-                </h3>
-              </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Override SCSS variables before importing Atomix to customize the entire system at build time. This approach provides maximum performance and allows for complete system customization.
-              </p>
-              
-              <EnhancedCodeBlock
-                code={`// Override before importing Atomix
+                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                  Override SCSS variables before importing Atomix to customize the entire system at build time. This approach provides maximum performance and allows for complete system customization.
+                </p>
+                
+                <EnhancedCodeBlock
+                  code={`// Override before importing Atomix
 $grid-columns: 16;
 $grid-gutter-width: 2rem;
 $container-max-widths: (
@@ -281,13 +281,13 @@ $container-max-widths: (
 
 // Import Atomix with your customizations
 @use 'atomix/styles' as *;`}
-                language="scss"
-                title="SCSS Variable Override"
-                showLineNumbers={true}
-              />
-            </Card>
-          </GridCol>
-        </Row>
+                  language="scss"
+                  title="SCSS Variable Override"
+                  showLineNumbers={true}
+                />
+              </Card>
+            </GridCol>
+          </Grid>
       </Block>
 
       <Block spacing="md" background="secondary">
@@ -297,23 +297,23 @@ $container-max-widths: (
           alignment="center"
         />
 
-        <Row>
-          <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
-                  <Icon name="Code" size="lg" />
+          <Grid>
+            <GridCol md={6} className="u-mb-6">
+              <Card className="u-p-6 u-h-100">
+                <div className="u-d-flex u-align-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
+                    <Icon name="Code" size="lg" />
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                    Container & Row
+                  </h3>
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                  Container & Row
-                </h3>
-              </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Customize container and row components with props for dynamic behavior.
-              </p>
-              
-              <EnhancedCodeBlock
-                code={`import { Container, Row, GridCol } from '@shohojdhara/atomix';
+                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                  Customize container and row components with props for dynamic behavior.
+                </p>
+                
+                <EnhancedCodeBlock
+                  code={`import { Container, Row, GridCol } from '@shohojdhara/atomix';
 
 <Container 
   fluid={false} 
@@ -330,29 +330,29 @@ $container-max-widths: (
     </GridCol>
   </Row>
 </Container>`}
-                language="tsx"
-                title="Container & Row Props"
-                showLineNumbers={true}
-              />
-            </Card>
-          </GridCol>
+                  language="tsx"
+                  title="Container & Row Props"
+                  showLineNumbers={true}
+                />
+              </Card>
+            </GridCol>
 
-          <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-secondary-emphasis">
-                  <Icon name="Lightning" size="lg" />
+            <GridCol md={6} className="u-mb-6">
+              <Card className="u-p-6 u-h-100">
+                <div className="u-d-flex u-align-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-secondary-emphasis">
+                    <Icon name="Lightning" size="lg" />
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                    GridCol Options
+                  </h3>
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                  GridCol Options
-                </h3>
-              </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                GridCol supports responsive breakpoints, offsets, ordering, and alignment.
-              </p>
-              
-              <EnhancedCodeBlock
-                code={`import { Row, GridCol } from '@shohojdhara/atomix';
+                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                  GridCol supports responsive breakpoints, offsets, ordering, and alignment.
+                </p>
+                
+                <EnhancedCodeBlock
+                  code={`import { Row, GridCol } from '@shohojdhara/atomix';
 
 <Row>
   <GridCol 
@@ -367,13 +367,13 @@ $container-max-widths: (
     Responsive column with options
   </GridCol>
 </Row>`}
-                language="tsx"
-                title="GridCol Props"
-                showLineNumbers={true}
-              />
-            </Card>
-          </GridCol>
-        </Row>
+                  language="tsx"
+                  title="GridCol Props"
+                  showLineNumbers={true}
+                />
+              </Card>
+            </GridCol>
+          </Grid>
       </Block>
 
       <Block spacing="md">
@@ -383,23 +383,23 @@ $container-max-widths: (
           alignment="center"
         />
 
-        <Row>
-          <GridCol md={12}>
-            <Card className="u-p-6">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-secondary-emphasis">
-                  <Icon name="Sparkle" size="lg" />
+          <Grid>
+            <GridCol md={12} className="u-mb-6">
+              <Card className="u-p-6">
+                <div className="u-d-flex u-align-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-secondary-emphasis">
+                    <Icon name="Sparkle" size="lg" />
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                    Extending Components
+                  </h3>
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                  Extending Components
-                </h3>
-              </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Create custom layout components by extending Atomix components. This approach allows you to build on top of Atomix while maintaining full control over styling and behavior.
-              </p>
-              
-              <EnhancedCodeBlock
-                code={`import styled from 'styled-components';
+                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                  Create custom layout components by extending Atomix components. This approach allows you to build on top of Atomix while maintaining full control over styling and behavior.
+                </p>
+                
+                <EnhancedCodeBlock
+                  code={`import styled from 'styled-components';
 import { Container, Row, GridCol } from '@shohojdhara/atomix';
 
 // Extend Container with custom styling
@@ -427,31 +427,31 @@ function MyPage() {
     </CustomLayout>
   );
 }`}
-                language="tsx"
-                title="Custom Component Extension"
-                showLineNumbers={true}
-              />
-            </Card>
-          </GridCol>
-        </Row>
+                  language="tsx"
+                  title="Custom Component Extension"
+                  showLineNumbers={true}
+                />
+              </Card>
+            </GridCol>
+          </Grid>
 
-        <Row className="u-mt-4">
-          <GridCol md={12}>
-            <Card className="u-p-6">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                  <Icon name="Stack" size="lg" />
+          <Grid className="u-mt-6">
+            <GridCol md={12} className="u-mb-6">
+              <Card className="u-p-6">
+                <div className="u-d-flex u-align-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
+                    <Icon name="Stack" size="lg" />
+                  </div>
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                    CSS Modules Approach
+                  </h3>
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                  CSS Modules Approach
-                </h3>
-              </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Alternatively, use CSS Modules to style Atomix components with custom classes.
-              </p>
-              
-              <EnhancedCodeBlock
-                code={`import { Container, Row, GridCol } from '@shohojdhara/atomix';
+                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                  Alternatively, use CSS Modules to style Atomix components with custom classes.
+                </p>
+                
+                <EnhancedCodeBlock
+                  code={`import { Container, Row, GridCol } from '@shohojdhara/atomix';
 import styles from './CustomLayout.module.scss';
 
 function CustomLayout() {
@@ -482,13 +482,13 @@ function CustomLayout() {
 .customCol {
   padding: 0 1.5rem;
 }`}
-                language="tsx"
-                title="CSS Modules Customization"
-                showLineNumbers={true}
-              />
-            </Card>
-          </GridCol>
-        </Row>
+                  language="tsx"
+                  title="CSS Modules Customization"
+                  showLineNumbers={true}
+                />
+              </Card>
+            </GridCol>
+          </Grid>
       </Block>
 
       <Block spacing="md" background="secondary">
@@ -498,52 +498,52 @@ function CustomLayout() {
           alignment="center"
         />
 
-        <Row>
-          {[
-            {
-              title: "Start with CSS Variables",
-              description: "Use CSS custom properties for quick adjustments and runtime theming. They're the easiest way to customize without rebuilding.",
-              icon: <Icon name="Palette" size="lg" />,
-              color: "primary",
-            },
-            {
-              title: "Use SCSS for System-Wide Changes",
-              description: "When you need to change the entire system (like column count or breakpoints), use SCSS variables at build time.",
-              icon: <Icon name="Gear" size="lg" />,
-              color: "success",
-            },
-            {
-              title: "Props for Instance-Level Control",
-              description: "Use component props when you need different configurations for different instances of the same component.",
-              icon: <Icon name="Code" size="lg" />,
-              color: "warning",
-            },
-            {
-              title: "Extend for Complex Patterns",
-              description: "Create custom components when you need completely new layout patterns or complex styling requirements.",
-              icon: <Icon name="Sparkle" size="lg" />,
-              color: "secondary",
-            },
-          ].map((practice, index) => (
-            <GridCol key={index} md={6} lg={3} className="u-mb-4">
-              <Card className="u-h-100 u-p-6">
-                <div className="u-d-flex u-align-items-center u-mb-3">
-                  <div
-                    className={`${pageStyles.layoutsCustomizationPage__practiceIconContainer} ${pageStyles[`layoutsCustomizationPage__practiceIconContainer--${practice.color}`]}`}
-                  >
-                    {practice.icon}
+          <Grid>
+            {[
+              {
+                title: "Start with CSS Variables",
+                description: "Use CSS custom properties for quick adjustments and runtime theming. They're the easiest way to customize without rebuilding.",
+                icon: <Icon name="Palette" size="lg" />,
+                color: "primary",
+              },
+              {
+                title: "Use SCSS for System-Wide Changes",
+                description: "When you need to change the entire system (like column count or breakpoints), use SCSS variables at build time.",
+                icon: <Icon name="Gear" size="lg" />,
+                color: "success",
+              },
+              {
+                title: "Props for Instance-Level Control",
+                description: "Use component props when you need different configurations for different instances of the same component.",
+                icon: <Icon name="Code" size="lg" />,
+                color: "warning",
+              },
+              {
+                title: "Extend for Complex Patterns",
+                description: "Create custom components when you need completely new layout patterns or complex styling requirements.",
+                icon: <Icon name="Sparkle" size="lg" />,
+                color: "secondary",
+              },
+            ].map((practice, index) => (
+              <GridCol key={index} md={6} lg={3} className="u-mb-6">
+                <Card className="u-h-100 u-p-6">
+                  <div className="u-d-flex u-align-items-center u-mb-3">
+                    <div
+                      className={`${pageStyles.layoutsCustomizationPage__practiceIconContainer} ${pageStyles[`layoutsCustomizationPage__practiceIconContainer--${practice.color}`]}`}
+                    >
+                      {practice.icon}
+                    </div>
+                    <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                      {practice.title}
+                    </h3>
                   </div>
-                  <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
-                    {practice.title}
-                  </h3>
-                </div>
-                <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
-                  {practice.description}
-                </p>
-              </Card>
-            </GridCol>
-          ))}
-        </Row>
+                  <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                    {practice.description}
+                  </p>
+                </Card>
+              </GridCol>
+            ))}
+          </Grid>
       </Block>
     </div>
   );

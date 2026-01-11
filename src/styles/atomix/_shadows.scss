@@ -1,26 +1,29 @@
 /**
  * Shadow Variable Overrides
+ * =============================================================================
  * 
  * Futuristic shadows with dramatic depth, intense darkness,
  * and subtle glowing effects for sci-fi aesthetic.
+ * 
+ * @see https://atomix.design/docs/design-tokens/shadows
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.box-shadow' with (
-    // Extra Small - Subtle depth
-    $box-shadow-xs: 0 1px 3px 0 rgba(0, 0, 0, 0.4),
-    
-    // Small - Light elevation
-    $box-shadow-sm: 0 2px 6px 0 rgba(0, 0, 0, 0.5),
-    
-    // Medium - Moderate elevation (glow effect removed to avoid syntax issues)
-    $box-shadow-md: 0 8px 16px -4px rgba(0, 0, 0, 0.6),
-    
-    // Large - Strong elevation (glow effect removed to avoid syntax issues)
-    $box-shadow-lg: 0 16px 32px -8px rgba(0, 0, 0, 0.7),
-    
-    // Extra Large - Maximum elevation (glow effect removed to avoid syntax issues)
-    $box-shadow-xl: 0 24px 48px -12px rgba(0, 0, 0, 0.8),
-    
-    // Inset - Deep inset for dark theme
-    $box-shadow-inset: inset 0 2px 4px 0 rgba(0, 0, 0, 0.6),
+  // Extra Small - Subtle depth with refined darkness
+  $box-shadow-xs: (0 1px 2px 0 rgba(0, 0, 0, 0.35)),
+  
+  // Small - Light elevation with enhanced glow
+  $box-shadow-sm: (0 2px 6px 0 rgba(0, 0, 0, 0.45), 0 0 10px -2px rgba(0, 229, 255, 0.12)),
+  
+  // Medium - Moderate elevation with balanced cyan glow
+  $box-shadow-md: (0 4px 16px -2px rgba(0, 0, 0, 0.55), 0 0 20px -4px rgba(0, 229, 255, 0.18)),
+  
+  // Large - Strong elevation with prominent glow
+  $box-shadow-lg: (0 8px 32px -4px rgba(0, 0, 0, 0.65), 0 0 28px -6px rgba(0, 229, 255, 0.24)),
+  
+  // Extra Large - Maximum elevation with intense glow
+  $box-shadow-xl: (0 16px 56px -8px rgba(0, 0, 0, 0.75), 0 0 40px -8px rgba(0, 229, 255, 0.3)),
+  
+  // Inset - Deep inset for dark theme
+  $box-shadow-inset: (inset 0 2px 6px 0 rgba(0, 0, 0, 0.55))
 );

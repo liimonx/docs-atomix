@@ -1,525 +1,313 @@
-/**
- * Color Variable Overrides
- * 
- * Futuristic, sci-fi color palette with deep black theme and energetic accents.
- * Features cyan/electric blue primary, neon accents, and near-black grays.
- */
+@use 'sass:color';
 
-@use "sass:color";
+// =============================================================================
+// Color Palette Definitions
+// =============================================================================
 
+// Primary colors - Enhanced cyan/aqua palette for futuristic feel
+$primary-1: #000a0d;
+$primary-2: #001a26;
+$primary-3: #002d3d;
+$primary-4: #004454;
+$primary-5: #00e5ff;
+$primary-6: #00d4f0;
+$primary-7: #00b8d4;
+$primary-8: #009cb8;
+$primary-9: #00809c;
+$primary-10: #006480;
 
-// Primary colors
-$primary-1: #000000; // Pure black base
-$primary-2: #001a2e; // Near black with blue tint
-$primary-3: #003d5c; // Very dark cyan
-$primary-4: #005c8a; // Dark cyan
-$primary-5: #00d9ff; // Bright cyan - Energetic accent
-$primary-6: #00b8e6; // Electric cyan - Primary action
-$primary-7: #0099cc; // Strong cyan
-$primary-8: #007aa3; // Deep cyan
-$primary-9: #005c7a; // Darker cyan
-$primary-10: #003d52; // Darkest cyan
+// Red - Error/Danger - Vibrant yet professional
+$red-1: #1a0606;
+$red-2: #2d0a0a;
+$red-3: #4d1212;
+$red-4: #661818;
+$red-5: #ff4757;
+$red-6: #ff3545;
+$red-7: #f02836;
+$red-8: #d62027;
+$red-9: #bd1c1f;
+$red-10: #991518;
 
-// Red - Neon Crimson (Error/Danger)
-$red-1: #2a0a0a; // Darkest red base
-$red-2: #4d1a1a; // Very dark red
-$red-3: #662626; // Dark red
-$red-4: #8a3333; // Medium dark red
-$red-5: #ff3366; // Bright neon red
-$red-6: #ff1a4d; // Neon crimson - Primary error
-$red-7: #e6004d; // Strong red
-$red-8: #cc0052; // Deep red
-$red-9: #b30052; // Darker red
-$red-10: #8a003d; // Dark red shade
+// Green - Success - Bright, energetic green
+$green-1: #061a0f;
+$green-2: #0c2d1a;
+$green-3: #124026;
+$green-4: #185433;
+$green-5: #10dc82;
+$green-6: #0ec970;
+$green-7: #0cb55e;
+$green-8: #0aa14d;
+$green-9: #088d3c;
+$green-10: #067a2b;
 
-// Green - Neon Cyan/Green (Success)
-$green-1: #0a2a1a; // Darkest green base
-$green-2: #1a4d33; // Very dark green
-$green-3: #266640; // Dark green
-$green-4: #338a52; // Medium dark green
-$green-5: #33ff99; // Bright neon green
-$green-6: #1ae680; // Neon green - Primary success
-$green-7: #00cc66; // Strong green
-$green-8: #00b359; // Deep green
-$green-9: #009947; // Darker green
-$green-10: #007a3d; // Dark green shade
+// Yellow - Warning - Warm, attention-grabbing amber
+$yellow-1: #1a1606;
+$yellow-2: #2d260a;
+$yellow-3: #403610;
+$yellow-4: #544815;
+$yellow-5: #ffc107;
+$yellow-6: #ffb300;
+$yellow-7: #ffa500;
+$yellow-8: #ff9500;
+$yellow-9: #ff8000;
+$yellow-10: #e66a00;
 
-// Yellow - Electric Amber (Warning)
-$yellow-1: #2a2410; // Darkest yellow base
-$yellow-2: #4d4226; // Very dark yellow
-$yellow-3: #665c33; // Dark yellow
-$yellow-4: #8a7a4d; // Medium dark yellow
-$yellow-5: #ffd700; // Bright electric yellow
-$yellow-6: #ffb800; // Electric amber - Primary warning
-$yellow-7: #e6a600; // Strong yellow
-$yellow-8: #cc9400; // Deep yellow
-$yellow-9: #b38200; // Darker yellow
-$yellow-10: #997000; // Dark yellow shade
+// Blue - Info - Vibrant electric blue
+$blue-1: #060a1a;
+$blue-2: #0c132d;
+$blue-3: #121d40;
+$blue-4: #182754;
+$blue-5: #5e72e4;
+$blue-6: #5065d8;
+$blue-7: #4258cc;
+$blue-8: #344bc0;
+$blue-9: #263eb4;
+$blue-10: #1831a8;
 
-// Blue - Deep Electric Blue
-$blue-1: #0a1a33; // Darkest blue base
-$blue-2: #1a3366; // Very dark blue
-$blue-3: #264d99; // Dark blue
-$blue-4: #3366cc; // Medium dark blue
-$blue-5: #3399ff; // Bright electric blue
-$blue-6: #0066ff; // Electric blue - Primary info
-$blue-7: #0052e6; // Strong blue
-$blue-8: #003db3; // Deep blue
-$blue-9: #003399; // Darker blue
-$blue-10: #002d80; // Dark blue shade
+// Gray - Backgrounds - Refined neutral scale with better contrast
+$gray-1: #000000;
+$gray-2: #0d0d0d;
+$gray-3: #1a1a1a;
+$gray-4: #262626;
+$gray-5: #333333;
+$gray-6: #474747;
+$gray-7: #5c5c5c;
+$gray-8: #707070;
+$gray-9: #8f8f8f;
+$gray-10: #d9d9d9;
 
-// Gray - Deep Black Theme Scale
-$gray-1: #000000; // Pure black
-$gray-2: #0d0d0d; // Near black
-$gray-3: #1a1a1a; // Very dark
-$gray-4: #262626; // Dark
-$gray-5: #333333; // Medium dark
-$gray-6: #404040; // Medium
-$gray-7: #4d4d4d; // Medium light
-$gray-8: #595959; // Light
-$gray-9: #737373; // Lighter
-$gray-10: #8c8c8c;
-
-@use "../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.colors"
-  with (
-    // Primary - Cyan/Electric Blue (Sci-fi energy)
-    $primary-1: $primary-1,
-    // Pure black base
-    $primary-2: $primary-2,
-    // Near black with blue tint
-    $primary-3: $primary-3,
-    // Very dark cyan
-    $primary-4: $primary-4,
-    // Dark cyan
-    $primary-5: $primary-5,
-    // Bright cyan - Energetic accent
-    $primary-6: $primary-6,
-    // Electric cyan - Primary action
-    $primary-7: $primary-7,
-    // Strong cyan
-    $primary-8: $primary-8,
-    // Deep cyan
-    $primary-9: $primary-9,
-    // Darker cyan
-    $primary-10: $primary-10,
-
-    // Darkest cyan
-    // Red - Neon Crimson (Error/Danger)
-    $red-1: $red-1,
-    // Darkest red base
-    $red-2: $red-2,
-    // Very dark red
-    $red-3: $red-3,
-    // Dark red
-    $red-4: $red-4,
-    // Medium dark red
-    $red-5: $red-5,
-    // Bright neon red
-    $red-6: $red-6,
-    // Neon crimson - Primary error
-    $red-7: $red-7,
-    // Strong red
-    $red-8: $red-8,
-    // Deep red
-    $red-9: $red-9,
-    // Darker red
-    $red-10: $red-10,
-
-    // Dark red shade
-    // Green - Neon Cyan/Green (Success)
-    $green-1: $green-1,
-    // Darkest green base
-    $green-2: $green-2,
-    // Very dark green
-    $green-3: $green-3,
-    // Dark green
-    $green-4: $green-4,
-    // Medium dark green
-    $green-5: $green-5,
-    // Bright neon green
-    $green-6: $green-6,
-    // Neon green - Primary success
-    $green-7: $green-7,
-    // Strong green
-    $green-8: $green-8,
-    // Deep green
-    $green-9: $green-9,
-    // Darker green
-    $green-10: $green-10,
-
-    // Dark green shade
-    // Yellow - Electric Amber (Warning)
-    $yellow-1: $yellow-1,
-    // Darkest yellow base
-    $yellow-2: $yellow-2,
-    // Very dark yellow
-    $yellow-3: $yellow-3,
-    // Dark yellow
-    $yellow-4: $yellow-4,
-    // Medium dark yellow
-    $yellow-5: $yellow-5,
-    // Bright electric yellow
-    $yellow-6: $yellow-6,
-    // Electric amber - Primary warning
-    $yellow-7: $yellow-7,
-    // Strong yellow
-    $yellow-8: $yellow-8,
-    // Deep yellow
-    $yellow-9: $yellow-9,
-    // Darker yellow
-    $yellow-10: $yellow-10,
-
-    // Dark yellow shade
-    // Blue - Deep Electric Blue
-    $blue-1: $blue-1,
-    // Darkest blue base
-    $blue-2: $blue-2,
-    // Very dark blue
-    $blue-3: $blue-3,
-    // Dark blue
-    $blue-4: $blue-4,
-    // Medium dark blue
-    $blue-5: $blue-5,
-    // Bright electric blue
-    $blue-6: $blue-6,
-    // Electric blue - Primary info
-    $blue-7: $blue-7,
-    // Strong blue
-    $blue-8: $blue-8,
-    // Deep blue
-    $blue-9: $blue-9,
-    // Darker blue
-    $blue-10: $blue-10,
-
-    // Dark blue shade
-    // Gray - Deep Black Theme Scale
-    $gray-1: $gray-1,
-    // Pure black
-    $gray-2: $gray-2,
-    // Near black
-    $gray-3: $gray-3,
-    // Very dark
-    $gray-4: $gray-4,
-    // Dark
-    $gray-5: $gray-5,
-    // Medium dark
-    $gray-6: $gray-6,
-    // Medium
-    $gray-7: $gray-7,
-    // Medium light
-    $gray-8: $gray-8,
-    // Light
-    $gray-9: $gray-9,
-    // Lighter
-    $gray-10: $gray-10,
-
-    // Lightest (text on dark)
-    // Primitive Colors
-    $white: #ffffff,
-    // Pure white
-    $black: $gray-1,
-
-    // Pure black
-    // Primitives Overlay
-    $overlay-1: rgba(20, 20, 20, 0.302),
-    $overlay-2: rgba(42, 42, 42, 0.6),
-    //Text colors emphasis (dark theme - light text on dark backgrounds)
-    $primary-text: $gray-10,
-    // gray-10 - light text for dark theme
-    $secondary-text: $gray-9,
-    // gray-9 - medium light text
-    $tertiary-text: $gray-8,
-    // gray-8 - dimmer text
-    $disabled-text: $gray-6,
-    // gray-6 - disabled state
-    $invert-text: $gray-1,
-    // gray-1 - inverted (dark text)
-    $brand-text: $primary-5,
-    // primary-5 - brand accent
-    $error-text: $red-5,
-    // red-5 - error accent
-    $success-text: $green-6,
-    // green-6 - success accent
-    $warning-text: $yellow-5,
-    // yellow-5 - warning accent
-    $info-text: $blue-5,
-    // blue-5 - info accent
-    $light-text: #ffffff,
-    // white - lightest text
-    $dark-text: $gray-3,
-
-    // gray-3 - dark text variant
-    // Text colors dark emphasis (darker theme - brighter text for better contrast)
-    $primary-text-dark: #a6a6a6,
-    // brighter gray for darker backgrounds
-    $secondary-text-dark: $gray-10,
-    // gray-10 - medium brightness
-    $tertiary-text-dark: $gray-9,
-    // gray-9 - dimmer but visible
-    $disabled-text-dark: $gray-8,
-    // gray-8 - disabled but visible
-    $invert-text-dark: #ffffff,
-    // white - inverted (light text)
-    $brand-text-dark: #00ffff,
-    // bright cyan - brighter brand
-    $error-text-dark: $red-5,
-    // red-5 - brighter error
-    $success-text-dark: $green-5,
-    // green-5 - brighter success
-    $warning-text-dark: $yellow-5,
-    // yellow-5 - brighter warning
-    $info-text-dark: $blue-5,
-    // blue-5 - brighter info
-    $light-text-dark: #ffffff,
-    // white - lightest text
-    $dark-text-dark: $gray-3,
-
-    // gray-3 - dark text variant
-    // Background colors subtle (dark theme - dark backgrounds)
-    $primary-bg: $gray-1,
-    // gray-1 - pure black
-    $secondary-bg: $gray-3,
-    // gray-3 - very dark
-    $tertiary-bg: $gray-4,
-    // gray-4 - dark
-    $invert-bg: $gray-10,
-    // gray-10 - inverted light bg
-    $brand-bg: $primary-2,
-    // primary-2 - brand tinted dark
-    $error-bg: $red-1,
-    // red-1 - error tinted dark
-    $success-bg: $green-1,
-    // green-1 - success tinted dark
-    $warning-bg: $yellow-1,
-    // yellow-1 - warning tinted dark
-    $info-bg: $blue-1,
-    // blue-1 - info tinted dark
-    $light-bg: $gray-2,
-    // gray-2 - near black
-    $dark-bg: $gray-9,
-
-    // gray-9 - medium gray
-    // Background colors dark subtle (darker theme - even darker for deeper contrast)
-    $primary-bg-dark: $gray-1,
-    // gray-1 - pure black
-    $secondary-bg-dark: $gray-2,
-    // gray-2 - darker than base
-    $tertiary-bg-dark: $gray-3,
-    // gray-3 - slightly lighter than pure black
-    $invert-bg-dark: #a6a6a6,
-    // brighter inverted for dark mode
-    $brand-bg-dark: $primary-2,
-    // primary-2 with brand accent
-    $error-bg-dark: $red-1,
-    // red-1 with error accent
-    $success-bg-dark: $green-1,
-    // green-1 with success accent
-    $warning-bg-dark: $yellow-1,
-    // yellow-1 with warning accent
-    $info-bg-dark: $blue-1,
-    // blue-1 with info accent
-    $light-bg-dark: $gray-2,
-    // gray-2 - near black
-    $dark-bg-dark: $gray-7,
-
-    // gray-7 - darker than base dark-bg
-    // Border color (dark theme - subtle borders on dark backgrounds)
-    $primary-border: $gray-3,
-    // gray-3 - very subtle border
-    $secondary-border: $gray-6,
-    // gray-6 - more visible border
-    $brand-border: $primary-6,
-    // primary-6 - brand accent border
-    $error-border: $red-5,
-    // red-5 - error accent border
-    $success-border: $green-6,
-    // green-6 - success accent border
-    $warning-border: $yellow-5,
-    // yellow-5 - warning accent border
-    $info-border: $blue-5,
-    // blue-5 - info accent border
-    $light-border: $gray-3,
-    // gray-3 - light border variant
-    $dark-border: $gray-9,
-
-    // gray-9 - dark border variant
-    // Border color dark (darker theme - more visible borders for better contrast)
-    $primary-border-dark: $gray-5,
-    // gray-5 - more visible than base
-    $secondary-border-dark: $gray-7,
-    // gray-7 - brighter secondary border
-    $brand-border-dark: #00ffff,
-    // bright cyan - brighter brand border
-    $error-border-dark: $red-5,
-    // red-5 - brighter error border
-    $success-border-dark: $green-5,
-    // green-5 - brighter success border
-    $warning-border-dark: $yellow-5,
-    // yellow-5 - brighter warning border
-    $info-border-dark: $blue-5,
-    // blue-5 - brighter info border
-    $light-border-dark: $gray-5,
-    // gray-5 - more visible light border
-    $dark-border-dark: $gray-7,
-
-    // gray-7 - darker border variant
-    // theme colors (dark theme)
-    $primary: $primary-6,
-    // primary-6 - electric cyan
-    $secondary: $gray-2,
-    // gray-2 - near black
-    $light: $gray-1,
-    // gray-1 - pure black
-    $dark: $gray-9,
-    // gray-9 - medium gray
-    $success: $green-6,
-    // green-6 - neon green
-    $info: $blue-5,
-    // blue-5 - electric blue
-    $warning: $yellow-5,
-    // yellow-5 - electric amber
-    $error: $red-5,
-
-    // red-5 - neon crimson
-    $primary-dark: #00ffff,
-    // bright cyan - brighter cyan
-    $secondary-dark: $gray-1,
-    // pure black - darker secondary
-    $light-dark: $gray-1,
-    // gray-1 - pure black
-    $dark-dark: $gray-7,
-    // gray-7 - darker than base dark
-    $success-dark: $green-5,
-    // green-5 - brighter green
-    $info-dark: $blue-5,
-    // blue-5 - brighter blue
-    $warning-dark: $yellow-5,
-    // yellow-5 - brighter yellow
-    $error-dark: $red-5,
-
-    // red-5 - brighter red
-    // Theme hover background
-    $primary-hover: $primary-6,
-    // primary-6
-    $secondary-hover: $gray-3,
-    // gray-3
-    $light-hover: $gray-2,
-    // gray-2
-    $dark-hover: $gray-7,
-    // gray-7
-    $success-hover: $green-8,
-    // green-8
-    $info-hover: $blue-8,
-    // blue-8
-    $warning-hover: $yellow-8,
-    // yellow-8
-    $error-hover: $red-8,
-
-    // red-8
-    // Theme hover background for dark theme
-    $primary-hover-dark: #00ffff,
-    // bright cyan
-    $secondary-hover-dark: $gray-4,
-    // gray-4
-    $light-hover-dark: $gray-3,
-    // gray-3
-    $dark-hover-dark: $gray-6,
-    // gray-6
-    $info-hover-dark: $blue-4,
-    // blue-4
-    $success-hover-dark: $green-4,
-    // green-4
-    $warning-hover-dark: $yellow-4,
-    // yellow-4
-    $error-hover-dark: $red-4,
-
-    // red-4
-    // Miscellaneous Colors
-    $color-contrast-dark: $gray-1,
-    // black
-    $color-contrast-light: #ffffff,
-
-    // white
-    $body-color: $gray-10,
-    // primary-text - light text on dark
-    $body-bg: $gray-1,
-    // primary-bg - pure black
-    $headings-color: #a6a6a6,
-    // primary-text-dark - light headings
-    $link-color: $primary-6,
-    // primary - brand link color
-    $link-decoration: none,
-    $link-hover-color: #00ffff,
-    // bright cyan - lighter on hover
-    $link-hover-decoration: null,
-    $code-color: $red-5,
-    // red-5 - error color for code
-    $mark-bg: $yellow-1,
-
-    // yellow-1 - subtle highlight
-    // Form validation colors
-    $form-valid-color: $green-6,
-    // green-6 - success color
-    $form-valid-border-color: $green-6,
-    // green-6 - success border
-    $form-invalid-color: $red-5,
-    // red-5 - error color
-    $form-invalid-border-color: $red-5,
-
-    // red-5 - error border
-    $body-color-dark: #a6a6a6,
-    // brighter text for darker theme
-    $body-bg-dark: $gray-1,
-
-    // primary-bg-dark - pure black
-    // Dark mode colors (darker theme - brighter for better contrast)
-    $headings-color-dark: #a6a6a6,
-    // brighter headings
-    $link-color-dark: #00ffff,
-    // bright cyan - brighter link
-    $link-hover-color-dark: #ffffff,
-    // white - even brighter on hover
-    $code-color-dark: $red-5,
-    // red-5 - brighter code color
-    $border-color-translucent-dark: rgba(255, 255, 255, 0.15),
-    // more visible border
-    // Form validation dark mode colors (brighter for better visibility)
-    $form-valid-color-dark: $green-5,
-    // green-5 - brighter success
-    $form-valid-border-color-dark: $green-5,
-    // green-5 - brighter border
-    $form-invalid-color-dark: $red-5,
-    // red-5 - brighter error
-    $form-invalid-border-color-dark: $red-5,
-
-    // red-5 - brighter border
-    $focus-border-color: #00ffff,
-    // bright cyan - bright focus ring
-    $focus-border-color-dark: #ffffff,
-
-    // white - even brighter for dark mode
-    $component-active-color: $gray-1,
-    // dark text on bright active bg
-    $component-active-bg: $primary-6,
-
-    // primary - active background
-    // Gradient theme colors for dark mode (base gradients)
-    $gradient-primary: linear-gradient(135deg, $gray-1, $primary-2, $primary-3),
-    $gradient-secondary: linear-gradient(135deg, $gray-1, $gray-2, $gray-3),
-    $gradient-light: linear-gradient(135deg, $gray-1, $gray-2, $gray-3),
-    $gradient-dark: linear-gradient(135deg, $gray-7, $gray-9, $gray-10),
-    $gradient-success: linear-gradient(135deg, $gray-1, #0a1a0a, #1a3d1a),
-    $gradient-info: linear-gradient(135deg, $gray-1, $blue-1, $blue-2),
-    $gradient-warning: linear-gradient(135deg, $gray-1, $yellow-1, $yellow-2),
-    $gradient-error: linear-gradient(135deg, $gray-1, $red-1, $red-2),
-    // Gradient theme colors for darker mode (enhanced with subtle color hints)
-    $gradient-primary-dark: linear-gradient(135deg, $gray-1, $primary-2, $primary-4),
-    $gradient-secondary-dark: linear-gradient(135deg, $gray-1, $gray-1, $gray-2),
-    $gradient-light-dark: linear-gradient(135deg, $gray-1, $gray-1, $gray-2),
-    $gradient-dark-dark: linear-gradient(135deg, $gray-1, $gray-5, $gray-7),
-    $gradient-success-dark: linear-gradient(135deg, $gray-1, $green-1, #1a664d),
-    $gradient-info-dark: linear-gradient(135deg, $gray-1, $blue-1, $blue-2),
-    $gradient-warning-dark: linear-gradient(135deg, $gray-1, $yellow-1, $yellow-3),
-    $gradient-error-dark: linear-gradient(135deg, $gray-1, $red-1, $red-3),
-    // All variables are automatically exported when using @use
-  );
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.colors' with (
+  $primary-1: $primary-1,
+  $primary-2: $primary-2,
+  $primary-3: $primary-3,
+  $primary-4: $primary-4,
+  $primary-5: $primary-5,
+  $primary-6: $primary-6,
+  $primary-7: $primary-7,
+  $primary-8: $primary-8,
+  $primary-9: $primary-9,
+  $primary-10: $primary-10,
+  
+  $red-1: $red-1,
+  $red-2: $red-2,
+  $red-3: $red-3,
+  $red-4: $red-4,
+  $red-5: $red-5,
+  $red-6: $red-6,
+  $red-7: $red-7,
+  $red-8: $red-8,
+  $red-9: $red-9,
+  $red-10: $red-10,
+  
+  $green-1: $green-1,
+  $green-2: $green-2,
+  $green-3: $green-3,
+  $green-4: $green-4,
+  $green-5: $green-5,
+  $green-6: $green-6,
+  $green-7: $green-7,
+  $green-8: $green-8,
+  $green-9: $green-9,
+  $green-10: $green-10,
+  
+  $yellow-1: $yellow-1,
+  $yellow-2: $yellow-2,
+  $yellow-3: $yellow-3,
+  $yellow-4: $yellow-4,
+  $yellow-5: $yellow-5,
+  $yellow-6: $yellow-6,
+  $yellow-7: $yellow-7,
+  $yellow-8: $yellow-8,
+  $yellow-9: $yellow-9,
+  $yellow-10: $yellow-10,
+  
+  $blue-1: $blue-1,
+  $blue-2: $blue-2,
+  $blue-3: $blue-3,
+  $blue-4: $blue-4,
+  $blue-5: $blue-5,
+  $blue-6: $blue-6,
+  $blue-7: $blue-7,
+  $blue-8: $blue-8,
+  $blue-9: $blue-9,
+  $blue-10: $blue-10,
+  
+  $gray-1: $gray-1,
+  $gray-2: $gray-2,
+  $gray-3: $gray-3,
+  $gray-4: $gray-4,
+  $gray-5: $gray-5,
+  $gray-6: $gray-6,
+  $gray-7: $gray-7,
+  $gray-8: $gray-8,
+  $gray-9: $gray-9,
+  $gray-10: $gray-10,
+  
+  $white: #ffffff,
+  $black: $gray-1,
+  
+  $overlay-1: rgba(20, 20, 20, 0.302),
+  $overlay-2: rgba(42, 42, 42, 0.6),
+  
+  $primary-text: $gray-10,
+  $secondary-text: $gray-9,
+  $tertiary-text: $gray-8,
+  $disabled-text: $gray-6,
+  $invert-text: $gray-1,
+  $brand-text: $primary-5,
+  $error-text: $red-5,
+  $success-text: $green-6,
+  $warning-text: $yellow-5,
+  $info-text: $blue-5,
+  $light-text: #ffffff,
+  $dark-text: $gray-3,
+  
+  $primary-text-dark: #a6a6a6,
+  $secondary-text-dark: $gray-10,
+  $tertiary-text-dark: $gray-9,
+  $disabled-text-dark: $gray-8,
+  $invert-text-dark: #ffffff,
+  $brand-text-dark: $primary-5,
+  $error-text-dark: $red-5,
+  $success-text-dark: $green-5,
+  $warning-text-dark: $yellow-5,
+  $info-text-dark: $blue-5,
+  $light-text-dark: #ffffff,
+  $dark-text-dark: $gray-3,
+  
+  $primary-bg: $gray-1,
+  $secondary-bg: $gray-3,
+  $tertiary-bg: $gray-4,
+  $invert-bg: $gray-10,
+  $brand-bg: $primary-2,
+  $error-bg: $red-1,
+  $success-bg: $green-1,
+  $warning-bg: $yellow-1,
+  $info-bg: $blue-1,
+  $light-bg: $gray-2,
+  $dark-bg: $gray-9,
+  
+  $primary-bg-dark: $gray-1,
+  $secondary-bg-dark: $gray-2,
+  $tertiary-bg-dark: $gray-3,
+  $invert-bg-dark: #a6a6a6,
+  $brand-bg-dark: $primary-2,
+  $error-bg-dark: $red-1,
+  $success-bg-dark: $green-1,
+  $warning-bg-dark: $yellow-1,
+  $info-bg-dark: $blue-1,
+  $light-bg-dark: $gray-2,
+  $dark-bg-dark: $gray-7,
+  
+  $primary-border: $gray-3,
+  $secondary-border: $gray-6,
+  $brand-border: $primary-6,
+  $error-border: $red-5,
+  $success-border: $green-6,
+  $warning-border: $yellow-5,
+  $info-border: $blue-5,
+  $light-border: $gray-3,
+  $dark-border: $gray-9,
+  
+  $primary-border-dark: $gray-5,
+  $secondary-border-dark: $gray-7,
+  $brand-border-dark: $primary-5,
+  $error-border-dark: $red-5,
+  $success-border-dark: $green-5,
+  $warning-border-dark: $yellow-5,
+  $info-border-dark: $blue-5,
+  $light-border-dark: $gray-5,
+  $dark-border-dark: $gray-7,
+  
+  $primary: $primary-6,
+  $secondary: $gray-2,
+  $light: $gray-1,
+  $dark: $gray-9,
+  $success: $green-6,
+  $info: $blue-5,
+  $warning: $yellow-5,
+  $error: $red-5,
+  
+  $primary-dark: $primary-5,
+  $secondary-dark: $gray-1,
+  $light-dark: $gray-1,
+  $dark-dark: $gray-7,
+  $success-dark: $green-5,
+  $info-dark: $blue-5,
+  $warning-dark: $yellow-5,
+  $error-dark: $red-5,
+  
+  $primary-hover: $primary-7,
+  $secondary-hover: $gray-3,
+  $light-hover: $gray-2,
+  $dark-hover: $gray-7,
+  $success-hover: $green-8,
+  $info-hover: $blue-8,
+  $warning-hover: $yellow-8,
+  $error-hover: $red-8,
+  
+  $primary-hover-dark: $primary-4,
+  $secondary-hover-dark: $gray-4,
+  $light-hover-dark: $gray-3,
+  $dark-hover-dark: $gray-6,
+  $info-hover-dark: $blue-4,
+  $success-hover-dark: $green-4,
+  $warning-hover-dark: $yellow-4,
+  $error-hover-dark: $red-4,
+  
+  $color-contrast-dark: $gray-1,
+  $color-contrast-light: #ffffff,
+  
+  $body-color: $gray-10,
+  $body-bg: $gray-1,
+  $headings-color: #a6a6a6,
+  $link-color: $primary-6,
+  $link-decoration: none,
+  $link-hover-color: $primary-5,
+  $link-hover-decoration: null,
+  $code-color: $red-5,
+  $mark-bg: $yellow-1,
+  
+  $form-valid-color: $green-6,
+  $form-valid-border-color: $green-6,
+  $form-invalid-color: $red-5,
+  $form-invalid-border-color: $red-5,
+  
+  $body-color-dark: #a6a6a6,
+  $body-bg-dark: $gray-1,
+  
+  $headings-color-dark: #a6a6a6,
+  $link-color-dark: $primary-5,
+  $link-hover-color-dark: #ffffff,
+  $code-color-dark: $red-5,
+  $border-color-translucent-dark: rgba(255, 255, 255, 0.15),
+  
+  $form-valid-color-dark: $green-5,
+  $form-valid-border-color-dark: $green-5,
+  $form-invalid-color-dark: $red-5,
+  $form-invalid-border-color-dark: $red-5,
+  
+  $focus-border-color: $primary-5,
+  $focus-border-color-dark: #ffffff,
+  
+  $component-active-color: $gray-1,
+  $component-active-bg: $primary-6,
+  
+  $gradient-primary: linear-gradient(135deg, $gray-1, $primary-2, $primary-3),
+  $gradient-secondary: linear-gradient(135deg, $gray-1, $gray-2, $gray-3),
+  $gradient-light: linear-gradient(135deg, $gray-1, $gray-2, $gray-3),
+  $gradient-dark: linear-gradient(135deg, $gray-7, $gray-9, $gray-10),
+  $gradient-success: linear-gradient(135deg, $gray-1, #0a1a0a, #1a3d1a),
+  $gradient-info: linear-gradient(135deg, $gray-1, $blue-1, $blue-2),
+  $gradient-warning: linear-gradient(135deg, $gray-1, $yellow-1, $yellow-2),
+  $gradient-error: linear-gradient(135deg, $gray-1, $red-1, $red-2),
+  
+  $gradient-primary-dark: linear-gradient(135deg, $gray-1, $primary-2, $primary-4),
+  $gradient-secondary-dark: linear-gradient(135deg, $gray-1, $gray-1, $gray-2),
+  $gradient-light-dark: linear-gradient(135deg, $gray-1, $gray-1, $gray-2),
+  $gradient-dark-dark: linear-gradient(135deg, $gray-1, $gray-5, $gray-7),
+  $gradient-success-dark: linear-gradient(135deg, $gray-1, $green-1, #1a664d),
+  $gradient-info-dark: linear-gradient(135deg, $gray-1, $blue-1, $blue-2),
+  $gradient-warning-dark: linear-gradient(135deg, $gray-1, $yellow-1, $yellow-3),
+  $gradient-error-dark: linear-gradient(135deg, $gray-1, $red-1, $red-3)
+);

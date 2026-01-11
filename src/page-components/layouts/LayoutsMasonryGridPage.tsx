@@ -6,7 +6,7 @@ import {
   SectionIntro,
   Card,
   GridCol,
-  Row,
+  Grid,
   Block,
   Icon,
   Button,
@@ -108,43 +108,43 @@ const LayoutsMasonryGridPage: FC = () => {
       />
 
       <Block spacing="md" >
-        <SectionIntro
-          title="Masonry Grid System"
-          text="The Atomix Masonry Grid provides a dynamic, Pinterest-style layout that automatically positions items based on their height, creating an optimal grid with minimal gaps."
-          alignment="center"
-        />
-        
-        <Row>
-          <GridCol md={12}>
-            <Card className="u-p-6">
-              <p className={`u-text-secondary-emphasis u-mb-6 u-text-center u-line-height-relaxed ${pageStyles.layoutsMasonryGridPage__introText}`}>
-                The Masonry Grid uses JavaScript to calculate optimal positioning for items of varying heights, creating a visually appealing layout that maximizes space usage. Items are positioned column by column, with each new item placed in the column with the shortest current height.
-              </p>
-              
-              <Row>
-                {features.map((feature, index) => (
-                  <GridCol key={index} md={6} lg={4} className="u-mb-4">
-                    <Card className="u-p-4 u-h-100">
-                      <div className="u-d-flex u-align-items-center u-mb-3">
-                        <div 
-                          className={`${pageStyles.layoutsMasonryGridPage__featureIconContainer} ${pageStyles[`layoutsMasonryGridPage__featureIconContainer--${feature.color}`]}`}
-                        >
-                          {feature.icon}
+          <SectionIntro
+            title="Masonry Grid System"
+            text="The Atomix Masonry Grid provides a dynamic, Pinterest-style layout that automatically positions items based on their height, creating an optimal grid with minimal gaps."
+            alignment="center"
+          />
+          
+          <Grid>
+            <GridCol md={12}>
+              <Card className="u-p-6">
+                <p className={`u-text-secondary-emphasis u-mb-6 u-text-center u-line-height-relaxed ${pageStyles.layoutsMasonryGridPage__introText}`}>
+                  The Masonry Grid uses JavaScript to calculate optimal positioning for items of varying heights, creating a visually appealing layout that maximizes space usage. Items are positioned column by column, with each new item placed in the column with the shortest current height.
+                </p>
+                
+                <Grid>
+                  {features.map((feature, index) => (
+                    <GridCol key={index} md={6} lg={4} className="u-mb-6">
+                      <Card className="u-p-4 u-h-100">
+                        <div className="u-d-flex u-align-items-center u-mb-3">
+                          <div 
+                            className={`${pageStyles.layoutsMasonryGridPage__featureIconContainer} ${pageStyles[`layoutsMasonryGridPage__featureIconContainer--${feature.color}`]}`}
+                          >
+                            {feature.icon}
+                          </div>
+                          <h4 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                            {feature.title}
+                          </h4>
                         </div>
-                        <h4 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
-                          {feature.title}
-                        </h4>
-                      </div>
-                      <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
-                        {feature.description}
-                      </p>
-                    </Card>
-                  </GridCol>
-                ))}
-              </Row>
-            </Card>
-          </GridCol>
-        </Row>
+                        <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                          {feature.description}
+                        </p>
+                      </Card>
+                    </GridCol>
+                  ))}
+                </Grid>
+              </Card>
+            </GridCol>
+          </Grid>
         
         <Block spacing="md" background="secondary" >
           <SectionIntro
@@ -153,8 +153,8 @@ const LayoutsMasonryGridPage: FC = () => {
             alignment="center"
           />
           
-          <Row>
-            <GridCol md={12}>
+          <Grid>
+            <GridCol md={12} className="u-mb-6">
               <Card className="u-p-6">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
@@ -184,12 +184,12 @@ const LayoutsMasonryGridPage: FC = () => {
                 </div>
               </Card>
             </GridCol>
-          </Row>
+          </Grid>
         </Block>
         
         <Block spacing="md" >
-          <Row>
-            <GridCol md={6}>
+          <Grid>
+            <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
@@ -234,7 +234,7 @@ const LayoutsMasonryGridPage: FC = () => {
               </Card>
             </GridCol>
             
-            <GridCol md={6}>
+            <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
@@ -281,7 +281,7 @@ const LayoutsMasonryGridPage: FC = () => {
                 </div>
               </Card>
             </GridCol>
-          </Row>
+          </Grid>
         </Block>
       </Block>
     </div>

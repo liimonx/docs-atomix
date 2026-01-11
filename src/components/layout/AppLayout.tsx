@@ -155,7 +155,6 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
       />
 
       {/* Main content area */}
-      <Container type="fluid">
         {/* Sidebar (EdgePanel) - Rendered outside grid for all devices */}
         <DocumentationSidebar {...sidebarProps} />
 
@@ -167,7 +166,6 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
             </PageTransition>
           </GridCol>
         </Grid>
-      </Container>
 
       <MemoizedDocumentationFooter />
     </div>

@@ -1,27 +1,29 @@
 /**
  * Badge Component Variable Overrides
+ * =============================================================================
  * 
  * Futuristic badge design with compact spacing and angular sci-fi aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/badge
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.badge' with (
-  // Badge Typography - Bold, energetic
-  $badge-font-size: 0.6875rem, // 11px - Compact tech feel
-  $badge-font-weight: 600, // Semibold - More energetic
+  // Badge Typography - Clear, readable
+  $badge-font-size: 0.75rem,        // 12px - Better readability
+  $badge-font-weight: 600,          // Semibold - Good balance
 
-  // Badge Padding - Compact, efficient spacing
-  $badge-padding-x: 0.625rem, // 10px - Tighter horizontal space
-  $badge-padding-y: 0.1875rem, // 3px - Minimal vertical space
-  $badge-padding-y-sm: 0.125rem, // 2px
-  $badge-padding-y-lg: 0.375rem, // 6px
+  // Badge Padding - Comfortable, balanced spacing
+  $badge-padding-x: 0.625rem,       // 10px - Good horizontal space
+  $badge-padding-y: 0.25rem,        // 4px - Better vertical space
+  $badge-padding-y-sm: 0.1875rem,   // 3px
+  $badge-padding-y-lg: 0.375rem,    // 6px
 
-  // Badge Border Radius - Angular, sci-fi aesthetic
-  $badge-border-radius: 0.375rem, // Less rounded, more angular
+  // Badge Border Radius - Modern, friendly curves
+  $badge-border-radius: 0.375rem,   // 6px - Balanced roundness
 
-  // Badge Icon - Precise sizing
-  $badge-icon-size: 0.875rem, // 14px - Compact
+  // Badge Icon - Visible sizing
+  $badge-icon-size: 0.875rem,       // 14px - Good visibility
 
-  // Badge Inner Items Gap - Efficient spacing between icon and text
-  $badge-inner-items-gap: 0.375rem, // 6px - Tighter spacing
+  // Badge Inner Items Gap - Comfortable spacing between icon and text
+  $badge-inner-items-gap: 0.375rem  // 6px - Good spacing
 );
-

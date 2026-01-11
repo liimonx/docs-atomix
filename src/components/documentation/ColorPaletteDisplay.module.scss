@@ -1,0 +1,238 @@
+// Component: ColorPaletteDisplay
+// =============================================================================
+
+// Block: Base color palette display
+// =============================================================================
+.colorPaletteDisplay {
+  padding: var(--atomix-spacing-4) 0;
+}
+
+// Header Styles
+// =============================================================================
+.colorPaletteDisplay__header {
+  margin-bottom: var(--atomix-spacing-8);
+  text-align: center;
+}
+
+.colorPaletteDisplay__title {
+  font-size: var(--atomix-font-size-2xl);
+  font-weight: var(--atomix-font-weight-bold);
+  color: var(--atomix-primary-text-emphasis);
+  margin: 0 0 var(--atomix-spacing-2) 0;
+}
+
+.colorPaletteDisplay__description {
+  font-size: var(--atomix-font-size-md);
+  color: var(--atomix-secondary-text-emphasis);
+  line-height: var(--atomix-line-height-relaxed);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+// Section Styles
+// =============================================================================
+.colorPaletteDisplay__section {
+  margin-bottom: var(--atomix-spacing-10);
+}
+
+.colorPaletteDisplay__categoryTitle {
+  font-size: var(--atomix-font-size-lg);
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-primary-text-emphasis);
+  margin: 0 0 var(--atomix-spacing-4) 0;
+  padding-bottom: var(--atomix-spacing-2);
+  border-bottom: 1px solid var(--atomix-border-color);
+}
+
+// Grid Layout
+// =============================================================================
+.colorPaletteDisplay__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--atomix-spacing-4);
+}
+
+// Color Card Styles
+// =============================================================================
+.colorPaletteDisplay__card {
+  border: 1px solid var(--atomix-border-color);
+  border-radius: var(--atomix-border-radius);
+  overflow: hidden;
+  transition: all var(--atomix-transition-duration-base) var(--atomix-easing-base);
+  cursor: pointer;
+  background-color: var(--atomix-body-bg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--atomix-box-shadow-lg);
+    border-color: var(--atomix-primary);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+  }
+}
+
+// Swatch Styles
+// =============================================================================
+.colorPaletteDisplay__swatch {
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--atomix-spacing-2);
+}
+
+.colorPaletteDisplay__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  pointer-events: none;
+}
+
+.colorPaletteDisplay__checkmark {
+  position: relative;
+  z-index: 1;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--atomix-transition-duration-fast) var(--atomix-easing-base);
+}
+
+// Info Panel Styles
+// =============================================================================
+.colorPaletteDisplay__info {
+  padding: var(--atomix-spacing-3);
+  background-color: var(--atomix-secondary-bg-subtle);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.colorPaletteDisplay__name {
+  font-size: var(--atomix-font-size-sm);
+  font-weight: var(--atomix-font-weight-medium);
+  color: var(--atomix-primary-text-emphasis);
+  margin-bottom: var(--atomix-spacing-1);
+  word-break: break-word;
+}
+
+.colorPaletteDisplay__value {
+  font-size: var(--atomix-font-size-xs);
+  font-family: var(--atomix-font-monospace);
+  color: var(--atomix-secondary-text-emphasis);
+  word-break: break-all;
+  margin-bottom: var(--atomix-spacing-1);
+}
+
+.colorPaletteDisplay__description {
+  font-size: var(--atomix-font-size-xs);
+  color: var(--atomix-tertiary-text-emphasis);
+  margin-top: auto;
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+// Footer Styles
+// =============================================================================
+.colorPaletteDisplay__footer {
+  margin-top: var(--atomix-spacing-8);
+}
+
+.colorPaletteDisplay__usageCard {
+  padding: var(--atomix-spacing-6);
+  background-color: var(--atomix-secondary-bg-subtle);
+  border-left: 3px solid var(--atomix-primary);
+}
+
+.colorPaletteDisplay__usageTitle {
+  font-size: var(--atomix-font-size-lg);
+  font-weight: var(--atomix-font-weight-semibold);
+  color: var(--atomix-primary-text-emphasis);
+  margin: 0 0 var(--atomix-spacing-3) 0;
+}
+
+.colorPaletteDisplay__usageList {
+  margin: 0;
+  padding-left: var(--atomix-spacing-4);
+  color: var(--atomix-secondary-text-emphasis);
+  
+  li {
+    margin-bottom: var(--atomix-spacing-2);
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Responsive Design
+// =============================================================================
+@media (max-width: 768px) {
+  .colorPaletteDisplay__grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--atomix-spacing-3);
+  }
+  
+  .colorPaletteDisplay__title {
+    font-size: var(--atomix-font-size-xl);
+  }
+  
+  .colorPaletteDisplay__swatch {
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .colorPaletteDisplay__grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  
+  .colorPaletteDisplay__swatch {
+    height: 90px;
+  }
+  
+  .colorPaletteDisplay__name,
+  .colorPaletteDisplay__value {
+    font-size: var(--atomix-font-size-xs);
+  }
+}
+
+// Accessibility Enhancements
+// =============================================================================
+@media (prefers-reduced-motion: reduce) {
+  .colorPaletteDisplay__card {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@media (prefers-contrast: high) {
+  .colorPaletteDisplay__card {
+    border-width: 2px;
+  }
+  
+  .colorPaletteDisplay__overlay {
+    opacity: 0.3;
+  }
+}

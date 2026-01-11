@@ -1,18 +1,21 @@
 /**
  * Component Variable Overrides - Main Entry Point
+ * =============================================================================
  * 
  * This file imports all component variable overrides.
  * Override component variables here to customize component appearance at build time.
  * 
+ * Variables with !default will be used by Atomix component modules when they load.
+ * Since we load first, our values are set, then Atomix's !default variables
+ * will see they're already defined and use our values instead.
+ * 
  * @see https://atomix.design/docs/guides/theming
  */
 
-// Import component variable overrides by component
+// =============================================================================
+// Import Component Variable Overrides
 // =============================================================================
 // Using @use to bring variables into scope
-// Variables with !default will be used by Atomix component modules when they load
-// Since we load first, our values are set, then Atomix's !default variables
-// will see they're already defined and use our values instead
 
 // 1. Button - Button component overrides
 @use './button' as *;
@@ -114,4 +117,3 @@
 // @use './textarea' as *; // Uses input settings
 // @use './form' as *; // Minimal customization needed
 // @use './navbar' as *; // Minimal customization needed
-

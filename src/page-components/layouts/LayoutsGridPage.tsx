@@ -7,7 +7,7 @@ import {
   SectionIntro,
   Card,
   GridCol,
-  Row,
+  Grid,
   Block,
   Icon,
   Button,
@@ -115,16 +115,16 @@ const LayoutsGridPage: FC = () => {
           alignment="center"
         />
         
-        <Row>
+        <Grid>
           <GridCol md={12}>
             <Card className="u-p-6">
               <p className={`u-text-secondary-emphasis u-mb-6 u-text-center u-line-height-relaxed ${pageStyles.layoutsGridPage__introText}`}>
                 The Grid System is based on a 12-column layout with responsive breakpoints and flexible alignment options. It follows the ITCSS architecture and uses semantic class names for maximum clarity and maintainability.
               </p>
               
-              <Row>
+              <Grid>
                 {features.map((feature, index) => (
-                  <GridCol key={index} md={6} lg={4} className="u-mb-4">
+                  <GridCol key={index} md={6} lg={4} className="u-mb-6">
                     <Card className="u-p-4 u-h-100">
                       <div className="u-d-flex u-align-items-center u-mb-3">
                         <div 
@@ -142,10 +142,10 @@ const LayoutsGridPage: FC = () => {
                     </Card>
                   </GridCol>
                 ))}
-              </Row>
+              </Grid>
             </Card>
           </GridCol>
-        </Row>
+        </Grid>
         
         <Block spacing="md" background="secondary" >
           <SectionIntro
@@ -154,7 +154,7 @@ const LayoutsGridPage: FC = () => {
             alignment="center"
           />
           
-          <Row>
+          <Grid>
             <GridCol md={12}>
               <Card className="u-p-6">
                 <div className="u-d-flex u-align-items-center u-mb-4">
@@ -181,10 +181,10 @@ const LayoutsGridPage: FC = () => {
                 </div>
               </Card>
             </GridCol>
-          </Row>
+          </Grid>
           
-          <Row className="u-mt-4">
-            <GridCol md={6}>
+          <Grid className="u-mt-6">
+            <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
@@ -208,7 +208,7 @@ const LayoutsGridPage: FC = () => {
               </Card>
             </GridCol>
             
-            <GridCol md={6}>
+            <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
@@ -231,12 +231,12 @@ const LayoutsGridPage: FC = () => {
                 </div>
               </Card>
             </GridCol>
-          </Row>
+          </Grid>
         </Block>
         
         <Block spacing="md" >
-          <Row>
-            <GridCol md={6}>
+          <Grid>
+            <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
@@ -265,7 +265,7 @@ const LayoutsGridPage: FC = () => {
               </Card>
             </GridCol>
             
-            <GridCol md={6}>
+            <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
                 <div className="u-d-flex u-align-items-center u-mb-4">
                   <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
@@ -291,7 +291,7 @@ const LayoutsGridPage: FC = () => {
                 </div>
               </Card>
             </GridCol>
-          </Row>
+          </Grid>
         </Block>
       </Block>
     </div>

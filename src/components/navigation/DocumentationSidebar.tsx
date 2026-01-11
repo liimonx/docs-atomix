@@ -25,7 +25,7 @@ interface DocumentationSidebarProps {
 
 const EmptySearchState = ({ searchTerm }: { searchTerm: string }) => (
   <div className="u-p-6 u-text-center" role="status" aria-live="polite">
-    <Icon name="Search" size="lg" className="u-mb-3 u-color-muted" />
+    <Icon name="MagnifyingGlass" size="lg" className="u-mb-3 u-color-muted" />
     <p className="u-fs-md u-color-text-secondary u-mb-2">
       No results found for "{searchTerm}"
     </p>
@@ -60,7 +60,6 @@ export const DocumentationSidebar = ({
   const prevPathnameRef = useRef(pathname);
   const panelRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const activeItemRef = useRef<HTMLAnchorElement>(null);
   const focusTrapCleanupRef = useRef<(() => void) | null>(null);
 
   // Handle client-side mounting to prevent hydration mismatch
@@ -221,7 +220,6 @@ export const DocumentationSidebar = ({
 
   return (
     <EdgePanel
-      id="documentation-sidebar"
       title={panelTitle}
       isOpen={isOpen}
       onOpenChange={handleOpenChange}
@@ -230,24 +228,18 @@ export const DocumentationSidebar = ({
       backdrop={true}
       closeOnBackdropClick={true}
       closeOnEscape={true}
-      style={{top: 'var(--atomix-navbar-height, 56px)'}}
-      aria-label="Documentation navigation"
-      role="navigation"
     >
       <div ref={panelRef} className="u-pt-4">
         {/* Search */}
         <div className="u-mb-6 u-px-2">
-          <div className="u-position-relative u-mb-3">
+          <div className="u-position-relative u-mb-3" onKeyDown={handleKeyDown}>
             <Input
               ref={searchInputRef}
               type="text"
               placeholder="Search documentation..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              onKeyDown={handleKeyDown}
               size="md"
-              aria-label="Search documentation navigation"
-              aria-describedby={searchTerm ? "search-results-count" : undefined}
               className="u-w-100"
             />
             {searchTerm && (

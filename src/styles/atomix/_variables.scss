@@ -1,18 +1,21 @@
 /**
  * Atomix SCSS Variable Overrides
+ * =============================================================================
  * 
  * This file imports all SCSS variable overrides before importing Atomix.
  * Override variables here to customize the design system at build time.
  * 
+ * Variables with !default will be used by Atomix modules when they load.
+ * Since we load first, our values are set, then Atomix's !default variables
+ * will see they're already defined and use our values instead.
+ * 
  * @see https://atomix.design/docs/guides/theming
  */
 
-// Import variable overrides by category
+// =============================================================================
+// Import Variable Overrides by Category
 // =============================================================================
 // Using @use to bring variables into scope
-// Variables with !default will be used by Atomix modules when they load
-// Since we load first, our values are set, then Atomix's !default variables
-// will see they're already defined and use our values instead
 
 // 1. Colors - Brand and semantic color overrides
 @use './colors' as *;
@@ -35,12 +38,11 @@
 // 7. Transitions - Animation durations and easing
 @use './transitions' as *;
 
-// 7. Background - Background colors and gradients
+// 8. Background - Background colors and gradients
 @use './background' as *;
 
-// 8. Z-Index - Layer stacking order
+// 9. Z-Index - Layer stacking order
 @use './z-index' as *;
 
-// 9. Components - Component-specific variable overrides
+// 10. Components - Component-specific variable overrides
 @use './components/components-variables' as *;
-

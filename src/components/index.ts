@@ -5,6 +5,7 @@ export * from './documentation/CodeBlockWithCopy';
 export * from './documentation/PropsDocumentation';
 export * from './documentation/AccessibilityGuide';
 export * from './documentation/DesignTokensDisplay';
+export * from './documentation/ColorPaletteDisplay';
 
 // Navigation components
 export * from './navigation/DocumentationHeader';

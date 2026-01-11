@@ -1,26 +1,28 @@
 /**
  * Popover Component Variable Overrides
+ * =============================================================================
  * 
  * Futuristic popover design with compact spacing and angular sci-fi aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/popover
  */
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.popover' with (
   // Popover Max Width - Efficient content display
-  $popover-max-width: 300px, // Compact width
+  $popover-max-width: 300px,        // Compact width
 
   // Popover Padding - Compact spacing
-  $popover-padding-x: 1rem, // 16px - Tighter horizontal space
-  $popover-padding-y: 1rem, // 16px - Tighter vertical space
+  $popover-padding-x: 1rem,         // 16px - Tighter horizontal space
+  $popover-padding-y: 1rem,         // 16px - Tighter vertical space
 
   // Popover Inner Gap - Compact spacing
-  $popover-inner-gap-x: 0.625rem, // 10px - Tighter space between elements
-  $popover-inner-gap-y: 0.875rem, // 14px - Tighter vertical space
+  $popover-inner-gap-x: 0.625rem,   // 10px - Tighter space between elements
+  $popover-inner-gap-y: 0.875rem,   // 14px - Tighter vertical space
 
   // Popover Border Radius - Angular, sci-fi aesthetic
-  $popover-border-radius: 0.5rem, // Less rounded, more angular
+  $popover-border-radius: 0.5rem,   // Less rounded, more angular
 
   // Popover Arrow - Precise sizing
-  $popover-arrow-size: 0.625rem, // 10px - Compact size
-  $popover-arrow-offset: 6px, // Tighter offset
+  $popover-arrow-size: 0.625rem,    // 10px - Compact size
+  $popover-arrow-offset: 6px        // Tighter offset
 );
-

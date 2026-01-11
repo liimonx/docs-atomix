@@ -13,7 +13,6 @@ import {
   Grid,
   GridCol,
   Callout,
-  Container,
 } from "@shohojdhara/atomix";
 
 import { navigationData } from "@/data/navigation";
@@ -157,7 +156,6 @@ const ComponentsOverviewPage: FC = () => {
         contentWidth="1200px"
         children={
           <>
-            <Container>
               {/* Stats Cards */}
               <Grid className="u-mb-6">
                 <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
@@ -403,7 +401,6 @@ const ComponentsOverviewPage: FC = () => {
                   ))}
                 </div>
               </Card>
-            </Container>
           </>
         }
       />

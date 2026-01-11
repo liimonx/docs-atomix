@@ -3,7 +3,7 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
 // import { useRouter } from 'next/navigation';
-import { Button, Block, SectionIntro, Row, Card, GridCol } from '@shohojdhara/atomix';
+import { Button, Block, SectionIntro, Grid, Card, GridCol } from '@shohojdhara/atomix';
 import { Icon } from '@shohojdhara/atomix';
 import CallToActionSection from '@/components/sections/CallToActionSection';
 
@@ -90,65 +90,65 @@ const HomePage: FC = () => {
     <>
           {/* Features Section */}
           <Block spacing="sm" >
-            <SectionIntro title="Why Choose Atomix?" alignment="center" />
+              <SectionIntro title="Why Choose Atomix?" alignment="center" />
 
-            <Row>
-              {features.map((feature, index) => (
-                <GridCol key={index} md={6} lg={4} className="u-mb-8">
-                  <Card>
-                    <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-2">
-                      {feature.icon}
-                    </div>
-                    <h3 className="u-fs-lg u-fw-600 u-mb-2 u-text-primary-emphasis">
-                      {feature.title}
-                    </h3>
-                    <p className="u-text-secondary-emphasis u-lh-lg">
-                      {feature.description}
-                    </p>
-                  </Card>
-                </GridCol>
-              ))}
-            </Row>
+              <Grid>
+                {features.map((feature, index) => (
+                  <GridCol key={index} md={6} lg={4} className="u-mb-6">
+                    <Card className="u-h-100">
+                      <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-2">
+                        {feature.icon}
+                      </div>
+                      <h3 className="u-fs-lg u-fw-600 u-mb-2 u-text-primary-emphasis">
+                        {feature.title}
+                      </h3>
+                      <p className="u-text-secondary-emphasis u-lh-lg">
+                        {feature.description}
+                      </p>
+                    </Card>
+                  </GridCol>
+                ))}
+              </Grid>
           </Block>
 
           {/* Quick Links Section */}
           <Block background="secondary" spacing="sm" >
-            <SectionIntro title="Quick Start" alignment="center" />
-            <Row>
-              {quickLinks.map((link, index) => (
-                <GridCol key={index} sm={6} lg={4} className="u-mb-6">
-                  {link.external ? (
-                    <a
-                      href={link.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
-                    >
-                      <Card className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast u-hover-transform-up u-h-100">
-                        <LinkContent
-                          title={link.title}
-                          description={link.description}
-                          external={link.external}
-                        />
-                      </Card>
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.path}
-                      className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
-                    >
-                      <Card className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast u-hover-transform-up u-h-100">
-                        <LinkContent
-                          title={link.title}
-                          description={link.description}
-                          external={link.external}
-                        />
-                      </Card>
-                    </Link>
-                  )}
-                </GridCol>
-              ))}
-            </Row>
+              <SectionIntro title="Quick Start" alignment="center" />
+              <Grid>
+                {quickLinks.map((link, index) => (
+                  <GridCol key={index} sm={6} lg={4} className="u-mb-6">
+                    {link.external ? (
+                      <a
+                        href={link.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                      >
+                        <Card className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast u-hover-transform-up u-h-100">
+                          <LinkContent
+                            title={link.title}
+                            description={link.description}
+                            external={link.external}
+                          />
+                        </Card>
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.path}
+                        className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                      >
+                        <Card className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast u-hover-transform-up u-h-100">
+                          <LinkContent
+                            title={link.title}
+                            description={link.description}
+                            external={link.external}
+                          />
+                        </Card>
+                      </Link>
+                    )}
+                  </GridCol>
+                ))}
+              </Grid>
           </Block>
 
           {/* CTA Section */}

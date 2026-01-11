@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 import Link from 'next/link';
-import { Button, Card, Icon, Row, GridCol } from '@shohojdhara/atomix';
+import { Button, Card, Icon, Container, Grid, GridCol } from '@shohojdhara/atomix';
 
 const NotFoundPage: FC = () => {
   const popularLinks = [
@@ -30,6 +30,7 @@ const NotFoundPage: FC = () => {
 
   return (
     <div className="u-min-h-screen u-d-flex u-flex-column u-align-items-center u-justify-content-center u-p-6 u-text-center">
+      <Container>
         {/* Error Icon */}
         <div className="u-mb-6">
           <Icon name="WarningCircle" size="xl" className="u-text-warning" />
@@ -49,7 +50,7 @@ const NotFoundPage: FC = () => {
           Page Not Found
         </h2>
 
-        <p className="u-text-secondary-emphasis u-mb-8 u-fs-lg" style={{ maxWidth: '600px' }}>
+        <p className="u-text-secondary-emphasis u-mb-8 u-fs-lg u-mx-auto" style={{ maxWidth: '600px' }}>
           The page you're looking for doesn't exist or has been moved.
           Don't worry, you can find what you're looking for using the links below.
         </p>
@@ -68,14 +69,14 @@ const NotFoundPage: FC = () => {
         </div>
 
         {/* Popular Links */}
-        <section className="u-mb-12 u-w-100" style={{ maxWidth: '1200px' }}>
+        <section className="u-mb-12 u-w-100">
           <h3 className="u-fs-2xl u-fw-bold u-mb-6">
             Popular Pages
           </h3>
 
-          <Row>
+          <Grid>
             {popularLinks.map((link, index) => (
-              <GridCol key={index} md={6} lg={3}>
+              <GridCol key={index} sm={6} lg={3} className="u-mb-6">
                 <Link
                   href={link.path}
                   className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
@@ -95,11 +96,11 @@ const NotFoundPage: FC = () => {
                 </Link>
               </GridCol>
             ))}
-          </Row>
+          </Grid>
         </section>
 
         {/* Help Section */}
-        <section className="u-w-100" style={{ maxWidth: '800px' }}>
+        <section className="u-w-100 u-mx-auto" style={{ maxWidth: '800px' }}>
           <div className="u-d-flex u-flex-column u-align-items-center u-text-center">
             <Icon name="MagnifyingGlass" size="xl" className="u-mb-4 u-text-secondary-emphasis" />
             <h3 className="u-fs-xl u-fw-semibold u-mb-3">
@@ -117,7 +118,8 @@ const NotFoundPage: FC = () => {
             </Button>
           </div>
         </section>
-      </div>
+      </Container>
+    </div>
   );
 };
 

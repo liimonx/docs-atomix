@@ -1,0 +1,23 @@
+/**
+ * Z-Index Variable Overrides
+ * =============================================================================
+ * 
+ * Layer stacking order configuration for consistent z-index management.
+ * Enhanced with comprehensive layering system.
+ * 
+ * @see https://atomix.design/docs/design-tokens/z-index
+ */
+
+// =============================================================================
+// Z-Index Configuration
+// =============================================================================
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.z-layers' with (
+  // Enhanced z-index layers for consistent stacking
+  $z-index-dropdown: 1000,
+  $z-index-sticky: 1020,
+  $z-index-fixed: 1030,
+  $z-index-modal: 1050,
+  $z-index-popover: 1060,
+  $z-index-tooltip: 1070,
+  $z-index-drawer: 1080
+);

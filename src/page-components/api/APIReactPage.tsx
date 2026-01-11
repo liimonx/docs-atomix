@@ -7,7 +7,6 @@ import {
   Card,
   GridCol,
   Grid,
-  Container,
   Block,
   Icon,
   Badge,
@@ -37,12 +36,11 @@ const APIReactPage: FC = () => {
       />
 
       <Block spacing="md" >
-        <Container>
-          <SectionIntro
-            title="React API Reference"
-            text="Complete reference for all React components in the Atomix Design System, including props, types, and usage examples."
-            alignment="center"
-          />
+        <SectionIntro
+          title="React API Reference"
+          text="Complete reference for all React components in the Atomix Design System, including props, types, and usage examples."
+          alignment="center"
+        />
           
           {/* Basic Components Section */}
           <Grid className="u-mt-8">
@@ -330,7 +328,6 @@ type PolymorphicProps<E extends React.ElementType> = {
               </Card>
             </GridCol>
           </Grid>
-        </Container>
       </Block>
     </div>
   );

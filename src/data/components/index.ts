@@ -1,161 +1,161 @@
 // Component metadata index
-import { buttonMetadata } from './Button';
-import { buttonGroupMetadata } from './ButtonGroup';
-import { badgeMetadata } from './Badge';
-import { cardMetadata } from './Card';
 import { accordionMetadata } from './Accordion';
 import { atomixGlassMetadata } from './AtomixGlass';
-import { inputMetadata } from './Input';
-import { formMetadata } from './Form';
 import { avatarMetadata } from './Avatar';
-import { breadcrumbMetadata } from './Breadcrumb';
-import { dropdownMetadata } from './Dropdown';
-import { modalMetadata } from './Modal';
-import { tabMetadata } from './Tab';
-import { tooltipMetadata } from './Tooltip';
-import { selectMetadata } from './Select';
-import { textareaMetadata } from './Textarea';
-import { spinnerMetadata } from './Spinner';
-import { iconMetadata } from './Icon';
-import { progressMetadata } from './Progress';
-import { toggleMetadata } from './Toggle';
-import { popoverMetadata } from './Popover';
-import { ratingMetadata } from './Rating';
-import { paginationMetadata } from './Pagination';
-import { stepsMetadata } from './Steps';
-import { sliderMetadata } from './slider';
-import { listMetadata } from './List';
-import { calloutMetadata } from './Callout';
-import { heroMetadata } from './Hero';
-import { messagesMetadata } from './Messages';
-import { uploadMetadata } from './Upload';
-import { countdownMetadata } from './Countdown';
+import { badgeMetadata } from './Badge';
 import { blockMetadata } from './Block';
-import { navbarMetadata } from './Navbar';
+import { breadcrumbMetadata } from './Breadcrumb';
+import { buttonMetadata } from './Button';
+import { buttonGroupMetadata } from './ButtonGroup';
+import { calloutMetadata } from './Callout';
+import { cardMetadata } from './Card';
 import { checkboxMetadata } from './Checkbox';
-import { radioMetadata } from './Radio';
-import { datePickerMetadata } from './DatePicker';
-import { sectionIntroMetadata } from './SectionIntro';
 import { containerMetadata } from './Container';
+import { countdownMetadata } from './Countdown';
+import { dataTableMetadata } from './DataTable';
+import { datePickerMetadata } from './DatePicker';
+import { dropdownMetadata } from './Dropdown';
+import { edgePanelMetadata } from './EdgePanel';
+import { formMetadata } from './Form';
 import { gridMetadata } from './Grid';
 import { gridColMetadata } from './GridCol';
-import { rowMetadata } from './Row';
-import { riverMetadata } from './River';
+import { heroMetadata } from './Hero';
+import { iconMetadata } from './Icon';
+import { inputMetadata } from './Input';
+import { listMetadata } from './List';
 import { masonryGridMetadata } from './MasonryGrid';
 import { masonryGridItemMetadata } from './MasonryGridItem';
-import { dataTableMetadata } from './DataTable';
-import { edgePanelMetadata } from './EdgePanel';
-import { sideMenuMetadata } from './SideMenu';
+import { messagesMetadata } from './Messages';
+import { modalMetadata } from './Modal';
 import { navMetadata } from './Nav';
-import { navItemMetadata } from './NavItem';
 import { navDropdownMetadata } from './NavDropdown';
+import { navItemMetadata } from './NavItem';
+import { navbarMetadata } from './Navbar';
+import { paginationMetadata } from './Pagination';
+import { popoverMetadata } from './Popover';
+import { progressMetadata } from './Progress';
+import { radioMetadata } from './Radio';
+import { ratingMetadata } from './Rating';
+import { riverMetadata } from './River';
+import { rowMetadata } from './Row';
+import { sectionIntroMetadata } from './SectionIntro';
+import { selectMetadata } from './Select';
+import { sideMenuMetadata } from './SideMenu';
+import { sliderMetadata } from './slider';
+import { spinnerMetadata } from './Spinner';
+import { stepsMetadata } from './Steps';
+import { tabMetadata } from './Tab';
+import { textareaMetadata } from './Textarea';
+import { toggleMetadata } from './Toggle';
+import { tooltipMetadata } from './Tooltip';
+import { uploadMetadata } from './Upload';
 import { virtualizedGridMetadata } from './VirtualizedGrid';
 
 export {
-  buttonMetadata,
-  buttonGroupMetadata,
-  badgeMetadata,
-  cardMetadata,
   accordionMetadata,
   atomixGlassMetadata,
-  inputMetadata,
-  formMetadata,
   avatarMetadata,
-  breadcrumbMetadata,
-  dropdownMetadata,
-  modalMetadata,
-  tabMetadata,
-  tooltipMetadata,
-  selectMetadata,
-  textareaMetadata,
-  spinnerMetadata,
-  iconMetadata,
-  progressMetadata,
-  toggleMetadata,
-  popoverMetadata,
-  ratingMetadata,
-  paginationMetadata,
-  stepsMetadata,
-  sliderMetadata,
-  listMetadata,
-  calloutMetadata,
-  heroMetadata,
-  messagesMetadata,
-  uploadMetadata,
-  countdownMetadata,
+  badgeMetadata,
   blockMetadata,
-  navbarMetadata,
+  breadcrumbMetadata,
+  buttonMetadata,
+  buttonGroupMetadata,
+  calloutMetadata,
+  cardMetadata,
   checkboxMetadata,
-  radioMetadata,
-  datePickerMetadata,
-  sectionIntroMetadata,
   containerMetadata,
+  countdownMetadata,
+  dataTableMetadata,
+  datePickerMetadata,
+  dropdownMetadata,
+  edgePanelMetadata,
+  formMetadata,
   gridMetadata,
   gridColMetadata,
-  rowMetadata,
-  riverMetadata,
+  heroMetadata,
+  iconMetadata,
+  inputMetadata,
+  listMetadata,
   masonryGridMetadata,
   masonryGridItemMetadata,
-  dataTableMetadata,
-  edgePanelMetadata,
-  sideMenuMetadata,
+  messagesMetadata,
+  modalMetadata,
   navMetadata,
-  navItemMetadata,
   navDropdownMetadata,
+  navItemMetadata,
+  navbarMetadata,
+  paginationMetadata,
+  popoverMetadata,
+  progressMetadata,
+  radioMetadata,
+  ratingMetadata,
+  riverMetadata,
+  rowMetadata,
+  sectionIntroMetadata,
+  selectMetadata,
+  sideMenuMetadata,
+  sliderMetadata,
+  spinnerMetadata,
+  stepsMetadata,
+  tabMetadata,
+  textareaMetadata,
+  toggleMetadata,
+  tooltipMetadata,
+  uploadMetadata,
   virtualizedGridMetadata
 };
 
 export const componentMetadata = [
-  buttonMetadata,
-  buttonGroupMetadata,
-  badgeMetadata,
-  cardMetadata,
   accordionMetadata,
   atomixGlassMetadata,
-  inputMetadata,
-  formMetadata,
   avatarMetadata,
-  breadcrumbMetadata,
-  dropdownMetadata,
-  modalMetadata,
-  tabMetadata,
-  tooltipMetadata,
-  selectMetadata,
-  textareaMetadata,
-  spinnerMetadata,
-  iconMetadata,
-  progressMetadata,
-  toggleMetadata,
-  popoverMetadata,
-  ratingMetadata,
-  paginationMetadata,
-  stepsMetadata,
-  sliderMetadata,
-  listMetadata,
-  calloutMetadata,
-  heroMetadata,
-  messagesMetadata,
-  uploadMetadata,
-  countdownMetadata,
+  badgeMetadata,
   blockMetadata,
-  navbarMetadata,
+  breadcrumbMetadata,
+  buttonMetadata,
+  buttonGroupMetadata,
+  calloutMetadata,
+  cardMetadata,
   checkboxMetadata,
-  radioMetadata,
-  datePickerMetadata,
-  sectionIntroMetadata,
   containerMetadata,
+  countdownMetadata,
+  dataTableMetadata,
+  datePickerMetadata,
+  dropdownMetadata,
+  edgePanelMetadata,
+  formMetadata,
   gridMetadata,
   gridColMetadata,
-  rowMetadata,
-  riverMetadata,
+  heroMetadata,
+  iconMetadata,
+  inputMetadata,
+  listMetadata,
   masonryGridMetadata,
   masonryGridItemMetadata,
-  dataTableMetadata,
-  edgePanelMetadata,
-  sideMenuMetadata,
+  messagesMetadata,
+  modalMetadata,
   navMetadata,
-  navItemMetadata,
   navDropdownMetadata,
+  navItemMetadata,
+  navbarMetadata,
+  paginationMetadata,
+  popoverMetadata,
+  progressMetadata,
+  radioMetadata,
+  ratingMetadata,
+  riverMetadata,
+  rowMetadata,
+  sectionIntroMetadata,
+  selectMetadata,
+  sideMenuMetadata,
+  sliderMetadata,
+  spinnerMetadata,
+  stepsMetadata,
+  tabMetadata,
+  textareaMetadata,
+  toggleMetadata,
+  tooltipMetadata,
+  uploadMetadata,
   virtualizedGridMetadata,
 ];
 

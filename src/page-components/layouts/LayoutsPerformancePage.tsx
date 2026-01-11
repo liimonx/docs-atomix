@@ -6,7 +6,7 @@ import {
   SectionIntro,
   Card,
   GridCol,
-  Row,
+  Grid,
   Block,
   Icon,
   Button,
@@ -136,8 +136,8 @@ const LayoutsPerformancePage: FC = () => {
           alignment="center"
         />
 
-        <Row>
-          <GridCol md={12}>
+        <Grid>
+          <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
@@ -151,9 +151,9 @@ const LayoutsPerformancePage: FC = () => {
                 Layout performance is crucial for user experience. Poor layout performance can cause several issues:
               </p>
               
-              <Row>
+              <Grid>
                 {performanceIssues.map((issue, index) => (
-                  <GridCol key={index} md={6} lg={4} className="u-mb-4">
+                  <GridCol key={index} md={6} lg={4} className="u-mb-6">
                     <Card className="u-p-4 u-h-100">
                       <div className="u-d-flex u-align-items-center u-mb-3">
                         <div
@@ -171,13 +171,13 @@ const LayoutsPerformancePage: FC = () => {
                     </Card>
                   </GridCol>
                 ))}
-              </Row>
+              </Grid>
             </Card>
           </GridCol>
-        </Row>
+        </Grid>
 
-        <Row className="u-mt-4">
-          <GridCol md={12}>
+        <Grid className="u-mt-6">
+          <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
@@ -191,9 +191,9 @@ const LayoutsPerformancePage: FC = () => {
                 Monitor these Core Web Vitals to measure and improve layout performance:
               </p>
               
-              <Row>
+              <Grid>
                 {performanceMetrics.map((metric, index) => (
-                  <GridCol key={index} md={6} lg={3} className="u-mb-4">
+                  <GridCol key={index} md={6} lg={3} className="u-mb-6">
                     <Card className="u-p-4 u-h-100">
                       <div className="u-d-flex u-flex-column u-h-100">
                         <div
@@ -204,28 +204,28 @@ const LayoutsPerformancePage: FC = () => {
                         <h4 className="u-fs-lg u-fw-semibold u-m-0 u-mb-2 u-text-primary-emphasis">
                           {metric.title}
                         </h4>
-                        <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
+                        <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-gGrid-1">
                           {metric.description}
                         </p>
                       </div>
                     </Card>
                   </GridCol>
                 ))}
-              </Row>
+              </Grid>
             </Card>
           </GridCol>
-        </Row>
+        </Grid>
       </Block>
         
       <Block spacing="md" background="secondary">
-        <SectionIntro
-          title="Grid System Performance"
-          text="Optimize grid calculations and rendering for better performance"
-          alignment="center"
-        />
+          <SectionIntro
+            title="Grid System Performance"
+            text="Optimize grid calculations and rendering for better performance"
+            alignment="center"
+          />
 
-        <Row>
-          <GridCol md={12}>
+          <Grid>
+            <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
               <div className="u-d-flex u-align-items-center u-mb-4">
                 <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
@@ -282,7 +282,7 @@ function OptimizedGrid({ items }) {
               />
             </Card>
           </GridCol>
-        </Row>
+        </Grid>
       </Block>
         
       <Block spacing="md">
@@ -292,7 +292,7 @@ function OptimizedGrid({ items }) {
           alignment="center"
         />
 
-        <Row>
+        <Grid>
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
               <div className="u-d-flex u-align-items-center u-mb-4">
@@ -390,7 +390,7 @@ function OptimizedGrid({ items }) {
               </ul>
             </Card>
           </GridCol>
-        </Row>
+        </Grid>
       </Block>
         
       <Block spacing="md" background="secondary">
@@ -400,7 +400,7 @@ function OptimizedGrid({ items }) {
           alignment="center"
         />
 
-        <Row>
+        <Grid>
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
               <div className="u-d-flex u-align-items-center u-mb-4">
@@ -422,7 +422,7 @@ function OptimizedGrid({ items }) {
     max-width: 1200px; 
     margin: 0 auto; 
   }
-  .row { 
+  .Grid { 
     display: flex; 
     flex-wrap: wrap; 
   }
@@ -469,7 +469,7 @@ function OptimizedGrid({ items }) {
               />
             </Card>
           </GridCol>
-        </Row>
+        </Grid>
       </Block>
 
       <Block spacing="md">
@@ -479,7 +479,7 @@ function OptimizedGrid({ items }) {
           alignment="center"
         />
 
-        <Row>
+        <Grid>
           {[
             {
               title: "Use Memoization",
@@ -524,12 +524,11 @@ function OptimizedGrid({ items }) {
               </Card>
             </GridCol>
           ))}
-        </Row>
+        </Grid>
       </Block>
     </div>
   );
 };
-
 LayoutsPerformancePage.displayName = 'LayoutsPerformancePage';
 
 export default LayoutsPerformancePage;

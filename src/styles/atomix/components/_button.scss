@@ -1,48 +1,50 @@
 /**
  * Button Component Variable Overrides
+ * =============================================================================
  * 
  * Futuristic, sci-fi button design with energetic transitions and angular aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/button
  */
 
 @use 'sass:map';
 
 @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.button' with (
-  // Button Base Styles - Compact, energetic spacing
-  $btn-padding-y: 0.625rem, // 10px - Tighter, more efficient
-  $btn-padding-x: 1rem, // 16px - Compact horizontal space
-  $btn-font-size: 0.9375rem, // 15px - Slightly smaller for tech feel
-  $btn-font-weight: 700, // Bold - More energetic and prominent
-  $btn-line-height: 1.4, // Tighter line height
-  $btn-letter-spacing: 0.05em, // Increased letter spacing for sci-fi tech feel
+  // Button Base Styles - Improved spacing and readability
+  $btn-padding-y: 0.625rem,         // 10px - Comfortable touch target
+  $btn-padding-x: 1.25rem,          // 20px - Better horizontal balance
+  $btn-font-size: 0.9375rem,        // 15px - Optimal readability
+  $btn-font-weight: 600,            // Semibold - Better balance than bold
+  $btn-line-height: 1.5,            // Improved line height for readability
+  $btn-letter-spacing: 0.025em,     // Subtle letter spacing for clarity
 
-  // Button Icon Sizes - Sharp, precise proportions
-  $btn-icon-size: 0.9375rem, // 15px
-  $btn-icon-size-sm: 0.6875rem, // 11px
-  $btn-icon-size-lg: 1.125rem, // 18px
+  // Button Icon Sizes - Balanced proportions
+  $btn-icon-size: 1rem,             // 16px - Better visibility
+  $btn-icon-size-sm: 0.75rem,       // 12px
+  $btn-icon-size-lg: 1.25rem,       // 20px
 
-  // Button Small Size - Ultra-compact
-  $btn-padding-y-sm: 0.25rem, // 4px
-  $btn-padding-x-sm: 0.625rem, // 10px
-  $btn-font-size-sm: 0.8125rem, // 13px
+  // Button Small Size - Compact yet accessible
+  $btn-padding-y-sm: 0.375rem,      // 6px - Better touch target
+  $btn-padding-x-sm: 0.75rem,       // 12px
+  $btn-font-size-sm: 0.8125rem,     // 13px
 
-  // Button Large Size - Prominent but efficient
-  $btn-padding-y-lg: 0.875rem, // 14px
-  $btn-padding-x-lg: 1.5rem, // 24px
-  $btn-font-size-lg: 1.0625rem, // 17px
+  // Button Large Size - Prominent and inviting
+  $btn-padding-y-lg: 0.875rem,      // 14px
+  $btn-padding-x-lg: 1.75rem,       // 28px - More generous spacing
+  $btn-font-size-lg: 1.0625rem,     // 17px
 
-  // Button Border Radius - Angular, sci-fi aesthetic
-  $btn-border-radius: 0.375rem, // Less rounded, more angular
-  $btn-border-radius-sm: 0.25rem, // Sharp corners
-  $btn-border-radius-lg: 0.5rem, // Moderately rounded
+  // Button Border Radius - Modern, friendly curves
+  $btn-border-radius: 0.5rem,       // 8px - Softer, more modern
+  $btn-border-radius-sm: 0.375rem,  // 6px
+  $btn-border-radius-lg: 0.625rem,  // 10px
 
-  // Button Transitions - Fast, energetic animations
-  $btn-transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1), // Snappy, energetic
+  // Button Transitions - Smooth, polished animations
+  $btn-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1), // Smooth and responsive
 
-  // Button Focus - Prominent energetic glow
-  $btn-focus-width: 4px, // More visible focus ring for sci-fi glow
-  $btn-focus-outline-offset: 2px, // Tighter offset
+  // Button Focus - Clear, accessible focus ring
+  $btn-focus-width: 3px,            // Accessible focus indicator
+  $btn-focus-outline-offset: 2px,   // Comfortable offset
 
   // Button Disabled State - Clear visual feedback
-  $btn-disabled-opacity: 0.4, // More pronounced disabled state
+  $btn-disabled-opacity: 0.5        // Balanced disabled state
 );
-

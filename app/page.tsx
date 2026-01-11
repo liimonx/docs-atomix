@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import Link from "next/link";
 import { HomePageLayout } from "@/components/layout/HomePageLayout";
 import {
@@ -11,7 +10,6 @@ import {
   GridCol,
   SectionIntro,
   AtomixGlass,
-  Container,
   Grid,
 } from "@shohojdhara/atomix";
 import CallToActionSection from "@/components/sections/CallToActionSection";
@@ -136,10 +134,6 @@ export default function Page() {
     slides: [
       {
         type: "video",
-        src: "/hero-background.mp4",
-      },
-      {
-        type: "video",
         src: "https://cdn.pixabay.com/video/2022/09/23/132253-752803366_large.mp4",
       },
       {
@@ -156,8 +150,8 @@ export default function Page() {
       },
     ],
     autoplay: {
-      delay: 12000,
-      pauseOnHover: true,
+      delay: 1500,
+      pauseOnHover: false,
     },
     loop: true,
     transition: "fade",
@@ -200,52 +194,8 @@ export default function Page() {
       path: "/docs/components/atomix-glass",
       external: false,
       icon: "Sparkle" as const,
-    },
-    {
-      title: "Theming Guide",
-      description: "Customize and integrate Atomix with your brand using our comprehensive theming system",
-      path: "/docs/guides/theming",
-      external: false,
-      icon: "Gear" as const,
-    },
+    }
   ];
-
-  // LinkContent component for quick links - Enhanced design
-  const LinkContent = ({
-    title,
-    description,
-    external,
-    iconName,
-  }: {
-    title: string;
-    description: string;
-    external: boolean;
-    iconName?: string;
-  }) => (
-    <div className="u-d-flex u-flex-column u-h-100">
-      <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-3">
-        <div className="u-d-flex u-align-items-center u-gap-2">
-          <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-p-2">
-            <Icon 
-              name={(iconName as any) || "FileText"} 
-              size={20} 
-            />
-          </div>
-          <h3 className="u-fs-lg u-fw-600 u-m-0 u-text-primary-emphasis">
-            {title}
-          </h3>
-        </div>
-        {external ? (
-          <Icon name={"Link" as const} size={16} className="u-opacity-60" />
-        ) : (
-          <Icon name={"ArrowRight" as const} size={16} className="u-opacity-60 u-transition-transform u-hover-translate-x-1" />
-        )}
-      </div>
-      <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-flex-grow-1">
-        {description}
-      </p>
-    </div>
-  );
 
   return (
     <HomePageLayout>
@@ -260,11 +210,11 @@ export default function Page() {
         contentWidth="1200px"
         glass={{
           displacementScale: 320,
-          blurAmount: 0,
+          blurAmount: 10,
           mode: "shader",
           shaderVariant: 'premiumGlass',
-          cornerRadius: 24,
-          enableLiquidBlur: true,
+          cornerRadius: 16,
+          enableLiquidBlur: false,
           padding: "1.5rem 2.5rem",
           saturation: 250,
           children: <></>,
@@ -274,7 +224,6 @@ export default function Page() {
           <div className="u-d-flex u-flex-wrap u-justify-content-center u-gap-3">
             <Button
               variant="primary"
-              size="lg"
               icon={<Icon name="Rocket" />}
               href="/docs/getting-started/installation"
               LinkComponent={Link}
@@ -282,30 +231,19 @@ export default function Page() {
               Get Started
             </Button>
             <Button
-              variant="outline-secondary"
-              size="lg"
+              variant="outline-primary"
               icon={<Icon name="Code" />}
               href="/docs/components/overview"
               LinkComponent={Link}
             >
               Explore Components
             </Button>
-            <Button
-              variant="outline-secondary"
-              size="lg"
-              icon={<Icon name="BookOpen" />}
-              href="/docs/getting-started/quick-start"
-              LinkComponent={Link}
-            >
-              Quick Start Guide
-            </Button>
           </div>
         }
       />
 
       {/* Statistics Section - Enhanced */}
-      <Block spacing="lg" background="secondary" >
-        <Container>
+      <Block >
           <SectionIntro
             title="By the Numbers"
             text="Everything you need to build world-class interfaces, all in one place"
@@ -315,30 +253,15 @@ export default function Page() {
           <Grid>
             {quickStats.map((stat, index) => (
               <GridCol key={index} sm={6} lg={3} className="u-mb-6">
-                <Card
-                  className="u-h-100 u-transition-all u-hover-lift"
-                  icon={
-                    <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-p-3">
-                      <Icon name={stat.icon as any} size={24} />
-                    </div>
-                  }
-                  title={stat.value}
-                  text={stat.label}
-                  children={
-                    <p className="u-text-secondary-emphasis u-fs-sm u-lh-relaxed u-m-0 u-mt-2 u-flex-grow-1">
-                      {stat.description}
-                    </p>
-                  }
-                ></Card>
+                <Card title={stat.value} text={stat.label} icon={<Icon name={stat.icon as any} size={24} />} className="u-h-100" row> 
+                </Card>
               </GridCol>
             ))}
           </Grid>
-        </Container>
       </Block>
 
       {/* Features Section - Enhanced */}
-      <Block spacing="lg" >
-        <Container>
+      <Block >
           <SectionIntro
             title="Why Choose Atomix?"
             text="A complete design system that empowers you to build exceptional, accessible web applications faster"
@@ -347,26 +270,15 @@ export default function Page() {
           <Grid>
             {features.map((feature, index) => (
               <GridCol key={index} md={6} lg={4} className="u-mb-6">
-                <Card className="u-h-100 u-d-flex u-flex-column u-transition-all u-hover-lift">
-                  <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-mb-4 u-p-3 u-transition-transform u-hover-scale-105">
-                    {feature.icon}
-                  </div>
-                  <h3 className="u-fs-lg u-fw-600 u-mb-3 u-text-primary-emphasis">
-                    {feature.title}
-                  </h3>
-                  <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-flex-grow-1">
-                    {feature.description}
-                  </p>
+                <Card title={feature.title} text={feature.description} icon={feature.icon} className="u-h-100">
                 </Card>
               </GridCol>
             ))}
           </Grid>
-        </Container>
       </Block>
 
       {/* Philosophy Section - Enhanced */}
-      <Block background="secondary" spacing="lg" >
-        <Container>
+      <Block   >
           <SectionIntro
             title="Our Design Philosophy"
             text="The core principles that guide every decision we make, ensuring Atomix delivers exceptional value to developers and end users alike"
@@ -375,31 +287,17 @@ export default function Page() {
           <Grid>
             {philosophies.map((philosophy, index) => (
               <GridCol key={index} md={6} lg={4} className="u-mb-6">
-                <Card
-                  className="u-h-100 u-transition-all u-hover-lift"
-                  row
-                  icon={
-                    <div className="u-d-inline-flex u-align-items-center u-justify-content-center u-rounded u-bg-primary-subtle u-text-primary u-p-2 u-flex-shrink-0">
-                      {philosophy.icon}
-                    </div>
-                  }
-                  title={philosophy.title}
-                  text={philosophy.description}
-                />
+                <Card title={philosophy.title} text={philosophy.description} icon={philosophy.icon} className="u-h-100"></Card>
               </GridCol>
             ))}
           </Grid>
-        </Container>
       </Block>
 
       {/* AtomixGlass: The New Era Section - Enhanced */}
       <Block
-        spacing="xl"
         className="u-overflow-hidden"
         style={{ background: "var(--atomix-primary-gradient)" }}
       >
-        <Container>
-          <div className="u-position-relative">
             <AtomixGlass
               displacementScale={150}
               blurAmount={1.5}
@@ -426,7 +324,6 @@ export default function Page() {
                   <Button
                     glass={{ blurAmount: 0 }}
                     variant="primary"
-                    size="lg"
                     icon={<Icon name="Rocket" />}
                     href="/docs/components/atomix-glass"
                   >
@@ -435,23 +332,20 @@ export default function Page() {
                   <Button
                     glass={{ blurAmount: 0 }}
                     variant="outline-secondary"
-                    size="lg"
                     icon={<Icon name="BookOpen" />}
                     href="/docs/guides/atomix-glass-performance"
+                    as = {Link}
                   >
                     Performance Guide
                   </Button>
                 </div>
-              </div>
-            </AtomixGlass>
-          </div>
-        </Container>
+            </div>
+          </AtomixGlass>
       </Block>
 
 
       {/* Quick Links Section - Enhanced */}
-      <Block spacing="lg" >
-        <Container>
+      <Block>
           <SectionIntro
             title="Quick Start"
             text="Everything you need to get started with Atomix, from installation to advanced customization"
@@ -460,58 +354,23 @@ export default function Page() {
           <Grid>
             {quickLinks.map((link, index) => (
               <GridCol key={index} sm={6} lg={4} className="u-mb-6">
-                <Card className="u-h-100 u-transition-all u-cursor-pointer u-hover-lift u-border u-border-border u-hover-border-primary">
-                  {link.external ? (
-                    <a
-                      href={link.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="u-d-block u-link-none u-h-100"
-                      aria-label={`${link.title} (opens in new tab)`}
-                    >
-                      <LinkContent
-                        title={link.title}
-                        description={link.description}
-                        external={link.external}
-                        iconName={link.icon}
-                      />
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.path}
-                      className="u-d-block u-link-none u-h-100"
-                      aria-label={link.title}
-                    >
-                      <LinkContent
-                        title={link.title}
-                        description={link.description}
-                        external={link.external}
-                        iconName={link.icon}
-                      />
-                    </Link>
-                  )}
-                </Card>
+                <Card title={link.title} text={link.description} icon={<Icon name={link.icon as any} size={24} />} actions={<Icon name="Link" size={16} className="u-opacity-60" />} className="u-h-100" href={link.path} role="link"/>
               </GridCol>
             ))}
           </Grid>
-        </Container>
       </Block>
 
       {/* Call-to-Action Section - Enhanced */}
       <Block
         background="secondary"
-        spacing="xl"
         className="u-overflow-hidden"
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
         }}
       >
-        <Container className="u-position-relative">
           <CallToActionSection
             title="Ready to Build Something Amazing?"
             text="Join thousands of developers using Atomix to create beautiful, accessible, and performant interfaces. Get started in minutes with our comprehensive installation guide."
@@ -539,19 +398,14 @@ export default function Page() {
               <Button
                 glass={{ blurAmount: 0, displacementScale: 0 }}
                 variant="primary"
-                size="lg"
+                LinkComponent={Link}
+                href="/docs/getting-started/installation"
                 icon={<Icon name="BookOpen" />}
               >
-                <Link
-                  href="/docs/getting-started/installation"
-                  style={{ color: "inherit", textDecoration: "none" }}
-                >
                   View Installation Guide
-                </Link>
               </Button>
             }
           />
-        </Container>
       </Block>
     </HomePageLayout>
   );
