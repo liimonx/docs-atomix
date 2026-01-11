@@ -13,7 +13,6 @@
 // =============================================================================
 // Navbar Configuration
 // =============================================================================
-// @use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.navbar' with (
-//   // Navbar variables can be customized here when needed
-//   // Check settings.navbar.scss for available variables
-// );
+@use '../../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.navbar' with (
+    $navbar-padding-x: 20px, // 40px - Tighter horizontal space
+);

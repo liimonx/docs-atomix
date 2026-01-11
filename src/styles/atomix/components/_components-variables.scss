@@ -36,7 +36,7 @@
 @use './modal' as *;
 
 // 7. Navbar - Navbar component overrides (commented out - no variables to override yet)
-// @use './navbar' as *;
+@use './navbar' as *;
 
 // 8. Hero - Hero component overrides
 @use './hero' as *;

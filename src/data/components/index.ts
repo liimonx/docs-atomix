@@ -1,4 +1,57 @@
 // Component metadata index
+export { accordionMetadata } from './Accordion';
+export { atomixGlassMetadata } from './AtomixGlass';
+export { avatarMetadata } from './Avatar';
+export { badgeMetadata } from './Badge';
+export { blockMetadata } from './Block';
+export { breadcrumbMetadata } from './Breadcrumb';
+export { buttonMetadata } from './Button';
+export { buttonGroupMetadata } from './ButtonGroup';
+export { calloutMetadata } from './Callout';
+export { cardMetadata } from './Card';
+export { checkboxMetadata } from './Checkbox';
+export { containerMetadata } from './Container';
+export { countdownMetadata } from './Countdown';
+export { dataTableMetadata } from './DataTable';
+export { datePickerMetadata } from './DatePicker';
+export { dropdownMetadata } from './Dropdown';
+export { edgePanelMetadata } from './EdgePanel';
+export { formMetadata } from './Form';
+export { gridMetadata } from './Grid';
+export { gridColMetadata } from './GridCol';
+export { heroMetadata } from './Hero';
+export { iconMetadata } from './Icon';
+export { inputMetadata } from './Input';
+export { listMetadata } from './List';
+export { masonryGridMetadata } from './MasonryGrid';
+export { masonryGridItemMetadata } from './MasonryGridItem';
+export { messagesMetadata } from './Messages';
+export { modalMetadata } from './Modal';
+export { navMetadata } from './Nav';
+export { navDropdownMetadata } from './NavDropdown';
+export { navItemMetadata } from './NavItem';
+export { navbarMetadata } from './Navbar';
+export { paginationMetadata } from './Pagination';
+export { popoverMetadata } from './Popover';
+export { progressMetadata } from './Progress';
+export { radioMetadata } from './Radio';
+export { ratingMetadata } from './Rating';
+export { riverMetadata } from './River';
+export { rowMetadata } from './Row';
+export { sectionIntroMetadata } from './SectionIntro';
+export { selectMetadata } from './Select';
+export { sideMenuMetadata } from './SideMenu';
+export { sliderMetadata } from './slider';
+export { spinnerMetadata } from './Spinner';
+export { stepsMetadata } from './Steps';
+export { tabMetadata } from './Tab';
+export { textareaMetadata } from './Textarea';
+export { toggleMetadata } from './Toggle';
+export { tooltipMetadata } from './Tooltip';
+export { uploadMetadata } from './Upload';
+export { virtualizedGridMetadata } from './VirtualizedGrid';
+
+// Re-import for componentMetadata array
 import { accordionMetadata } from './Accordion';
 import { atomixGlassMetadata } from './AtomixGlass';
 import { avatarMetadata } from './Avatar';
@@ -50,60 +103,6 @@ import { toggleMetadata } from './Toggle';
 import { tooltipMetadata } from './Tooltip';
 import { uploadMetadata } from './Upload';
 import { virtualizedGridMetadata } from './VirtualizedGrid';
-
-export {
-  accordionMetadata,
-  atomixGlassMetadata,
-  avatarMetadata,
-  badgeMetadata,
-  blockMetadata,
-  breadcrumbMetadata,
-  buttonMetadata,
-  buttonGroupMetadata,
-  calloutMetadata,
-  cardMetadata,
-  checkboxMetadata,
-  containerMetadata,
-  countdownMetadata,
-  dataTableMetadata,
-  datePickerMetadata,
-  dropdownMetadata,
-  edgePanelMetadata,
-  formMetadata,
-  gridMetadata,
-  gridColMetadata,
-  heroMetadata,
-  iconMetadata,
-  inputMetadata,
-  listMetadata,
-  masonryGridMetadata,
-  masonryGridItemMetadata,
-  messagesMetadata,
-  modalMetadata,
-  navMetadata,
-  navDropdownMetadata,
-  navItemMetadata,
-  navbarMetadata,
-  paginationMetadata,
-  popoverMetadata,
-  progressMetadata,
-  radioMetadata,
-  ratingMetadata,
-  riverMetadata,
-  rowMetadata,
-  sectionIntroMetadata,
-  selectMetadata,
-  sideMenuMetadata,
-  sliderMetadata,
-  spinnerMetadata,
-  stepsMetadata,
-  tabMetadata,
-  textareaMetadata,
-  toggleMetadata,
-  tooltipMetadata,
-  uploadMetadata,
-  virtualizedGridMetadata
-};
 
 export const componentMetadata = [
   accordionMetadata,

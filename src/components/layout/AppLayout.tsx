@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useCallback, useRef, FC } from "react";
-import { Container, Grid, GridCol } from "@shohojdhara/atomix";
+import { Grid, GridCol } from "@shohojdhara/atomix";
 import { DocumentationHeader } from "@/components/navigation/DocumentationHeader";
 import { DocumentationFooter } from "./DocumentationFooter";
 import { DocumentationSidebar } from "@/components/navigation/DocumentationSidebar";

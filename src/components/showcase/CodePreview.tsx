@@ -376,11 +376,17 @@ function parseProps(propsString: string): Record<string, any> {
     return props;
   }
 
+  // First, remove any JSX prop values to avoid parsing issues
+  // Match prop={<...>...</...>} or prop={<.../>} patterns and replace with placeholders
+  let cleanedPropsString = propsString;
+  const jsxPropPattern = /(\w+)=\{<[^>]+>.*?<\/[^>]+>|(\w+)=\{<[^>]+\/>\}/g;
+  cleanedPropsString = cleanedPropsString.replace(jsxPropPattern, '');
+
   // Match prop="value", prop='value', prop={value}, or boolean props
   const propPattern = /(\w+)=(["'])([^"']*)\2|(\w+)=\{([^}]+)\}|(\w+)(?=\s|$|\/>)/g;
   let match;
 
-  while ((match = propPattern.exec(propsString)) !== null) {
+  while ((match = propPattern.exec(cleanedPropsString)) !== null) {
     const propName = match[1] || match[4] || match[6];
     const propValue = match[3] || match[5];
 
