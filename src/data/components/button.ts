@@ -484,6 +484,7 @@ export default function EventHandlers() {
       'Ensure high color contrast for custom variants.'
     ],
     wcagLevel: 'AA',
+    screenReaderSupport: true,
     focusManagement: [
       'Focus styles are automatically applied using the standard outline ring.',
       'The focus ring is suppressed on mouse click but visible on keyboard navigation.'
