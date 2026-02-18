@@ -32,6 +32,7 @@ export const ComponentShowcase: FC = () => {
   const currentTokens = activeMode === 'light' ? lightTokens : darkTokens;
   const [componentSearch, setComponentSearch] = useState('');
   const [mounted, setMounted] = useState(false);
+  const [toggleChecked, setToggleChecked] = useState(false);
 
   // Ensure component only renders Rating on client to avoid hydration mismatches
   useEffect(() => {
@@ -173,9 +174,8 @@ export const ComponentShowcase: FC = () => {
             <div className={styles.componentShowcase__section}>
               <h4 style={{ color: 'var(--atomix-heading-color)' }}>Toggle</h4>
               <Toggle
-                initialOn={false}
-                onToggleOn={() => {}}
-                onToggleOff={() => {}}
+                checked={toggleChecked}
+                onChange={(checked) => setToggleChecked(checked)}
               />
               <span style={{ marginLeft: '0.5rem', color: 'var(--atomix-body-color)' }}>
                 Enable feature
@@ -402,7 +402,7 @@ export const ComponentShowcase: FC = () => {
     }
 
     return allTabs;
-  }, [currentTokens, componentSearch]);
+  }, [currentTokens, componentSearch, mounted, toggleChecked]);
 
   const clearSearch = () => {
     setComponentSearch('');

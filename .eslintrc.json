@@ -7,15 +7,26 @@
   },
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
     "next/core-web-vitals"
   ],
   "ignorePatterns": ["dist", ".eslintrc.json", "atomix-src", "out", ".next"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react-hooks", "jsx-a11y"],
+  "plugins": ["react-hooks", "jsx-a11y", "@typescript-eslint"],
   "rules": {
     "no-unused-vars": "off",
+    "no-undef": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "no-console": "warn"
+    "no-console": "warn",
+    "react/no-unescaped-entities": "off",
+    "react/no-children-prop": "off",
+    "no-case-declarations": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "@typescript-eslint/no-inferrable-types": "warn",
+    "@typescript-eslint/no-var-requires": "off"
   }
 }

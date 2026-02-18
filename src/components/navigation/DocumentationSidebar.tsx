@@ -21,6 +21,7 @@ interface DocumentationSidebarProps {
   onSearchChange?: (query: string) => void;
   onItemSelect?: () => void;
   toggleButtonRef?: React.RefObject<HTMLButtonElement>;
+  id?: string;
 }
 
 const EmptySearchState = ({ searchTerm }: { searchTerm: string }) => (
@@ -43,6 +44,7 @@ export const DocumentationSidebar = ({
   onSearchChange: externalOnSearchChange,
   onItemSelect,
   toggleButtonRef,
+  id,
 }: DocumentationSidebarProps) => {
   // Use external search query if provided, otherwise use internal state
   const [internalSearchTerm, setInternalSearchTerm] = useState("");
@@ -229,7 +231,7 @@ export const DocumentationSidebar = ({
       closeOnBackdropClick={true}
       closeOnEscape={true}
     >
-      <div ref={panelRef} className="u-pt-4">
+      <div ref={panelRef} className="u-pt-4" id={id}>
         {/* Search */}
         <div className="u-mb-6 u-px-2">
           <div className="u-position-relative u-mb-3" onKeyDown={handleKeyDown}>

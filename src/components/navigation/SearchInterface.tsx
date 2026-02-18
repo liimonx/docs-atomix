@@ -122,6 +122,7 @@ export const SearchInterface: FC = () => {
                 <List
                   items={filteredResults.map(result => (
                       <div 
+                        key={result.path}
                         className="search-result-item"
                         onClick={() => handleResultClick(result.path)}
                       >
