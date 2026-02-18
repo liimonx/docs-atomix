@@ -131,6 +131,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
       onSearchChange: handleSearchChange,
       onItemSelect: handleSidebarClose, // Close sidebar on mobile after navigation
       toggleButtonRef,
+      id: 'navigation',
     }),
     [
       sidebarOpen,
@@ -158,14 +159,16 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({
         {/* Sidebar (EdgePanel) - Rendered outside grid for all devices */}
         <DocumentationSidebar {...sidebarProps} />
 
-        <Grid>
-          {/* Page Content - Only this should re-render on route change */}
-          <GridCol xs={12}>
-            <PageTransition>
-              {children}
-            </PageTransition>
-          </GridCol>
-        </Grid>
+        <main id="main-content" role="main">
+          <Grid>
+            {/* Page Content - Only this should re-render on route change */}
+            <GridCol xs={12}>
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </GridCol>
+          </Grid>
+        </main>
 
       <MemoizedDocumentationFooter />
     </div>

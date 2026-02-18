@@ -38,7 +38,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
       toast.custom(
         (t) => (
           <Callout
-            toast
+            isToast
             variant="success"
             glass
             title="Code copied to clipboard!"
@@ -65,7 +65,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
         (t) => (
           <Callout
             variant="error"
-            toast
+            isToast
             glass
             title="Failed to copy code"
             icon={<Icon name="XCircle" size={20} />}
