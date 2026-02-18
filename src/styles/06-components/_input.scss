@@ -1,0 +1,34 @@
+/**
+ * Input Component Variable Overrides
+ * =============================================================================
+ * 
+ * Futuristic input design with compact spacing and angular sci-fi aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/input
+ */
+
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.input' with (
+  // Input Typography - Improved readability
+  $input-font-size: 0.9375rem,       // 15px - Optimal readability
+  $input-font-size-sm: 0.8125rem,    // 13px
+  $input-font-size-lg: 1.0625rem,    // 17px
+  $input-line-height-md: 1.5,        // Better line height
+  $input-line-height-sm: 1.5,
+  $input-line-height-lg: 1.5,
+
+  // Input Padding - Comfortable, accessible spacing
+  $input-padding-x: 1rem,            // 16px - Better horizontal space
+  $input-padding-y: 0.75rem,         // 12px - Comfortable vertical space
+  $input-padding-x-sm: 0.75rem,      // 12px
+  $input-padding-y-sm: 0.5rem,       // 8px
+  $input-padding-x-lg: 1.25rem,      // 20px
+  $input-padding-y-lg: 0.875rem,     // 14px
+
+  // Input Border Radius - Modern, friendly curves
+  $input-border-radius: 0.5rem,      // 8px - Softer appearance
+
+  // Input Textarea Heights - Comfortable text areas
+  $input-textarea-height: 120px,     // Better space for text
+  $input-textarea-height-sm: 100px,
+  $input-textarea-height-lg: 160px
+);

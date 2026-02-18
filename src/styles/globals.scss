@@ -7,9 +7,14 @@
 
 // Import Atomix with SCSS variable overrides
 // =============================================================================
-// All SCSS variable overrides are defined in styles/atomix/
-// Uncomment variables in those files to customize the design system
+// All SCSS variable overrides are defined in styles/01-settings/ and styles/06-components/
 // Using @use - variables are loaded first, then Atomix loads and uses them
-@use './atomix/index' as *;
 
+// 1. Settings (Variables, Colors, Typography, etc.)
+@use './01-settings/index' as *;
 
+// 2. Component Overrides (Variables for specific components)
+@use './06-components/index' as *;
+
+// 3. Atomix Design System (Core styles)
+@use '../../node_modules/@shohojdhara/atomix/src/styles/index.scss' as *;

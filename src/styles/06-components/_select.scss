@@ -1,0 +1,33 @@
+/**
+ * Select Component Variable Overrides
+ * =============================================================================
+ * 
+ * Futuristic select design with compact spacing and angular sci-fi aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/select
+ */
+
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.select' with (
+  // Select Base Styles - Compact spacing
+  $select-padding-x: 0.875rem,         // 14px - Tighter horizontal space
+  $select-padding-y: 0.625rem,         // 10px - Tighter vertical space
+  $select-font-size: 0.9375rem,        // 15px - Efficient readability
+  $select-font-size-lg: 1.0625rem,     // 17px
+
+  // Select Icon - Precise sizing
+  $select-icon-toggle-size: 1.125rem,  // 18px
+  $select-dropdown-icon-size: 1.25rem, // 20px
+
+  // Select Border Radius - Angular, sci-fi aesthetic
+  $select-border-radius: 0.375rem,     // Less rounded, more angular
+
+  // Select Panel - Compact spacing
+  $select-panel-padding-x: 0.625rem,   // 10px
+  $select-panel-padding-y: 0.625rem,   // 10px
+  $select-panel-spacer-y: 0.375rem,    // 6px
+
+  // Select Item - Compact padding
+  $select-item-padding-x: 0.625rem,    // 10px
+  $select-item-padding-y: 0.625rem,    // 10px
+  $select-item-border-radius: 0.25rem  // Sharp corners
+);

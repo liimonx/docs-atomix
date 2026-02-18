@@ -1,0 +1,31 @@
+/**
+ * Settings Variable Overrides
+ * =============================================================================
+ */
+
+// 1. Colors
+@use './colors' as *;
+
+// 2. Typography
+@use './typography' as *;
+
+// 3. Spacing
+@use './spacing' as *;
+
+// 4. Layout
+@use './layout' as *;
+
+// 5. Borders
+@use './borders' as *;
+
+// 6. Shadows
+@use './shadows' as *;
+
+// 7. Transitions
+@use './transitions' as *;
+
+// 8. Background
+@use './background' as *;
+
+// 9. Z-Index
+@use './z-index' as *;

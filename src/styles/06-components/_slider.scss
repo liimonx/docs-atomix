@@ -1,0 +1,30 @@
+/**
+ * Slider Component Variable Overrides
+ * =============================================================================
+ * 
+ * Futuristic slider design with fast transitions and angular sci-fi aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/slider
+ */
+
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.slider' with (
+  // Slider Speed - Fast, energetic transitions
+  $slider-speed: 200ms,                        // Fast transitions
+  $slider-easing: cubic-bezier(0.4, 0, 0.2, 1), // Energetic easing
+
+  // Slider Navigation - Efficient visibility
+  $slider-nav-size: 40px,                      // Compact navigation buttons
+  $slider-nav-size-mobile: 36px,               // Compact mobile size
+  $slider-nav-offset: 0.875rem,                // 14px offset
+  $slider-nav-offset-mobile: 0.625rem,         // 10px mobile offset
+  $slider-nav-border-radius: 0.375rem,         // Angular, less rounded
+
+  // Slider Pagination - Compact spacing
+  $slider-pagination-offset: 0.875rem,         // 14px offset
+  $slider-pagination-offset-mobile: 0.625rem,  // 10px mobile offset
+  $slider-pagination-bullet-size: 8px,         // Compact bullets
+  $slider-pagination-bullet-gap: 0.375rem,     // 6px gap between bullets
+
+  // Slider Content - Compact padding
+  $slider-content-padding: 1rem                // 16px - Efficient padding
+);

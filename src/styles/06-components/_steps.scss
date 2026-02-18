@@ -1,0 +1,28 @@
+/**
+ * Steps Component Variable Overrides
+ * =============================================================================
+ * 
+ * Futuristic steps design with compact spacing and angular sci-fi aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/steps
+ */
+
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.steps' with (
+  // Steps Item Number - Compact visibility
+  $steps-item-number-size: 1.75rem,            // 28px - Efficient size
+  $steps-item-number-font-size: 0.8125rem,     // 13px - Compact readability
+  $steps-item-number-border-radius: 0.375rem,  // Angular, less rounded
+
+  // Steps Item Typography - Compact readability
+  $steps-item-font-size: 0.8125rem,            // 13px
+
+  // Steps Content Gap - Compact spacing
+  $steps-item-content-gap: 0.625rem,           // 10px - Tighter space between number and text
+
+  // Steps Gap - Compact spacing between steps
+  $steps-gap: 0.875rem,                        // 14px - Tighter space between steps
+
+  // Steps Line - Efficient visibility
+  $steps-line-width: 40px,                     // Compact line
+  $steps-line-height-vertical: 40px            // Compact vertical line
+);
