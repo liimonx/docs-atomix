@@ -1,0 +1,18 @@
+/**
+ * Navbar Component Variable Overrides
+ * =============================================================================
+ * 
+ * Modern navbar design with comfortable spacing and clear navigation.
+ * 
+ * Note: Most navbar styling is handled by navigation components.
+ * To customize navbar variables, uncomment and modify the @use statement below.
+ * 
+ * @see https://atomix.design/docs/components/navbar
+ */
+
+// =============================================================================
+// Navbar Configuration
+// =============================================================================
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.navbar' with (
+    $navbar-padding-x: 20px, // 40px - Tighter horizontal space
+);

@@ -1,0 +1,28 @@
+/**
+ * Accordion Component Variable Overrides
+ * =============================================================================
+ * 
+ * Futuristic accordion design with compact spacing and angular sci-fi aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/accordion
+ */
+
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.accordion' with (
+  // Accordion Padding - Compact spacing
+  $accordion-padding-x: 1rem,            // 16px - Tighter horizontal space
+  $accordion-padding-y: 0.875rem,        // 14px - Tighter vertical space
+
+  // Accordion Border Radius - Angular, sci-fi aesthetic
+  $accordion-border-radius: 0.375rem,    // Less rounded, more angular
+
+  // Accordion Body - Compact spacing
+  $accordion-body-padding-x: 1rem,       // 16px
+  $accordion-body-padding-y: 0.625rem,   // 10px - Efficient content spacing
+
+  // Accordion Header - Compact separation
+  $accordion-header-padding-x: 1rem,     // 16px
+  $accordion-header-padding-y: 0.875rem, // 14px
+
+  // Accordion Icon - Precise sizing
+  $accordion-icon-size: 1.125rem         // 18px - Compact but visible
+);

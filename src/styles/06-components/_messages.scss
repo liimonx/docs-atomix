@@ -1,0 +1,36 @@
+/**
+ * Messages Component Variable Overrides
+ * =============================================================================
+ * 
+ * Futuristic messages/notifications design with compact spacing and angular sci-fi aesthetics.
+ * 
+ * @see https://atomix.design/docs/components/messages
+ */
+
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.messages' with (
+  // Messages Padding - Compact spacing
+  $messages-padding-x: 1.5rem,           // 24px - Tighter horizontal space
+  $messages-padding-y: 1.5rem,           // 24px - Tighter vertical space
+
+  // Messages Border Radius - Angular, sci-fi aesthetic
+  $messages-border-radius: 0.5rem,       // Less rounded, more angular
+
+  // Messages Content Margin - Compact spacing
+  $messages-content-margin-top: 1.5rem,  // 24px - Tighter space
+
+  // Messages Avatar Margin - Compact spacing
+  $messages-avatar-margin: 0.625rem,     // 10px - Tighter space
+
+  // Messages Items - Compact spacing
+  $messages-items-gap: 0.625rem,         // 10px - Tighter space between items
+
+  // Messages Text - Compact padding
+  $messages-text-padding-x: 0.875rem,    // 14px - Tighter horizontal space
+  $messages-text-padding-y: 0.625rem,    // 10px - Tighter vertical space
+  $messages-text-font-size: 0.8125rem,   // 13px - Efficient readability
+  $messages-text-border-radius: 0.5rem,  // Less rounded, more angular
+
+  // Messages File - Consistent with text
+  $messages-file-padding-x: 0.875rem,    // 14px
+  $messages-file-padding-y: 0.625rem     // 10px
+);
