@@ -2,16 +2,14 @@
  * Background Variable Overrides
  * =============================================================================
  * 
- * Background color and gradient configuration options.
- * Enhanced for modern, immersive visual experiences.
+ * Standard background configuration.
  * 
  * @see https://atomix.design/docs/design-tokens/background
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.background' with (
-  // Enhanced background features
-  $background-enable-gradient-overlay: true,
+  $background-enable-gradient-overlay: false,
   $background-transparency-enable: false,
-  $background-enable-with-shadow: true,
-  $background-transparency: 0.5
+  $background-enable-with-shadow: false,
+  $background-transparency: 1
 );
