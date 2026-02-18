@@ -402,7 +402,7 @@ export const ComponentShowcase: FC = () => {
     }
 
     return allTabs;
-  }, [currentTokens, componentSearch]);
+  }, [currentTokens, componentSearch, mounted, toggleChecked]);
 
   const clearSearch = () => {
     setComponentSearch('');
