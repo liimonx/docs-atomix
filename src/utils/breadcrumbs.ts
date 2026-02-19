@@ -2,7 +2,7 @@
 // =============================================================================
 
 import { NavigationItem, NavigationSection } from '@/types';
-import { navigationData } from '@/data/navigation';
+import { pathMap, sectionMap, itemToSectionMap } from '@/data/navigation';
 import { pathToSlug, slugToPath } from './routeMapper';
 
 export interface BreadcrumbItem {
@@ -21,16 +21,14 @@ export function generateBreadcrumbs(path: string): BreadcrumbItem[] {
   ];
 
   // Find the navigation item for this path
-  const navigationItem = navigationData
-    .flatMap(section => section.items)
-    .find(item => item.path === path);
+  const navigationItem = pathMap.get(path);
 
   if (!navigationItem) {
     // If not found, try to build from path segments
     const slug = pathToSlug(path);
     if (slug.length > 0) {
       // Add section breadcrumb
-      const section = navigationData.find(s => s.id === slug[0]);
+      const section = sectionMap.get(slug[0]);
       if (section) {
         breadcrumbs.push({
           label: section.title,
@@ -52,9 +50,7 @@ export function generateBreadcrumbs(path: string): BreadcrumbItem[] {
   }
 
   // Find the section this item belongs to
-  const section = navigationData.find(s =>
-    s.items.some(item => item.id === navigationItem.id)
-  );
+  const section = itemToSectionMap.get(navigationItem.id);
 
   if (section) {
     // Add section breadcrumb if it's not the root
@@ -115,9 +111,7 @@ export function getParentBreadcrumbs(item: NavigationItem): BreadcrumbItem[] {
     { label: 'Documentation', path: '/docs' },
   ];
 
-  const section = navigationData.find(s =>
-    s.items.some(i => i.id === item.id)
-  );
+  const section = itemToSectionMap.get(item.id);
 
   if (section) {
     breadcrumbs.push({

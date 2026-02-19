@@ -1,7 +1,7 @@
 // Route Mapper - Maps navigation paths to page components and handles route resolution
 // =============================================================================
 
-import { navigationData } from '@/data/navigation';
+import { navigationData, pathMap } from '@/data/navigation';
 import { NavigationItem } from '@/types';
 
 /**
@@ -27,9 +27,7 @@ export function slugToPath(slug: string[]): string {
  * Find navigation item by path
  */
 export function findNavigationItemByPath(path: string): NavigationItem | null {
-  return navigationData
-    .flatMap(section => section.items)
-    .find(item => item.path === path) || null;
+  return pathMap.get(path) || null;
 }
 
 /**
