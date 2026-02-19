@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect, FC } from 'react';
+import { useState, useEffect, FC } from "react";
 
 import {
   Hero,
@@ -11,12 +11,12 @@ import {
   Block,
   Icon,
   Button,
-} from '@shohojdhara/atomix';
-import { GlassProps } from '@/types/atomix-components';
-import styles from '@/styles/PageHero.module.scss';
-import pageStyles from './LayoutsResponsivePatternsPage.module.scss';
-import Link from 'next/link';
-import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
+} from "@shohojdhara/atomix";
+import { GlassProps } from "@/types/atomix-components";
+import styles from "@/styles/PageHero.module.scss";
+import pageStyles from "./LayoutsResponsivePatternsPage.module.scss";
+import Link from "next/link";
+import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 
 const LayoutsResponsivePatternsPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -26,15 +26,17 @@ const LayoutsResponsivePatternsPage: FC = () => {
     setIsMounted(true);
   }, []);
 
-  const glass: GlassProps | undefined = isMounted ? {
-    displacementScale: 30,
-    blurAmount: 5,
-    elasticity: 0,
-    enableLiquidBlur: true,
-    padding: "20px",
-    cornerRadius: 30,
-    children: null,
-  } : undefined;
+  const glass: GlassProps | undefined = isMounted
+    ? {
+        displacementScale: 30,
+        blurAmount: 5,
+        elasticity: 0,
+        enableLiquidBlur: true,
+        padding: "20px",
+        cornerRadius: 30,
+        children: null,
+      }
+    : undefined;
 
   const responsivePrinciples = [
     {
@@ -141,9 +143,15 @@ const LayoutsResponsivePatternsPage: FC = () => {
           {responsivePrinciples.map((principle, index) => (
             <GridCol key={index} md={6} lg={4} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
-                <div className="u-d-flex u-flex-column u-h-100">
+                <div className="u-flex u-flex-column u-h-100">
                   <div
-                    className={`${pageStyles.layoutsResponsivePatternsPage__principleIconContainer} ${pageStyles[`layoutsResponsivePatternsPage__iconContainer--${principle.color}`]}`}
+                    className={`${
+                      pageStyles.layoutsResponsivePatternsPage__principleIconContainer
+                    } ${
+                      pageStyles[
+                        `layoutsResponsivePatternsPage__iconContainer--${principle.color}`
+                      ]
+                    }`}
                   >
                     {principle.icon}
                   </div>
@@ -159,7 +167,7 @@ const LayoutsResponsivePatternsPage: FC = () => {
           ))}
         </Grid>
       </Block>
-        
+
       <Block spacing="md" background="secondary">
         <SectionIntro
           title="Common Layout Patterns"
@@ -167,45 +175,52 @@ const LayoutsResponsivePatternsPage: FC = () => {
           alignment="center"
         />
 
-          <Grid>
-            {layoutPatterns.map((pattern, index) => (
-              <GridCol key={index} md={6} lg={3} className="u-mb-6">
-                <Card className="u-p-6 u-h-100">
-                  <div className="u-d-flex u-flex-column u-h-100">
-                    <div
-                      className={`${pageStyles.layoutsResponsivePatternsPage__patternIconContainer} ${pageStyles[`layoutsResponsivePatternsPage__iconContainer--${pattern.color}`]}`}
-                    >
-                      {pattern.icon}
-                    </div>
-                    <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
-                      {pattern.title}
-                    </h3>
-                    <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
-                      {pattern.description}
-                    </p>
+        <Grid>
+          {layoutPatterns.map((pattern, index) => (
+            <GridCol key={index} md={6} lg={3} className="u-mb-6">
+              <Card className="u-p-6 u-h-100">
+                <div className="u-flex u-flex-column u-h-100">
+                  <div
+                    className={`${
+                      pageStyles.layoutsResponsivePatternsPage__patternIconContainer
+                    } ${
+                      pageStyles[
+                        `layoutsResponsivePatternsPage__iconContainer--${pattern.color}`
+                      ]
+                    }`}
+                  >
+                    {pattern.icon}
                   </div>
-                </Card>
-              </GridCol>
-            ))}
-          </Grid>
-
-          <Grid className="u-mt-6">
-            <GridCol md={12} className="u-mb-6">
-              <Card className="u-p-6">
-                <div className="u-d-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                    <Icon name="Code" size="lg" />
-                  </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                    Sidebar Layout Pattern
+                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
+                    {pattern.title}
                   </h3>
+                  <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
+                    {pattern.description}
+                  </p>
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                  Perfect for blogs, documentation, and admin dashboards. The sidebar is hidden on mobile and visible on desktop.
-                </p>
-                
-                <EnhancedCodeBlock
-                  code={`import { Container, Row, GridCol } from '@shohojdhara/atomix';
+              </Card>
+            </GridCol>
+          ))}
+        </Grid>
+
+        <Grid className="u-mt-6">
+          <GridCol md={12} className="u-mb-6">
+            <Card className="u-p-6">
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
+                  <Icon name="Code" size="lg" />
+                </div>
+                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  Sidebar Layout Pattern
+                </h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                Perfect for blogs, documentation, and admin dashboards. The
+                sidebar is hidden on mobile and visible on desktop.
+              </p>
+
+              <EnhancedCodeBlock
+                code={`import { Container, Row, GridCol } from '@shohojdhara/atomix';
 
 function SidebarLayout({ children, sidebar }) {
   return (
@@ -228,31 +243,32 @@ function SidebarLayout({ children, sidebar }) {
     </Container>
   );
 }`}
-                  language="tsx"
-                  title="Sidebar Layout Example"
-                  showLineNumbers={true}
-                />
-              </Card>
-            </GridCol>
-          </Grid>
+                language="tsx"
+                title="Sidebar Layout Example"
+                showLineNumbers={true}
+              />
+            </Card>
+          </GridCol>
+        </Grid>
 
-          <Grid className="u-mt-6">
-            <GridCol md={12} className="u-mb-6">
-              <Card className="u-p-6">
-                <div className="u-d-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                    <Icon name="GridFour" size="lg" />
-                  </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                    Card Grid Layout Pattern
-                  </h3>
+        <Grid className="u-mt-6">
+          <GridCol md={12} className="u-mb-6">
+            <Card className="u-p-6">
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
+                  <Icon name="GridFour" size="lg" />
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                  Ideal for dashboards, galleries, and product listings. Cards automatically adjust based on screen size.
-                </p>
-                
-                <EnhancedCodeBlock
-                  code={`import { Container, Row, GridCol, Card } from '@shohojdhara/atomix';
+                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  Card Grid Layout Pattern
+                </h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                Ideal for dashboards, galleries, and product listings. Cards
+                automatically adjust based on screen size.
+              </p>
+
+              <EnhancedCodeBlock
+                code={`import { Container, Row, GridCol, Card } from '@shohojdhara/atomix';
 
 function CardGridLayout({ cards }) {
   return (
@@ -269,15 +285,15 @@ function CardGridLayout({ cards }) {
     </Container>
   );
 }`}
-                  language="tsx"
-                  title="Card Grid Layout Example"
-                  showLineNumbers={true}
-                />
-              </Card>
-            </GridCol>
-          </Grid>
+                language="tsx"
+                title="Card Grid Layout Example"
+                showLineNumbers={true}
+              />
+            </Card>
+          </GridCol>
+        </Grid>
       </Block>
-        
+
       <Block spacing="md">
         <SectionIntro
           title="Breakpoints & Media"
@@ -285,112 +301,117 @@ function CardGridLayout({ cards }) {
           alignment="center"
         />
 
-          <Grid>
-            <GridCol md={6} className="u-mb-6">
-              <Card className="u-p-6 u-h-100">
-                <div className="u-d-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
-                      <Icon name="Phone" size="lg" />
-                  </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                    Breakpoint Strategy
-                  </h3>
+        <Grid>
+          <GridCol md={6} className="u-mb-6">
+            <Card className="u-p-6 u-h-100">
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
+                  <Icon name="Phone" size="lg" />
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                  Atomix uses a mobile-first approach with 6 breakpoints:
-                </p>
-                <div className="u-d-flex u-flex-column u-gap-2 u-mb-4">
-                  {[
-                    { name: 'xs', size: 'Extra small (0px and up)' },
-                    { name: 'sm', size: 'Small (576px and up)' },
-                    { name: 'md', size: 'Medium (768px and up)' },
-                    { name: 'lg', size: 'Large (992px and up)' },
-                    { name: 'xl', size: 'Extra large (1200px and up)' },
-                    { name: 'xxl', size: 'Extra extra large (1400px and up)' },
-                  ].map((bp, index) => (
-                    <div key={index} className="u-d-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md">
-                      <div className="u-w-10 u-h-10 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis u-fw-bold">
-                        {bp.name}
-                      </div>
-                      <span className="u-text-secondary-emphasis">{bp.size}</span>
+                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  Breakpoint Strategy
+                </h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                Atomix uses a mobile-first approach with 6 breakpoints:
+              </p>
+              <div className="u-flex u-flex-column u-gap-2 u-mb-4">
+                {[
+                  { name: "xs", size: "Extra small (0px and up)" },
+                  { name: "sm", size: "Small (576px and up)" },
+                  { name: "md", size: "Medium (768px and up)" },
+                  { name: "lg", size: "Large (992px and up)" },
+                  { name: "xl", size: "Extra large (1200px and up)" },
+                  { name: "xxl", size: "Extra extra large (1400px and up)" },
+                ].map((bp, index) => (
+                  <div
+                    key={index}
+                    className="u-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md"
+                  >
+                    <div className="u-w-10 u-h-10 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis u-fw-bold">
+                      {bp.name}
                     </div>
-                  ))}
-                </div>
-                
-                <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
-                  Usage Example
-                </h4>
-                <EnhancedCodeBlock
-                  code={`<GridCol xs={12} sm={6} md={4} lg={3}>
+                    <span className="u-text-secondary-emphasis">{bp.size}</span>
+                  </div>
+                ))}
+              </div>
+
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
+                Usage Example
+              </h4>
+              <EnhancedCodeBlock
+                code={`<GridCol xs={12} sm={6} md={4} lg={3}>
   Responsive column
 </GridCol>`}
-                  language="tsx"
-                  title="Responsive Column"
-                  showLineNumbers={true}
-                />
-              </Card>
-            </GridCol>
-            
-            <GridCol md={6} className="u-mb-6">
-              <Card className="u-p-6 u-h-100">
-                <div className="u-d-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                    <Icon name="Image" size="lg" />
-                  </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
-                    Responsive Media
-                  </h3>
+                language="tsx"
+                title="Responsive Column"
+                showLineNumbers={true}
+              />
+            </Card>
+          </GridCol>
+
+          <GridCol md={6} className="u-mb-6">
+            <Card className="u-p-6 u-h-100">
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
+                  <Icon name="Image" size="lg" />
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                  Ensure images and media adapt to their containers:
-                </p>
-                
-                <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
-                  Images
-                </h4>
-                <EnhancedCodeBlock
-                  code={`<img 
+                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  Responsive Media
+                </h3>
+              </div>
+              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                Ensure images and media adapt to their containers:
+              </p>
+
+              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
+                Images
+              </h4>
+              <EnhancedCodeBlock
+                code={`<img 
   src="image.jpg" 
   alt="Description"
   className="u-w-100 u-h-auto"
   loading="lazy"
 />`}
-                  language="tsx"
-                  title="Responsive Image"
-                  showLineNumbers={true}
-                />
-                
-                <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
-                  Videos
-                </h4>
-                <EnhancedCodeBlock
-                  code={`<div className="u-ratio u-ratio-16x9">
+                language="tsx"
+                title="Responsive Image"
+                showLineNumbers={true}
+              />
+
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
+                Videos
+              </h4>
+              <EnhancedCodeBlock
+                code={`<div className="u-ratio u-ratio-16x9">
   <iframe 
     src="video.mp4"
     className="u-ratio-item"
     title="Video"
   />
 </div>`}
-                  language="tsx"
-                  title="Responsive Video"
-                  showLineNumbers={true}
-                />
-                
-                <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
-                  Typography
-                </h4>
-                <p className="u-text-secondary-emphasis u-mb-2">Use responsive font sizes:</p>
-                <EnhancedCodeBlock
-                  code={`.u-font-size-responsive {
+                language="tsx"
+                title="Responsive Video"
+                showLineNumbers={true}
+              />
+
+              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
+                Typography
+              </h4>
+              <p className="u-text-secondary-emphasis u-mb-2">
+                Use responsive font sizes:
+              </p>
+              <EnhancedCodeBlock
+                code={`.u-font-size-responsive {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
 }`}
-                  language="css"
-                  title="Responsive Typography"
-                  showLineNumbers={true}
-                />
-              </Card>
-            </GridCol>
-          </Grid>
+                language="css"
+                title="Responsive Typography"
+                showLineNumbers={true}
+              />
+            </Card>
+          </GridCol>
+        </Grid>
       </Block>
 
       <Block spacing="md" background="secondary">
@@ -400,57 +421,67 @@ function CardGridLayout({ cards }) {
           alignment="center"
         />
 
-          <Grid>
-            {[
-              {
-                title: "Start Mobile-First",
-                description: "Design for mobile devices first, then enhance for larger screens. This ensures a solid foundation.",
-                icon: <Icon name="Phone" size="lg" />,
-                color: "primary",
-              },
-              {
-                title: "Use Relative Units",
-                description: "Prefer rem, em, and percentages over fixed pixel values for better scalability.",
-                icon: <Icon name="Target" size="lg" />,
-                color: "success",
-              },
-              {
-                title: "Test All Breakpoints",
-                description: "Test your layouts at all breakpoints to ensure consistent behavior across devices.",
-                icon: <Icon name="Monitor" size="lg" />,
-                color: "warning",
-              },
-              {
-                title: "Optimize Images",
-                description: "Use appropriate image formats, lazy loading, and proper sizing for performance.",
-                icon: <Icon name="Image" size="lg" />,
-                color: "secondary",
-              },
-            ].map((practice, index) => (
-              <GridCol key={index} md={6} lg={3} className="u-mb-6">
-                <Card className="u-h-100 u-p-6">
-                  <div className="u-d-flex u-align-items-center u-mb-3">
-                    <div
-                      className={`${pageStyles.layoutsResponsivePatternsPage__practiceIconContainer} ${pageStyles[`layoutsResponsivePatternsPage__iconContainer--${practice.color}`]}`}
-                    >
-                      {practice.icon}
-                    </div>
-                    <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
-                      {practice.title}
-                    </h3>
+        <Grid>
+          {[
+            {
+              title: "Start Mobile-First",
+              description:
+                "Design for mobile devices first, then enhance for larger screens. This ensures a solid foundation.",
+              icon: <Icon name="Phone" size="lg" />,
+              color: "primary",
+            },
+            {
+              title: "Use Relative Units",
+              description:
+                "Prefer rem, em, and percentages over fixed pixel values for better scalability.",
+              icon: <Icon name="Target" size="lg" />,
+              color: "success",
+            },
+            {
+              title: "Test All Breakpoints",
+              description:
+                "Test your layouts at all breakpoints to ensure consistent behavior across devices.",
+              icon: <Icon name="Monitor" size="lg" />,
+              color: "warning",
+            },
+            {
+              title: "Optimize Images",
+              description:
+                "Use appropriate image formats, lazy loading, and proper sizing for performance.",
+              icon: <Icon name="Image" size="lg" />,
+              color: "secondary",
+            },
+          ].map((practice, index) => (
+            <GridCol key={index} md={6} lg={3} className="u-mb-6">
+              <Card className="u-h-100 u-p-6">
+                <div className="u-flex u-align-items-center u-mb-3">
+                  <div
+                    className={`${
+                      pageStyles.layoutsResponsivePatternsPage__practiceIconContainer
+                    } ${
+                      pageStyles[
+                        `layoutsResponsivePatternsPage__iconContainer--${practice.color}`
+                      ]
+                    }`}
+                  >
+                    {practice.icon}
                   </div>
-                  <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
-                    {practice.description}
-                  </p>
-                </Card>
-              </GridCol>
-            ))}
-          </Grid>
+                  <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                    {practice.title}
+                  </h3>
+                </div>
+                <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                  {practice.description}
+                </p>
+              </Card>
+            </GridCol>
+          ))}
+        </Grid>
       </Block>
     </div>
   );
 };
 
-LayoutsResponsivePatternsPage.displayName = 'LayoutsResponsivePatternsPage';
+LayoutsResponsivePatternsPage.displayName = "LayoutsResponsivePatternsPage";
 
 export default LayoutsResponsivePatternsPage;

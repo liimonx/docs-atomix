@@ -183,7 +183,7 @@ function BasicNavbar() {
   return (
     <Navbar 
       brand={
-        <div className="u-d-flex u-align-items-center u-gap-2">
+        <div className="u-flex u-align-items-center u-gap-2">
           <img src="/logo.png" alt="Logo" height="30" />
           <span>My App</span>
         </div>

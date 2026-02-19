@@ -48,7 +48,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
         toast.error("Failed to copy code");
       }
     },
-    []
+    [],
   );
 
   // Prepare tab items for Atomix Tabs component
@@ -68,11 +68,11 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
               <GridCol md={8} className="u-mb-6">
                 <Card>
                   <h3 className="u-fs-xl u-fw-bold u-mb-4">Features</h3>
-                  <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
+                  <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
                     {componentDoc.features.map((feature, index) => (
                       <li
                         key={index}
-                        className="u-d-flex u-align-items-start u-gap-2"
+                        className="u-flex u-align-items-start u-gap-2"
                       >
                         <Icon
                           name="CheckCircle"
@@ -92,7 +92,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
                 <Card>
                   <h3 className="u-fs-xl u-fw-bold u-mb-4">Dependencies</h3>
                   {componentDoc.dependencies.length > 0 ? (
-                    <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
+                    <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
                       {componentDoc.dependencies.map((dep, index) => (
                         <li key={index}>
                           <Badge variant="warning" label={dep} />
@@ -185,7 +185,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
                   (
                     item:
                       | string
-                      | { key: string; action: string; context?: string }
+                      | { key: string; action: string; context?: string },
                   ) => {
                     if (typeof item === "string") {
                       const [key, ...actionParts] = item.split(" - ");
@@ -195,7 +195,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
                       };
                     }
                     return item;
-                  }
+                  },
                 )
               : [];
 
@@ -210,7 +210,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
                           description: string;
                           required: boolean;
                           defaultValue?: string;
-                        }
+                        },
                   ) => {
                     if (typeof item === "string") {
                       const [attribute, ...descParts] = item.split(" - ");
@@ -222,7 +222,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
                       };
                     }
                     return item;
-                  }
+                  },
                 )
               : [];
 
@@ -247,7 +247,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
   }, [componentDoc, copiedCode, copyToClipboard]);
 
   const getStatusColor = (
-    status: string
+    status: string,
   ): "success" | "warning" | "info" | "error" => {
     switch (status) {
       case "stable":
@@ -292,12 +292,12 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
         <div className="u-mb-8">
           <Link
             href="/docs/components"
-            className="u-d-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-fs-sm u-mb-4 u-transition-fast u-focus-visible-ring"
+            className="u-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-fs-sm u-mb-4 u-transition-fast u-focus-visible-ring"
           >
             <span>← Back to Components</span>
           </Link>
 
-          <div className="u-d-flex u-flex-wrap u-align-items-center u-justify-content-between u-gap-4">
+          <div className="u-flex u-flex-wrap u-align-items-center u-justify-between u-gap-4">
             <div>
               <h1 className="u-fs-4xl u-fw-bold u-mb-2">{componentDoc.name}</h1>
               <p className="u-text-secondary-emphasis u-m-0">
@@ -305,14 +305,14 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
               </p>
             </div>
 
-            <div className="u-d-flex u-gap-2">
+            <div className="u-flex u-gap-2">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() =>
                   window.open(
                     `https://github.com/shohojdhara/atomix/tree/main/src/components/${componentDoc.name}`,
-                    "_blank"
+                    "_blank",
                   )
                 }
               >
@@ -331,7 +331,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
             </div>
           </div>
 
-          <div className="u-d-flex u-flex-wrap u-gap-3 u-mt-4">
+          <div className="u-flex u-flex-wrap u-gap-3 u-mt-4">
             <Badge
               variant={getStatusColor(componentDoc.status)}
               label={componentDoc.status}

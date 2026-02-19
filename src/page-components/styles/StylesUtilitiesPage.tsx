@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { FC } from 'react';
+import { FC } from "react";
 import {
   Hero,
   SectionIntro,
@@ -11,8 +11,8 @@ import {
   Icon,
   Badge,
 } from "@shohojdhara/atomix";
-import styles from '@/styles/PageHero.module.scss';
-import pageStyles from './StylesUtilitiesPage.module.scss';
+import styles from "@/styles/PageHero.module.scss";
+import pageStyles from "./StylesUtilitiesPage.module.scss";
 
 interface UtilityCategoryProps {
   icon: string;
@@ -44,23 +44,25 @@ const CategoryCard: FC<UtilityCategoryProps> = ({
 
   return (
     <Card
-      className={`u-p-6 u-h-100 u-border-left atomix-card-hover ${pageStyles.stylesUtilitiesPage__categoryCard} ${pageStyles[`stylesUtilitiesPage__categoryCard--${colorClass}`]}`}
+      className={`u-p-6 u-h-100 u-border-left atomix-card-hover ${
+        pageStyles.stylesUtilitiesPage__categoryCard
+      } ${pageStyles[`stylesUtilitiesPage__categoryCard--${colorClass}`]}`}
     >
-      <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
+      <div className="u-flex u-align-items-center u-gap-3 u-mb-3">
         <Icon
           name={icon as any}
           size={24}
-          className={pageStyles[`stylesUtilitiesPage__categoryIcon--${colorClass}`]}
+          className={
+            pageStyles[`stylesUtilitiesPage__categoryIcon--${colorClass}`]
+          }
         />
         <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
       </div>
       <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
-      <div className="u-d-flex u-flex-column u-gap-2">
+      <div className="u-flex u-flex-column u-gap-2">
         {examples.map((ex, idx) => (
-          <div key={idx} className="u-d-flex u-align-items-center u-gap-2">
-            <code
-              className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded"
-            >
+          <div key={idx} className="u-flex u-align-items-center u-gap-2">
+            <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
               {ex.class}
             </code>
             <span className="u-fs-sm u-text-secondary-emphasis">
@@ -78,7 +80,8 @@ const StylesUtilitiesPage: FC = () => {
     {
       icon: "Box",
       title: "Spacing",
-      description: "Margin and padding utilities with 0.25rem increments (0-64)",
+      description:
+        "Margin and padding utilities with 0.25rem increments (0-64)",
       examples: [
         { class: ".u-m-4", description: "Margin 1rem (all sides)" },
         { class: ".u-p-6", description: "Padding 1.5rem (all sides)" },
@@ -93,9 +96,9 @@ const StylesUtilitiesPage: FC = () => {
       title: "Layout & Flexbox",
       description: "Display, flexbox, grid, and positioning utilities",
       examples: [
-        { class: ".u-d-flex", description: "Display flex" },
-        { class: ".u-d-grid", description: "Display grid" },
-        { class: ".u-justify-content-between", description: "Space between" },
+        { class: ".u-flex", description: "Display flex" },
+        { class: ".u-grid", description: "Display grid" },
+        { class: ".u-justify-between", description: "Space between" },
         { class: ".u-align-items-center", description: "Vertical center" },
         { class: ".u-gap-4", description: "Gap 1rem" },
       ],
@@ -168,7 +171,7 @@ const StylesUtilitiesPage: FC = () => {
       title: "Visibility",
       description: "Display, opacity, overflow, and visibility controls",
       examples: [
-        { class: ".u-d-none", description: "Display none" },
+        { class: ".u-none", description: "Display none" },
         { class: ".u-opacity-50", description: "50% opacity" },
         { class: ".u-overflow-hidden", description: "Hide overflow" },
         { class: ".u-overflow-x-auto", description: "Horizontal scroll" },
@@ -181,7 +184,10 @@ const StylesUtilitiesPage: FC = () => {
       description: "Cursor, pointer events, and user select utilities",
       examples: [
         { class: ".u-cursor-pointer", description: "Pointer cursor" },
-        { class: ".u-pointer-events-none", description: "Disable pointer events" },
+        {
+          class: ".u-pointer-events-none",
+          description: "Disable pointer events",
+        },
         { class: ".u-user-select-none", description: "Prevent text selection" },
         { class: ".u-pe-auto", description: "Enable pointer events" },
       ],
@@ -211,7 +217,7 @@ const StylesUtilitiesPage: FC = () => {
         alignment="center"
       />
 
-      <Block >
+      <Block>
         <SectionIntro
           title="Utility Classes"
           text="Atomix provides a comprehensive set of utility classes for rapid UI development. These classes follow a consistent naming convention and cover spacing, layout, typography, colors, and more."
@@ -220,7 +226,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-d-flex u-align-items-start u-gap-4">
+              <div className="u-flex u-align-items-start u-gap-4">
                 <Icon
                   name="Code"
                   size={32}
@@ -241,7 +247,7 @@ const StylesUtilitiesPage: FC = () => {
 .u-{property}-{breakpoint}-{value}`}
                     </pre>
                   </div>
-                  <div className="u-d-flex u-flex-wrap u-gap-3">
+                  <div className="u-flex u-flex-wrap u-gap-3">
                     <Badge variant="secondary" size="sm" label="500+ Classes" />
                     <Badge variant="secondary" size="sm" label="Responsive" />
                     <Badge variant="secondary" size="sm" label="Composable" />
@@ -257,9 +263,9 @@ const StylesUtilitiesPage: FC = () => {
           <GridCol md={12}>
             <h2 className="u-fs-2xl u-fw-bold u-mb-4">Utility Categories</h2>
             <p className="u-text-secondary-emphasis u-mb-4">
-              Explore our comprehensive collection of utility classes organized by category.
-              Each category contains a set of related utilities that help you build consistent,
-              responsive designs faster.
+              Explore our comprehensive collection of utility classes organized
+              by category. Each category contains a set of related utilities
+              that help you build consistent, responsive designs faster.
             </p>
           </GridCol>
         </Row>
@@ -276,9 +282,10 @@ const StylesUtilitiesPage: FC = () => {
           <GridCol md={12}>
             <h2 className="u-fs-2xl u-fw-bold u-mb-4">Responsive Utilities</h2>
             <p className="u-text-secondary-emphasis u-mb-4">
-              All utilities support responsive breakpoints, allowing you to create adaptive designs
-              that work across all device sizes. Simply prefix any utility with a breakpoint name
-              to apply it only at that breakpoint and above.
+              All utilities support responsive breakpoints, allowing you to
+              create adaptive designs that work across all device sizes. Simply
+              prefix any utility with a breakpoint name to apply it only at that
+              breakpoint and above.
             </p>
           </GridCol>
         </Row>
@@ -286,7 +293,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Monitor"
                   size={24}
@@ -326,7 +333,7 @@ const StylesUtilitiesPage: FC = () => {
                       <td className="u-p-3 u-text-secondary-emphasis">0px</td>
                       <td className="u-p-3">
                         <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
-                          .u-d-flex
+                          .u-flex
                         </code>
                       </td>
                     </tr>
@@ -397,7 +404,8 @@ const StylesUtilitiesPage: FC = () => {
           <GridCol md={12}>
             <h2 className="u-fs-2xl u-fw-bold u-mb-4">Usage Examples</h2>
             <p className="u-text-secondary-emphasis u-mb-4">
-              See how to combine utility classes to create common UI patterns and layouts.
+              See how to combine utility classes to create common UI patterns
+              and layouts.
             </p>
           </GridCol>
         </Row>
@@ -405,7 +413,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={6} className="u-mb-4">
             <Card className="u-p-6 u-h-100">
-              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="GridFour"
                   size={24}
@@ -417,7 +425,7 @@ const StylesUtilitiesPage: FC = () => {
                 <pre
                   className={`u-m-0 u-fs-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
                 >
-                  {`<div class="u-d-grid u-grid-cols-1 
+                  {`<div class="u-grid u-grid-cols-1 
      u-md-grid-cols-2 
      u-lg-grid-cols-3 
      u-gap-4">
@@ -432,7 +440,7 @@ const StylesUtilitiesPage: FC = () => {
 
           <GridCol md={6} className="u-mb-4">
             <Card className="u-p-6 u-h-100">
-              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="ArrowsOut"
                   size={24}
@@ -444,8 +452,8 @@ const StylesUtilitiesPage: FC = () => {
                 <pre
                   className={`u-m-0 u-fs-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
                 >
-                  {`<div class="u-d-flex 
-     u-justify-content-between 
+                  {`<div class="u-flex 
+     u-justify-between 
      u-align-items-center 
      u-gap-4 u-p-4">
   <span>Left</span>
@@ -460,7 +468,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6 u-bg-info-subtle">
-              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Lightbulb"
                   size={24}
@@ -468,35 +476,60 @@ const StylesUtilitiesPage: FC = () => {
                 />
                 <h3 className="u-fs-xl u-fw-semibold u-m-0">Best Practices</h3>
               </div>
-              <div className="u-d-flex u-flex-column u-gap-3">
-                <div className="u-d-flex u-gap-2">
-                  <Icon name="Check" size={20} className="u-text-success-emphasis" />
+              <div className="u-flex u-flex-column u-gap-3">
+                <div className="u-flex u-gap-2">
+                  <Icon
+                    name="Check"
+                    size={20}
+                    className="u-text-success-emphasis"
+                  />
                   <p className="u-m-0 u-text-secondary-emphasis">
-                    <strong>Compose utilities</strong> - Combine multiple classes for complex layouts
+                    <strong>Compose utilities</strong> - Combine multiple
+                    classes for complex layouts
                   </p>
                 </div>
-                <div className="u-d-flex u-gap-2">
-                  <Icon name="Check" size={20} className="u-text-success-emphasis" />
+                <div className="u-flex u-gap-2">
+                  <Icon
+                    name="Check"
+                    size={20}
+                    className="u-text-success-emphasis"
+                  />
                   <p className="u-m-0 u-text-secondary-emphasis">
-                    <strong>Mobile-first</strong> - Start with base classes, add breakpoint modifiers
+                    <strong>Mobile-first</strong> - Start with base classes, add
+                    breakpoint modifiers
                   </p>
                 </div>
-                <div className="u-d-flex u-gap-2">
-                  <Icon name="Check" size={20} className="u-text-success-emphasis" />
+                <div className="u-flex u-gap-2">
+                  <Icon
+                    name="Check"
+                    size={20}
+                    className="u-text-success-emphasis"
+                  />
                   <p className="u-m-0 u-text-secondary-emphasis">
-                    <strong>Semantic colors</strong> - Use emphasis variants (subtle, emphasis) for consistency
+                    <strong>Semantic colors</strong> - Use emphasis variants
+                    (subtle, emphasis) for consistency
                   </p>
                 </div>
-                <div className="u-d-flex u-gap-2">
-                  <Icon name="Check" size={20} className="u-text-success-emphasis" />
+                <div className="u-flex u-gap-2">
+                  <Icon
+                    name="Check"
+                    size={20}
+                    className="u-text-success-emphasis"
+                  />
                   <p className="u-m-0 u-text-secondary-emphasis">
-                    <strong>Spacing scale</strong> - Use consistent spacing values (0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 24, 32, 48, 64)
+                    <strong>Spacing scale</strong> - Use consistent spacing
+                    values (0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 24, 32, 48, 64)
                   </p>
                 </div>
-                <div className="u-d-flex u-gap-2">
-                  <Icon name="Check" size={20} className="u-text-success-emphasis" />
+                <div className="u-flex u-gap-2">
+                  <Icon
+                    name="Check"
+                    size={20}
+                    className="u-text-success-emphasis"
+                  />
                   <p className="u-m-0 u-text-secondary-emphasis">
-                    <strong>Performance</strong> - Avoid excessive nesting and redundant classes
+                    <strong>Performance</strong> - Avoid excessive nesting and
+                    redundant classes
                   </p>
                 </div>
               </div>
@@ -507,7 +540,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-6 u-mb-8">
           <GridCol md={12}>
             <Card className="u-p-6 u-bg-warning-subtle">
-              <div className="u-d-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Warning"
                   size={24}
@@ -515,23 +548,38 @@ const StylesUtilitiesPage: FC = () => {
                 />
                 <h3 className="u-fs-xl u-fw-semibold u-m-0">Important Notes</h3>
               </div>
-              <div className="u-d-flex u-flex-column u-gap-3">
-                <div className="u-d-flex u-gap-2">
-                  <Icon name="Info" size={20} className="u-text-info-emphasis" />
+              <div className="u-flex u-flex-column u-gap-3">
+                <div className="u-flex u-gap-2">
+                  <Icon
+                    name="Info"
+                    size={20}
+                    className="u-text-info-emphasis"
+                  />
                   <p className="u-m-0 u-text-secondary-emphasis">
-                    <strong>Specificity</strong> - Utility classes have high specificity (0,2,0) to override component styles when needed
+                    <strong>Specificity</strong> - Utility classes have high
+                    specificity (0,2,0) to override component styles when needed
                   </p>
                 </div>
-                <div className="u-d-flex u-gap-2">
-                  <Icon name="Info" size={20} className="u-text-info-emphasis" />
+                <div className="u-flex u-gap-2">
+                  <Icon
+                    name="Info"
+                    size={20}
+                    className="u-text-info-emphasis"
+                  />
                   <p className="u-m-0 u-text-secondary-emphasis">
-                    <strong>!important</strong> - Most utilities use !important to ensure consistent behavior
+                    <strong>!important</strong> - Most utilities use !important
+                    to ensure consistent behavior
                   </p>
                 </div>
-                <div className="u-d-flex u-gap-2">
-                  <Icon name="Info" size={20} className="u-text-info-emphasis" />
+                <div className="u-flex u-gap-2">
+                  <Icon
+                    name="Info"
+                    size={20}
+                    className="u-text-info-emphasis"
+                  />
                   <p className="u-m-0 u-text-secondary-emphasis">
-                    <strong>Customization</strong> - Modify the utility scale in your theme configuration
+                    <strong>Customization</strong> - Modify the utility scale in
+                    your theme configuration
                   </p>
                 </div>
               </div>
@@ -543,6 +591,6 @@ const StylesUtilitiesPage: FC = () => {
   );
 };
 
-StylesUtilitiesPage.displayName = 'StylesUtilitiesPage';
+StylesUtilitiesPage.displayName = "StylesUtilitiesPage";
 
 export default StylesUtilitiesPage;

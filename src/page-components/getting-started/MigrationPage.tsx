@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { FC, useState, useEffect } from 'react';
-import Link from 'next/link';
+import { FC, useState, useEffect } from "react";
+import Link from "next/link";
 
 import {
   Button,
@@ -14,9 +14,9 @@ import {
   Callout,
   Badge,
   Icon,
-} from '@shohojdhara/atomix';
-import { GlassProps } from '@/types/atomix-components';
-import styles from '@/styles/PageHero.module.scss';
+} from "@shohojdhara/atomix";
+import { GlassProps } from "@/types/atomix-components";
+import styles from "@/styles/PageHero.module.scss";
 
 const MigrationPage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -26,99 +26,113 @@ const MigrationPage: FC = () => {
     setIsMounted(true);
   }, []);
 
-  const glass: GlassProps | undefined = isMounted ? {
-    displacementScale: 30,
-    blurAmount: 5,
-    elasticity: 0,
-    enableLiquidBlur: true,
-    padding: "20px",
-    cornerRadius: 30,
-    children: null,
-  } : undefined;
+  const glass: GlassProps | undefined = isMounted
+    ? {
+        displacementScale: 30,
+        blurAmount: 5,
+        elasticity: 0,
+        enableLiquidBlur: true,
+        padding: "20px",
+        cornerRadius: 30,
+        children: null,
+      }
+    : undefined;
 
   const migrationSteps = [
     {
       step: 1,
-      title: 'Assess Current Usage',
-      description: 'Audit your existing components and styles to understand what needs to be migrated. Document all current implementations and dependencies.',
+      title: "Assess Current Usage",
+      description:
+        "Audit your existing components and styles to understand what needs to be migrated. Document all current implementations and dependencies.",
       icon: <Icon name="FileText" size="lg" />,
-      color: 'primary',
+      color: "primary",
     },
     {
       step: 2,
-      title: 'Plan the Migration',
-      description: 'Prioritize components and create a timeline for the migration process. Identify critical paths and dependencies.',
+      title: "Plan the Migration",
+      description:
+        "Prioritize components and create a timeline for the migration process. Identify critical paths and dependencies.",
       icon: <Icon name="Code" size="lg" />,
-      color: 'secondary',
+      color: "secondary",
     },
     {
       step: 3,
-      title: 'Set Up Atomix',
-      description: 'Install and configure Atomix alongside your existing system. Set up design tokens and theme configuration.',
+      title: "Set Up Atomix",
+      description:
+        "Install and configure Atomix alongside your existing system. Set up design tokens and theme configuration.",
       icon: <Icon name="Lightning" size="lg" />,
-      color: 'success',
+      color: "success",
     },
     {
       step: 4,
-      title: 'Migrate Incrementally',
-      description: 'Replace components one by one, testing as you go. Start with low-risk components and gradually move to critical ones.',
+      title: "Migrate Incrementally",
+      description:
+        "Replace components one by one, testing as you go. Start with low-risk components and gradually move to critical ones.",
       icon: <Icon name="CaretRight" size="lg" />,
-      color: 'warning',
+      color: "warning",
     },
     {
       step: 5,
-      title: 'Clean Up',
-      description: 'Remove old dependencies and unused code once migration is complete. Optimize bundle size and performance.',
+      title: "Clean Up",
+      description:
+        "Remove old dependencies and unused code once migration is complete. Optimize bundle size and performance.",
       icon: <Icon name="CheckCircle" size="lg" />,
-      color: 'error',
+      color: "error",
     },
   ];
 
   const benefits = [
     {
-      title: 'Modern Architecture',
-      description: 'ITCSS methodology and CSS custom properties for scalable, maintainable styles',
+      title: "Modern Architecture",
+      description:
+        "ITCSS methodology and CSS custom properties for scalable, maintainable styles",
       icon: <Icon name="Palette" size="lg" />,
-      color: 'primary',
+      color: "primary",
     },
     {
-      title: 'Better Performance',
-      description: 'Smaller bundle size and optimized CSS with tree-shaking support',
+      title: "Better Performance",
+      description:
+        "Smaller bundle size and optimized CSS with tree-shaking support",
       icon: <Icon name="Lightning" size="lg" />,
-      color: 'success',
+      color: "success",
     },
     {
-      title: 'Enhanced Accessibility',
-      description: 'WCAG 2.1 AA compliance built-in with comprehensive keyboard navigation',
+      title: "Enhanced Accessibility",
+      description:
+        "WCAG 2.1 AA compliance built-in with comprehensive keyboard navigation",
       icon: <Icon name="Shield" size="lg" />,
-      color: 'warning',
+      color: "warning",
     },
     {
-      title: 'Developer Experience',
-      description: 'Better TypeScript support, comprehensive documentation, and tooling',
+      title: "Developer Experience",
+      description:
+        "Better TypeScript support, comprehensive documentation, and tooling",
       icon: <Icon name="Code" size="lg" />,
-      color: 'secondary',
+      color: "secondary",
     },
   ];
 
   const migrationTools = [
     {
-      title: 'Class Mapping Guide',
-      description: 'Comprehensive mapping from popular frameworks to Atomix utilities',
+      title: "Class Mapping Guide",
+      description:
+        "Comprehensive mapping from popular frameworks to Atomix utilities",
       icon: <Icon name="GitBranch" size="lg" />,
-      href: '/docs/styles/utilities',
+      href: "/docs/styles/utilities",
     },
     {
-      title: 'Component Migration',
-      description: 'Step-by-step guides for migrating common component patterns',
-        icon: <Icon name="Stack" size="lg" />,
-      href: '/docs/components/overview',
+      title: "Component Migration",
+      description:
+        "Step-by-step guides for migrating common component patterns",
+      icon: <Icon name="Stack" size="lg" />,
+      href: "/docs/components/overview",
     },
     {
-      title: 'Theme Configuration',
-      description: 'Learn how to configure Atomix to match your existing design',
+      title: "Theme Configuration",
+      description:
+        "Learn how to configure Atomix to match your existing design",
       icon: <Icon name="Gear" size="lg" />,
-      href: '/docs/guides/theming',
+      href: "/docs/guides/theming",
     },
   ];
 
@@ -156,7 +170,7 @@ const MigrationPage: FC = () => {
         }
       />
 
-      <Block spacing="md" >
+      <Block spacing="md">
         <SectionIntro
           title="Why Migrate to Atomix?"
           text="Discover the benefits of transitioning to Atomix Design System"
@@ -167,12 +181,12 @@ const MigrationPage: FC = () => {
           {benefits.map((benefit, index) => (
             <GridCol key={index} md={6} lg={3} className="u-mb-4">
               <Card className="u-h-100 u-p-6">
-                <div className="u-d-flex u-flex-column u-h-100">
-                  <div 
-                    className={`u-w-16 u-h-16 u-br-md u-d-flex u-align-items-center u-justify-content-center u-mb-4`}
+                <div className="u-flex u-flex-column u-h-100">
+                  <div
+                    className={`u-w-16 u-h-16 u-br-md u-flex u-align-items-center u-justify-center u-mb-4`}
                     style={{
                       backgroundColor: `var(--atomix-color-${benefit.color}-subtle)`,
-                      color: `var(--atomix-color-${benefit.color}-emphasis)`
+                      color: `var(--atomix-color-${benefit.color}-emphasis)`,
                     }}
                   >
                     {benefit.icon}
@@ -190,7 +204,7 @@ const MigrationPage: FC = () => {
         </Row>
       </Block>
 
-      <Block spacing="md" background="secondary" >
+      <Block spacing="md" background="secondary">
         <SectionIntro
           title="Migration Strategy"
           text="Follow these steps for a smooth migration process"
@@ -201,13 +215,13 @@ const MigrationPage: FC = () => {
           {migrationSteps.map((step, index) => (
             <GridCol key={index} md={6} lg={4} className="u-mb-6">
               <Card className="u-h-100 u-p-6 u-transition-fast u-hover-transform-up">
-                <div className="u-d-flex u-flex-column u-h-100">
-                  <div className="u-d-flex u-align-items-center u-mb-4">
-                    <div 
-                      className={`u-w-12 u-h-12 u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4`}
+                <div className="u-flex u-flex-column u-h-100">
+                  <div className="u-flex u-align-items-center u-mb-4">
+                    <div
+                      className={`u-w-12 u-h-12 u-br-md u-flex u-align-items-center u-justify-center u-me-4`}
                       style={{
                         backgroundColor: `var(--atomix-color-${step.color}-subtle)`,
-                        color: `var(--atomix-color-${step.color}-emphasis)`
+                        color: `var(--atomix-color-${step.color}-emphasis)`,
                       }}
                     >
                       {step.icon}
@@ -232,7 +246,7 @@ const MigrationPage: FC = () => {
         </Row>
       </Block>
 
-      <Block spacing="md" >
+      <Block spacing="md">
         <SectionIntro
           title="Migration Resources"
           text="Tools and guides to help you through the migration process"
@@ -244,14 +258,12 @@ const MigrationPage: FC = () => {
             <GridCol key={index} md={4} className="u-mb-6">
               <Link
                 href={tool.href}
-                className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                className="u-text-decoration-none u-color-inherit u-block u-h-100"
               >
-                <Card 
-                  className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up"
-                >
-                  <div className="u-p-6 u-h-100 u-d-flex u-flex-column">
-                    <div className="u-d-flex u-align-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-4 u-text-primary-emphasis">
+                <Card className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
+                  <div className="u-p-6 u-h-100 u-flex u-flex-column">
+                    <div className="u-flex u-align-items-center u-mb-4">
+                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-4 u-text-primary-emphasis">
                         {tool.icon}
                       </div>
                       <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
@@ -261,7 +273,7 @@ const MigrationPage: FC = () => {
                     <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
                       {tool.description}
                     </p>
-                    <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
+                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
                       <span className="u-me-2">Learn more</span>
                       <Icon name="CaretRight" size="lg" />
                     </div>
@@ -273,37 +285,38 @@ const MigrationPage: FC = () => {
         </Row>
       </Block>
 
-      <Block spacing="md" background="brand" >
+      <Block spacing="md" background="brand">
         <Callout variant="info" title="Need Help?">
           <p className="u-mb-4 u-line-height-relaxed">
-            If you need assistance with your migration, check out our{' '}
+            If you need assistance with your migration, check out our{" "}
             <Link
               href="/docs/getting-started/installation"
               className="u-text-primary u-text-decoration-none u-fw-medium"
             >
               installation guide
-            </Link>{' '}
-            or{' '}
+            </Link>{" "}
+            or{" "}
             <Link
               href="/docs/components/overview"
               className="u-text-primary u-text-decoration-none u-fw-medium"
             >
               browse our components
             </Link>
-            . Our comprehensive documentation covers everything you need to know.
+            . Our comprehensive documentation covers everything you need to
+            know.
           </p>
-          <div className="u-d-flex u-gap-3 u-flex-wrap">
-            <Button 
+          <div className="u-flex u-gap-3 u-flex-wrap">
+            <Button
               variant="primary"
               href="/docs/getting-started/quick-start"
               icon={<Icon name="Lightning" size="lg" />}
             >
               View Quick Start Guide
             </Button>
-            <Button 
+            <Button
               variant="outline"
               href="/docs/getting-started/installation"
-                icon={<Icon name="Download" size="lg" />}
+              icon={<Icon name="Download" size="lg" />}
             >
               Installation Guide
             </Button>
@@ -314,7 +327,6 @@ const MigrationPage: FC = () => {
   );
 };
 
-MigrationPage.displayName = 'MigrationPage';
+MigrationPage.displayName = "MigrationPage";
 
 export default MigrationPage;
-

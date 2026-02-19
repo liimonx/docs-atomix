@@ -90,7 +90,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
       ...nonEmptyLines.map((line) => {
         const match = line.match(/^(\s*)/);
         return match ? match[1].length : 0;
-      })
+      }),
     );
 
     // Remove common indentation
@@ -127,7 +127,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
         {
           duration: 2000,
           position: "top-right",
-        }
+        },
       );
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -153,7 +153,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
         {
           duration: 2000,
           position: "top-right",
-        }
+        },
       );
     }
   };
@@ -186,13 +186,13 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
       className: isHighlighted ? "highlighted-line" : "",
       style: isHighlighted
         ? {
-          backgroundColor: "rgba(139, 92, 246, 0.1)",
-          display: "block",
-          paddingLeft: "0.5em",
-          marginLeft: "-0.5em",
-          marginRight: "-0.5em",
-          borderLeft: "3px solid var(--atomix-primary)",
-        }
+            backgroundColor: "rgba(139, 92, 246, 0.1)",
+            display: "block",
+            paddingLeft: "0.5em",
+            marginLeft: "-0.5em",
+            marginRight: "-0.5em",
+            borderLeft: "3px solid var(--atomix-primary)",
+          }
         : {},
     };
   };
@@ -200,8 +200,8 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
   return (
     <Card className={`u-p-0  ${className}`} elevation="sm">
       {/* Header */}
-      <div className="u-d-flex u-align-items-center u-justify-content-between u-p-3 u-bg-tertiary u-border-b u-border-subtle">
-        <div className="u-d-flex u-align-items-center u-gap-3">
+      <div className="u-flex u-align-items-center u-justify-between u-p-3 u-bg-tertiary u-border-b u-border-subtle">
+        <div className="u-flex u-align-items-center u-gap-3">
           {title && (
             <span className="u-fs-sm u-fw-semibold u-text-primary">
               {title}
@@ -214,14 +214,14 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
             className="u-fs-xs"
           />
         </div>
-        <div className="u-d-flex u-gap-2 u-align-items-center">
+        <div className="u-flex u-gap-2 u-align-items-center">
           <Tooltip content={copied ? "Copied!" : "Copy code to clipboard"}>
             <Button
               variant={copied ? "success" : "outline-secondary"}
               size="sm"
               onClick={handleCopy}
               aria-label={copied ? "Code copied" : "Copy code"}
-              className="u-d-flex u-align-items-center u-gap-2"
+              className="u-flex u-align-items-center u-gap-2"
             >
               <Icon name={copied ? "CheckCircle" : "Copy"} size="sm" />
               {copied ? "Copied" : "Copy"}
@@ -231,9 +231,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
       </div>
 
       {/* Code Block */}
-      <div
-        className={`u-overflow-x-auto ${styles["enhanced-code-block"]}`}
-      >
+      <div className={`u-overflow-x-auto ${styles["enhanced-code-block"]}`}>
         <SyntaxHighlighter
           language={normalizedLanguage}
           style={vscDarkPlus}
@@ -270,7 +268,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
       </div>
 
       {/* Footer with line count */}
-      <div className="u-d-flex u-align-items-center u-justify-content-between u-px-3 u-py-2 u-bg-tertiary u-border-t u-border-subtle">
+      <div className="u-flex u-align-items-center u-justify-between u-px-3 u-py-2 u-bg-tertiary u-border-t u-border-subtle">
         <span className="u-fs-xs u-text-secondary-emphasis">
           {formattedCode.split("\n").length} line
           {formattedCode.split("\n").length !== 1 ? "s" : ""}

@@ -15,12 +15,8 @@ import { themePresets } from "@/data/themePresets";
 import styles from "./PresetSelector.module.scss";
 
 export const PresetSelector: FC = () => {
-  const {
-    setTheme,
-    customPresets,
-    saveCustomPreset,
-    loadCustomPresets,
-  } = useThemeStudioStore();
+  const { setTheme, customPresets, saveCustomPreset, loadCustomPresets } =
+    useThemeStudioStore();
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [presetName, setPresetName] = useState("");
   const [presetDescription, setPresetDescription] = useState("");
@@ -42,7 +38,7 @@ export const PresetSelector: FC = () => {
           light: preset.light,
           dark: preset.dark,
         },
-        `Applied ${preset.name} preset`
+        `Applied ${preset.name} preset`,
       );
       return;
     }
@@ -55,7 +51,7 @@ export const PresetSelector: FC = () => {
           light: preset.light,
           dark: preset.dark,
         },
-        `Applied ${preset.name} preset`
+        `Applied ${preset.name} preset`,
       );
     }
   };
@@ -67,14 +63,12 @@ export const PresetSelector: FC = () => {
     saveCustomPreset(
       id,
       presetName.trim(),
-      presetDescription.trim() || undefined
+      presetDescription.trim() || undefined,
     );
     setShowSaveModal(false);
     setPresetName("");
     setPresetDescription("");
   };
-
-
 
   const builtInItems = Object.entries(themePresets).map(([id, preset]) => ({
     label: preset.name,
@@ -121,7 +115,7 @@ export const PresetSelector: FC = () => {
     <div className={styles.presetSelector}>
       <Dropdown
         trigger="click"
-        menu={(
+        menu={
           <Menu className={styles.presetSelector__menu}>
             {dropdownItems.map((item) => (
               <MenuItem
@@ -131,7 +125,7 @@ export const PresetSelector: FC = () => {
               />
             ))}
           </Menu>
-        )}
+        }
         placement="bottom-start"
       >
         <Button
@@ -155,10 +149,12 @@ export const PresetSelector: FC = () => {
         }}
         title="Save Custom Preset"
         size="md"
-        style={{ position: "fixed"}}
+        style={{ position: "fixed" }}
       >
-        <div className={`${styles.presetSelector__saveForm} u-d-flex u-flex-col u-gap-4`}>
-          <div className="u-d-flex u-flex-col">
+        <div
+          className={`${styles.presetSelector__saveForm} u-flex u-flex-col u-gap-4`}
+        >
+          <div className="u-flex u-flex-col">
             <label className={styles.presetSelector__formLabel}>
               Preset Name *
             </label>
@@ -181,7 +177,7 @@ export const PresetSelector: FC = () => {
             </div>
           </div>
 
-          <div className="u-d-flex u-flex-col">
+          <div className="u-flex u-flex-col">
             <label className={styles.presetSelector__formLabel}>
               Description (optional)
             </label>
@@ -203,7 +199,9 @@ export const PresetSelector: FC = () => {
             </div>
           </div>
 
-          <div className={`${styles.presetSelector__formActions} u-d-flex u-gap-2 u-justify-content-end`}>
+          <div
+            className={`${styles.presetSelector__formActions} u-flex u-gap-2 u-justify-end`}
+          >
             <Button
               variant="primary"
               onClick={handleSavePreset}

@@ -173,7 +173,7 @@ function CalloutsWithActions() {
       variant="warning"
       icon={<Icon name="Warning" />}
       actions={
-        <div className="u-d-flex u-gap-2">
+        <div className="u-flex u-gap-2">
           <Button size="sm" variant="primary">Accept</Button>
           <Button size="sm" variant="secondary">Decline</Button>
         </div>

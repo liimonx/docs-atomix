@@ -16,7 +16,7 @@ import {
 } from "@shohojdhara/atomix";
 
 import { navigationData } from "@/data/navigation";
-import styles from '@/styles/PageHero.module.scss';
+import styles from "@/styles/PageHero.module.scss";
 
 interface ComponentItem {
   id: string;
@@ -62,7 +62,9 @@ const ComponentsOverviewPage: FC = () => {
     });
 
     // Sort components by priority (add priority property to NavigationItem interface)
-    return components.sort((a, b) => ((a as any).priority || 999) - ((b as any).priority || 999));
+    return components.sort(
+      (a, b) => ((a as any).priority || 999) - ((b as any).priority || 999),
+    );
   }, []);
 
   // Filter components based on search query and category
@@ -72,7 +74,7 @@ const ComponentsOverviewPage: FC = () => {
     // Filter by category
     if (filterCategory !== "all") {
       filtered = filtered.filter(
-        (component) => component.sectionId === filterCategory
+        (component) => component.sectionId === filterCategory,
       );
     }
 
@@ -111,14 +113,17 @@ const ComponentsOverviewPage: FC = () => {
   }, [filteredComponents]);
 
   // Category filter options
-  const categoryOptions = useMemo(() => [
-    { id: "all", label: "All", count: allComponents.length },
-    {
-      id: "components",
-      label: "Components",
-      count: allComponents.filter((c) => c.sectionId === "components").length,
-    },
-  ], [allComponents]);
+  const categoryOptions = useMemo(
+    () => [
+      { id: "all", label: "All", count: allComponents.length },
+      {
+        id: "components",
+        label: "Components",
+        count: allComponents.filter((c) => c.sectionId === "components").length,
+      },
+    ],
+    [allComponents],
+  );
 
   // Memoized handler for search input change
   const handleSearchChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
@@ -156,256 +161,256 @@ const ComponentsOverviewPage: FC = () => {
         contentWidth="1200px"
         children={
           <>
-              {/* Stats Cards */}
-              <Grid className="u-mb-6">
-                <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
-                  <Card
-                    glass={{
-                      displacementScale: 80,
-                      blurAmount: 0.8,
-                      padding: "24px",
-                    }}
-                    elevation="lg"
-                    variant="primary"
-                    className="u-h-100"
-                    title={allComponents.length.toString()}
-                    text="Total Components"
-                    header={
-                      <div className="u-d-flex u-align-items-center u-justify-content-center u-w-100">
-                        <div
-                          className="u-d-flex u-align-items-center u-justify-content-center"
-                          style={{
-                            width: "48px",
-                            height: "48px",
-                            borderRadius: "8px",
-                            backdropFilter:
-                              "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
-                          }}
-                        >
-                          <Icon
-                            name="GridFour"
-                            size={24}
-                            className="u-text-brand-emphasis"
-                          />
-                        </div>
-                      </div>
-                    }
-                  />
-                </GridCol>
-                <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
-                  <Card
-                    glass={{
-                      displacementScale: 80,
-                      blurAmount: 0.8,
-                      padding: "24px",
-                    }}
-                    elevation="lg"
-                    variant="success"
-                    className="u-h-100"
-                    header={
-                      <div className="u-d-flex u-align-items-center u-justify-content-center u-w-100">
-                        <div
-                          className="u-d-flex u-align-items-center u-justify-content-center"
-                          style={{
-                            width: "48px",
-                            height: "48px",
-                            borderRadius: "12px",
-                            backdropFilter:
-                              "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
-                          }}
-                        >
-                          <Icon
-                            name="CheckCircle"
-                            size={24}
-                            className="u-text-success-emphasis"
-                          />
-                        </div>
-                      </div>
-                    }
-                    title="100%"
-                    text="Accessible"
-                  />
-                </GridCol>
-                <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
-                  <Card
-                    glass={{
-                      displacementScale: 80,
-                      blurAmount: 0.8,
-                      padding: "24px",
-                    }}
-                    elevation="lg"
-                    variant="info"
-                    className="u-text-center u-h-100"
-                    header={
-                      <div className="u-d-flex u-align-items-center u-justify-content-center u-w-100">
-                        <div
-                          className="u-d-flex u-align-items-center u-justify-content-center"
-                          style={{
-                            width: "48px",
-                            height: "48px",
-                            borderRadius: "8px",
-                            backdropFilter:
-                              "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
-                          }}
-                        >
-                          <Icon
-                            name="Shield"
-                            size={24}
-                            className="u-text-info-emphasis"
-                          />
-                        </div>
-                      </div>
-                    }
-                    title="TypeScript"
-                    text="Full Support"
-                  />
-                </GridCol>
-                <GridCol md={3} sm={6}>
-                  <Card
-                    elevation="lg"
-                    variant="warning"
-                    glass={{
-                      displacementScale: 80,
-                      blurAmount: 0.8,
-                      padding: "24px",
-                    }}
-                    className="u-h-100"
-                    header={
-                      <div className="u-d-flex u-align-items-center u-justify-content-center u-w-100">
-                        <div
-                          className="u-d-flex u-align-items-center u-justify-content-center"
-                          style={{
-                            width: "48px",
-                            height: "48px",
-                            borderRadius: "8px",
-                            backdropFilter:
-                              "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
-                          }}
-                        >
-                          <Icon
-                            name="Lightning"
-                            size={24}
-                            className="u-text-warning-emphasis"
-                          />
-                        </div>
-                      </div>
-                    }
-                    title="React 18"
-                    text="Optimized"
-                  />
-                </GridCol>
-              </Grid>
-
-              {/* Search and Filter Section */}
-              <Card
-                elevation="lg"
-                glass={{
-                  blurAmount: 1.2,
-                  padding: "24px",
-                  mode: "shader",
-                  displacementScale: 205,
-                }}
-              >
-                {/* Search and View Controls */}
-                <Grid className="u-align-items-center u-justify-content-between u-mb-4">
-                  <GridCol md={7} sm={12} className="u-mb-3 u-mb-md-0">
-                    <div className="u-relative u-w-100">
-                      <Input
-                        variant="dark"
-                        type="search"
-                        placeholder="Search components..."
-                        value={searchQuery}
-                        onChange={handleSearchChange}
-                        style={{
-                          background:
-                            "rgba(var(--atomix-dark-rgb), 0.4) !important",
-                          paddingLeft: "48px",
-                          fontSize: "15px",
-                        }}
-                      />
+            {/* Stats Cards */}
+            <Grid className="u-mb-6">
+              <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
+                <Card
+                  glass={{
+                    displacementScale: 80,
+                    blurAmount: 0.8,
+                    padding: "24px",
+                  }}
+                  elevation="lg"
+                  variant="primary"
+                  className="u-h-100"
+                  title={allComponents.length.toString()}
+                  text="Total Components"
+                  header={
+                    <div className="u-flex u-align-items-center u-justify-center u-w-100">
                       <div
-                        className="u-position-absolute"
+                        className="u-flex u-align-items-center u-justify-center"
                         style={{
-                          top: "50%",
-                          left: "16px",
-                          transform: "translateY(-50%)",
-                          pointerEvents: "none",
+                          width: "48px",
+                          height: "48px",
+                          borderRadius: "8px",
+                          backdropFilter:
+                            "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
                         }}
                       >
                         <Icon
-                          name="MagnifyingGlass"
-                          size={20}
-                          className="u-text-secondary-emphasis"
+                          name="GridFour"
+                          size={24}
+                          className="u-text-brand-emphasis"
                         />
                       </div>
                     </div>
-                  </GridCol>
-                  <GridCol md={4} sm={12}>
-                    <div className="u-d-flex u-justify-content-end u-gap-2">
-                      <Button
-                        variant={
-                          viewMode === "grid" ? "primary" : "outline-error "
-                        }
-                        size="sm"
-                        onClick={() => handleViewModeChange("grid")}
-                        aria-label="Grid view"
-                        className="u-d-flex u-align-items-center u-gap-2"
+                  }
+                />
+              </GridCol>
+              <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
+                <Card
+                  glass={{
+                    displacementScale: 80,
+                    blurAmount: 0.8,
+                    padding: "24px",
+                  }}
+                  elevation="lg"
+                  variant="success"
+                  className="u-h-100"
+                  header={
+                    <div className="u-flex u-align-items-center u-justify-center u-w-100">
+                      <div
+                        className="u-flex u-align-items-center u-justify-center"
+                        style={{
+                          width: "48px",
+                          height: "48px",
+                          borderRadius: "12px",
+                          backdropFilter:
+                            "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
+                        }}
                       >
-                        <Icon name="GridFour" size={18} />
-                        <span>Grid</span>
-                      </Button>
-                      <Button
-                        variant={
-                          viewMode === "list" ? "primary" : "outline-error"
-                        }
-                        size="sm"
-                        onClick={() => handleViewModeChange("list")}
-                        aria-label="List view"
-                        className="u-d-flex u-align-items-center u-gap-2"
-                      >
-                        <Icon name="ListBullets" size={18} />
-                        <span>List</span>
-                      </Button>
+                        <Icon
+                          name="CheckCircle"
+                          size={24}
+                          className="u-text-success-emphasis"
+                        />
+                      </div>
                     </div>
-                  </GridCol>
-                </Grid>
+                  }
+                  title="100%"
+                  text="Accessible"
+                />
+              </GridCol>
+              <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
+                <Card
+                  glass={{
+                    displacementScale: 80,
+                    blurAmount: 0.8,
+                    padding: "24px",
+                  }}
+                  elevation="lg"
+                  variant="info"
+                  className="u-text-center u-h-100"
+                  header={
+                    <div className="u-flex u-align-items-center u-justify-center u-w-100">
+                      <div
+                        className="u-flex u-align-items-center u-justify-center"
+                        style={{
+                          width: "48px",
+                          height: "48px",
+                          borderRadius: "8px",
+                          backdropFilter:
+                            "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
+                        }}
+                      >
+                        <Icon
+                          name="Shield"
+                          size={24}
+                          className="u-text-info-emphasis"
+                        />
+                      </div>
+                    </div>
+                  }
+                  title="TypeScript"
+                  text="Full Support"
+                />
+              </GridCol>
+              <GridCol md={3} sm={6}>
+                <Card
+                  elevation="lg"
+                  variant="warning"
+                  glass={{
+                    displacementScale: 80,
+                    blurAmount: 0.8,
+                    padding: "24px",
+                  }}
+                  className="u-h-100"
+                  header={
+                    <div className="u-flex u-align-items-center u-justify-center u-w-100">
+                      <div
+                        className="u-flex u-align-items-center u-justify-center"
+                        style={{
+                          width: "48px",
+                          height: "48px",
+                          borderRadius: "8px",
+                          backdropFilter:
+                            "blur(5px) saturate(300%) contrast(45%) brightness(130%)",
+                        }}
+                      >
+                        <Icon
+                          name="Lightning"
+                          size={24}
+                          className="u-text-warning-emphasis"
+                        />
+                      </div>
+                    </div>
+                  }
+                  title="React 18"
+                  text="Optimized"
+                />
+              </GridCol>
+            </Grid>
 
-                {/* Category Filters */}
-                <div className="u-d-flex u-flex-wrap u-gap-2 u-pt-4 u-border-t u-border-brand-subtle">
-                  {categoryOptions.map((option) => (
+            {/* Search and Filter Section */}
+            <Card
+              elevation="lg"
+              glass={{
+                blurAmount: 1.2,
+                padding: "24px",
+                mode: "shader",
+                displacementScale: 205,
+              }}
+            >
+              {/* Search and View Controls */}
+              <Grid className="u-align-items-center u-justify-between u-mb-4">
+                <GridCol md={7} sm={12} className="u-mb-3 u-mb-md-0">
+                  <div className="u-relative u-w-100">
+                    <Input
+                      variant="dark"
+                      type="search"
+                      placeholder="Search components..."
+                      value={searchQuery}
+                      onChange={handleSearchChange}
+                      style={{
+                        background:
+                          "rgba(var(--atomix-dark-rgb), 0.4) !important",
+                        paddingLeft: "48px",
+                        fontSize: "15px",
+                      }}
+                    />
+                    <div
+                      className="u-position-absolute"
+                      style={{
+                        top: "50%",
+                        left: "16px",
+                        transform: "translateY(-50%)",
+                        pointerEvents: "none",
+                      }}
+                    >
+                      <Icon
+                        name="MagnifyingGlass"
+                        size={20}
+                        className="u-text-secondary-emphasis"
+                      />
+                    </div>
+                  </div>
+                </GridCol>
+                <GridCol md={4} sm={12}>
+                  <div className="u-flex u-justify-end u-gap-2">
                     <Button
-                      key={option.id}
                       variant={
-                        filterCategory === option.id
-                          ? "primary"
-                          : "outline-primary"
+                        viewMode === "grid" ? "primary" : "outline-error "
                       }
                       size="sm"
-                      onClick={() =>
-                        handleFilterCategoryChange(option.id as FilterCategory)
-                      }
+                      onClick={() => handleViewModeChange("grid")}
+                      aria-label="Grid view"
+                      className="u-flex u-align-items-center u-gap-2"
                     >
-                      <div className="u-d-flex u-align-items-center u-gap-2">
-                        <span>{option.label}</span>
-                        <Badge
-                          label={option.count.toString()}
-                          variant={
-                            filterCategory === option.id ? "error" : "primary"
-                          }
-                          size="sm"
-                        >
-                          {option.count}
-                        </Badge>
-                      </div>
+                      <Icon name="GridFour" size={18} />
+                      <span>Grid</span>
                     </Button>
-                  ))}
-                </div>
-              </Card>
+                    <Button
+                      variant={
+                        viewMode === "list" ? "primary" : "outline-error"
+                      }
+                      size="sm"
+                      onClick={() => handleViewModeChange("list")}
+                      aria-label="List view"
+                      className="u-flex u-align-items-center u-gap-2"
+                    >
+                      <Icon name="ListBullets" size={18} />
+                      <span>List</span>
+                    </Button>
+                  </div>
+                </GridCol>
+              </Grid>
+
+              {/* Category Filters */}
+              <div className="u-flex u-flex-wrap u-gap-2 u-pt-4 u-border-t u-border-brand-subtle">
+                {categoryOptions.map((option) => (
+                  <Button
+                    key={option.id}
+                    variant={
+                      filterCategory === option.id
+                        ? "primary"
+                        : "outline-primary"
+                    }
+                    size="sm"
+                    onClick={() =>
+                      handleFilterCategoryChange(option.id as FilterCategory)
+                    }
+                  >
+                    <div className="u-flex u-align-items-center u-gap-2">
+                      <span>{option.label}</span>
+                      <Badge
+                        label={option.count.toString()}
+                        variant={
+                          filterCategory === option.id ? "error" : "primary"
+                        }
+                        size="sm"
+                      >
+                        {option.count}
+                      </Badge>
+                    </div>
+                  </Button>
+                ))}
+              </div>
+            </Card>
           </>
         }
       />
 
-      <Block spacing="sm" >
+      <Block spacing="sm">
         {(searchQuery || filterCategory !== "all") && (
           <Callout variant="info" className="u-mb-6">
             <p className="u-mb-0">
@@ -445,7 +450,7 @@ const ComponentsOverviewPage: FC = () => {
             Object.entries(groupedComponents).map(([section, components]) => (
               <div key={section} className="u-mt-4">
                 <div
-                  className="u-d-flex u-align-items-center u-gap-2 u-justify-content-between u-pb-3 u-border-b"
+                  className="u-flex u-align-items-center u-gap-2 u-justify-between u-pb-3 u-border-b"
                   style={{ borderBottomWidth: "2px" }}
                 >
                   <h2 className="u-fs-xl u-fw-semibold">{section}</h2>
@@ -463,7 +468,7 @@ const ComponentsOverviewPage: FC = () => {
                       <GridCol key={component.id} xs={12} className="u-mt-4">
                         <Link
                           href={component.path}
-                          className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                          className="u-text-decoration-none u-color-inherit u-block u-h-100"
                         >
                           <Card
                             row
@@ -485,13 +490,19 @@ const ComponentsOverviewPage: FC = () => {
                                 {(component.isNew || component.isUpdated) && (
                                   <Badge
                                     label={component.isNew ? "New" : "Updated"}
-                                    variant={component.isNew ? "success" : "warning"}
+                                    variant={
+                                      component.isNew ? "success" : "warning"
+                                    }
                                     size="sm"
                                     className="u-ms-2"
                                   >
-                                    <Icon 
-                                      name={component.isNew ? "Sparkle" : "ArrowCounterClockwise"} 
-                                      size={12} 
+                                    <Icon
+                                      name={
+                                        component.isNew
+                                          ? "Sparkle"
+                                          : "ArrowCounterClockwise"
+                                      }
+                                      size={12}
                                     />
                                     {component.isNew ? "New" : "Updated"}
                                   </Badge>
@@ -514,8 +525,8 @@ const ComponentsOverviewPage: FC = () => {
                         lg={3}
                         className="u-mt-4"
                       >
-                        <Link 
-                          href={component.path} 
+                        <Link
+                          href={component.path}
                           className="u-text-decoration-none u-h-100"
                         >
                           <Card
@@ -524,7 +535,9 @@ const ComponentsOverviewPage: FC = () => {
                             title={component.title}
                             text={component.description}
                           >
-                            {(component.badge || component.isNew || component.isUpdated) && (
+                            {(component.badge ||
+                              component.isNew ||
+                              component.isUpdated) && (
                               <div className="u-mt-3">
                                 {component.badge && (
                                   <Badge
@@ -552,7 +565,10 @@ const ComponentsOverviewPage: FC = () => {
                                     variant="warning"
                                     size="sm"
                                   >
-                                    <Icon name="ArrowCounterClockwise" size={12} />
+                                    <Icon
+                                      name="ArrowCounterClockwise"
+                                      size={12}
+                                    />
                                     Updated
                                   </Badge>
                                 )}

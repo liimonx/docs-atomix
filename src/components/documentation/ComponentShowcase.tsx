@@ -65,7 +65,7 @@ function MyComponent() {
                 {component.features.map((feature, index) => (
                   <GridCol key={index} md={6} lg={4}>
                     <Card className="u-p-6 u-h-100">
-                      <div className="u-d-flex u-flex-column u-gap-3">
+                      <div className="u-flex u-flex-column u-gap-3">
                         <Icon
                           name={feature.icon as any}
                           size="md"
@@ -151,9 +151,9 @@ function MyComponent() {
             "linear-gradient(135deg, var(--atomix-color-bg-secondary), var(--atomix-color-bg-tertiary))",
         }}
       >
-        <div className="u-d-flex u-align-items-center u-justify-content-between u-flex-wrap u-gap-4 u-mb-4">
+        <div className="u-flex u-align-items-center u-justify-between u-flex-wrap u-gap-4 u-mb-4">
           <div className="u-flex-grow-1" style={{ minWidth: "300px" }}>
-            <div className="u-d-flex u-align-items-center u-gap-3 u-mb-3">
+            <div className="u-flex u-align-items-center u-gap-3 u-mb-3">
               {component.icon && (
                 <Icon
                   name={component.icon as any}
@@ -175,7 +175,7 @@ function MyComponent() {
               </h1>
             </div>
 
-            <div className="u-d-flex u-gap-2 u-flex-wrap u-mb-4">
+            <div className="u-flex u-gap-2 u-flex-wrap u-mb-4">
               <Badge variant="primary" size="sm" label="Component" />
 
               {component.status === "stable" && (
@@ -196,14 +196,14 @@ function MyComponent() {
             </div>
           </div>
 
-          <div className="u-d-flex u-gap-2 u-align-items-center">
+          <div className="u-flex u-gap-2 u-align-items-center">
             <Tooltip content="Copy import statement">
               <Button
                 variant="outline-secondary"
                 size="sm"
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    `import { ${component.name} } from '@shohojdhara/atomix';`
+                    `import { ${component.name} } from '@shohojdhara/atomix';`,
                   );
                 }}
                 aria-label="Copy import statement"

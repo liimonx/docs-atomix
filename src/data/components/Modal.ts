@@ -163,7 +163,7 @@ function ConfirmationModal({ isOpen, onConfirm, onCancel, title, message }) {
       title={title}
       size="sm"
       footer={
-        <div className="u-d-flex u-gap-3 u-justify-content-end">
+        <div className="u-flex u-gap-3 u-justify-end">
           <Button 
             label="Cancel" 
             variant="secondary" 
@@ -210,7 +210,7 @@ function FormModal({ isOpen, onClose, onSubmit }) {
       subtitle="Send us a message"
       size="md"
       footer={
-        <div className="u-d-flex u-gap-3 u-justify-content-end">
+        <div className="u-flex u-gap-3 u-justify-end">
           <Button label="Cancel" variant="secondary" onClick={onClose} />
           <Button label="Send Message" variant="primary" type="submit" form="contact-form" />
         </div>

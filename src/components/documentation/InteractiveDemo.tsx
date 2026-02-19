@@ -76,7 +76,7 @@ export const InteractiveDemo: FC<InteractiveDemoProps> = ({
         </p>
 
         {component.examples && component.examples.length > 1 && (
-          <div className="u-d-flex u-align-items-center u-gap-3 u-mt-4">
+          <div className="u-flex u-align-items-center u-gap-3 u-mt-4">
             <label htmlFor="example-select" className="u-fs-sm u-fw-medium">
               Select example:
             </label>

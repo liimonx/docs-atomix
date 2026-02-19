@@ -43,13 +43,13 @@ const ComponentsHomePage: FC = () => {
   // Get component categories
   const categories = useMemo(
     () => Array.from(new Set(componentMetadata.map((c) => c.category))),
-    []
+    [],
   );
 
   // Get featured components (stable status)
   const featuredComponents = useMemo(
     () => componentMetadata.filter((c) => c.status === "stable").slice(0, 6),
-    []
+    [],
   );
 
   // Get recently updated components
@@ -58,13 +58,13 @@ const ComponentsHomePage: FC = () => {
       [...componentMetadata]
         .sort((b, a) => a.version.localeCompare(b.version))
         .slice(0, 6),
-    []
+    [],
   );
 
   // Stable components count
   const stableComponentsCount = useMemo(
     () => componentMetadata.filter((c) => c.status === "stable").length,
-    []
+    [],
   );
 
   return (
@@ -102,7 +102,7 @@ const ComponentsHomePage: FC = () => {
       />
       <BreadcrumbNavigation />
 
-      <Block spacing="sm" >
+      <Block spacing="sm">
         <SectionIntro
           title="By the Numbers"
           text="Atomix provides a comprehensive component library for building modern interfaces"
@@ -112,7 +112,7 @@ const ComponentsHomePage: FC = () => {
         <Grid>
           <GridCol md={4} sm={6} className="u-mb-4">
             <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
-              <div className="u-w-16 u-h-16 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-mx-auto u-mb-4 u-text-primary-emphasis">
+              <div className="u-w-16 u-h-16 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mx-auto u-mb-4 u-text-primary-emphasis">
                 <Icon name="Stack" size={32} />
               </div>
               <h3 className="u-fs-3xl u-fw-bold u-mb-2 u-text-primary-emphasis">
@@ -126,7 +126,7 @@ const ComponentsHomePage: FC = () => {
 
           <GridCol md={4} sm={6} className="u-mb-4">
             <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
-              <div className="u-w-16 u-h-16 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-mx-auto u-mb-4 u-text-success-emphasis">
+              <div className="u-w-16 u-h-16 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mx-auto u-mb-4 u-text-success-emphasis">
                 <Icon name="ShieldCheck" size={32} />
               </div>
               <h3 className="u-fs-3xl u-fw-bold u-mb-2 u-text-primary-emphasis">
@@ -140,7 +140,7 @@ const ComponentsHomePage: FC = () => {
 
           <GridCol md={4} sm={6} className="u-mb-4">
             <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
-              <div className="u-w-16 u-h-16 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-mx-auto u-mb-4 u-text-warning-emphasis">
+              <div className="u-w-16 u-h-16 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-mx-auto u-mb-4 u-text-warning-emphasis">
                 <Icon name="StarFour" size={32} />
               </div>
               <h3 className="u-fs-3xl u-fw-bold u-mb-2 u-text-primary-emphasis">
@@ -154,8 +154,8 @@ const ComponentsHomePage: FC = () => {
         </Grid>
       </Block>
 
-      <Block spacing="md" background="secondary" >
-        <div className="u-d-flex u-align-items-center u-mb-6">
+      <Block spacing="md" background="secondary">
+        <div className="u-flex u-align-items-center u-mb-6">
           <SectionIntro
             title="Categories"
             text="Browse components by category"
@@ -173,14 +173,14 @@ const ComponentsHomePage: FC = () => {
 
         <Grid>
           {categories.slice(0, 6).map((category, index) => (
-            <GridCol key={index} md={4} sm={6}  className="u-mb-4">
+            <GridCol key={index} md={4} sm={6} className="u-mb-4">
               <Link
                 href="/docs/components/overview"
-                className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                className="u-text-decoration-none u-color-inherit u-block u-h-100"
               >
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
-                  <div className="u-d-flex u-flex-column u-align-items-center u-text-center">
-                    <div className="u-w-16 u-h-16 u-bg-primary-subtle u-text-primary-emphasis u-br-md u-d-flex u-align-items-center u-justify-content-center u-mb-4">
+                  <div className="u-flex u-flex-column u-align-items-center u-text-center">
+                    <div className="u-w-16 u-h-16 u-bg-primary-subtle u-text-primary-emphasis u-br-md u-flex u-align-items-center u-justify-center u-mb-4">
                       <Icon name="GridFour" size={24} />
                     </div>
                     <h3 className="u-fs-xl u-fw-semibold u-mb-2 u-text-primary-emphasis">
@@ -201,7 +201,7 @@ const ComponentsHomePage: FC = () => {
         </Grid>
       </Block>
 
-      <Block spacing="md" >
+      <Block spacing="md">
         <SectionIntro
           title="Featured Components"
           text="Stable, production-ready components you can use right away"
@@ -213,12 +213,12 @@ const ComponentsHomePage: FC = () => {
             <GridCol key={component.id} md={6} lg={4} className="u-mb-4">
               <Link
                 href={`/docs/components/${component.id}`}
-                className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                className="u-text-decoration-none u-color-inherit u-block u-h-100"
               >
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
-                  <div className="u-d-flex u-flex-column u-h-100">
-                    <div className="u-d-flex u-align-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary-emphasis u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3">
+                  <div className="u-flex u-flex-column u-h-100">
+                    <div className="u-flex u-align-items-center u-mb-4">
+                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary-emphasis u-br-md u-flex u-align-items-center u-justify-center u-me-3">
                         <Icon name="Lightning" size={24} />
                       </div>
                       <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
@@ -230,7 +230,7 @@ const ComponentsHomePage: FC = () => {
                       {component.description.substring(0, 120)}...
                     </p>
 
-                    <div className="u-d-flex u-gap-2 u-mb-4 u-flex-wrap">
+                    <div className="u-flex u-gap-2 u-mb-4 u-flex-wrap">
                       <Badge
                         variant="primary"
                         size="sm"
@@ -243,7 +243,7 @@ const ComponentsHomePage: FC = () => {
                       />
                     </div>
 
-                    <div className="u-d-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
+                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
                       <span className="u-me-2">View Details</span>
                       <Icon name="ArrowRight" size={16} />
                     </div>
@@ -255,8 +255,8 @@ const ComponentsHomePage: FC = () => {
         </Grid>
       </Block>
 
-      <Block spacing="md" background="brand" >
-        <div className="u-d-flex u-align-items-center u-mb-6">
+      <Block spacing="md" background="brand">
+        <div className="u-flex u-align-items-center u-mb-6">
           <SectionIntro
             title="Recently Updated"
             text="Latest component updates and improvements"
@@ -276,11 +276,11 @@ const ComponentsHomePage: FC = () => {
             <GridCol key={component.id} md={6} lg={4} className="u-mb-4">
               <Link
                 href={`/docs/components/${component.id}`}
-                className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                className="u-text-decoration-none u-color-inherit u-block u-h-100"
               >
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
-                  <div className="u-d-flex u-flex-column u-h-100">
-                    <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-3">
+                  <div className="u-flex u-flex-column u-h-100">
+                    <div className="u-flex u-align-items-center u-justify-between u-mb-3">
                       <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                         {component.name}
                       </h3>
@@ -295,7 +295,7 @@ const ComponentsHomePage: FC = () => {
                       {component.description.substring(0, 120)}...
                     </p>
 
-                    <div className="u-d-flex u-gap-2 u-flex-wrap">
+                    <div className="u-flex u-gap-2 u-flex-wrap">
                       <Badge
                         variant="primary"
                         size="sm"

@@ -171,7 +171,7 @@ function ToggleSizesVariants() {
       <div className="u-gap-4">
         <h3 className="u-fw-semibold">Sizes</h3>
         <div className="u-gap-3">
-          <div className="u-d-flex u-align-items-center u-gap-3">
+          <div className="u-flex u-align-items-center u-gap-3">
             <Toggle 
               size="sm"
               checked={toggleStates.small}
@@ -180,7 +180,7 @@ function ToggleSizesVariants() {
             <span>Small toggle</span>
           </div>
           
-          <div className="u-d-flex u-align-items-center u-gap-3">
+          <div className="u-flex u-align-items-center u-gap-3">
             <Toggle 
               size="md"
               checked={toggleStates.medium}
@@ -189,7 +189,7 @@ function ToggleSizesVariants() {
             <span>Medium toggle (default)</span>
           </div>
           
-          <div className="u-d-flex u-align-items-center u-gap-3">
+          <div className="u-flex u-align-items-center u-gap-3">
             <Toggle 
               size="lg"
               checked={toggleStates.large}
@@ -202,7 +202,7 @@ function ToggleSizesVariants() {
 
       <div className="u-gap-4">
         <h3 className="u-fw-semibold">Color Variants</h3>
-        <div className="u-d-grid u-grid-cols-2 u-gap-3">
+        <div className="u-grid u-grid-cols-2 u-gap-3">
           <Toggle checked variant="primary" label="Primary" />
           <Toggle checked variant="success" label="Success" />
           <Toggle checked variant="warning" label="Warning" />

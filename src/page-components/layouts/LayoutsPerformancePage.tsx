@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect, FC } from 'react';
+import { useState, useEffect, FC } from "react";
 import {
   Hero,
   SectionIntro,
@@ -10,12 +10,12 @@ import {
   Block,
   Icon,
   Button,
-} from '@shohojdhara/atomix';
-import { GlassProps } from '@/types/atomix-components';
-import styles from '@/styles/PageHero.module.scss';
-import pageStyles from './LayoutsPerformancePage.module.scss';
-import Link from 'next/link';
-import { EnhancedCodeBlock } from '@/components/showcase/EnhancedCodeBlock';
+} from "@shohojdhara/atomix";
+import { GlassProps } from "@/types/atomix-components";
+import styles from "@/styles/PageHero.module.scss";
+import pageStyles from "./LayoutsPerformancePage.module.scss";
+import Link from "next/link";
+import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 
 const LayoutsPerformancePage: FC = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -25,15 +25,17 @@ const LayoutsPerformancePage: FC = () => {
     setIsMounted(true);
   }, []);
 
-  const glass: GlassProps | undefined = isMounted ? {
-    displacementScale: 30,
-    blurAmount: 5,
-    elasticity: 0,
-    enableLiquidBlur: true,
-    padding: "20px",
-    cornerRadius: 30,
-    children: null,
-  } : undefined;
+  const glass: GlassProps | undefined = isMounted
+    ? {
+        displacementScale: 30,
+        blurAmount: 5,
+        elasticity: 0,
+        enableLiquidBlur: true,
+        padding: "20px",
+        cornerRadius: 30,
+        children: null,
+      }
+    : undefined;
 
   const performanceIssues = [
     {
@@ -139,8 +141,8 @@ const LayoutsPerformancePage: FC = () => {
         <Grid>
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
                   <Icon name="Gauge" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
@@ -148,16 +150,23 @@ const LayoutsPerformancePage: FC = () => {
                 </h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Layout performance is crucial for user experience. Poor layout performance can cause several issues:
+                Layout performance is crucial for user experience. Poor layout
+                performance can cause several issues:
               </p>
-              
+
               <Grid>
                 {performanceIssues.map((issue, index) => (
                   <GridCol key={index} md={6} lg={4} className="u-mb-6">
                     <Card className="u-p-4 u-h-100">
-                      <div className="u-d-flex u-align-items-center u-mb-3">
+                      <div className="u-flex u-align-items-center u-mb-3">
                         <div
-                          className={`${pageStyles.layoutsPerformancePage__issueIconContainer} ${pageStyles[`layoutsPerformancePage__iconContainer--${issue.color}`]}`}
+                          className={`${
+                            pageStyles.layoutsPerformancePage__issueIconContainer
+                          } ${
+                            pageStyles[
+                              `layoutsPerformancePage__iconContainer--${issue.color}`
+                            ]
+                          }`}
                         >
                           {issue.icon}
                         </div>
@@ -179,25 +188,32 @@ const LayoutsPerformancePage: FC = () => {
         <Grid className="u-mt-6">
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
-                    <Icon name="ChartLine" size="lg" />
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
+                  <Icon name="ChartLine" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Key Performance Metrics
                 </h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Monitor these Core Web Vitals to measure and improve layout performance:
+                Monitor these Core Web Vitals to measure and improve layout
+                performance:
               </p>
-              
+
               <Grid>
                 {performanceMetrics.map((metric, index) => (
                   <GridCol key={index} md={6} lg={3} className="u-mb-6">
                     <Card className="u-p-4 u-h-100">
-                      <div className="u-d-flex u-flex-column u-h-100">
+                      <div className="u-flex u-flex-column u-h-100">
                         <div
-                          className={`${pageStyles.layoutsPerformancePage__metricIconContainer} ${pageStyles[`layoutsPerformancePage__iconContainer--${metric.color}`]}`}
+                          className={`${
+                            pageStyles.layoutsPerformancePage__metricIconContainer
+                          } ${
+                            pageStyles[
+                              `layoutsPerformancePage__iconContainer--${metric.color}`
+                            ]
+                          }`}
                         >
                           {metric.icon}
                         </div>
@@ -216,19 +232,19 @@ const LayoutsPerformancePage: FC = () => {
           </GridCol>
         </Grid>
       </Block>
-        
-      <Block spacing="md" background="secondary">
-          <SectionIntro
-            title="Grid System Performance"
-            text="Optimize grid calculations and rendering for better performance"
-            alignment="center"
-          />
 
-          <Grid>
-            <GridCol md={12} className="u-mb-6">
+      <Block spacing="md" background="secondary">
+        <SectionIntro
+          title="Grid System Performance"
+          text="Optimize grid calculations and rendering for better performance"
+          alignment="center"
+        />
+
+        <Grid>
+          <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-warning-emphasis">
                   <Icon name="Code" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
@@ -236,9 +252,10 @@ const LayoutsPerformancePage: FC = () => {
                 </h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Avoid expensive calculations on every render. Use memoization to optimize column size calculations.
+                Avoid expensive calculations on every render. Use memoization to
+                optimize column size calculations.
               </p>
-              
+
               <EnhancedCodeBlock
                 code={`// ❌ Avoid: Expensive calculations on every render
 function SlowGrid({ items }) {
@@ -284,7 +301,7 @@ function OptimizedGrid({ items }) {
           </GridCol>
         </Grid>
       </Block>
-        
+
       <Block spacing="md">
         <SectionIntro
           title="Optimization Techniques"
@@ -295,8 +312,8 @@ function OptimizedGrid({ items }) {
         <Grid>
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-primary-emphasis">
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
                   <Icon name="Target" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
@@ -306,8 +323,8 @@ function OptimizedGrid({ items }) {
               <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
                 Strategies to reduce Cumulative Layout Shift (CLS):
               </p>
-              
-              <ul className="u-list-none u-d-flex u-flex-column u-gap-2 u-mb-4">
+
+              <ul className="u-list-none u-flex u-flex-column u-gap-2 u-mb-4">
                 {[
                   "Set explicit dimensions on images and media",
                   "Reserve space for dynamic content",
@@ -315,13 +332,16 @@ function OptimizedGrid({ items }) {
                   "Use CSS aspect ratio for responsive media",
                   "Preload critical fonts",
                 ].map((strategy, index) => (
-                  <li key={index} className="u-d-flex u-align-items-center u-text-secondary-emphasis">
+                  <li
+                    key={index}
+                    className="u-flex u-align-items-center u-text-secondary-emphasis"
+                  >
                     <span className="u-me-2 u-text-primary-emphasis">✓</span>
                     {strategy}
                   </li>
                 ))}
               </ul>
-              
+
               <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
                 Example: Image with Aspect Ratio
               </h4>
@@ -340,11 +360,11 @@ function OptimizedGrid({ items }) {
               />
             </Card>
           </GridCol>
-          
+
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-success-emphasis">
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
                   <Icon name="Lightning" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
@@ -352,9 +372,10 @@ function OptimizedGrid({ items }) {
                 </h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                For large datasets, use virtualization to render only visible items:
+                For large datasets, use virtualization to render only visible
+                items:
               </p>
-              
+
               <EnhancedCodeBlock
                 code={`import { VirtualizedGrid } from '@shohojdhara/atomix';
 
@@ -371,18 +392,21 @@ function OptimizedGrid({ items }) {
                 title="Virtualization Example"
                 showLineNumbers={true}
               />
-              
+
               <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
                 Benefits
               </h4>
-              <ul className="u-list-none u-d-flex u-flex-column u-gap-2">
+              <ul className="u-list-none u-flex u-flex-column u-gap-2">
                 {[
                   "Reduced DOM nodes",
                   "Lower memory usage",
                   "Faster initial render",
                   "Improved scrolling performance",
                 ].map((benefit, index) => (
-                  <li key={index} className="u-d-flex u-align-items-center u-text-secondary-emphasis">
+                  <li
+                    key={index}
+                    className="u-flex u-align-items-center u-text-secondary-emphasis"
+                  >
                     <span className="u-me-2 u-text-success-emphasis">✓</span>
                     {benefit}
                   </li>
@@ -392,7 +416,7 @@ function OptimizedGrid({ items }) {
           </GridCol>
         </Grid>
       </Block>
-        
+
       <Block spacing="md" background="secondary">
         <SectionIntro
           title="CSS Optimization"
@@ -403,8 +427,8 @@ function OptimizedGrid({ items }) {
         <Grid>
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-warning-emphasis">
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-warning-emphasis">
                   <Icon name="Clock" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
@@ -412,9 +436,10 @@ function OptimizedGrid({ items }) {
                 </h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Inline critical CSS for above-the-fold content to improve First Contentful Paint (FCP):
+                Inline critical CSS for above-the-fold content to improve First
+                Contentful Paint (FCP):
               </p>
-              
+
               <EnhancedCodeBlock
                 code={`<style>
   /* Inline critical layout styles */
@@ -437,11 +462,11 @@ function OptimizedGrid({ items }) {
               />
             </Card>
           </GridCol>
-          
+
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-d-flex u-align-items-center u-justify-content-center u-me-3 u-text-secondary-emphasis">
+              <div className="u-flex u-align-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-secondary-emphasis">
                   <Icon name="Stack" size="lg" />
                 </div>
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
@@ -449,9 +474,10 @@ function OptimizedGrid({ items }) {
                 </h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
-                Use CSS containment to isolate expensive layout calculations and improve rendering performance:
+                Use CSS containment to isolate expensive layout calculations and
+                improve rendering performance:
               </p>
-              
+
               <EnhancedCodeBlock
                 code={`.expensive-component {
   contain: layout style paint;
@@ -483,34 +509,44 @@ function OptimizedGrid({ items }) {
           {[
             {
               title: "Use Memoization",
-              description: "Memoize expensive calculations and component renders to avoid unnecessary recalculations.",
+              description:
+                "Memoize expensive calculations and component renders to avoid unnecessary recalculations.",
               icon: <Icon name="Cpu" size="lg" />,
               color: "primary",
             },
             {
               title: "Optimize Images",
-              description: "Use proper image formats, lazy loading, and aspect ratios to prevent layout shifts.",
+              description:
+                "Use proper image formats, lazy loading, and aspect ratios to prevent layout shifts.",
               icon: <Icon name="Stack" size="lg" />,
               color: "success",
             },
             {
               title: "Virtualize Lists",
-              description: "For large datasets, use virtualization to render only visible items.",
+              description:
+                "For large datasets, use virtualization to render only visible items.",
               icon: <Icon name="Lightning" size="lg" />,
               color: "warning",
             },
             {
               title: "Monitor Metrics",
-              description: "Regularly monitor Core Web Vitals to identify and fix performance issues.",
+              description:
+                "Regularly monitor Core Web Vitals to identify and fix performance issues.",
               icon: <Icon name="ChartLine" size="lg" />,
               color: "secondary",
             },
           ].map((practice, index) => (
             <GridCol key={index} md={6} lg={3} className="u-mb-4">
               <Card className="u-h-100 u-p-6">
-                <div className="u-d-flex u-align-items-center u-mb-3">
+                <div className="u-flex u-align-items-center u-mb-3">
                   <div
-                    className={`${pageStyles.layoutsPerformancePage__practiceIconContainer} ${pageStyles[`layoutsPerformancePage__iconContainer--${practice.color}`]}`}
+                    className={`${
+                      pageStyles.layoutsPerformancePage__practiceIconContainer
+                    } ${
+                      pageStyles[
+                        `layoutsPerformancePage__iconContainer--${practice.color}`
+                      ]
+                    }`}
                   >
                     {practice.icon}
                   </div>
@@ -529,6 +565,6 @@ function OptimizedGrid({ items }) {
     </div>
   );
 };
-LayoutsPerformancePage.displayName = 'LayoutsPerformancePage';
+LayoutsPerformancePage.displayName = "LayoutsPerformancePage";
 
 export default LayoutsPerformancePage;

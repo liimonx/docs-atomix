@@ -23,7 +23,7 @@ export const NumberInput: FC<NumberInputProps> = ({ value, onChange }) => {
   };
 
   return (
-    <div className="u-d-flex u-gap-2 u-relative u-z-1">
+    <div className="u-flex u-gap-2 u-relative u-z-1">
       <Input
         type="number"
         value={numValue}

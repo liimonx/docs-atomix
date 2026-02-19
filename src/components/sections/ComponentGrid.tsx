@@ -1,9 +1,18 @@
-'use client';
+"use client";
 
-import { FC } from 'react';
-import { Card, Icon, Button, Badge, Container, Row, GridCol, SectionIntro } from '@shohojdhara/atomix';
-import { useRouter } from 'next/navigation';
-import { componentMetadata } from '@/data/components';
+import { FC } from "react";
+import {
+  Card,
+  Icon,
+  Button,
+  Badge,
+  Container,
+  Row,
+  GridCol,
+  SectionIntro,
+} from "@shohojdhara/atomix";
+import { useRouter } from "next/navigation";
+import { componentMetadata } from "@/data/components";
 
 export const ComponentGrid: FC = () => {
   const router = useRouter();
@@ -11,16 +20,18 @@ export const ComponentGrid: FC = () => {
   // Get a sample of components for the grid
   const featuredComponents = componentMetadata.slice(0, 6);
 
-  const getStatusVariant = (status: string): "primary" | "secondary" | "success" | "warning" | "info" | "danger" => {
+  const getStatusVariant = (
+    status: string,
+  ): "primary" | "secondary" | "success" | "warning" | "info" | "danger" => {
     switch (status.toLowerCase()) {
-      case 'stable':
-        return 'success';
-      case 'beta':
-        return 'warning';
-      case 'deprecated':
-        return 'danger';
+      case "stable":
+        return "success";
+      case "beta":
+        return "warning";
+      case "deprecated":
+        return "danger";
       default:
-        return 'secondary';
+        return "secondary";
     }
   };
 
@@ -42,18 +53,20 @@ export const ComponentGrid: FC = () => {
               >
                 <div>
                   <div className="u-mb-4">
-                    <h3 className="u-fs-lg u-fw-semibold u-mb-2 u-color-text-primary">{component.name}</h3>
+                    <h3 className="u-fs-lg u-fw-semibold u-mb-2 u-color-text-primary">
+                      {component.name}
+                    </h3>
                   </div>
-                  
+
                   <p className="u-text-secondary-emphasis u-mb-4 u-line-height-normal">
                     {component.description}
                   </p>
-                  
-                  <div className="u-d-flex u-justify-content-between u-align-items-center">
+
+                  <div className="u-flex u-justify-between u-align-items-center">
                     <span className="u-fs-sm u-text-secondary-emphasis u-fw-medium">
                       {component.category}
                     </span>
-                    
+
                     <Badge
                       label={component.status}
                       variant={getStatusVariant(component.status) as any}
@@ -69,7 +82,7 @@ export const ComponentGrid: FC = () => {
         <div className="u-text-center u-mt-8">
           <Button
             variant="primary"
-            onClick={() => router.push('/docs/components/overview')}
+            onClick={() => router.push("/docs/components/overview")}
             icon={<Icon name="ArrowRight" size="sm" />}
             iconPosition="right"
           >

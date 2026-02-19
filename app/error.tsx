@@ -1,8 +1,16 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import Link from 'next/link';
-import { Button, Callout, Icon, Card, Container, Grid, GridCol } from '@shohojdhara/atomix';
+import { useEffect } from "react";
+import Link from "next/link";
+import {
+  Button,
+  Callout,
+  Icon,
+  Card,
+  Container,
+  Grid,
+  GridCol,
+} from "@shohojdhara/atomix";
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -12,16 +20,16 @@ interface ErrorProps {
 export default function Error({ error, reset }: ErrorProps) {
   useEffect(() => {
     // Log error to error reporting service
-    console.error('Application error:', error);
-    
+    console.error("Application error:", error);
+
     // In production, send to error tracking service
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === "production") {
       // Example: Sentry.captureException(error);
     }
   }, [error]);
 
   return (
-    <div className="u-min-h-screen u-d-flex u-align-items-center u-justify-content-center u-p-6">
+    <div className="u-min-h-screen u-flex u-align-items-center u-justify-center u-p-6">
       <Container>
         <Grid>
           <GridCol xs={12} md={8} className="u-mx-auto">
@@ -32,10 +40,10 @@ export default function Error({ error, reset }: ErrorProps) {
                 icon={<Icon name="WarningCircle" />}
               >
                 <p className="u-mb-4">
-                  We encountered an error while loading the page.
-                  This might be due to a temporary issue.
+                  We encountered an error while loading the page. This might be
+                  due to a temporary issue.
                 </p>
-                
+
                 {error.message && (
                   <details className="u-mb-4">
                     <summary className="u-cursor-pointer u-font-weight-bold u-mb-2">
@@ -45,7 +53,7 @@ export default function Error({ error, reset }: ErrorProps) {
                       {error.message}
                       {error.digest && (
                         <>
-                          {'\n\n'}
+                          {"\n\n"}
                           Error ID: {error.digest}
                         </>
                       )}
@@ -53,7 +61,7 @@ export default function Error({ error, reset }: ErrorProps) {
                   </details>
                 )}
 
-                <div className="u-d-flex u-gap-3 u-flex-wrap">
+                <div className="u-flex u-gap-3 u-flex-wrap">
                   <Button
                     variant="primary"
                     onClick={reset}
@@ -80,4 +88,3 @@ export default function Error({ error, reset }: ErrorProps) {
     </div>
   );
 }
-

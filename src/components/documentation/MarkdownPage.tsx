@@ -30,7 +30,10 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
         setLoading(true);
         // Convert markdown path to API route path
         // e.g., /atomix-doc-in-md/docs/CLI_README.md -> /api/markdown/CLI_README.md
-        const apiPath = markdownPath.replace('/atomix-doc-in-md/docs/', '/api/markdown/');
+        const apiPath = markdownPath.replace(
+          "/atomix-doc-in-md/docs/",
+          "/api/markdown/",
+        );
         const response = await fetch(apiPath);
         if (!response.ok) {
           throw new Error(`Failed to load markdown: ${response.statusText}`);
@@ -61,10 +64,15 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
         />
         <Block spacing="md">
           <div className="u-text-center u-py-8">
-            <div className="u-d-inline-block u-spinner u-spinner-border u-text-primary" role="status">
+            <div
+              className="u-inline-block u-spinner u-spinner-border u-text-primary"
+              role="status"
+            >
               <span className="u-visually-hidden">Loading...</span>
             </div>
-            <p className="u-text-secondary-emphasis u-mt-4">Loading content...</p>
+            <p className="u-text-secondary-emphasis u-mt-4">
+              Loading content...
+            </p>
           </div>
         </Block>
       </div>
@@ -123,8 +131,10 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
 
                 // Inline code styling
                 return (
-                  <code 
-                    className={`u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm u-text-primary ${className || ""}`}
+                  <code
+                    className={`u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm u-text-primary ${
+                      className || ""
+                    }`}
                     {...props}
                   >
                     {children}
@@ -210,25 +220,23 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
               a: ({ href, children }) => (
                 <a
                   href={href}
-                  className="u-text-primary u-decoration-underline hover:u-text-primary-emphasis u-transition-colors"
+                  className="u-text-primary uecoration-underline hover:u-text-primary-emphasis u-transition-colors"
                   target={href?.startsWith("http") ? "_blank" : undefined}
-                  rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
+                  rel={
+                    href?.startsWith("http") ? "noopener noreferrer" : undefined
+                  }
                 >
                   {children}
                 </a>
               ),
-              hr: () => (
-                <hr className="u-my-8 u-border-secondary" />
-              ),
+              hr: () => <hr className="u-my-8 u-border-secondary" />,
               strong: ({ children }) => (
-                <strong className="u-fw-bold u-text-primary-emphasis">{children}</strong>
+                <strong className="u-fw-bold u-text-primary-emphasis">
+                  {children}
+                </strong>
               ),
-              em: ({ children }) => (
-                <em className="u-fs-italic">{children}</em>
-              ),
-              pre: ({ children }) => (
-                <pre className="u-mb-4">{children}</pre>
-              ),
+              em: ({ children }) => <em className="u-fs-italic">{children}</em>,
+              pre: ({ children }) => <pre className="u-mb-4">{children}</pre>,
             }}
           >
             {content}
@@ -240,4 +248,3 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
 };
 
 export default MarkdownPage;
-

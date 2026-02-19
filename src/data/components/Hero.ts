@@ -161,7 +161,7 @@ function BasicHero() {
       subtitle="Build amazing experiences"
       text="Discover the power of modern web development"
       actions={
-        <div className="u-d-flex u-gap-3">
+        <div className="u-flex u-gap-3">
           <Button variant="primary" size="lg">Get Started</Button>
           <Button variant="secondary" size="lg">Learn More</Button>
         </div>

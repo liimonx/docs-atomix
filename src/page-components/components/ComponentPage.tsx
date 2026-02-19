@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect, useMemo, useCallback, FC } from "react";
 import Link from "next/link";
@@ -25,7 +25,7 @@ import { ComponentExamples } from "@/components/showcase/ComponentExamples";
 import { ComponentAccessibility } from "@/components/showcase/ComponentAccessibility";
 import { ComponentRelated } from "@/components/showcase/ComponentRelated";
 import { GlassProps } from "@/types/atomix-components";
-import styles from '@/styles/PageHero.module.scss';
+import styles from "@/styles/PageHero.module.scss";
 
 const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -37,14 +37,16 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
   }, []);
 
   // Find navigation item for the component
-  const navigationItem = useMemo(() =>
-    componentId ? findNavigationItem(componentId) : null,
-    [componentId]);
+  const navigationItem = useMemo(
+    () => (componentId ? findNavigationItem(componentId) : null),
+    [componentId],
+  );
 
   // Get component documentation directly (no loading state needed)
-  const componentData = useMemo(() =>
-    getComponentDocumentation(componentId || ""),
-    [componentId]);
+  const componentData = useMemo(
+    () => getComponentDocumentation(componentId || ""),
+    [componentId],
+  );
 
   const componentDoc: ComponentDocumentation = useMemo(() => {
     const fallback = {
@@ -133,7 +135,8 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
       features: componentData.features || fallback.features,
       dependencies: componentData.dependencies || fallback.dependencies,
       tags: componentData.tags || fallback.tags,
-      relatedComponents: componentData.relatedComponents || fallback.relatedComponents,
+      relatedComponents:
+        componentData.relatedComponents || fallback.relatedComponents,
       props: componentData.props || fallback.props,
       examples: componentData.examples || fallback.examples,
       usage: componentData.usage || fallback.usage,
@@ -151,20 +154,23 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
     }
   }, []);
 
-  const getStatusColor = useMemo(() => (status: string) => {
-    switch (status) {
-      case "stable":
-        return "success";
-      case "beta":
-        return "warning";
-      case "experimental":
-        return "info";
-      case "deprecated":
-        return "error";
-      default:
-        return "default";
-    }
-  }, []);
+  const getStatusColor = useMemo(
+    () => (status: string) => {
+      switch (status) {
+        case "stable":
+          return "success";
+        case "beta":
+          return "warning";
+        case "experimental":
+          return "info";
+        case "deprecated":
+          return "error";
+        default:
+          return "default";
+      }
+    },
+    [],
+  );
 
   // Memoize tab items to prevent unnecessary re-renders
   const tabItems = useMemo(() => {
@@ -179,11 +185,11 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                   <h3 className="u-fs-xl u-fw-bold u-mb-4">
                     <Icon name="Sparkle" /> Features
                   </h3>
-                  <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-wrap u-gap-2">
+                  <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-wrap u-gap-2">
                     {(componentDoc.features || []).map((feature, index) => (
                       <li
                         key={index}
-                        className="u-d-flex u-align-items-start u-gap-4"
+                        className="u-flex u-align-items-start u-gap-4"
                       >
                         {feature.supported ? (
                           <>
@@ -259,13 +265,13 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
               </GridCol>
 
               <GridCol md={4}>
-                <div className="u-d-flex u-flex-column u-gap-4">
+                <div className="u-flex u-flex-column u-gap-4">
                   <Card>
                     <h3 className="u-fs-lg u-fw-semibold u-mb-4">
                       <Icon name="Book" /> Dependencies
                     </h3>
                     {(componentDoc.dependencies || []).length > 0 ? (
-                      <ul className="u-list-none u-p-0 u-m-0 u-d-flex u-flex-column u-gap-2">
+                      <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
                         {(componentDoc.dependencies || []).map((dep, index) => (
                           <li key={index}>
                             <Badge variant="warning" label={dep as string} />
@@ -283,7 +289,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                     <h3 className="u-fs-lg u-fw-semibold u-mb-4">
                       <Icon name="Tag" /> Tags
                     </h3>
-                    <div className="u-d-flex u-flex-wrap u-gap-2">
+                    <div className="u-flex u-flex-wrap u-gap-2">
                       {(componentDoc.tags || []).map((tag, index) => (
                         <Badge
                           key={index}
@@ -299,17 +305,17 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                     <h3 className="u-fs-lg u-fw-semibold u-mb-4">
                       <Icon name="Link" /> Quick Links
                     </h3>
-                    <div className="u-d-flex u-flex-column u-gap-2">
+                    <div className="u-flex u-flex-column u-gap-2">
                       <Button
                         variant="outline-secondary"
                         size="sm"
                         onClick={() =>
                           window.open(
                             `https://github.com/shohojdhara/atomix/tree/main/src/components/${componentDoc.name}`,
-                            "_blank"
+                            "_blank",
                           )
                         }
-                        className="u-w-100 u-justify-content-start"
+                        className="u-w-100 u-justify-start"
                       >
                         <Icon name="GithubLogo" />
                         Source Code
@@ -320,10 +326,10 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                         onClick={() =>
                           window.open(
                             `https://atomix-storybook.netlify.app/?path=/story/components-${componentId}`,
-                            "_blank"
+                            "_blank",
                           )
                         }
-                        className="u-w-100 u-justify-content-start"
+                        className="u-w-100 u-justify-start"
                       >
                         <Icon name="BookOpen" />
                         Storybook
@@ -360,19 +366,23 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
       {
         label: "Accessibility",
         content: (
-          <ComponentAccessibility accessibility={componentDoc.accessibility || {
-            overview: "Accessibility information not available",
-            guidelines: [],
-            wcagLevel: "AA" as const,
-            keyboardSupport: [],
-            ariaAttributes: []
-          }} />
+          <ComponentAccessibility
+            accessibility={
+              componentDoc.accessibility || {
+                overview: "Accessibility information not available",
+                guidelines: [],
+                wcagLevel: "AA" as const,
+                keyboardSupport: [],
+                ariaAttributes: [],
+              }
+            }
+          />
         ),
       },
     ];
 
     // Ensure all items have required properties
-    return items.filter(item => item && item.label && item.content);
+    return items.filter((item) => item && item.label && item.content);
   }, [componentDoc, copiedCode, copyToClipboard, componentId]);
 
   // Don't render tabs during SSR to avoid issues
@@ -386,13 +396,13 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
         glass={
           isMounted
             ? ({
-              displacementScale: 30,
-              blurAmount: 5,
-              elasticity: 0,
-              enableLiquidBlur: true,
-              padding: "20px",
-              cornerRadius: 30,
-            } as GlassProps)
+                displacementScale: 30,
+                blurAmount: 5,
+                elasticity: 0,
+                enableLiquidBlur: true,
+                padding: "20px",
+                cornerRadius: 30,
+              } as GlassProps)
             : undefined
         }
         className={styles.pageHero}
@@ -402,11 +412,11 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
         alignment="center"
       />
 
-      <Block >
+      <Block>
         <div className="u-mb-lg">
           <Link
             href="/docs/components/overview"
-            className="u-d-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-fs-sm u-mb-4 u-transition-fast u-focus-visible-ring"
+            className="u-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-fs-sm u-mb-4 u-transition-fast u-focus-visible-ring"
             style={{
               transition: "var(--atomix-transition-fast)",
             }}
@@ -423,7 +433,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
             <span>Back to Components</span>
           </Link>
 
-          <div className="u-d-flex u-flex-wrap u-align-items-start u-justify-content-between u-gap-4 u-mb-4">
+          <div className="u-flex u-flex-wrap u-align-items-start u-justify-between u-gap-4 u-mb-4">
             <div className="u-flex-grow-1" style={{ minWidth: "300px" }}>
               <h1 className="u-fs-4xl u-fw-bold u-mb-2">{componentDoc.name}</h1>
               <p
@@ -434,14 +444,14 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
               </p>
             </div>
 
-            <div className="u-d-flex u-gap-2 u-flex-wrap">
+            <div className="u-flex u-gap-2 u-flex-wrap">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() =>
                   window.open(
                     `https://github.com/shohojdhara/atomix/tree/main/src/components/${componentDoc.name}`,
-                    "_blank"
+                    "_blank",
                   )
                 }
               >
@@ -461,7 +471,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
             </div>
           </div>
 
-          <div className="u-d-flex u-flex-wrap u-gap-2">
+          <div className="u-flex u-flex-wrap u-gap-2">
             <Badge
               variant={getStatusColor(componentDoc.status) as any}
               label={componentDoc.status as string}
@@ -478,7 +488,10 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
         </div>
 
         <div className="u-mt-4">
-          <Tabs items={Array.isArray(tabItems) ? tabItems : []} activeIndex={0} />
+          <Tabs
+            items={Array.isArray(tabItems) ? tabItems : []}
+            activeIndex={0}
+          />
         </div>
 
         <div className="u-mt-8">

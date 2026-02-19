@@ -227,7 +227,7 @@ export const buttonMetadata = {
 
 export default function BasicButtons() {
   return (
-    <div className="u-d-flex u-gap-3 u-flex-wrap">
+    <div className="u-flex u-gap-3 u-flex-wrap">
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="success">Success</Button>
@@ -244,7 +244,7 @@ export default function BasicButtons() {
 
 export default function OutlineButtons() {
   return (
-    <div className="u-d-flex u-gap-3 u-flex-wrap u-p-4 u-bg-dark u-rounded">
+    <div className="u-flex u-gap-3 u-flex-wrap u-p-4 u-bg-dark u-rounded">
       <Button variant="outline-primary">Primary</Button>
       <Button variant="outline-success">Success</Button>
       <Button variant="outline-warning">Warning</Button>
@@ -261,7 +261,7 @@ export default function OutlineButtons() {
 
 export default function ButtonSizes() {
   return (
-    <div className="u-d-flex u-align-items-center u-gap-3 u-flex-wrap">
+    <div className="u-flex u-align-items-center u-gap-3 u-flex-wrap">
       <Button size="sm" variant="secondary">Small</Button>
       <Button size="md" variant="primary">Medium</Button>
       <Button size="lg" variant="secondary">Large</Button>
@@ -281,7 +281,7 @@ export default function ButtonSizes() {
 
 export default function IconButtonExample() {
   return (
-    <div className="u-d-flex u-gap-3 u-flex-wrap">
+    <div className="u-flex u-gap-3 u-flex-wrap">
       {/* Icon at Start */}
       <Button 
         variant="primary" 
@@ -329,7 +329,7 @@ export default function FullWidthExample() {
   return (
     <Card className="u-max-w-sm u-p-4">
       <h4 className="u-mb-4">Sign In</h4>
-      <div className="u-d-flex u-flex-column u-gap-3">
+      <div className="u-flex u-flex-column u-gap-3">
         <Button fullWidth variant="primary">
           Sign In
         </Button>
@@ -349,7 +349,7 @@ export default function FullWidthExample() {
 
 export default function SocialLoginExample() {
   return (
-    <div className="u-d-flex u-flex-column u-gap-3 u-max-w-sm">
+    <div className="u-flex u-flex-column u-gap-3 u-max-w-sm">
       <Button 
         variant="outline-secondary" 
         fullWidth
@@ -387,7 +387,7 @@ export default function SocialLoginExample() {
 
 export default function ButtonAsLink() {
   return (
-    <div className="u-d-flex u-gap-3 u-flex-wrap">
+    <div className="u-flex u-gap-3 u-flex-wrap">
       {/* Simple link button (automatically renders as <a>) */}
       <Button
         label="Visit Website"
@@ -418,7 +418,7 @@ export default function ToggleButton() {
   const [isSelected, setIsSelected] = useState(false);
 
   return (
-    <div className="u-d-flex u-gap-3 u-flex-wrap">
+    <div className="u-flex u-gap-3 u-flex-wrap">
       <Button
         label="Toggle Active"
         variant="primary"

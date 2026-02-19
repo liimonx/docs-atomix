@@ -74,7 +74,7 @@ export const iconMetadata = {
 
 function BasicIcons() {
   return (
-    <div className="u-d-flex u-gap-4 u-align-items-center">
+    <div className="u-flex u-gap-4 u-align-items-center">
       <Icon name="Heart" />
       <Icon name="Star" />
       <Icon name="User" />
@@ -89,7 +89,7 @@ function BasicIcons() {
       description: 'Different icon sizes from extra small to extra large',
       code: `function IconSizes() {
   return (
-    <div className="u-d-flex u-gap-4 u-align-items-center">
+    <div className="u-flex u-gap-4 u-align-items-center">
       <Icon name="Heart" size="xs" />
       <Icon name="Heart" size="sm" />
       <Icon name="Heart" size="md" />
@@ -106,7 +106,7 @@ function BasicIcons() {
       description: 'Different icon weight variants',
       code: `function IconWeights() {
   return (
-    <div className="u-d-flex u-gap-4 u-align-items-center">
+    <div className="u-flex u-gap-4 u-align-items-center">
       <Icon name="Star" weight="thin" />
       <Icon name="Star" weight="light" />
       <Icon name="Star" weight="regular" />
@@ -123,7 +123,7 @@ function BasicIcons() {
       description: 'Icons with custom colors',
       code: `function ColoredIcons() {
   return (
-    <div className="u-d-flex u-gap-4 u-align-items-center">
+    <div className="u-flex u-gap-4 u-align-items-center">
       <Icon name="Heart" color="var(--atomix-error)" />
       <Icon name="CheckCircle" color="var(--atomix-success)" />
       <Icon name="Warning" color="var(--atomix-warning)" />
@@ -145,7 +145,7 @@ function InteractiveIcons() {
   const [liked, setLiked] = useState(false);
   
   return (
-    <div className="u-d-flex u-gap-4">
+    <div className="u-flex u-gap-4">
       <button 
         className="u-btn-reset u-cursor-pointer"
         onClick={() => setLiked(!liked)}
@@ -169,7 +169,7 @@ function InteractiveIcons() {
 
 function IconsInButtons() {
   return (
-    <div className="u-d-flex u-gap-4">
+    <div className="u-flex u-gap-4">
       <Button
         label="Save"
         icon={<Icon name="Save" />}

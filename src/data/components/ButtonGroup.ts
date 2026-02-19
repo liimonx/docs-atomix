@@ -75,7 +75,7 @@ export default function BasicButtonGroup() {
 
 export default function VariantsExample() {
   return (
-    <div className="u-d-flex u-flex-column u-gap-4">
+    <div className="u-flex u-flex-column u-gap-4">
       <ButtonGroup variant="outline-primary" size="sm">
         <Button>Small</Button>
         <Button>Outline</Button>
@@ -115,7 +115,7 @@ export default function VerticalExample() {
 
 export default function ToolbarExample() {
   return (
-    <div className="u-d-flex u-gap-2 u-p-2 u-bg-subtle u-rounded">
+    <div className="u-flex u-gap-2 u-p-2 u-bg-subtle u-rounded">
       <ButtonGroup variant="ghost" size="sm">
         <Button icon={<Icon name="TextBolder" />} ariaLabel="Bold" />
         <Button icon={<Icon name="TextItalic" />} ariaLabel="Italic" />

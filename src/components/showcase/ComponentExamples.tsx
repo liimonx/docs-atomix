@@ -49,7 +49,7 @@ export const ComponentExamples: FC<ComponentExamplesProps> = ({
     <div className="component-examples">
       {examples.length > 1 ? (
         <div className="u-my-4">
-          <div className="u-d-flex u-gap-2 u-justify-content-center">
+          <div className="u-flex u-gap-2 u-justify-center">
             {examples.map((example, index) => (
               <Button
                 variant={
@@ -127,7 +127,7 @@ export const ComponentExamples: FC<ComponentExamplesProps> = ({
           <div
             key={exampleId}
             className={
-              examples.length > 1 && activeExample !== index ? "u-d-none" : ""
+              examples.length > 1 && activeExample !== index ? "u-none" : ""
             }
           >
             <Card className="u-mb-6" elevation="lg">

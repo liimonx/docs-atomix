@@ -206,7 +206,7 @@ function FileUploadProgress() {
     <div className="u-gap-4">
       {uploads.map(upload => (
         <div key={upload.id}>
-          <div className="u-d-flex u-justify-content-between u-mb-2">
+          <div className="u-flex u-justify-between u-mb-2">
             <span>{upload.fileName}</span>
             <span>{Math.round(upload.progress)}%</span>
           </div>

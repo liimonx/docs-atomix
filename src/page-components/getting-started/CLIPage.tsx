@@ -16,7 +16,6 @@ import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 import styles from "@/styles/PageHero.module.scss";
 
 const CLIPage: FC = () => {
-
   return (
     <div>
       <Hero
@@ -39,9 +38,18 @@ const CLIPage: FC = () => {
 
         <Row className="u-mt-6">
           <GridCol md={6}>
-            <Card className="u-p-6 u-h-100" appearance="outlined" elevation="lg" variant="primary">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <Icon name="Download" size={24} className="c-card__icon u-me-2" />
+            <Card
+              className="u-p-6 u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="primary"
+            >
+              <div className="u-flex u-align-items-center u-mb-4">
+                <Icon
+                  name="Download"
+                  size={24}
+                  className="c-card__icon u-me-2"
+                />
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Install Atomix
                 </h3>
@@ -58,9 +66,18 @@ const CLIPage: FC = () => {
           </GridCol>
 
           <GridCol md={6}>
-            <Card className="u-p-6 u-h-100" appearance="outlined" elevation="lg" variant="success">
-              <div className="u-d-flex u-align-items-center u-mb-4">
-                <Icon name="Terminal" size={24} className="c-card__icon u-me-2" />
+            <Card
+              className="u-p-6 u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="success"
+            >
+              <div className="u-flex u-align-items-center u-mb-4">
+                <Icon
+                  name="Terminal"
+                  size={24}
+                  className="c-card__icon u-me-2"
+                />
                 <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
                   Access CLI
                 </h3>
@@ -87,7 +104,12 @@ const CLIPage: FC = () => {
 
         <Row className="u-mt-6">
           <GridCol md={4} className="u-mb-4">
-            <Card className="u-h-100" appearance="outlined" elevation="lg" variant="primary">
+            <Card
+              className="u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="primary"
+            >
               <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
                 Initialize Project
               </h3>
@@ -103,7 +125,12 @@ const CLIPage: FC = () => {
           </GridCol>
 
           <GridCol md={4} className="u-mb-4">
-            <Card className="u-h-100" appearance="outlined" elevation="lg" variant="success">
+            <Card
+              className="u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="success"
+            >
               <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
                 Create Theme
               </h3>
@@ -120,7 +147,12 @@ npx atomix build-theme my-theme --watch`}
           </GridCol>
 
           <GridCol md={4} className="u-mb-4">
-            <Card className="u-h-100" appearance="outlined" elevation="lg" variant="warning">
+            <Card
+              className="u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="warning"
+            >
               <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
                 Generate Component
               </h3>
@@ -145,8 +177,8 @@ npx atomix build-theme my-theme --watch`}
         />
 
         {/* atomix init */}
-        <Card className="u-mt-6"  appearance="outlined" elevation="lg">
-          <div className="u-d-flex u-align-items-center u-mb-4">
+        <Card className="u-mt-6" appearance="outlined" elevation="lg">
+          <div className="u-flex u-align-items-center u-mb-4">
             <Icon name="Rocket" size={20} className="c-card__icon u-me-2" />
             <h2 className="u-fs-2xl u-fw-bold u-m-0 u-text-primary-emphasis">
               Atomix init
@@ -186,8 +218,13 @@ npx atomix build-theme my-theme --watch`}
         </Card>
 
         {/* atomix build-theme */}
-        <Card className="u-mt-6" variant="success" appearance="outlined" elevation="lg">
-          <div className="u-d-flex u-align-items-center u-mb-4">
+        <Card
+          className="u-mt-6"
+          variant="success"
+          appearance="outlined"
+          elevation="lg"
+        >
+          <div className="u-flex u-align-items-center u-mb-4">
             <Icon name="Palette" size={20} className="c-card__icon u-me-2" />
             <h2 className="u-fs-2xl u-fw-bold u-m-0 u-text-primary-emphasis">
               atomix build-theme
@@ -271,8 +308,13 @@ npx atomix build-theme themes/custom --analyze`}
         </Card>
 
         {/* atomix generate */}
-        <Card className="u-mt-6" variant="warning" appearance="outlined" elevation="lg">
-          <div className="u-d-flex u-align-items-center u-mb-4">
+        <Card
+          className="u-mt-6"
+          variant="warning"
+          appearance="outlined"
+          elevation="lg"
+        >
+          <div className="u-flex u-align-items-center u-mb-4">
             <Icon name="Code" size={20} className="c-card__icon u-me-2" />
             <h2 className="u-fs-2xl u-fw-bold u-m-0 u-text-primary-emphasis">
               atomix generate (alias: g)
@@ -376,8 +418,13 @@ npx atomix g component Header --path ./src/layouts`}
         </Card>
 
         {/* atomix migrate */}
-        <Card className="u-mt-6" variant="info" appearance="outlined" elevation="lg">
-          <div className="u-d-flex u-align-items-center u-mb-4">
+        <Card
+          className="u-mt-6"
+          variant="info"
+          appearance="outlined"
+          elevation="lg"
+        >
+          <div className="u-flex u-align-items-center u-mb-4">
             <div className="c-card__icon u-me-2">
               <Icon name="ArrowRight" size={20} />
             </div>
@@ -463,8 +510,13 @@ npx atomix migrate scss-variables`}
         </Card>
 
         {/* atomix tokens */}
-        <Card className="u-mt-6" variant="secondary" appearance="outlined" elevation="lg">
-          <div className="u-d-flex u-align-items-center u-mb-4">
+        <Card
+          className="u-mt-6"
+          variant="secondary"
+          appearance="outlined"
+          elevation="lg"
+        >
+          <div className="u-flex u-align-items-center u-mb-4">
             <Icon name="GridFour" size={20} className="c-card__icon u-me-2" />
             <h2 className="u-fs-2xl u-fw-bold u-m-0 u-text-primary-emphasis">
               atomix tokens
@@ -541,7 +593,13 @@ npx atomix tokens export --format css --output tokens.css`}
         {/* Additional Commands */}
         <Row className="u-mt-6">
           <GridCol md={6} className="u-mb-4">
-            <Card className="u-h-100" appearance="outlined" elevation="lg" variant="primary" hoverable>
+            <Card
+              className="u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="primary"
+              hoverable
+            >
               <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
                 atomix dev
               </h3>
@@ -557,7 +615,13 @@ npx atomix tokens export --format css --output tokens.css`}
           </GridCol>
 
           <GridCol md={6} className="u-mb-4">
-            <Card className="u-h-100" appearance="outlined" elevation="lg" variant="success" hoverable>
+            <Card
+              className="u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="success"
+              hoverable
+            >
               <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
                 atomix validate
               </h3>
@@ -573,7 +637,13 @@ npx atomix tokens export --format css --output tokens.css`}
           </GridCol>
 
           <GridCol md={6} className="u-mb-4">
-            <Card className="u-h-100" appearance="outlined" elevation="lg" variant="error" hoverable>
+            <Card
+              className="u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="error"
+              hoverable
+            >
               <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
                 atomix create-theme
               </h3>
@@ -589,7 +659,13 @@ npx atomix tokens export --format css --output tokens.css`}
           </GridCol>
 
           <GridCol md={6} className="u-mb-4">
-            <Card className="u-h-100" appearance="outlined" elevation="lg" variant="info" hoverable>
+            <Card
+              className="u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="info"
+              hoverable
+            >
               <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
                 atomix doctor
               </h3>
@@ -658,7 +734,12 @@ npx atomix tokens export --format css --output tokens.css`}
 
         <Row className="u-mt-6">
           <GridCol md={6} className="u-mb-4">
-            <Card className="u-h-100" appearance="outlined" elevation="lg" variant="primary">
+            <Card
+              className="u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="primary"
+            >
               <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
                 Starting a New Project
               </h3>
@@ -678,7 +759,12 @@ npx atomix dev my-brand`}
           </GridCol>
 
           <GridCol md={6} className="u-mb-4">
-            <Card className="u-h-100" appearance="outlined" elevation="lg" variant="primary">
+            <Card
+              className="u-h-100"
+              appearance="outlined"
+              elevation="lg"
+              variant="primary"
+            >
               <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
                 Component Development
               </h3>
@@ -702,7 +788,12 @@ npx atomix tokens validate`}
       <Block spacing="md" background="brand">
         <Row justifyContent="center">
           <GridCol lg={8}>
-            <Card className="u-p-8 u-text-center" appearance="outlined" elevation="lg" variant="primary">
+            <Card
+              className="u-p-8 u-text-center"
+              appearance="outlined"
+              elevation="lg"
+              variant="primary"
+            >
               <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-primary-emphasis">
                 Need Help?
               </h2>
@@ -711,7 +802,7 @@ npx atomix tokens validate`}
                 check out our troubleshooting guide or reach out to the
                 community.
               </p>
-              <div className="u-d-flex u-gap-3 u-flex-wrap u-justify-content-center">
+              <div className="u-flex u-gap-3 u-flex-wrap u-justify-center">
                 <Button
                   icon={<Icon name="BookOpen" size={16} />}
                   label="View Full Documentation"

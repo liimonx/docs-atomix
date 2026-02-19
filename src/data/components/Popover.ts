@@ -163,7 +163,7 @@ function BasicPopover() {
   const content = <div>Popover content</div>;
 
   return (
-    <div className="u-d-flex u-gap-4">
+    <div className="u-flex u-gap-4">
       <Popover content={content} position="top">
         <button>Top</button>
       </Popover>

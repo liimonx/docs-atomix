@@ -1,19 +1,17 @@
-'use client';
+"use client";
 
-import { memo } from 'react';
-import Link from 'next/link';
+import { memo } from "react";
+import Link from "next/link";
 import {
   AtomixLogo,
   Icon,
   Navbar,
   Nav,
   ColorModeToggle,
-  Button
-
-} from '@shohojdhara/atomix';
-import { GlobalSearch } from '@/components/ui/GlobalSearch';
-import type { GlassProps } from '@/types/atomix-components';
-
+  Button,
+} from "@shohojdhara/atomix";
+import { GlobalSearch } from "@/components/ui/GlobalSearch";
+import type { GlassProps } from "@/types/atomix-components";
 
 interface DocumentationHeaderProps {
   isSidebarOpen?: boolean;
@@ -24,49 +22,51 @@ interface DocumentationHeaderProps {
 const DocumentationHeader = memo(function DocumentationHeader({
   isSidebarOpen,
   onSidebarToggle,
-  showSidebarToggle = false
+  showSidebarToggle = false,
 }: DocumentationHeaderProps) {
   const externalLinks = [
     {
-      label: 'GitHub',
-      href: 'https://github.com/shohojdhara/atomix',
-      icon: 'GithubLogo'
+      label: "GitHub",
+      href: "https://github.com/shohojdhara/atomix",
+      icon: "GithubLogo",
     },
     {
-      label: 'NPM',
-      href: 'https://www.npmjs.com/package/@shohojdhara/atomix',
-      icon: 'Package'
-    }
+      label: "NPM",
+      href: "https://www.npmjs.com/package/@shohojdhara/atomix",
+      icon: "Package",
+    },
   ];
 
   return (
     <header role="banner">
       <Navbar
-        glass={{
-          displacementScale: 20,
-          blurAmount: 2,
-          elasticity: 0,
-          mode: 'standard',
-        } as GlassProps}
+        glass={
+          {
+            displacementScale: 20,
+            blurAmount: 2,
+            elasticity: 0,
+            mode: "standard",
+          } as GlassProps
+        }
         brand={
-          <div className="u-d-flex u-align-items-center u-gap-2">
+          <div className="u-flex u-align-items-center u-gap-2">
             {/* Mobile menu toggle - only show on docs pages */}
             {showSidebarToggle && onSidebarToggle && (
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={onSidebarToggle}
-                aria-label={isSidebarOpen ? 'Close menu' : 'Open menu'}
-                className="u-d-lg-none"
+                aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
+                className="u-lg-none"
               >
-                <Icon name={isSidebarOpen ? 'X' : 'List'} size="sm" />
+                <Icon name={isSidebarOpen ? "X" : "List"} size="sm" />
               </Button>
             )}
 
             {/* Logo and Brand */}
             <Link
               href="/"
-              className="u-d-flex u-align-items-center u-gap-2 u-text-decoration-none"
+              className="u-flex u-align-items-center u-gap-2 u-text-decoration-none"
               aria-label="Atomix Design System"
             >
               <AtomixLogo />
@@ -77,7 +77,11 @@ const DocumentationHeader = memo(function DocumentationHeader({
         aria-label="Main navigation"
         position="fixed"
       >
-        <Nav className="u-d-flex u-align-items-center u-gap-2" aria-label="Primary navigation" alignment='end'>
+        <Nav
+          className="u-flex u-align-items-center u-gap-2"
+          aria-label="Primary navigation"
+          alignment="end"
+        >
           {/* Search */}
           <div className="u-position-relative">
             <GlobalSearch />
@@ -85,9 +89,9 @@ const DocumentationHeader = memo(function DocumentationHeader({
         </Nav>
 
         {/* Right Section */}
-        <Nav className="u-d-flex u-align-items-center u-gap-2" alignment='end'>
+        <Nav className="u-flex u-align-items-center u-gap-2" alignment="end">
           {/* External Links */}
-          <div className="u-d-flex u-gap-2">
+          <div className="u-flex u-gap-2">
             {externalLinks.map((link) => (
               <Button
                 key={link.href}
@@ -105,8 +109,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
           </div>
 
           {/* Theme Toggle */}
-          <ColorModeToggle aria-label="Toggle theme" defaultValue='dark' />
-
+          <ColorModeToggle aria-label="Toggle theme" defaultValue="dark" />
         </Nav>
       </Navbar>
     </header>

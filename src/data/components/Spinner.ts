@@ -80,7 +80,7 @@ function BasicSpinners() {
     <div className="u-gap-6">
       <div className="u-gap-4">
         <h3>Color Variants</h3>
-        <div className="u-d-flex u-align-items-center u-gap-4">
+        <div className="u-flex u-align-items-center u-gap-4">
           <Spinner variant="primary" />
           <Spinner variant="secondary" />
           <Spinner variant="success" />
@@ -92,7 +92,7 @@ function BasicSpinners() {
 
       <div className="u-gap-4">
         <h3>Sizes</h3>
-        <div className="u-d-flex u-align-items-center u-gap-4">
+        <div className="u-flex u-align-items-center u-gap-4">
           <Spinner size="xs" variant="primary" />
           <Spinner size="sm" variant="primary" />
           <Spinner size="md" variant="primary" />
@@ -118,7 +118,7 @@ function BasicSpinners() {
   };
 
   return (
-    <div className="u-d-flex u-flex-wrap u-gap-4">
+    <div className="u-flex u-flex-wrap u-gap-4">
       <Button 
         label={loading.save ? "Saving..." : "Save"}
         icon={loading.save ? <Spinner size="sm" /> : <Icon name="FloppyDisk" />}

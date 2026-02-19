@@ -293,7 +293,7 @@ function SelectWithDisabled() {
   ];
 
   return (
-    <div className="u-d-flex u-flex-column u-gap-3" style={{ width: '300px' }}>
+    <div className="u-flex u-flex-column u-gap-3" style={{ width: '300px' }}>
       <FormGroup label="Small">
         <Select options={options} size="sm" placeholder="Small select" />
       </FormGroup>

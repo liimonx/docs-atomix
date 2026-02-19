@@ -17,8 +17,8 @@ import {
 import { designTokens, DesignToken } from "@/data/design-tokens";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 import { GlassProps } from "@/types/atomix-components";
-import styles from '@/styles/PageHero.module.scss';
-import componentStyles from './DesignTokensPage.module.scss';
+import styles from "@/styles/PageHero.module.scss";
+import componentStyles from "./DesignTokensPage.module.scss";
 
 // Helper function to get CSS variable name from token
 const getCSSVariable = (token: DesignToken): string | null => {
@@ -81,7 +81,7 @@ const DesignTokensPage: FC = () => {
 
     // Check if it's a valid category
     const validCategory = designTokens.find(
-      (tokenCategory) => tokenCategory.id === category
+      (tokenCategory) => tokenCategory.id === category,
     );
     return validCategory ? category : "all";
   };
@@ -139,7 +139,7 @@ const DesignTokensPage: FC = () => {
           token.name.toLowerCase().includes(query) ||
           token.description.toLowerCase().includes(query) ||
           token.value.toLowerCase().includes(query) ||
-          token.category.toLowerCase().includes(query)
+          token.category.toLowerCase().includes(query),
       );
     }
 
@@ -197,7 +197,7 @@ const DesignTokensPage: FC = () => {
       }
 
       // Determine if we need a border for light colors
-      const needsBorder = 
+      const needsBorder =
         token.value === "#ffffff" ||
         token.value === "#fff" ||
         token.value === "#f9fafb" ||
@@ -210,12 +210,26 @@ const DesignTokensPage: FC = () => {
 
       return (
         <div
-          className={`${componentStyles.designTokensPage__colorPreview} ${needsBorder ? componentStyles['designTokensPage__colorPreview--needsBorder'] : ''}`}
+          className={`${componentStyles.designTokensPage__colorPreview} ${
+            needsBorder
+              ? componentStyles["designTokensPage__colorPreview--needsBorder"]
+              : ""
+          }`}
           style={{ background: colorValue }}
         >
-          <div className={componentStyles.designTokensPage__colorPreviewGradient} />
+          <div
+            className={componentStyles.designTokensPage__colorPreviewGradient}
+          />
           <div className={componentStyles.designTokensPage__colorPreviewBadge}>
-            <span className={`${componentStyles.designTokensPage__colorPreviewText} ${needsBorder ? componentStyles['designTokensPage__colorPreviewText--dark'] : componentStyles['designTokensPage__colorPreviewText--light']}`}>
+            <span
+              className={`${
+                componentStyles.designTokensPage__colorPreviewText
+              } ${
+                needsBorder
+                  ? componentStyles["designTokensPage__colorPreviewText--dark"]
+                  : componentStyles["designTokensPage__colorPreviewText--light"]
+              }`}
+            >
               PREVIEW
             </span>
           </div>
@@ -242,9 +256,14 @@ const DesignTokensPage: FC = () => {
       case "shadow":
         return (
           <div
-            className={`${componentStyles.designTokensPage__shadowPreview} ${token.value === "none" ? componentStyles['designTokensPage__shadowPreview--none'] : ''}`}
+            className={`${componentStyles.designTokensPage__shadowPreview} ${
+              token.value === "none"
+                ? componentStyles["designTokensPage__shadowPreview--none"]
+                : ""
+            }`}
             style={{
-              boxShadow: cssVar || (token.value === "none" ? "none" : token.value),
+              boxShadow:
+                cssVar || (token.value === "none" ? "none" : token.value),
             }}
           >
             <div className={componentStyles.designTokensPage__shadowGradient} />
@@ -267,7 +286,11 @@ const DesignTokensPage: FC = () => {
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className={`${componentStyles.designTokensPage__radiusBox} ${i === 1 ? componentStyles['designTokensPage__radiusBox--none'] : ''}`}
+                className={`${componentStyles.designTokensPage__radiusBox} ${
+                  i === 1
+                    ? componentStyles["designTokensPage__radiusBox--none"]
+                    : ""
+                }`}
                 style={{
                   borderRadius: i === 1 ? "0" : radiusValue,
                 }}
@@ -334,7 +357,8 @@ const DesignTokensPage: FC = () => {
       case "font-weight": {
         // Extract numeric weight value
         const weightMatch = token.value.match(/(\d+)/);
-        const weightValue = cssVar || (weightMatch ? weightMatch[1] : token.value);
+        const weightValue =
+          cssVar || (weightMatch ? weightMatch[1] : token.value);
         return (
           <div className={componentStyles.designTokensPage__fontWeightPreview}>
             <span
@@ -366,7 +390,8 @@ const DesignTokensPage: FC = () => {
                 lineHeight: lineHeightValue,
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </div>
           </div>
         );
@@ -374,7 +399,7 @@ const DesignTokensPage: FC = () => {
       case "form": {
         // Form tokens are colors, so show as color preview
         const formColorValue = cssVar || token.value;
-        const needsBorder = 
+        const needsBorder =
           token.value === "#ffffff" ||
           token.value === "#fff" ||
           token.value === "#f9fafb" ||
@@ -386,15 +411,25 @@ const DesignTokensPage: FC = () => {
           cssVar?.includes("light-bg-subtle");
         return (
           <div
-            className={`${componentStyles.designTokensPage__formPreview} ${needsBorder ? componentStyles['designTokensPage__formPreview--needsBorder'] : ''}`}
+            className={`${componentStyles.designTokensPage__formPreview} ${
+              needsBorder
+                ? componentStyles["designTokensPage__formPreview--needsBorder"]
+                : ""
+            }`}
             style={{
               backgroundColor: formColorValue,
             }}
           >
             <div className={componentStyles.designTokensPage__formBars}>
-              <div className={`${componentStyles.designTokensPage__formBar} ${componentStyles['designTokensPage__formBar--primary']}`} />
-              <div className={`${componentStyles.designTokensPage__formBar} ${componentStyles['designTokensPage__formBar--secondary']}`} />
-              <div className={`${componentStyles.designTokensPage__formBar} ${componentStyles['designTokensPage__formBar--tertiary']}`} />
+              <div
+                className={`${componentStyles.designTokensPage__formBar} ${componentStyles["designTokensPage__formBar--primary"]}`}
+              />
+              <div
+                className={`${componentStyles.designTokensPage__formBar} ${componentStyles["designTokensPage__formBar--secondary"]}`}
+              />
+              <div
+                className={`${componentStyles.designTokensPage__formBar} ${componentStyles["designTokensPage__formBar--tertiary"]}`}
+              />
             </div>
           </div>
         );
@@ -409,7 +444,10 @@ const DesignTokensPage: FC = () => {
             <div
               className={componentStyles.designTokensPage__zIndexLayer}
               style={{
-                zIndex: typeof zIndex === "string" && zIndex.startsWith("var(") ? zIndex : parseInt(zIndex as string) || 0,
+                zIndex:
+                  typeof zIndex === "string" && zIndex.startsWith("var(")
+                    ? zIndex
+                    : parseInt(zIndex as string) || 0,
               }}
             >
               Layer: {zIndexValue}
@@ -453,7 +491,9 @@ const DesignTokensPage: FC = () => {
       case "letter-spacing": {
         const letterSpacingValue = cssVar || token.value;
         return (
-          <div className={componentStyles.designTokensPage__letterSpacingPreview}>
+          <div
+            className={componentStyles.designTokensPage__letterSpacingPreview}
+          >
             <span
               className={componentStyles.designTokensPage__letterSpacingLarge}
               style={{
@@ -534,7 +574,7 @@ const DesignTokensPage: FC = () => {
         backgroundImageSrc="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
       />
 
-      <Block spacing="lg" >
+      <Block spacing="lg">
         {/* Stats Section */}
         {selectedCategory === "all" && (
           <div className="u-mb-8">
@@ -544,7 +584,9 @@ const DesignTokensPage: FC = () => {
                   <div className="u-fs-4xl u-fw-bold u-mb-2 u-text-primary-emphasis">
                     {filteredTokens.length}
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">Total Tokens</p>
+                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">
+                    Total Tokens
+                  </p>
                 </Card>
               </GridCol>
               <GridCol md={4} sm={6}>
@@ -552,7 +594,9 @@ const DesignTokensPage: FC = () => {
                   <div className="u-fs-4xl u-fw-bold u-mb-2 u-text-primary-emphasis">
                     {Object.keys(groupedTokens).length}
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">Categories</p>
+                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">
+                    Categories
+                  </p>
                 </Card>
               </GridCol>
               <GridCol md={4} sm={6}>
@@ -560,7 +604,9 @@ const DesignTokensPage: FC = () => {
                   <div className="u-fs-4xl u-fw-bold u-mb-2 u-text-primary-emphasis">
                     {designTokens.length}
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">Token Groups</p>
+                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">
+                    Token Groups
+                  </p>
                 </Card>
               </GridCol>
             </Grid>
@@ -568,25 +614,31 @@ const DesignTokensPage: FC = () => {
         )}
 
         {Object.entries(groupedTokens).map(([category, tokens]) => {
-          const categoryInfo = designTokens.find(cat => cat.id === category || cat.title.toLowerCase() === category.toLowerCase());
+          const categoryInfo = designTokens.find(
+            (cat) =>
+              cat.id === category ||
+              cat.title.toLowerCase() === category.toLowerCase(),
+          );
           const categoryTitle = categoryInfo?.title || category;
-          const categoryDescription = categoryInfo?.description || '';
-          
+          const categoryDescription = categoryInfo?.description || "";
+
           return (
             <div key={category} className="u-mb-12">
-              <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-6">
+              <div className="u-flex u-align-items-center u-justify-between u-mb-6">
                 <SectionIntro
                   title={categoryTitle}
                   text={categoryDescription}
                   alignment="left"
                 />
-                <Badge 
-                  variant="primary" 
-                  size="md" 
-                  label={`${tokens.length} ${tokens.length === 1 ? 'token' : 'tokens'}`}
+                <Badge
+                  variant="primary"
+                  size="md"
+                  label={`${tokens.length} ${
+                    tokens.length === 1 ? "token" : "tokens"
+                  }`}
                 />
               </div>
-              
+
               <Grid>
                 {tokens.map((token: DesignToken) => (
                   <GridCol
@@ -596,43 +648,67 @@ const DesignTokensPage: FC = () => {
                     xl={3}
                     className="u-mb-4"
                   >
-                    <Card 
-                      className="u-h-100 u-transition-fast u-hover-transform-up u-overflow-hidden"
-                    >
+                    <Card className="u-h-100 u-transition-fast u-hover-transform-up u-overflow-hidden">
                       {/* Preview Section */}
                       <div
-                        className={`${componentStyles.designTokensPage__preview} ${isColorToken(token) || token.category === "gradient" ? componentStyles['designTokensPage__preview--color'] : componentStyles['designTokensPage__preview--nonColor']}`}
+                        className={`${
+                          componentStyles.designTokensPage__preview
+                        } ${
+                          isColorToken(token) || token.category === "gradient"
+                            ? componentStyles[
+                                "designTokensPage__preview--color"
+                              ]
+                            : componentStyles[
+                                "designTokensPage__preview--nonColor"
+                              ]
+                        }`}
                       >
                         {renderTokenPreview(token)}
                       </div>
 
                       {/* Token Info Section */}
-                      <div className={`${componentStyles.designTokensPage__info} u-p-4`}>
-                        <div className="u-d-flex u-align-items-center u-justify-content-between u-mb-2">
-                          <h3 className={`${componentStyles.designTokensPage__tokenName} u-m-0`}>
+                      <div
+                        className={`${componentStyles.designTokensPage__info} u-p-4`}
+                      >
+                        <div className="u-flex u-align-items-center u-justify-between u-mb-2">
+                          <h3
+                            className={`${componentStyles.designTokensPage__tokenName} u-m-0`}
+                          >
                             {token.name}
                           </h3>
-                          <Badge 
-                            variant="secondary" 
-                            size="sm" 
+                          <Badge
+                            variant="secondary"
+                            size="sm"
                             label={token.category}
                           />
                         </div>
-                        
-                        <p className={`${componentStyles.designTokensPage__tokenDescription} u-mb-4`}>
+
+                        <p
+                          className={`${componentStyles.designTokensPage__tokenDescription} u-mb-4`}
+                        >
                           {token.description}
                         </p>
 
                         {/* Value and Copy Section */}
-                        <div className={componentStyles.designTokensPage__valueSection}>
+                        <div
+                          className={
+                            componentStyles.designTokensPage__valueSection
+                          }
+                        >
                           <code
-                            className={componentStyles.designTokensPage__valueCode}
+                            className={
+                              componentStyles.designTokensPage__valueCode
+                            }
                             title={getCSSVariable(token) || token.value}
                           >
                             {getCSSVariable(token) || token.value}
                           </code>
                           <Button
-                            variant={isCopied && copiedTokenName === token.name ? "success" : "primary"}
+                            variant={
+                              isCopied && copiedTokenName === token.name
+                                ? "success"
+                                : "primary"
+                            }
                             size="sm"
                             onClick={() => handleCopy(token)}
                           >

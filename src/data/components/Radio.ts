@@ -164,7 +164,7 @@ function RadioGroup() {
   const [selected, setSelected] = useState('small');
 
   return (
-    <div className="u-d-flex u-gap-4">
+    <div className="u-flex u-gap-4">
       <Radio
         name="size"
         label="Small"

@@ -1,35 +1,42 @@
-'use client';
+"use client";
 
-import { FC } from 'react';
-import Link from 'next/link';
-import { Button, Card, Icon, Container, Grid, GridCol } from '@shohojdhara/atomix';
+import { FC } from "react";
+import Link from "next/link";
+import {
+  Button,
+  Card,
+  Icon,
+  Container,
+  Grid,
+  GridCol,
+} from "@shohojdhara/atomix";
 
 const NotFoundPage: FC = () => {
   const popularLinks = [
     {
-      title: 'Getting Started',
-      description: 'Learn how to install and set up Atomix',
-      path: '/docs/introduction'
+      title: "Getting Started",
+      description: "Learn how to install and set up Atomix",
+      path: "/docs/introduction",
     },
     {
-      title: 'Components',
-      description: 'Browse our component library',
-      path: '/docs/components/button'
+      title: "Components",
+      description: "Browse our component library",
+      path: "/docs/components/button",
     },
     {
-      title: 'Installation Guide',
-      description: 'Install Atomix in your project',
-      path: '/docs/getting-started/installation'
+      title: "Installation Guide",
+      description: "Install Atomix in your project",
+      path: "/docs/getting-started/installation",
     },
     {
-      title: 'Quick Start',
-      description: 'Get up and running in minutes',
-      path: '/docs/getting-started/quick-start'
-    }
+      title: "Quick Start",
+      description: "Get up and running in minutes",
+      path: "/docs/getting-started/quick-start",
+    },
   ];
 
   return (
-    <div className="u-min-h-screen u-d-flex u-flex-column u-align-items-center u-justify-content-center u-p-6 u-text-center">
+    <div className="u-min-h-screen u-flex u-flex-column u-align-items-center u-justify-center u-p-6 u-text-center">
       <Container>
         {/* Error Icon */}
         <div className="u-mb-6">
@@ -37,32 +44,40 @@ const NotFoundPage: FC = () => {
         </div>
 
         {/* Error Message */}
-        <h1 className="u-fs-6xl u-fw-extrabold u-mb-4" style={{ 
-          background: 'var(--atomix-color-primary-gradient)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text'
-        }}>
+        <h1
+          className="u-fs-6xl u-fw-extrabold u-mb-4"
+          style={{
+            background: "var(--atomix-color-primary-gradient)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
           404
         </h1>
 
-        <h2 className="u-fs-3xl u-fw-bold u-mb-4">
-          Page Not Found
-        </h2>
+        <h2 className="u-fs-3xl u-fw-bold u-mb-4">Page Not Found</h2>
 
-        <p className="u-text-secondary-emphasis u-mb-8 u-fs-lg u-mx-auto" style={{ maxWidth: '600px' }}>
-          The page you're looking for doesn't exist or has been moved.
-          Don't worry, you can find what you're looking for using the links below.
+        <p
+          className="u-text-secondary-emphasis u-mb-8 u-fs-lg u-mx-auto"
+          style={{ maxWidth: "600px" }}
+        >
+          The page you're looking for doesn't exist or has been moved. Don't
+          worry, you can find what you're looking for using the links below.
         </p>
 
         {/* Action Buttons */}
-        <div className="u-d-flex u-gap-3 u-mb-12 u-flex-wrap u-justify-content-center">
+        <div className="u-flex u-gap-3 u-mb-12 u-flex-wrap u-justify-center">
           <Button size="lg" href="/" LinkComponent={Link}>
             <Icon name="House" size="sm" className="u-mr-2" />
             Go Home
           </Button>
 
-          <Button variant="outline" size="lg" onClick={() => window.history.back()}>
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => window.history.back()}
+          >
             <Icon name="ArrowLeft" size="sm" className="u-mr-2" />
             Go Back
           </Button>
@@ -70,20 +85,16 @@ const NotFoundPage: FC = () => {
 
         {/* Popular Links */}
         <section className="u-mb-12 u-w-100">
-          <h3 className="u-fs-2xl u-fw-bold u-mb-6">
-            Popular Pages
-          </h3>
+          <h3 className="u-fs-2xl u-fw-bold u-mb-6">Popular Pages</h3>
 
           <Grid>
             {popularLinks.map((link, index) => (
               <GridCol key={index} sm={6} lg={3} className="u-mb-6">
                 <Link
                   href={link.path}
-                  className="u-text-decoration-none u-color-inherit u-d-block u-h-100"
+                  className="u-text-decoration-none u-color-inherit u-block u-h-100"
                 >
-                  <Card
-                    className="u-cursor-pointer u-transition-fast u-border u-border-subtle atomix-card-hover u-h-100"
-                  >
+                  <Card className="u-cursor-pointer u-transition-fast u-border u-border-subtle atomix-card-hover u-h-100">
                     <div className="u-p-6">
                       <h4 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
                         {link.title}
@@ -100,16 +111,21 @@ const NotFoundPage: FC = () => {
         </section>
 
         {/* Help Section */}
-        <section className="u-w-100 u-mx-auto" style={{ maxWidth: '800px' }}>
-          <div className="u-d-flex u-flex-column u-align-items-center u-text-center">
-            <Icon name="MagnifyingGlass" size="xl" className="u-mb-4 u-text-secondary-emphasis" />
+        <section className="u-w-100 u-mx-auto" style={{ maxWidth: "800px" }}>
+          <div className="u-flex u-flex-column u-align-items-center u-text-center">
+            <Icon
+              name="MagnifyingGlass"
+              size="xl"
+              className="u-mb-4 u-text-secondary-emphasis"
+            />
             <h3 className="u-fs-xl u-fw-semibold u-mb-3">
               Still can't find what you're looking for?
             </h3>
             <p className="u-text-secondary-emphasis u-mb-6">
-              Try using the search bar in the sidebar or check out our comprehensive documentation.
+              Try using the search bar in the sidebar or check out our
+              comprehensive documentation.
             </p>
-            <Button 
+            <Button
               variant="outline"
               href="/docs/introduction"
               LinkComponent={Link}
