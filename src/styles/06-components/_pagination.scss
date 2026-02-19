@@ -2,24 +2,9 @@
  * Pagination Component Variable Overrides
  * =============================================================================
  * 
- * Futuristic pagination design with compact spacing and angular sci-fi aesthetics.
+ * Standard pagination styling for Atomix documentation.
  * 
  * @see https://atomix.design/docs/components/pagination
  */
 
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.pagination' with (
-  // Pagination Size - Efficient touch targets
-  $pagination-size: 32px,               // Compact for efficient usability
-  $pagination-size-sm: 24px,            // Compact small size
-  $pagination-size-lg: 40px,            // Efficient large size
-
-  // Pagination Padding - Compact spacing
-  $pagination-padding-x: 0.625rem,      // 10px - Tighter horizontal space
-  $pagination-padding-y: 0.625rem,      // 10px - Tighter vertical space
-
-  // Pagination Typography - Compact readability
-  $pagination-font-size: 0.8125rem,     // 13px
-
-  // Pagination Border Radius - Angular, sci-fi aesthetic
-  $pagination-border-radius: 0.375rem   // Less rounded, more angular
-);
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.pagination';

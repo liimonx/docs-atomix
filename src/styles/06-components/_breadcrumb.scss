@@ -2,23 +2,9 @@
  * Breadcrumb Component Variable Overrides
  * =============================================================================
  * 
- * Futuristic breadcrumb design with compact spacing and angular sci-fi aesthetics.
+ * Standard breadcrumb styling for Atomix documentation.
  * 
  * @see https://atomix.design/docs/components/breadcrumb
  */
 
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.breadcrumb' with (
-  // Breadcrumb Typography - Compact readability
-  $breadcrumb-font-size: 0.8125rem,      // 13px - Efficient size
-
-  // Breadcrumb Link Padding - Compact spacing
-  $breadcrumb-link-padding-y: 0.1875rem, // 3px
-  $breadcrumb-link-padding-x: 0,         // No horizontal padding
-
-  // Breadcrumb Items Gap - Compact spacing
-  $breadcrumb-items-gap: 0.625rem,       // 10px - Tighter space between items
-  $breadcrumb-divider-gap: 0.625rem,     // 10px - Tighter space around divider
-
-  // Breadcrumb Divider - Precise sizing
-  $breadcrumb-divider-size: 0.875rem     // 14px - Compact divider
-);
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.breadcrumb';

@@ -1,27 +1,10 @@
 /**
- * DataTable Component Variable Overrides
+ * Data Table Component Variable Overrides
  * =============================================================================
  * 
- * Futuristic data table design with compact spacing and angular sci-fi aesthetics.
+ * Standard data-table styling for Atomix documentation.
  * 
  * @see https://atomix.design/docs/components/data-table
  */
 
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.data-table' with (
-  // DataTable Border Radius - Angular, sci-fi aesthetic
-  $data-table-border-radius: 0.5rem,           // Less rounded, more angular
-
-  // DataTable Header - Bold typography
-  $data-table-header-font-weight: 700,         // Bold - More energetic
-
-  // DataTable Cell Padding - Compact spacing
-  $data-table-cell-padding-y: 0.875rem,        // 14px - Tighter vertical space
-  $data-table-cell-padding-x: 1rem,            // 16px - Tighter horizontal space
-  $data-table-cell-padding-y-sm: 0.625rem,     // 10px - Compact small size
-  $data-table-cell-padding-x-sm: 0.875rem,     // 14px - Compact small size
-
-  // DataTable Pagination - Compact spacing
-  $data-table-pagination-padding-y: 0.625rem,  // 10px - Tighter vertical space
-  $data-table-pagination-padding-x: 0.875rem   // 14px - Tighter horizontal space
-);
-
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.data-table';

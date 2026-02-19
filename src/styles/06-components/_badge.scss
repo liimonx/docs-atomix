@@ -2,28 +2,20 @@
  * Badge Component Variable Overrides
  * =============================================================================
  * 
- * Futuristic badge design with compact spacing and angular sci-fi aesthetics.
+ * Standard badge styling for Atomix documentation.
  * 
  * @see https://atomix.design/docs/components/badge
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.badge' with (
-  // Badge Typography - Clear, readable
-  $badge-font-size: 0.75rem,        // 12px - Better readability
-  $badge-font-weight: 600,          // Semibold - Good balance
+  // Typography
+  $badge-font-size: 0.75rem,
+  $badge-font-weight: 500,
 
-  // Badge Padding - Comfortable, balanced spacing
-  $badge-padding-x: 0.625rem,       // 10px - Good horizontal space
-  $badge-padding-y: 0.25rem,        // 4px - Better vertical space
-  $badge-padding-y-sm: 0.1875rem,   // 3px
-  $badge-padding-y-lg: 0.375rem,    // 6px
+  // Padding
+  $badge-padding-y: 0.25em,
+  $badge-padding-x: 0.5em,
 
-  // Badge Border Radius - Modern, friendly curves
-  $badge-border-radius: 0.375rem,   // 6px - Balanced roundness
-
-  // Badge Icon - Visible sizing
-  $badge-icon-size: 0.875rem,       // 14px - Good visibility
-
-  // Badge Inner Items Gap - Comfortable spacing between icon and text
-  $badge-inner-items-gap: 0.375rem  // 6px - Good spacing
+  // Border Radius
+  $badge-border-radius: 0.25rem
 );

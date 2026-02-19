@@ -4,28 +4,28 @@
  */
 
 // 1. Colors
-@use './colors' as *;
+@forward './colors';
 
 // 2. Typography
-@use './typography' as *;
+@forward './typography';
 
 // 3. Spacing
-@use './spacing' as *;
+@forward './spacing';
 
 // 4. Layout
-@use './layout' as *;
+@forward './layout';
 
 // 5. Borders
-@use './borders' as *;
+@forward './borders';
 
 // 6. Shadows
-@use './shadows' as *;
+@forward './shadows';
 
 // 7. Transitions
-@use './transitions' as *;
+@forward './transitions';
 
 // 8. Background
-@use './background' as *;
+@forward './background';
 
 // 9. Z-Index
-@use './z-index' as *;
+@forward './z-index';
