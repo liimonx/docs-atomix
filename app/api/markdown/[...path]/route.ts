@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { readFile } from 'fs/promises';
 import { join, normalize, resolve } from 'path';
 
+const ALLOWED_EXTENSIONS = ['.md', '.mdx'];
+
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ path: string[] }> }
@@ -46,28 +48,43 @@ export async function GET(
       );
     }
     
-    // Try to read the file, with fallback to .md extension
-    let content: string;
-    try {
-      content = await readFile(filePath, 'utf-8');
-    } catch (error) {
-      // If file doesn't exist, try with .md extension
-      if (!filePath.endsWith('.md')) {
-        const filePathWithExt = `${filePath}.md`;
+    // Try to read the file, restricting to allowed extensions
+    let content: string | null = null;
+    let lastError: any = null;
+
+    const hasAllowedExt = ALLOWED_EXTENSIONS.some(ext => filePath.endsWith(ext));
+
+    if (hasAllowedExt) {
+      try {
+        content = await readFile(filePath, 'utf-8');
+      } catch (error) {
+        lastError = error;
+      }
+    } else {
+      // If file doesn't have an allowed extension, try with fallbacks
+      for (const ext of ALLOWED_EXTENSIONS) {
+        const filePathWithExt = `${filePath}${ext}`;
         if (normalize(filePathWithExt).startsWith(basePath)) {
           try {
             content = await readFile(filePathWithExt, 'utf-8');
-          } catch {
-            throw error; // Throw original error
+            break; // Success
+          } catch (error) {
+            lastError = error;
           }
-        } else {
-          throw error;
         }
-      } else {
-        throw error;
       }
     }
     
+    if (content === null) {
+      if (lastError) {
+        throw lastError;
+      }
+      return NextResponse.json(
+        { error: 'File not found' },
+        { status: 404 }
+      );
+    }
+
     return new NextResponse(content, {
       headers: {
         'Content-Type': 'text/markdown; charset=utf-8',
@@ -90,4 +107,3 @@ export async function GET(
     );
   }
 }
-
