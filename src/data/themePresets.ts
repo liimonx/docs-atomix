@@ -477,13 +477,6 @@ export function getPresetIds(): string[] {
   return Object.keys(themePresets);
 }
 
-/**
- * Gets a preset by ID
- */
-export function getPreset(id: string): ThemePreset | undefined {
-  return themePresets[id];
-}
-
 export const themePresets: Record<string, ThemePreset> = {
   atomix: {
     name: 'Atomix Default',
