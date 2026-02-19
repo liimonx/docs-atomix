@@ -1,7 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, useMemo, useCallback, useRef, FC } from "react";
-import { Grid, GridCol } from "@shohojdhara/atomix";
+import React, { useState, useEffect, FC } from "react";
 import { DocumentationHeader } from "@/components/navigation/DocumentationHeader";
 import { DocumentationFooter } from "./DocumentationFooter";
 import { DocumentationSidebar } from "@/components/navigation/DocumentationSidebar";
@@ -9,168 +8,47 @@ import { SkipLinks } from "@/components/ui/SkipLinks";
 import { PageTransition } from "./PageTransition";
 import { usePathname } from "next/navigation";
 
-
-// Memoize static components to prevent re-renders
 const MemoizedSkipLinks = React.memo(SkipLinks);
 const MemoizedDocumentationFooter = React.memo(DocumentationFooter);
 
 export const AppLayout: FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  // Always start with false to match SSR, then set to true on desktop after mount
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const pathname = usePathname();
-  const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Check if we're on desktop and handle resize
-  const initialCheckRef = useRef(true);
-  const previousIsDesktopRef = useRef<boolean | null>(null);
-
+  // Close sidebar on route change (mobile)
   useEffect(() => {
-    setMounted(true);
-
-    const checkDesktop = () => {
-      const desktop = window.innerWidth >= 1024;
-      const wasDesktop = previousIsDesktopRef.current;
-      setIsDesktop(desktop);
-
-      // Update sidebar state based on screen size
-      setSidebarOpen((prev) => {
-        // On initial load, open on desktop
-        if (initialCheckRef.current && desktop) {
-          initialCheckRef.current = false;
-          previousIsDesktopRef.current = desktop;
-          return true;
-        }
-
-        // On resize: only change state when switching between mobile/desktop
-        if (wasDesktop !== null) {
-          // Switching from mobile to desktop: open it
-          if (!wasDesktop && desktop && !prev) {
-            previousIsDesktopRef.current = desktop;
-            return true;
-          }
-          // Switching from desktop to mobile: close it
-          if (wasDesktop && !desktop) {
-            previousIsDesktopRef.current = desktop;
-            return false;
-          }
-        }
-
-        previousIsDesktopRef.current = desktop;
-        return prev; // Otherwise maintain current state
-      });
-
-      if (initialCheckRef.current) {
-        initialCheckRef.current = false;
-      }
-    };
-
-    checkDesktop();
-    window.addEventListener("resize", checkDesktop);
-    return () => window.removeEventListener("resize", checkDesktop);
-  }, []);
-
-  // Memoize callbacks to prevent child re-renders
-  const handleMenuToggle = useCallback(() => {
-    setSidebarOpen((prev) => !prev);
-  }, []);
-
-  const handleSidebarClose = useCallback(() => {
     setSidebarOpen(false);
-  }, []);
-
-  const handleSidebarOpen = useCallback(() => {
-    setSidebarOpen(true);
-  }, []);
-
-  const handleSearchChange = useCallback((query: string) => {
-    setSearchQuery(query);
-  }, []);
-
-  // Close sidebar on route change only on mobile
-  useEffect(() => {
-    if (mounted && !isDesktop) {
-      setSidebarOpen(false);
-    }
-    const handler = () => {
-      if (!isDesktop) {
-        setSidebarOpen(false);
-      }
-    };
-    window.addEventListener("popstate", handler);
-    return () => window.removeEventListener("popstate", handler);
-  }, [isDesktop, mounted]);
-
-  // Keyboard shortcut: Cmd/Ctrl + B to toggle sidebar
-  useEffect(() => {
-    if (!mounted) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Cmd/Ctrl + B
-      if ((e.metaKey || e.ctrlKey) && e.key === 'b') {
-        e.preventDefault();
-        setSidebarOpen((prev) => !prev);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [mounted]);
-
-  // Memoize sidebar props to prevent re-renders - remove activeItem dependency
-  const sidebarProps = useMemo(
-    () => ({
-      isOpen: sidebarOpen,
-      onClose: handleSidebarClose,
-      onOpen: handleSidebarOpen,
-      searchQuery,
-      onSearchChange: handleSearchChange,
-      onItemSelect: handleSidebarClose, // Close sidebar on mobile after navigation
-      toggleButtonRef,
-      id: 'navigation',
-    }),
-    [
-      sidebarOpen,
-      handleSidebarClose,
-      handleSidebarOpen,
-      searchQuery,
-      handleSearchChange,
-    ]
-  );
-
-  // Check if we're on a documentation page
-  const isDocsPage = pathname.startsWith('/docs');
+  }, [pathname]);
 
   return (
-    <div>
+    <div className="u-flex u-flex-column u-min-h-screen u-bg-background-light dark:u-bg-background-dark u-color-text-primary u-overflow-hidden">
       <MemoizedSkipLinks />
-      {/* Header - ALWAYS visible - rendered first for proper DOM order */}
+
       <DocumentationHeader
         isSidebarOpen={sidebarOpen}
-        onSidebarToggle={handleMenuToggle}
-        showSidebarToggle={isDocsPage} // Only show toggle on docs pages
+        onSidebarToggle={() => setSidebarOpen(!sidebarOpen)}
+        showSidebarToggle={true}
       />
 
-      {/* Main content area */}
-        {/* Sidebar (EdgePanel) - Rendered outside grid for all devices */}
-        <DocumentationSidebar {...sidebarProps} />
+      <div className="u-flex u-flex-1 u-overflow-hidden" style={{ height: 'calc(100vh - 65px)' }}>
+        <DocumentationSidebar
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+        />
 
-        <main id="main-content" role="main">
-          <Grid>
-            {/* Page Content - Only this should re-render on route change */}
-            <GridCol xs={12}>
-              <PageTransition>
-                {children}
-              </PageTransition>
-            </GridCol>
-          </Grid>
+        <main id="main-content" className="u-flex-1 u-overflow-y-auto u-bg-background-dark u-custom-scrollbar u-scroll-smooth u-relative u-w-100">
+           <PageTransition>
+             <div className="u-max-w-1440px u-mx-auto u-px-4 u-py-5 md:u-px-6 lg:u-py-6">
+               {children}
+             </div>
+           </PageTransition>
+           <div className="u-px-4 md:u-px-6 u-pb-5">
+             <MemoizedDocumentationFooter />
+           </div>
         </main>
-
-      <MemoizedDocumentationFooter />
+      </div>
     </div>
   );
 };
