@@ -1126,17 +1126,28 @@ export const navigationData: NavigationSection[] = [
   }
 ];
 
+// Pre-computed maps for O(1) lookups
+export const pathMap = new Map<string, NavigationItem>();
+export const idMap = new Map<string, NavigationItem>();
+export const sectionMap = new Map<string, NavigationSection>();
+export const itemToSectionMap = new Map<string, NavigationSection>();
+
+navigationData.forEach(section => {
+  sectionMap.set(section.id, section);
+  section.items.forEach(item => {
+    pathMap.set(item.path, item);
+    idMap.set(item.id, item);
+    itemToSectionMap.set(item.id, section);
+  });
+});
+
 // Helper functions for navigation
 export const findNavigationItem = (id: string): NavigationItem | null => {
-  for (const section of navigationData) {
-    const item = section.items.find(item => item.id === id);
-    if (item) return item;
-  }
-  return null;
+  return idMap.get(id) || null;
 };
 
 export const findNavigationSection = (id: string): NavigationSection | null => {
-  return navigationData.find(section => section.id === id) || null;
+  return sectionMap.get(id) || null;
 };
 
 export const getNavigationByCategory = (category: string): NavigationItem[] => {
