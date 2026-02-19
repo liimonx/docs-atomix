@@ -30,7 +30,7 @@ export function GlobalSearch() {
       path: result.path,
       category: result.category as "component" | "page" | "section",
       breadcrumbs: [result.category],
-    })
+    }),
   );
 
   useEffect(() => {
@@ -58,7 +58,8 @@ export function GlobalSearch() {
       if (mappedSearchResults.length > 0) {
         setSelectedIndex(
           (prev) =>
-            (prev - 1 + mappedSearchResults.length) % mappedSearchResults.length
+            (prev - 1 + mappedSearchResults.length) %
+            mappedSearchResults.length,
         );
       }
     } else if (e.key === "Enter" && selectedIndex >= 0) {
@@ -73,18 +74,13 @@ export function GlobalSearch() {
     }
   };
 
-
-
   // Render null during SSR to avoid hydration mismatch
   if (!mounted) {
     return null;
   }
 
   return (
-    <div
-      className="u-position-relative"
-      onKeyDown={handleKeyDown}
-    >
+    <div className="u-relative" onKeyDown={handleKeyDown}>
       <Dropdown
         isOpen={isOpen}
         onOpenChange={setIsOpen}
@@ -119,9 +115,9 @@ export function GlobalSearch() {
           </div>
         }
       >
-        <div className="u-position-relative u-w-100">
+        <div className="u-relative u-w-100">
           <Input
-            className="u-px-4 u-py-2 u-ps-10"
+            className="u-px-4 u-py-2 u-pl-10"
             glass={{
               blurAmount: 10,
               elasticity: 0,
@@ -138,7 +134,7 @@ export function GlobalSearch() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <div className="u-position-absolute u-top-0 u-start-0 u-pt-1 u-ps-1">
+          <div className="u-absolute u-top-0 u-start-0 u-pt-1 u-pl-1">
             {searchQuery ? (
               <Button
                 onClick={() => {

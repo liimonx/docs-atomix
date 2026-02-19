@@ -48,8 +48,8 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
         <Grid className="u-mt-8">
           <GridCol md={3} sm={6}>
             <Card>
-              <div className="u-fs-sm u-text-error-emphasis">5-7</div>
-              <div className="u-fs-sm u-text-error-emphasis">
+              <div className="u-text-sm u-text-error-emphasis">5-7</div>
+              <div className="u-text-sm u-text-error-emphasis">
                 Max Components
               </div>
               <Badge
@@ -62,8 +62,8 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
           </GridCol>
           <GridCol md={3} sm={6}>
             <Card>
-              <div className="u-fs-sm u-text-error-emphasis">60fps</div>
-              <div className="u-fs-sm u-text-error-emphasis">
+              <div className="u-text-sm u-text-error-emphasis">60fps</div>
+              <div className="u-text-sm u-text-error-emphasis">
                 Target Frame Rate
               </div>
               <Badge
@@ -76,8 +76,8 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
           </GridCol>
           <GridCol md={3} sm={6}>
             <Card>
-              <div className="u-fs-sm u-text-error-emphasis">≤100ms</div>
-              <div className="u-fs-sm u-text-error-emphasis">
+              <div className="u-text-sm u-text-error-emphasis">≤100ms</div>
+              <div className="u-text-sm u-text-error-emphasis">
                 First Input Delay
               </div>
               <Badge
@@ -90,8 +90,8 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
           </GridCol>
           <GridCol md={3} sm={6}>
             <Card>
-              <div className="u-fs-sm u-text-error-emphasis">≤0.1</div>
-              <div className="u-fs-sm u-text-error-emphasis">
+              <div className="u-text-sm u-text-error-emphasis">≤0.1</div>
+              <div className="u-text-sm u-text-error-emphasis">
                 Layout Shift Score
               </div>
               <Badge
@@ -130,7 +130,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                 variant="primary"
                                 size="sm"
                                 label="Critical"
-                                className="u-ms-2"
+                                className="u-ml-2"
                               />
                             </>
                           }
@@ -141,7 +141,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                 <div className="u-flex-grow-1">
                                   <div className="u-mt-4">
                                     <h4 className="u-mb-2">✅ Do:</h4>
-                                    <ul className="u-fs-sm">
+                                    <ul className="u-text-sm">
                                       <li className="u-mb-1">
                                         Limit to 5-7 AtomixGlass components
                                         visible at once
@@ -161,7 +161,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                   </div>
                                   <div className="u-mt-3">
                                     <h4 className="u-mb-2">❌ Don't:</h4>
-                                    <ul className="u-ml-6 u-fs-sm">
+                                    <ul className="u-ml-6 u-text-sm">
                                       <li className="u-mb-1">
                                         Apply glass effects to large scrollable
                                         areas
@@ -192,7 +192,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                 variant="warning"
                                 size="sm"
                                 label="Important"
-                                className="u-ms-2"
+                                className="u-ml-2"
                               />
                             </>
                           }
@@ -207,7 +207,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                     "c-data-table c-data-table--bordered c-data-table--striped c-data-table--dense"
                                   }
                                 >
-                                  <thead className="c-data-table__header u-fs-sm">
+                                  <thead className="c-data-table__header u-text-sm">
                                     <tr className="c-data-table__header-row">
                                       <th className="c-data-table__header-cell">
                                         Property
@@ -223,7 +223,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                       </th>
                                     </tr>
                                   </thead>
-                                  <tbody className="c-data-table__body u-fs-sm">
+                                  <tbody className="c-data-table__body u-text-sm">
                                     <tr className="c-data-table__row">
                                       <td className="c-data-table__cell">
                                         <code>displacementScale</code>
@@ -332,7 +332,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                 variant="error"
                                 size="sm"
                                 label="High Impact"
-                                className="u-ms-2"
+                                className="u-ml-2"
                               />
                             </>
                           }
@@ -352,7 +352,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                               <h6 className="u-mb-2">
                                 When to use shader mode:
                               </h6>
-                              <ul className="u-ml-6 u-fs-sm">
+                              <ul className="u-ml-6 u-text-sm">
                                 <li className="u-mb-1">
                                   Hero sections and landing page headers
                                 </li>
@@ -371,7 +371,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                               <h6 className="u-mb-2">
                                 When to use standard mode:
                               </h6>
-                              <ul className="u-ml-6 u-fs-sm">
+                              <ul className="u-ml-6 u-text-sm">
                                 <li className="u-mb-1">Mobile applications</li>
                                 <li className="u-mb-1">
                                   Dashboard and admin interfaces
@@ -564,10 +564,10 @@ function OptimizedGlassComponent() {
                             </div>
                           </div>
 
-                          <h4 className="u-fs-sm u-fw-600 u-mb-2">
+                          <h4 className="u-text-sm u-font-600 u-mb-2">
                             Performance Tab
                           </h4>
-                          <ul className="u-ml-6 u-fs-sm u-mb-4">
+                          <ul className="u-ml-6 u-text-sm u-mb-4">
                             <li className="u-mb-1">
                               Record and analyze frame rates
                             </li>
@@ -582,10 +582,10 @@ function OptimizedGlassComponent() {
                             </li>
                           </ul>
 
-                          <h4 className="u-fs-sm u-fw-600 u-mb-2">
+                          <h4 className="u-text-sm u-font-600 u-mb-2">
                             Rendering Tab
                           </h4>
-                          <ul className="u-ml-6 u-fs-sm u-mb-4">
+                          <ul className="u-ml-6 u-text-sm u-mb-4">
                             <li className="u-mb-1">Enable FPS meter</li>
                             <li className="u-mb-1">Show paint flashing</li>
                             <li className="u-mb-1">
@@ -596,10 +596,10 @@ function OptimizedGlassComponent() {
                             </li>
                           </ul>
 
-                          <h4 className="u-fs-sm u-fw-600 u-mb-2">
+                          <h4 className="u-text-sm u-font-600 u-mb-2">
                             Memory Tab
                           </h4>
-                          <ul className="u-ml-6 u-fs-sm">
+                          <ul className="u-ml-6 u-text-sm">
                             <li className="u-mb-1">Take heap snapshots</li>
                             <li className="u-mb-1">Detect memory leaks</li>
                             <li className="u-mb-1">
@@ -619,7 +619,7 @@ function OptimizedGlassComponent() {
                             />
                             <div>
                               <h3>Core Web Vitals</h3>
-                              <p className="u-fs-sm u-text-secondary-emphasis u-mt-1">
+                              <p className="u-text-sm u-text-secondary-emphasis u-mt-1">
                                 Key metrics for user experience
                               </p>
                             </div>
@@ -628,7 +628,7 @@ function OptimizedGlassComponent() {
                           <div>
                             <div className="u-mb-4">
                               <div className="u-flex u-align-items-center u-justify-between u-mb-1">
-                                <h4 className="u-fs-sm u-fw-600">
+                                <h4 className="u-text-sm u-font-600">
                                   Largest Contentful Paint (LCP)
                                 </h4>
                                 <Badge
@@ -637,7 +637,7 @@ function OptimizedGlassComponent() {
                                   label="≤2.5s"
                                 />
                               </div>
-                              <p className="u-fs-sm u-text-secondary-emphasis">
+                              <p className="u-text-sm u-text-secondary-emphasis">
                                 Time until largest content element is rendered.
                                 AtomixGlass can delay LCP if used in hero
                                 sections.
@@ -646,7 +646,7 @@ function OptimizedGlassComponent() {
 
                             <div className="u-mb-4">
                               <div className="u-flex u-align-items-center u-justify-between u-mb-1">
-                                <h4 className="u-fs-sm u-fw-600">
+                                <h4 className="u-text-sm u-font-600">
                                   First Input Delay (FID)
                                 </h4>
                                 <Badge
@@ -655,7 +655,7 @@ function OptimizedGlassComponent() {
                                   label="≤100ms"
                                 />
                               </div>
-                              <p className="u-fs-sm u-text-secondary-emphasis">
+                              <p className="u-text-sm u-text-secondary-emphasis">
                                 Time from first interaction to browser response.
                                 Heavy shader effects can increase FID.
                               </p>
@@ -663,7 +663,7 @@ function OptimizedGlassComponent() {
 
                             <div className="u-mb-4">
                               <div className="u-flex u-align-items-center u-justify-between u-mb-1">
-                                <h4 className="u-fs-sm u-fw-600">
+                                <h4 className="u-text-sm u-font-600">
                                   Cumulative Layout Shift (CLS)
                                 </h4>
                                 <Badge
@@ -672,7 +672,7 @@ function OptimizedGlassComponent() {
                                   label="≤0.1"
                                 />
                               </div>
-                              <p className="u-fs-sm u-text-secondary-emphasis">
+                              <p className="u-text-sm u-text-secondary-emphasis">
                                 Visual stability score. Always set explicit
                                 dimensions for AtomixGlass containers.
                               </p>
@@ -680,7 +680,7 @@ function OptimizedGlassComponent() {
 
                             <div>
                               <div className="u-flex u-align-items-center u-justify-between u-mb-1">
-                                <h4 className="u-fs-sm u-fw-600">
+                                <h4 className="u-text-sm u-font-600">
                                   Interaction to Next Paint (INP)
                                 </h4>
                                 <Badge
@@ -689,7 +689,7 @@ function OptimizedGlassComponent() {
                                   label="≤200ms"
                                 />
                               </div>
-                              <p className="u-fs-sm u-text-secondary-emphasis">
+                              <p className="u-text-sm u-text-secondary-emphasis">
                                 Responsiveness metric. Debounce interactive
                                 glass effects to maintain good INP.
                               </p>
@@ -826,7 +826,7 @@ function MonitoredGlassComponent() {
                               />
                             </div>
                           </div>
-                          <p className="u-fs-sm u-text-secondary-emphasis u-mb-4">
+                          <p className="u-text-sm u-text-secondary-emphasis u-mb-4">
                             Only render AtomixGlass components when they're
                             visible in the viewport. This dramatically reduces
                             GPU load.
@@ -879,7 +879,7 @@ function LazyGlassComponent() {
                               />
                             </div>
                           </div>
-                          <p className="u-fs-sm u-text-secondary-emphasis u-mb-4">
+                          <p className="u-text-sm u-text-secondary-emphasis u-mb-4">
                             Respect user preferences for reduced motion. This
                             also improves performance on low-end devices.
                           </p>
@@ -926,7 +926,7 @@ function AccessibleGlassComponent() {
                               />
                             </div>
                           </div>
-                          <p className="u-fs-sm u-text-secondary-emphasis u-mb-4">
+                          <p className="u-text-sm u-text-secondary-emphasis u-mb-4">
                             Debounce mouse/touch events to reduce the frequency
                             of expensive shader updates.
                           </p>
@@ -976,7 +976,7 @@ function DebouncedGlassComponent() {
                               />
                             </div>
                           </div>
-                          <p className="u-fs-sm u-text-secondary-emphasis u-mb-4">
+                          <p className="u-text-sm u-text-secondary-emphasis u-mb-4">
                             Memoize AtomixGlass components to prevent
                             unnecessary re-renders and shader recompilation.
                           </p>
@@ -1017,7 +1017,7 @@ const MemoizedGlassCard = memo(({ title, content }) => {
                       title="Quick Wins Summary"
                       className="u-mt-6"
                     >
-                      <ul className="u-ml-6 u-fs-sm u-mt-2">
+                      <ul className="u-ml-6 u-text-sm u-mt-2">
                         <li>Use intersection observer for lazy loading</li>
                         <li>Respect prefers-reduced-motion</li>
                         <li>Debounce interactive events</li>

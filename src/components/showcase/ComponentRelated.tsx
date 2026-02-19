@@ -19,7 +19,7 @@ export const ComponentRelated: FC<ComponentRelatedProps> = ({
   return (
     <Card className="u-mt-8">
       <div className="u-p-4 u-border-b u-border-subtle">
-        <h3 className="u-fs-lg u-fw-semibold u-m-0">Related Components</h3>
+        <h3 className="u-text-lg u-font-semibold u-m-0">Related Components</h3>
       </div>
       <div className="u-p-4">
         <div className="u-flex u-flex-column u-gap-2">
@@ -38,7 +38,7 @@ export const ComponentRelated: FC<ComponentRelatedProps> = ({
                   size="sm"
                   className="u-text-secondary"
                 />
-                <span className="u-text-primary u-fw-medium">
+                <span className="u-text-primary u-font-medium">
                   {navItem.title}
                 </span>
               </Link>

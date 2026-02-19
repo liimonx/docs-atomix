@@ -60,7 +60,7 @@ const MethodCard: FC<CustomizationMethodProps> = ({
             pageStyles[`stylesCustomizationPage__methodIcon--${colorClass}`]
           }
         />
-        <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
+        <h3 className="u-text-xl u-font-semibold u-m-0">{title}</h3>
       </div>
       <Badge
         variant="secondary"
@@ -170,7 +170,7 @@ const StylesCustomizationPage: FC = () => {
                   className="u-text-warning-emphasis"
                 />
                 <div>
-                  <h3 className="u-fs-xl u-fw-semibold u-mb-3">
+                  <h3 className="u-text-xl u-font-semibold u-mb-3">
                     Design Principles
                   </h3>
                   <div className="u-flex u-flex-wrap u-gap-4">
@@ -180,7 +180,9 @@ const StylesCustomizationPage: FC = () => {
                         size={20}
                         className="u-text-success-emphasis"
                       />
-                      <span className="u-fs-sm">Maintain System Integrity</span>
+                      <span className="u-text-sm">
+                        Maintain System Integrity
+                      </span>
                     </div>
                     <div className="u-flex u-align-items-center u-gap-2">
                       <Icon
@@ -188,7 +190,7 @@ const StylesCustomizationPage: FC = () => {
                         size={20}
                         className="u-text-info-emphasis"
                       />
-                      <span className="u-fs-sm">Follow ITCSS</span>
+                      <span className="u-text-sm">Follow ITCSS</span>
                     </div>
                     <div className="u-flex u-align-items-center u-gap-2">
                       <Icon
@@ -196,7 +198,7 @@ const StylesCustomizationPage: FC = () => {
                         size={20}
                         className="u-text-warning-emphasis"
                       />
-                      <span className="u-fs-sm">Use Design Tokens</span>
+                      <span className="u-text-sm">Use Design Tokens</span>
                     </div>
                     <div className="u-flex u-align-items-center u-gap-2">
                       <Icon
@@ -204,7 +206,7 @@ const StylesCustomizationPage: FC = () => {
                         size={20}
                         className="u-text-brand-emphasis"
                       />
-                      <span className="u-fs-sm">Progressive Enhancement</span>
+                      <span className="u-text-sm">Progressive Enhancement</span>
                     </div>
                     <div className="u-flex u-align-items-center u-gap-2">
                       <Icon
@@ -212,7 +214,7 @@ const StylesCustomizationPage: FC = () => {
                         size={20}
                         className="u-text-primary-emphasis"
                       />
-                      <span className="u-fs-sm">Accessibility First</span>
+                      <span className="u-text-sm">Accessibility First</span>
                     </div>
                   </div>
                 </div>
@@ -223,30 +225,32 @@ const StylesCustomizationPage: FC = () => {
 
         <Row className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">Customization Levels</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">
+              Customization Levels
+            </h2>
             <div className="u-overflow-x-auto">
               <table
                 className={`u-w-100 ${pageStyles.stylesCustomizationPage__comparisonTable}`}
               >
                 <thead className="u-bg-tertiary-subtle">
                   <tr>
-                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                    <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                       Level
                     </th>
-                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                    <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                       Scope
                     </th>
-                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                    <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                       Complexity
                     </th>
-                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                    <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                       Use Case
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="u-border-b u-border-subtle">
-                    <td className="u-p-3 u-fw-semibold">Configuration</td>
+                    <td className="u-p-3 u-font-semibold">Configuration</td>
                     <td className="u-p-3 u-text-secondary-emphasis">
                       Variables only
                     </td>
@@ -258,7 +262,7 @@ const StylesCustomizationPage: FC = () => {
                     </td>
                   </tr>
                   <tr className="u-border-b u-border-subtle">
-                    <td className="u-p-3 u-fw-semibold">Theming</td>
+                    <td className="u-p-3 u-font-semibold">Theming</td>
                     <td className="u-p-3 u-text-secondary-emphasis">
                       CSS custom properties
                     </td>
@@ -270,7 +274,7 @@ const StylesCustomizationPage: FC = () => {
                     </td>
                   </tr>
                   <tr className="u-border-b u-border-subtle">
-                    <td className="u-p-3 u-fw-semibold">Extension</td>
+                    <td className="u-p-3 u-font-semibold">Extension</td>
                     <td className="u-p-3 u-text-secondary-emphasis">
                       New components/utilities
                     </td>
@@ -282,7 +286,7 @@ const StylesCustomizationPage: FC = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td className="u-p-3 u-fw-semibold">Architecture</td>
+                    <td className="u-p-3 u-font-semibold">Architecture</td>
                     <td className="u-p-3 u-text-secondary-emphasis">
                       System structure
                     </td>
@@ -301,7 +305,9 @@ const StylesCustomizationPage: FC = () => {
 
         <Row className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">Configuration Methods</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">
+              Configuration Methods
+            </h2>
           </GridCol>
         </Row>
 
@@ -315,7 +321,7 @@ const StylesCustomizationPage: FC = () => {
 
         <Row className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">Brand Integration</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">Brand Integration</h2>
           </GridCol>
         </Row>
 
@@ -328,14 +334,16 @@ const StylesCustomizationPage: FC = () => {
                   size={24}
                   className="u-text-primary-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">Brand Colors</h3>
+                <h3 className="u-text-xl u-font-semibold u-m-0">
+                  Brand Colors
+                </h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-3">
                 Create brand color scales and override Atomix defaults:
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
                 <pre
-                  className={`u-m-0 u-fs-sm ${pageStyles.stylesCustomizationPage__codeBlock}`}
+                  className={`u-m-0 u-text-sm ${pageStyles.stylesCustomizationPage__codeBlock}`}
                 >
                   {`$brand-primary: #your-color;
 
@@ -356,14 +364,14 @@ const StylesCustomizationPage: FC = () => {
                   size={24}
                   className="u-text-brand-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">Typography</h3>
+                <h3 className="u-text-xl u-font-semibold u-m-0">Typography</h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-3">
                 Integrate your brand fonts and type scale:
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
                 <pre
-                  className={`u-m-0 u-fs-sm ${pageStyles.stylesCustomizationPage__codeBlock}`}
+                  className={`u-m-0 u-text-sm ${pageStyles.stylesCustomizationPage__codeBlock}`}
                 >
                   {`@use 'atomix/styles' with (
   $font-family-base: ('Your Font', sans-serif),
@@ -384,7 +392,7 @@ const StylesCustomizationPage: FC = () => {
                   size={24}
                   className="u-text-info-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">
+                <h3 className="u-text-xl u-font-semibold u-m-0">
                   Runtime Theme Switching
                 </h3>
               </div>
@@ -393,7 +401,7 @@ const StylesCustomizationPage: FC = () => {
               </p>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
                 <pre
-                  className={`u-m-0 u-fs-sm ${pageStyles.stylesCustomizationPage__codeBlock}`}
+                  className={`u-m-0 u-text-sm ${pageStyles.stylesCustomizationPage__codeBlock}`}
                 >
                   {`// JavaScript theme switching
 document.documentElement.setAttribute('data-theme', 'dark');

@@ -49,7 +49,7 @@ export default function Error({ error, reset }: ErrorProps) {
                     <summary className="u-cursor-pointer u-font-weight-bold u-mb-2">
                       Error Details
                     </summary>
-                    <pre className="u-p-3 u-bg-tertiary-subtle u-border-radius-md u-overflow-x-auto u-fs-sm">
+                    <pre className="u-p-3 u-bg-tertiary-subtle u-border-radius-md u-overflow-x-auto u-text-sm">
                       {error.message}
                       {error.digest && (
                         <>

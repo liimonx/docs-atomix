@@ -191,7 +191,7 @@ const MigrationPage: FC = () => {
                   >
                     {benefit.icon}
                   </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-mb-3 u-text-primary-emphasis">
+                  <h3 className="u-text-xl u-font-semibold u-mb-3 u-text-primary-emphasis">
                     {benefit.title}
                   </h3>
                   <p className="u-text-secondary-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed">
@@ -218,7 +218,7 @@ const MigrationPage: FC = () => {
                 <div className="u-flex u-flex-column u-h-100">
                   <div className="u-flex u-align-items-center u-mb-4">
                     <div
-                      className={`u-w-12 u-h-12 u-br-md u-flex u-align-items-center u-justify-center u-me-4`}
+                      className={`u-w-12 u-h-12 u-br-md u-flex u-align-items-center u-justify-center u-mr-4`}
                       style={{
                         backgroundColor: `var(--atomix-color-${step.color}-subtle)`,
                         color: `var(--atomix-color-${step.color}-emphasis)`,
@@ -230,10 +230,10 @@ const MigrationPage: FC = () => {
                       variant={step.color as any}
                       size="lg"
                       label={step.step.toString()}
-                      className="u-me-auto"
+                      className="u-mr-auto"
                     />
                   </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-mb-3 u-text-primary-emphasis">
+                  <h3 className="u-text-xl u-font-semibold u-mb-3 u-text-primary-emphasis">
                     {step.title}
                   </h3>
                   <p className="u-text-secondary-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed">
@@ -263,18 +263,18 @@ const MigrationPage: FC = () => {
                 <Card className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-p-6 u-h-100 u-flex u-flex-column">
                     <div className="u-flex u-align-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-4 u-text-primary-emphasis">
+                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-4 u-text-primary-emphasis">
                         {tool.icon}
                       </div>
-                      <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                      <h3 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
                         {tool.title}
                       </h3>
                     </div>
                     <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
                       {tool.description}
                     </p>
-                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                      <span className="u-me-2">Learn more</span>
+                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
+                      <span className="u-mr-2">Learn more</span>
                       <Icon name="CaretRight" size="lg" />
                     </div>
                   </div>
@@ -291,14 +291,14 @@ const MigrationPage: FC = () => {
             If you need assistance with your migration, check out our{" "}
             <Link
               href="/docs/getting-started/installation"
-              className="u-text-primary u-text-decoration-none u-fw-medium"
+              className="u-text-primary u-text-decoration-none u-font-medium"
             >
               installation guide
             </Link>{" "}
             or{" "}
             <Link
               href="/docs/components/overview"
-              className="u-text-primary u-text-decoration-none u-fw-medium"
+              className="u-text-primary u-text-decoration-none u-font-medium"
             >
               browse our components
             </Link>

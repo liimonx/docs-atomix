@@ -10,7 +10,7 @@ const CallToActionSectionDocumentation: FC = () => {
     <div className="u-p-6">
       <div className="u-container u-mx-auto u-px-4">
         <div className="u-mb-8">
-          <nav className="u-flex u-align-items-center u-mb-4 u-fs-sm">
+          <nav className="u-flex u-align-items-center u-mb-4 u-text-sm">
             <Link
               href="/docs"
               className="u-text-primary u-text-decoration-none"
@@ -38,7 +38,9 @@ const CallToActionSectionDocumentation: FC = () => {
             </span>
           </nav>
 
-          <h1 className="u-fs-4xl u-fw-bold u-mb-4">Call to Action Section</h1>
+          <h1 className="u-text-4xl u-font-bold u-mb-4">
+            Call to Action Section
+          </h1>
           <p className="u-text-secondary-emphasis u-mb-6">
             A component for creating prominent call-to-action sections using the
             River component.
@@ -46,7 +48,7 @@ const CallToActionSectionDocumentation: FC = () => {
         </div>
 
         <div className="u-mb-8">
-          <h2 className="u-fs-2xl u-fw-bold u-mb-4">Basic Usage</h2>
+          <h2 className="u-text-2xl u-font-bold u-mb-4">Basic Usage</h2>
           <div className="u-mb-6">
             <CallToActionSection
               title="Ready to get started?"
@@ -54,7 +56,7 @@ const CallToActionSectionDocumentation: FC = () => {
               primaryAction={
                 <Button variant="primary">
                   Get Started
-                  <Icon name="ArrowRight" size={16} className="u-ms-2" />
+                  <Icon name="ArrowRight" size={16} className="u-ml-2" />
                 </Button>
               }
               secondaryAction={
@@ -65,7 +67,7 @@ const CallToActionSectionDocumentation: FC = () => {
         </div>
 
         <div className="u-mb-8">
-          <h2 className="u-fs-2xl u-fw-bold u-mb-4">Installation CTA</h2>
+          <h2 className="u-text-2xl u-font-bold u-mb-4">Installation CTA</h2>
           <div className="u-mb-6">
             <CallToActionSection
               title="Install Atomix"
@@ -73,7 +75,7 @@ const CallToActionSectionDocumentation: FC = () => {
               primaryAction={
                 <Card className="u-bg-tertiary-subtle u-br-md u-p-4 u-mb-4">
                   <code
-                    className="u-text-primary-emphasis u-fs-sm"
+                    className="u-text-primary-emphasis u-text-sm"
                     style={{ fontFamily: "var(--atomix-font-family-mono)" }}
                   >
                     npm install @shohojdhara/atomix
@@ -87,7 +89,7 @@ const CallToActionSectionDocumentation: FC = () => {
                   LinkComponent={Link}
                 >
                   View Installation Guide
-                  <Icon name="ArrowRight" size={16} className="u-ms-2" />
+                  <Icon name="ArrowRight" size={16} className="u-ml-2" />
                 </Button>
               }
             />
@@ -95,22 +97,22 @@ const CallToActionSectionDocumentation: FC = () => {
         </div>
 
         <div className="u-mb-8">
-          <h2 className="u-fs-2xl u-fw-bold u-mb-4">Props</h2>
+          <h2 className="u-text-2xl u-font-bold u-mb-4">Props</h2>
           <Card className="u-p-0 u-overflow-hidden">
             <div className="u-overflow-x-auto">
               <table className="u-w-100" style={{ borderCollapse: "collapse" }}>
                 <thead className="u-bg-tertiary">
                   <tr>
-                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">
+                    <th className="u-p-3 u-text-left u-text-sm u-font-semibold u-border-b u-border-subtle">
                       Prop
                     </th>
-                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">
+                    <th className="u-p-3 u-text-left u-text-sm u-font-semibold u-border-b u-border-subtle">
                       Type
                     </th>
-                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">
+                    <th className="u-p-3 u-text-left u-text-sm u-font-semibold u-border-b u-border-subtle">
                       Default
                     </th>
-                    <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold u-border-b u-border-subtle">
+                    <th className="u-p-3 u-text-left u-text-sm u-font-semibold u-border-b u-border-subtle">
                       Description
                     </th>
                   </tr>
@@ -118,7 +120,7 @@ const CallToActionSectionDocumentation: FC = () => {
                 <tbody>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3">
-                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                      <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
                         title
                       </code>
                     </td>
@@ -132,7 +134,7 @@ const CallToActionSectionDocumentation: FC = () => {
                   </tr>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3">
-                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                      <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
                         text
                       </code>
                     </td>
@@ -146,7 +148,7 @@ const CallToActionSectionDocumentation: FC = () => {
                   </tr>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3">
-                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                      <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
                         primaryAction
                       </code>
                     </td>
@@ -160,7 +162,7 @@ const CallToActionSectionDocumentation: FC = () => {
                   </tr>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3">
-                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                      <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
                         secondaryAction
                       </code>
                     </td>
@@ -174,7 +176,7 @@ const CallToActionSectionDocumentation: FC = () => {
                   </tr>
                   <tr>
                     <td className="u-p-3">
-                      <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                      <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
                         center
                       </code>
                     </td>
@@ -191,7 +193,7 @@ const CallToActionSectionDocumentation: FC = () => {
         </div>
 
         <div className="u-mb-8">
-          <h2 className="u-fs-2xl u-fw-bold u-mb-4">Implementation</h2>
+          <h2 className="u-text-2xl u-font-bold u-mb-4">Implementation</h2>
           <p className="u-text-secondary-emphasis">
             The CallToActionSection component is a wrapper around the River
             component, providing a consistent way to create call-to-action

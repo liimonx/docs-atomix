@@ -54,7 +54,7 @@ const LayerCard: FC<LayerCardProps> = ({
     >
       <div className="u-flex u-align-items-center u-gap-3 u-mb-3">
         <div
-          className={`u-flex u-align-items-center u-justify-center u-fw-bold u-fs-lg ${
+          className={`u-flex u-align-items-center u-justify-center u-font-bold u-text-lg ${
             pageStyles.stylesArchitecturePage__layerNumberBadge
           } ${
             pageStyles[
@@ -64,7 +64,7 @@ const LayerCard: FC<LayerCardProps> = ({
         >
           {number}
         </div>
-        <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
+        <h3 className="u-text-xl u-font-semibold u-m-0">{title}</h3>
       </div>
       <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
       <div className="u-flex u-flex-wrap u-gap-2 u-mb-3">
@@ -75,8 +75,8 @@ const LayerCard: FC<LayerCardProps> = ({
           label={`Specificity: ${specificity}`}
         />
       </div>
-      <div className="u-bg-tertiary-subtle u-p-3 u-rounded u-fs-sm">
-        <p className="u-m-0 u-mb-2 u-fw-medium u-text-secondary-emphasis">
+      <div className="u-bg-tertiary-subtle u-p-3 u-rounded u-text-sm">
+        <p className="u-m-0 u-mb-2 u-font-medium u-text-secondary-emphasis">
           Examples:
         </p>
         {examples.map((example, idx) => (
@@ -190,7 +190,7 @@ const StylesArchitecturePage: FC = () => {
           <div className="u-flex u-align-items-start u-gap-4">
             <Icon name="Stack" size={32} className="u-text-primary-emphasis" />
             <div>
-              <h3 className="u-fs-xl u-fw-semibold u-mb-3">
+              <h3 className="u-text-xl u-font-semibold u-mb-3">
                 The Inverted Triangle
               </h3>
               <p className="u-text-secondary-emphasis u-mb-4">
@@ -204,7 +204,7 @@ const StylesArchitecturePage: FC = () => {
                     size={20}
                     className="u-text-success-emphasis"
                   />
-                  <span className="u-fs-sm">
+                  <span className="u-text-sm">
                     Specificity increases downward
                   </span>
                 </div>
@@ -214,7 +214,7 @@ const StylesArchitecturePage: FC = () => {
                     size={20}
                     className="u-text-info-emphasis"
                   />
-                  <span className="u-fs-sm">Reach decreases downward</span>
+                  <span className="u-text-sm">Reach decreases downward</span>
                 </div>
                 <div className="u-flex u-align-items-center u-gap-2">
                   <Icon
@@ -222,7 +222,7 @@ const StylesArchitecturePage: FC = () => {
                     size={20}
                     className="u-text-warning-emphasis"
                   />
-                  <span className="u-fs-sm">
+                  <span className="u-text-sm">
                     Explicitness increases downward
                   </span>
                 </div>
@@ -253,7 +253,7 @@ const StylesArchitecturePage: FC = () => {
                   size={24}
                   className="u-text-success-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">Benefits</h3>
+                <h3 className="u-text-xl u-font-semibold u-m-0">Benefits</h3>
               </div>
               <ul className="u-list-none u-flex u-flex-column u-gap-3">
                 <li className="u-flex u-gap-2">
@@ -318,7 +318,9 @@ const StylesArchitecturePage: FC = () => {
                   size={24}
                   className="u-text-primary-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">Modern Features</h3>
+                <h3 className="u-text-xl u-font-semibold u-m-0">
+                  Modern Features
+                </h3>
               </div>
               <ul className="u-list-none u-flex u-flex-column u-gap-3">
                 <li className="u-flex u-gap-2">
@@ -378,7 +380,7 @@ const StylesArchitecturePage: FC = () => {
 
         <Grid className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">File Organization</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">File Organization</h2>
           </GridCol>
         </Grid>
 
@@ -391,28 +393,28 @@ const StylesArchitecturePage: FC = () => {
                   size={24}
                   className="u-text-info-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">
+                <h3 className="u-text-xl u-font-semibold u-m-0">
                   Naming Conventions
                 </h3>
               </div>
               <div className="u-flex u-flex-column u-gap-2">
                 <code
-                  className={`u-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
+                  className={`u-block u-p-2 u-bg-tertiary-subtle u-rounded u-text-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   _settings.{"{feature}"}.scss
                 </code>
                 <code
-                  className={`u-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
+                  className={`u-block u-p-2 u-bg-tertiary-subtle u-rounded u-text-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   _tools.{"{feature}"}.scss
                 </code>
                 <code
-                  className={`u-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
+                  className={`u-block u-p-2 u-bg-tertiary-subtle u-rounded u-text-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   _components.{"{feature}"}.scss
                 </code>
                 <code
-                  className={`u-block u-p-2 u-bg-tertiary-subtle u-rounded u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
+                  className={`u-block u-p-2 u-bg-tertiary-subtle u-rounded u-text-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   _utilities.{"{feature}"}.scss
                 </code>
@@ -428,14 +430,14 @@ const StylesArchitecturePage: FC = () => {
                   size={24}
                   className="u-text-brand-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">Modern SCSS</h3>
+                <h3 className="u-text-xl u-font-semibold u-m-0">Modern SCSS</h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-3">
                 Using @use and @forward for better module system:
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
                 <pre
-                  className={`u-m-0 u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
+                  className={`u-m-0 u-text-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   {`@use '../01-settings/colors';
 @use '../02-tools/breakpoints';
@@ -449,7 +451,7 @@ const StylesArchitecturePage: FC = () => {
 
         <Grid className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">Best Practices</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">Best Practices</h2>
           </GridCol>
         </Grid>
 
@@ -468,22 +470,22 @@ const StylesArchitecturePage: FC = () => {
                   size={20}
                   className="u-text-success-emphasis"
                 />
-                <h4 className="u-fs-lg u-fw-semibold u-m-0">Do</h4>
+                <h4 className="u-text-lg u-font-semibold u-m-0">Do</h4>
               </div>
               <ul className="u-list-none u-flex u-flex-column u-gap-2">
-                <li className="u-text-secondary-emphasis u-fs-sm">
+                <li className="u-text-secondary-emphasis u-text-sm">
                   ✓ Follow the specificity order
                 </li>
-                <li className="u-text-secondary-emphasis u-fs-sm">
+                <li className="u-text-secondary-emphasis u-text-sm">
                   ✓ Use semantic naming
                 </li>
-                <li className="u-text-secondary-emphasis u-fs-sm">
+                <li className="u-text-secondary-emphasis u-text-sm">
                   ✓ Leverage CSS custom properties
                 </li>
-                <li className="u-text-secondary-emphasis u-fs-sm">
+                <li className="u-text-secondary-emphasis u-text-sm">
                   ✓ Keep components isolated
                 </li>
-                <li className="u-text-secondary-emphasis u-fs-sm">
+                <li className="u-text-secondary-emphasis u-text-sm">
                   ✓ Limit nesting to 3 levels
                 </li>
               </ul>
@@ -504,22 +506,22 @@ const StylesArchitecturePage: FC = () => {
                   size={20}
                   className="u-text-error-emphasis"
                 />
-                <h4 className="u-fs-lg u-fw-semibold u-m-0">Don't</h4>
+                <h4 className="u-text-lg u-font-semibold u-m-0">Don't</h4>
               </div>
               <ul className="u-list-none u-flex u-flex-column u-gap-2">
-                <li className="u-text-secondary-emphasis u-fs-sm">
+                <li className="u-text-secondary-emphasis u-text-sm">
                   ✗ Break specificity order
                 </li>
-                <li className="u-text-secondary-emphasis u-fs-sm">
+                <li className="u-text-secondary-emphasis u-text-sm">
                   ✗ Use IDs in CSS
                 </li>
-                <li className="u-text-secondary-emphasis u-fs-sm">
+                <li className="u-text-secondary-emphasis u-text-sm">
                   ✗ Hard-code values
                 </li>
-                <li className="u-text-secondary-emphasis u-fs-sm">
+                <li className="u-text-secondary-emphasis u-text-sm">
                   ✗ Scatter component styles
                 </li>
-                <li className="u-text-secondary-emphasis u-fs-sm">
+                <li className="u-text-secondary-emphasis u-text-sm">
                   ✗ Deep nesting (4+ levels)
                 </li>
               </ul>
@@ -536,7 +538,9 @@ const StylesArchitecturePage: FC = () => {
                   size={24}
                   className="u-text-primary-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">Getting Started</h3>
+                <h3 className="u-text-xl u-font-semibold u-m-0">
+                  Getting Started
+                </h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-4">
                 Import Atomix styles and start building with a solid
@@ -544,7 +548,7 @@ const StylesArchitecturePage: FC = () => {
               </p>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded u-mb-4">
                 <pre
-                  className={`u-m-0 u-fs-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
+                  className={`u-m-0 u-text-sm ${pageStyles.stylesArchitecturePage__codeExample}`}
                 >
                   {`// Import everything
 @use 'atomix/styles' as *;

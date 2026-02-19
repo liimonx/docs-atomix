@@ -48,9 +48,9 @@ const CLIPage: FC = () => {
                 <Icon
                   name="Download"
                   size={24}
-                  className="c-card__icon u-me-2"
+                  className="c-card__icon u-mr-2"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Install Atomix
                 </h3>
               </div>
@@ -76,9 +76,9 @@ const CLIPage: FC = () => {
                 <Icon
                   name="Terminal"
                   size={24}
-                  className="c-card__icon u-me-2"
+                  className="c-card__icon u-mr-2"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Access CLI
                 </h3>
               </div>
@@ -110,10 +110,10 @@ const CLIPage: FC = () => {
               elevation="lg"
               variant="primary"
             >
-              <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+              <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 Initialize Project
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-fs-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Interactive setup wizard for new projects
               </p>
               <EnhancedCodeBlock
@@ -131,10 +131,10 @@ const CLIPage: FC = () => {
               elevation="lg"
               variant="success"
             >
-              <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+              <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 Create Theme
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-fs-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Create and build a custom theme
               </p>
               <EnhancedCodeBlock
@@ -153,10 +153,10 @@ npx atomix build-theme my-theme --watch`}
               elevation="lg"
               variant="warning"
             >
-              <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+              <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 Generate Component
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-fs-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Generate a new component with boilerplate
               </p>
               <EnhancedCodeBlock
@@ -179,8 +179,8 @@ npx atomix build-theme my-theme --watch`}
         {/* atomix init */}
         <Card className="u-mt-6" appearance="outlined" elevation="lg">
           <div className="u-flex u-align-items-center u-mb-4">
-            <Icon name="Rocket" size={20} className="c-card__icon u-me-2" />
-            <h2 className="u-fs-2xl u-fw-bold u-m-0 u-text-primary-emphasis">
+            <Icon name="Rocket" size={20} className="c-card__icon u-mr-2" />
+            <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
               Atomix init
             </h2>
           </div>
@@ -193,18 +193,18 @@ npx atomix build-theme my-theme --watch`}
             showLineNumbers={false}
           />
           <div className="u-mt-4">
-            <h4 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
               Options
             </h4>
             <ul className="u-text-secondary-emphasis u-line-height-relaxed">
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   --skip-install
                 </code>{" "}
                 - Skip automatic dependency installation
               </li>
             </ul>
-            <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Features
             </h4>
             <ul className="u-text-secondary-emphasis u-line-height-relaxed">
@@ -225,8 +225,8 @@ npx atomix build-theme my-theme --watch`}
           elevation="lg"
         >
           <div className="u-flex u-align-items-center u-mb-4">
-            <Icon name="Palette" size={20} className="c-card__icon u-me-2" />
-            <h2 className="u-fs-2xl u-fw-bold u-m-0 u-text-primary-emphasis">
+            <Icon name="Palette" size={20} className="c-card__icon u-mr-2" />
+            <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
               atomix build-theme
             </h2>
           </div>
@@ -239,57 +239,57 @@ npx atomix build-theme my-theme --watch`}
             showLineNumbers={false}
           />
           <div className="u-mt-4">
-            <h4 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
               Arguments
             </h4>
             <ul className="u-text-secondary-emphasis u-line-height-relaxed">
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   &lt;path&gt;
                 </code>{" "}
                 - Path to theme directory or SCSS file
               </li>
             </ul>
-            <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Options
             </h4>
             <ul className="u-text-secondary-emphasis u-line-height-relaxed">
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -o, --output &lt;path&gt;
                 </code>{" "}
                 - Output directory (default:{" "}
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   ./dist
                 </code>
                 )
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -m, --minify
                 </code>{" "}
                 - Generate minified version (default: true)
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -s, --sourcemap
                 </code>{" "}
                 - Generate source maps (default: false)
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -w, --watch
                 </code>{" "}
                 - Watch for changes and rebuild
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   --analyze
                 </code>{" "}
                 - Analyze bundle size
               </li>
             </ul>
-            <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Examples
             </h4>
             <EnhancedCodeBlock
@@ -315,8 +315,8 @@ npx atomix build-theme themes/custom --analyze`}
           elevation="lg"
         >
           <div className="u-flex u-align-items-center u-mb-4">
-            <Icon name="Code" size={20} className="c-card__icon u-me-2" />
-            <h2 className="u-fs-2xl u-fw-bold u-m-0 u-text-primary-emphasis">
+            <Icon name="Code" size={20} className="c-card__icon u-mr-2" />
+            <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
               atomix generate (alias: g)
             </h2>
           </div>
@@ -329,77 +329,77 @@ npx atomix build-theme themes/custom --analyze`}
             showLineNumbers={false}
           />
           <div className="u-mt-4">
-            <h4 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
               Arguments
             </h4>
             <ul className="u-text-secondary-emphasis u-line-height-relaxed">
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   &lt;type&gt;
                 </code>{" "}
                 - Type to generate (
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   component
                 </code>
                 ,{" "}
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   token
                 </code>
                 )
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   &lt;name&gt;
                 </code>{" "}
                 - Name in PascalCase
               </li>
             </ul>
-            <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Options
             </h4>
             <ul className="u-text-secondary-emphasis u-line-height-relaxed">
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -t, --typescript
                 </code>{" "}
                 - Use TypeScript (default: true)
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -s, --story
                 </code>{" "}
                 - Include Storybook story (default: true)
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   --test
                 </code>{" "}
                 - Include test file
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   --scss-module
                 </code>{" "}
                 - Use SCSS modules
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   --path &lt;path&gt;
                 </code>{" "}
                 - Custom output path (default:{" "}
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   ./src/components
                 </code>
                 )
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -f, --force
                 </code>{" "}
                 - Overwrite existing files
               </li>
             </ul>
-            <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Examples
             </h4>
             <EnhancedCodeBlock
@@ -425,10 +425,10 @@ npx atomix g component Header --path ./src/layouts`}
           elevation="lg"
         >
           <div className="u-flex u-align-items-center u-mb-4">
-            <div className="c-card__icon u-me-2">
+            <div className="c-card__icon u-mr-2">
               <Icon name="ArrowRight" size={20} />
             </div>
-            <h2 className="u-fs-2xl u-fw-bold u-m-0 u-text-primary-emphasis">
+            <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
               Atomix migrate
             </h2>
           </div>
@@ -441,57 +441,57 @@ npx atomix g component Header --path ./src/layouts`}
             showLineNumbers={false}
           />
           <div className="u-mt-4">
-            <h4 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
               Arguments
             </h4>
             <ul className="u-text-secondary-emphasis u-line-height-relaxed">
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   &lt;from&gt;
                 </code>{" "}
                 - Framework to migrate from (
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   tailwind
                 </code>
                 ,{" "}
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   bootstrap
                 </code>
                 ,{" "}
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   scss-variables
                 </code>
                 )
               </li>
             </ul>
-            <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Options
             </h4>
             <ul className="u-text-secondary-emphasis u-line-height-relaxed">
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -s, --source &lt;path&gt;
                 </code>{" "}
                 - Source directory (default:{" "}
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   ./src
                 </code>
                 )
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   --dry-run
                 </code>{" "}
                 - Preview changes without modifying files
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   --create-backup
                 </code>{" "}
                 - Create backup before migration (default: true)
               </li>
             </ul>
-            <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Examples
             </h4>
             <EnhancedCodeBlock
@@ -517,8 +517,8 @@ npx atomix migrate scss-variables`}
           elevation="lg"
         >
           <div className="u-flex u-align-items-center u-mb-4">
-            <Icon name="GridFour" size={20} className="c-card__icon u-me-2" />
-            <h2 className="u-fs-2xl u-fw-bold u-m-0 u-text-primary-emphasis">
+            <Icon name="GridFour" size={20} className="c-card__icon u-mr-2" />
+            <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
               atomix tokens
             </h2>
           </div>
@@ -531,44 +531,44 @@ npx atomix migrate scss-variables`}
             showLineNumbers={false}
           />
           <div className="u-mt-4">
-            <h4 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
               Actions
             </h4>
             <ul className="u-text-secondary-emphasis u-line-height-relaxed">
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   list
                 </code>{" "}
                 (alias:{" "}
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   ls
                 </code>
                 ) - List all design tokens
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   validate
                 </code>{" "}
                 (alias:{" "}
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   check
                 </code>
                 ) - Validate token files
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   export
                 </code>{" "}
                 - Export tokens to various formats
               </li>
               <li>
-                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   import
                 </code>{" "}
                 - Import tokens from file
               </li>
             </ul>
-            <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
+            <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Examples
             </h4>
             <EnhancedCodeBlock
@@ -600,10 +600,10 @@ npx atomix tokens export --format css --output tokens.css`}
               variant="primary"
               hoverable
             >
-              <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+              <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 atomix dev
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-fs-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Development mode with hot reload
               </p>
               <EnhancedCodeBlock
@@ -622,10 +622,10 @@ npx atomix tokens export --format css --output tokens.css`}
               variant="success"
               hoverable
             >
-              <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+              <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 atomix validate
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-fs-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Validate themes and design tokens
               </p>
               <EnhancedCodeBlock
@@ -644,10 +644,10 @@ npx atomix tokens export --format css --output tokens.css`}
               variant="error"
               hoverable
             >
-              <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+              <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 atomix create-theme
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-fs-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Create a new theme from template
               </p>
               <EnhancedCodeBlock
@@ -666,10 +666,10 @@ npx atomix tokens export --format css --output tokens.css`}
               variant="info"
               hoverable
             >
-              <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+              <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 atomix doctor
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-fs-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Diagnose common issues
               </p>
               <EnhancedCodeBlock
@@ -690,16 +690,16 @@ npx atomix tokens export --format css --output tokens.css`}
         />
 
         <Card className="u-mt-6" appearance="outlined" elevation="lg">
-          <h3 className="u-fs-xl u-fw-semibold u-mb-4 u-text-primary-emphasis">
+          <h3 className="u-text-xl u-font-semibold u-mb-4 u-text-primary-emphasis">
             Configuration File
           </h3>
           <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
             Create{" "}
-            <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+            <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
               .atomixrc.json
             </code>{" "}
             or{" "}
-            <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+            <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
               atomix.config.js
             </code>{" "}
             in your project root:
@@ -740,7 +740,7 @@ npx atomix tokens export --format css --output tokens.css`}
               elevation="lg"
               variant="primary"
             >
-              <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+              <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 Starting a New Project
               </h3>
               <EnhancedCodeBlock
@@ -765,7 +765,7 @@ npx atomix dev my-brand`}
               elevation="lg"
               variant="primary"
             >
-              <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+              <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 Component Development
               </h3>
               <EnhancedCodeBlock
@@ -794,7 +794,7 @@ npx atomix tokens validate`}
               elevation="lg"
               variant="primary"
             >
-              <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-primary-emphasis">
+              <h2 className="u-text-3xl u-font-bold u-mb-4 u-text-primary-emphasis">
                 Need Help?
               </h2>
               <p className="u-text-secondary-emphasis u-mb-6 u-line-height-relaxed">

@@ -300,7 +300,7 @@ function RadioGroup() {
         required
       />
       {isInvalid && (
-        <div className="u-text-error u-fs-sm">
+        <div className="u-text-error u-text-sm">
           Please select an option
         </div>
       )}

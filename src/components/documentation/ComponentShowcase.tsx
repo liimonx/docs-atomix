@@ -33,7 +33,7 @@ export const ComponentShowcase: FC<ComponentShowcaseProps> = ({
         <div className="u-mt-4">
           {/* Quick Start */}
           <section className="u-mb-8">
-            <h2 className="u-fs-2xl u-fw-bold u-mb-3">Quick Start</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-3">Quick Start</h2>
             <p className="u-text-secondary-emphasis u-mb-4">
               Get started with {component.name} in just a few lines of code.
             </p>
@@ -60,7 +60,7 @@ function MyComponent() {
           {/* Key Features */}
           {component.features && component.features.length > 0 && (
             <section className="u-mb-8">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">Key Features</h2>
+              <h2 className="u-text-2xl u-font-bold u-mb-4">Key Features</h2>
               <Row>
                 {component.features.map((feature, index) => (
                   <GridCol key={index} md={6} lg={4}>
@@ -71,7 +71,7 @@ function MyComponent() {
                           size="md"
                           className="u-text-primary"
                         />
-                        <h3 className="u-fs-lg u-fw-semibold u-m-0">
+                        <h3 className="u-text-lg u-font-semibold u-m-0">
                           {feature.title}
                         </h3>
                         <p className="u-text-secondary-emphasis u-m-0">
@@ -163,7 +163,7 @@ function MyComponent() {
                 />
               )}
               <h1
-                className="u-fs-4xl u-fw-extrabold u-m-0"
+                className="u-text-4xl u-font-extrabold u-m-0"
                 style={{
                   background: "var(--atomix-color-primary-gradient)",
                   WebkitBackgroundClip: "text",
@@ -216,7 +216,7 @@ function MyComponent() {
         </div>
 
         <p
-          className="u-fs-lg u-text-secondary-emphasis u-mb-4"
+          className="u-text-lg u-text-secondary-emphasis u-mb-4"
           style={{ lineHeight: "1.6" }}
         >
           {component.description}

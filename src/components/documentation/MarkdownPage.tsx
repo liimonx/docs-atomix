@@ -132,7 +132,7 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
                 // Inline code styling
                 return (
                   <code
-                    className={`u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm u-text-primary ${
+                    className={`u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm u-text-primary ${
                       className || ""
                     }`}
                     {...props}
@@ -142,32 +142,32 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
                 );
               },
               h1: ({ children }) => (
-                <h1 className="u-fs-3xl u-fw-bold u-mt-8 u-mb-4 u-text-primary-emphasis u-border-b u-border-secondary u-pb-2">
+                <h1 className="u-text-3xl u-font-bold u-mt-8 u-mb-4 u-text-primary-emphasis u-border-b u-border-secondary u-pb-2">
                   {children}
                 </h1>
               ),
               h2: ({ children }) => (
-                <h2 className="u-fs-2xl u-fw-bold u-mt-8 u-mb-4 u-text-primary-emphasis u-border-b u-border-secondary u-pb-2">
+                <h2 className="u-text-2xl u-font-bold u-mt-8 u-mb-4 u-text-primary-emphasis u-border-b u-border-secondary u-pb-2">
                   {children}
                 </h2>
               ),
               h3: ({ children }) => (
-                <h3 className="u-fs-xl u-fw-semibold u-mt-6 u-mb-3 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-mt-6 u-mb-3 u-text-primary-emphasis">
                   {children}
                 </h3>
               ),
               h4: ({ children }) => (
-                <h4 className="u-fs-lg u-fw-semibold u-mt-5 u-mb-2 u-text-primary-emphasis">
+                <h4 className="u-text-lg u-font-semibold u-mt-5 u-mb-2 u-text-primary-emphasis">
                   {children}
                 </h4>
               ),
               h5: ({ children }) => (
-                <h5 className="u-fs-md u-fw-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
+                <h5 className="u-text-md u-font-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
                   {children}
                 </h5>
               ),
               h6: ({ children }) => (
-                <h6 className="u-fs-sm u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
+                <h6 className="u-text-sm u-font-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
                   {children}
                 </h6>
               ),
@@ -205,12 +205,12 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
                 <thead className="u-bg-secondary-subtle">{children}</thead>
               ),
               th: ({ children }) => (
-                <th className="u-p-3 u-text-left u-border u-border-secondary u-fw-semibold u-text-primary-emphasis u-fs-sm">
+                <th className="u-p-3 u-text-left u-border u-border-secondary u-font-semibold u-text-primary-emphasis u-text-sm">
                   {children}
                 </th>
               ),
               td: ({ children }) => (
-                <td className="u-p-3 u-border u-border-secondary u-text-secondary-emphasis u-fs-sm">
+                <td className="u-p-3 u-border u-border-secondary u-text-secondary-emphasis u-text-sm">
                   {children}
                 </td>
               ),
@@ -231,11 +231,13 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
               ),
               hr: () => <hr className="u-my-8 u-border-secondary" />,
               strong: ({ children }) => (
-                <strong className="u-fw-bold u-text-primary-emphasis">
+                <strong className="u-font-bold u-text-primary-emphasis">
                   {children}
                 </strong>
               ),
-              em: ({ children }) => <em className="u-fs-italic">{children}</em>,
+              em: ({ children }) => (
+                <em className="u-text-italic">{children}</em>
+              ),
               pre: ({ children }) => <pre className="u-mb-4">{children}</pre>,
             }}
           >

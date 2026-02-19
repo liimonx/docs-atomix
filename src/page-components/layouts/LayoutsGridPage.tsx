@@ -145,7 +145,7 @@ const LayoutsGridPage: FC = () => {
                         >
                           {feature.icon}
                         </div>
-                        <h4 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                        <h4 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
                           {feature.title}
                         </h4>
                       </div>
@@ -171,10 +171,10 @@ const LayoutsGridPage: FC = () => {
             <GridCol md={12}>
               <Card className="u-p-6">
                 <div className="u-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
+                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
                     <Icon name="Code" size="lg" />
                   </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                     Container
                   </h3>
                 </div>
@@ -184,12 +184,12 @@ const LayoutsGridPage: FC = () => {
                 </p>
                 <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                    <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">
+                    <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
                       TypeScript / React
                     </span>
                   </div>
                   <pre
-                    className={`u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis ${pageStyles.layoutsGridPage__codeBlock}`}
+                    className={`u-m-0 u-p-4 u-text-sm u-text-primary-emphasis ${pageStyles.layoutsGridPage__codeBlock}`}
                   >
                     {`import { Container, Row, GridCol } from '@shohojdhara/atomix';
 
@@ -209,10 +209,10 @@ const LayoutsGridPage: FC = () => {
             <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
                 <div className="u-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
+                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
                     <Icon name="GridFour" size="lg" />
                   </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                     Row
                   </h3>
                 </div>
@@ -222,12 +222,12 @@ const LayoutsGridPage: FC = () => {
                 </p>
                 <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                    <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">
+                    <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
                       Example
                     </span>
                   </div>
                   <pre
-                    className={`u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis ${pageStyles.layoutsGridPage__codeBlock}`}
+                    className={`u-m-0 u-p-4 u-text-sm u-text-primary-emphasis ${pageStyles.layoutsGridPage__codeBlock}`}
                   >
                     {`<Row>
   <GridCol md={4}>Content</GridCol>
@@ -242,10 +242,10 @@ const LayoutsGridPage: FC = () => {
             <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
                 <div className="u-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-warning-emphasis">
+                  <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-warning-emphasis">
                     <Icon name="Code" size="lg" />
                   </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                     GridCol
                   </h3>
                 </div>
@@ -255,12 +255,12 @@ const LayoutsGridPage: FC = () => {
                 </p>
                 <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                    <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">
+                    <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
                       Responsive Example
                     </span>
                   </div>
                   <pre
-                    className={`u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis ${pageStyles.layoutsGridPage__codeBlock}`}
+                    className={`u-m-0 u-p-4 u-text-sm u-text-primary-emphasis ${pageStyles.layoutsGridPage__codeBlock}`}
                   >
                     {`<Row>
   <GridCol xs={12} sm={6} md={4} lg={3}>
@@ -279,10 +279,10 @@ const LayoutsGridPage: FC = () => {
             <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
                 <div className="u-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
+                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
                     <Icon name="Phone" size="lg" />
                   </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                     Responsive Breakpoints
                   </h3>
                 </div>
@@ -303,7 +303,7 @@ const LayoutsGridPage: FC = () => {
                       key={index}
                       className="u-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md"
                     >
-                      <div className="u-w-10 u-h-10 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis u-fw-bold">
+                      <div className="u-w-10 u-h-10 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis u-font-bold">
                         {bp.name}
                       </div>
                       <span className="u-text-secondary-emphasis">
@@ -318,10 +318,10 @@ const LayoutsGridPage: FC = () => {
             <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
                 <div className="u-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
+                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
                     <Icon name="Gear" size="lg" />
                   </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                     Column Options
                   </h3>
                 </div>
@@ -340,7 +340,7 @@ const LayoutsGridPage: FC = () => {
                       key={index}
                       className="u-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md"
                     >
-                      <div className="u-w-10 u-h-10 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis u-fw-bold u-fs-sm">
+                      <div className="u-w-10 u-h-10 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis u-font-bold u-text-sm">
                         {option.prop}
                       </div>
                       <span className="u-text-secondary-emphasis">

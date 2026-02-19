@@ -106,7 +106,7 @@ const HomePage: FC = () => {
                 <div className="u-inline-flex u-align-items-center u-justify-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-2">
                   {feature.icon}
                 </div>
-                <h3 className="u-fs-lg u-fw-600 u-mb-2 u-text-primary-emphasis">
+                <h3 className="u-text-lg u-font-600 u-mb-2 u-text-primary-emphasis">
                   {feature.title}
                 </h3>
                 <p className="u-text-secondary-emphasis u-lh-lg">
@@ -163,7 +163,7 @@ const HomePage: FC = () => {
         title="Ready to get started?"
         text="Install Atomix in your React project and start building amazing user interfaces today."
         primaryAction={
-          <div className="u-bg-tertiary-subtle u-rounded u-p-4 u-font-mono u-fs-sm">
+          <div className="u-bg-tertiary-subtle u-rounded u-p-4 u-font-mono u-text-sm">
             <code className="u-text-primary-emphasis">
               npm install @shohojdhara/atomix
             </code>
@@ -175,7 +175,7 @@ const HomePage: FC = () => {
             LinkComponent={Link}
           >
             View Installation Guide
-            <Icon name="ArrowRight" size={16} className="u-ms-2" />
+            <Icon name="ArrowRight" size={16} className="u-ml-2" />
           </Button>
         }
       />
@@ -193,9 +193,9 @@ const LinkContent: FC<{
     <div className="u-flex u-align-items-center u-justify-between u-mb-2">
       <div className="u-flex u-align-items-center">
         {icon || (
-          <Icon name={"FileText" as const} size={20} className="u-me-2" />
+          <Icon name={"FileText" as const} size={20} className="u-mr-2" />
         )}
-        <h3 className="u-fs-lg u-fw-600 u-ms-2 u-m-0 u-text-primary-emphasis">
+        <h3 className="u-text-lg u-font-600 u-ml-2 u-m-0 u-text-primary-emphasis">
           {title}
         </h3>
       </div>
@@ -203,7 +203,7 @@ const LinkContent: FC<{
         <Icon name={"Link" as const} size={16} className="u-opacity-60" />
       )}
     </div>
-    <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-ms-10">
+    <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-ml-10">
       {description}
     </p>
   </div>

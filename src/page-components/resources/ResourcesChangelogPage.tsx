@@ -43,14 +43,14 @@ const ResourcesChangelogPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
-                <h3 className="u-fs-xl u-fw-bold u-m-0">v2.1.0</h3>
+                <h3 className="u-text-xl u-font-bold u-m-0">v2.1.0</h3>
                 <Badge variant="success" label="Latest" />
-                <span className="u-text-secondary-emphasis u-fs-sm">
+                <span className="u-text-secondary-emphasis u-text-sm">
                   November 11, 2025
                 </span>
               </div>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 ✨ New Features
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -75,7 +75,7 @@ const ResourcesChangelogPage: FC = () => {
                 </li>
               </ul>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 🚀 Improvements
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -93,7 +93,7 @@ const ResourcesChangelogPage: FC = () => {
                 </li>
               </ul>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 🐛 Bug Fixes
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -115,14 +115,14 @@ const ResourcesChangelogPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
-                <h3 className="u-fs-xl u-fw-bold u-m-0">v2.0.0</h3>
+                <h3 className="u-text-xl u-font-bold u-m-0">v2.0.0</h3>
                 <Badge variant="primary" label="Major Release" />
-                <span className="u-text-secondary-emphasis u-fs-sm">
+                <span className="u-text-secondary-emphasis u-text-sm">
                   October 1, 2025
                 </span>
               </div>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 🎉 Major Changes
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -148,7 +148,7 @@ const ResourcesChangelogPage: FC = () => {
                 </li>
               </ul>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 ⚠️ Breaking Changes
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -166,7 +166,7 @@ const ResourcesChangelogPage: FC = () => {
                 </li>
               </ul>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 📚 Documentation
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -188,13 +188,13 @@ const ResourcesChangelogPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
-                <h3 className="u-fs-xl u-fw-bold u-m-0">v1.8.5</h3>
-                <span className="u-text-secondary-emphasis u-fs-sm">
+                <h3 className="u-text-xl u-font-bold u-m-0">v1.8.5</h3>
+                <span className="u-text-secondary-emphasis u-text-sm">
                   August 15, 2025
                 </span>
               </div>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 🐛 Bug Fixes
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -209,7 +209,7 @@ const ResourcesChangelogPage: FC = () => {
                 </li>
               </ul>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 🚀 Improvements
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -231,13 +231,13 @@ const ResourcesChangelogPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
-                <h3 className="u-fs-xl u-fw-bold u-m-0">v1.8.0</h3>
-                <span className="u-text-secondary-emphasis u-fs-sm">
+                <h3 className="u-text-xl u-font-bold u-m-0">v1.8.0</h3>
+                <span className="u-text-secondary-emphasis u-text-sm">
                   July 1, 2025
                 </span>
               </div>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 ✨ New Features
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -257,7 +257,7 @@ const ResourcesChangelogPage: FC = () => {
                 </li>
               </ul>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 🚀 Improvements
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -279,13 +279,13 @@ const ResourcesChangelogPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
-                <h3 className="u-fs-xl u-fw-bold u-m-0">v1.7.0</h3>
-                <span className="u-text-secondary-emphasis u-fs-sm">
+                <h3 className="u-text-xl u-font-bold u-m-0">v1.7.0</h3>
+                <span className="u-text-secondary-emphasis u-text-sm">
                   May 15, 2025
                 </span>
               </div>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 ✨ New Features
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -307,7 +307,7 @@ const ResourcesChangelogPage: FC = () => {
                 </li>
               </ul>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3">
                 🐛 Bug Fixes
               </h4>
               <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
@@ -328,7 +328,7 @@ const ResourcesChangelogPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3 className="u-fs-xl u-fw-bold u-mb-3">Earlier Versions</h3>
+              <h3 className="u-text-xl u-font-bold u-mb-3">Earlier Versions</h3>
               <p className="u-text-secondary-emphasis u-mt-3">
                 For release notes from earlier versions (v1.0.0 - v1.6.x),
                 please visit our{" "}
@@ -349,7 +349,7 @@ const ResourcesChangelogPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">Version Support</h3>
+              <h3 className="u-text-xl u-font-bold u-mb-4">Version Support</h3>
 
               <div className="u-mt-4 u-overflow-x-auto">
                 <table
@@ -361,16 +361,16 @@ const ResourcesChangelogPage: FC = () => {
                       className="u-border-b"
                       style={{ borderBottomWidth: "2px" }}
                     >
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                      <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                         Version
                       </th>
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                      <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                         Status
                       </th>
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                      <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                         Support Until
                       </th>
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                      <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                         Notes
                       </th>
                     </tr>

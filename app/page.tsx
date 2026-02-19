@@ -332,10 +332,10 @@ export default function Page() {
             <div className="u-inline-flex u-align-items-center u-justify-center u-rounded-full u-bg-primary-subtle u-text-primary u-mb-5 u-p-4 u-transition-transform u-hover-scale-110">
               <Icon name="Sparkle" size={40} />
             </div>
-            <h2 className="u-fs-3xl u-fw-700 u-mb-4 u-text-primary-emphasis">
+            <h2 className="u-text-3xl u-font-700 u-mb-4 u-text-primary-emphasis">
               AtomixGlass: The Future of Interface Design
             </h2>
-            <p className="u-fs-xl u-text-secondary-emphasis u-lh-relaxed u-mb-5 u-max-w-3xl u-mx-auto">
+            <p className="u-text-xl u-text-secondary-emphasis u-lh-relaxed u-mb-5 u-max-w-3xl u-mx-auto">
               Experience the next generation of interface design with
               hardware-accelerated glass morphism effects. Where stunning
               visuals meet exceptional performance, and every interaction feels
@@ -416,9 +416,9 @@ export default function Page() {
                 <Icon
                   name="Terminal"
                   size={24}
-                  className="u-me-3 u-text-primary-emphasis"
+                  className="u-mr-3 u-text-primary-emphasis"
                 />
-                <code className="u-text-primary-emphasis u-fs-lg u-fw-500 u-font-monospace">
+                <code className="u-text-primary-emphasis u-text-lg u-font-500 u-font-monospace">
                   npm install @shohojdhara/atomix
                 </code>
               </div>

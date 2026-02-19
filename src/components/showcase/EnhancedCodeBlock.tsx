@@ -119,7 +119,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
               minWidth: "300px",
             }}
           >
-            <p className="u-m-0 u-fs-sm">
+            <p className="u-m-0 u-text-sm">
               The code has been copied to your clipboard.
             </p>
           </Callout>
@@ -145,7 +145,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
               minWidth: "300px",
             }}
           >
-            <p className="u-m-0 u-fs-sm">
+            <p className="u-m-0 u-text-sm">
               Unable to copy code to clipboard. Please try again.
             </p>
           </Callout>
@@ -203,7 +203,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
       <div className="u-flex u-align-items-center u-justify-between u-p-3 u-bg-tertiary u-border-b u-border-subtle">
         <div className="u-flex u-align-items-center u-gap-3">
           {title && (
-            <span className="u-fs-sm u-fw-semibold u-text-primary">
+            <span className="u-text-sm u-font-semibold u-text-primary">
               {title}
             </span>
           )}
@@ -211,7 +211,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
             variant="secondary"
             size="sm"
             label={normalizedLanguage.toUpperCase()}
-            className="u-fs-xs"
+            className="u-text-xs"
           />
         </div>
         <div className="u-flex u-gap-2 u-align-items-center">
@@ -269,11 +269,11 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
 
       {/* Footer with line count */}
       <div className="u-flex u-align-items-center u-justify-between u-px-3 u-py-2 u-bg-tertiary u-border-t u-border-subtle">
-        <span className="u-fs-xs u-text-secondary-emphasis">
+        <span className="u-text-xs u-text-secondary-emphasis">
           {formattedCode.split("\n").length} line
           {formattedCode.split("\n").length !== 1 ? "s" : ""}
         </span>
-        <span className="u-fs-xs u-text-secondary-emphasis">
+        <span className="u-text-xs u-text-secondary-emphasis">
           {formattedCode.length} characters
         </span>
       </div>

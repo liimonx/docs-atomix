@@ -50,12 +50,12 @@ const APICard: FC<APISection> = ({ icon, title, description, code, color }) => {
             pageStyles[`stylesAPIReferencePage__apiSectionIcon--${colorClass}`]
           }
         />
-        <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
+        <h3 className="u-text-xl u-font-semibold u-m-0">{title}</h3>
       </div>
       <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
       <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
         <pre
-          className={`u-m-0 u-fs-sm ${pageStyles.stylesAPIReferencePage__codeBlock}`}
+          className={`u-m-0 u-text-sm ${pageStyles.stylesAPIReferencePage__codeBlock}`}
         >
           <code>{code}</code>
         </pre>
@@ -142,7 +142,7 @@ const StylesAPIReferencePage: FC = () => {
                   className="u-text-primary-emphasis"
                 />
                 <div className="u-w-100">
-                  <h3 className="u-fs-xl u-fw-semibold u-mb-3">
+                  <h3 className="u-text-xl u-font-semibold u-mb-3">
                     SCSS Variables
                   </h3>
                   <p className="u-text-secondary-emphasis u-mb-4">
@@ -156,7 +156,7 @@ const StylesAPIReferencePage: FC = () => {
                   </div>
                   <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
                     <pre
-                      className={`u-m-0 u-fs-sm ${pageStyles.stylesAPIReferencePage__codeBlock}`}
+                      className={`u-m-0 u-text-sm ${pageStyles.stylesAPIReferencePage__codeBlock}`}
                     >
                       {`// Color scales (1-10)
 $primary-6: #7c3aed;  // Base
@@ -182,7 +182,7 @@ $font-size-base: 1rem;`}
 
         <Row className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">SCSS Mixins</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">SCSS Mixins</h2>
           </GridCol>
         </Row>
 
@@ -196,7 +196,7 @@ $font-size-base: 1rem;`}
 
         <Row className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">SCSS Functions</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">SCSS Functions</h2>
           </GridCol>
         </Row>
 
@@ -210,7 +210,9 @@ $font-size-base: 1rem;`}
 
         <Row className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">CSS Custom Properties</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">
+              CSS Custom Properties
+            </h2>
           </GridCol>
         </Row>
 
@@ -223,7 +225,7 @@ $font-size-base: 1rem;`}
                   size={24}
                   className="u-text-primary-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">
+                <h3 className="u-text-xl u-font-semibold u-m-0">
                   Color Properties
                 </h3>
               </div>
@@ -232,7 +234,7 @@ $font-size-base: 1rem;`}
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
                 <pre
-                  className="u-m-0 u-fs-sm"
+                  className="u-m-0 u-text-sm"
                   style={{ fontFamily: "var(--atomix-font-family-mono)" }}
                 >
                   {`:root {
@@ -249,14 +251,16 @@ $font-size-base: 1rem;`}
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
                 <Icon name="Moon" size={24} className="u-text-brand-emphasis" />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">Theme Switching</h3>
+                <h3 className="u-text-xl u-font-semibold u-m-0">
+                  Theme Switching
+                </h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-4">
                 Dynamic theme changes
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
                 <pre
-                  className="u-m-0 u-fs-sm"
+                  className="u-m-0 u-text-sm"
                   style={{ fontFamily: "var(--atomix-font-family-mono)" }}
                 >
                   {`// JavaScript
@@ -277,14 +281,16 @@ document.documentElement
                   size={24}
                   className="u-text-primary-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">Usage Example</h3>
+                <h3 className="u-text-xl u-font-semibold u-m-0">
+                  Usage Example
+                </h3>
               </div>
               <p className="u-text-secondary-emphasis u-mb-4">
                 Combining SCSS and CSS custom properties:
               </p>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
                 <pre
-                  className="u-m-0 u-fs-sm"
+                  className="u-m-0 u-text-sm"
                   style={{ fontFamily: "var(--atomix-font-family-mono)" }}
                 >
                   {`// SCSS

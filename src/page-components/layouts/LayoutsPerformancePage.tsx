@@ -142,10 +142,10 @@ const LayoutsPerformancePage: FC = () => {
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
                   <Icon name="Gauge" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Performance Issues
                 </h3>
               </div>
@@ -170,7 +170,7 @@ const LayoutsPerformancePage: FC = () => {
                         >
                           {issue.icon}
                         </div>
-                        <h4 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                        <h4 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
                           {issue.title}
                         </h4>
                       </div>
@@ -189,10 +189,10 @@ const LayoutsPerformancePage: FC = () => {
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
                   <Icon name="ChartLine" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Key Performance Metrics
                 </h3>
               </div>
@@ -217,7 +217,7 @@ const LayoutsPerformancePage: FC = () => {
                         >
                           {metric.icon}
                         </div>
-                        <h4 className="u-fs-lg u-fw-semibold u-m-0 u-mb-2 u-text-primary-emphasis">
+                        <h4 className="u-text-lg u-font-semibold u-m-0 u-mb-2 u-text-primary-emphasis">
                           {metric.title}
                         </h4>
                         <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-gGrid-1">
@@ -244,10 +244,10 @@ const LayoutsPerformancePage: FC = () => {
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-warning-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-warning-emphasis">
                   <Icon name="Code" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Efficient Column Calculations
                 </h3>
               </div>
@@ -313,10 +313,10 @@ function OptimizedGrid({ items }) {
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
                   <Icon name="Target" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Minimizing Layout Shifts
                 </h3>
               </div>
@@ -336,13 +336,13 @@ function OptimizedGrid({ items }) {
                     key={index}
                     className="u-flex u-align-items-center u-text-secondary-emphasis"
                   >
-                    <span className="u-me-2 u-text-primary-emphasis">✓</span>
+                    <span className="u-mr-2 u-text-primary-emphasis">✓</span>
                     {strategy}
                   </li>
                 ))}
               </ul>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
+              <h4 className="u-text-lg u-font-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
                 Example: Image with Aspect Ratio
               </h4>
               <EnhancedCodeBlock
@@ -364,10 +364,10 @@ function OptimizedGrid({ items }) {
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
                   <Icon name="Lightning" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Virtualization
                 </h3>
               </div>
@@ -393,7 +393,7 @@ function OptimizedGrid({ items }) {
                 showLineNumbers={true}
               />
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
                 Benefits
               </h4>
               <ul className="u-list-none u-flex u-flex-column u-gap-2">
@@ -407,7 +407,7 @@ function OptimizedGrid({ items }) {
                     key={index}
                     className="u-flex u-align-items-center u-text-secondary-emphasis"
                   >
-                    <span className="u-me-2 u-text-success-emphasis">✓</span>
+                    <span className="u-mr-2 u-text-success-emphasis">✓</span>
                     {benefit}
                   </li>
                 ))}
@@ -428,10 +428,10 @@ function OptimizedGrid({ items }) {
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-warning-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-warning-emphasis">
                   <Icon name="Clock" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Critical CSS
                 </h3>
               </div>
@@ -466,10 +466,10 @@ function OptimizedGrid({ items }) {
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-secondary-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-secondary-emphasis">
                   <Icon name="Stack" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   CSS Containment
                 </h3>
               </div>
@@ -550,7 +550,7 @@ function OptimizedGrid({ items }) {
                   >
                     {practice.icon}
                   </div>
-                  <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  <h3 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
                     {practice.title}
                   </h3>
                 </div>

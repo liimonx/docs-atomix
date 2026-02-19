@@ -56,16 +56,16 @@ const CategoryCard: FC<UtilityCategoryProps> = ({
             pageStyles[`stylesUtilitiesPage__categoryIcon--${colorClass}`]
           }
         />
-        <h3 className="u-fs-xl u-fw-semibold u-m-0">{title}</h3>
+        <h3 className="u-text-xl u-font-semibold u-m-0">{title}</h3>
       </div>
       <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
       <div className="u-flex u-flex-column u-gap-2">
         {examples.map((ex, idx) => (
           <div key={idx} className="u-flex u-align-items-center u-gap-2">
-            <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+            <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
               {ex.class}
             </code>
-            <span className="u-fs-sm u-text-secondary-emphasis">
+            <span className="u-text-sm u-text-secondary-emphasis">
               {ex.description}
             </span>
           </div>
@@ -109,8 +109,8 @@ const StylesUtilitiesPage: FC = () => {
       title: "Typography",
       description: "Font size, weight, line height, and text utilities",
       examples: [
-        { class: ".u-fs-lg", description: "Font size large (1.125rem)" },
-        { class: ".u-fw-bold", description: "Font weight 700" },
+        { class: ".u-text-lg", description: "Font size large (1.125rem)" },
+        { class: ".u-font-bold", description: "Font weight 700" },
         { class: ".u-text-center", description: "Center align text" },
         { class: ".u-text-uppercase", description: "Transform uppercase" },
         { class: ".u-lh-relaxed", description: "Line height 1.625" },
@@ -159,9 +159,9 @@ const StylesUtilitiesPage: FC = () => {
       title: "Position",
       description: "Positioning, z-index, and placement utilities",
       examples: [
-        { class: ".u-position-relative", description: "Relative positioning" },
-        { class: ".u-position-absolute", description: "Absolute positioning" },
-        { class: ".u-position-sticky", description: "Sticky positioning" },
+        { class: ".u-relative", description: "Relative positioning" },
+        { class: ".u-absolute", description: "Absolute positioning" },
+        { class: ".u-sticky", description: "Sticky positioning" },
         { class: ".u-z-index-10", description: "Z-index 10" },
       ],
       color: "var(--atomix-info)",
@@ -189,7 +189,7 @@ const StylesUtilitiesPage: FC = () => {
           description: "Disable pointer events",
         },
         { class: ".u-user-select-none", description: "Prevent text selection" },
-        { class: ".u-pe-auto", description: "Enable pointer events" },
+        { class: ".u-pr-auto", description: "Enable pointer events" },
       ],
       color: "var(--atomix-danger)",
     },
@@ -233,7 +233,7 @@ const StylesUtilitiesPage: FC = () => {
                   className="u-text-primary-emphasis"
                 />
                 <div>
-                  <h3 className="u-fs-xl u-fw-semibold u-mb-3">
+                  <h3 className="u-text-xl u-font-semibold u-mb-3">
                     Naming Convention
                   </h3>
                   <p className="u-text-secondary-emphasis u-mb-4">
@@ -241,7 +241,7 @@ const StylesUtilitiesPage: FC = () => {
                   </p>
                   <div className="u-bg-tertiary-subtle u-p-4 u-rounded u-mb-4">
                     <pre
-                      className={`u-m-0 u-fs-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
+                      className={`u-m-0 u-text-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
                     >
                       {`.u-{property}-{value}
 .u-{property}-{breakpoint}-{value}`}
@@ -261,7 +261,9 @@ const StylesUtilitiesPage: FC = () => {
 
         <Row className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">Utility Categories</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">
+              Utility Categories
+            </h2>
             <p className="u-text-secondary-emphasis u-mb-4">
               Explore our comprehensive collection of utility classes organized
               by category. Each category contains a set of related utilities
@@ -280,7 +282,9 @@ const StylesUtilitiesPage: FC = () => {
 
         <Row className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">Responsive Utilities</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">
+              Responsive Utilities
+            </h2>
             <p className="u-text-secondary-emphasis u-mb-4">
               All utilities support responsive breakpoints, allowing you to
               create adaptive designs that work across all device sizes. Simply
@@ -299,7 +303,7 @@ const StylesUtilitiesPage: FC = () => {
                   size={24}
                   className="u-text-info-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">
+                <h3 className="u-text-xl u-font-semibold u-m-0">
                   Breakpoint Prefixes
                 </h3>
               </div>
@@ -312,13 +316,13 @@ const StylesUtilitiesPage: FC = () => {
                 >
                   <thead className="u-bg-tertiary-subtle">
                     <tr>
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                      <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                         Prefix
                       </th>
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                      <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                         Min Width
                       </th>
-                      <th className="u-p-3 u-text-left u-fs-sm u-fw-semibold">
+                      <th className="u-p-3 u-text-left u-text-sm u-font-semibold">
                         Example
                       </th>
                     </tr>
@@ -326,46 +330,46 @@ const StylesUtilitiesPage: FC = () => {
                   <tbody>
                     <tr className="u-border-b u-border-subtle">
                       <td className="u-p-3">
-                        <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+                        <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           (none)
                         </code>
                       </td>
                       <td className="u-p-3 u-text-secondary-emphasis">0px</td>
                       <td className="u-p-3">
-                        <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+                        <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-flex
                         </code>
                       </td>
                     </tr>
                     <tr className="u-border-b u-border-subtle">
                       <td className="u-p-3">
-                        <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+                        <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-sm-
                         </code>
                       </td>
                       <td className="u-p-3 u-text-secondary-emphasis">640px</td>
                       <td className="u-p-3">
-                        <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+                        <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-sm-d-block
                         </code>
                       </td>
                     </tr>
                     <tr className="u-border-b u-border-subtle">
                       <td className="u-p-3">
-                        <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+                        <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-md-
                         </code>
                       </td>
                       <td className="u-p-3 u-text-secondary-emphasis">768px</td>
                       <td className="u-p-3">
-                        <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+                        <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-md-grid-cols-2
                         </code>
                       </td>
                     </tr>
                     <tr className="u-border-b u-border-subtle">
                       <td className="u-p-3">
-                        <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+                        <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-lg-
                         </code>
                       </td>
@@ -373,14 +377,14 @@ const StylesUtilitiesPage: FC = () => {
                         1024px
                       </td>
                       <td className="u-p-3">
-                        <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+                        <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-lg-grid-cols-3
                         </code>
                       </td>
                     </tr>
                     <tr>
                       <td className="u-p-3">
-                        <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+                        <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-xl-
                         </code>
                       </td>
@@ -388,7 +392,7 @@ const StylesUtilitiesPage: FC = () => {
                         1280px
                       </td>
                       <td className="u-p-3">
-                        <code className="u-fs-sm u-bg-tertiary-subtle u-p-1 u-rounded">
+                        <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-xl-p-8
                         </code>
                       </td>
@@ -402,7 +406,7 @@ const StylesUtilitiesPage: FC = () => {
 
         <Row className="u-mt-6">
           <GridCol md={12}>
-            <h2 className="u-fs-2xl u-fw-bold u-mb-4">Usage Examples</h2>
+            <h2 className="u-text-2xl u-font-bold u-mb-4">Usage Examples</h2>
             <p className="u-text-secondary-emphasis u-mb-4">
               See how to combine utility classes to create common UI patterns
               and layouts.
@@ -419,11 +423,13 @@ const StylesUtilitiesPage: FC = () => {
                   size={24}
                   className="u-text-primary-emphasis"
                 />
-                <h3 className="u-fs-lg u-fw-semibold u-m-0">Responsive Grid</h3>
+                <h3 className="u-text-lg u-font-semibold u-m-0">
+                  Responsive Grid
+                </h3>
               </div>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
                 <pre
-                  className={`u-m-0 u-fs-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
+                  className={`u-m-0 u-text-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
                 >
                   {`<div class="u-grid u-grid-cols-1 
      u-md-grid-cols-2 
@@ -446,11 +452,13 @@ const StylesUtilitiesPage: FC = () => {
                   size={24}
                   className="u-text-success-emphasis"
                 />
-                <h3 className="u-fs-lg u-fw-semibold u-m-0">Flexbox Layout</h3>
+                <h3 className="u-text-lg u-font-semibold u-m-0">
+                  Flexbox Layout
+                </h3>
               </div>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">
                 <pre
-                  className={`u-m-0 u-fs-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
+                  className={`u-m-0 u-text-sm ${pageStyles.stylesUtilitiesPage__codeBlock}`}
                 >
                   {`<div class="u-flex 
      u-justify-between 
@@ -474,7 +482,9 @@ const StylesUtilitiesPage: FC = () => {
                   size={24}
                   className="u-text-info-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">Best Practices</h3>
+                <h3 className="u-text-xl u-font-semibold u-m-0">
+                  Best Practices
+                </h3>
               </div>
               <div className="u-flex u-flex-column u-gap-3">
                 <div className="u-flex u-gap-2">
@@ -546,7 +556,9 @@ const StylesUtilitiesPage: FC = () => {
                   size={24}
                   className="u-text-warning-emphasis"
                 />
-                <h3 className="u-fs-xl u-fw-semibold u-m-0">Important Notes</h3>
+                <h3 className="u-text-xl u-font-semibold u-m-0">
+                  Important Notes
+                </h3>
               </div>
               <div className="u-flex u-flex-column u-gap-3">
                 <div className="u-flex u-gap-2">

@@ -22,7 +22,7 @@ export const ComponentProps: FC<ComponentPropsProps> = ({ props }) => {
     <Card
       children={
         <div className="u-p-6">
-          <h3 className="u-fs-xl u-fw-bold u-mb-4">Props</h3>
+          <h3 className="u-text-xl u-font-bold u-mb-4">Props</h3>
           <DataTable
             data={props || []}
             bordered
@@ -33,7 +33,7 @@ export const ComponentProps: FC<ComponentPropsProps> = ({ props }) => {
                 key: "name",
                 title: "Name",
                 render: (_value: unknown, prop: PropDefinition) => (
-                  <code className="u-fs-sm u-text-error-emphasis">
+                  <code className="u-text-sm u-text-error-emphasis">
                     {prop.name}
                   </code>
                 ),
@@ -42,7 +42,7 @@ export const ComponentProps: FC<ComponentPropsProps> = ({ props }) => {
                 key: "type",
                 title: "Type",
                 render: (_value: unknown, prop: PropDefinition) => (
-                  <code className="u-fs-sm u-text-error-emphasis">
+                  <code className="u-text-sm u-text-error-emphasis">
                     {prop.type}
                   </code>
                 ),
@@ -66,7 +66,7 @@ export const ComponentProps: FC<ComponentPropsProps> = ({ props }) => {
                 title: "Default",
                 render: (_value: unknown, prop: PropDefinition) =>
                   prop.defaultValue ? (
-                    <code className="u-fs-sm u-text-error-emphasis">
+                    <code className="u-text-sm u-text-error-emphasis">
                       {prop.defaultValue}
                     </code>
                   ) : (

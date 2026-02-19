@@ -169,7 +169,7 @@ function ToggleSizesVariants() {
   return (
     <div className="u-gap-6">
       <div className="u-gap-4">
-        <h3 className="u-fw-semibold">Sizes</h3>
+        <h3 className="u-font-semibold">Sizes</h3>
         <div className="u-gap-3">
           <div className="u-flex u-align-items-center u-gap-3">
             <Toggle 
@@ -201,7 +201,7 @@ function ToggleSizesVariants() {
       </div>
 
       <div className="u-gap-4">
-        <h3 className="u-fw-semibold">Color Variants</h3>
+        <h3 className="u-font-semibold">Color Variants</h3>
         <div className="u-grid u-grid-cols-2 u-gap-3">
           <Toggle checked variant="primary" label="Primary" />
           <Toggle checked variant="success" label="Success" />
@@ -234,7 +234,7 @@ function ToggleSizesVariants() {
         <div className="setting-item">
           <div>
             <label>Email Notifications</label>
-            <p className="u-fs-sm u-text-secondary">
+            <p className="u-text-sm u-text-secondary">
               Receive notifications via email
             </p>
           </div>
@@ -248,7 +248,7 @@ function ToggleSizesVariants() {
         <div className="setting-item">
           <div>
             <label>Push Notifications</label>
-            <p className="u-fs-sm u-text-secondary">
+            <p className="u-text-sm u-text-secondary">
               Receive push notifications on your device
             </p>
           </div>

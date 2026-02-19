@@ -49,7 +49,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
               minWidth: "300px",
             }}
           >
-            <p className="u-m-0 u-fs-sm">
+            <p className="u-m-0 u-text-sm">
               The code has been copied to your clipboard.
             </p>
           </Callout>
@@ -75,7 +75,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
               minWidth: "300px",
             }}
           >
-            <p className="u-m-0 u-fs-sm">
+            <p className="u-m-0 u-text-sm">
               Unable to copy code to clipboard. Please try again.
             </p>
           </Callout>
@@ -205,7 +205,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           >
                             {feature.icon}
                           </div>
-                          <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
+                          <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
                             {feature.title}
                           </h3>
                           <p className="u-text-secondary-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed">
@@ -258,7 +258,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 <Row justifyContent="center">
                   <GridCol lg={8}>
                     <Card className="u-p-8 u-text-center">
-                      <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-primary-emphasis">
+                      <h2 className="u-text-3xl u-font-bold u-mb-4 u-text-primary-emphasis">
                         Ready to Get Started?
                       </h2>
                       <p
@@ -352,7 +352,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
               />
 
               <Block spacing="md">
-                <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">
+                <h2 className="u-text-3xl u-font-bold u-mb-4 u-text-center">
                   Prerequisites
                 </h2>
                 <p
@@ -399,7 +399,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           >
                             {item.icon}
                           </div>
-                          <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-2 u-text-primary-emphasis">
+                          <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-2 u-text-primary-emphasis">
                             {item.title}
                           </h3>
                           <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
@@ -413,7 +413,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
               </Block>
 
               <Block spacing="md" background="secondary">
-                <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">
+                <h2 className="u-text-3xl u-font-bold u-mb-4 u-text-center">
                   Installation Methods
                 </h2>
                 <p
@@ -428,10 +428,10 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                     <Card className="u-h-100 u-transition-fast u-hover-transform-up">
                       <div className="u-p-6 u-border-bottom">
                         <div className="u-flex u-align-items-center u-mb-3">
-                          <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
+                          <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
                             <Icon name="Download" size={24} />
                           </div>
-                          <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                          <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                             npm
                           </h3>
                         </div>
@@ -443,7 +443,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <div className="u-p-6">
                         <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
                           <div className="u-flex u-align-items-center u-justify-between u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                            <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">
+                            <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
                               bash
                             </span>
                             <Button
@@ -463,7 +463,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               )}
                             </Button>
                           </div>
-                          <pre className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis">
+                          <pre className="u-m-0 u-p-4 u-text-sm u-text-primary-emphasis">
                             <code>npm install @shohojdhara/atomix</code>
                           </pre>
                         </div>
@@ -474,10 +474,10 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                     <Card className="u-h-100 u-transition-fast u-hover-transform-up">
                       <div className="u-p-6 u-border-bottom">
                         <div className="u-flex u-align-items-center u-mb-3">
-                          <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
+                          <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
                             <Icon name="Download" size={24} />
                           </div>
-                          <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                          <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                             yarn
                           </h3>
                         </div>
@@ -489,7 +489,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <div className="u-p-6">
                         <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
                           <div className="u-flex u-align-items-center u-justify-between u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                            <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">
+                            <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
                               bash
                             </span>
                             <Button
@@ -509,7 +509,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               )}
                             </Button>
                           </div>
-                          <pre className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis">
+                          <pre className="u-m-0 u-p-4 u-text-sm u-text-primary-emphasis">
                             <code>yarn add @shohojdhara/atomix</code>
                           </pre>
                         </div>
@@ -520,10 +520,10 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                     <Card className="u-h-100 u-transition-fast u-hover-transform-up">
                       <div className="u-p-6 u-border-bottom">
                         <div className="u-flex u-align-items-center u-mb-3">
-                          <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-secondary-emphasis">
+                          <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-secondary-emphasis">
                             <Icon name="Download" size={24} />
                           </div>
-                          <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                          <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                             pnpm
                           </h3>
                         </div>
@@ -535,7 +535,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <div className="u-p-6">
                         <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
                           <div className="u-flex u-align-items-center u-justify-between u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                            <span className="u-fs-xs u-text-secondary-emphasis u-fw-medium">
+                            <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
                               bash
                             </span>
                             <Button
@@ -555,7 +555,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               )}
                             </Button>
                           </div>
-                          <pre className="u-m-0 u-p-4 u-fs-sm u-text-primary-emphasis">
+                          <pre className="u-m-0 u-p-4 u-text-sm u-text-primary-emphasis">
                             <code>pnpm add @shohojdhara/atomix</code>
                           </pre>
                         </div>
@@ -566,7 +566,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
               </Block>
 
               <Block spacing="md">
-                <h2 className="u-fs-3xl u-fw-bold u-mb-4 u-text-center">
+                <h2 className="u-text-3xl u-font-bold u-mb-4 u-text-center">
                   Next Steps
                 </h2>
                 <p
@@ -585,10 +585,10 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <Card className="u-h-100 u-cursor-pointer u-border u-border-subtle u-transition-fast u-hover-transform-up">
                         <div className="u-p-6">
                           <div className="u-flex u-align-items-center u-mb-4">
-                            <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-4 u-text-primary-emphasis">
+                            <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-4 u-text-primary-emphasis">
                               <Icon name="Lightning" size={24} />
                             </div>
-                            <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                            <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                               Quick Start Guide
                             </h3>
                           </div>
@@ -596,8 +596,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                             Learn how to build your first application with
                             Atomix components in just 5 minutes
                           </p>
-                          <div className="u-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                            <span className="u-me-2">Get Started</span>
+                          <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
+                            <span className="u-mr-2">Get Started</span>
                             <Icon name="ArrowRight" size={16} />
                           </div>
                         </div>
@@ -612,10 +612,10 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <Card className="u-h-100 u-cursor-pointer u-border u-border-subtle u-transition-fast u-hover-transform-up">
                         <div className="u-p-6">
                           <div className="u-flex u-align-items-center u-mb-4">
-                            <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-4 u-text-secondary-emphasis">
+                            <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-4 u-text-secondary-emphasis">
                               <Icon name="Palette" size={24} />
                             </div>
-                            <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                            <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                               Setup Theming
                             </h3>
                           </div>
@@ -623,8 +623,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                             Customize Atomix to match your brand with our
                             comprehensive theming system
                           </p>
-                          <div className="u-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                            <span className="u-me-2">Learn More</span>
+                          <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
+                            <span className="u-mr-2">Learn More</span>
                             <Icon name="ArrowRight" size={16} />
                           </div>
                         </div>
@@ -692,7 +692,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 <Card>
                   <div className="u-flex u-align-items-center u-gap-4">
                     <div className="u-flex-grow-1">
-                      <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-2 u-text-primary-emphasis">
+                      <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-2 u-text-primary-emphasis">
                         Prerequisites
                       </h3>
                       <p
@@ -728,12 +728,12 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                         background: "rgba(var(--atomix-primary-rgb), 0.15)",
                       }}
                     >
-                      <span className="u-fs-3xl u-fw-bold u-text-primary-emphasis">
+                      <span className="u-text-3xl u-font-bold u-text-primary-emphasis">
                         1
                       </span>
                     </div>
                     <div className="u-flex-grow-1">
-                      <h2 className="u-fs-2xl u-fw-bold u-m-0 u-mb-3 u-text-primary-emphasis">
+                      <h2 className="u-text-2xl u-font-bold u-m-0 u-mb-3 u-text-primary-emphasis">
                         Install Atomix
                       </h2>
                       <p
@@ -789,12 +789,12 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                         background: "rgba(var(--atomix-success-rgb), 0.15)",
                       }}
                     >
-                      <span className="u-fs-3xl u-fw-bold u-text-success-emphasis">
+                      <span className="u-text-3xl u-font-bold u-text-success-emphasis">
                         2
                       </span>
                     </div>
                     <div className="u-flex-grow-1">
-                      <h2 className="u-fs-2xl u-fw-bold u-m-0 u-mb-3 u-text-primary-emphasis">
+                      <h2 className="u-text-2xl u-font-bold u-m-0 u-mb-3 u-text-primary-emphasis">
                         Import CSS Styles
                       </h2>
                       <p
@@ -804,11 +804,11 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                         }}
                       >
                         Import the Atomix CSS in your main entry point (e.g.,{" "}
-                        <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                        <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                           main.tsx
                         </code>{" "}
                         or{" "}
-                        <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-fs-sm">
+                        <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                           App.tsx
                         </code>
                         )
@@ -842,11 +842,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                         className="u-text-info-emphasis u-flex-shrink-0 u-mt-1"
                       />
                       <div className="u-flex-grow-1">
-                        <p className="u-m-0 u-fs-sm u-fw-semibold u-mb-2 u-text-primary-emphasis">
+                        <p className="u-m-0 u-text-sm u-font-semibold u-mb-2 u-text-primary-emphasis">
                           Optional: Import a specific theme
                         </p>
                         <p
-                          className="u-m-0 u-fs-sm u-text-secondary-emphasis u-mb-3"
+                          className="u-m-0 u-text-sm u-text-secondary-emphasis u-mb-3"
                           style={{
                             lineHeight: "var(--atomix-line-height-relaxed)",
                           }}
@@ -877,12 +877,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                         background: "rgba(var(--atomix-warning-rgb), 0.15)",
                       }}
                     >
-                      <span className="u-fs-3xl u-fw-bold u-text-warning-emphasis">
+                      <span className="u-text-3xl u-font-bold u-text-warning-emphasis">
                         3
                       </span>
                     </div>
                     <div className="u-flex-grow-1">
-                      <h2 className="u-fs-2xl u-fw-bold u-m-0 u-mb-3 u-text-primary-emphasis">
+                      <h2 className="u-text-2xl u-font-bold u-m-0 u-mb-3 u-text-primary-emphasis">
                         Start Using Components
                       </h2>
                       <p
@@ -931,11 +931,11 @@ export default App;`}
                         className="u-text-success-emphasis u-flex-shrink-0 u-mt-1"
                       />
                       <div className="u-flex-grow-1">
-                        <p className="u-m-0 u-fw-semibold u-mb-2 u-text-primary-emphasis">
+                        <p className="u-m-0 u-font-semibold u-mb-2 u-text-primary-emphasis">
                           You're all set! 🎉
                         </p>
                         <p
-                          className="u-m-0 u-fs-sm u-text-secondary-emphasis"
+                          className="u-m-0 u-text-sm u-text-secondary-emphasis"
                           style={{
                             lineHeight: "var(--atomix-line-height-relaxed)",
                           }}
@@ -953,7 +953,7 @@ export default App;`}
 
                 <Card className="u-mt-6">
                   <div className="u-text-center u-mb-6">
-                    <h2 className="u-fs-2xl u-fw-bold u-m-0 u-mb-3 u-text-primary-emphasis">
+                    <h2 className="u-text-2xl u-font-bold u-m-0 u-mb-3 u-text-primary-emphasis">
                       🚀 Next Steps
                     </h2>
                     <p
@@ -984,11 +984,11 @@ export default App;`}
                             className="u-text-primary-emphasis"
                           />
                         </div>
-                        <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+                        <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                           Browse Components
                         </h3>
                         <p
-                          className="u-text-secondary-emphasis u-mb-4 u-fs-sm"
+                          className="u-text-secondary-emphasis u-mb-4 u-text-sm"
                           style={{
                             lineHeight: "var(--atomix-line-height-relaxed)",
                           }}
@@ -1007,7 +1007,7 @@ export default App;`}
                           <Icon
                             name="ArrowRight"
                             size={16}
-                            className="u-ms-2"
+                            className="u-ml-2"
                           />
                         </Button>
                       </Card>
@@ -1029,11 +1029,11 @@ export default App;`}
                             className="u-text-success-emphasis"
                           />
                         </div>
-                        <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+                        <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                           Customize Theme
                         </h3>
                         <p
-                          className="u-text-secondary-emphasis u-mb-4 u-fs-sm"
+                          className="u-text-secondary-emphasis u-mb-4 u-text-sm"
                           style={{
                             lineHeight: "var(--atomix-line-height-relaxed)",
                           }}
@@ -1052,7 +1052,7 @@ export default App;`}
                           <Icon
                             name="ArrowRight"
                             size={16}
-                            className="u-ms-2"
+                            className="u-ml-2"
                           />
                         </Button>
                       </Card>
@@ -1074,11 +1074,11 @@ export default App;`}
                             className="u-text-warning-emphasis"
                           />
                         </div>
-                        <h3 className="u-fs-lg u-fw-semibold u-mb-3 u-text-primary-emphasis">
+                        <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                           View Examples
                         </h3>
                         <p
-                          className="u-text-secondary-emphasis u-mb-4 u-fs-sm"
+                          className="u-text-secondary-emphasis u-mb-4 u-text-sm"
                           style={{
                             lineHeight: "var(--atomix-line-height-relaxed)",
                           }}
@@ -1097,7 +1097,7 @@ export default App;`}
                           <Icon
                             name="ArrowRight"
                             size={16}
-                            className="u-ms-2"
+                            className="u-ml-2"
                           />
                         </Button>
                       </Card>
@@ -1115,7 +1115,7 @@ export default App;`}
           description: "Learn how to use Atomix",
           content: (
             <div>
-              <h1 className="u-fs-4xl u-fw-bold u-mb-4">Getting Started</h1>
+              <h1 className="u-text-4xl u-font-bold u-mb-4">Getting Started</h1>
               <p className="u-text-secondary-emphasis">
                 Welcome to Atomix documentation!
               </p>

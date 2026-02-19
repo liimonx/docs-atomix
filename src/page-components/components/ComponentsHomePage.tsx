@@ -115,10 +115,10 @@ const ComponentsHomePage: FC = () => {
               <div className="u-w-16 u-h-16 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mx-auto u-mb-4 u-text-primary-emphasis">
                 <Icon name="Stack" size={32} />
               </div>
-              <h3 className="u-fs-3xl u-fw-bold u-mb-2 u-text-primary-emphasis">
+              <h3 className="u-text-3xl u-font-bold u-mb-2 u-text-primary-emphasis">
                 {componentMetadata.length}
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">
+              <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
                 Components
               </p>
             </Card>
@@ -129,10 +129,10 @@ const ComponentsHomePage: FC = () => {
               <div className="u-w-16 u-h-16 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mx-auto u-mb-4 u-text-success-emphasis">
                 <Icon name="ShieldCheck" size={32} />
               </div>
-              <h3 className="u-fs-3xl u-fw-bold u-mb-2 u-text-primary-emphasis">
+              <h3 className="u-text-3xl u-font-bold u-mb-2 u-text-primary-emphasis">
                 {stableComponentsCount}
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">
+              <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
                 Stable Components
               </p>
             </Card>
@@ -143,10 +143,10 @@ const ComponentsHomePage: FC = () => {
               <div className="u-w-16 u-h-16 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-mx-auto u-mb-4 u-text-warning-emphasis">
                 <Icon name="StarFour" size={32} />
               </div>
-              <h3 className="u-fs-3xl u-fw-bold u-mb-2 u-text-primary-emphasis">
+              <h3 className="u-text-3xl u-font-bold u-mb-2 u-text-primary-emphasis">
                 {categories.length}
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">
+              <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
                 Categories
               </p>
             </Card>
@@ -164,7 +164,7 @@ const ComponentsHomePage: FC = () => {
 
           <Link
             href="/docs/components/overview"
-            className="u-text-primary u-text-decoration-none u-fw-medium u-align-items-end u-pe-2"
+            className="u-text-primary u-text-decoration-none u-font-medium u-align-items-end u-pr-2"
           >
             View All
             <Icon name="ArrowRight" size={16} />
@@ -183,10 +183,10 @@ const ComponentsHomePage: FC = () => {
                     <div className="u-w-16 u-h-16 u-bg-primary-subtle u-text-primary-emphasis u-br-md u-flex u-align-items-center u-justify-center u-mb-4">
                       <Icon name="GridFour" size={24} />
                     </div>
-                    <h3 className="u-fs-xl u-fw-semibold u-mb-2 u-text-primary-emphasis">
+                    <h3 className="u-text-xl u-font-semibold u-mb-2 u-text-primary-emphasis">
                       {category}
                     </h3>
-                    <p className="u-text-secondary-emphasis u-mb-0 u-fs-base">
+                    <p className="u-text-secondary-emphasis u-mb-0 u-text-base">
                       {
                         componentMetadata.filter((c) => c.category === category)
                           .length
@@ -218,10 +218,10 @@ const ComponentsHomePage: FC = () => {
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-flex u-flex-column u-h-100">
                     <div className="u-flex u-align-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary-emphasis u-br-md u-flex u-align-items-center u-justify-center u-me-3">
+                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary-emphasis u-br-md u-flex u-align-items-center u-justify-center u-mr-3">
                         <Icon name="Lightning" size={24} />
                       </div>
-                      <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                      <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                         {component.name}
                       </h3>
                     </div>
@@ -243,8 +243,8 @@ const ComponentsHomePage: FC = () => {
                       />
                     </div>
 
-                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                      <span className="u-me-2">View Details</span>
+                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
+                      <span className="u-mr-2">View Details</span>
                       <Icon name="ArrowRight" size={16} />
                     </div>
                   </div>
@@ -264,7 +264,7 @@ const ComponentsHomePage: FC = () => {
           />
           <Link
             href="/docs/components/overview"
-            className="u-text-white u-text-decoration-none u-fw-medium u-align-items-end u-pe-2"
+            className="u-text-white u-text-decoration-none u-font-medium u-align-items-end u-pr-2"
           >
             View All
             <Icon name="ArrowRight" size={16} />
@@ -281,7 +281,7 @@ const ComponentsHomePage: FC = () => {
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-flex u-flex-column u-h-100">
                     <div className="u-flex u-align-items-center u-justify-between u-mb-3">
-                      <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                      <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                         {component.name}
                       </h3>
                       <Badge

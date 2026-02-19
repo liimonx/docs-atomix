@@ -39,10 +39,12 @@ const GeneralThemingGuidePage: FC = () => {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">Quick Start</h2>
+              <h2 className="u-text-2xl u-font-bold u-mb-4">Quick Start</h2>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">Installation</h3>
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
+                  Installation
+                </h3>
                 <EnhancedCodeBlock
                   language="bash"
                   code={`npm install @shohojdhara/atomix`}
@@ -51,7 +53,7 @@ const GeneralThemingGuidePage: FC = () => {
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Basic Setup (React)
                 </h3>
                 <EnhancedCodeBlock
@@ -93,7 +95,7 @@ function MyComponent() {
               </div>
 
               <div className="u-mb-4">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Basic Setup (Vanilla JavaScript)
                 </h3>
                 <EnhancedCodeBlock
@@ -121,7 +123,7 @@ await themeManager.setTheme('dark');`}
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">
+              <h2 className="u-text-2xl u-font-bold u-mb-4">
                 For External Developers
               </h2>
               <p className="u-text-secondary-emphasis u-mb-6">
@@ -130,12 +132,12 @@ await themeManager.setTheme('dark');`}
               </p>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   ✅ What You Should Use
                 </h3>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
                     1. JavaScript Themes (Recommended)
                   </h4>
                   <p className="u-text-secondary-emphasis u-mb-3">
@@ -166,10 +168,10 @@ function App() {
                     showLineNumbers={true}
                   />
                   <div className="u-mt-3">
-                    <p className="u-fs-sm u-text-secondary-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis">
                       <strong>Why this is great:</strong>
                     </p>
-                    <ul className="u-fs-sm u-ml-4">
+                    <ul className="u-text-sm u-ml-4">
                       <li>No build step required</li>
                       <li>Works at runtime</li>
                       <li>TypeScript autocomplete</li>
@@ -179,7 +181,7 @@ function App() {
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
                     2. Quick Theme Helper
                   </h4>
                   <p className="u-text-secondary-emphasis u-mb-3">
@@ -204,7 +206,7 @@ function App() {
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
                     3. CSS Theme Loading
                   </h4>
                   <p className="u-text-secondary-emphasis u-mb-3">
@@ -235,7 +237,7 @@ function App() {
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
                     4. Customize Design Tokens via Config (New!)
                   </h4>
                   <p className="u-text-secondary-emphasis u-mb-3">
@@ -285,11 +287,11 @@ export default defineConfig({
                     showLineNumbers={true}
                   />
                   <Callout variant="info" className="u-mt-3">
-                    <p className="u-fs-sm u-mb-2">
+                    <p className="u-text-sm u-mb-2">
                       <strong>After creating your config, run:</strong>
                     </p>
-                    <code className="u-fs-sm">npm run sync:config</code>
-                    <p className="u-fs-sm u-mt-2">
+                    <code className="u-text-sm">npm run sync:config</code>
+                    <p className="u-text-sm u-mt-2">
                       This generates CSS custom properties in{" "}
                       <code>src/styles/03-generic/_generated-root.css</code>{" "}
                       that you can import in your project.
@@ -299,10 +301,10 @@ export default defineConfig({
               </div>
 
               <div className="u-mb-4">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   ❌ What You Should NOT Use
                 </h3>
-                <ul className="u-fs-sm u-ml-4">
+                <ul className="u-text-sm u-ml-4">
                   <li>
                     <strong>SCSS Theme Structure</strong> - Only needed if
                     contributing themes to Atomix.
@@ -316,12 +318,14 @@ export default defineConfig({
               </div>
 
               <div className="u-mb-4">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Common Use Cases
                 </h3>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">Brand Colors</h4>
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
+                    Brand Colors
+                  </h4>
                   <EnhancedCodeBlock
                     language="tsx"
                     code={`const brandTheme = createTheme({
@@ -334,7 +338,9 @@ export default defineConfig({
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">Dark Mode</h4>
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
+                    Dark Mode
+                  </h4>
                   <EnhancedCodeBlock
                     language="tsx"
                     code={`const darkTheme = createTheme({
@@ -348,7 +354,7 @@ export default defineConfig({
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
                     Multiple Themes with Switching
                   </h4>
                   <EnhancedCodeBlock
@@ -396,10 +402,10 @@ function App() {
               </div>
 
               <div className="u-mb-4">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Quick Start Checklist
                 </h3>
-                <ul className="u-fs-sm u-ml-4">
+                <ul className="u-text-sm u-ml-4">
                   <li>
                     Install: <code>npm install @shohojdhara/atomix</code>
                   </li>
@@ -428,7 +434,7 @@ function App() {
                   </li>
                 </ul>
                 <Callout variant="success" className="u-mt-3">
-                  <p className="u-fs-sm u-m-0">
+                  <p className="u-text-sm u-m-0">
                     <strong>That's it!</strong> No config files needed, no build
                     steps, no complexity.
                   </p>
@@ -442,7 +448,7 @@ function App() {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">
+              <h2 className="u-text-2xl u-font-bold u-mb-4">
                 For Library Developers
               </h2>
               <p className="u-text-secondary-emphasis u-mb-6">
@@ -451,7 +457,7 @@ function App() {
               </p>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Configuration File
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -510,7 +516,9 @@ export default defineConfig({
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">Build Process</h3>
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
+                  Build Process
+                </h3>
                 <EnhancedCodeBlock
                   language="bash"
                   code={`# Sync configuration
@@ -529,7 +537,7 @@ npm run build:themes`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   SCSS Theme Structure
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -583,10 +591,10 @@ npm run build:themes`}
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">Theme Types</h2>
+              <h2 className="u-text-2xl u-font-bold u-mb-4">Theme Types</h2>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">CSS Themes</h3>
+                <h3 className="u-text-lg u-font-semibold u-mb-3">CSS Themes</h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
                   Themes loaded from CSS files, applied via CSS classes:
                 </p>
@@ -610,7 +618,7 @@ export default defineConfig({
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   JavaScript Themes
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -635,11 +643,11 @@ const theme = createTheme({
                   showLineNumbers={true}
                 />
                 <Callout variant="info" className="u-mt-3">
-                  <p className="u-fs-sm u-mb-2">
+                  <p className="u-text-sm u-mb-2">
                     <strong>Note:</strong> JavaScript themes automatically
                     generate all CSS variables including:
                   </p>
-                  <ul className="u-fs-sm u-ml-4">
+                  <ul className="u-text-sm u-ml-4">
                     <li>Color scales (1-10 steps)</li>
                     <li>RGB variants for transparency</li>
                     <li>Text emphasis variants</li>
@@ -657,10 +665,12 @@ const theme = createTheme({
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">API Reference</h2>
+              <h2 className="u-text-2xl u-font-bold u-mb-4">API Reference</h2>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">ThemeProvider</h3>
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
+                  ThemeProvider
+                </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
                   React context provider for theme state:
                 </p>
@@ -680,7 +690,9 @@ const theme = createTheme({
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">useTheme Hook</h3>
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
+                  useTheme Hook
+                </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
                   React hook for accessing theme context:
                 </p>
@@ -701,7 +713,9 @@ const theme = createTheme({
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">ThemeManager</h3>
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
+                  ThemeManager
+                </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
                   High-level API for theme management (vanilla JS):
                 </p>
@@ -732,7 +746,9 @@ const themes = themeManager.getAvailableThemes();`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">createTheme</h3>
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
+                  createTheme
+                </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
                   Create a JavaScript theme:
                 </p>
@@ -779,7 +795,7 @@ const theme = createTheme({
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Composition
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -809,7 +825,7 @@ const composed = composeThemes(theme1, theme2, theme3);`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Utilities
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -846,7 +862,7 @@ const css = generateCSSVariables(theme, {
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   ThemeErrorBoundary
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -871,7 +887,9 @@ const css = generateCSSVariables(theme, {
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">RTL Support</h3>
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
+                  RTL Support
+                </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
                   Enable RTL for right-to-left languages:
                 </p>
@@ -916,10 +934,10 @@ const margin = rtlManager.getValue('margin-left', 'margin-right');`}
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">Configuration</h2>
+              <h2 className="u-text-2xl u-font-bold u-mb-4">Configuration</h2>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   atomix.config.ts
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -990,10 +1008,10 @@ export default defineConfig({
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Configuration Options
                 </h3>
-                <ul className="u-fs-sm u-ml-4">
+                <ul className="u-text-sm u-ml-4">
                   <li>
                     <strong>
                       <code>prefix</code>
@@ -1034,14 +1052,14 @@ export default defineConfig({
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Auto-Generated Files
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
                   From <code>atomix.config.ts</code>, these files are
                   automatically generated:
                 </p>
-                <ol className="u-fs-sm u-ml-4">
+                <ol className="u-text-sm u-ml-4">
                   <li>
                     <strong>
                       <code>src/themes/themes.config.js</code>
@@ -1086,7 +1104,7 @@ export default defineConfig({
                   </li>
                 </ol>
                 <Callout variant="info" className="u-mt-3">
-                  <p className="u-fs-sm">
+                  <p className="u-text-sm">
                     <strong>Note:</strong> <code>_settings.config.scss</code> is
                     NOT auto-generated - it's standalone for SCSS builds.
                   </p>
@@ -1094,7 +1112,7 @@ export default defineConfig({
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Token Generation Details
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1107,7 +1125,7 @@ export default defineConfig({
                     <code>primary: &#123; main: '#3b82f6' &#125;</code>):
                   </strong>
                 </p>
-                <ul className="u-fs-sm u-ml-4 u-mb-3">
+                <ul className="u-text-sm u-ml-4 u-mb-3">
                   <li>
                     Full color scale: <code>--atomix-primary-1</code> through{" "}
                     <code>--atomix-primary-10</code>
@@ -1169,7 +1187,9 @@ export default defineConfig({
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">Sync Scripts</h3>
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
+                  Sync Scripts
+                </h3>
                 <EnhancedCodeBlock
                   language="bash"
                   code={`# Sync theme configuration (generates themes.config.js and _generated-root.css)
@@ -1190,7 +1210,7 @@ npm run prebuild`}
                     What <code>sync:config</code> does:
                   </strong>
                 </p>
-                <ol className="u-fs-sm u-ml-4">
+                <ol className="u-text-sm u-ml-4">
                   <li>
                     Reads <code>atomix.config.ts</code>
                   </li>
@@ -1215,12 +1235,12 @@ npm run prebuild`}
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">
+              <h2 className="u-text-2xl u-font-bold u-mb-4">
                 CSS Variables & Tokens
               </h2>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Using CSS Variables
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1241,13 +1261,15 @@ npm run prebuild`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Available CSS Variables
                 </h3>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">Color Tokens</h4>
-                  <ul className="u-fs-sm u-ml-4">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
+                    Color Tokens
+                  </h4>
+                  <ul className="u-text-sm u-ml-4">
                     <li>
                       <strong>Base Colors:</strong>{" "}
                       <code>--atomix-primary</code>,{" "}
@@ -1287,10 +1309,10 @@ npm run prebuild`}
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
                     Typography Tokens
                   </h4>
-                  <ul className="u-fs-sm u-ml-4">
+                  <ul className="u-text-sm u-ml-4">
                     <li>
                       <strong>Font Families:</strong>{" "}
                       <code>--atomix-font-sans-serif</code>,{" "}
@@ -1316,10 +1338,10 @@ npm run prebuild`}
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
                     Spacing Tokens
                   </h4>
-                  <ul className="u-fs-sm u-ml-4">
+                  <ul className="u-text-sm u-ml-4">
                     <li>
                       <strong>Spacing Scale:</strong>{" "}
                       <code>--atomix-spacing-0</code> through{" "}
@@ -1335,10 +1357,10 @@ npm run prebuild`}
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
                     Border Radius Tokens
                   </h4>
-                  <ul className="u-fs-sm u-ml-4">
+                  <ul className="u-text-sm u-ml-4">
                     <li>
                       <code>--atomix-border-radius</code>,{" "}
                       <code>--atomix-border-radius-sm</code>,{" "}
@@ -1350,10 +1372,10 @@ npm run prebuild`}
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
                     Shadow Tokens
                   </h4>
-                  <ul className="u-fs-sm u-ml-4">
+                  <ul className="u-text-sm u-ml-4">
                     <li>
                       <code>--atomix-box-shadow</code>,{" "}
                       <code>--atomix-box-shadow-xs</code>,{" "}
@@ -1365,10 +1387,10 @@ npm run prebuild`}
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
                     Border Tokens
                   </h4>
-                  <ul className="u-fs-sm u-ml-4">
+                  <ul className="u-text-sm u-ml-4">
                     <li>
                       <strong>Border Radius:</strong>{" "}
                       <code>--atomix-border-radius</code>,{" "}
@@ -1387,8 +1409,10 @@ npm run prebuild`}
                 </div>
 
                 <div className="u-mb-4">
-                  <h4 className="u-fs-md u-fw-semibold u-mb-2">Other Tokens</h4>
-                  <ul className="u-fs-sm u-ml-4">
+                  <h4 className="u-text-md u-font-semibold u-mb-2">
+                    Other Tokens
+                  </h4>
+                  <ul className="u-text-sm u-ml-4">
                     <li>
                       <strong>Transitions:</strong>{" "}
                       <code>--atomix-transition-fast</code>,{" "}
@@ -1416,7 +1440,7 @@ npm run prebuild`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Importing Theme CSS Files
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1433,7 +1457,7 @@ import '@shohojdhara/atomix/themes/light.min';`}
                 <p className="u-text-secondary-emphasis u-mt-3 u-mb-2">
                   <strong>Available Theme Imports:</strong>
                 </p>
-                <ul className="u-fs-sm u-ml-4">
+                <ul className="u-text-sm u-ml-4">
                   <li>
                     <code>
                       @shohojdhara/atomix/themes/&#123;theme-name&#125;
@@ -1448,7 +1472,7 @@ import '@shohojdhara/atomix/themes/light.min';`}
                   </li>
                 </ul>
                 <Callout variant="info" className="u-mt-3">
-                  <p className="u-fs-sm">
+                  <p className="u-text-sm">
                     <strong>Note:</strong> Theme CSS files are only available if
                     themes are registered in <code>atomix.config.ts</code> and
                     built with <code>npm run build:themes</code>.
@@ -1457,7 +1481,7 @@ import '@shohojdhara/atomix/themes/light.min';`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Using Generated Tokens
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1491,10 +1515,10 @@ import '@shohojdhara/atomix/styles/03-generic/_generated-root.css';`}
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">Advanced Topics</h2>
+              <h2 className="u-text-2xl u-font-bold u-mb-4">Advanced Topics</h2>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Composition
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1518,7 +1542,7 @@ const extended = extendTheme(baseTheme, {
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Component Overrides
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1545,7 +1569,7 @@ const extended = extendTheme(baseTheme, {
                   showLineNumbers={true}
                 />
                 <Callout variant="info" className="u-mt-3">
-                  <p className="u-fs-sm">
+                  <p className="u-text-sm">
                     <strong>Note:</strong> ComponentOverrideManager as a
                     separate class is planned for a future release. For now, use{" "}
                     <code>createTheme()</code> with <code>components</code>{" "}
@@ -1555,7 +1579,9 @@ const extended = extendTheme(baseTheme, {
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">RTL Support</h3>
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
+                  RTL Support
+                </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
                   Enable RTL for right-to-left languages:
                 </p>
@@ -1576,7 +1602,7 @@ rtlManager.setDirection('rtl');`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   CSS Variable Generation
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1602,7 +1628,7 @@ document.head.appendChild(
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Validation
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1622,7 +1648,7 @@ if (!result.valid) {
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Development Tools
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1656,10 +1682,10 @@ if (!result.valid) {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">Troubleshooting</h2>
+              <h2 className="u-text-2xl u-font-bold u-mb-4">Troubleshooting</h2>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Not Loading
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1668,7 +1694,7 @@ if (!result.valid) {
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
-                <ol className="u-fs-sm u-ml-4">
+                <ol className="u-text-sm u-ml-4">
                   <li>
                     Check theme exists in registry:
                     <EnhancedCodeBlock
@@ -1693,7 +1719,7 @@ console.log(themes);`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   CSS Variables Not Working
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1702,7 +1728,7 @@ console.log(themes);`}
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
-                <ul className="u-fs-sm u-ml-4">
+                <ul className="u-text-sm u-ml-4">
                   <li>Ensure theme is loaded (SCSS or JS)</li>
                   <li>Check prefix matches config</li>
                   <li>Verify token name follows conventions</li>
@@ -1715,7 +1741,7 @@ console.log(themes);`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Token Generation Issues
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1724,7 +1750,7 @@ console.log(themes);`}
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
-                <ul className="u-fs-sm u-ml-4">
+                <ul className="u-text-sm u-ml-4">
                   <li>
                     Run <code>npm run sync:config</code> to regenerate
                   </li>
@@ -1748,7 +1774,7 @@ console.log(themes);`}
                 <p className="u-text-secondary-emphasis u-mb-2">
                   <strong>Solutions:</strong>
                 </p>
-                <ul className="u-fs-sm u-ml-4">
+                <ul className="u-text-sm u-ml-4">
                   <li>
                     Ensure you're using <code>theme.extend.colors</code> (not{" "}
                     <code>theme.tokens.colors</code>)
@@ -1766,7 +1792,7 @@ console.log(themes);`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme CSS Import Issues
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1775,7 +1801,7 @@ console.log(themes);`}
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
-                <ul className="u-fs-sm u-ml-4">
+                <ul className="u-text-sm u-ml-4">
                   <li>
                     Ensure themes are built: <code>npm run build:themes</code>
                   </li>
@@ -1794,7 +1820,7 @@ console.log(themes);`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   TypeScript Errors
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1803,7 +1829,7 @@ console.log(themes);`}
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
-                <ol className="u-fs-sm u-ml-4">
+                <ol className="u-text-sm u-ml-4">
                   <li>
                     Import types correctly:
                     <EnhancedCodeBlock
@@ -1826,7 +1852,7 @@ console.log(themes);`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Configuration Not Syncing
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1846,7 +1872,7 @@ npm run validate:config`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Prefix Not Updating
                 </h3>
                 <p className="u-text-secondary-emphasis u-mb-3">
@@ -1856,7 +1882,7 @@ npm run validate:config`}
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solution:</strong>
                 </p>
-                <ol className="u-fs-sm u-ml-4">
+                <ol className="u-text-sm u-ml-4">
                   <li>
                     Check <code>atomix.config.ts</code> has <code>prefix</code>{" "}
                     field
@@ -1871,16 +1897,16 @@ npm run validate:config`}
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Browser Environment Limitations
                 </h3>
                 <Callout variant="warning" className="u-mb-3">
-                  <p className="u-fs-sm u-mb-2">
+                  <p className="u-text-sm u-mb-2">
                     <strong>Important:</strong> The{" "}
                     <code>atomix.config.ts</code> file cannot be dynamically
                     loaded in browser environments.
                   </p>
-                  <p className="u-fs-sm">
+                  <p className="u-text-sm">
                     In browser/client-side applications, themes must be
                     explicitly provided to the ThemeManager or ThemeProvider.
                   </p>
@@ -1920,10 +1946,10 @@ function App() {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">Examples</h2>
+              <h2 className="u-text-2xl u-font-bold u-mb-4">Examples</h2>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Complete React Example
                 </h3>
                 <EnhancedCodeBlock
@@ -1985,7 +2011,7 @@ function App() {
               </div>
 
               <div className="u-mb-6">
-                <h3 className="u-fs-lg u-fw-semibold u-mb-3">
+                <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Next.js Integration
                 </h3>
                 <EnhancedCodeBlock
@@ -2015,15 +2041,15 @@ export default function RootLayout({ children }) {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <h2 className="u-fs-2xl u-fw-bold u-mb-4">Best Practices</h2>
+              <h2 className="u-text-2xl u-font-bold u-mb-4">Best Practices</h2>
 
               <Row className="u-mt-4">
                 <GridCol md={6}>
                   <div className="u-mb-4">
-                    <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    <h4 className="u-text-md u-font-semibold u-mb-2">
                       1. Always Use CSS Variables
                     </h4>
-                    <p className="u-fs-sm u-text-secondary-emphasis u-mb-2">
+                    <p className="u-text-sm u-text-secondary-emphasis u-mb-2">
                       ✅ <strong>Good:</strong>
                     </p>
                     <EnhancedCodeBlock
@@ -2034,7 +2060,7 @@ export default function RootLayout({ children }) {
 }`}
                       showLineNumbers={true}
                     />
-                    <p className="u-fs-sm u-text-secondary-emphasis u-mt-2">
+                    <p className="u-text-sm u-text-secondary-emphasis u-mt-2">
                       ❌ <strong>Bad:</strong> Hardcoded values like{" "}
                       <code>color: #3b82f6;</code> or{" "}
                       <code>padding: 16px;</code>
@@ -2042,20 +2068,20 @@ export default function RootLayout({ children }) {
                   </div>
 
                   <div className="u-mb-4">
-                    <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    <h4 className="u-text-md u-font-semibold u-mb-2">
                       2. Use ThemeProvider for React Apps
                     </h4>
-                    <p className="u-fs-sm u-text-secondary-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis">
                       Always use ThemeProvider for React applications instead of
                       direct ThemeManager usage.
                     </p>
                   </div>
 
                   <div className="u-mb-4">
-                    <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    <h4 className="u-text-md u-font-semibold u-mb-2">
                       3. Error Boundaries
                     </h4>
-                    <p className="u-fs-sm u-text-secondary-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis">
                       Always wrap ThemeProvider with error boundary:
                     </p>
                     <EnhancedCodeBlock
@@ -2072,10 +2098,10 @@ export default function RootLayout({ children }) {
 
                 <GridCol md={6}>
                   <div className="u-mb-4">
-                    <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    <h4 className="u-text-md u-font-semibold u-mb-2">
                       4. Type Safety
                     </h4>
-                    <p className="u-fs-sm u-text-secondary-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis">
                       Use TypeScript types:
                     </p>
                     <EnhancedCodeBlock
@@ -2086,10 +2112,10 @@ export default function RootLayout({ children }) {
                   </div>
 
                   <div className="u-mb-4">
-                    <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    <h4 className="u-text-md u-font-semibold u-mb-2">
                       5. Performance
                     </h4>
-                    <ul className="u-fs-sm u-ml-4">
+                    <ul className="u-text-sm u-ml-4">
                       <li>Enable caching (default: enabled)</li>
                       <li>Use lazy loading for themes</li>
                       <li>Preload critical themes</li>
@@ -2098,10 +2124,10 @@ export default function RootLayout({ children }) {
                   </div>
 
                   <div className="u-mb-4">
-                    <h4 className="u-fs-md u-fw-semibold u-mb-2">
+                    <h4 className="u-text-md u-font-semibold u-mb-2">
                       6. Accessibility
                     </h4>
-                    <ul className="u-fs-sm u-ml-4">
+                    <ul className="u-text-sm u-ml-4">
                       <li>Validate themes for contrast ratios</li>
                       <li>Test with screen readers</li>
                       <li>Ensure keyboard navigation works</li>
@@ -2124,7 +2150,7 @@ export default function RootLayout({ children }) {
                   className="u-text-primary-emphasis u-flex-shrink-0 u-mt-1"
                 />
                 <div>
-                  <h3 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
+                  <h3 className="u-text-lg u-font-semibold u-mb-2 u-text-primary-emphasis">
                     Interactive Theme Creation
                   </h3>
                   <p className="u-text-primary-emphasis u-mb-4">

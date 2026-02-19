@@ -182,7 +182,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
             <Grid>
               <GridCol md={8}>
                 <Card>
-                  <h3 className="u-fs-xl u-fw-bold u-mb-4">
+                  <h3 className="u-text-xl u-font-bold u-mb-4">
                     <Icon name="Sparkle" /> Features
                   </h3>
                   <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-wrap u-gap-2">
@@ -195,10 +195,10 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                           <>
                             <Icon name="CheckCircle" />
                             <div className="u-flex-grow-1">
-                              <div className="u-fw-semibold u-text-brand-emphasis u-mb-1">
+                              <div className="u-font-semibold u-text-brand-emphasis u-mb-1">
                                 {feature.title}
                               </div>
-                              <p className="u-text-secondary-emphasis u-fs-sm u-m-0">
+                              <p className="u-text-secondary-emphasis u-text-sm u-m-0">
                                 {feature.description}
                               </p>
                             </div>
@@ -207,10 +207,10 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                           <>
                             <Icon name="Warning" />
                             <div className="u-flex-grow-1">
-                              <div className="u-fw-semibold u-text-brand-emphasis u-mb-1">
+                              <div className="u-font-semibold u-text-brand-emphasis u-mb-1">
                                 {feature.title}
                               </div>
-                              <p className="u-text-secondary-emphasis u-fs-sm u-m-0">
+                              <p className="u-text-secondary-emphasis u-text-sm u-m-0">
                                 {feature.description}
                               </p>
                             </div>
@@ -222,12 +222,12 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                 </Card>
 
                 <Card className="u-mt-4">
-                  <h3 className="u-fs-xl u-fw-bold u-mb-4">
+                  <h3 className="u-text-xl u-font-bold u-mb-4">
                     <Icon name="Package" /> Installation
                   </h3>
                   <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
                     <pre
-                      className="u-m-0 u-fs-sm"
+                      className="u-m-0 u-text-sm"
                       style={{ fontFamily: "var(--atomix-font-family-mono)" }}
                     >
                       <code>npm install @shohojdhara/atomix</code>
@@ -236,12 +236,12 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                 </Card>
 
                 <Card className="u-mt-4">
-                  <h3 className="u-fs-xl u-fw-bold u-mb-4">
+                  <h3 className="u-text-xl u-font-bold u-mb-4">
                     <Icon name="Rocket" /> Basic Usage
                   </h3>
                   <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
                     <pre
-                      className="u-m-0 u-fs-sm"
+                      className="u-m-0 u-text-sm"
                       style={{ fontFamily: "var(--atomix-font-family-mono)" }}
                     >
                       <code>{`import { ${componentDoc.name} } from '${componentDoc.importPath}';
@@ -254,7 +254,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                 </Card>
 
                 <Callout variant="info" className="u-mt-4">
-                  <h4 className="u-fs-lg u-fw-semibold u-mb-2">
+                  <h4 className="u-text-lg u-font-semibold u-mb-2">
                     <Icon name="Lightbulb" /> Quick Tip
                   </h4>
                   <p className="u-mb-0">
@@ -267,7 +267,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
               <GridCol md={4}>
                 <div className="u-flex u-flex-column u-gap-4">
                   <Card>
-                    <h3 className="u-fs-lg u-fw-semibold u-mb-4">
+                    <h3 className="u-text-lg u-font-semibold u-mb-4">
                       <Icon name="Book" /> Dependencies
                     </h3>
                     {(componentDoc.dependencies || []).length > 0 ? (
@@ -279,14 +279,14 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                         ))}
                       </ul>
                     ) : (
-                      <p className="u-text-secondary-emphasis u-fs-sm u-font-style-italic u-m-0">
+                      <p className="u-text-secondary-emphasis u-text-sm u-font-style-italic u-m-0">
                         No external dependencies
                       </p>
                     )}
                   </Card>
 
                   <Card>
-                    <h3 className="u-fs-lg u-fw-semibold u-mb-4">
+                    <h3 className="u-text-lg u-font-semibold u-mb-4">
                       <Icon name="Tag" /> Tags
                     </h3>
                     <div className="u-flex u-flex-wrap u-gap-2">
@@ -302,7 +302,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                   </Card>
 
                   <Card>
-                    <h3 className="u-fs-lg u-fw-semibold u-mb-4">
+                    <h3 className="u-text-lg u-font-semibold u-mb-4">
                       <Icon name="Link" /> Quick Links
                     </h3>
                     <div className="u-flex u-flex-column u-gap-2">
@@ -416,7 +416,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
         <div className="u-mb-lg">
           <Link
             href="/docs/components/overview"
-            className="u-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-fs-sm u-mb-4 u-transition-fast u-focus-visible-ring"
+            className="u-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
             style={{
               transition: "var(--atomix-transition-fast)",
             }}
@@ -435,9 +435,11 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
 
           <div className="u-flex u-flex-wrap u-align-items-start u-justify-between u-gap-4 u-mb-4">
             <div className="u-flex-grow-1" style={{ minWidth: "300px" }}>
-              <h1 className="u-fs-4xl u-fw-bold u-mb-2">{componentDoc.name}</h1>
+              <h1 className="u-text-4xl u-font-bold u-mb-2">
+                {componentDoc.name}
+              </h1>
               <p
-                className="u-fs-lg u-text-secondary-emphasis u-m-0"
+                className="u-text-lg u-text-secondary-emphasis u-m-0"
                 style={{ lineHeight: "var(--atomix-line-height-relaxed)" }}
               >
                 {componentDoc.description}

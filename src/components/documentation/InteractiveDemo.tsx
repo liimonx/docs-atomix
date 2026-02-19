@@ -70,14 +70,14 @@ export const InteractiveDemo: FC<InteractiveDemoProps> = ({
   return (
     <div className="u-mb-6">
       <div className="u-mb-6">
-        <h3 className="u-fs-xl u-fw-bold u-mb-2">{example.title}</h3>
+        <h3 className="u-text-xl u-font-bold u-mb-2">{example.title}</h3>
         <p className="u-text-secondary-emphasis u-mb-4">
           {example.description}
         </p>
 
         {component.examples && component.examples.length > 1 && (
           <div className="u-flex u-align-items-center u-gap-3 u-mt-4">
-            <label htmlFor="example-select" className="u-fs-sm u-fw-medium">
+            <label htmlFor="example-select" className="u-text-sm u-font-medium">
               Select example:
             </label>
             <Select

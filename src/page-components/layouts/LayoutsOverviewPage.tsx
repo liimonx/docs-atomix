@@ -140,14 +140,14 @@ const LayoutsOverviewPage: FC = () => {
                     >
                       {feature.icon}
                     </div>
-                    <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
+                    <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
                       {feature.title}
                     </h3>
                     <p className="u-text-secondary-emphasis u-m-0 u-mb-4 u-flex-grow-1 u-line-height-relaxed">
                       {feature.description}
                     </p>
-                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                      <span className="u-me-2">Learn more</span>
+                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
+                      <span className="u-mr-2">Learn more</span>
                       <Icon name="CaretRight" size="lg" />
                     </div>
                   </div>
@@ -194,10 +194,10 @@ const LayoutsOverviewPage: FC = () => {
             <GridCol key={index} md={6} lg={3} className="u-mb-4">
               <Card className="u-h-100 u-p-6">
                 <div className="u-flex u-align-items-center u-mb-3">
-                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
+                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
                     {benefit.icon}
                   </div>
-                  <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  <h3 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
                     {benefit.title}
                   </h3>
                 </div>

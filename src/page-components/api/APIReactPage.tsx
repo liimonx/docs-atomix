@@ -51,7 +51,7 @@ const APIReactPage: FC = () => {
                 <div className="u-inline-flex u-align-items-center u-justify-center u-rounded u-bg-primary-subtle u-text-primary u-p-2">
                   <Icon name="Code" size={24} />
                 </div>
-                <h3 className="u-fs-xl u-fw-700 u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
                   Component Categories
                 </h3>
               </div>
@@ -63,7 +63,7 @@ const APIReactPage: FC = () => {
                     size={20}
                     className="u-text-primary-emphasis"
                   />
-                  <h4 className="u-fs-lg u-fw-600 u-m-0 u-text-primary-emphasis">
+                  <h4 className="u-text-lg u-font-600 u-m-0 u-text-primary-emphasis">
                     Basic Components
                   </h4>
                 </div>
@@ -153,7 +153,7 @@ const APIReactPage: FC = () => {
                 <div className="u-inline-flex u-align-items-center u-justify-center u-rounded u-bg-success-subtle u-text-success u-p-2">
                   <Icon name="GridFour" size={24} />
                 </div>
-                <h3 className="u-fs-xl u-fw-700 u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
                   Layout Components
                 </h3>
               </div>
@@ -240,7 +240,7 @@ interface GridColProps {
                 <div className="u-inline-flex u-align-items-center u-justify-center u-rounded u-bg-warning-subtle u-text-warning u-p-2">
                   <Icon name="Lightning" size={24} />
                 </div>
-                <h3 className="u-fs-xl u-fw-700 u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
                   Hooks
                 </h3>
               </div>
@@ -298,7 +298,7 @@ const { isMobile, breakpoint } = useResponsive();`}
                 <div className="u-inline-flex u-align-items-center u-justify-center u-rounded u-bg-info-subtle u-text-info u-p-2">
                   <Icon name="FileCode" size={24} />
                 </div>
-                <h3 className="u-fs-xl u-fw-700 u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
                   Types
                 </h3>
               </div>

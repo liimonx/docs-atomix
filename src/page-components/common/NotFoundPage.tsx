@@ -45,7 +45,7 @@ const NotFoundPage: FC = () => {
 
         {/* Error Message */}
         <h1
-          className="u-fs-6xl u-fw-extrabold u-mb-4"
+          className="u-text-6xl u-font-extrabold u-mb-4"
           style={{
             background: "var(--atomix-color-primary-gradient)",
             WebkitBackgroundClip: "text",
@@ -56,10 +56,10 @@ const NotFoundPage: FC = () => {
           404
         </h1>
 
-        <h2 className="u-fs-3xl u-fw-bold u-mb-4">Page Not Found</h2>
+        <h2 className="u-text-3xl u-font-bold u-mb-4">Page Not Found</h2>
 
         <p
-          className="u-text-secondary-emphasis u-mb-8 u-fs-lg u-mx-auto"
+          className="u-text-secondary-emphasis u-mb-8 u-text-lg u-mx-auto"
           style={{ maxWidth: "600px" }}
         >
           The page you're looking for doesn't exist or has been moved. Don't
@@ -85,7 +85,7 @@ const NotFoundPage: FC = () => {
 
         {/* Popular Links */}
         <section className="u-mb-12 u-w-100">
-          <h3 className="u-fs-2xl u-fw-bold u-mb-6">Popular Pages</h3>
+          <h3 className="u-text-2xl u-font-bold u-mb-6">Popular Pages</h3>
 
           <Grid>
             {popularLinks.map((link, index) => (
@@ -96,7 +96,7 @@ const NotFoundPage: FC = () => {
                 >
                   <Card className="u-cursor-pointer u-transition-fast u-border u-border-subtle atomix-card-hover u-h-100">
                     <div className="u-p-6">
-                      <h4 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
+                      <h4 className="u-text-lg u-font-semibold u-mb-2 u-text-primary-emphasis">
                         {link.title}
                       </h4>
                       <p className="u-text-secondary-emphasis u-m-0">
@@ -118,7 +118,7 @@ const NotFoundPage: FC = () => {
               size="xl"
               className="u-mb-4 u-text-secondary-emphasis"
             />
-            <h3 className="u-fs-xl u-fw-semibold u-mb-3">
+            <h3 className="u-text-xl u-font-semibold u-mb-3">
               Still can't find what you're looking for?
             </h3>
             <p className="u-text-secondary-emphasis u-mb-6">

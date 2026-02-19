@@ -87,7 +87,7 @@ export const ComponentExamples: FC<ComponentExamplesProps> = ({
                       variant="info"
                       size="sm"
                       label="Live Preview"
-                      className="u-fs-xs"
+                      className="u-text-xs"
                     />
                   </div>
                   {example.preview && typeof example.preview !== "boolean" ? (
@@ -133,18 +133,20 @@ export const ComponentExamples: FC<ComponentExamplesProps> = ({
             <Card className="u-mb-6" elevation="lg">
               <div className="u-mb-4">
                 <div className={styles["example-header"]}>
-                  <h3 className="u-fs-xl u-fw-bold u-mb-0">{example.title}</h3>
+                  <h3 className="u-text-xl u-font-bold u-mb-0">
+                    {example.title}
+                  </h3>
                   {example.language && (
                     <Badge
                       variant="secondary"
                       size="sm"
                       label={example.language.toUpperCase()}
-                      className="u-fs-xs"
+                      className="u-text-xs"
                     />
                   )}
                 </div>
                 {example.description && (
-                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-sm">
+                  <p className="u-text-secondary-emphasis u-mb-0 u-text-sm">
                     {example.description}
                   </p>
                 )}

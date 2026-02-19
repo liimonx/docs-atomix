@@ -49,7 +49,7 @@ export const ComponentAccessibility: FC<ComponentAccessibilityProps> = ({
                 key: "key",
                 title: "Key",
                 render: (_value: unknown, row: { key: string }) => (
-                  <kbd className="u-fs-sm u-fw-semibold u-m-0">
+                  <kbd className="u-text-sm u-font-semibold u-m-0">
                     {row.key ?? "-"}
                   </kbd>
                 ),
@@ -86,7 +86,7 @@ export const ComponentAccessibility: FC<ComponentAccessibilityProps> = ({
                 key: "attribute",
                 title: "Attribute",
                 render: (_value: unknown, row: { attribute: string }) => (
-                  <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                  <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
                     {row.attribute}
                   </code>
                 ),
@@ -117,7 +117,7 @@ export const ComponentAccessibility: FC<ComponentAccessibilityProps> = ({
                 title: "Default Value",
                 render: (_value: unknown, row: { defaultValue: string }) =>
                   row.defaultValue ? (
-                    <code className="u-fs-sm u-bg-tertiary u-p-1 u-br-sm">
+                    <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
                       {row.defaultValue}
                     </code>
                   ) : (

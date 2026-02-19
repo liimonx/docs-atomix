@@ -67,7 +67,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
             <Grid>
               <GridCol md={8} className="u-mb-6">
                 <Card>
-                  <h3 className="u-fs-xl u-fw-bold u-mb-4">Features</h3>
+                  <h3 className="u-text-xl u-font-bold u-mb-4">Features</h3>
                   <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
                     {componentDoc.features.map((feature, index) => (
                       <li
@@ -90,7 +90,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
               </GridCol>
               <GridCol md={4}>
                 <Card>
-                  <h3 className="u-fs-xl u-fw-bold u-mb-4">Dependencies</h3>
+                  <h3 className="u-text-xl u-font-bold u-mb-4">Dependencies</h3>
                   {componentDoc.dependencies.length > 0 ? (
                     <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
                       {componentDoc.dependencies.map((dep, index) => (
@@ -109,7 +109,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
             </Grid>
 
             <Card>
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">Installation</h3>
+              <h3 className="u-text-xl u-font-bold u-mb-4">Installation</h3>
               <EnhancedCodeBlock
                 code="npm install @shohojdhara/atomix"
                 language="bash"
@@ -118,7 +118,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
             </Card>
 
             <Card>
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">Basic Usage</h3>
+              <h3 className="u-text-xl u-font-bold u-mb-4">Basic Usage</h3>
               <EnhancedCodeBlock
                 code={`import { ${componentDoc.name} } from '${componentDoc.importPath}';`}
                 language="typescript"
@@ -272,7 +272,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
     return (
       <Block>
         <div className="u-text-center u-py-8">
-          <h1 className="u-fs-3xl u-fw-bold u-mb-4">Component Not Found</h1>
+          <h1 className="u-text-3xl u-font-bold u-mb-4">Component Not Found</h1>
           <p className="u-text-secondary-emphasis u-mb-6">
             The requested component could not be found.
           </p>
@@ -292,14 +292,16 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
         <div className="u-mb-8">
           <Link
             href="/docs/components"
-            className="u-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-fs-sm u-mb-4 u-transition-fast u-focus-visible-ring"
+            className="u-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
           >
             <span>← Back to Components</span>
           </Link>
 
           <div className="u-flex u-flex-wrap u-align-items-center u-justify-between u-gap-4">
             <div>
-              <h1 className="u-fs-4xl u-fw-bold u-mb-2">{componentDoc.name}</h1>
+              <h1 className="u-text-4xl u-font-bold u-mb-2">
+                {componentDoc.name}
+              </h1>
               <p className="u-text-secondary-emphasis u-m-0">
                 {componentDoc.description}
               </p>

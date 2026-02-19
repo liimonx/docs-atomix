@@ -325,7 +325,7 @@ export default function ExampleLandingPage() {
         />
         <div className="u-grid u-grid-cols-1 u-gap-6 md:u-grid-cols-3">
           <div className="u-p-4 u-bg-primary-1 u-br-lg u-border u-border-border">
-            <h3 className="u-fs-xl u-fw-bold u-mb-3 u-text-primary">
+            <h3 className="u-text-xl u-font-bold u-mb-3 u-text-primary">
               Advanced Analytics
             </h3>
             <p className="u-text-secondary-emphasis u-mb-4">
@@ -340,7 +340,7 @@ export default function ExampleLandingPage() {
           </div>
 
           <div className="u-p-4 u-bg-success-1 u-br-lg u-border u-border-border">
-            <h3 className="u-fs-xl u-fw-bold u-mb-3 u-text-success">
+            <h3 className="u-text-xl u-font-bold u-mb-3 u-text-success">
               Enterprise Security
             </h3>
             <p className="u-text-secondary-emphasis u-mb-4">
@@ -356,7 +356,7 @@ export default function ExampleLandingPage() {
           </div>
 
           <div className="u-p-4 u-bg-warning-1 u-br-lg u-border u-border-border">
-            <h3 className="u-fs-xl u-fw-bold u-mb-3 u-text-warning">
+            <h3 className="u-text-xl u-font-bold u-mb-3 u-text-warning">
               Seamless Integrations
             </h3>
             <p className="u-text-secondary-emphasis u-mb-4">
@@ -396,7 +396,7 @@ export default function ExampleLandingPage() {
                 }`}
               >
                 <div className="u-mb-4">
-                  <span className="u-fs-4xl u-fw-bold u-text-primary">
+                  <span className="u-text-4xl u-font-bold u-text-primary">
                     {plan.price}
                   </span>
                   <span className="u-text-secondary-emphasis">
@@ -409,7 +409,7 @@ export default function ExampleLandingPage() {
                       key={idx}
                       className="u-flex u-align-items-center u-mb-2"
                     >
-                      <Icon name="Check" className="u-text-success u-me-2" />{" "}
+                      <Icon name="Check" className="u-text-success u-mr-2" />{" "}
                       {feature}
                     </li>
                   ))}
@@ -436,7 +436,7 @@ export default function ExampleLandingPage() {
         <div className="u-mt-8">
           {faqs.map((faq, index) => (
             <div key={index} className="u-mb-4">
-              <h4 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary">
+              <h4 className="u-text-lg u-font-semibold u-mb-2 u-text-primary">
                 {faq.question}
               </h4>
               <p className="u-text-secondary-emphasis">{faq.answer}</p>
@@ -478,10 +478,10 @@ export default function ExampleLandingPage() {
           elasticity={0}
         >
           <div className="u-text-center">
-            <h2 className="u-fs-3xl u-fw-700 u-mb-4 u-text-primary-emphasis">
+            <h2 className="u-text-3xl u-font-700 u-mb-4 u-text-primary-emphasis">
               Ready to Transform Your Business?
             </h2>
-            <p className="u-fs-xl u-text-secondary-emphasis u-lh-relaxed u-mb-5 u-max-w-3xl u-mx-auto">
+            <p className="u-text-xl u-text-secondary-emphasis u-lh-relaxed u-mb-5 u-max-w-3xl u-mx-auto">
               Join thousands of satisfied customers and experience the
               difference today.
             </p>

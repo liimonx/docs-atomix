@@ -215,7 +215,7 @@ $button-color: var(--atomix-primary) !default;
                   <Card elevation="lg" className="u-h-100">
                     <div className="u-flex u-align-items-center u-mb-3">
                       <div
-                        className="u-flex u-align-items-center u-justify-center u-me-3"
+                        className="u-flex u-align-items-center u-justify-center u-mr-3"
                         style={{
                           width: "48px",
                           height: "48px",
@@ -230,7 +230,7 @@ $button-color: var(--atomix-primary) !default;
                           className="u-text-brand-emphasis"
                         />
                       </div>
-                      <h3 className="u-fs-lg u-fw-semibold u-m-0">
+                      <h3 className="u-text-lg u-font-semibold u-m-0">
                         {guideline.title}
                       </h3>
                     </div>
@@ -255,7 +255,7 @@ $button-color: var(--atomix-primary) !default;
         content: (
           <div className="u-mt-4">
             <Card className="u-mb-4">
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">
+              <h3 className="u-text-xl u-font-bold u-mb-4">
                 React Component Structure
               </h3>
               <p className="u-text-secondary-emphasis u-mb-4">
@@ -264,8 +264,8 @@ $button-color: var(--atomix-primary) !default;
               </p>
               <List variant="text">
                 <ListItem>
-                  Use <code className="u-fs-sm">forwardRef</code> for components
-                  that need ref forwarding
+                  Use <code className="u-text-sm">forwardRef</code> for
+                  components that need ref forwarding
                 </ListItem>
                 <ListItem>
                   Define clear props interfaces with JSDoc comments
@@ -286,12 +286,12 @@ $button-color: var(--atomix-primary) !default;
             </Card>
 
             <Card>
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">
+              <h3 className="u-text-xl u-font-bold u-mb-4">
                 Example: React Component
               </h3>
               <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
                 <pre
-                  className="u-m-0 u-fs-sm u-text-error-text-emphasis"
+                  className="u-m-0 u-text-sm u-text-error-text-emphasis"
                   style={{ fontFamily: "var(--atomix-font-family-mono)" }}
                 >
                   <code>{reactExample}</code>
@@ -307,7 +307,7 @@ $button-color: var(--atomix-primary) !default;
         content: (
           <div className="u-mt-4">
             <Card className="u-mb-4">
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">
+              <h3 className="u-text-xl u-font-bold u-mb-4">
                 Vanilla JavaScript Implementation
               </h3>
               <p className="u-text-secondary-emphasis u-mb-4">
@@ -332,12 +332,12 @@ $button-color: var(--atomix-primary) !default;
             </Card>
 
             <Card>
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">
+              <h3 className="u-text-xl u-font-bold u-mb-4">
                 Example: Vanilla JS Class
               </h3>
               <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
                 <pre
-                  className="u-m-0 u-fs-sm u-text-error-text-emphasis"
+                  className="u-m-0 u-text-sm u-text-error-text-emphasis"
                   style={{ fontFamily: "var(--atomix-font-family-mono)" }}
                 >
                   <code>{vanillaExample}</code>
@@ -353,7 +353,9 @@ $button-color: var(--atomix-primary) !default;
         content: (
           <div className="u-mt-4">
             <Card className="u-mb-4">
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">Styling Architecture</h3>
+              <h3 className="u-text-xl u-font-bold u-mb-4">
+                Styling Architecture
+              </h3>
               <p className="u-text-secondary-emphasis u-mb-4">
                 Atomix follows the ITCSS (Inverted Triangle CSS) architecture:
               </p>
@@ -369,19 +371,19 @@ $button-color: var(--atomix-primary) !default;
                 </ListItem>
                 <ListItem>
                   Follow BEM methodology with{" "}
-                  <code className="u-fs-sm">c-</code> prefix
+                  <code className="u-text-sm">c-</code> prefix
                 </ListItem>
                 <ListItem>Use CSS custom properties for theming</ListItem>
               </List>
             </Card>
 
             <Card>
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">
+              <h3 className="u-text-xl u-font-bold u-mb-4">
                 Example: Component Styles
               </h3>
               <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
                 <pre
-                  className="u-m-0 u-fs-sm u-text-error-text-emphasis"
+                  className="u-m-0 u-text-sm u-text-error-text-emphasis"
                   style={{ fontFamily: "var(--atomix-font-family-mono)" }}
                 >
                   <code>{stylingExample}</code>
@@ -397,7 +399,7 @@ $button-color: var(--atomix-primary) !default;
         content: (
           <div className="u-mt-4">
             <Card className="u-mb-4">
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">
+              <h3 className="u-text-xl u-font-bold u-mb-4">
                 Accessibility Checklist
               </h3>
               <p className="u-text-secondary-emphasis u-mb-4">
@@ -425,12 +427,12 @@ $button-color: var(--atomix-primary) !default;
             </Card>
 
             <Card>
-              <h3 className="u-fs-xl u-fw-bold u-mb-4">
+              <h3 className="u-text-xl u-font-bold u-mb-4">
                 Accessibility Example
               </h3>
               <Card className="u-p-4 u-bg-secondary-subtle u-border u-border-subtle u-overflow-x-auto">
                 <pre
-                  className="u-m-0 u-fs-sm u-text-error-text-emphasis"
+                  className="u-m-0 u-text-sm u-text-error-text-emphasis"
                   style={{ fontFamily: "var(--atomix-font-family-mono)" }}
                 >
                   <code>{`<button
@@ -512,14 +514,14 @@ $button-color: var(--atomix-primary) !default;
             New to component development? Start with our{" "}
             <Link
               href="/docs/getting-started/installation"
-              className="u-text-primary u-text-decoration-none u-fw-medium"
+              className="u-text-primary u-text-decoration-none u-font-medium"
             >
               installation guide
             </Link>{" "}
             and{" "}
             <Link
               href="/docs/components/overview"
-              className="u-text-primary u-text-decoration-none u-fw-medium"
+              className="u-text-primary u-text-decoration-none u-font-medium"
             >
               browse existing components
             </Link>{" "}
@@ -531,7 +533,7 @@ $button-color: var(--atomix-primary) !default;
               href="/docs/components/overview"
               LinkComponent={Link}
             >
-              <Icon name="GridFour" size={16} className="u-me-2" />
+              <Icon name="GridFour" size={16} className="u-mr-2" />
               Browse Components
             </Button>
             <Button
@@ -539,7 +541,7 @@ $button-color: var(--atomix-primary) !default;
               href="/docs/getting-started/quick-start"
               LinkComponent={Link}
             >
-              <Icon name="Rocket" size={16} className="u-me-2" />
+              <Icon name="Rocket" size={16} className="u-mr-2" />
               Quick Start Guide
             </Button>
             <Button
@@ -547,7 +549,7 @@ $button-color: var(--atomix-primary) !default;
               href="/docs/resources/contributing"
               LinkComponent={Link}
             >
-              <Icon name="Code" size={16} className="u-me-2" />
+              <Icon name="Code" size={16} className="u-mr-2" />
               Contributing Guide
             </Button>
           </div>

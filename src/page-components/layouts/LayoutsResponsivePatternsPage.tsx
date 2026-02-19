@@ -155,7 +155,7 @@ const LayoutsResponsivePatternsPage: FC = () => {
                   >
                     {principle.icon}
                   </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
+                  <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
                     {principle.title}
                   </h3>
                   <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
@@ -191,7 +191,7 @@ const LayoutsResponsivePatternsPage: FC = () => {
                   >
                     {pattern.icon}
                   </div>
-                  <h3 className="u-fs-xl u-fw-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
+                  <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
                     {pattern.title}
                   </h3>
                   <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
@@ -207,10 +207,10 @@ const LayoutsResponsivePatternsPage: FC = () => {
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
                   <Icon name="Code" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Sidebar Layout Pattern
                 </h3>
               </div>
@@ -255,10 +255,10 @@ function SidebarLayout({ children, sidebar }) {
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
                   <Icon name="GridFour" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Card Grid Layout Pattern
                 </h3>
               </div>
@@ -305,10 +305,10 @@ function CardGridLayout({ cards }) {
           <GridCol md={6} className="u-mb-6">
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
                   <Icon name="Phone" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Breakpoint Strategy
                 </h3>
               </div>
@@ -328,7 +328,7 @@ function CardGridLayout({ cards }) {
                     key={index}
                     className="u-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md"
                   >
-                    <div className="u-w-10 u-h-10 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-primary-emphasis u-fw-bold">
+                    <div className="u-w-10 u-h-10 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis u-font-bold">
                       {bp.name}
                     </div>
                     <span className="u-text-secondary-emphasis">{bp.size}</span>
@@ -336,7 +336,7 @@ function CardGridLayout({ cards }) {
                 ))}
               </div>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
+              <h4 className="u-text-lg u-font-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
                 Usage Example
               </h4>
               <EnhancedCodeBlock
@@ -353,10 +353,10 @@ function CardGridLayout({ cards }) {
           <GridCol md={6} className="u-mb-6">
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-3 u-text-success-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
                   <Icon name="Image" size="lg" />
                 </div>
-                <h3 className="u-fs-xl u-fw-semibold u-m-0 u-text-primary-emphasis">
+                <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Responsive Media
                 </h3>
               </div>
@@ -364,7 +364,7 @@ function CardGridLayout({ cards }) {
                 Ensure images and media adapt to their containers:
               </p>
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
+              <h4 className="u-text-lg u-font-semibold u-mt-3 u-mb-2 u-text-primary-emphasis">
                 Images
               </h4>
               <EnhancedCodeBlock
@@ -379,7 +379,7 @@ function CardGridLayout({ cards }) {
                 showLineNumbers={true}
               />
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
                 Videos
               </h4>
               <EnhancedCodeBlock
@@ -395,7 +395,7 @@ function CardGridLayout({ cards }) {
                 showLineNumbers={true}
               />
 
-              <h4 className="u-fs-lg u-fw-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
+              <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
                 Typography
               </h4>
               <p className="u-text-secondary-emphasis u-mb-2">
@@ -466,7 +466,7 @@ function CardGridLayout({ cards }) {
                   >
                     {practice.icon}
                   </div>
-                  <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                  <h3 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
                     {practice.title}
                   </h3>
                 </div>

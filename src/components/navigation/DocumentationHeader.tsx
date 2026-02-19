@@ -70,7 +70,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
               aria-label="Atomix Design System"
             >
               <AtomixLogo />
-              <span className="u-fs-lg u-fw-semibold">Atomix</span>
+              <span className="u-text-lg u-font-semibold">Atomix</span>
             </Link>
           </div>
         }
@@ -83,7 +83,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
           alignment="end"
         >
           {/* Search */}
-          <div className="u-position-relative">
+          <div className="u-relative">
             <GlobalSearch />
           </div>
         </Nav>

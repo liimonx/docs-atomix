@@ -286,7 +286,7 @@ const DocumentationOverviewPage: FC = () => {
                 <div className="u-inline-flex u-align-items-center u-justify-center u-w-16 u-h-16 u-bg-brand-subtle u-rounded-full u-mb-4 u-text-brand-emphasis">
                   {stat.icon}
                 </div>
-                <div className="u-fs-2xl u-fw-bold u-mb-2 u-text-primary-emphasis">
+                <div className="u-text-2xl u-font-bold u-mb-2 u-text-primary-emphasis">
                   {stat.value}
                 </div>
                 <div className="u-text-secondary-emphasis">{stat.label}</div>
@@ -309,7 +309,7 @@ const DocumentationOverviewPage: FC = () => {
             <div key={section.id}>
               <div className="u-flex u-align-items-center u-mb-6">
                 <div
-                  className={`u-w-12 u-h-12 u-br-md u-flex u-align-items-center u-justify-center u-me-4`}
+                  className={`u-w-12 u-h-12 u-br-md u-flex u-align-items-center u-justify-center u-mr-4`}
                   style={{
                     backgroundColor: `var(--atomix-${section.color}-bg-subtle)`,
                     color: `var(--atomix-${section.color}-text-emphasis)`,
@@ -318,7 +318,7 @@ const DocumentationOverviewPage: FC = () => {
                   {section.icon}
                 </div>
                 <div>
-                  <h2 className="u-fs-2xl u-fw-bold u-m-0 u-mb-1 u-text-primary-emphasis">
+                  <h2 className="u-text-2xl u-font-bold u-m-0 u-mb-1 u-text-primary-emphasis">
                     {section.title}
                   </h2>
                   <p className="u-m-0 u-text-secondary-emphasis">
@@ -336,14 +336,14 @@ const DocumentationOverviewPage: FC = () => {
                     >
                       <Card className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                         <div className="u-p-6 u-h-100 u-flex u-flex-column">
-                          <h3 className="u-fs-lg u-fw-semibold u-mb-2 u-text-primary-emphasis">
+                          <h3 className="u-text-lg u-font-semibold u-mb-2 u-text-primary-emphasis">
                             {item.title}
                           </h3>
                           <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
                             {item.description}
                           </p>
-                          <div className="u-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                            <span className="u-me-2">Learn more</span>
+                          <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
+                            <span className="u-mr-2">Learn more</span>
                             <Icon name="ArrowRight" size="lg" />
                           </div>
                         </div>
@@ -393,10 +393,10 @@ const DocumentationOverviewPage: FC = () => {
                 <Card className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-p-6 u-h-100 u-flex u-flex-column">
                     <div className="u-flex u-align-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-4 u-text-primary-emphasis">
+                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-4 u-text-primary-emphasis">
                         {api.icon}
                       </div>
-                      <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                      <h3 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
                         {api.title}
                       </h3>
                     </div>
@@ -408,8 +408,8 @@ const DocumentationOverviewPage: FC = () => {
                     >
                       {api.description}
                     </p>
-                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                      <span className="u-me-2">View Reference</span>
+                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
+                      <span className="u-mr-2">View Reference</span>
                       <Icon name="ArrowRight" size="lg" />
                     </div>
                   </div>
@@ -456,10 +456,10 @@ const DocumentationOverviewPage: FC = () => {
                 <Card className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-p-6 u-h-100 u-flex u-flex-column">
                     <div className="u-flex u-align-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-me-4 u-text-secondary-emphasis">
+                      <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-4 u-text-secondary-emphasis">
                         {resource.icon}
                       </div>
-                      <h3 className="u-fs-lg u-fw-semibold u-m-0 u-text-primary-emphasis">
+                      <h3 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
                         {resource.title}
                       </h3>
                     </div>
@@ -471,8 +471,8 @@ const DocumentationOverviewPage: FC = () => {
                     >
                       {resource.description}
                     </p>
-                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-fw-medium">
-                      <span className="u-me-2">Explore</span>
+                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
+                      <span className="u-mr-2">Explore</span>
                       <Icon name="CaretRight" size="lg" />
                     </div>
                   </div>

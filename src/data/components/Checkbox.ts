@@ -310,7 +310,7 @@ function DisabledCheckbox() {
         invalid={isInvalid}
       />
       {isInvalid && (
-        <div className="u-text-error u-fs-sm">
+        <div className="u-text-error u-text-sm">
           You must agree to the terms to continue
         </div>
       )}

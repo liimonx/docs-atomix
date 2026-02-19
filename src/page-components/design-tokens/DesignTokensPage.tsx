@@ -581,30 +581,30 @@ const DesignTokensPage: FC = () => {
             <Grid>
               <GridCol md={4} sm={6}>
                 <Card className="u-p-6 u-text-center u-h-100">
-                  <div className="u-fs-4xl u-fw-bold u-mb-2 u-text-primary-emphasis">
+                  <div className="u-text-4xl u-font-bold u-mb-2 u-text-primary-emphasis">
                     {filteredTokens.length}
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">
+                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
                     Total Tokens
                   </p>
                 </Card>
               </GridCol>
               <GridCol md={4} sm={6}>
                 <Card className="u-p-6 u-text-center u-h-100">
-                  <div className="u-fs-4xl u-fw-bold u-mb-2 u-text-primary-emphasis">
+                  <div className="u-text-4xl u-font-bold u-mb-2 u-text-primary-emphasis">
                     {Object.keys(groupedTokens).length}
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">
+                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
                     Categories
                   </p>
                 </Card>
               </GridCol>
               <GridCol md={4} sm={6}>
                 <Card className="u-p-6 u-text-center u-h-100">
-                  <div className="u-fs-4xl u-fw-bold u-mb-2 u-text-primary-emphasis">
+                  <div className="u-text-4xl u-font-bold u-mb-2 u-text-primary-emphasis">
                     {designTokens.length}
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-0 u-fs-lg">
+                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
                     Token Groups
                   </p>
                 </Card>

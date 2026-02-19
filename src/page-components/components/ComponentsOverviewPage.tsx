@@ -329,7 +329,7 @@ const ComponentsOverviewPage: FC = () => {
                       }}
                     />
                     <div
-                      className="u-position-absolute"
+                      className="u-absolute"
                       style={{
                         top: "50%",
                         left: "16px",
@@ -438,7 +438,9 @@ const ComponentsOverviewPage: FC = () => {
               }
               children={
                 <>
-                  <h3 className="u-fs-2xl u-fw-bold u-mb-3">No items found</h3>
+                  <h3 className="u-text-2xl u-font-bold u-mb-3">
+                    No items found
+                  </h3>
                   <p className="u-text-secondary-emphasis u-mb-6">
                     No items match your search "{searchQuery}". Try a different
                     search term or filter.
@@ -453,7 +455,7 @@ const ComponentsOverviewPage: FC = () => {
                   className="u-flex u-align-items-center u-gap-2 u-justify-between u-pb-3 u-border-b"
                   style={{ borderBottomWidth: "2px" }}
                 >
-                  <h2 className="u-fs-xl u-fw-semibold">{section}</h2>
+                  <h2 className="u-text-xl u-font-semibold">{section}</h2>
                   <Badge
                     label={`${components.length} items`}
                     variant="secondary"
@@ -482,7 +484,7 @@ const ComponentsOverviewPage: FC = () => {
                                     label={component.badge.text}
                                     variant={component.badge.variant as any}
                                     size="sm"
-                                    className="u-ms-2"
+                                    className="u-ml-2"
                                   >
                                     {component.badge.text}
                                   </Badge>
@@ -494,7 +496,7 @@ const ComponentsOverviewPage: FC = () => {
                                       component.isNew ? "success" : "warning"
                                     }
                                     size="sm"
-                                    className="u-ms-2"
+                                    className="u-ml-2"
                                   >
                                     <Icon
                                       name={
@@ -544,7 +546,7 @@ const ComponentsOverviewPage: FC = () => {
                                     label={component.badge.text}
                                     variant={component.badge.variant as any}
                                     size="sm"
-                                    className="u-me-2"
+                                    className="u-mr-2"
                                   >
                                     {component.badge.text}
                                   </Badge>
