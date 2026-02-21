@@ -1,5 +1,3 @@
-// import { Popover } from '@shohojdhara/atomix';
-
 export const popoverMetadata = {
   id: 'popover',
   name: 'Popover',
