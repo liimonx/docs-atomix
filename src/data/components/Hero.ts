@@ -1,5 +1,3 @@
-// import { Hero } from '@shohojdhara/atomix';
-
 export const heroMetadata = {
   id: 'hero',
   name: 'Hero',
