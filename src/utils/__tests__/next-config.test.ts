@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-// @ts-ignore - Importing next.config.js which might not have type definitions exposed this way
+// @ts-expect-error - Importing next.config.js which might not have type definitions exposed this way
 import nextConfig from '../../../next.config.js';
 
 describe('next.config.js', () => {
