@@ -1,5 +1,3 @@
-// import { Navbar } from '@shohojdhara/atomix';
-
 export const navbarMetadata = {
   id: 'navbar',
   name: 'Navbar',

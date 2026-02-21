@@ -1,5 +1,3 @@
-// import { Slider } from '@shohojdhara/atomix';
-
 export const sliderMetadata = {
   id: 'slider',
   name: 'Slider',

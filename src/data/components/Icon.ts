@@ -1,5 +1,3 @@
-// import { Icon } from '@shohojdhara/atomix';
-
 export const iconMetadata = {
   id: 'icon',
   name: 'Icon',

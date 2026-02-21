@@ -1,5 +1,3 @@
-// import { List } from '@shohojdhara/atomix';
-
 export const listMetadata = {
   id: 'list',
   name: 'List',
