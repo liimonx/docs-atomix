@@ -1,6 +1,6 @@
 import * as culori from 'culori';
 
-const { formatHex, formatHex8, parse, hsl, rgb } = culori;
+const { formatHex, parse, hsl, rgb } = culori;
 
 /**
  * Color utility functions for Theme Studio
@@ -59,16 +59,22 @@ export function parseColor(color: string): ColorRGB | null {
  * Convert RGB to hex
  */
 export function rgbToHex(r: number, g: number, b: number, a?: number): string {
-  const mode = 'rgb';
-  const color = { mode, r: r / 255, g: g / 255, b: b / 255, alpha: a };
+  const toHex = (n: number) => {
+    const hex = Math.round(n).toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  };
+
+  const rHex = toHex(Math.max(0, Math.min(255, r)));
+  const gHex = toHex(Math.max(0, Math.min(255, g)));
+  const bHex = toHex(Math.max(0, Math.min(255, b)));
 
   if (a !== undefined && a < 1) {
-    const hex = formatHex8(color);
-    return hex || '#00000000';
+    const alpha = Math.max(0, Math.min(1, a));
+    const aHex = toHex(alpha * 255);
+    return `#${rHex}${gHex}${bHex}${aHex}`;
   }
 
-  const hex = formatHex(color);
-  return hex || '#000000';
+  return `#${rHex}${gHex}${bHex}`;
 }
 
 /**
