@@ -1,4 +1,3 @@
-// import { Pagination } from '@shohojdhara/atomix';
 
 export const paginationMetadata = {
   id: 'pagination',
