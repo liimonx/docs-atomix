@@ -470,13 +470,6 @@ export function validatePreset(preset: ThemePreset): { valid: boolean; errors: s
   };
 }
 
-/**
- * Gets all available preset IDs
- */
-export function getPresetIds(): string[] {
-  return Object.keys(themePresets);
-}
-
 export const themePresets: Record<string, ThemePreset> = {
   atomix: {
     name: 'Atomix Default',
