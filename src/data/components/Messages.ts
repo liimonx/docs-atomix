@@ -1,5 +1,3 @@
-// import { Messages } from '@shohojdhara/atomix';
-
 export const messagesMetadata = {
   id: 'messages',
   name: 'Messages',
