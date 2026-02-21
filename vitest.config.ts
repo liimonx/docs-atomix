@@ -19,6 +19,8 @@ export default defineConfig({
     include: [
       'src/utils/__tests__/routeMapper.test.ts',
       'src/utils/__tests__/breadcrumbs.test.ts',
+      'src/utils/__tests__/colorUtils.test.ts',
+      'src/utils/__tests__/next-config.test.ts',
     ],
     exclude: [
       'node_modules/**',
