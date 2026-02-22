@@ -1,11 +1,10 @@
 // @vitest-environment jsdom
-import { render, waitFor, act } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import MarkdownPage from "./MarkdownPage";
-import React from "react";
 import { vi, describe, it, expect, beforeEach } from "vitest";
 
 // Mock ReactMarkdown
-const mockReactMarkdown = vi.fn((props: any) => <div>Markdown Content</div>);
+const mockReactMarkdown = vi.fn((_props: any) => <div>Markdown Content</div>);
 
 vi.mock("react-markdown", () => ({
   default: (props: any) => mockReactMarkdown(props),
