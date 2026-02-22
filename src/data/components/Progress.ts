@@ -1,4 +1,3 @@
-// import { Progress } from '@shohojdhara/atomix';
 
 export const progressMetadata = {
   id: 'progress',
