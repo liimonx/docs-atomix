@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error - Importing next.config.js which might not have type definitions exposed this way
 import nextConfig from '../../../next.config.js';
 
 describe('next.config.js', () => {
@@ -13,6 +12,10 @@ describe('next.config.js', () => {
     // Find the headers for all routes
     const globalHeaders = headersList.find((h: any) => h.source === '/(.*)');
     expect(globalHeaders).toBeDefined();
+
+    if (!globalHeaders) {
+      throw new Error('Global headers not found');
+    }
 
     const headers = globalHeaders.headers;
 
