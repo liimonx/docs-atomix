@@ -13,7 +13,11 @@ describe('next.config.js', () => {
     const globalHeaders = headersList.find((h: any) => h.source === '/(.*)');
     expect(globalHeaders).toBeDefined();
 
-    const headers = globalHeaders?.headers || [];
+    if (!globalHeaders) {
+      throw new Error('Global headers not found');
+    }
+
+    const headers = globalHeaders.headers;
 
     // Helper to find a specific header
     const findHeader = (key: string) => headers.find((h: any) => h.key === key);
