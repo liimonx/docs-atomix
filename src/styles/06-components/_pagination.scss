@@ -7,4 +7,7 @@
  * @see https://atomix.design/docs/components/pagination
  */
 
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.pagination';
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.pagination' with (
+  $pagination-active-bg: var(--atomix-primary),
+  $pagination-active-color: var(--atomix-primary-emphasis)
+);

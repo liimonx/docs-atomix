@@ -7,4 +7,6 @@
  * @see https://atomix.design/docs/components/nav
  */
 
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.nav';
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.nav' with (
+  $nav-link-font-weight: 600
+);

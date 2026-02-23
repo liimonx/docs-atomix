@@ -21,7 +21,6 @@ import {
 
   // Getting Started Pages
   GettingStartedPage,
-  GettingStartedOverviewPage,
   MigrationPage,
   CLIPage,
 
@@ -127,12 +126,11 @@ class PageComponentRegistry {
 
     // Getting Started Pages
     // Note: GettingStartedPage needs 'type' prop, handled in route handler
-    this.idMap.set('getting-started:introduction', GettingStartedOverviewPage);
     this.idMap.set('getting-started:installation', GettingStartedPage);
     this.idMap.set('getting-started:quick-start', GettingStartedPage);
     this.idMap.set('getting-started:migration', MigrationPage);
     this.idMap.set('getting-started:cli', CLIPage);
-    this.categoryMap.set('getting-started', GettingStartedOverviewPage);
+    this.categoryMap.set('getting-started', GettingStartedPage);
 
     // CLI Pages
     this.idMap.set('cli:overview', CLIOverviewPage);

@@ -9,12 +9,14 @@
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.card' with (
   // Spacing
-  $card-spacer-y: 1.25rem,
-  $card-spacer-x: 1.25rem,
+  $card-spacer-y: 1.5rem,
+  $card-spacer-x: 1.5rem,
 
   // Border Radius
-  $card-border-radius: 0.5rem,
+  $card-border-radius: 1rem,
 
   // Styles
-  $card-border-width: 1px
+  $card-border-width: 1px,
+  $card-bg: var(--atomix-primary-bg-subtle),
+  $card-bg-hover: var(--atomix-secondary-bg-subtle)
 );

@@ -7,4 +7,13 @@
  * @see https://atomix.design/docs/components/hero
  */
 
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.hero';
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.hero' with (
+  // Spacing
+  $hero-padding-y: 6rem,
+  
+  // Typography
+  $hero-title-font-weight: 900,
+  $hero-title-font-size: 4rem,
+  $hero-text-font-size: 1.125rem,
+  $hero-subtitle-font-weight: 600
+);

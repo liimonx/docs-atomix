@@ -7,4 +7,7 @@
  * @see https://atomix.design/docs/components/tabs
  */
 
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.tabs';
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.tabs' with (
+  $tabs-nav-btn-font-weight: 600,
+  $tabs-nav-btn-border-active-color: var(--atomix-primary)
+);

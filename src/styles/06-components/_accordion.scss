@@ -7,4 +7,7 @@
  * @see https://atomix.design/docs/components/accordion
  */
 
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.accordion';
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.accordion' with (
+  $accordion-border-radius: 1rem,
+  $accordion-header-font-weight: 600
+);

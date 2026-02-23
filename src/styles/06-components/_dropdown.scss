@@ -7,4 +7,6 @@
  * @see https://atomix.design/docs/components/dropdown
  */
 
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.dropdown';
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.dropdown' with (
+  $dropdown-border-radius: 0.75rem
+);

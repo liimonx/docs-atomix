@@ -7,4 +7,7 @@
  * @see https://atomix.design/docs/components/callout
  */
 
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.callout';
+@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.callout' with (
+  $callout-border-radius: 1rem,
+  $callout-title-font-weight: 700
+);

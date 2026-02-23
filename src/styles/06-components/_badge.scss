@@ -9,13 +9,13 @@
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.badge' with (
   // Typography
-  $badge-font-size: 0.75rem,
-  $badge-font-weight: 500,
+  $badge-font-size: 0.7rem,
+  $badge-font-weight: 700,
 
   // Padding
-  $badge-padding-y: 0.25em,
-  $badge-padding-x: 0.5em,
+  $badge-padding-y: 0.35rem,
+  $badge-padding-x: 0.75rem,
 
   // Border Radius
-  $badge-border-radius: 0.25rem
+  $badge-border-radius: 100px
 );
