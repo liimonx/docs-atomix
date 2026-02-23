@@ -442,10 +442,32 @@ const githubDark = createPresetTokens(defaultTokens.dark, {
 // }, true);
 
 /**
- * Gets all available preset IDs
+ * Validates that a preset has all required tokens
  */
-export function getPresetIds(): string[] {
-  return Object.keys(themePresets);
+export function validatePreset(preset: ThemePreset): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+  const requiredTokens = [
+    '--atomix-primary',
+    '--atomix-primary-hover',
+    '--atomix-primary-rgb',
+    '--atomix-body-bg',
+    '--atomix-body-color',
+    '--atomix-heading-color',
+  ];
+
+  for (const token of requiredTokens) {
+    if (!preset.light[token]) {
+      errors.push(`Missing light token: ${token}`);
+    }
+    if (!preset.dark[token]) {
+      errors.push(`Missing dark token: ${token}`);
+    }
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
 }
 
 export const themePresets: Record<string, ThemePreset> = {
