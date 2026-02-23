@@ -1,3 +1,4 @@
+
 export const navbarMetadata = {
   id: 'navbar',
   name: 'Navbar',

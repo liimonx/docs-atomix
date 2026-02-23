@@ -1,3 +1,4 @@
+
 export const blockMetadata = {
   id: 'block',
   name: 'Block',

@@ -1,3 +1,4 @@
+
 export const sliderMetadata = {
   id: 'slider',
   name: 'Slider',

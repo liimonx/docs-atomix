@@ -1,3 +1,4 @@
+
 export const iconMetadata = {
   id: 'icon',
   name: 'Icon',

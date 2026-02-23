@@ -1,3 +1,4 @@
+
 export const messagesMetadata = {
   id: 'messages',
   name: 'Messages',

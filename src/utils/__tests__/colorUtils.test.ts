@@ -1,30 +1,63 @@
 import { describe, it, expect } from 'vitest';
-import { rgbToHex } from '../colorUtils';
+import { parseColor } from '../colorUtils';
 
-describe('rgbToHex', () => {
-  it('converts basic colors correctly', () => {
-    expect(rgbToHex(0, 0, 0)).toBe('#000000');
-    expect(rgbToHex(255, 255, 255)).toBe('#ffffff');
-    expect(rgbToHex(255, 0, 0)).toBe('#ff0000');
-    expect(rgbToHex(0, 255, 0)).toBe('#00ff00');
-    expect(rgbToHex(0, 0, 255)).toBe('#0000ff');
+describe('parseColor', () => {
+  describe('valid inputs', () => {
+    it('parses hex colors', () => {
+      expect(parseColor('#000000')).toEqual({ r: 0, g: 0, b: 0, a: 1 });
+      expect(parseColor('#ffffff')).toEqual({ r: 255, g: 255, b: 255, a: 1 });
+      expect(parseColor('#ff0000')).toEqual({ r: 255, g: 0, b: 0, a: 1 });
+
+      const result = parseColor('#00000080');
+      expect(result).not.toBeNull();
+      if (result) {
+        expect(result.r).toBe(0);
+        expect(result.g).toBe(0);
+        expect(result.b).toBe(0);
+        expect(result.a).toBeCloseTo(0.5, 1);
+      }
+    });
+
+    it('parses rgb colors', () => {
+      expect(parseColor('rgb(0, 0, 0)')).toEqual({ r: 0, g: 0, b: 0, a: 1 });
+      expect(parseColor('rgb(255, 255, 255)')).toEqual({ r: 255, g: 255, b: 255, a: 1 });
+      expect(parseColor('rgba(0, 0, 0, 0.5)')).toEqual({ r: 0, g: 0, b: 0, a: 0.5 });
+    });
+
+    it('parses hsl colors', () => {
+      expect(parseColor('hsl(0, 0%, 0%)')).toEqual({ r: 0, g: 0, b: 0, a: 1 });
+      expect(parseColor('hsl(0, 100%, 50%)')).toEqual({ r: 255, g: 0, b: 0, a: 1 });
+      expect(parseColor('hsla(0, 0%, 0%, 0.5)')).toEqual({ r: 0, g: 0, b: 0, a: 0.5 });
+    });
+
+    it('parses named colors', () => {
+      expect(parseColor('black')).toEqual({ r: 0, g: 0, b: 0, a: 1 });
+      expect(parseColor('white')).toEqual({ r: 255, g: 255, b: 255, a: 1 });
+      expect(parseColor('red')).toEqual({ r: 255, g: 0, b: 0, a: 1 });
+    });
   });
 
-  it('handles alpha channel correctly', () => {
-    // Alpha 1 should be omitted
-    expect(rgbToHex(0, 0, 0, 1)).toBe('#000000');
+  describe('invalid inputs', () => {
+    it('returns null for empty string', () => {
+      expect(parseColor('')).toBeNull();
+    });
 
-    // Alpha 0 should be 00
-    expect(rgbToHex(255, 255, 255, 0)).toBe('#ffffff00');
-
-    // Alpha 0.5 (approx 128/255 -> 80)
-    expect(rgbToHex(0, 0, 0, 0.5)).toBe('#00000080');
+    it('returns null for invalid color strings', () => {
+      expect(parseColor('not-a-color')).toBeNull();
+      expect(parseColor('12345')).toBeNull(); // not a valid hex without #
+      expect(parseColor('#12')).toBeNull(); // invalid hex length
+      expect(parseColor('rgb(0,0)')).toBeNull(); // missing argument
+    });
   });
 
-  it('handles values out of standard 0-255 range by clamping', () => {
-    // 300 -> clamped to 255 -> #ff0000
-    expect(rgbToHex(300, 0, 0)).toBe('#ff0000');
-    // -50 -> clamped to 0 -> #000000
-    expect(rgbToHex(-50, 0, 0)).toBe('#000000');
+  describe('error handling', () => {
+    it('returns null when parsing throws an error (simulated via invalid types)', () => {
+      // simulate checking the catch block by passing types that might cause parse() to throw
+      // if parse() expects a string and tries to call string methods on it.
+      expect(parseColor(null as any)).toBeNull();
+      expect(parseColor(undefined as any)).toBeNull();
+      expect(parseColor(123 as any)).toBeNull();
+      expect(parseColor({} as any)).toBeNull();
+    });
   });
 });

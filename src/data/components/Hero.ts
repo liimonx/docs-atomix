@@ -1,3 +1,4 @@
+
 export const heroMetadata = {
   id: 'hero',
   name: 'Hero',
