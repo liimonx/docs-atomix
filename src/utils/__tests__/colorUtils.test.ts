@@ -1,56 +1,30 @@
 import { describe, it, expect } from 'vitest';
-import { checkContrast } from '../colorUtils';
+import { rgbToHex } from '../colorUtils';
 
-describe('checkContrast', () => {
-  it('identifies high contrast (AAA) correctly', () => {
-    // Black on White: Ratio 21
-    const result = checkContrast('#000000', '#FFFFFF');
-    expect(result.ratio).toBe(21);
-    expect(result.level).toBe('AAA');
-    expect(result.aaa.normal).toBe(true);
-    expect(result.aaa.large).toBe(true);
-    expect(result.aa.normal).toBe(true);
-    expect(result.aa.large).toBe(true);
+describe('rgbToHex', () => {
+  it('converts basic colors correctly', () => {
+    expect(rgbToHex(0, 0, 0)).toBe('#000000');
+    expect(rgbToHex(255, 255, 255)).toBe('#ffffff');
+    expect(rgbToHex(255, 0, 0)).toBe('#ff0000');
+    expect(rgbToHex(0, 255, 0)).toBe('#00ff00');
+    expect(rgbToHex(0, 0, 255)).toBe('#0000ff');
   });
 
-  it('identifies medium contrast (AA Normal / AAA Large) correctly', () => {
-    // #767676 on White: Ratio ~4.54
-    const result = checkContrast('#767676', '#FFFFFF');
-    expect(result.ratio).toBeGreaterThanOrEqual(4.5);
-    expect(result.level).toBe('AAA'); // Because AAA Large passes
-    expect(result.aaa.normal).toBe(false);
-    expect(result.aaa.large).toBe(true);
-    expect(result.aa.normal).toBe(true);
-    expect(result.aa.large).toBe(true);
+  it('handles alpha channel correctly', () => {
+    // Alpha 1 should be omitted
+    expect(rgbToHex(0, 0, 0, 1)).toBe('#000000');
+
+    // Alpha 0 should be 00
+    expect(rgbToHex(255, 255, 255, 0)).toBe('#ffffff00');
+
+    // Alpha 0.5 (approx 128/255 -> 80)
+    expect(rgbToHex(0, 0, 0, 0.5)).toBe('#00000080');
   });
 
-  it('identifies low contrast (AA Large only) correctly', () => {
-    // #949494 on White: Ratio ~3.08
-    const result = checkContrast('#949494', '#FFFFFF');
-    expect(result.ratio).toBeGreaterThanOrEqual(3);
-    expect(result.ratio).toBeLessThan(4.5);
-    expect(result.level).toBe('AA');
-    expect(result.aaa.normal).toBe(false);
-    expect(result.aaa.large).toBe(false);
-    expect(result.aa.normal).toBe(false);
-    expect(result.aa.large).toBe(true);
-  });
-
-  it('identifies failure contrast correctly', () => {
-    // #CCCCCC on White: Ratio ~1.6
-    const result = checkContrast('#CCCCCC', '#FFFFFF');
-    expect(result.ratio).toBeLessThan(3);
-    expect(result.level).toBe('FAIL');
-    expect(result.aaa.normal).toBe(false);
-    expect(result.aaa.large).toBe(false);
-    expect(result.aa.normal).toBe(false);
-    expect(result.aa.large).toBe(false);
-  });
-
-  it('handles invalid colors gracefully', () => {
-    const result = checkContrast('invalid', '#FFFFFF');
-    // implementation of checkContrast calls getContrastRatio which returns 0 if invalid
-    expect(result.ratio).toBe(0);
-    expect(result.level).toBe('FAIL');
+  it('handles values out of standard 0-255 range by clamping', () => {
+    // 300 -> clamped to 255 -> #ff0000
+    expect(rgbToHex(300, 0, 0)).toBe('#ff0000');
+    // -50 -> clamped to 0 -> #000000
+    expect(rgbToHex(-50, 0, 0)).toBe('#000000');
   });
 });
