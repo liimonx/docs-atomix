@@ -59,8 +59,22 @@ export function parseColor(color: string): ColorRGB | null {
  * Convert RGB to hex
  */
 export function rgbToHex(r: number, g: number, b: number, a?: number): string {
-  const hex = formatHex({ mode: 'rgb', r: r / 255, g: g / 255, b: b / 255, alpha: a });
-  return hex || '#000000';
+  const toHex = (n: number) => {
+    const hex = Math.round(n).toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  };
+
+  const rHex = toHex(Math.max(0, Math.min(255, r)));
+  const gHex = toHex(Math.max(0, Math.min(255, g)));
+  const bHex = toHex(Math.max(0, Math.min(255, b)));
+
+  if (a !== undefined && a < 1) {
+    const alpha = Math.max(0, Math.min(1, a));
+    const aHex = toHex(alpha * 255);
+    return `#${rHex}${gHex}${bHex}${aHex}`;
+  }
+
+  return `#${rHex}${gHex}${bHex}`;
 }
 
 /**

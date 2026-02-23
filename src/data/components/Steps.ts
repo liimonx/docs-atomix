@@ -1,4 +1,3 @@
-// import { Steps } from '@shohojdhara/atomix';
 
 export const stepsMetadata = {
   id: 'steps',
