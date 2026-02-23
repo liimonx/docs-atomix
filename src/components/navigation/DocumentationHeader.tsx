@@ -27,6 +27,10 @@ const DocumentationHeader = memo(function DocumentationHeader({
       position={"fixed"}
       glass={{
         blurAmount: 3,
+        overLight: {
+          brightness: 1,
+          contrast: 1,
+        },
       }}
       variant="primary"
       brand={

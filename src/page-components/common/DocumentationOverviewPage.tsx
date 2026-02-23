@@ -1,41 +1,21 @@
 "use client";
 
-import { useState, useEffect, FC } from "react";
+import { FC } from "react";
 import Link from "next/link";
 
 import {
   Button,
   Card,
-  Hero,
   GridCol,
   Icon,
   Grid,
   Block,
   SectionIntro,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
-import styles from "@/styles/PageHero.module.scss";
 import type { ReactNode } from "react";
 
 const DocumentationOverviewPage: FC = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Prevent hydration mismatch by only rendering glass effect on client
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const glass: GlassProps | undefined = isMounted
-    ? {
-        displacementScale: 30,
-        blurAmount: 5,
-        elasticity: 0,
-        enableLiquidBlur: true,
-        padding: "20px",
-        cornerRadius: 30,
-        children: null,
-      }
-    : undefined;
+  // Documentation sections data...
 
   const documentationSections: Array<{
     id: string;
@@ -238,58 +218,79 @@ const DocumentationOverviewPage: FC = () => {
   ];
 
   return (
-    <div>
+    <div className="u-relative u-z-10 u-flex u-flex-column u-items-center u-min-h-100">
       {/* Hero Section */}
-      <Hero
-        glass={glass}
-        className={styles.pageHero}
-        title="Atomix Documentation"
-        subtitle="Comprehensive Design System"
-        text="Everything you need to build amazing user interfaces with Atomix. From getting started to advanced customization, find all the resources you need."
-        alignment="center"
-        backgroundImageSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
-        showOverlay={true}
-        fullViewportHeight={false}
-        contentWidth="800px"
-        actions={
-          <div className={styles.pageHero__actions}>
+      <main className="u-w-100 u-pt-32 u-pb-20 u-px-4">
+        <div className="u-max-w-5xl u-mx-auto u-text-center u-flex u-flex-column u-items-center u-gap-10">
+          <div className="u-flex u-flex-column u-gap-4">
+            <h1
+              className="u-fs-5xl u-font-black u-tracking-tight u-leading-tight"
+              style={{
+                fontSize: "clamp(2.5rem, 7vw, 4rem)",
+                background: "linear-gradient(180deg, #fff 30%, #94a3b8 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Atomix Documentation.
+            </h1>
+            <p className="u-fs-xl u-text-secondary u-max-w-2xl u-mx-auto u-leading-relaxed u-opacity-80">
+              Everything you need to build amazing user interfaces with Atomix.
+              High-performance filters, cinematic depth, and frosted glass
+              realism.
+            </p>
+          </div>
+
+          <div className="u-flex u-flex-column u-flex-md-row u-gap-4 u-mt-4 u-w-100 u-justify-center">
             <Button
-              glass
-              icon={<Icon name="Download" size="lg" />}
-              label="Get Started"
+              variant="primary"
+              size="lg"
+              iconName="ArrowRight"
+              iconPosition="end"
+              className="u-px-8 u-h-14 u-rounded-lg u-shadow-primary-glow u-fs-lg"
               href="/docs/getting-started/installation"
               LinkComponent={Link}
-            />
+            >
+              Get Started
+            </Button>
             <Button
-              glass
               variant="secondary"
-              label="Browse Components"
-              icon={<Icon name="Stack" size="lg" />}
+              size="lg"
+              iconName="Stack"
+              className="u-px-8 u-h-14 u-rounded-lg u-bg-surface-subtle u-fs-lg"
               href="/docs/components/overview"
               LinkComponent={Link}
-            />
+            >
+              Browse Components
+            </Button>
           </div>
-        }
-      />
+        </div>
+      </main>
 
       {/* Quick Stats */}
-      <Block spacing="sm" background="secondary">
+      <Block
+        spacing="sm"
+        className="u-py-20 u-border-y u-border-glass u-bg-background-subtle"
+      >
         <SectionIntro
           title="By the Numbers"
           text="Atomix provides a comprehensive set of tools and components"
           alignment="center"
+          className="u-mb-12"
         />
         <Grid>
           {quickStats.map((stat, index) => (
             <GridCol key={index} sm={6} lg={3} className="u-mb-6">
-              <Card className="u-text-center u-p-6 u-h-100">
-                <div className="u-inline-flex u-items-center u-justify-center u-w-16 u-h-16 u-bg-brand-subtle u-rounded-full u-mb-4 u-text-brand-emphasis">
+              <Card className="u-text-center u-p-8 u-h-100 u-rounded-2xl u-border u-border-glass u-shadow-lg">
+                <div className="u-inline-flex u-items-center u-justify-center u-w-16 u-h-16 u-bg-primary-subtle u-text-primary u-rounded-2xl u-mb-6 u-shadow-sm">
                   {stat.icon}
                 </div>
-                <div className="u-text-2xl u-font-bold u-mb-2 u-text-primary-emphasis">
+                <div className="u-text-3xl u-font-black u-mb-1 u-tracking-tight">
                   {stat.value}
                 </div>
-                <div className="u-text-secondary-emphasis">{stat.label}</div>
+                <div className="u-text-secondary u-fs-sm u-font-bold u-uppercase u-tracking-widest u-opacity-60">
+                  {stat.label}
+                </div>
               </Card>
             </GridCol>
           ))}
@@ -297,7 +298,7 @@ const DocumentationOverviewPage: FC = () => {
       </Block>
 
       {/* Documentation Sections */}
-      <Block spacing="lg">
+      <Block className="u-py-20 u-relative u-z-10">
         <SectionIntro
           title="Explore the Documentation"
           text="Comprehensive guides and references for every aspect of Atomix"
@@ -329,22 +330,22 @@ const DocumentationOverviewPage: FC = () => {
 
               <Grid>
                 {section.items.map((item, itemIndex) => (
-                  <GridCol key={itemIndex} md={6} lg={3} className="u-mb-6">
+                  <GridCol key={itemIndex} md={6} lg={4} className="u-mb-8">
                     <Link
                       href={item.path}
                       className="u-text-decoration-none u-text-inherit u-block u-h-100"
                     >
-                      <Card className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
-                        <div className="u-p-6 u-h-100 u-flex u-flex-column">
-                          <h3 className="u-text-lg u-font-semibold u-mb-2 u-text-primary-emphasis">
+                      <Card className="u-h-100 u-cursor-pointer u-transition-all u-hover-translate-y-n2 u-rounded-2xl u-border u-border-glass u-shadow-lg">
+                        <div className="u-p-8 u-h-100 u-flex u-flex-column">
+                          <h3 className="u-text-xl u-font-black u-mb-2 u-tracking-tight">
                             {item.title}
                           </h3>
-                          <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
+                          <p className="u-text-secondary u-mb-6 u-flex-grow-1 u-leading-relaxed u-opacity-80">
                             {item.description}
                           </p>
-                          <div className="u-flex u-items-center u-text-primary-emphasis u-font-medium">
+                          <div className="u-flex u-items-center u-text-primary u-font-bold u-fs-sm">
                             <span className="u-me-2">Learn more</span>
-                            <Icon name="ArrowRight" size="lg" />
+                            <Icon name="ArrowRight" size={16} />
                           </div>
                         </div>
                       </Card>
@@ -358,7 +359,10 @@ const DocumentationOverviewPage: FC = () => {
       </Block>
 
       {/* API Reference Section */}
-      <Block spacing="sm" background="brand">
+      <Block
+        spacing="sm"
+        className="u-py-20 u-border-y u-border-glass u-bg-background-subtle"
+      >
         <SectionIntro
           title="API Reference"
           text="Complete technical reference for all APIs"
@@ -390,27 +394,22 @@ const DocumentationOverviewPage: FC = () => {
                 href={api.path}
                 className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
-                <Card className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
-                  <div className="u-p-6 u-h-100 u-flex u-flex-column">
-                    <div className="u-flex u-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-primary-emphasis">
+                <Card className="u-h-100 u-cursor-pointer u-transition-all u-hover-translate-y-n2 u-rounded-2xl u-border u-border-glass u-shadow-lg">
+                  <div className="u-p-8 u-h-100 u-flex u-flex-column">
+                    <div className="u-flex u-items-center u-mb-6">
+                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary u-rounded-xl u-flex u-items-center u-justify-center u-me-4 u-shadow-sm">
                         {api.icon}
                       </div>
-                      <h3 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
+                      <h3 className="u-text-xl u-font-black u-m-0 u-tracking-tight">
                         {api.title}
                       </h3>
                     </div>
-                    <p
-                      className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1"
-                      style={{
-                        lineHeight: "var(--atomix-line-height-relaxed)",
-                      }}
-                    >
+                    <p className="u-text-secondary u-mb-6 u-flex-grow-1 u-leading-relaxed u-opacity-80">
                       {api.description}
                     </p>
-                    <div className="u-flex u-items-center u-text-primary-emphasis u-font-medium">
+                    <div className="u-flex u-items-center u-text-primary u-font-bold u-fs-sm">
                       <span className="u-me-2">View Reference</span>
-                      <Icon name="ArrowRight" size="lg" />
+                      <Icon name="ArrowRight" size={16} />
                     </div>
                   </div>
                 </Card>
@@ -421,11 +420,12 @@ const DocumentationOverviewPage: FC = () => {
       </Block>
 
       {/* Resources Section */}
-      <Block spacing="sm">
+      <Block spacing="sm" className="u-py-20">
         <SectionIntro
           title="Resources & Community"
           text="Additional resources, roadmap, and community information"
           alignment="center"
+          className="u-mb-12"
         />
         <Grid>
           {[
@@ -453,27 +453,22 @@ const DocumentationOverviewPage: FC = () => {
                 href={resource.path}
                 className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
-                <Card className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
-                  <div className="u-p-6 u-h-100 u-flex u-flex-column">
-                    <div className="u-flex u-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-secondary-emphasis">
+                <Card className="u-h-100 u-cursor-pointer u-transition-all u-hover-translate-y-n2 u-rounded-2xl u-border u-border-glass u-shadow-lg">
+                  <div className="u-p-8 u-h-100 u-flex u-flex-column">
+                    <div className="u-flex u-items-center u-mb-6">
+                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary u-rounded-xl u-flex u-items-center u-justify-center u-me-4 u-shadow-sm">
                         {resource.icon}
                       </div>
-                      <h3 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
+                      <h3 className="u-text-xl u-font-black m-0 u-tracking-tight">
                         {resource.title}
                       </h3>
                     </div>
-                    <p
-                      className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1"
-                      style={{
-                        lineHeight: "var(--atomix-line-height-relaxed)",
-                      }}
-                    >
+                    <p className="u-text-secondary u-mb-6 u-flex-grow-1 u-leading-relaxed u-opacity-80">
                       {resource.description}
                     </p>
-                    <div className="u-flex u-items-center u-text-primary-emphasis u-font-medium">
+                    <div className="u-flex u-items-center u-text-primary u-font-bold u-fs-sm">
                       <span className="u-me-2">Explore</span>
-                      <Icon name="CaretRight" size="lg" />
+                      <Icon name="CaretRight" size={16} />
                     </div>
                   </div>
                 </Card>
@@ -484,31 +479,38 @@ const DocumentationOverviewPage: FC = () => {
       </Block>
 
       {/* CTA Section */}
-      <Block spacing="sm" background="tertiary">
+      <Block spacing="none" className="u-py-24 u-relative u-z-10">
         <Grid>
           <GridCol lg={8} className="u-mx-auto">
-            <Card className="u-text-center u-p-8">
-              <h2 className="u-mb-4 u-text-primary-emphasis">
+            <Card className="u-text-center u-p-12 u-rounded-3xl u-border u-border-glass u-shadow-2xl">
+              <h2 className="u-fs-3xl u-font-black u-mb-4 u-tracking-tight">
                 Ready to Build Something Amazing?
               </h2>
-              <p className="u-text-secondary-emphasis u-mb-6 u-lh-lg">
+              <p className="u-fs-lg u-text-secondary u-mb-10 u-leading-relaxed u-opacity-80">
                 Start building with Atomix today. Install the package and
                 explore our comprehensive component library.
               </p>
-              <div className="u-flex u-gap-4 u-flex-wrap u-justify-center">
+              <div className="u-flex u-gap-6 u-flex-wrap u-justify-center">
                 <Button
-                  icon={<Icon name="Download" size="lg" />}
-                  label="Get Started"
+                  variant="primary"
+                  size="lg"
+                  iconName="Download"
+                  className="u-h-14 u-px-8 u-rounded-xl u-shadow-primary-glow"
                   href="/docs/getting-started/installation"
                   LinkComponent={Link}
-                />
+                >
+                  Get Started
+                </Button>
                 <Button
-                  variant="outline"
-                  icon={<Icon name="Stack" size="lg" />}
-                  label="Browse Components"
+                  variant="secondary"
+                  size="lg"
+                  iconName="Stack"
+                  className="u-h-14 u-px-8 u-rounded-xl u-bg-surface-subtle"
                   href="/docs/components/overview"
                   LinkComponent={Link}
-                />
+                >
+                  Browse Components
+                </Button>
               </div>
             </Card>
           </GridCol>

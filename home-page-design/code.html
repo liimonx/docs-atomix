@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atomix - The Glass-First Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#0B1114",
+                        "glass-border": "rgba(255, 255, 255, 0.08)",
+                        "glass-surface": "rgba(255, 255, 255, 0.03)",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'glass-gradient': 'linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.00) 100%)',
+                        'glow-conic': 'conic-gradient(from 180deg at 50% 50%, #13a4ec 0deg, #0B1114 180deg, #13a4ec 360deg)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Glass Utilities */
+        .glass-panel {
+            background: rgba(17, 25, 40, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.125);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-highlight {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Animated Background Mesh */
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(19, 164, 236, 0.15) 0%, rgba(19, 164, 236, 0) 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            animation: pulse-glow 10s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+            100% { transform: scale(1.2) translate(50px, -50px); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/30 selection:text-white overflow-x-hidden">
+<!-- Ambient Background Effects -->
+<div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+<div class="ambient-glow top-[-20%] left-[-10%]"></div>
+<div class="ambient-glow bottom-[-20%] right-[-10%] delay-1000" style="background: radial-gradient(circle, rgba(19, 164, 236, 0.1) 0%, rgba(100, 100, 255, 0) 70%);"></div>
+</div>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 px-6 py-4">
+<div class="glass-panel max-w-7xl mx-auto rounded-full px-6 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</div>
+<span class="font-bold text-lg tracking-tight">Atomix</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#">Documentation</a>
+<a class="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#">Components</a>
+<a class="text-sm font-medium text-slate-400 hover:text-white transition-colors" href="#">Resources</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden sm:block text-slate-400 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">code</span>
+</a>
+<button class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2 rounded-full transition-all shadow-[0_0_20px_rgba(19,164,236,0.3)] hover:shadow-[0_0_30px_rgba(19,164,236,0.5)]">
+                    Get Started
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<main class="relative z-10 flex flex-col items-center pt-40 pb-20 px-4 min-h-screen">
+<div class="max-w-5xl mx-auto text-center flex flex-col items-center gap-8">
+<!-- Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                v2.0 is now live
+            </div>
+<!-- Headline -->
+<h1 class="text-5xl md:text-7xl font-black tracking-tight leading-[1.1] text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-500">
+                The Glass-First System<br/>
+                for Scalable Frontend.
+            </h1>
+<!-- Subheadline -->
+<p class="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed">
+                Atomix provides a react-ready engine to build distinct, high-performance interfaces with cinematic depth and frosted glass realism.
+            </p>
+<!-- CTAs -->
+<div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center">
+<button class="h-12 px-8 rounded-lg bg-primary text-white font-bold text-base flex items-center justify-center gap-2 hover:bg-primary/90 transition-all shadow-[0_0_20px_-5px_rgba(19,164,236,0.5)]">
+<span>Start Building</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="h-12 px-8 rounded-lg bg-slate-800/50 border border-slate-700 text-white font-bold text-base flex items-center justify-center gap-2 hover:bg-slate-800 transition-all">
+<span class="material-symbols-outlined text-sm">terminal</span>
+<span>npm install @atomix/core</span>
+</button>
+</div>
+<!-- Hero Visual / Interactive Playground Mockup -->
+<div class="mt-20 w-full relative group perspective-1000">
+<!-- Background decorative elements for the mockup -->
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative glass-card rounded-xl border border-slate-700/50 p-2 md:p-4 overflow-hidden">
+<!-- Fake Browser Header -->
+<div class="flex items-center gap-2 px-4 py-3 border-b border-white/5 mb-4">
+<div class="flex gap-1.5">
+<div class="size-3 rounded-full bg-red-500/80"></div>
+<div class="size-3 rounded-full bg-yellow-500/80"></div>
+<div class="size-3 rounded-full bg-green-500/80"></div>
+</div>
+<div class="mx-auto bg-white/5 px-4 py-1 rounded-md text-xs text-slate-500 font-mono">atomix-demo.tsx</div>
+</div>
+<!-- Layout Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-4">
+<!-- Sidebar -->
+<div class="hidden md:flex col-span-3 flex-col gap-4">
+<div class="h-8 w-2/3 bg-white/10 rounded animate-pulse"></div>
+<div class="space-y-2 mt-4">
+<div class="h-4 w-full bg-white/5 rounded"></div>
+<div class="h-4 w-5/6 bg-white/5 rounded"></div>
+<div class="h-4 w-4/6 bg-white/5 rounded"></div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="col-span-12 md:col-span-9 grid gap-6">
+<!-- Stats Row -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="glass-card p-6 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group/card">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/20 rounded-lg text-primary">
+<span class="material-symbols-outlined">monitoring</span>
+</div>
+<span class="text-xs text-slate-400">+12%</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1">24.5k</h3>
+<p class="text-sm text-slate-400">Total Visits</p>
+</div>
+<div class="glass-card p-6 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-purple-500/20 rounded-lg text-purple-400">
+<span class="material-symbols-outlined">group</span>
+</div>
+<span class="text-xs text-slate-400">+5%</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1">1,204</h3>
+<p class="text-sm text-slate-400">Active Users</p>
+</div>
+<div class="glass-card p-6 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-green-500/20 rounded-lg text-green-400">
+<span class="material-symbols-outlined">attach_money</span>
+</div>
+<span class="text-xs text-slate-400">+18%</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1">$89k</h3>
+<p class="text-sm text-slate-400">Revenue</p>
+</div>
+</div>
+<!-- Chart Area Placeholder -->
+<div class="glass-card p-6 rounded-lg h-64 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-50"></div>
+<div class="w-full h-full flex items-end justify-between px-4 gap-2">
+<div class="w-full bg-primary/20 rounded-t-sm h-[40%] hover:h-[45%] transition-all duration-500"></div>
+<div class="w-full bg-primary/30 rounded-t-sm h-[60%] hover:h-[65%] transition-all duration-500"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[30%] hover:h-[35%] transition-all duration-500"></div>
+<div class="w-full bg-primary/50 rounded-t-sm h-[80%] hover:h-[85%] transition-all duration-500"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[50%] hover:h-[55%] transition-all duration-500"></div>
+<div class="w-full bg-primary/30 rounded-t-sm h-[70%] hover:h-[75%] transition-all duration-500"></div>
+<div class="w-full bg-primary/20 rounded-t-sm h-[45%] hover:h-[50%] transition-all duration-500"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Architecture Section -->
+<section class="py-24 relative z-10 border-t border-white/5 bg-background-dark/50 backdrop-blur-sm">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16 md:text-center max-w-3xl mx-auto">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">The Architecture of Glass</h2>
+<p class="text-slate-400 text-lg">
+                    Our system relies on three fundamental pillars to ensure your application is beautiful, accessible, and fast—without compromising on the glass aesthetic.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="glass-card p-8 rounded-2xl group hover:border-primary/50 transition-colors">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">token</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Design Tokens</h3>
+<p class="text-slate-400 leading-relaxed">
+                        A robust theming engine that scales with your app. Define blur strengths, opacity levels, and noise textures as simple CSS variables.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-8 rounded-2xl group hover:border-primary/50 transition-colors">
+<div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">contrast</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Accessibility First</h3>
+<p class="text-slate-400 leading-relaxed">
+                        Glassmorphism often fails WCAG standards. Atomix automatically adjusts text contrast based on the calculated background luminosity beneath the blur.
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-8 rounded-2xl group hover:border-primary/50 transition-colors">
+<div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center text-green-400 mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">speed</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">High Performance</h3>
+<p class="text-slate-400 leading-relaxed">
+                        Zero-runtime overhead. Our compiler extracts static glass styles to optimized CSS, preventing expensive browser repaints on scroll.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Component Grid -->
+<section class="py-24 relative z-10">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="text-3xl font-bold text-white mb-2">Interactive Components</h2>
+<p class="text-slate-400">Pre-built, accessible React components ready for production.</p>
+</div>
+<a class="text-primary hover:text-white flex items-center gap-1 font-medium transition-colors" href="#">
+                    View all components <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 h-auto lg:h-[500px]">
+<!-- Component 1: Login Form -->
+<div class="col-span-1 md:col-span-2 row-span-2 glass-card rounded-2xl p-8 flex flex-col justify-center items-center relative overflow-hidden group">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&amp;w=1000&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity duration-700" data-alt="Abstract dark geometric background"></div>
+<div class="glass-panel p-8 rounded-xl w-full max-w-sm relative z-10 backdrop-blur-xl border-white/10 shadow-2xl">
+<h4 class="text-white text-lg font-bold mb-6 text-center">Member Login</h4>
+<div class="space-y-4">
+<div>
+<label class="block text-xs text-slate-400 mb-1 uppercase font-semibold">Email</label>
+<input class="w-full bg-black/20 border border-white/10 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder-slate-600" placeholder="user@atomix.dev" type="email"/>
+</div>
+<div>
+<label class="block text-xs text-slate-400 mb-1 uppercase font-semibold">Password</label>
+<input class="w-full bg-black/20 border border-white/10 rounded-md px-3 py-2 text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" type="password" value="password123"/>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-2 rounded-md transition-colors shadow-lg shadow-primary/25 mt-2">
+                                Sign In
+                            </button>
+</div>
+</div>
+</div>
+<!-- Component 2: Media Player -->
+<div class="col-span-1 lg:col-span-2 glass-card rounded-2xl p-6 flex items-center justify-between relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-purple-900/40 to-blue-900/40 opacity-50"></div>
+<div class="flex items-center gap-4 relative z-10 w-full">
+<div class="size-16 rounded-lg bg-slate-800 bg-[url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&amp;w=150&amp;auto=format&amp;fit=crop')] bg-cover bg-center shadow-lg" data-alt="Music album cover art"></div>
+<div class="flex-1 min-w-0">
+<h4 class="text-white font-bold truncate">Midnight City</h4>
+<p class="text-slate-400 text-sm truncate">M83 • Hurry Up, We're Dreaming</p>
+<div class="w-full bg-white/10 h-1 mt-3 rounded-full overflow-hidden">
+<div class="bg-primary w-2/3 h-full rounded-full"></div>
+</div>
+</div>
+<div class="flex gap-2 text-white">
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined">skip_previous</span></button>
+<button class="p-2 bg-white text-black rounded-full hover:scale-105 transition-transform"><span class="material-symbols-outlined">pause</span></button>
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined">skip_next</span></button>
+</div>
+</div>
+</div>
+<!-- Component 3: Toggle / Switch -->
+<div class="col-span-1 glass-card rounded-2xl p-6 flex flex-col justify-center items-center gap-6">
+<div class="flex items-center justify-between w-full">
+<span class="text-white font-medium">Airplane Mode</span>
+<div class="w-12 h-7 bg-primary rounded-full relative cursor-pointer shadow-inner">
+<div class="absolute right-1 top-1 w-5 h-5 bg-white rounded-full shadow-md"></div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full opacity-60">
+<span class="text-white font-medium">Wi-Fi</span>
+<div class="w-12 h-7 bg-slate-700/50 rounded-full relative cursor-pointer shadow-inner">
+<div class="absolute left-1 top-1 w-5 h-5 bg-slate-400 rounded-full shadow-md"></div>
+</div>
+</div>
+</div>
+<!-- Component 4: Notification Toast -->
+<div class="col-span-1 glass-card rounded-2xl p-6 flex flex-col justify-center items-center">
+<div class="glass-panel p-4 rounded-lg flex gap-3 items-start border-l-4 border-l-green-500 w-full">
+<span class="material-symbols-outlined text-green-400">check_circle</span>
+<div>
+<h5 class="text-white font-bold text-sm">Success</h5>
+<p class="text-slate-400 text-xs">Your changes have been saved to the cloud.</p>
+</div>
+<button class="text-slate-500 hover:text-white ml-auto"><span class="material-symbols-outlined text-sm">close</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof / Logos -->
+<section class="py-12 border-y border-white/5 bg-black/20">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<p class="text-slate-500 text-sm font-semibold uppercase tracking-wider mb-8">Trusted by frontend teams at</p>
+<div class="flex flex-wrap justify-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+<!-- Simple text placeholders for logos to avoid external image dependencies for logos -->
+<span class="text-xl font-bold text-white flex items-center gap-2"><span class="material-symbols-outlined">diamond</span> Acme Corp</span>
+<span class="text-xl font-bold text-white flex items-center gap-2"><span class="material-symbols-outlined">rocket_launch</span> StarShip</span>
+<span class="text-xl font-bold text-white flex items-center gap-2"><span class="material-symbols-outlined">water_drop</span> Hydra</span>
+<span class="text-xl font-bold text-white flex items-center gap-2"><span class="material-symbols-outlined">bolt</span> Voltic</span>
+<span class="text-xl font-bold text-white flex items-center gap-2"><span class="material-symbols-outlined">hive</span> Hexagon</span>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+<div class="max-w-md">
+<div class="flex items-center gap-2 mb-6">
+<div class="size-8 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</div>
+<span class="font-bold text-2xl text-white tracking-tight">Atomix</span>
+</div>
+<h3 class="text-3xl font-bold text-white mb-6">Ready to crystallize your vision?</h3>
+<div class="flex gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-3 rounded-lg transition-colors shadow-lg shadow-primary/20">
+                            Get Started
+                        </button>
+<button class="bg-transparent border border-slate-700 text-slate-300 hover:text-white hover:border-slate-500 font-bold px-6 py-3 rounded-lg transition-colors flex items-center gap-2">
+<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+                             GitHub
+                        </button>
+</div>
+</div>
+<div class="flex gap-16 flex-wrap">
+<div>
+<h4 class="text-white font-bold mb-4">Product</h4>
+<ul class="space-y-3 text-slate-400 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Templates</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Enterprise</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Resources</h4>
+<ul class="space-y-3 text-slate-400 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Documentation</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Reference</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Community</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Company</h4>
+<ul class="space-y-3 text-slate-400 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">About</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Legal</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-xs">
+<p>© 2023 Atomix UI Systems. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">Cookie Settings</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

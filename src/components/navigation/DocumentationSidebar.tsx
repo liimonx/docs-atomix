@@ -43,7 +43,7 @@ const DocumentationSidebar = memo(function DocumentationSidebar({
 
   return (
     <>
-      <div className="u-w-60 u-relative">
+      <div className="u-w-72 u-relative">
         <AtomixSideMenu
           className="u-fixed u-w-60 u-top-0 u-start-0 u-z-modal u-overflow-y-auto"
           title={

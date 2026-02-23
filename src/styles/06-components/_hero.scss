@@ -9,11 +9,35 @@
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.hero' with (
   // Spacing
-  $hero-padding-y: 6rem,
+  $hero-padding-y: 8rem,
   
   // Typography
   $hero-title-font-weight: 900,
-  $hero-title-font-size: 4rem,
-  $hero-text-font-size: 1.125rem,
-  $hero-subtitle-font-weight: 600
+  $hero-title-font-size: 4.5rem,
+  $hero-text-font-size: 1.25rem,
+  $hero-subtitle-font-weight: 600,
+  $hero-subtitle-font-size: 1rem,
+  $hero-subtitle-letter-spacing: 0.1em,
+  $hero-subtitle-text-transform: uppercase
 );
+
+// Global Hero title style
+.c-hero__title {
+  background: linear-gradient(180deg, #fff 30%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.c-hero__subtitle {
+  color: var(--atomix-primary);
+  opacity: 0.9;
+}
+
+.c-hero__text {
+  opacity: 0.7;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}

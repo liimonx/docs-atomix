@@ -7,6 +7,7 @@ import { DocumentationSidebar } from "@/components/navigation/DocumentationSideb
 import { SkipLinks } from "@/components/ui/SkipLinks";
 import { PageTransition } from "./PageTransition";
 import { usePathname } from "next/navigation";
+import { AmbientBackground } from "@/components/ui/AmbientBackground";
 
 const MemoizedSkipLinks = React.memo(SkipLinks);
 const MemoizedDocumentationFooter = React.memo(DocumentationFooter);
@@ -21,7 +22,8 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
   }, [pathname]);
 
   return (
-    <div className="u-flex u-flex-column u-min-h-screen u-overflow-hidden">
+    <div className="u-flex u-flex-column u-min-h-screen u-overflow-hidden u-relative">
+      <AmbientBackground />
       <MemoizedSkipLinks />
 
       <DocumentationHeader
@@ -37,11 +39,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
         />
 
         <main id="main-content" className="u-flex-1 u-overflow-y-auto">
-          <PageTransition>
-            <div className="u-max-w-1440px u-mx-auto u-px-4 u-px-md-6 u-py-5 u-py-lg-6">
-              {children}
-            </div>
-          </PageTransition>
+          <PageTransition>{children}</PageTransition>
           <div className="u-px-4 u-px-md-6 u-pb-5">
             <MemoizedDocumentationFooter />
           </div>
