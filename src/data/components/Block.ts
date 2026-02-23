@@ -1,4 +1,3 @@
-// import { Block } from '@shohojdhara/atomix';
 
 export const blockMetadata = {
   id: 'block',

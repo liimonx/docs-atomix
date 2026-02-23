@@ -1,4 +1,3 @@
-// import { Countdown } from '@shohojdhara/atomix';
 
 export const countdownMetadata = {
   id: 'countdown',

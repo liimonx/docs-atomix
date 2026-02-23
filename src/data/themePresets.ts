@@ -401,47 +401,6 @@ const githubDark = createPresetTokens(defaultTokens.dark, {
 }, true);
 
 /**
- * Tailwind CSS theme preset
- * Note: These presets are defined but not currently exported in themePresets
- * They can be added to the themePresets object when needed
- */
-// const tailwindLight = createPresetTokens(defaultTokens.light, {
-//   primary: '#3B82F6',
-//   primaryHover: '#2563EB',
-//   primaryRgb: '59, 130, 246',
-//   secondary: '#6B7280',
-//   success: '#10B981',
-//   error: '#EF4444',
-//   warning: '#F59E0B',
-//   info: '#06B6D4',
-//   bodyBg: '#FFFFFF',
-//   bodyColor: '#111827',
-//   headingColor: '#111827',
-//   linkColor: '#3B82F6',
-//   linkHoverColor: '#2563EB',
-//   borderColor: '#E5E7EB',
-//   focusBorderColor: '#3B82F6',
-// });
-
-// const tailwindDark = createPresetTokens(defaultTokens.dark, {
-//   primary: '#60A5FA',
-//   primaryHover: '#3B82F6',
-//   primaryRgb: '96, 165, 250',
-//   secondary: '#9CA3AF',
-//   success: '#34D399',
-//   error: '#F87171',
-//   warning: '#FBBF24',
-//   info: '#22D3EE',
-//   bodyBg: '#111827',
-//   bodyColor: '#F9FAFB',
-//   headingColor: '#F9FAFB',
-//   linkColor: '#60A5FA',
-//   linkHoverColor: '#3B82F6',
-//   borderColor: '#374151',
-//   focusBorderColor: '#60A5FA',
-// }, true);
-
-/**
  * Validates that a preset has all required tokens
  */
 export function validatePreset(preset: ThemePreset): { valid: boolean; errors: string[] } {
@@ -468,13 +427,6 @@ export function validatePreset(preset: ThemePreset): { valid: boolean; errors: s
     valid: errors.length === 0,
     errors,
   };
-}
-
-/**
- * Gets all available preset IDs
- */
-export function getPresetIds(): string[] {
-  return Object.keys(themePresets);
 }
 
 export const themePresets: Record<string, ThemePreset> = {

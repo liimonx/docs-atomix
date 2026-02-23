@@ -1,4 +1,3 @@
-// import { Callout } from '@shohojdhara/atomix';
 
 export const calloutMetadata = {
   id: 'callout',

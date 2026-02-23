@@ -1,3 +1,4 @@
+
 export const ratingMetadata = {
   id: 'rating',
   name: 'Rating',
