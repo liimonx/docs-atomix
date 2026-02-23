@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest';
-// Importing next.config.js might not have type definitions exposed this way, but it seems to work now
 import nextConfig from '../../../next.config.js';
 
 describe('next.config.js', () => {
