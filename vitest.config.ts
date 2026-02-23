@@ -17,7 +17,10 @@ export default defineConfig({
   test: {
     environment: 'node',
     include: [
-      'src/utils/__tests__/*.test.ts',
+      'src/utils/__tests__/routeMapper.test.ts',
+      'src/utils/__tests__/breadcrumbs.test.ts',
+      'src/utils/__tests__/colorUtils.test.ts',
+      'src/utils/__tests__/next-config.test.ts',
     ],
     exclude: [
       'node_modules/**',

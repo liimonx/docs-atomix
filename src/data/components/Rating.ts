@@ -1,4 +1,3 @@
-// import { Rating } from '@shohojdhara/atomix';
 
 export const ratingMetadata = {
   id: 'rating',
