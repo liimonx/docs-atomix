@@ -16,18 +16,7 @@ const GuidesAtomixGlassThemingPage: FC = () => {
   return (
     <div>
       <Hero
-        glass={
-          {
-            displacementScale: 30,
-            blurAmount: 5,
-            elasticity: 0,
-            enableLiquidBlur: true,
-            padding: "20px",
-            cornerRadius: 30,
-          } as GlassProps
-        }
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Guides - Atomix Glass Theming"
         text="Customize glass morphism effects to match your brand identity"
         alignment="center"

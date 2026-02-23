@@ -10,24 +10,13 @@ import {
   Block,
   Badge,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 
 const ResourcesChangelogPage: FC = () => {
   return (
     <div>
       <Hero
-        glass={
-          {
-            displacementScale: 30,
-            blurAmount: 5,
-            elasticity: 0,
-            padding: "20px",
-            cornerRadius: 30,
-          } as GlassProps
-        }
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Changelog"
         text="Release notes and version history"
         alignment="center"

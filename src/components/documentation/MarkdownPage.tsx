@@ -90,9 +90,7 @@ const MARKDOWN_COMPONENTS = {
       {children}
     </ol>
   ),
-  li: ({ children }: any) => (
-    <li className="u-mb-2 u-pl-2">{children}</li>
-  ),
+  li: ({ children }: any) => <li className="u-mb-2 u-pl-2">{children}</li>,
   blockquote: ({ children }: any) => (
     <blockquote className="u-border-left-4 u-border-primary u-pl-4 u-py-2 u-mb-4 u-bg-secondary-subtle u-rounded">
       {children}
@@ -100,9 +98,7 @@ const MARKDOWN_COMPONENTS = {
   ),
   table: ({ children }: any) => (
     <div className="u-overflow-x-auto u-mb-6 u-rounded u-border u-border-secondary">
-      <table className="u-w-100 u-border-collapse">
-        {children}
-      </table>
+      <table className="u-w-100 u-border-collapse">{children}</table>
     </div>
   ),
   thead: ({ children }: any) => (
@@ -126,22 +122,16 @@ const MARKDOWN_COMPONENTS = {
       href={href}
       className="u-text-primary uecoration-underline hover:u-text-primary-emphasis u-transition-colors"
       target={href?.startsWith("http") ? "_blank" : undefined}
-      rel={
-        href?.startsWith("http") ? "noopener noreferrer" : undefined
-      }
+      rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
     >
       {children}
     </a>
   ),
   hr: () => <hr className="u-my-8 u-border-secondary" />,
   strong: ({ children }: any) => (
-    <strong className="u-font-bold u-text-primary-emphasis">
-      {children}
-    </strong>
+    <strong className="u-font-bold u-text-primary-emphasis">{children}</strong>
   ),
-  em: ({ children }: any) => (
-    <em className="u-text-italic">{children}</em>
-  ),
+  em: ({ children }: any) => <em className="u-text-italic">{children}</em>,
   pre: ({ children }: any) => <pre className="u-mb-4">{children}</pre>,
 };
 
@@ -149,7 +139,6 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
   title,
   description,
   markdownPath,
-  heroImageSrc = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728",
 }) => {
   const [content, setContent] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
@@ -188,7 +177,6 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
       <div>
         <Hero
           className={styles.pageHero}
-          backgroundImageSrc={heroImageSrc}
           title={title}
           text={description}
           alignment="center"
@@ -215,7 +203,6 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
       <div>
         <Hero
           className={styles.pageHero}
-          backgroundImageSrc={heroImageSrc}
           title={title}
           text={description}
           alignment="center"
@@ -233,16 +220,13 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
     <div>
       <Hero
         className={styles.pageHero}
-        backgroundImageSrc={heroImageSrc}
         title={title}
         text={description}
         alignment="center"
       />
       <Block spacing="md">
         <div className={markdownStyles.markdownContent}>
-          <ReactMarkdown
-            components={MARKDOWN_COMPONENTS}
-          >
+          <ReactMarkdown components={MARKDOWN_COMPONENTS}>
             {content}
           </ReactMarkdown>
         </div>

@@ -24,7 +24,6 @@ import { ComponentProps } from "@/components/showcase/ComponentProps";
 import { ComponentExamples } from "@/components/showcase/ComponentExamples";
 import { ComponentAccessibility } from "@/components/showcase/ComponentAccessibility";
 import { ComponentRelated } from "@/components/showcase/ComponentRelated";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 
 const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
@@ -187,10 +186,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                   </h3>
                   <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-wrap u-gap-2">
                     {(componentDoc.features || []).map((feature, index) => (
-                      <li
-                        key={index}
-                        className="u-flex u-items-start u-gap-4"
-                      >
+                      <li key={index} className="u-flex u-items-start u-gap-4">
                         {feature.supported ? (
                           <>
                             <Icon name="CheckCircle" />
@@ -393,20 +389,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
   return (
     <div className="u-min-h-screen u-pb-xl">
       <Hero
-        glass={
-          isMounted
-            ? ({
-                displacementScale: 30,
-                blurAmount: 5,
-                elasticity: 0,
-                enableLiquidBlur: true,
-                padding: "20px",
-                cornerRadius: 30,
-              } as GlassProps)
-            : undefined
-        }
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title={componentDoc.name}
         text={componentDoc.description}
         alignment="center"

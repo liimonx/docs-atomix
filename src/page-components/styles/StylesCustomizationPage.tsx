@@ -147,7 +147,6 @@ const StylesCustomizationPage: FC = () => {
       <div suppressHydrationWarning>
         <Hero
           className={styles.pageHero}
-          backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
           title="Styles Customization"
           text="Theming, brand integration, and extending Atomix"
           alignment="center"

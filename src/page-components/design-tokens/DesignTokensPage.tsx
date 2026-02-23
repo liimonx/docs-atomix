@@ -571,7 +571,6 @@ const DesignTokensPage: FC = () => {
             </GridCol>
           </Grid>
         }
-        backgroundImageSrc="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
       />
 
       <Block spacing="lg">

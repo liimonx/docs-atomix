@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState, useEffect } from "react";
+import { FC } from "react";
 import Link from "next/link";
 
 import {
@@ -15,29 +15,9 @@ import {
   Badge,
   Icon,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 
 const MigrationPage: FC = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Prevent hydration mismatch by only rendering glass effect on client
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const glass: GlassProps | undefined = isMounted
-    ? {
-        displacementScale: 30,
-        blurAmount: 5,
-        elasticity: 0,
-        enableLiquidBlur: true,
-        padding: "20px",
-        cornerRadius: 30,
-        children: null,
-      }
-    : undefined;
-
   const migrationSteps = [
     {
       step: 1,
@@ -139,14 +119,11 @@ const MigrationPage: FC = () => {
   return (
     <div>
       <Hero
-        glass={glass}
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Migration Guide"
         subtitle="Migrate from other design systems to Atomix with ease"
         text="Complete migration guide with step-by-step instructions, class mappings, and automated tools to make the transition smooth."
         alignment="center"
-        showOverlay={true}
         fullViewportHeight={false}
         contentWidth="800px"
         actions={

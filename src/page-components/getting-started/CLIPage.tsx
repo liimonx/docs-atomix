@@ -20,7 +20,6 @@ const CLIPage: FC = () => {
     <div>
       <Hero
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Atomix CLI Reference"
         text="Complete command-line interface documentation for Atomix design system"
         alignment="center"

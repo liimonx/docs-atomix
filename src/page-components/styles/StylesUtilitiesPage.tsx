@@ -211,7 +211,6 @@ const StylesUtilitiesPage: FC = () => {
     <div>
       <Hero
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Utility Classes"
         text="500+ utility classes for rapid UI development"
         alignment="center"

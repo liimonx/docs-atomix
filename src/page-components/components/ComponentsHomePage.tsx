@@ -70,13 +70,11 @@ const ComponentsHomePage: FC = () => {
   return (
     <>
       <Hero
-        glass={glass}
         title="Atomix Components"
         subtitle="40+ Production-Ready Components"
         text="A comprehensive library of accessible, responsive UI components built with React and TypeScript. Everything you need to build modern web applications."
         alignment="center"
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         showOverlay={true}
         fullViewportHeight={false}
         contentWidth="1100px"

@@ -178,8 +178,6 @@ function BasicHero() {
     <Hero
       title="Amazing Products"
       subtitle="Discover what we offer"
-      backgroundImageSrc="/images/hero-background.jpg"
-      showOverlay={true}
       alignment="center"
       fullViewportHeight={true}
     />
@@ -243,7 +241,6 @@ function BasicHero() {
     <Hero
       title="Parallax Hero"
       subtitle="Scroll to see the effect"
-      backgroundImageSrc="/images/parallax-bg.jpg"
       parallax={true}
       parallaxIntensity={0.7}
       alignment="center"

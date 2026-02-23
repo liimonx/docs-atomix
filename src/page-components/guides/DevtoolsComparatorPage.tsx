@@ -19,7 +19,6 @@ const DevtoolsComparatorPage: FC = () => {
     <div>
       <Hero
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Theme Comparator"
         subtitle="Side-by-side theme comparison with difference highlighting"
         text="Compare two themes to identify differences, track changes, and ensure consistency across theme versions."

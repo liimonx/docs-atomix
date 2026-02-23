@@ -457,23 +457,11 @@ $button-color: var(--atomix-primary) !default;
   return (
     <>
       <Hero
-        glass={
-          {
-            displacementScale: 30,
-            blurAmount: 5,
-            elasticity: 0,
-            enableLiquidBlur: true,
-            padding: "20px",
-            cornerRadius: 30,
-          } as GlassProps
-        }
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Component Guidelines"
         subtitle="Development standards and best practices"
         text="Learn about component structure, naming conventions, accessibility requirements, and coding standards for the Atomix design system."
         alignment="center"
-        showOverlay={false}
         fullViewportHeight={false}
         contentWidth="1200px"
         actions={

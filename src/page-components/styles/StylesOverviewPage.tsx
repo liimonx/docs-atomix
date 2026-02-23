@@ -27,25 +27,11 @@ const StylesOverviewPage: FC = () => {
   return (
     <>
       <Hero
-        glass={
-          isMounted
-            ? ({
-                displacementScale: 30,
-                blurAmount: 5,
-                elasticity: 0,
-                enableLiquidBlur: true,
-                padding: "20px",
-                cornerRadius: 30,
-              } as GlassProps)
-            : undefined
-        }
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Styles System"
         subtitle="Atomix CSS Architecture"
         text="A comprehensive, scalable CSS architecture built on modern web standards and the ITCSS methodology."
         alignment="center"
-        showOverlay={false}
         fullViewportHeight={false}
         contentWidth="900px"
         actions={

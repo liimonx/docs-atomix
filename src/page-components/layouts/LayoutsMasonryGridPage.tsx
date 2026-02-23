@@ -78,14 +78,11 @@ const LayoutsMasonryGridPage: FC = () => {
   return (
     <div>
       <Hero
-        glass={glass}
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Masonry Grid"
         subtitle="Pinterest-Style Dynamic Layouts"
         text="Create beautiful Pinterest-style layouts with our flexible masonry grid component. Automatically positions items of varying heights for optimal space usage."
         alignment="center"
-        showOverlay={true}
         fullViewportHeight={false}
         contentWidth="900px"
         actions={

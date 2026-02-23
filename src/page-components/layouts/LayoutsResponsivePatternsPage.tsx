@@ -101,14 +101,11 @@ const LayoutsResponsivePatternsPage: FC = () => {
   return (
     <div>
       <Hero
-        glass={glass}
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Layouts Responsive Patterns"
         subtitle="Adaptive Design Solutions"
         text="Learn common responsive design patterns and best practices using the Atomix Layout system. Create flexible, accessible layouts that work beautifully across all devices and screen sizes."
         alignment="center"
-        showOverlay={true}
         fullViewportHeight={false}
         contentWidth="900px"
         actions={

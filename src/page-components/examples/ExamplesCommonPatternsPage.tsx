@@ -10,28 +10,17 @@ import {
   Block,
   Button,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 
 const ExamplesCommonPatternsPage: FC = () => {
   return (
     <div>
       <Hero
-        glass={
-          {
-            displacementScale: 30,
-            blurAmount: 5,
-            elasticity: 0,
-            enableLiquidBlur: true,
-            padding: "20px",
-            cornerRadius: 30,
-          } as GlassProps
-        }
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Examples - Common Patterns"
         text="Common design patterns and implementation examples with Atomix components"
         alignment="center"
+        showOverlay={true}
       />
 
       <Block className="u-pt-8 u-pb-8">

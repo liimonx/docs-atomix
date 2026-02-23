@@ -20,7 +20,6 @@ const DevtoolsOverviewPage: FC = () => {
     <div>
       <Hero
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Atomix Devtools"
         subtitle="Powerful development tools for theme creation and debugging"
         text="A comprehensive suite of tools to inspect, preview, compare, and edit themes. Build better themes faster with real-time feedback and validation."

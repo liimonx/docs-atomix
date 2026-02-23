@@ -100,14 +100,11 @@ const LayoutsPerformancePage: FC = () => {
   return (
     <div>
       <Hero
-        glass={glass}
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Layouts Performance"
         subtitle="Optimization Strategies"
         text="Learn how to optimize Atomix layout components for maximum performance. From basic optimization techniques to advanced performance monitoring and troubleshooting."
         alignment="center"
-        showOverlay={true}
         fullViewportHeight={false}
         contentWidth="900px"
         actions={

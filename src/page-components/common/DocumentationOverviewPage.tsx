@@ -226,10 +226,11 @@ const DocumentationOverviewPage: FC = () => {
             <h1
               className="u-fs-5xl u-font-black u-tracking-tight u-leading-tight"
               style={{
-                fontSize: "clamp(2.5rem, 7vw, 4rem)",
+                fontSize: "clamp(2.5rem, 7vw, 4.5rem)",
                 background: "linear-gradient(180deg, #fff 30%, #94a3b8 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
               }}
             >
               Atomix Documentation.

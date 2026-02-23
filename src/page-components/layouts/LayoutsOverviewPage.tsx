@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, FC } from "react";
+import { FC } from "react";
 import Link from "next/link";
 import {
   Button,
@@ -12,30 +12,10 @@ import {
   SectionIntro,
   Icon,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 import pageStyles from "./LayoutsOverviewPage.module.scss";
 
 const LayoutsOverviewPage: FC = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Prevent hydration mismatch by only rendering glass effect on client
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const glass: GlassProps | undefined = isMounted
-    ? {
-        displacementScale: 30,
-        blurAmount: 5,
-        elasticity: 0,
-        enableLiquidBlur: true,
-        padding: "20px",
-        cornerRadius: 30,
-        children: null,
-      }
-    : undefined;
-
   const layoutFeatures = [
     {
       icon: <Icon name="GridFour" size="lg" />,
@@ -82,14 +62,11 @@ const LayoutsOverviewPage: FC = () => {
   return (
     <div>
       <Hero
-        glass={glass}
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Layouts System"
         subtitle="Powerful Layout Components"
         text="A comprehensive set of components for creating responsive, accessible, and performant layouts. Build beautiful interfaces with our flexible grid system, masonry layouts, and responsive patterns."
         alignment="center"
-        showOverlay={true}
         fullViewportHeight={false}
         contentWidth="900px"
         actions={

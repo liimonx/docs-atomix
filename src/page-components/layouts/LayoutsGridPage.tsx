@@ -79,14 +79,11 @@ const LayoutsGridPage: FC = () => {
   return (
     <div>
       <Hero
-        glass={glass}
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Grid System"
         subtitle="Flexible 12-Column Layout"
         text="A powerful, flexible, and responsive grid system built on modern CSS Grid and Flexbox technologies. Create consistent layouts across all devices with our 12-column system."
         alignment="center"
-        showOverlay={true}
         fullViewportHeight={false}
         contentWidth="900px"
         actions={

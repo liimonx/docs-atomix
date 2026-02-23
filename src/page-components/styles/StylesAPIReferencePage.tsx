@@ -120,7 +120,6 @@ const StylesAPIReferencePage: FC = () => {
     <div>
       <Hero
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="API Reference"
         text="Complete technical reference for SCSS variables, mixins, and functions"
         alignment="center"

@@ -106,7 +106,14 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
 
                       <h1
                         className="u-fs-5xl lg:u-fs-6xl u-font-black u-ls-tight"
-                        style={{ lineHeight: "1.1" }}
+                        style={{
+                          lineHeight: "1.1",
+                          background:
+                            "linear-gradient(180deg, #fff 30%, #94a3b8 100%)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          backgroundClip: "text",
+                        }}
                       >
                         Build faster with{" "}
                         <span className="u-text-primary">Atomix.</span>
@@ -307,14 +314,11 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
           content: (
             <div>
               <Hero
-                glass={installationGlass}
                 className={styles.pageHero}
-                backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
                 title="Installation"
                 subtitle="Get Atomix up and running in your project"
                 text="Install Atomix using npm, yarn, or pnpm. Follow our simple setup guide to start building with Atomix components."
                 alignment="center"
-                showOverlay={true}
                 fullViewportHeight={false}
                 contentWidth="800px"
                 actions={
@@ -647,8 +651,6 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 subtitle="5-Minute Setup"
                 text="Get up and running with Atomix in just a few minutes. Follow these simple steps to start building beautiful interfaces."
                 alignment="center"
-                backgroundImageSrc="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
-                showOverlay={true}
                 fullViewportHeight={false}
                 contentWidth="900px"
                 className="u-pt-36 u-pb-24 u-mb-lg"

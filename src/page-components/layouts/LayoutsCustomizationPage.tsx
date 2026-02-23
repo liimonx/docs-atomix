@@ -92,9 +92,7 @@ const LayoutsCustomizationPage: FC = () => {
   return (
     <div>
       <Hero
-        glass={glass}
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="Layouts Customization"
         subtitle="Flexible Customization Options"
         text="Customize and extend Atomix layout components to match your unique requirements. From quick CSS variable tweaks to complete custom implementations, we provide multiple levels of customization."

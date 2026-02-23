@@ -188,7 +188,7 @@ export default function Page() {
                       <div className="u-glass-panel u-p-6 u-rounded-2xl u-hover-bg-surface-subtle u-transition-all u-text-start u-border u-border-glass">
                         <div className="u-flex u-justify-between u-items-start u-mb-4">
                           <div className="u-p-2-5 u-bg-primary-subtle u-text-primary u-rounded-xl u-shadow-sm">
-                            <Icon name="Activity" size={20} />
+                            <Icon name="Pulse" size={20} />
                           </div>
                           <span className="u-fs-xs u-text-success u-font-bold u-bg-success-subtle u-px-2 u-py-0-5 u-rounded-full">
                             +12%

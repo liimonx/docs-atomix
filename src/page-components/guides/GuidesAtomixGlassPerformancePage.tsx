@@ -21,18 +21,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
   return (
     <div>
       <Hero
-        glass={
-          {
-            displacementScale: 30,
-            blurAmount: 5,
-            elasticity: 0,
-            enableLiquidBlur: true,
-            padding: "20px",
-            cornerRadius: 30,
-          } as GlassProps
-        }
         className={styles.pageHero}
-        backgroundImageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2728"
         title="⚡ AtomixGlass Performance"
         text="Optimize glass morphism effects for smooth, performant user experiences"
         alignment="center"

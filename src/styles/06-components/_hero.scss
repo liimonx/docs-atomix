@@ -16,9 +16,7 @@
   $hero-title-font-size: 4.5rem,
   $hero-text-font-size: 1.25rem,
   $hero-subtitle-font-weight: 600,
-  $hero-subtitle-font-size: 1rem,
-  $hero-subtitle-letter-spacing: 0.1em,
-  $hero-subtitle-text-transform: uppercase
+  $hero-subtitle-font-size: 1rem
 );
 
 // Global Hero title style
@@ -33,6 +31,8 @@
 .c-hero__subtitle {
   color: var(--atomix-primary);
   opacity: 0.9;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .c-hero__text {
