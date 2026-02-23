@@ -1,6 +1,6 @@
 import * as culori from 'culori';
 
-const { formatHex, parse, hsl, rgb } = culori;
+const { parse, hsl, rgb } = culori;
 
 /**
  * Color utility functions for Theme Studio
@@ -354,4 +354,3 @@ export function adjustOpacity(color: string, opacity: number): string {
   const newAlpha = Math.max(0, Math.min(1, opacity));
   return rgbToHex(parsed.r, parsed.g, parsed.b, newAlpha);
 }
-
