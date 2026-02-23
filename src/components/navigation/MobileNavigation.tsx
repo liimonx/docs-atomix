@@ -19,11 +19,15 @@ interface MobileNavigationProps {
 
 const EmptySearchState = ({ searchTerm }: { searchTerm: string }) => (
   <div className="u-p-6 u-text-center" role="status" aria-live="polite">
-    <Icon name="MagnifyingGlass" size="lg" className="u-mb-3 u-color-muted" />
-    <p className="u-text-md u-color-text-secondary u-mb-2">
+    <Icon
+      name="MagnifyingGlass"
+      size="lg"
+      className="u-mb-3 u-text-secondary"
+    />
+    <p className="u-fs-md u-text-secondary u-mb-2">
       No results found for "{searchTerm}"
     </p>
-    <p className="u-text-sm u-color-muted">
+    <p className="u-fs-sm u-text-secondary">
       Try a different search term or browse the sections below.
     </p>
   </div>
@@ -218,7 +222,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
                     handleClearSearch();
                   }
                 }}
-                className="u-absolute u-end-0 u-top-0 u-mt-2 u-mr-2 u-bg-transparent u-border-0 u-cursor-pointer u-p-1 u-flex u-align-items-center u-justify-center"
+                className="u-absolute u-end-0 u-top-0 u-mt-2 u-me-2 u-bg-transparent u-border-0 u-cursor-pointer u-p-1 u-flex u-items-center u-justify-center"
                 aria-label={`Clear search for "${searchTerm}"`}
                 type="button"
                 tabIndex={0}
@@ -230,7 +234,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
           {searchTerm && (
             <div
               id="mobile-search-results-count"
-              className="u-text-xs u-color-muted u-mt-2"
+              className="u-text-xs u-text-secondary u-mt-2"
               aria-live="polite"
             >
               {totalItems === 0 ? (
@@ -262,7 +266,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
         {/* Footer Stats */}
         {filteredSections.length > 0 && (
           <div
-            className="u-mt-6 u-pt-4 u-border-top u-px-3 u-text-xs u-color-muted"
+            className="u-mt-6 u-pt-4 u-border-top u-px-3 u-text-xs u-text-secondary"
             role="status"
           >
             <div className="u-flex u-justify-between u-mb-2">

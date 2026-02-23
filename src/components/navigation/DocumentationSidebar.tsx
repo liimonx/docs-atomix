@@ -1,10 +1,10 @@
 "use client";
 
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigationData } from "@/data/navigation";
-import { Icon } from "@shohojdhara/atomix";
+import { Icon, SideMenu as AtomixSideMenu } from "@shohojdhara/atomix";
 
 interface DocumentationSidebarProps {
   isOpen: boolean;
@@ -17,68 +17,60 @@ const DocumentationSidebar = memo(function DocumentationSidebar({
 }: DocumentationSidebarProps) {
   const pathname = usePathname();
 
+  const menuItems = useMemo(
+    () =>
+      navigationData.map((section) => ({
+        title: section.title,
+        items: section.items.map((item: any) => {
+          const isActive = pathname === item.path;
+          return {
+            id: item.id,
+            title: item.title,
+            href: item.path,
+            icon: <Icon name={item.icon as any} size="sm" />,
+            active: isActive,
+            linkComponent: Link as any,
+            "aria-current": isActive ? "page" : undefined,
+            onClick: () => {
+              onClose();
+            },
+          };
+        }),
+      })),
+    [pathname, onClose],
+  );
+
   return (
     <>
-      {/* Mobile Backdrop */}
-      {isOpen && (
-        <div
-          className="u-fixed u-inset-0 u-bg-black-50 u-z-40 u-lg-none u-backdrop-blur-sm"
-          onClick={onClose}
-        />
-      )}
-
-      {/* Sidebar */}
-      <aside
-        className={`
-          u-bg-surface-dark u-border-right u-border-color-border-dark u-flex-column
-          u-width-64 u-h-100 u-sticky u-top-65px
-          u-overflow-y-auto u-pb-10
-          u-transition-transform u-duration-300 u-ease-in-out u-z-50
-          u-lg-flex
-          u-fixed u-lg-static u-inset-y-0 u-left-0 u-top-0
-          u-lg-translate-x-0
-          ${isOpen ? "u-translate-x-0" : "u-translate-x-n100"}
-        `}
-        style={{
-            height: 'calc(100vh - 65px)',
-            top: '65px'
-        }}
-      >
-        <div className="u-p-4 u-flex u-flex-column u-gap-4">
-          {navigationData.map((section) => (
-            <div key={section.id}>
-              <h3 className="u-px-3 u-text-xs u-font-bold u-color-text-secondary u-uppercase u-tracking-wider u-mb-2">
-                {section.title}
-              </h3>
-              <ul className="u-flex u-flex-column u-gap-1 u-list-style-none u-m-0 u-p-0">
-                {section.items.map((item) => {
-                  const isActive = pathname === item.path;
-                  return (
-                    <li key={item.id}>
-                      <Link
-                        href={item.path}
-                        className={`
-                          u-flex u-align-items-center u-gap-3 u-px-3 u-py-2 u-rounded-md u-text-sm u-transition-colors u-text-decoration-none
-                          ${isActive
-                            ? "u-bg-primary-10 u-color-primary u-font-medium u-border-left-2 u-border-color-primary"
-                            : "u-color-text-muted hover:u-bg-surface-hover hover:u-color-white"
-                          }
-                        `}
-                        onClick={onClose}
-                      >
-                        <div className="u-text-lg u-line-height-1">
-                           <Icon name={item.icon as any} size="sm" />
-                        </div>
-                        {item.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </aside>
+      <div className="u-w-60 u-relative">
+        <AtomixSideMenu
+          className="u-fixed u-w-60 u-top-0 u-start-0 u-z-modal"
+          title={
+            <Link href="/">
+              <div className="u-flex u-items-center u-gap-3">
+                <div className="u-flex u-items-center u-justify-center u-bg-brand-subtle u-rounded-sm u-p-3">
+                  <span className="u-text-brand-emphasis u-fs-xs .material-symbols-outlined">
+                    atm
+                  </span>
+                </div>
+                <div className="u-flex u-flex-column">
+                  <p className="u-text-primary-emphasis u-fs-lg u-font-bold u-leading-none">
+                    Atomix
+                  </p>
+                  <p className="u-text-primary-emphasis u-fs-xs u-font-medium u-mt-1">
+                    v2.0.4
+                  </p>
+                </div>
+              </div>
+            </Link>
+          }
+          menuItems={menuItems}
+          LinkComponent={Link as any}
+          isOpen={isOpen}
+        >
+          {null}
+        </AtomixSideMenu>
+      </div>
     </>
   );
 });

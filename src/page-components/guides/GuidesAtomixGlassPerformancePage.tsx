@@ -130,14 +130,14 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                 variant="primary"
                                 size="sm"
                                 label="Critical"
-                                className="u-ml-2"
+                                className="u-ms-2"
                               />
                             </>
                           }
                           text="AtomixGlass automatically uses hardware acceleration through CSS transforms and will-change properties. However, overusing these can cause memory issues."
                           children={
                             <Fragment>
-                              <div className="u-flex u-align-items-start u-gap-4">
+                              <div className="u-flex u-items-start u-gap-4">
                                 <div className="u-flex-grow-1">
                                   <div className="u-mt-4">
                                     <h4 className="u-mb-2">✅ Do:</h4>
@@ -161,7 +161,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                   </div>
                                   <div className="u-mt-3">
                                     <h4 className="u-mb-2">❌ Don't:</h4>
-                                    <ul className="u-ml-6 u-text-sm">
+                                    <ul className="u-ms-6 u-text-sm">
                                       <li className="u-mb-1">
                                         Apply glass effects to large scrollable
                                         areas
@@ -192,14 +192,14 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                 variant="warning"
                                 size="sm"
                                 label="Important"
-                                className="u-ml-2"
+                                className="u-ms-2"
                               />
                             </>
                           }
                           text="Higher values for displacement, blur, and aberration require more processing power. Balance visual appeal with performance."
                           className="u-h-100"
                         >
-                          <div className="u-flex u-align-items-start u-gap-4">
+                          <div className="u-flex u-items-start u-gap-4">
                             <div className="u-flex-grow-1">
                               <div className="u-mt-4">
                                 <table
@@ -332,7 +332,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                                 variant="error"
                                 size="sm"
                                 label="High Impact"
-                                className="u-ml-2"
+                                className="u-ms-2"
                               />
                             </>
                           }
@@ -352,7 +352,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                               <h6 className="u-mb-2">
                                 When to use shader mode:
                               </h6>
-                              <ul className="u-ml-6 u-text-sm">
+                              <ul className="u-ms-6 u-text-sm">
                                 <li className="u-mb-1">
                                   Hero sections and landing page headers
                                 </li>
@@ -371,7 +371,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                               <h6 className="u-mb-2">
                                 When to use standard mode:
                               </h6>
-                              <ul className="u-ml-6 u-text-sm">
+                              <ul className="u-ms-6 u-text-sm">
                                 <li className="u-mb-1">Mobile applications</li>
                                 <li className="u-mb-1">
                                   Dashboard and admin interfaces
@@ -398,7 +398,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                     <Grid className="u-mt-6">
                       <GridCol md={6}>
                         <Card className="u-p-6">
-                          <div className="u-flex u-align-items-start u-gap-4">
+                          <div className="u-flex u-items-start u-gap-4">
                             <div>
                               <Icon name="Monitor" size={20} />
                             </div>
@@ -550,7 +550,7 @@ function OptimizedGlassComponent() {
                     <Grid className="u-mt-6">
                       <GridCol md={6}>
                         <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-align-items-start u-gap-3 u-mb-4">
+                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="Monitor"
                               size={24}
@@ -567,7 +567,7 @@ function OptimizedGlassComponent() {
                           <h4 className="u-text-sm u-font-600 u-mb-2">
                             Performance Tab
                           </h4>
-                          <ul className="u-ml-6 u-text-sm u-mb-4">
+                          <ul className="u-ms-6 u-text-sm u-mb-4">
                             <li className="u-mb-1">
                               Record and analyze frame rates
                             </li>
@@ -585,7 +585,7 @@ function OptimizedGlassComponent() {
                           <h4 className="u-text-sm u-font-600 u-mb-2">
                             Rendering Tab
                           </h4>
-                          <ul className="u-ml-6 u-text-sm u-mb-4">
+                          <ul className="u-ms-6 u-text-sm u-mb-4">
                             <li className="u-mb-1">Enable FPS meter</li>
                             <li className="u-mb-1">Show paint flashing</li>
                             <li className="u-mb-1">
@@ -599,7 +599,7 @@ function OptimizedGlassComponent() {
                           <h4 className="u-text-sm u-font-600 u-mb-2">
                             Memory Tab
                           </h4>
-                          <ul className="u-ml-6 u-text-sm">
+                          <ul className="u-ms-6 u-text-sm">
                             <li className="u-mb-1">Take heap snapshots</li>
                             <li className="u-mb-1">Detect memory leaks</li>
                             <li className="u-mb-1">
@@ -611,7 +611,7 @@ function OptimizedGlassComponent() {
 
                       <GridCol md={6}>
                         <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-align-items-start u-gap-3 u-mb-4">
+                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="Lightning"
                               size={24}
@@ -627,7 +627,7 @@ function OptimizedGlassComponent() {
 
                           <div>
                             <div className="u-mb-4">
-                              <div className="u-flex u-align-items-center u-justify-between u-mb-1">
+                              <div className="u-flex u-items-center u-justify-between u-mb-1">
                                 <h4 className="u-text-sm u-font-600">
                                   Largest Contentful Paint (LCP)
                                 </h4>
@@ -645,7 +645,7 @@ function OptimizedGlassComponent() {
                             </div>
 
                             <div className="u-mb-4">
-                              <div className="u-flex u-align-items-center u-justify-between u-mb-1">
+                              <div className="u-flex u-items-center u-justify-between u-mb-1">
                                 <h4 className="u-text-sm u-font-600">
                                   First Input Delay (FID)
                                 </h4>
@@ -662,7 +662,7 @@ function OptimizedGlassComponent() {
                             </div>
 
                             <div className="u-mb-4">
-                              <div className="u-flex u-align-items-center u-justify-between u-mb-1">
+                              <div className="u-flex u-items-center u-justify-between u-mb-1">
                                 <h4 className="u-text-sm u-font-600">
                                   Cumulative Layout Shift (CLS)
                                 </h4>
@@ -679,7 +679,7 @@ function OptimizedGlassComponent() {
                             </div>
 
                             <div>
-                              <div className="u-flex u-align-items-center u-justify-between u-mb-1">
+                              <div className="u-flex u-items-center u-justify-between u-mb-1">
                                 <h4 className="u-text-sm u-font-600">
                                   Interaction to Next Paint (INP)
                                 </h4>
@@ -810,7 +810,7 @@ function MonitoredGlassComponent() {
                     <Grid className="u-mt-6">
                       <GridCol md={6}>
                         <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-align-items-start u-gap-3 u-mb-4">
+                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="Lightbulb"
                               size={24}
@@ -863,7 +863,7 @@ function LazyGlassComponent() {
 
                       <GridCol md={6}>
                         <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-align-items-start u-gap-3 u-mb-4">
+                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="WaveTriangle"
                               size={24}
@@ -910,7 +910,7 @@ function AccessibleGlassComponent() {
                     <Grid className="u-mt-4">
                       <GridCol md={6}>
                         <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-align-items-start u-gap-3 u-mb-4">
+                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="Info"
                               size={24}
@@ -960,7 +960,7 @@ function DebouncedGlassComponent() {
 
                       <GridCol md={6}>
                         <Card className="u-p-6 u-h-100">
-                          <div className="u-flex u-align-items-start u-gap-3 u-mb-4">
+                          <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="Cpu"
                               size={24}
@@ -1017,7 +1017,7 @@ const MemoizedGlassCard = memo(({ title, content }) => {
                       title="Quick Wins Summary"
                       className="u-mt-6"
                     >
-                      <ul className="u-ml-6 u-text-sm u-mt-2">
+                      <ul className="u-ms-6 u-text-sm u-mt-2">
                         <li>Use intersection observer for lazy loading</li>
                         <li>Respect prefers-reduced-motion</li>
                         <li>Debounce interactive events</li>

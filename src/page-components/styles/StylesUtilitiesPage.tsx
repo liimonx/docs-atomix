@@ -48,7 +48,7 @@ const CategoryCard: FC<UtilityCategoryProps> = ({
         pageStyles.stylesUtilitiesPage__categoryCard
       } ${pageStyles[`stylesUtilitiesPage__categoryCard--${colorClass}`]}`}
     >
-      <div className="u-flex u-align-items-center u-gap-3 u-mb-3">
+      <div className="u-flex u-items-center u-gap-3 u-mb-3">
         <Icon
           name={icon as any}
           size={24}
@@ -61,7 +61,7 @@ const CategoryCard: FC<UtilityCategoryProps> = ({
       <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
       <div className="u-flex u-flex-column u-gap-2">
         {examples.map((ex, idx) => (
-          <div key={idx} className="u-flex u-align-items-center u-gap-2">
+          <div key={idx} className="u-flex u-items-center u-gap-2">
             <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
               {ex.class}
             </code>
@@ -99,7 +99,7 @@ const StylesUtilitiesPage: FC = () => {
         { class: ".u-flex", description: "Display flex" },
         { class: ".u-grid", description: "Display grid" },
         { class: ".u-justify-between", description: "Space between" },
-        { class: ".u-align-items-center", description: "Vertical center" },
+        { class: ".u-items-center", description: "Vertical center" },
         { class: ".u-gap-4", description: "Gap 1rem" },
       ],
       color: "var(--atomix-primary)",
@@ -226,7 +226,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-start u-gap-4">
+              <div className="u-flex u-items-start u-gap-4">
                 <Icon
                   name="Code"
                   size={32}
@@ -297,7 +297,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Monitor"
                   size={24}
@@ -417,7 +417,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={6} className="u-mb-4">
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="GridFour"
                   size={24}
@@ -446,7 +446,7 @@ const StylesUtilitiesPage: FC = () => {
 
           <GridCol md={6} className="u-mb-4">
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="ArrowsOut"
                   size={24}
@@ -462,7 +462,7 @@ const StylesUtilitiesPage: FC = () => {
                 >
                   {`<div class="u-flex 
      u-justify-between 
-     u-align-items-center 
+     u-items-center 
      u-gap-4 u-p-4">
   <span>Left</span>
   <span>Right</span>
@@ -476,7 +476,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6 u-bg-info-subtle">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Lightbulb"
                   size={24}
@@ -550,7 +550,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-6 u-mb-8">
           <GridCol md={12}>
             <Card className="u-p-6 u-bg-warning-subtle">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Warning"
                   size={24}

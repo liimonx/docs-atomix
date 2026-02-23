@@ -86,7 +86,7 @@ export const ComponentAccessibility: FC<ComponentAccessibilityProps> = ({
                 key: "attribute",
                 title: "Attribute",
                 render: (_value: unknown, row: { attribute: string }) => (
-                  <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
+                  <code className="u-text-sm u-bg-tertiary u-p-1 u-rounded-sm">
                     {row.attribute}
                   </code>
                 ),
@@ -117,7 +117,7 @@ export const ComponentAccessibility: FC<ComponentAccessibilityProps> = ({
                 title: "Default Value",
                 render: (_value: unknown, row: { defaultValue: string }) =>
                   row.defaultValue ? (
-                    <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
+                    <code className="u-text-sm u-bg-tertiary u-p-1 u-rounded-sm">
                       {row.defaultValue}
                     </code>
                   ) : (
@@ -134,8 +134,8 @@ export const ComponentAccessibility: FC<ComponentAccessibilityProps> = ({
           <h3 className="u-mb-0">Guidelines</h3>
           <ul className="u-list-none u-mb-0">
             {(accessibility.guidelines || []).map((guideline, index) => (
-              <li key={index} className="u-mb-2 u-flex u-align-items-start">
-                <span className="u-mr-2">•</span>
+              <li key={index} className="u-mb-2 u-flex u-items-start">
+                <span className="u-me-2">•</span>
                 <span>{guideline}</span>
               </li>
             ))}

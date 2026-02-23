@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Dropdown, Input, Icon, Button } from "@shohojdhara/atomix";
+import { Dropdown, Input, Button } from "@shohojdhara/atomix";
 import { useSearch } from "../../hooks/useSearch";
 import { SearchResultItem } from "./SearchResultItem";
 import { SearchResult as TypedSearchResult } from "../../types";
@@ -88,7 +88,7 @@ export function GlobalSearch() {
         menu={
           <div className="u-w-100">
             {mappedSearchResults.length > 0 ? (
-              <ul className="u-list-style-none u-m-0 u-p-0">
+              <ul className="u-list-none u-m-0 u-p-0">
                 {mappedSearchResults.map((result) => (
                   <SearchResultItem
                     key={result.id}
@@ -117,24 +117,13 @@ export function GlobalSearch() {
       >
         <div className="u-relative u-w-100">
           <Input
-            className="u-px-4 u-py-2 u-pl-10"
-            glass={{
-              blurAmount: 10,
-              elasticity: 0,
-              cornerRadius: 30,
-            }}
-            style={{
-              borderRadius: "30px",
-              width: "300px",
-              borderColor: "transparent",
-              backgroundColor: "rgba(var(--atomix-primary-rgb), 0.4)",
-            }}
+            className="u-px-4 u-py-2 u-ps-10"
             type="text"
             placeholder="Search documentation..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <div className="u-absolute u-top-0 u-start-0 u-pt-1 u-pl-1">
+          <div className="u-absolute u-top-0 u-start-0 u-pt-1 u-ps-1">
             {searchQuery ? (
               <Button
                 onClick={() => {
@@ -143,9 +132,9 @@ export function GlobalSearch() {
                 }}
                 aria-label="Clear search"
                 iconOnly
-                rounded
                 variant="ghost"
-                icon={<Icon name="X" size="sm" />}
+                iconName="X"
+                iconSize="sm"
                 size="sm"
               />
             ) : (
@@ -156,10 +145,10 @@ export function GlobalSearch() {
                 }}
                 aria-label="Search"
                 iconOnly
-                rounded
                 variant="ghost"
                 size="sm"
-                icon={<Icon name="MagnifyingGlass" size="sm" />}
+                iconName="MagnifyingGlass"
+                iconSize="sm"
               />
             )}
           </div>

@@ -182,7 +182,7 @@ const DevtoolsOverviewPage: FC = () => {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Creating a New Theme
                 </h3>
-                <ol className="u-ml-4 u-mb-3">
+                <ol className="u-ms-4 u-mb-3">
                   <li className="u-mb-2">
                     Use <strong>Live Editor</strong> to create and customize
                     your theme visually
@@ -204,7 +204,7 @@ const DevtoolsOverviewPage: FC = () => {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Debugging Theme Issues
                 </h3>
-                <ol className="u-ml-4 u-mb-3">
+                <ol className="u-ms-4 u-mb-3">
                   <li className="u-mb-2">
                     Use <strong>Inspector</strong> to identify validation errors
                     and warnings
@@ -225,7 +225,7 @@ const DevtoolsOverviewPage: FC = () => {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Comparing Theme Versions
                 </h3>
-                <ol className="u-ml-4 u-mb-3">
+                <ol className="u-ms-4 u-mb-3">
                   <li className="u-mb-2">
                     Load both theme versions into <strong>Comparator</strong>
                   </li>

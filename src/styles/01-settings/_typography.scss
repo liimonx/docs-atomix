@@ -9,6 +9,10 @@
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.typography' with (
+  $font-family-base: ('Inter', sans-serif),
+  $font-family-sans-serif: ('Inter', sans-serif),
+  $headings-font-family: ('Inter', sans-serif),
+  
   // Font Weights
   $font-weight-light: 300,
   $font-weight-normal: 400,

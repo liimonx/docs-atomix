@@ -131,7 +131,7 @@ const GuidesAtomixGlassThemingPage: FC = () => {
               <p>AtomixGlass includes several preset themes:</p>
 
               <h4 className="u-mt-3">Subtle Theme</h4>
-              <pre className="u-mt-2 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-2 u-p-3 u-bg-gray-100 u-rounded-4">
                 {`<AtomixGlass
   displacementScale={10}
   blurAmount={0.5}
@@ -145,7 +145,7 @@ const GuidesAtomixGlassThemingPage: FC = () => {
               </pre>
 
               <h4 className="u-mt-3">Bold Theme</h4>
-              <pre className="u-mt-2 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-2 u-p-3 u-bg-gray-100 u-rounded-4">
                 {`<AtomixGlass
   displacementScale={30}
   blurAmount={2}
@@ -165,7 +165,7 @@ const GuidesAtomixGlassThemingPage: FC = () => {
               <h3>Color Customization</h3>
               <p>Customize glass colors using CSS custom properties:</p>
 
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-rounded-4">
                 {`.my-glass {
   --glass-bg-color: rgba(var(--atomix-light-rgb), 0.1);
   --glass-border-color: rgba(var(--atomix-light-rgb), 0.2);
@@ -181,7 +181,7 @@ const GuidesAtomixGlassThemingPage: FC = () => {
               </pre>
 
               <p className="u-mt-3">Apply custom class:</p>
-              <pre className="u-mt-2 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-2 u-p-3 u-bg-gray-100 u-rounded-4">
                 {`<AtomixGlass className="my-glass">
   Custom colored glass
 </AtomixGlass>`}
@@ -200,7 +200,7 @@ const GuidesAtomixGlassThemingPage: FC = () => {
               </p>
 
               <h4 className="u-mt-3">Available Shader Variants</h4>
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-rounded-4">
                 {`// Liquid Glass (default) - Smooth liquid-like distortion
     <AtomixGlass
       mode="shader"
@@ -248,7 +248,7 @@ const GuidesAtomixGlassThemingPage: FC = () => {
               <h3>Brand Integration</h3>
               <p>Create a reusable branded glass component:</p>
 
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-rounded-4">
                 {`// BrandGlass.tsx
 import { AtomixGlass } from '@shohojdhara/atomix';
 
@@ -279,7 +279,7 @@ export default BrandGlass;`}
               <h3>Theme Switching</h3>
               <p>Implement dynamic theme switching:</p>
 
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-rounded-4">
                 {`const [theme, setTheme] = useState('light');
 
 const glassConfig = {
@@ -313,7 +313,7 @@ const glassConfig = {
               <h3>Responsive Theming</h3>
               <p>Adjust glass effects based on screen size:</p>
 
-              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-br-4">
+              <pre className="u-mt-3 u-p-3 u-bg-gray-100 u-rounded-4">
                 {`import { useMediaQuery } from 'react-responsive';
 
 function ResponsiveGlass({ children }) {
@@ -343,7 +343,7 @@ function ResponsiveGlass({ children }) {
               <h3>Best Practices</h3>
 
               <h4 className="u-mt-3">1. Consistency</h4>
-              <ul className="u-ml-6 u-text-sm">
+              <ul className="u-ms-6 u-text-sm">
                 <li className="u-mb-1">
                   Use consistent glass settings across similar UI elements
                 </li>
@@ -354,7 +354,7 @@ function ResponsiveGlass({ children }) {
               </ul>
 
               <h4 className="u-mt-3">2. Accessibility</h4>
-              <ul className="u-ml-6 u-text-sm">
+              <ul className="u-ms-6 u-text-sm">
                 <li className="u-mb-1">
                   Ensure sufficient contrast for text over glass
                 </li>
@@ -367,7 +367,7 @@ function ResponsiveGlass({ children }) {
               </ul>
 
               <h4 className="u-mt-3">3. Performance</h4>
-              <ul className="u-ml-6 u-text-sm">
+              <ul className="u-ms-6 u-text-sm">
                 <li className="u-mb-1">
                   Use lighter effects on mobile devices
                 </li>
@@ -380,7 +380,7 @@ function ResponsiveGlass({ children }) {
               </ul>
 
               <h4 className="u-mt-3">4. Brand Alignment</h4>
-              <ul className="u-ml-6 u-text-sm">
+              <ul className="u-ms-6 u-text-sm">
                 <li className="u-mb-1">
                   Match glass colors to your brand palette
                 </li>

@@ -44,11 +44,11 @@ const CLIPage: FC = () => {
               elevation="lg"
               variant="primary"
             >
-              <div className="u-flex u-align-items-center u-mb-4">
+              <div className="u-flex u-items-center u-mb-4">
                 <Icon
                   name="Download"
                   size={24}
-                  className="c-card__icon u-mr-2"
+                  className="c-card__icon u-me-2"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Install Atomix
@@ -72,11 +72,11 @@ const CLIPage: FC = () => {
               elevation="lg"
               variant="success"
             >
-              <div className="u-flex u-align-items-center u-mb-4">
+              <div className="u-flex u-items-center u-mb-4">
                 <Icon
                   name="Terminal"
                   size={24}
-                  className="c-card__icon u-mr-2"
+                  className="c-card__icon u-me-2"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Access CLI
@@ -178,8 +178,8 @@ npx atomix build-theme my-theme --watch`}
 
         {/* atomix init */}
         <Card className="u-mt-6" appearance="outlined" elevation="lg">
-          <div className="u-flex u-align-items-center u-mb-4">
-            <Icon name="Rocket" size={20} className="c-card__icon u-mr-2" />
+          <div className="u-flex u-items-center u-mb-4">
+            <Icon name="Rocket" size={20} className="c-card__icon u-me-2" />
             <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
               Atomix init
             </h2>
@@ -224,8 +224,8 @@ npx atomix build-theme my-theme --watch`}
           appearance="outlined"
           elevation="lg"
         >
-          <div className="u-flex u-align-items-center u-mb-4">
-            <Icon name="Palette" size={20} className="c-card__icon u-mr-2" />
+          <div className="u-flex u-items-center u-mb-4">
+            <Icon name="Palette" size={20} className="c-card__icon u-me-2" />
             <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
               atomix build-theme
             </h2>
@@ -314,8 +314,8 @@ npx atomix build-theme themes/custom --analyze`}
           appearance="outlined"
           elevation="lg"
         >
-          <div className="u-flex u-align-items-center u-mb-4">
-            <Icon name="Code" size={20} className="c-card__icon u-mr-2" />
+          <div className="u-flex u-items-center u-mb-4">
+            <Icon name="Code" size={20} className="c-card__icon u-me-2" />
             <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
               atomix generate (alias: g)
             </h2>
@@ -424,8 +424,8 @@ npx atomix g component Header --path ./src/layouts`}
           appearance="outlined"
           elevation="lg"
         >
-          <div className="u-flex u-align-items-center u-mb-4">
-            <div className="c-card__icon u-mr-2">
+          <div className="u-flex u-items-center u-mb-4">
+            <div className="c-card__icon u-me-2">
               <Icon name="ArrowRight" size={20} />
             </div>
             <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
@@ -516,8 +516,8 @@ npx atomix migrate scss-variables`}
           appearance="outlined"
           elevation="lg"
         >
-          <div className="u-flex u-align-items-center u-mb-4">
-            <Icon name="GridFour" size={20} className="c-card__icon u-mr-2" />
+          <div className="u-flex u-items-center u-mb-4">
+            <Icon name="GridFour" size={20} className="c-card__icon u-me-2" />
             <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
               atomix tokens
             </h2>

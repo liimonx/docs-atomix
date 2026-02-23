@@ -156,9 +156,9 @@ const LayoutsCustomizationPage: FC = () => {
                     {level.features.map((feature, idx) => (
                       <li
                         key={idx}
-                        className="u-flex u-align-items-center u-text-secondary-emphasis u-text-sm"
+                        className="u-flex u-items-center u-text-secondary-emphasis u-text-sm"
                       >
-                        <span className="u-mr-2 u-text-primary-emphasis">
+                        <span className="u-me-2 u-text-primary-emphasis">
                           ✓
                         </span>
                         {feature}
@@ -182,8 +182,8 @@ const LayoutsCustomizationPage: FC = () => {
         <Grid>
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-primary-emphasis">
                   <Icon name="Palette" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -228,8 +228,8 @@ const LayoutsCustomizationPage: FC = () => {
         <Grid className="u-mt-6">
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis">
                   <Icon name="Stack" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -270,8 +270,8 @@ const LayoutsCustomizationPage: FC = () => {
         <Grid>
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis">
                   <Icon name="Gear" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -317,8 +317,8 @@ $container-max-widths: (
         <Grid>
           <GridCol md={6} className="u-mb-6">
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-warning-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-warning-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-warning-emphasis">
                   <Icon name="Code" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -357,8 +357,8 @@ $container-max-widths: (
 
           <GridCol md={6} className="u-mb-6">
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-secondary-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-secondary-emphasis">
                   <Icon name="Lightning" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -405,8 +405,8 @@ $container-max-widths: (
         <Grid>
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-secondary-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-secondary-emphasis">
                   <Icon name="Sparkle" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -459,8 +459,8 @@ function MyPage() {
         <Grid className="u-mt-6">
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-primary-emphasis">
                   <Icon name="Stack" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -553,7 +553,7 @@ function CustomLayout() {
           ].map((practice, index) => (
             <GridCol key={index} md={6} lg={3} className="u-mb-6">
               <Card className="u-h-100 u-p-6">
-                <div className="u-flex u-align-items-center u-mb-3">
+                <div className="u-flex u-items-center u-mb-3">
                   <div
                     className={`${
                       pageStyles.layoutsCustomizationPage__practiceIconContainer

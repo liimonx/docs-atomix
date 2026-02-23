@@ -36,7 +36,7 @@ export const InteractiveDemo: FC<InteractiveDemoProps> = ({
       description: "Live preview of the component",
       content: (
         <div className="u-mt-4">
-          <div className="u-p-6 u-bg-secondary u-br-md u-border u-border-subtle">
+          <div className="u-p-6 u-bg-secondary u-rounded-md u-border u-border-subtle">
             {example.preview ? (
               example.preview
             ) : (
@@ -76,7 +76,7 @@ export const InteractiveDemo: FC<InteractiveDemoProps> = ({
         </p>
 
         {component.examples && component.examples.length > 1 && (
-          <div className="u-flex u-align-items-center u-gap-3 u-mt-4">
+          <div className="u-flex u-items-center u-gap-3 u-mt-4">
             <label htmlFor="example-select" className="u-text-sm u-font-medium">
               Select example:
             </label>

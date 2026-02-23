@@ -52,9 +52,9 @@ const LayerCard: FC<LayerCardProps> = ({
         pageStyles[`stylesArchitecturePage__layerCard--${colorClass}`]
       }`}
     >
-      <div className="u-flex u-align-items-center u-gap-3 u-mb-3">
+      <div className="u-flex u-items-center u-gap-3 u-mb-3">
         <div
-          className={`u-flex u-align-items-center u-justify-center u-font-bold u-text-lg ${
+          className={`u-flex u-items-center u-justify-center u-font-bold u-text-lg ${
             pageStyles.stylesArchitecturePage__layerNumberBadge
           } ${
             pageStyles[
@@ -187,7 +187,7 @@ const StylesArchitecturePage: FC = () => {
 
       <Block>
         <Card>
-          <div className="u-flex u-align-items-start u-gap-4">
+          <div className="u-flex u-items-start u-gap-4">
             <Icon name="Stack" size={32} className="u-text-primary-emphasis" />
             <div>
               <h3 className="u-text-xl u-font-semibold u-mb-3">
@@ -198,7 +198,7 @@ const StylesArchitecturePage: FC = () => {
                 a predictable cascade:
               </p>
               <div className="u-flex u-flex-wrap u-gap-3">
-                <div className="u-flex u-align-items-center u-gap-2">
+                <div className="u-flex u-items-center u-gap-2">
                   <Icon
                     name="TrendUp"
                     size={20}
@@ -208,7 +208,7 @@ const StylesArchitecturePage: FC = () => {
                     Specificity increases downward
                   </span>
                 </div>
-                <div className="u-flex u-align-items-center u-gap-2">
+                <div className="u-flex u-items-center u-gap-2">
                   <Icon
                     name="TrendDown"
                     size={20}
@@ -216,7 +216,7 @@ const StylesArchitecturePage: FC = () => {
                   />
                   <span className="u-text-sm">Reach decreases downward</span>
                 </div>
-                <div className="u-flex u-align-items-center u-gap-2">
+                <div className="u-flex u-items-center u-gap-2">
                   <Icon
                     name="Target"
                     size={20}
@@ -247,7 +247,7 @@ const StylesArchitecturePage: FC = () => {
         <Grid className="u-mt-8">
           <GridCol md={6}>
             <Card className={pageStyles.stylesArchitecturePage__infoCard}>
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="CheckCircle"
                   size={24}
@@ -312,7 +312,7 @@ const StylesArchitecturePage: FC = () => {
 
           <GridCol md={6}>
             <Card className={pageStyles.stylesArchitecturePage__infoCard}>
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Code"
                   size={24}
@@ -387,7 +387,7 @@ const StylesArchitecturePage: FC = () => {
         <Grid>
           <GridCol md={6}>
             <Card className={pageStyles.stylesArchitecturePage__infoCard}>
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="FileText"
                   size={24}
@@ -424,7 +424,7 @@ const StylesArchitecturePage: FC = () => {
 
           <GridCol md={6}>
             <Card className={pageStyles.stylesArchitecturePage__infoCard}>
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Package"
                   size={24}
@@ -464,7 +464,7 @@ const StylesArchitecturePage: FC = () => {
                 height: "100%",
               }}
             >
-              <div className="u-flex u-align-items-center u-gap-2 u-mb-3">
+              <div className="u-flex u-items-center u-gap-2 u-mb-3">
                 <Icon
                   name="ThumbsUp"
                   size={20}
@@ -500,7 +500,7 @@ const StylesArchitecturePage: FC = () => {
                 height: "100%",
               }}
             >
-              <div className="u-flex u-align-items-center u-gap-2 u-mb-3">
+              <div className="u-flex u-items-center u-gap-2 u-mb-3">
                 <Icon
                   name="ThumbsDown"
                   size={20}
@@ -532,7 +532,7 @@ const StylesArchitecturePage: FC = () => {
         <Grid className="u-mt-6">
           <GridCol md={12}>
             <Card className="u-bg-primary-subtle" style={{ padding: "1.5rem" }}>
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="BookOpen"
                   size={24}

@@ -206,8 +206,8 @@ const LayoutsResponsivePatternsPage: FC = () => {
         <Grid className="u-mt-6">
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-primary-emphasis">
                   <Icon name="Code" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -254,8 +254,8 @@ function SidebarLayout({ children, sidebar }) {
         <Grid className="u-mt-6">
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis">
                   <Icon name="GridFour" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -304,8 +304,8 @@ function CardGridLayout({ cards }) {
         <Grid>
           <GridCol md={6} className="u-mb-6">
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-primary-emphasis">
                   <Icon name="Phone" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -326,9 +326,9 @@ function CardGridLayout({ cards }) {
                 ].map((bp, index) => (
                   <div
                     key={index}
-                    className="u-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md"
+                    className="u-flex u-items-center u-p-3 u-bg-secondary-subtle u-rounded-md"
                   >
-                    <div className="u-w-10 u-h-10 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis u-font-bold">
+                    <div className="u-w-10 u-h-10 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-primary-emphasis u-font-bold">
                       {bp.name}
                     </div>
                     <span className="u-text-secondary-emphasis">{bp.size}</span>
@@ -352,8 +352,8 @@ function CardGridLayout({ cards }) {
 
           <GridCol md={6} className="u-mb-6">
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
+              <div className="u-flex u-items-center u-mb-4">
+                <div className="u-w-12 u-h-12 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis">
                   <Icon name="Image" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -454,7 +454,7 @@ function CardGridLayout({ cards }) {
           ].map((practice, index) => (
             <GridCol key={index} md={6} lg={3} className="u-mb-6">
               <Card className="u-h-100 u-p-6">
-                <div className="u-flex u-align-items-center u-mb-3">
+                <div className="u-flex u-items-center u-mb-3">
                   <div
                     className={`${
                       pageStyles.layoutsResponsivePatternsPage__practiceIconContainer

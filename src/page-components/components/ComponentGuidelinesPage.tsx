@@ -213,9 +213,9 @@ $button-color: var(--atomix-primary) !default;
               {guidelines.map((guideline, index) => (
                 <GridCol key={index} md={6} lg={4} className="u-mb-4">
                   <Card elevation="lg" className="u-h-100">
-                    <div className="u-flex u-align-items-center u-mb-3">
+                    <div className="u-flex u-items-center u-mb-3">
                       <div
-                        className="u-flex u-align-items-center u-justify-center u-mr-3"
+                        className="u-flex u-items-center u-justify-center u-me-3"
                         style={{
                           width: "48px",
                           height: "48px",
@@ -533,7 +533,7 @@ $button-color: var(--atomix-primary) !default;
               href="/docs/components/overview"
               LinkComponent={Link}
             >
-              <Icon name="GridFour" size={16} className="u-mr-2" />
+              <Icon name="GridFour" size={16} className="u-me-2" />
               Browse Components
             </Button>
             <Button
@@ -541,7 +541,7 @@ $button-color: var(--atomix-primary) !default;
               href="/docs/getting-started/quick-start"
               LinkComponent={Link}
             >
-              <Icon name="Rocket" size={16} className="u-mr-2" />
+              <Icon name="Rocket" size={16} className="u-me-2" />
               Quick Start Guide
             </Button>
             <Button
@@ -549,7 +549,7 @@ $button-color: var(--atomix-primary) !default;
               href="/docs/resources/contributing"
               LinkComponent={Link}
             >
-              <Icon name="Code" size={16} className="u-mr-2" />
+              <Icon name="Code" size={16} className="u-me-2" />
               Contributing Guide
             </Button>
           </div>

@@ -189,7 +189,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                     {(componentDoc.features || []).map((feature, index) => (
                       <li
                         key={index}
-                        className="u-flex u-align-items-start u-gap-4"
+                        className="u-flex u-items-start u-gap-4"
                       >
                         {feature.supported ? (
                           <>
@@ -416,7 +416,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
         <div className="u-mb-lg">
           <Link
             href="/docs/components/overview"
-            className="u-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
+            className="u-inline-flex u-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
             style={{
               transition: "var(--atomix-transition-fast)",
             }}
@@ -433,7 +433,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
             <span>Back to Components</span>
           </Link>
 
-          <div className="u-flex u-flex-wrap u-align-items-start u-justify-between u-gap-4 u-mb-4">
+          <div className="u-flex u-flex-wrap u-items-start u-justify-between u-gap-4 u-mb-4">
             <div className="u-flex-grow-1" style={{ minWidth: "300px" }}>
               <h1 className="u-text-4xl u-font-bold u-mb-2">
                 {componentDoc.name}

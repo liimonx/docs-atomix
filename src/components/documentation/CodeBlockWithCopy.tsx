@@ -29,15 +29,15 @@ export const CodeBlockWithCopy: FC<CodeBlockWithCopyProps> = ({
   return (
     <Card className="u-p-0 u-overflow-hidden u-mb-4">
       {(title || language) && (
-        <div className="u-flex u-align-items-center u-justify-between u-p-3 u-bg-tertiary u-border-b u-border-subtle">
-          <div className="u-flex u-align-items-center u-gap-3">
+        <div className="u-flex u-items-center u-justify-between u-p-3 u-bg-tertiary u-border-b u-border-subtle">
+          <div className="u-flex u-items-center u-gap-3">
             {title && (
               <span className="u-text-sm u-font-medium u-text-secondary-emphasis">
                 {title}
               </span>
             )}
             {language && (
-              <span className="u-text-xs u-font-medium u-text-secondary-emphasis u-bg-secondary u-px-2 u-py-1 u-br-sm">
+              <span className="u-text-xs u-font-medium u-text-secondary-emphasis u-bg-secondary u-px-2 u-py-1 u-rounded-sm">
                 {language}
               </span>
             )}
@@ -63,7 +63,7 @@ export const CodeBlockWithCopy: FC<CodeBlockWithCopyProps> = ({
         <pre className="u-m-0 u-text-sm" style={{ fontFamily: "monospace" }}>
           {showLineNumbers && (
             <span
-              className="u-inline-block u-mr-4 u-text-secondary-emphasis u-user-select-none"
+              className="u-inline-block u-me-4 u-text-secondary-emphasis u-user-select-none"
               style={{ minWidth: "3ch" }}
             >
               {Array.from({ length: lineCount }, (_, i) => (

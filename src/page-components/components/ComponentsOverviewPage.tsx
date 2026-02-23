@@ -176,9 +176,9 @@ const ComponentsOverviewPage: FC = () => {
                   title={allComponents.length.toString()}
                   text="Total Components"
                   header={
-                    <div className="u-flex u-align-items-center u-justify-center u-w-100">
+                    <div className="u-flex u-items-center u-justify-center u-w-100">
                       <div
-                        className="u-flex u-align-items-center u-justify-center"
+                        className="u-flex u-items-center u-justify-center"
                         style={{
                           width: "48px",
                           height: "48px",
@@ -208,9 +208,9 @@ const ComponentsOverviewPage: FC = () => {
                   variant="success"
                   className="u-h-100"
                   header={
-                    <div className="u-flex u-align-items-center u-justify-center u-w-100">
+                    <div className="u-flex u-items-center u-justify-center u-w-100">
                       <div
-                        className="u-flex u-align-items-center u-justify-center"
+                        className="u-flex u-items-center u-justify-center"
                         style={{
                           width: "48px",
                           height: "48px",
@@ -242,9 +242,9 @@ const ComponentsOverviewPage: FC = () => {
                   variant="info"
                   className="u-text-center u-h-100"
                   header={
-                    <div className="u-flex u-align-items-center u-justify-center u-w-100">
+                    <div className="u-flex u-items-center u-justify-center u-w-100">
                       <div
-                        className="u-flex u-align-items-center u-justify-center"
+                        className="u-flex u-items-center u-justify-center"
                         style={{
                           width: "48px",
                           height: "48px",
@@ -276,9 +276,9 @@ const ComponentsOverviewPage: FC = () => {
                   }}
                   className="u-h-100"
                   header={
-                    <div className="u-flex u-align-items-center u-justify-center u-w-100">
+                    <div className="u-flex u-items-center u-justify-center u-w-100">
                       <div
-                        className="u-flex u-align-items-center u-justify-center"
+                        className="u-flex u-items-center u-justify-center"
                         style={{
                           width: "48px",
                           height: "48px",
@@ -312,7 +312,7 @@ const ComponentsOverviewPage: FC = () => {
               }}
             >
               {/* Search and View Controls */}
-              <Grid className="u-align-items-center u-justify-between u-mb-4">
+              <Grid className="u-items-center u-justify-between u-mb-4">
                 <GridCol md={7} sm={12} className="u-mb-3 u-mb-md-0">
                   <div className="u-relative u-w-100">
                     <Input
@@ -354,7 +354,7 @@ const ComponentsOverviewPage: FC = () => {
                       size="sm"
                       onClick={() => handleViewModeChange("grid")}
                       aria-label="Grid view"
-                      className="u-flex u-align-items-center u-gap-2"
+                      className="u-flex u-items-center u-gap-2"
                     >
                       <Icon name="GridFour" size={18} />
                       <span>Grid</span>
@@ -366,7 +366,7 @@ const ComponentsOverviewPage: FC = () => {
                       size="sm"
                       onClick={() => handleViewModeChange("list")}
                       aria-label="List view"
-                      className="u-flex u-align-items-center u-gap-2"
+                      className="u-flex u-items-center u-gap-2"
                     >
                       <Icon name="ListBullets" size={18} />
                       <span>List</span>
@@ -390,7 +390,7 @@ const ComponentsOverviewPage: FC = () => {
                       handleFilterCategoryChange(option.id as FilterCategory)
                     }
                   >
-                    <div className="u-flex u-align-items-center u-gap-2">
+                    <div className="u-flex u-items-center u-gap-2">
                       <span>{option.label}</span>
                       <Badge
                         label={option.count.toString()}
@@ -452,7 +452,7 @@ const ComponentsOverviewPage: FC = () => {
             Object.entries(groupedComponents).map(([section, components]) => (
               <div key={section} className="u-mt-4">
                 <div
-                  className="u-flex u-align-items-center u-gap-2 u-justify-between u-pb-3 u-border-b"
+                  className="u-flex u-items-center u-gap-2 u-justify-between u-pb-3 u-border-b"
                   style={{ borderBottomWidth: "2px" }}
                 >
                   <h2 className="u-text-xl u-font-semibold">{section}</h2>
@@ -470,7 +470,7 @@ const ComponentsOverviewPage: FC = () => {
                       <GridCol key={component.id} xs={12} className="u-mt-4">
                         <Link
                           href={component.path}
-                          className="u-text-decoration-none u-color-inherit u-block u-h-100"
+                          className="u-text-decoration-none u-text-inherit u-block u-h-100"
                         >
                           <Card
                             row
@@ -484,7 +484,7 @@ const ComponentsOverviewPage: FC = () => {
                                     label={component.badge.text}
                                     variant={component.badge.variant as any}
                                     size="sm"
-                                    className="u-ml-2"
+                                    className="u-ms-2"
                                   >
                                     {component.badge.text}
                                   </Badge>
@@ -496,7 +496,7 @@ const ComponentsOverviewPage: FC = () => {
                                       component.isNew ? "success" : "warning"
                                     }
                                     size="sm"
-                                    className="u-ml-2"
+                                    className="u-ms-2"
                                   >
                                     <Icon
                                       name={
@@ -546,7 +546,7 @@ const ComponentsOverviewPage: FC = () => {
                                     label={component.badge.text}
                                     variant={component.badge.variant as any}
                                     size="sm"
-                                    className="u-mr-2"
+                                    className="u-me-2"
                                   >
                                     {component.badge.text}
                                   </Badge>

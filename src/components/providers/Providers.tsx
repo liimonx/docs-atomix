@@ -1,11 +1,7 @@
-'use client';
+"use client";
 
-import { ThemeProvider } from '@shohojdhara/atomix';
+import { ThemeProvider } from "@shohojdhara/atomix";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return (
-    <ThemeProvider>
-      {children}
-    </ThemeProvider>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 }

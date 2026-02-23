@@ -624,7 +624,7 @@ const DesignTokensPage: FC = () => {
 
           return (
             <div key={category} className="u-mb-12">
-              <div className="u-flex u-align-items-center u-justify-between u-mb-6">
+              <div className="u-flex u-items-center u-justify-between u-mb-6">
                 <SectionIntro
                   title={categoryTitle}
                   text={categoryDescription}
@@ -670,7 +670,7 @@ const DesignTokensPage: FC = () => {
                       <div
                         className={`${componentStyles.designTokensPage__info} u-p-4`}
                       >
-                        <div className="u-flex u-align-items-center u-justify-between u-mb-2">
+                        <div className="u-flex u-items-center u-justify-between u-mb-2">
                           <h3
                             className={`${componentStyles.designTokensPage__tokenName} u-m-0`}
                           >

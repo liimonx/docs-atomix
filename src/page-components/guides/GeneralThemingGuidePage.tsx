@@ -171,7 +171,7 @@ function App() {
                     <p className="u-text-sm u-text-secondary-emphasis">
                       <strong>Why this is great:</strong>
                     </p>
-                    <ul className="u-text-sm u-ml-4">
+                    <ul className="u-text-sm u-ms-4">
                       <li>No build step required</li>
                       <li>Works at runtime</li>
                       <li>TypeScript autocomplete</li>
@@ -304,7 +304,7 @@ export default defineConfig({
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   ❌ What You Should NOT Use
                 </h3>
-                <ul className="u-text-sm u-ml-4">
+                <ul className="u-text-sm u-ms-4">
                   <li>
                     <strong>SCSS Theme Structure</strong> - Only needed if
                     contributing themes to Atomix.
@@ -405,7 +405,7 @@ function App() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Quick Start Checklist
                 </h3>
-                <ul className="u-text-sm u-ml-4">
+                <ul className="u-text-sm u-ms-4">
                   <li>
                     Install: <code>npm install @shohojdhara/atomix</code>
                   </li>
@@ -647,7 +647,7 @@ const theme = createTheme({
                     <strong>Note:</strong> JavaScript themes automatically
                     generate all CSS variables including:
                   </p>
-                  <ul className="u-text-sm u-ml-4">
+                  <ul className="u-text-sm u-ms-4">
                     <li>Color scales (1-10 steps)</li>
                     <li>RGB variants for transparency</li>
                     <li>Text emphasis variants</li>
@@ -1011,7 +1011,7 @@ export default defineConfig({
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Configuration Options
                 </h3>
-                <ul className="u-text-sm u-ml-4">
+                <ul className="u-text-sm u-ms-4">
                   <li>
                     <strong>
                       <code>prefix</code>
@@ -1059,13 +1059,13 @@ export default defineConfig({
                   From <code>atomix.config.ts</code>, these files are
                   automatically generated:
                 </p>
-                <ol className="u-text-sm u-ml-4">
+                <ol className="u-text-sm u-ms-4">
                   <li>
                     <strong>
                       <code>src/themes/themes.config.js</code>
                     </strong>{" "}
                     - Build-time theme configuration
-                    <ul className="u-ml-4 u-mt-1">
+                    <ul className="u-ms-4 u-mt-1">
                       <li>
                         Theme metadata (name, description, version, status,
                         etc.)
@@ -1085,7 +1085,7 @@ export default defineConfig({
                       <code>src/styles/03-generic/_generated-root.css</code>
                     </strong>{" "}
                     - CSS custom properties from config
-                    <ul className="u-ml-4 u-mt-1">
+                    <ul className="u-ms-4 u-mt-1">
                       <li>
                         Generated from <code>theme.extend</code> colors,
                         typography, spacing, etc.
@@ -1125,7 +1125,7 @@ export default defineConfig({
                     <code>primary: &#123; main: '#3b82f6' &#125;</code>):
                   </strong>
                 </p>
-                <ul className="u-text-sm u-ml-4 u-mb-3">
+                <ul className="u-text-sm u-ms-4 u-mb-3">
                   <li>
                     Full color scale: <code>--atomix-primary-1</code> through{" "}
                     <code>--atomix-primary-10</code>
@@ -1140,7 +1140,7 @@ export default defineConfig({
                   </li>
                   <li>
                     Semantic tokens:
-                    <ul className="u-ml-4">
+                    <ul className="u-ms-4">
                       <li>
                         <code>--atomix-primary-text-emphasis</code> (for text)
                       </li>
@@ -1210,7 +1210,7 @@ npm run prebuild`}
                     What <code>sync:config</code> does:
                   </strong>
                 </p>
-                <ol className="u-text-sm u-ml-4">
+                <ol className="u-text-sm u-ms-4">
                   <li>
                     Reads <code>atomix.config.ts</code>
                   </li>
@@ -1269,7 +1269,7 @@ npm run prebuild`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Color Tokens
                   </h4>
-                  <ul className="u-text-sm u-ml-4">
+                  <ul className="u-text-sm u-ms-4">
                     <li>
                       <strong>Base Colors:</strong>{" "}
                       <code>--atomix-primary</code>,{" "}
@@ -1312,7 +1312,7 @@ npm run prebuild`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Typography Tokens
                   </h4>
-                  <ul className="u-text-sm u-ml-4">
+                  <ul className="u-text-sm u-ms-4">
                     <li>
                       <strong>Font Families:</strong>{" "}
                       <code>--atomix-font-sans-serif</code>,{" "}
@@ -1341,7 +1341,7 @@ npm run prebuild`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Spacing Tokens
                   </h4>
-                  <ul className="u-text-sm u-ml-4">
+                  <ul className="u-text-sm u-ms-4">
                     <li>
                       <strong>Spacing Scale:</strong>{" "}
                       <code>--atomix-spacing-0</code> through{" "}
@@ -1360,7 +1360,7 @@ npm run prebuild`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Border Radius Tokens
                   </h4>
-                  <ul className="u-text-sm u-ml-4">
+                  <ul className="u-text-sm u-ms-4">
                     <li>
                       <code>--atomix-border-radius</code>,{" "}
                       <code>--atomix-border-radius-sm</code>,{" "}
@@ -1375,7 +1375,7 @@ npm run prebuild`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Shadow Tokens
                   </h4>
-                  <ul className="u-text-sm u-ml-4">
+                  <ul className="u-text-sm u-ms-4">
                     <li>
                       <code>--atomix-box-shadow</code>,{" "}
                       <code>--atomix-box-shadow-xs</code>,{" "}
@@ -1390,7 +1390,7 @@ npm run prebuild`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Border Tokens
                   </h4>
-                  <ul className="u-text-sm u-ml-4">
+                  <ul className="u-text-sm u-ms-4">
                     <li>
                       <strong>Border Radius:</strong>{" "}
                       <code>--atomix-border-radius</code>,{" "}
@@ -1412,7 +1412,7 @@ npm run prebuild`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Other Tokens
                   </h4>
-                  <ul className="u-text-sm u-ml-4">
+                  <ul className="u-text-sm u-ms-4">
                     <li>
                       <strong>Transitions:</strong>{" "}
                       <code>--atomix-transition-fast</code>,{" "}
@@ -1457,7 +1457,7 @@ import '@shohojdhara/atomix/themes/light.min';`}
                 <p className="u-text-secondary-emphasis u-mt-3 u-mb-2">
                   <strong>Available Theme Imports:</strong>
                 </p>
-                <ul className="u-text-sm u-ml-4">
+                <ul className="u-text-sm u-ms-4">
                   <li>
                     <code>
                       @shohojdhara/atomix/themes/&#123;theme-name&#125;
@@ -1694,7 +1694,7 @@ if (!result.valid) {
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
-                <ol className="u-text-sm u-ml-4">
+                <ol className="u-text-sm u-ms-4">
                   <li>
                     Check theme exists in registry:
                     <EnhancedCodeBlock
@@ -1728,7 +1728,7 @@ console.log(themes);`}
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
-                <ul className="u-text-sm u-ml-4">
+                <ul className="u-text-sm u-ms-4">
                   <li>Ensure theme is loaded (SCSS or JS)</li>
                   <li>Check prefix matches config</li>
                   <li>Verify token name follows conventions</li>
@@ -1750,7 +1750,7 @@ console.log(themes);`}
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
-                <ul className="u-text-sm u-ml-4">
+                <ul className="u-text-sm u-ms-4">
                   <li>
                     Run <code>npm run sync:config</code> to regenerate
                   </li>
@@ -1774,7 +1774,7 @@ console.log(themes);`}
                 <p className="u-text-secondary-emphasis u-mb-2">
                   <strong>Solutions:</strong>
                 </p>
-                <ul className="u-text-sm u-ml-4">
+                <ul className="u-text-sm u-ms-4">
                   <li>
                     Ensure you're using <code>theme.extend.colors</code> (not{" "}
                     <code>theme.tokens.colors</code>)
@@ -1801,7 +1801,7 @@ console.log(themes);`}
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
-                <ul className="u-text-sm u-ml-4">
+                <ul className="u-text-sm u-ms-4">
                   <li>
                     Ensure themes are built: <code>npm run build:themes</code>
                   </li>
@@ -1829,7 +1829,7 @@ console.log(themes);`}
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
-                <ol className="u-text-sm u-ml-4">
+                <ol className="u-text-sm u-ms-4">
                   <li>
                     Import types correctly:
                     <EnhancedCodeBlock
@@ -1882,7 +1882,7 @@ npm run validate:config`}
                 <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solution:</strong>
                 </p>
-                <ol className="u-text-sm u-ml-4">
+                <ol className="u-text-sm u-ms-4">
                   <li>
                     Check <code>atomix.config.ts</code> has <code>prefix</code>{" "}
                     field
@@ -2115,7 +2115,7 @@ export default function RootLayout({ children }) {
                     <h4 className="u-text-md u-font-semibold u-mb-2">
                       5. Performance
                     </h4>
-                    <ul className="u-text-sm u-ml-4">
+                    <ul className="u-text-sm u-ms-4">
                       <li>Enable caching (default: enabled)</li>
                       <li>Use lazy loading for themes</li>
                       <li>Preload critical themes</li>
@@ -2127,7 +2127,7 @@ export default function RootLayout({ children }) {
                     <h4 className="u-text-md u-font-semibold u-mb-2">
                       6. Accessibility
                     </h4>
-                    <ul className="u-text-sm u-ml-4">
+                    <ul className="u-text-sm u-ms-4">
                       <li>Validate themes for contrast ratios</li>
                       <li>Test with screen readers</li>
                       <li>Ensure keyboard navigation works</li>
@@ -2143,7 +2143,7 @@ export default function RootLayout({ children }) {
         <Row className="u-mt-6">
           <GridCol md={12}>
             <Card className="u-p-6 u-bg-primary-subtle u-border u-border-primary">
-              <div className="u-flex u-align-items-start u-gap-3">
+              <div className="u-flex u-items-start u-gap-3">
                 <Icon
                   name="Lightbulb"
                   size={24}
@@ -2163,7 +2163,7 @@ export default function RootLayout({ children }) {
                     href="/docs/guides/theme-studio"
                     variant="primary"
                     size="md"
-                    className="u-flex u-align-items-center u-gap-2"
+                    className="u-flex u-items-center u-gap-2"
                   >
                     <Icon name="Palette" size={16} />
                     Open Theme Studio

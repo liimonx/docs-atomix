@@ -68,7 +68,7 @@ export const FeaturesSection: FC = () => {
             <GridCol key={index} xs={12} md={6} lg={4}>
               <Card className="u-h-100 u-p-8 u-transition-all u-cursor-pointer u-hover-transform-up">
                 <div
-                  className="u-flex u-align-items-center u-justify-center u-w-15 u-h-15 u-br-lg u-mb-6"
+                  className="u-flex u-items-center u-justify-center u-w-15 u-h-15 u-rounded-lg u-mb-6"
                   style={{ backgroundColor: "var(--atomix-color-bg-brand)" }}
                 >
                   <Icon
@@ -78,7 +78,7 @@ export const FeaturesSection: FC = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="u-text-xl u-font-semibold u-mb-3 u-color-text-primary">
+                  <h3 className="u-text-xl u-font-semibold u-mb-3 u-text-text-primary">
                     {feature.title}
                   </h3>
                   <p className="u-text-secondary-emphasis u-line-height-relaxed">

@@ -70,10 +70,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
                   <h3 className="u-text-xl u-font-bold u-mb-4">Features</h3>
                   <ul className="u-list-none u-p-0 u-m-0 u-flex u-flex-column u-gap-2">
                     {componentDoc.features.map((feature, index) => (
-                      <li
-                        key={index}
-                        className="u-flex u-align-items-start u-gap-2"
-                      >
+                      <li key={index} className="u-flex u-items-start u-gap-2">
                         <Icon
                           name="CheckCircle"
                           size={16}
@@ -285,19 +282,19 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
   }
 
   return (
-    <div className="u-min-h-screen u-pb-xl">
+    <div className="u-min-h-screen u-pb-16">
       <BreadcrumbNavigation />
 
       <Block>
         <div className="u-mb-8">
           <Link
             href="/docs/components"
-            className="u-inline-flex u-align-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
+            className="u-inline-flex u-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
           >
             <span>← Back to Components</span>
           </Link>
 
-          <div className="u-flex u-flex-wrap u-align-items-center u-justify-between u-gap-4">
+          <div className="u-flex u-flex-wrap u-items-center u-justify-between u-gap-4">
             <div>
               <h1 className="u-text-4xl u-font-bold u-mb-2">
                 {componentDoc.name}
@@ -318,11 +315,12 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
                   )
                 }
               >
-                <Icon name="GithubLogo" size={16} className="u-mr-2" />
+                <Icon name="GithubLogo" size={16} className="u-me-2" />
                 Source
               </Button>
               <Button
-                icon={<Icon name="BookOpen" size={16} />}
+                iconName="BookOpen"
+                iconSize={16}
                 variant="outline"
                 label="Storybook"
                 size="sm"

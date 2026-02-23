@@ -31,7 +31,7 @@ export const ComponentRelated: FC<ComponentRelatedProps> = ({
               <Link
                 key={componentName}
                 href={navItem.path}
-                className="u-text-decoration-none u-flex u-align-items-center u-gap-2 u-p-2 u-br-sm u-transition-all u-hover-bg-secondary-subtle"
+                className="u-text-decoration-none u-flex u-items-center u-gap-2 u-p-2 u-rounded-sm u-transition-all u-hover-bg-secondary-subtle"
               >
                 <Icon
                   name="ArrowRight"

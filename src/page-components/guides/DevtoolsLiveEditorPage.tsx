@@ -45,7 +45,7 @@ const DevtoolsLiveEditorPage: FC = () => {
               </p>
 
               <h3 className="u-text-lg u-font-semibold u-mb-3">Key Features</h3>
-              <ul className="u-ml-4 u-mb-4">
+              <ul className="u-ms-4 u-mb-4">
                 <li className="u-mb-2">
                   <strong>Visual Editor</strong> - Edit common properties with
                   color pickers and inputs
@@ -232,7 +232,7 @@ function ThemeBuilder() {
                   The visual editor provides intuitive controls for common theme
                   properties:
                 </p>
-                <ul className="u-ml-4 u-mb-4">
+                <ul className="u-ms-4 u-mb-4">
                   <li className="u-mb-2">
                     <strong>Color Pickers</strong> - Visual color selection for
                     palette colors
@@ -259,7 +259,7 @@ function ThemeBuilder() {
                 <p className="u-text-secondary-emphasis u-mb-3">
                   For advanced editing, switch to JSON mode:
                 </p>
-                <ul className="u-ml-4 u-mb-4">
+                <ul className="u-ms-4 u-mb-4">
                   <li className="u-mb-2">
                     <strong>Syntax Highlighting</strong> - Color-coded JSON for
                     readability
@@ -286,7 +286,7 @@ function ThemeBuilder() {
                 <p className="u-text-secondary-emphasis u-mb-3">
                   Export your theme in multiple ways:
                 </p>
-                <ul className="u-ml-4 u-mb-4">
+                <ul className="u-ms-4 u-mb-4">
                   <li className="u-mb-2">
                     <strong>Download JSON</strong> - Save theme as a .json file
                   </li>

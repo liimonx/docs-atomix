@@ -42,7 +42,7 @@ const APICard: FC<APISection> = ({ icon, title, description, code, color }) => {
         pageStyles.stylesAPIReferencePage__apiSectionCard
       } ${pageStyles[`stylesAPIReferencePage__apiSectionCard--${colorClass}`]}`}
     >
-      <div className="u-flex u-align-items-center u-gap-3 u-mb-3">
+      <div className="u-flex u-items-center u-gap-3 u-mb-3">
         <Icon
           name={icon as any}
           size={24}
@@ -135,7 +135,7 @@ const StylesAPIReferencePage: FC = () => {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-start u-gap-4">
+              <div className="u-flex u-items-start u-gap-4">
                 <Icon
                   name="Code"
                   size={32}
@@ -219,7 +219,7 @@ $font-size-base: 1rem;`}
         <Row className="u-mt-4">
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Palette"
                   size={24}
@@ -249,7 +249,7 @@ $font-size-base: 1rem;`}
 
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon name="Moon" size={24} className="u-text-brand-emphasis" />
                 <h3 className="u-text-xl u-font-semibold u-m-0">
                   Theme Switching
@@ -275,7 +275,7 @@ document.documentElement
         <Row className="u-mt-6">
           <GridCol md={12}>
             <Card className="u-p-6 u-bg-primary-subtle">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="BookOpen"
                   size={24}

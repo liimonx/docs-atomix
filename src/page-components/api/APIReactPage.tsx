@@ -47,8 +47,8 @@ const APIReactPage: FC = () => {
         <Grid className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
-                <div className="u-inline-flex u-align-items-center u-justify-center u-rounded u-bg-primary-subtle u-text-primary u-p-2">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
+                <div className="u-inline-flex u-items-center u-justify-center u-rounded u-bg-primary-subtle u-text-primary u-p-2">
                   <Icon name="Code" size={24} />
                 </div>
                 <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
@@ -57,7 +57,7 @@ const APIReactPage: FC = () => {
               </div>
 
               <div className="u-mt-5">
-                <div className="u-flex u-align-items-center u-gap-2 u-mb-3">
+                <div className="u-flex u-items-center u-gap-2 u-mb-3">
                   <Icon
                     name="Stack"
                     size={20}
@@ -69,7 +69,7 @@ const APIReactPage: FC = () => {
                 </div>
 
                 <div className="u-mb-6">
-                  <div className="u-flex u-align-items-center u-gap-2 u-mb-2">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="primary" size="sm" label="Button" />
                   </div>
                   <p className="u-text-secondary-emphasis u-mb-3">
@@ -99,7 +99,7 @@ const APIReactPage: FC = () => {
                 </div>
 
                 <div className="u-mb-6">
-                  <div className="u-flex u-align-items-center u-gap-2 u-mb-2">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="success" size="sm" label="Badge" />
                   </div>
                   <p className="u-text-secondary-emphasis u-mb-3">
@@ -121,7 +121,7 @@ const APIReactPage: FC = () => {
                 </div>
 
                 <div>
-                  <div className="u-flex u-align-items-center u-gap-2 u-mb-2">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="info" size="sm" label="Icon" />
                   </div>
                   <p className="u-text-secondary-emphasis u-mb-3">
@@ -149,8 +149,8 @@ const APIReactPage: FC = () => {
         <Grid className="u-mt-6">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
-                <div className="u-inline-flex u-align-items-center u-justify-center u-rounded u-bg-success-subtle u-text-success u-p-2">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
+                <div className="u-inline-flex u-items-center u-justify-center u-rounded u-bg-success-subtle u-text-success u-p-2">
                   <Icon name="GridFour" size={24} />
                 </div>
                 <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
@@ -160,7 +160,7 @@ const APIReactPage: FC = () => {
 
               <div className="u-mt-5">
                 <div className="u-mb-6">
-                  <div className="u-flex u-align-items-center u-gap-2 u-mb-2">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="primary" size="sm" label="Container" />
                   </div>
                   <p className="u-text-secondary-emphasis u-mb-3">
@@ -184,7 +184,7 @@ const APIReactPage: FC = () => {
                 </div>
 
                 <div>
-                  <div className="u-flex u-align-items-center u-gap-2 u-mb-2">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge
                       variant="success"
                       size="sm"
@@ -236,8 +236,8 @@ interface GridColProps {
         <Grid className="u-mt-6">
           <GridCol md={6} className="u-mb-6">
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
-                <div className="u-inline-flex u-align-items-center u-justify-center u-rounded u-bg-warning-subtle u-text-warning u-p-2">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
+                <div className="u-inline-flex u-items-center u-justify-center u-rounded u-bg-warning-subtle u-text-warning u-p-2">
                   <Icon name="Lightning" size={24} />
                 </div>
                 <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
@@ -247,7 +247,7 @@ interface GridColProps {
 
               <div className="u-mt-5">
                 <div className="u-mb-5">
-                  <div className="u-flex u-align-items-center u-gap-2 u-mb-2">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="warning" size="sm" label="useTheme" />
                   </div>
                   <p className="u-text-secondary-emphasis u-mb-3">
@@ -268,7 +268,7 @@ const { theme, setTheme } = useTheme();`}
                 </div>
 
                 <div>
-                  <div className="u-flex u-align-items-center u-gap-2 u-mb-2">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="warning" size="sm" label="useResponsive" />
                   </div>
                   <p className="u-text-secondary-emphasis u-mb-3">
@@ -294,8 +294,8 @@ const { isMobile, breakpoint } = useResponsive();`}
 
           <GridCol md={6} className="u-mb-6">
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
-                <div className="u-inline-flex u-align-items-center u-justify-center u-rounded u-bg-info-subtle u-text-info u-p-2">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
+                <div className="u-inline-flex u-items-center u-justify-center u-rounded u-bg-info-subtle u-text-info u-p-2">
                   <Icon name="FileCode" size={24} />
                 </div>
                 <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
@@ -305,7 +305,7 @@ const { isMobile, breakpoint } = useResponsive();`}
 
               <div className="u-mt-5">
                 <div className="u-mb-5">
-                  <div className="u-flex u-align-items-center u-gap-2 u-mb-2">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="info" size="sm" label="Common Types" />
                   </div>
                   <EnhancedCodeBlock
@@ -325,7 +325,7 @@ type Theme = 'light' | 'dark' | 'high-contrast';`}
                 </div>
 
                 <div>
-                  <div className="u-flex u-align-items-center u-gap-2 u-mb-2">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="info" size="sm" label="Utility Types" />
                   </div>
                   <EnhancedCodeBlock

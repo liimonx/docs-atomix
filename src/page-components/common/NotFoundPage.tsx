@@ -36,7 +36,7 @@ const NotFoundPage: FC = () => {
   ];
 
   return (
-    <div className="u-min-h-screen u-flex u-flex-column u-align-items-center u-justify-center u-p-6 u-text-center">
+    <div className="u-min-h-screen u-flex u-flex-column u-items-center u-justify-center u-p-6 u-text-center">
       <Container>
         {/* Error Icon */}
         <div className="u-mb-6">
@@ -69,7 +69,7 @@ const NotFoundPage: FC = () => {
         {/* Action Buttons */}
         <div className="u-flex u-gap-3 u-mb-12 u-flex-wrap u-justify-center">
           <Button size="lg" href="/" LinkComponent={Link}>
-            <Icon name="House" size="sm" className="u-mr-2" />
+            <Icon name="House" size="sm" className="u-me-2" />
             Go Home
           </Button>
 
@@ -78,7 +78,7 @@ const NotFoundPage: FC = () => {
             size="lg"
             onClick={() => window.history.back()}
           >
-            <Icon name="ArrowLeft" size="sm" className="u-mr-2" />
+            <Icon name="ArrowLeft" size="sm" className="u-me-2" />
             Go Back
           </Button>
         </div>
@@ -92,7 +92,7 @@ const NotFoundPage: FC = () => {
               <GridCol key={index} sm={6} lg={3} className="u-mb-6">
                 <Link
                   href={link.path}
-                  className="u-text-decoration-none u-color-inherit u-block u-h-100"
+                  className="u-text-decoration-none u-text-inherit u-block u-h-100"
                 >
                   <Card className="u-cursor-pointer u-transition-fast u-border u-border-subtle atomix-card-hover u-h-100">
                     <div className="u-p-6">
@@ -112,7 +112,7 @@ const NotFoundPage: FC = () => {
 
         {/* Help Section */}
         <section className="u-w-100 u-mx-auto" style={{ maxWidth: "800px" }}>
-          <div className="u-flex u-flex-column u-align-items-center u-text-center">
+          <div className="u-flex u-flex-column u-items-center u-text-center">
             <Icon
               name="MagnifyingGlass"
               size="xl"

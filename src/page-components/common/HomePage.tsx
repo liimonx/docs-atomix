@@ -103,13 +103,13 @@ const HomePage: FC = () => {
           {features.map((feature, index) => (
             <GridCol key={index} md={6} lg={4} className="u-mb-6">
               <Card className="u-h-100">
-                <div className="u-inline-flex u-align-items-center u-justify-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-2">
+                <div className="u-inline-flex u-items-center u-justify-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-2">
                   {feature.icon}
                 </div>
-                <h3 className="u-text-lg u-font-600 u-mb-2 u-text-primary-emphasis">
+                <h3 className="u-text-lg u-font-semibold u-mb-2 u-text-primary-emphasis">
                   {feature.title}
                 </h3>
-                <p className="u-text-secondary-emphasis u-lh-lg">
+                <p className="u-text-secondary-emphasis u-leading-relaxed">
                   {feature.description}
                 </p>
               </Card>
@@ -129,7 +129,7 @@ const HomePage: FC = () => {
                   href={link.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="u-text-decoration-none u-color-inherit u-block u-h-100"
+                  className="u-text-decoration-none u-text-inherit u-block u-h-100"
                 >
                   <Card className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast u-hover-transform-up u-h-100">
                     <LinkContent
@@ -142,7 +142,7 @@ const HomePage: FC = () => {
               ) : (
                 <Link
                   href={link.path}
-                  className="u-text-decoration-none u-color-inherit u-block u-h-100"
+                  className="u-text-decoration-none u-text-inherit u-block u-h-100"
                 >
                   <Card className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast u-hover-transform-up u-h-100">
                     <LinkContent
@@ -173,9 +173,11 @@ const HomePage: FC = () => {
           <Button
             href="/docs/getting-started/installation"
             LinkComponent={Link}
+            iconName="ArrowRight"
+            iconPosition="end"
+            iconSize={16}
           >
             View Installation Guide
-            <Icon name="ArrowRight" size={16} className="u-ml-2" />
           </Button>
         }
       />
@@ -190,12 +192,12 @@ const LinkContent: FC<{
   icon?: React.ReactNode;
 }> = ({ title, description, external, icon }) => (
   <div>
-    <div className="u-flex u-align-items-center u-justify-between u-mb-2">
-      <div className="u-flex u-align-items-center">
+    <div className="u-flex u-items-center u-justify-between u-mb-2">
+      <div className="u-flex u-items-center">
         {icon || (
-          <Icon name={"FileText" as const} size={20} className="u-mr-2" />
+          <Icon name={"FileText" as const} size={20} className="u-me-2" />
         )}
-        <h3 className="u-text-lg u-font-600 u-ml-2 u-m-0 u-text-primary-emphasis">
+        <h3 className="u-text-lg u-font-semibold u-ms-2 u-m-0 u-text-primary-emphasis">
           {title}
         </h3>
       </div>
@@ -203,7 +205,7 @@ const LinkContent: FC<{
         <Icon name={"Link" as const} size={16} className="u-opacity-60" />
       )}
     </div>
-    <p className="u-text-secondary-emphasis u-lh-lg u-m-0 u-ml-10">
+    <p className="u-text-secondary-emphasis u-leading-relaxed u-m-0 u-ms-10">
       {description}
     </p>
   </div>

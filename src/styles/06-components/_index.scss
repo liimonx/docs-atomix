@@ -113,6 +113,9 @@
 // 32. DatePicker - DatePicker component overrides
 @use './datepicker' as *;
 
+// 33. Side Menu - Side Menu component overrides
+@use './side-menu' as *;
+
 // Additional components (commented out - no variables to override yet or minimal customization needed):
 // @use './textarea' as *; // Uses input settings
 // @use './form' as *; // Minimal customization needed

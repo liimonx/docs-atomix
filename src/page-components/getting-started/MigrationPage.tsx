@@ -183,7 +183,7 @@ const MigrationPage: FC = () => {
               <Card className="u-h-100 u-p-6">
                 <div className="u-flex u-flex-column u-h-100">
                   <div
-                    className={`u-w-16 u-h-16 u-br-md u-flex u-align-items-center u-justify-center u-mb-4`}
+                    className={`u-w-16 u-h-16 u-rounded-md u-flex u-items-center u-justify-center u-mb-4`}
                     style={{
                       backgroundColor: `var(--atomix-color-${benefit.color}-subtle)`,
                       color: `var(--atomix-color-${benefit.color}-emphasis)`,
@@ -216,9 +216,9 @@ const MigrationPage: FC = () => {
             <GridCol key={index} md={6} lg={4} className="u-mb-6">
               <Card className="u-h-100 u-p-6 u-transition-fast u-hover-transform-up">
                 <div className="u-flex u-flex-column u-h-100">
-                  <div className="u-flex u-align-items-center u-mb-4">
+                  <div className="u-flex u-items-center u-mb-4">
                     <div
-                      className={`u-w-12 u-h-12 u-br-md u-flex u-align-items-center u-justify-center u-mr-4`}
+                      className={`u-w-12 u-h-12 u-rounded-md u-flex u-items-center u-justify-center u-me-4`}
                       style={{
                         backgroundColor: `var(--atomix-color-${step.color}-subtle)`,
                         color: `var(--atomix-color-${step.color}-emphasis)`,
@@ -258,12 +258,12 @@ const MigrationPage: FC = () => {
             <GridCol key={index} md={4} className="u-mb-6">
               <Link
                 href={tool.href}
-                className="u-text-decoration-none u-color-inherit u-block u-h-100"
+                className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
                 <Card className="u-h-100 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-p-6 u-h-100 u-flex u-flex-column">
-                    <div className="u-flex u-align-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-4 u-text-primary-emphasis">
+                    <div className="u-flex u-items-center u-mb-4">
+                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-primary-emphasis">
                         {tool.icon}
                       </div>
                       <h3 className="u-text-lg u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -273,8 +273,8 @@ const MigrationPage: FC = () => {
                     <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
                       {tool.description}
                     </p>
-                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
-                      <span className="u-mr-2">Learn more</span>
+                    <div className="u-flex u-items-center u-text-primary-emphasis u-font-medium">
+                      <span className="u-me-2">Learn more</span>
                       <Icon name="CaretRight" size="lg" />
                     </div>
                   </div>

@@ -10,7 +10,7 @@ const CallToActionSectionDocumentation: FC = () => {
     <div className="u-p-6">
       <div className="u-container u-mx-auto u-px-4">
         <div className="u-mb-8">
-          <nav className="u-flex u-align-items-center u-mb-4 u-text-sm">
+          <nav className="u-flex u-items-center u-mb-4 u-text-sm">
             <Link
               href="/docs"
               className="u-text-primary u-text-decoration-none"
@@ -56,7 +56,7 @@ const CallToActionSectionDocumentation: FC = () => {
               primaryAction={
                 <Button variant="primary">
                   Get Started
-                  <Icon name="ArrowRight" size={16} className="u-ml-2" />
+                  <Icon name="ArrowRight" size={16} className="u-ms-2" />
                 </Button>
               }
               secondaryAction={
@@ -73,7 +73,7 @@ const CallToActionSectionDocumentation: FC = () => {
               title="Install Atomix"
               text="Get access to 40+ components, comprehensive layouts, design tokens, and advanced effects."
               primaryAction={
-                <Card className="u-bg-tertiary-subtle u-br-md u-p-4 u-mb-4">
+                <Card className="u-bg-tertiary-subtle u-rounded-md u-p-4 u-mb-4">
                   <code
                     className="u-text-primary-emphasis u-text-sm"
                     style={{ fontFamily: "var(--atomix-font-family-mono)" }}
@@ -89,7 +89,7 @@ const CallToActionSectionDocumentation: FC = () => {
                   LinkComponent={Link}
                 >
                   View Installation Guide
-                  <Icon name="ArrowRight" size={16} className="u-ml-2" />
+                  <Icon name="ArrowRight" size={16} className="u-ms-2" />
                 </Button>
               }
             />
@@ -120,7 +120,7 @@ const CallToActionSectionDocumentation: FC = () => {
                 <tbody>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3">
-                      <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
+                      <code className="u-text-sm u-bg-tertiary u-p-1 u-rounded-sm">
                         title
                       </code>
                     </td>
@@ -134,7 +134,7 @@ const CallToActionSectionDocumentation: FC = () => {
                   </tr>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3">
-                      <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
+                      <code className="u-text-sm u-bg-tertiary u-p-1 u-rounded-sm">
                         text
                       </code>
                     </td>
@@ -148,7 +148,7 @@ const CallToActionSectionDocumentation: FC = () => {
                   </tr>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3">
-                      <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
+                      <code className="u-text-sm u-bg-tertiary u-p-1 u-rounded-sm">
                         primaryAction
                       </code>
                     </td>
@@ -162,7 +162,7 @@ const CallToActionSectionDocumentation: FC = () => {
                   </tr>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3">
-                      <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
+                      <code className="u-text-sm u-bg-tertiary u-p-1 u-rounded-sm">
                         secondaryAction
                       </code>
                     </td>
@@ -176,7 +176,7 @@ const CallToActionSectionDocumentation: FC = () => {
                   </tr>
                   <tr>
                     <td className="u-p-3">
-                      <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
+                      <code className="u-text-sm u-bg-tertiary u-p-1 u-rounded-sm">
                         center
                       </code>
                     </td>

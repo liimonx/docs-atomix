@@ -4,17 +4,17 @@
 // Color Palette Definitions
 // =============================================================================
 
-// Primary colors - Indigo (Trust, Stability, Intelligence)
-$primary-1: #eef2ff;
-$primary-2: #e0e7ff;
-$primary-3: #c7d2fe;
-$primary-4: #a5b4fc;
-$primary-5: #818cf8;
-$primary-6: #6366f1;
-$primary-7: #4f46e5;
-$primary-8: #4338ca;
-$primary-9: #3730a3;
-$primary-10: #312e81;
+// Primary colors - Sky Blue (Atomix Primary)
+$primary-1: #f0f9ff;
+$primary-2: #e0f2fe;
+$primary-3: #bae6fd;
+$primary-4: #7dd3fc;
+$primary-5: #38bdf8;
+$primary-6: #13a4ec;
+$primary-7: #0284c7;
+$primary-8: #0369a1;
+$primary-9: #075985;
+$primary-10: #082f49;
 
 // Red - Error/Danger - Clear and alert
 $red-1: #fef2f2;
@@ -64,17 +64,17 @@ $blue-8: #1d4ed8;
 $blue-9: #1e40af;
 $blue-10: #1e3a8a;
 
-// Gray - Neutral - Balanced Slate (Cool Gray)
-$gray-1: #f8fafc;
+// Gray - Neutral - Atomix Surface Palette
+$gray-1: #f6f7f8;
 $gray-2: #f1f5f9;
 $gray-3: #e2e8f0;
 $gray-4: #cbd5e1;
 $gray-5: #94a3b8;
 $gray-6: #64748b;
 $gray-7: #475569;
-$gray-8: #334155;
-$gray-9: #1e293b;
-$gray-10: #0f172a;
+$gray-8: #233c48;
+$gray-9: #16242c;
+$gray-10: #101c22;
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.colors' with (
   $primary-1: $primary-1,
@@ -187,16 +187,16 @@ $gray-10: #0f172a;
   $light-bg: #ffffff,
   $dark-bg: $gray-9,
   
-  $primary-bg-dark: $gray-9,
-  $secondary-bg-dark: $gray-8,
-  $tertiary-bg-dark: $gray-7,
+  $primary-bg-dark: $gray-10,
+  $secondary-bg-dark: $gray-9,
+  $tertiary-bg-dark: $gray-8,
   $invert-bg-dark: #ffffff,
   $brand-bg-dark: rgba($primary-5, 0.1),
   $error-bg-dark: rgba($red-5, 0.1),
   $success-bg-dark: rgba($green-5, 0.1),
   $warning-bg-dark: rgba($yellow-5, 0.1),
   $info-bg-dark: rgba($blue-5, 0.1),
-  $light-bg-dark: $gray-9,
+  $light-bg-dark: $gray-10,
   $dark-bg-dark: #000000,
   
   $primary-border: $gray-3,
@@ -209,15 +209,15 @@ $gray-10: #0f172a;
   $light-border: $gray-3,
   $dark-border: $gray-7,
   
-  $primary-border-dark: $gray-7,
-  $secondary-border-dark: $gray-8,
+  $primary-border-dark: $gray-8,
+  $secondary-border-dark: $gray-7,
   $brand-border-dark: $primary-7,
   $error-border-dark: $red-7,
   $success-border-dark: $green-7,
   $warning-border-dark: $yellow-7,
   $info-border-dark: $blue-7,
-  $light-border-dark: $gray-7,
-  $dark-border-dark: $gray-8,
+  $light-border-dark: $gray-8,
+  $dark-border-dark: $gray-7,
   
   $primary: $primary-6,
   $secondary: $gray-1,
@@ -229,8 +229,8 @@ $gray-10: #0f172a;
   $error: $red-6,
   
   $primary-dark: $primary-5,
-  $secondary-dark: $gray-8,
-  $light-dark: $gray-9,
+  $secondary-dark: $gray-9,
+  $light-dark: $gray-10,
   $dark-dark: #000000,
   $success-dark: $green-5,
   $info-dark: $blue-5,
@@ -247,8 +247,8 @@ $gray-10: #0f172a;
   $error-hover: $red-7,
   
   $primary-hover-dark: $primary-4,
-  $secondary-hover-dark: $gray-7,
-  $light-hover-dark: $gray-8,
+  $secondary-hover-dark: $gray-8,
+  $light-hover-dark: $gray-9,
   $dark-hover-dark: #000000,
   $info-hover-dark: $blue-4,
   $success-hover-dark: $green-4,
@@ -274,7 +274,7 @@ $gray-10: #0f172a;
   $form-invalid-border-color: $red-6,
   
   $body-color-dark: $gray-4,
-  $body-bg-dark: $gray-9,
+  $body-bg-dark: $gray-10,
   
   $headings-color-dark: #ffffff,
   $link-color-dark: $primary-4,

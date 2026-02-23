@@ -59,7 +59,7 @@ export const CodePreview: FC<CodePreviewProps> = ({ code, language }) => {
   }
 
   return (
-    <div className="u-flex u-flex-wrap u-gap-2 u-align-items-center u-justify-center">
+    <div className="u-flex u-flex-wrap u-gap-2 u-items-center u-justify-center">
       {renderedPreview}
     </div>
   );

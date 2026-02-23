@@ -197,7 +197,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <Card className="u-h-100 u-p-6 u-transition-fast u-hover-transform-up">
                         <div className="u-flex u-flex-column u-h-100">
                           <div
-                            className={`u-w-16 u-h-16 u-br-md u-flex u-align-items-center u-justify-center u-mb-4`}
+                            className={`u-w-16 u-h-16 u-rounded-md u-flex u-items-center u-justify-center u-mb-4`}
                             style={{
                               backgroundColor: `var(--atomix-color-${feature.color}-subtle)`,
                               color: `var(--atomix-color-${feature.color}-emphasis)`,
@@ -391,7 +391,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <Card className="u-h-100 u-p-6">
                         <div className="u-flex u-flex-column u-h-100">
                           <div
-                            className={`u-w-16 u-h-16 u-br-md u-flex u-align-items-center u-justify-center u-mb-4`}
+                            className={`u-w-16 u-h-16 u-rounded-md u-flex u-items-center u-justify-center u-mb-4`}
                             style={{
                               backgroundColor: `var(--atomix-color-${item.color}-subtle)`,
                               color: `var(--atomix-color-${item.color}-emphasis)`,
@@ -427,8 +427,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   <GridCol md={4} className="u-mb-6">
                     <Card className="u-h-100 u-transition-fast u-hover-transform-up">
                       <div className="u-p-6 u-border-bottom">
-                        <div className="u-flex u-align-items-center u-mb-3">
-                          <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
+                        <div className="u-flex u-items-center u-mb-3">
+                          <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-primary-emphasis">
                             <Icon name="Download" size={24} />
                           </div>
                           <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -442,7 +442,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       </div>
                       <div className="u-p-6">
                         <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
-                          <div className="u-flex u-align-items-center u-justify-between u-px-4 u-py-3 u-border-bottom u-bg-surface">
+                          <div className="u-flex u-items-center u-justify-between u-px-4 u-py-3 u-border-bottom u-bg-surface">
                             <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
                               bash
                             </span>
@@ -473,8 +473,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   <GridCol md={4} className="u-mb-6">
                     <Card className="u-h-100 u-transition-fast u-hover-transform-up">
                       <div className="u-p-6 u-border-bottom">
-                        <div className="u-flex u-align-items-center u-mb-3">
-                          <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
+                        <div className="u-flex u-items-center u-mb-3">
+                          <div className="u-w-12 u-h-12 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis">
                             <Icon name="Download" size={24} />
                           </div>
                           <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -488,7 +488,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       </div>
                       <div className="u-p-6">
                         <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
-                          <div className="u-flex u-align-items-center u-justify-between u-px-4 u-py-3 u-border-bottom u-bg-surface">
+                          <div className="u-flex u-items-center u-justify-between u-px-4 u-py-3 u-border-bottom u-bg-surface">
                             <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
                               bash
                             </span>
@@ -519,8 +519,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   <GridCol md={4} className="u-mb-6">
                     <Card className="u-h-100 u-transition-fast u-hover-transform-up">
                       <div className="u-p-6 u-border-bottom">
-                        <div className="u-flex u-align-items-center u-mb-3">
-                          <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-secondary-emphasis">
+                        <div className="u-flex u-items-center u-mb-3">
+                          <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-secondary-emphasis">
                             <Icon name="Download" size={24} />
                           </div>
                           <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -534,7 +534,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       </div>
                       <div className="u-p-6">
                         <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
-                          <div className="u-flex u-align-items-center u-justify-between u-px-4 u-py-3 u-border-bottom u-bg-surface">
+                          <div className="u-flex u-items-center u-justify-between u-px-4 u-py-3 u-border-bottom u-bg-surface">
                             <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
                               bash
                             </span>
@@ -580,12 +580,12 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   <GridCol md={6} className="u-mb-4">
                     <Link
                       href="/docs/getting-started/quick-start"
-                      className="u-text-decoration-none u-color-inherit u-block u-h-100"
+                      className="u-text-decoration-none u-text-inherit u-block u-h-100"
                     >
                       <Card className="u-h-100 u-cursor-pointer u-border u-border-subtle u-transition-fast u-hover-transform-up">
                         <div className="u-p-6">
-                          <div className="u-flex u-align-items-center u-mb-4">
-                            <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-4 u-text-primary-emphasis">
+                          <div className="u-flex u-items-center u-mb-4">
+                            <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-primary-emphasis">
                               <Icon name="Lightning" size={24} />
                             </div>
                             <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -596,8 +596,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                             Learn how to build your first application with
                             Atomix components in just 5 minutes
                           </p>
-                          <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
-                            <span className="u-mr-2">Get Started</span>
+                          <div className="u-flex u-items-center u-text-primary-emphasis u-font-medium">
+                            <span className="u-me-2">Get Started</span>
                             <Icon name="ArrowRight" size={16} />
                           </div>
                         </div>
@@ -607,12 +607,12 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   <GridCol md={6} className="u-mb-4">
                     <Link
                       href="/docs/guides/theming"
-                      className="u-text-decoration-none u-color-inherit u-block u-h-100"
+                      className="u-text-decoration-none u-text-inherit u-block u-h-100"
                     >
                       <Card className="u-h-100 u-cursor-pointer u-border u-border-subtle u-transition-fast u-hover-transform-up">
                         <div className="u-p-6">
-                          <div className="u-flex u-align-items-center u-mb-4">
-                            <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-4 u-text-secondary-emphasis">
+                          <div className="u-flex u-items-center u-mb-4">
+                            <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-secondary-emphasis">
                               <Icon name="Palette" size={24} />
                             </div>
                             <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -623,8 +623,8 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                             Customize Atomix to match your brand with our
                             comprehensive theming system
                           </p>
-                          <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
-                            <span className="u-mr-2">Learn More</span>
+                          <div className="u-flex u-items-center u-text-primary-emphasis u-font-medium">
+                            <span className="u-me-2">Learn More</span>
                             <Icon name="ArrowRight" size={16} />
                           </div>
                         </div>
@@ -690,7 +690,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 {/* Prerequisites */}
 
                 <Card>
-                  <div className="u-flex u-align-items-center u-gap-4">
+                  <div className="u-flex u-items-center u-gap-4">
                     <div className="u-flex-grow-1">
                       <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-2 u-text-primary-emphasis">
                         Prerequisites
@@ -718,9 +718,9 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 {/* Step 1: Installation */}
 
                 <Card className="u-mt-6">
-                  <div className="u-flex u-align-items-start u-gap-5 u-mb-6">
+                  <div className="u-flex u-items-start u-gap-5 u-mb-6">
                     <div
-                      className="u-flex u-align-items-center u-justify-center u-flex-shrink-0"
+                      className="u-flex u-items-center u-justify-center u-flex-shrink-0"
                       style={{
                         width: "64px",
                         height: "64px",
@@ -779,9 +779,9 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 {/* Step 2: Import Styles */}
 
                 <Card className="u-mt-6">
-                  <div className="u-flex u-align-items-start u-gap-5 u-mb-6">
+                  <div className="u-flex u-items-start u-gap-5 u-mb-6">
                     <div
-                      className="u-flex u-align-items-center u-justify-center u-flex-shrink-0"
+                      className="u-flex u-items-center u-justify-center u-flex-shrink-0"
                       style={{
                         width: "64px",
                         height: "64px",
@@ -867,9 +867,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                 {/* Step 3: Use Components */}
 
                 <Card className="u-mt-6">
-                  <div className="u-flex u-align-items-start u-gap-5 u-mb-6">
+                  <div className="u-flex u-items-start u-gap-5 u-mb-6">
                     <div
-                      className="u-flex u-align-items-center u-justify-center u-flex-shrink-0"
+                      className="u-flex u-items-center u-justify-center u-flex-shrink-0"
                       style={{
                         width: "64px",
                         height: "64px",
@@ -970,7 +970,7 @@ export default App;`}
                     <GridCol md={4} className="u-mb-4">
                       <Card className="u-h-100">
                         <div
-                          className="u-flex u-align-items-center u-justify-center u-mb-4"
+                          className="u-flex u-items-center u-justify-center u-mb-4"
                           style={{
                             width: "48px",
                             height: "48px",
@@ -1007,7 +1007,7 @@ export default App;`}
                           <Icon
                             name="ArrowRight"
                             size={16}
-                            className="u-ml-2"
+                            className="u-ms-2"
                           />
                         </Button>
                       </Card>
@@ -1015,7 +1015,7 @@ export default App;`}
                     <GridCol md={4} className="u-mb-4">
                       <Card className="u-h-100">
                         <div
-                          className="u-flex u-align-items-center u-justify-center u-mb-4"
+                          className="u-flex u-items-center u-justify-center u-mb-4"
                           style={{
                             width: "48px",
                             height: "48px",
@@ -1052,7 +1052,7 @@ export default App;`}
                           <Icon
                             name="ArrowRight"
                             size={16}
-                            className="u-ml-2"
+                            className="u-ms-2"
                           />
                         </Button>
                       </Card>
@@ -1060,7 +1060,7 @@ export default App;`}
                     <GridCol md={4} className="u-mb-4">
                       <Card className="u-lh-100">
                         <div
-                          className="u-flex u-align-items-center u-justify-center u-mb-4"
+                          className="u-flex u-items-center u-justify-center u-mb-4"
                           style={{
                             width: "48px",
                             height: "48px",
@@ -1097,7 +1097,7 @@ export default App;`}
                           <Icon
                             name="ArrowRight"
                             size={16}
-                            className="u-ml-2"
+                            className="u-ms-2"
                           />
                         </Button>
                       </Card>

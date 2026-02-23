@@ -58,7 +58,7 @@ const DevtoolsComparatorPage: FC = () => {
               </Callout>
 
               <h3 className="u-text-lg u-font-semibold u-mb-3">Key Features</h3>
-              <ul className="u-ml-4 u-mb-4">
+              <ul className="u-ms-4 u-mb-4">
                 <li className="u-mb-2">
                   <strong>Side-by-Side Comparison</strong> - View both themes
                   simultaneously
@@ -277,7 +277,7 @@ function App() {
                 <p className="u-text-secondary-emphasis u-mb-2">
                   The comparator displays summary statistics:
                 </p>
-                <ul className="u-ml-4 u-text-sm">
+                <ul className="u-ms-4 u-text-sm">
                   <li>Total number of properties compared</li>
                   <li>Number of added properties</li>
                   <li>Number of removed properties</li>
@@ -438,7 +438,7 @@ function VersionComparison() {
                 <p className="u-text-secondary-emphasis u-mb-2">
                   Track theme changes across versions:
                 </p>
-                <ul className="u-ml-4 u-text-sm">
+                <ul className="u-ms-4 u-text-sm">
                   <li>Compare current version with previous releases</li>
                   <li>Identify breaking changes before deployment</li>
                   <li>Generate changelog from differences</li>
@@ -452,7 +452,7 @@ function VersionComparison() {
                 <p className="u-text-secondary-emphasis u-mb-2">
                   Compare different theme variants:
                 </p>
-                <ul className="u-ml-4 u-text-sm">
+                <ul className="u-ms-4 u-text-sm">
                   <li>Light vs Dark mode differences</li>
                   <li>Brand theme variations</li>
                   <li>Seasonal or promotional themes</li>
@@ -466,7 +466,7 @@ function VersionComparison() {
                 <p className="u-text-secondary-emphasis u-mb-2">
                   Ensure theme consistency:
                 </p>
-                <ul className="u-ml-4 u-text-sm">
+                <ul className="u-ms-4 u-text-sm">
                   <li>Verify expected changes were applied</li>
                   <li>Catch unintended modifications</li>
                   <li>Validate theme structure compliance</li>

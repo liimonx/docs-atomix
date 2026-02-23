@@ -151,9 +151,9 @@ function MyComponent() {
             "linear-gradient(135deg, var(--atomix-color-bg-secondary), var(--atomix-color-bg-tertiary))",
         }}
       >
-        <div className="u-flex u-align-items-center u-justify-between u-flex-wrap u-gap-4 u-mb-4">
+        <div className="u-flex u-items-center u-justify-between u-flex-wrap u-gap-4 u-mb-4">
           <div className="u-flex-grow-1" style={{ minWidth: "300px" }}>
-            <div className="u-flex u-align-items-center u-gap-3 u-mb-3">
+            <div className="u-flex u-items-center u-gap-3 u-mb-3">
               {component.icon && (
                 <Icon
                   name={component.icon as any}
@@ -196,7 +196,7 @@ function MyComponent() {
             </div>
           </div>
 
-          <div className="u-flex u-gap-2 u-align-items-center">
+          <div className="u-flex u-gap-2 u-items-center">
             <Tooltip content="Copy import statement">
               <Button
                 variant="outline-secondary"

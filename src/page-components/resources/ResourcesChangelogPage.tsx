@@ -42,7 +42,7 @@ const ResourcesChangelogPage: FC = () => {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <h3 className="u-text-xl u-font-bold u-m-0">v2.1.0</h3>
                 <Badge variant="success" label="Latest" />
                 <span className="u-text-secondary-emphasis u-text-sm">
@@ -114,7 +114,7 @@ const ResourcesChangelogPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <h3 className="u-text-xl u-font-bold u-m-0">v2.0.0</h3>
                 <Badge variant="primary" label="Major Release" />
                 <span className="u-text-secondary-emphasis u-text-sm">
@@ -187,7 +187,7 @@ const ResourcesChangelogPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <h3 className="u-text-xl u-font-bold u-m-0">v1.8.5</h3>
                 <span className="u-text-secondary-emphasis u-text-sm">
                   August 15, 2025
@@ -230,7 +230,7 @@ const ResourcesChangelogPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <h3 className="u-text-xl u-font-bold u-m-0">v1.8.0</h3>
                 <span className="u-text-secondary-emphasis u-text-sm">
                   July 1, 2025
@@ -278,7 +278,7 @@ const ResourcesChangelogPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <h3 className="u-text-xl u-font-bold u-m-0">v1.7.0</h3>
                 <span className="u-text-secondary-emphasis u-text-sm">
                   May 15, 2025

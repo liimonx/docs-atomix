@@ -39,8 +39,8 @@ export const AccessibilityGuide: FC<AccessibilityGuideProps> = ({
               {accessibility.keyboardSupport.map((item, index) => (
                 <GridCol key={index} md={6} lg={4}>
                   <Card className="u-p-4">
-                    <div className="u-flex u-align-items-start u-gap-3">
-                      <div className="u-bg-tertiary u-p-2 u-br-sm">
+                    <div className="u-flex u-items-start u-gap-3">
+                      <div className="u-bg-tertiary u-p-2 u-rounded-sm">
                         <kbd className="u-text-sm u-font-semibold u-m-0">
                           {item.key}
                         </kbd>
@@ -91,12 +91,12 @@ export const AccessibilityGuide: FC<AccessibilityGuideProps> = ({
                     {accessibility.ariaAttributes.map((attr, index) => (
                       <tr key={index} className="u-border-b u-border-subtle">
                         <td className="u-p-3">
-                          <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
+                          <code className="u-text-sm u-bg-tertiary u-p-1 u-rounded-sm">
                             {attr.attribute}
                           </code>
                         </td>
                         <td className="u-p-3">
-                          <code className="u-text-sm u-bg-tertiary u-p-1 u-br-sm">
+                          <code className="u-text-sm u-bg-tertiary u-p-1 u-rounded-sm">
                             {attr.defaultValue ?? "-"}
                           </code>
                         </td>

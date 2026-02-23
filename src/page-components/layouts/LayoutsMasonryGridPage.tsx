@@ -133,7 +133,7 @@ const LayoutsMasonryGridPage: FC = () => {
                 {features.map((feature, index) => (
                   <GridCol key={index} md={6} lg={4} className="u-mb-6">
                     <Card className="u-p-4 u-h-100">
-                      <div className="u-flex u-align-items-center u-mb-3">
+                      <div className="u-flex u-items-center u-mb-3">
                         <div
                           className={`${
                             pageStyles.layoutsMasonryGridPage__featureIconContainer
@@ -170,8 +170,8 @@ const LayoutsMasonryGridPage: FC = () => {
           <Grid>
             <GridCol md={12} className="u-mb-6">
               <Card className="u-p-6">
-                <div className="u-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-primary-emphasis">
+                <div className="u-flex u-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-primary-emphasis">
                     <Icon name="GridFour" size="lg" />
                   </div>
                   <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -214,8 +214,8 @@ const LayoutsMasonryGridPage: FC = () => {
           <Grid>
             <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
-                <div className="u-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis">
+                <div className="u-flex u-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis">
                     <Icon name="Gear" size="lg" />
                   </div>
                   <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -242,9 +242,9 @@ const LayoutsMasonryGridPage: FC = () => {
                     ].map((item, index) => (
                       <div
                         key={index}
-                        className="u-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md"
+                        className="u-flex u-items-center u-p-3 u-bg-secondary-subtle u-rounded-md"
                       >
-                        <div className="u-w-10 u-h-10 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis u-font-bold u-text-sm">
+                        <div className="u-w-10 u-h-10 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis u-font-bold u-text-sm">
                           {item.prop}
                         </div>
                         <span className="u-text-secondary-emphasis">
@@ -264,9 +264,9 @@ const LayoutsMasonryGridPage: FC = () => {
                     ].map((item, index) => (
                       <div
                         key={index}
-                        className="u-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md"
+                        className="u-flex u-items-center u-p-3 u-bg-secondary-subtle u-rounded-md"
                       >
-                        <div className="u-w-10 u-h-10 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-success-emphasis u-font-bold u-text-sm">
+                        <div className="u-w-10 u-h-10 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis u-font-bold u-text-sm">
                           {item.prop}
                         </div>
                         <span className="u-text-secondary-emphasis">
@@ -281,8 +281,8 @@ const LayoutsMasonryGridPage: FC = () => {
 
             <GridCol md={6} className="u-mb-6">
               <Card className="u-p-6 u-h-100">
-                <div className="u-flex u-align-items-center u-mb-4">
-                  <div className="u-w-12 u-h-12 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-warning-emphasis">
+                <div className="u-flex u-items-center u-mb-4">
+                  <div className="u-w-12 u-h-12 u-bg-warning-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-warning-emphasis">
                     <Icon name="Phone" size="lg" />
                   </div>
                   <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -328,9 +328,9 @@ const LayoutsMasonryGridPage: FC = () => {
                   ].map((tip, index) => (
                     <div
                       key={index}
-                      className="u-flex u-align-items-center u-p-3 u-bg-secondary-subtle u-br-md"
+                      className="u-flex u-items-center u-p-3 u-bg-secondary-subtle u-rounded-md"
                     >
-                      <div className="u-w-8 u-h-8 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-mr-3 u-text-warning-emphasis">
+                      <div className="u-w-8 u-h-8 u-bg-warning-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-warning-emphasis">
                         <Icon name="Lightning" size="lg" />
                       </div>
                       <span className="u-text-secondary-emphasis">{tip}</span>

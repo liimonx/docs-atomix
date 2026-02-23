@@ -59,7 +59,7 @@ const DevtoolsPreviewPage: FC = () => {
               </Callout>
 
               <h3 className="u-text-lg u-font-semibold u-mb-3">Key Features</h3>
-              <ul className="u-ml-4 u-mb-4">
+              <ul className="u-ms-4 u-mb-4">
                 <li className="u-mb-2">
                   <strong>Theme Details</strong> - Display theme metadata and
                   information
@@ -433,7 +433,7 @@ export const WithTheme = {
                   Use ThemePreview during theme creation to see changes in
                   real-time:
                 </p>
-                <ul className="u-ml-4 u-text-sm">
+                <ul className="u-ms-4 u-text-sm">
                   <li>Visualize color palette as you adjust values</li>
                   <li>Test typography scales with actual text samples</li>
                   <li>Preview components with new theme applied</li>
@@ -447,7 +447,7 @@ export const WithTheme = {
                 <p className="u-text-secondary-emphasis u-mb-2">
                   Show theme options to clients or stakeholders:
                 </p>
-                <ul className="u-ml-4 u-text-sm">
+                <ul className="u-ms-4 u-text-sm">
                   <li>Display multiple theme variations</li>
                   <li>Preview with actual application components</li>
                   <li>Demonstrate light/dark mode options</li>
@@ -461,7 +461,7 @@ export const WithTheme = {
                 <p className="u-text-secondary-emphasis u-mb-2">
                   Include in theme documentation:
                 </p>
-                <ul className="u-ml-4 u-text-sm">
+                <ul className="u-ms-4 u-text-sm">
                   <li>Show available theme options</li>
                   <li>Demonstrate theme customization</li>
                   <li>Provide interactive examples</li>

@@ -200,8 +200,8 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
   return (
     <Card className={`u-p-0  ${className}`} elevation="sm">
       {/* Header */}
-      <div className="u-flex u-align-items-center u-justify-between u-p-3 u-bg-tertiary u-border-b u-border-subtle">
-        <div className="u-flex u-align-items-center u-gap-3">
+      <div className="u-flex u-items-center u-justify-between u-p-3 u-bg-tertiary u-border-b u-border-subtle">
+        <div className="u-flex u-items-center u-gap-3">
           {title && (
             <span className="u-text-sm u-font-semibold u-text-primary">
               {title}
@@ -214,14 +214,14 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
             className="u-text-xs"
           />
         </div>
-        <div className="u-flex u-gap-2 u-align-items-center">
+        <div className="u-flex u-gap-2 u-items-center">
           <Tooltip content={copied ? "Copied!" : "Copy code to clipboard"}>
             <Button
               variant={copied ? "success" : "outline-secondary"}
               size="sm"
               onClick={handleCopy}
               aria-label={copied ? "Code copied" : "Copy code"}
-              className="u-flex u-align-items-center u-gap-2"
+              className="u-flex u-items-center u-gap-2"
             >
               <Icon name={copied ? "CheckCircle" : "Copy"} size="sm" />
               {copied ? "Copied" : "Copy"}
@@ -268,7 +268,7 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
       </div>
 
       {/* Footer with line count */}
-      <div className="u-flex u-align-items-center u-justify-between u-px-3 u-py-2 u-bg-tertiary u-border-t u-border-subtle">
+      <div className="u-flex u-items-center u-justify-between u-px-3 u-py-2 u-bg-tertiary u-border-t u-border-subtle">
         <span className="u-text-xs u-text-secondary-emphasis">
           {formattedCode.split("\n").length} line
           {formattedCode.split("\n").length !== 1 ? "s" : ""}

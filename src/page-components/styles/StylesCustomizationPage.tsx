@@ -52,7 +52,7 @@ const MethodCard: FC<CustomizationMethodProps> = ({
         pageStyles.stylesCustomizationPage__methodCard
       } ${pageStyles[`stylesCustomizationPage__methodCard--${colorClass}`]}`}
     >
-      <div className="u-flex u-align-items-center u-gap-3 u-mb-3">
+      <div className="u-flex u-items-center u-gap-3 u-mb-3">
         <Icon
           name={icon as any}
           size={24}
@@ -163,7 +163,7 @@ const StylesCustomizationPage: FC = () => {
         <Row className="u-mt-8">
           <GridCol md={12}>
             <Card className="u-p-6">
-              <div className="u-flex u-align-items-start u-gap-4">
+              <div className="u-flex u-items-start u-gap-4">
                 <Icon
                   name="Lightbulb"
                   size={32}
@@ -174,7 +174,7 @@ const StylesCustomizationPage: FC = () => {
                     Design Principles
                   </h3>
                   <div className="u-flex u-flex-wrap u-gap-4">
-                    <div className="u-flex u-align-items-center u-gap-2">
+                    <div className="u-flex u-items-center u-gap-2">
                       <Icon
                         name="Shield"
                         size={20}
@@ -184,7 +184,7 @@ const StylesCustomizationPage: FC = () => {
                         Maintain System Integrity
                       </span>
                     </div>
-                    <div className="u-flex u-align-items-center u-gap-2">
+                    <div className="u-flex u-items-center u-gap-2">
                       <Icon
                         name="Triangle"
                         size={20}
@@ -192,7 +192,7 @@ const StylesCustomizationPage: FC = () => {
                       />
                       <span className="u-text-sm">Follow ITCSS</span>
                     </div>
-                    <div className="u-flex u-align-items-center u-gap-2">
+                    <div className="u-flex u-items-center u-gap-2">
                       <Icon
                         name="Coins"
                         size={20}
@@ -200,7 +200,7 @@ const StylesCustomizationPage: FC = () => {
                       />
                       <span className="u-text-sm">Use Design Tokens</span>
                     </div>
-                    <div className="u-flex u-align-items-center u-gap-2">
+                    <div className="u-flex u-items-center u-gap-2">
                       <Icon
                         name="TrendUp"
                         size={20}
@@ -208,7 +208,7 @@ const StylesCustomizationPage: FC = () => {
                       />
                       <span className="u-text-sm">Progressive Enhancement</span>
                     </div>
-                    <div className="u-flex u-align-items-center u-gap-2">
+                    <div className="u-flex u-items-center u-gap-2">
                       <Icon
                         name="Eye"
                         size={20}
@@ -328,7 +328,7 @@ const StylesCustomizationPage: FC = () => {
         <Row className="u-mt-4">
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Palette"
                   size={24}
@@ -358,7 +358,7 @@ const StylesCustomizationPage: FC = () => {
 
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="TextT"
                   size={24}
@@ -386,7 +386,7 @@ const StylesCustomizationPage: FC = () => {
         <Row className="u-mt-6">
           <GridCol md={12}>
             <Card className="u-p-6 u-bg-info-subtle">
-              <div className="u-flex u-align-items-center u-gap-3 u-mb-4">
+              <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Lightning"
                   size={24}

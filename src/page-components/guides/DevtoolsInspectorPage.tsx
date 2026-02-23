@@ -59,7 +59,7 @@ const DevtoolsInspectorPage: FC = () => {
               </Callout>
 
               <h3 className="u-text-lg u-font-semibold u-mb-3">Key Features</h3>
-              <ul className="u-ml-4 u-mb-4">
+              <ul className="u-ms-4 u-mb-4">
                 <li className="u-mb-2">
                   <strong>Theme Metadata</strong> - Display theme name, version,
                   and statistics
@@ -388,7 +388,7 @@ export function ThemeInspectorAddon() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   What Gets Validated
                 </h3>
-                <ul className="u-ml-4 u-mb-4">
+                <ul className="u-ms-4 u-mb-4">
                   <li className="u-mb-2">
                     <strong>Required Properties</strong> - Ensures all required
                     theme properties are present

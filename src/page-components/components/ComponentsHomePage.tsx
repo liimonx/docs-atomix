@@ -112,7 +112,7 @@ const ComponentsHomePage: FC = () => {
         <Grid>
           <GridCol md={4} sm={6} className="u-mb-4">
             <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
-              <div className="u-w-16 u-h-16 u-bg-primary-subtle u-br-md u-flex u-align-items-center u-justify-center u-mx-auto u-mb-4 u-text-primary-emphasis">
+              <div className="u-w-16 u-h-16 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-mx-auto u-mb-4 u-text-primary-emphasis">
                 <Icon name="Stack" size={32} />
               </div>
               <h3 className="u-text-3xl u-font-bold u-mb-2 u-text-primary-emphasis">
@@ -126,7 +126,7 @@ const ComponentsHomePage: FC = () => {
 
           <GridCol md={4} sm={6} className="u-mb-4">
             <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
-              <div className="u-w-16 u-h-16 u-bg-success-subtle u-br-md u-flex u-align-items-center u-justify-center u-mx-auto u-mb-4 u-text-success-emphasis">
+              <div className="u-w-16 u-h-16 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-mx-auto u-mb-4 u-text-success-emphasis">
                 <Icon name="ShieldCheck" size={32} />
               </div>
               <h3 className="u-text-3xl u-font-bold u-mb-2 u-text-primary-emphasis">
@@ -140,7 +140,7 @@ const ComponentsHomePage: FC = () => {
 
           <GridCol md={4} sm={6} className="u-mb-4">
             <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
-              <div className="u-w-16 u-h-16 u-bg-warning-subtle u-br-md u-flex u-align-items-center u-justify-center u-mx-auto u-mb-4 u-text-warning-emphasis">
+              <div className="u-w-16 u-h-16 u-bg-warning-subtle u-rounded-md u-flex u-items-center u-justify-center u-mx-auto u-mb-4 u-text-warning-emphasis">
                 <Icon name="StarFour" size={32} />
               </div>
               <h3 className="u-text-3xl u-font-bold u-mb-2 u-text-primary-emphasis">
@@ -155,7 +155,7 @@ const ComponentsHomePage: FC = () => {
       </Block>
 
       <Block spacing="md" background="secondary">
-        <div className="u-flex u-align-items-center u-mb-6">
+        <div className="u-flex u-items-center u-mb-6">
           <SectionIntro
             title="Categories"
             text="Browse components by category"
@@ -164,7 +164,7 @@ const ComponentsHomePage: FC = () => {
 
           <Link
             href="/docs/components/overview"
-            className="u-text-primary u-text-decoration-none u-font-medium u-align-items-end u-pr-2"
+            className="u-text-primary u-text-decoration-none u-font-medium u-items-end u-pr-2"
           >
             View All
             <Icon name="ArrowRight" size={16} />
@@ -176,11 +176,11 @@ const ComponentsHomePage: FC = () => {
             <GridCol key={index} md={4} sm={6} className="u-mb-4">
               <Link
                 href="/docs/components/overview"
-                className="u-text-decoration-none u-color-inherit u-block u-h-100"
+                className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
-                  <div className="u-flex u-flex-column u-align-items-center u-text-center">
-                    <div className="u-w-16 u-h-16 u-bg-primary-subtle u-text-primary-emphasis u-br-md u-flex u-align-items-center u-justify-center u-mb-4">
+                  <div className="u-flex u-flex-column u-items-center u-text-center">
+                    <div className="u-w-16 u-h-16 u-bg-primary-subtle u-text-primary-emphasis u-rounded-md u-flex u-items-center u-justify-center u-mb-4">
                       <Icon name="GridFour" size={24} />
                     </div>
                     <h3 className="u-text-xl u-font-semibold u-mb-2 u-text-primary-emphasis">
@@ -213,12 +213,12 @@ const ComponentsHomePage: FC = () => {
             <GridCol key={component.id} md={6} lg={4} className="u-mb-4">
               <Link
                 href={`/docs/components/${component.id}`}
-                className="u-text-decoration-none u-color-inherit u-block u-h-100"
+                className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-flex u-flex-column u-h-100">
-                    <div className="u-flex u-align-items-center u-mb-4">
-                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary-emphasis u-br-md u-flex u-align-items-center u-justify-center u-mr-3">
+                    <div className="u-flex u-items-center u-mb-4">
+                      <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary-emphasis u-rounded-md u-flex u-items-center u-justify-center u-me-3">
                         <Icon name="Lightning" size={24} />
                       </div>
                       <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -243,8 +243,8 @@ const ComponentsHomePage: FC = () => {
                       />
                     </div>
 
-                    <div className="u-flex u-align-items-center u-text-primary-emphasis u-font-medium">
-                      <span className="u-mr-2">View Details</span>
+                    <div className="u-flex u-items-center u-text-primary-emphasis u-font-medium">
+                      <span className="u-me-2">View Details</span>
                       <Icon name="ArrowRight" size={16} />
                     </div>
                   </div>
@@ -256,7 +256,7 @@ const ComponentsHomePage: FC = () => {
       </Block>
 
       <Block spacing="md" background="brand">
-        <div className="u-flex u-align-items-center u-mb-6">
+        <div className="u-flex u-items-center u-mb-6">
           <SectionIntro
             title="Recently Updated"
             text="Latest component updates and improvements"
@@ -264,7 +264,7 @@ const ComponentsHomePage: FC = () => {
           />
           <Link
             href="/docs/components/overview"
-            className="u-text-white u-text-decoration-none u-font-medium u-align-items-end u-pr-2"
+            className="u-text-white u-text-decoration-none u-font-medium u-items-end u-pr-2"
           >
             View All
             <Icon name="ArrowRight" size={16} />
@@ -276,11 +276,11 @@ const ComponentsHomePage: FC = () => {
             <GridCol key={component.id} md={6} lg={4} className="u-mb-4">
               <Link
                 href={`/docs/components/${component.id}`}
-                className="u-text-decoration-none u-color-inherit u-block u-h-100"
+                className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-flex u-flex-column u-h-100">
-                    <div className="u-flex u-align-items-center u-justify-between u-mb-3">
+                    <div className="u-flex u-items-center u-justify-between u-mb-3">
                       <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                         {component.name}
                       </h3>
