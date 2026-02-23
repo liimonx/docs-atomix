@@ -25,6 +25,10 @@ const DocumentationHeader = memo(function DocumentationHeader({
   return (
     <Navbar
       position={"fixed"}
+      glass={{
+        blurAmount: 3,
+      }}
+      variant="primary"
       brand={
         <Link href="/">
           <div className="u-flex u-items-center u-gap-3">

@@ -130,10 +130,22 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   </GridCol>
                   <GridCol lg={6} className="u-relative">
                     <div
-                      className="u-absolute u-w-100 u-h-100 u-bg-gradient-primary u-rounded-xl u-opacity-25"
+                      className="u-absolute u-w-100 u-h-100 u-bg-gradient-info u-rounded-xl u-opacity-25"
                       style={{ filter: "blur(40px)" }}
                     ></div>
-                    <Card variant="primary" glass appearance="outlined">
+                    <Card
+                      variant="primary"
+                      glass={{
+                        enableLiquidBlur: true,
+                        enableOverLightLayers: false,
+                        overLight: {
+                          brightness: 1,
+                          contrast: 1,
+                          opacity: 0,
+                        },
+                      }}
+                      appearance="outlined"
+                    >
                       <div className="u-flex u-items-center u-justify-between u-mb-4 u-pb-4 u-border-bottom u-border-primary-subtle">
                         <div className="u-flex u-gap-2">
                           <div className="u-w-3 u-h-3 u-rounded-circle u-bg-error"></div>
