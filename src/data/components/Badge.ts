@@ -1,4 +1,3 @@
-
 export const badgeMetadata = {
   id: 'badge',
   name: 'Badge',
