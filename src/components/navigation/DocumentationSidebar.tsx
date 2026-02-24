@@ -45,7 +45,7 @@ const DocumentationSidebar = memo(function DocumentationSidebar({
     <>
       <div className="u-w-72 u-relative">
         <AtomixSideMenu
-          className="u-fixed u-w-60 u-top-0 u-start-0 u-z-modal u-overflow-y-auto"
+          className="u-fixed u-w-60 u-top-5 u-hv-100 u-start-0 u-z-modal u-overflow-y-auto"
           title={
             <Link href="/">
               <div className="u-flex u-items-center u-gap-3">
@@ -67,7 +67,7 @@ const DocumentationSidebar = memo(function DocumentationSidebar({
           }
           menuItems={menuItems}
           LinkComponent={Link as any}
-          isOpen={false}
+          isOpen={isOpen}
         >
           {null}
         </AtomixSideMenu>

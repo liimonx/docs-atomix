@@ -116,6 +116,9 @@
 // 33. Side Menu - Side Menu component overrides
 @forward './side-menu';
 
+// 34. Footer - Footer component overrides
+@forward './footer';
+
 // Additional components (commented out - no variables to override yet or minimal customization needed):
 // @use './textarea' as *; // Uses input settings
 // @use './form' as *; // Minimal customization needed

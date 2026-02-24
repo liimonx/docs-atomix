@@ -1,27 +1,33 @@
 /**
  * Layout Variable Overrides
  * =============================================================================
- * 
- * Grid, containers, and breakpoint configuration.
- * 
+ *
+ * Grid system and container breakpoints sized for modern widescreen layouts.
+ *
+ * Container sizes:
+ *   xs  360px  — small phones (retain full-bleed on tiny screens)
+ *   sm  600px  — landscape phone / small tablet
+ *   md  768px  — portrait tablet
+ *   lg  1024px — desktop (sweet spot for docs/dashboard)
+ *   xl  1280px — wide desktop
+ *   xxl 1536px — ultra-wide / 4K
+ *
+ * Gutter: 1.5rem (24px) — generous enough for breathing room, tight enough
+ * to reduce wasted whitespace on narrower desktop viewports.
+ *
  * @see https://atomix.design/docs/design-tokens/layout
  */
 
-// =============================================================================
-// Layout Configuration
-// =============================================================================
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.grid' with (
-  // Grid system - Enhanced for modern layouts
-  $grid-columns: 12,
-  $grid-gutter-width: 32px,  // 2rem - Improved spacing
-  
-  // Container max widths - Refined responsive breakpoints
+  $grid-columns:      12,
+  $grid-gutter-width: 24px,
+
   $container-max-widths: (
-    xs: 360px,
-    sm: 640px,
-    md: 768px,
-    lg: 1024px,
-    xl: 1280px,
+    xs:  360px,
+    sm:  600px,
+    md:  768px,
+    lg:  1024px,
+    xl:  1280px,
     xxl: 1536px
   )
 );

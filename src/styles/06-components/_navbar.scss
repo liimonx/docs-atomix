@@ -1,18 +1,235 @@
 /**
  * Navbar Component Variable Overrides
  * =============================================================================
- * 
- * Modern navbar design with comfortable spacing and clear navigation.
- * 
- * Note: Most navbar styling is handled by navigation components.
- * To customize navbar variables, uncomment and modify the @use statement below.
- * 
+ *
+ * Premium top-level navigation: full variable coverage for layout geometry,
+ * brand typography, toggler affordances, backdrop, and motion — with additive
+ * BEM polish for glassmorphism, active states, scroll-aware shadow, and a
+ * refined mobile experience.
+ *
  * @see https://atomix.design/docs/components/navbar
  */
 
 // =============================================================================
-// Navbar Configuration
+// Navbar Variable Configuration
 // =============================================================================
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.navbar' with (
-    $navbar-padding-x: 20px, // 40px - Tighter horizontal space
+
+  // ---------------------------------------------------------------------------
+  // Container & Layout
+  // ---------------------------------------------------------------------------
+  $navbar-padding-x:              1.5rem,       // 24px — tighter responsive rail
+  $navbar-padding-y:              0rem,         // vertical rhythm controlled by height
+  $navbar-container-max-width:    1440px,       // cap at wide viewports
+  $navbar-height:                 60px,         // slightly taller for breathing room
+
+  // ---------------------------------------------------------------------------
+  // Appearance
+  // ---------------------------------------------------------------------------
+  $navbar-bg:                     var(--atomix-body-bg),
+  $navbar-border-width:           1px,
+  $navbar-border-color:           var(--atomix-border-color),
+  $navbar-box-shadow: (
+    0 1px 3px 0   rgba(0, 0, 0, 0.06),
+    0 1px 2px -1px rgba(0, 0, 0, 0.06)
+  ),
+
+  // ---------------------------------------------------------------------------
+  // Brand / Logo
+  // ---------------------------------------------------------------------------
+  $navbar-brand-margin-end:       2rem,         // 32px — space before nav links
+  $navbar-brand-font-size:        1.0625rem,    // 17px — confident but not heavy
+  $navbar-brand-font-weight:      700,
+  $navbar-brand-color:            var(--atomix-body-color),
+
+  // ---------------------------------------------------------------------------
+  // Mobile Toggler
+  // ---------------------------------------------------------------------------
+  $navbar-toggler-size:           2.25rem,      // 36px — generous touch target
+  $navbar-toggler-color:          var(--atomix-body-color),
+  $navbar-toggler-bg:             transparent,
+  $navbar-toggler-border:         0,
+  $navbar-toggler-border-radius:  0.5rem,
+  $navbar-toggler-focus-shadow:   0 0 0 3px rgba(var(--atomix-primary-rgb, 19, 164, 236), 0.25),
+
+  // ---------------------------------------------------------------------------
+  // Collapse / Mobile Menu
+  // ---------------------------------------------------------------------------
+  $navbar-collapse-padding-top:   0.5rem,
+  $navbar-collapse-transition:    all 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+
+  // ---------------------------------------------------------------------------
+  // Backdrop (mobile overlay)
+  // ---------------------------------------------------------------------------
+  $navbar-backdrop-bg:            rgba(0, 0, 0, 0.45),
+  $navbar-backdrop-z-index:       1029,
+
+  // ---------------------------------------------------------------------------
+  // Z-index
+  // ---------------------------------------------------------------------------
+  $navbar-z-index:                1030,
+  $navbar-fixed-z-index:          1030,
+
+  // ---------------------------------------------------------------------------
+  // Dark mode
+  // ---------------------------------------------------------------------------
+  $navbar-bg-dark:                var(--atomix-gray-9),
+  $navbar-border-color-dark:      var(--atomix-gray-7),
+  $navbar-brand-color-dark:       var(--atomix-gray-1),
+  $navbar-toggler-color-dark:     var(--atomix-gray-1)
 );
+
+// =============================================================================
+// Additive BEM Polish
+// These selectors are purely additive — they extend the compiled Atomix output
+// without touching any internal BEM internals.
+// =============================================================================
+.c-navbar {
+
+  // --------------------------------------------------------------------------
+  // Root — smooth scroll-aware shadow via transition (JS can add .is-scrolled)
+  // --------------------------------------------------------------------------
+  transition:
+    box-shadow          0.2s  cubic-bezier(0.4, 0, 0.2, 1),
+    background-color    0.2s  cubic-bezier(0.4, 0, 0.2, 1),
+    border-color        0.2s  cubic-bezier(0.4, 0, 0.2, 1),
+    backdrop-filter     0.2s  cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Scrolled state — deeper shadow for clear elevation cue
+  &.is-scrolled {
+    box-shadow:
+      0  4px  12px -2px rgba(0, 0, 0, 0.10),
+      0  2px   4px -1px rgba(0, 0, 0, 0.06);
+    border-bottom-color: var(--atomix-border-color);
+  }
+
+  // --------------------------------------------------------------------------
+  // Container — centered gutter with safe min padding on small screens
+  // --------------------------------------------------------------------------
+  &__container {
+    // Ensure items are always vertically centred regardless of height override
+    min-height: var(--atomix-navbar-height, 60px);
+    align-items: center;
+  }
+
+  // --------------------------------------------------------------------------
+  // Brand — smooth colour transition + letter-spacing refinement
+  // --------------------------------------------------------------------------
+  &__brand {
+    letter-spacing: -0.02em;
+    transition: opacity 0.16s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    // Logo image: remove any default vertical misalignment
+    img,
+    svg {
+      display: block;
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Toggler — rounded pill with hover fill + active ripple
+  // --------------------------------------------------------------------------
+  &__toggler {
+    border-radius: 0.5rem;
+    transition:
+      background-color 0.16s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity          0.16s cubic-bezier(0.4, 0, 0.2, 1),
+      transform        0.12s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background-color: var(--atomix-secondary-bg-subtle);
+    }
+
+    &:active {
+      transform: scale(0.92);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--atomix-primary);
+      outline-offset: 2px;
+    }
+
+    // Hamburger bars — smoother easing
+    &-icon {
+      &::before,
+      &::after,
+      & {
+        transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity   0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Collapse — vertical slide in on mobile
+  // --------------------------------------------------------------------------
+  &__collapse {
+    // Desktop: reset any mobile overrides
+    @media (min-width: 768px) {
+      display: flex !important;
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Backdrop — subtle blur for depth
+  // --------------------------------------------------------------------------
+  &__backdrop {
+    transition:
+      opacity     0.28s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility  0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(2px);
+  }
+
+  // --------------------------------------------------------------------------
+  // Glass modifier — frosted glass treatment
+  // --------------------------------------------------------------------------
+  &--glass {
+    background-color: rgba(var(--atomix-body-bg-rgb, 255, 255, 255), 0.1) !important;
+    border-bottom: 1px solid rgba(var(--atomix-border-color-rgb, 0, 0, 0), 0.10);
+
+    &.is-scrolled {
+      background-color: rgba(var(--atomix-body-bg-rgb, 255, 255, 255), 0.86) !important;
+      box-shadow:
+        0  4px  16px -4px rgba(0, 0, 0, 0.10),
+        0  1px   3px -1px rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Fixed / sticky — ensure full-width backdrop
+  // --------------------------------------------------------------------------
+  &--fixed,
+  &--sticky {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  // --------------------------------------------------------------------------
+  // Reduced motion
+  // --------------------------------------------------------------------------
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &.is-scrolled {
+      transition: none;
+    }
+
+    &__backdrop {
+      transition: none;
+    }
+
+    &__toggler {
+      transition: none;
+    }
+
+    &--glass {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
+}

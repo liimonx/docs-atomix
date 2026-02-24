@@ -1,30 +1,61 @@
 /**
  * Shadow Variable Overrides
  * =============================================================================
- * 
- * Standard shadow scale for depth and elevation.
- * 
+ *
+ * Premium, layered shadow system tuned for both light and dark modes.
+ *
+ * Design philosophy:
+ *   - Light mode: cool-grey tinted shadows for subtle, natural depth
+ *   - Dark mode: deeply saturated, warm-dark shadows for rich elevation
+ *   - Each level adds both spread and softness — avoids the "cut-out" look
+ *   - Inset shadow mimics inner bevel for interactive pressed states
+ *
  * @see https://atomix.design/docs/design-tokens/shadows
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.box-shadow' with (
-  $box-shadow: (0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)),
-  
-  // Extra Small - Subtle (matches Tailwind sm)
-  $box-shadow-xs: (0 1px 2px 0 rgba(0, 0, 0, 0.05)),
-  
-  // Small (matches Tailwind default shadow-md)
-  $box-shadow-sm: (0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)),
-  
-  // Medium (matches Tailwind default shadow-lg)
-  $box-shadow-md: (0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)),
-  
-  // Large (matches Tailwind default shadow-xl)
-  $box-shadow-lg: (0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)),
-  
-  // Extra Large (matches Tailwind default shadow-2xl)
-  $box-shadow-xl: (0 25px 50px -12px rgba(0, 0, 0, 0.25)),
-  
-  // Inset
-  $box-shadow-inset: (inset 0 2px 4px 0 rgba(0, 0, 0, 0.05))
+
+  // ── Light Mode Shadows ────────────────────────────────────────────────────
+
+  // Default — card / surface elevation
+  $box-shadow: (
+    0 1px 3px 0    rgba(15, 23, 42, 0.08),
+    0 1px 2px -1px rgba(15, 23, 42, 0.06)
+  ),
+
+  // xs — hairline lift (chip, tag, focused input)
+  $box-shadow-xs: (
+    0 1px 2px 0 rgba(15, 23, 42, 0.05)
+  ),
+
+  // sm — subtle raise (button, pill badge)
+  $box-shadow-sm: (
+    0 2px 6px -1px rgba(15, 23, 42, 0.10),
+    0 1px 3px -1px rgba(15, 23, 42, 0.06)
+  ),
+
+  // md — medium elevation (dropdown, tooltip)
+  $box-shadow-md: (
+    0  8px 24px -4px rgba(15, 23, 42, 0.12),
+    0  3px  8px -3px rgba(15, 23, 42, 0.07)
+  ),
+
+  // lg — prominent float (modal, side panel)
+  $box-shadow-lg: (
+    0 20px 48px -8px  rgba(15, 23, 42, 0.16),
+    0  8px 16px -6px  rgba(15, 23, 42, 0.09),
+    0  0px  0px  1px  rgba(15, 23, 42, 0.03)
+  ),
+
+  // xl — maximum depth (command palette, overlay drawer)
+  $box-shadow-xl: (
+    0 32px 64px -12px rgba(15, 23, 42, 0.25),
+    0 12px 32px -8px  rgba(15, 23, 42, 0.12)
+  ),
+
+  // inset — pressed / recessed UI states
+  $box-shadow-inset: (
+    inset 0 2px 4px 0 rgba(15, 23, 42, 0.06),
+    inset 0 1px 2px 0 rgba(15, 23, 42, 0.04)
+  )
 );

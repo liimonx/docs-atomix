@@ -1,21 +1,59 @@
 /**
  * Badge Component Variable Overrides
  * =============================================================================
- * 
- * Standard badge styling for Atomix documentation.
- * 
+ *
+ * Tight, premium badges: mono-weight labels, consistent vertical padding across
+ * all size variants, and clear icon alignment.
+ *
  * @see https://atomix.design/docs/components/badge
  */
 
+// =============================================================================
+// Badge Variable Configuration
+// =============================================================================
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.badge' with (
+
+  // ---------------------------------------------------------------------------
   // Typography
-  $badge-font-size: 0.7rem,
-  $badge-font-weight: 700,
+  // ---------------------------------------------------------------------------
+  $badge-font-size:       0.6875rem,    // 11px — crisp label
+  $badge-font-weight:     600,
 
-  // Padding
-  $badge-padding-y: 0.35rem,
-  $badge-padding-x: 0.75rem,
+  // ---------------------------------------------------------------------------
+  // Padding — base / sm / lg
+  // ---------------------------------------------------------------------------
+  $badge-padding-x:       8px,
+  $badge-padding-y:       3px,
+  $badge-padding-y-sm:    2px,
+  $badge-padding-y-lg:    5px,
 
-  // Border Radius
-  $badge-border-radius: 100px
+  // ---------------------------------------------------------------------------
+  // Border radius — pill by default
+  // ---------------------------------------------------------------------------
+  $badge-border-radius:   9999px,
+
+  // ---------------------------------------------------------------------------
+  // Icon
+  // ---------------------------------------------------------------------------
+  $badge-icon-size:         14px,
+  $badge-inner-items-gap:   4px
 );
+
+// =============================================================================
+// Additive Polish
+// =============================================================================
+.c-badge {
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+
+  // Dot variant — circle icon badge
+  &--dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border-radius: 50%;
+    min-width: unset;
+  }
+}

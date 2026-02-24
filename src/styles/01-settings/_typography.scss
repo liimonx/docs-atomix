@@ -1,33 +1,75 @@
 /**
  * Typography Variable Overrides
  * =============================================================================
- * 
- * Standard, accessible typography settings for Atomix documentation.
- * Uses Inter font family for optimal readability.
- * 
+ *
+ * Premium, editorial-quality typography settings for Atomix documentation.
+ * Uses Inter for UI copy and heading display; JetBrains Mono for code.
+ *
+ * Scale philosophy:
+ *   - Body text at 1rem (16px) for comfortable reading density
+ *   - Display sizes use tight letter-spacing for impactful headings
+ *   - Line-heights tuned per size: tighter for large, more open for small
+ *
  * @see https://atomix.design/docs/design-tokens/typography
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.typography' with (
-  $font-family-base: ('Inter', sans-serif),
-  $font-family-sans-serif: ('Inter', sans-serif),
-  $headings-font-family: ('Inter', sans-serif),
-  
-  // Font Weights
-  $font-weight-light: 300,
-  $font-weight-normal: 400,
-  $font-weight-medium: 500,
-  $font-weight-semibold: 600,
-  $font-weight-bold: 700,
-  $font-weight-heavy: 800,
-  $font-weight-black: 900,
-  
-  // Font Sizes - Standard scale
-  $font-size-base: 1rem,        // 16px
-  $font-size-xs: 0.75rem,       // 12px
-  $font-size-sm: 0.875rem,      // 14px
-  $font-size-md: 1rem,          // 16px
-  $font-size-lg: 1.125rem,      // 18px
-  $font-size-xl: 1.25rem,       // 20px
-  $display-1: 3.5rem            // 56px - Standard large display
+  // ── Font Families ────────────────────────────────────────────────────────
+  $font-family-base:        ('Inter', system-ui, -apple-system, sans-serif),
+  $font-family-sans-serif:  ('Inter', system-ui, -apple-system, sans-serif),
+  $headings-font-family:    ('Inter', system-ui, -apple-system, sans-serif),
+  $font-family-monospace:   ('JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SFMono-Regular', Menlo, Consolas, monospace),
+
+  // ── Font Weights ──────────────────────────────────────────────────────────
+  $font-weight-light:       300,
+  $font-weight-normal:      400,
+  $font-weight-medium:      500,
+  $font-weight-semibold:    600,
+  $font-weight-bold:        700,
+  $font-weight-heavy:       800,
+  $font-weight-black:       900,
+
+  // ── Base Font Size ────────────────────────────────────────────────────────
+  // 16px root keeps rem calculations predictable
+  $font-size-base: 1rem,
+
+  // ── Fluid Type Scale (rem) ────────────────────────────────────────────────
+  $font-size-xs:   0.6875rem,   // 11px — captions, legal, metadata
+  $font-size-sm:   0.8125rem,   // 13px — secondary labels, badges
+  $font-size-md:   0.9375rem,   // 15px — slightly compact UI text
+  $font-size-lg:   1.0625rem,   // 17px — comfortable lead copy
+  $font-size-xl:   1.1875rem,   // 19px — prominent UI elements
+
+  // ── Heading Sizes ─────────────────────────────────────────────────────────
+  // Ratio ≈ 1.25 (Major Third) for a harmonious ramp
+  // h1: 2.5rem  = 40px
+  // h2: 2rem    = 32px
+  // h3: 1.5rem  = 24px
+  // h4: 1.25rem = 20px
+  // h5: 1rem    = 16px
+  // h6: 0.875rem= 14px
+
+  // ── Display Sizes ─────────────────────────────────────────────────────────
+  $display-1: 4rem,             // 64px — hero / landing headlines
+
+  // ── Line Heights ──────────────────────────────────────────────────────────
+  $line-height-base: 1.6,       // optimal for body copy readability
+  $line-height-sm:   1.45,      // compact for small labels
+  $line-height-lg:   1.7,       // airy for long-form content
+
+  // ── Heading Defaults ──────────────────────────────────────────────────────
+  $headings-font-weight:    700,
+  $headings-line-height:    1.2,        // tight for large display text
+  $headings-margin-bottom:  0,
+
+  // ── Letter Spacing (via heading-specific vars) ────────────────────────────
+  $h1-letter-spaceing: -0.04em,        // ultra-tight for display
+  $h2-letter-spaceing: -0.03em,
+  $h3-letter-spaceing: -0.02em,
+  $h4-letter-spaceing: -0.01em,
+  $h5-letter-spaceing: -0.005em,
+  $h6-letter-spaceing:  0em,
+
+  // ── Paragraph ─────────────────────────────────────────────────────────────
+  $paragraph-margin-bottom: 0
 );

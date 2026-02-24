@@ -1,17 +1,24 @@
 /**
- * Transition Variable Overrides
+ * Transition & Animation Variable Overrides
  * =============================================================================
- * 
- * Animation durations and easing functions for smooth, energetic transitions.
- * 
+ *
+ * Spring-calibrated easing with intentional pacing:
+ *
+ *   fast   — micro-interactions (hover colors, focus rings, checkbox tick)
+ *   base   — standard state changes (expand, reveal, slide)
+ *   slow   — large surface transitions (drawer open, modal appear)
+ *
+ * Easing curve: cubic-bezier(0.16, 1, 0.3, 1)
+ *   — A Penner "easeOutExpo"-style curve that starts fast and eases in
+ *     smoothly. Produces spring-like feel without an overshoot library.
+ *
  * @see https://atomix.design/docs/design-tokens/transitions
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.animations' with (
-  // Enhanced timing for smoother, more refined animations
-  $transition-duration: 0.2s,
-  $easing: cubic-bezier(0.4, 0, 0.2, 1),
-  $transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-  $transition-fast: all 0.12s cubic-bezier(0.4, 0, 0.2, 1),
-  $transition-slow: all 0.35s cubic-bezier(0.4, 0, 0.2, 1)
+  $transition-duration: 0.22s,
+  $easing:              cubic-bezier(0.16, 1, 0.3, 1),
+  $transition-base:     all 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+  $transition-fast:     all 0.10s cubic-bezier(0.16, 1, 0.3, 1),
+  $transition-slow:     all 0.40s cubic-bezier(0.16, 1, 0.3, 1)
 );
