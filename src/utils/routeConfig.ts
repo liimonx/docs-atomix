@@ -86,9 +86,74 @@ export function generateMetadataFromNavigation(
 }
 
 /**
- * Generate metadata from slug array
+ * Generate metadata for documentation overview
+ */
+export function generateDocumentationOverviewMetadata(): Metadata {
+  return {
+    title: "Documentation",
+    description:
+      "Complete documentation for the Atomix Design System. Explore 40+ components, design tokens, layouts, guides, and API references. Everything you need to build amazing user interfaces.",
+    openGraph: {
+      title: "Documentation | Atomix Design System",
+      description:
+        "Complete documentation for the Atomix Design System. Explore 40+ components, design tokens, layouts, and guides.",
+      type: "website",
+      url: "https://atomix-docs.vercel.app/docs",
+      siteName: "Atomix Documentation",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Documentation | Atomix Design System",
+      description: "Complete documentation for the Atomix Design System.",
+    },
+    alternates: {
+      canonical: "https://atomix-docs.vercel.app/docs",
+    },
+  };
+}
+
+/**
+ * Generate metadata for components index
+ */
+export function generateComponentsIndexMetadata(): Metadata {
+  return {
+    title: "Components",
+    description:
+      "A comprehensive collection of modern, accessible, and customizable React components. Browse 40+ components with search, filtering, and detailed documentation.",
+    openGraph: {
+      title: "Components | Atomix Documentation",
+      description:
+        "A comprehensive collection of modern, accessible, and customizable React components.",
+      type: "website",
+      url: "https://atomix-docs.vercel.app/docs/components",
+      siteName: "Atomix Documentation",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Components | Atomix Documentation",
+      description:
+        "A comprehensive collection of modern, accessible, and customizable React components.",
+    },
+    alternates: {
+      canonical: "https://atomix-docs.vercel.app/docs/components",
+    },
+  };
+}
+
+/**
+ * Generate metadata from slug array, handling special index routes
  */
 export function generateMetadataFromSlug(slug: string[]): Metadata {
+  // Handle /docs (empty slug)
+  if (slug.length === 0) {
+    return generateDocumentationOverviewMetadata();
+  }
+
+  // Handle /docs/components (index page)
+  if (slug.length === 1 && slug[0] === "components") {
+    return generateComponentsIndexMetadata();
+  }
+
   const path = slugToPath(slug);
   const navigationItem = findNavigationItemByPath(path);
   return generateMetadataFromNavigation(navigationItem, path);
@@ -178,7 +243,18 @@ export function validateRoute(path: string): boolean {
   if (path === '/docs' || path === '/docs/components') {
     return true;
   }
-  return findNavigationItemByPath(path) !== null;
+  
+  // Check if it's a full path in navigation
+  if (findNavigationItemByPath(path) !== null) {
+    return true;
+  }
+
+  // Check if it's a component ID (legacy fallback for component detail routes)
+  if (findNavigationItemByPath(`/docs/components/${path}`) !== null) {
+    return true;
+  }
+
+  return false;
 }
 
 /**

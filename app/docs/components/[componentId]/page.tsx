@@ -3,25 +3,20 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 
 import { ComponentPage } from "@/page-components";
-import { navigationData } from "@/data/navigation";
 import { generateComponentMetadata, validateRoute } from "@/utils/routeConfig";
 
+import { getRouteSlugsByOwner } from "@/utils/routeMapper";
+
 // Use 'auto' to allow both static and dynamic generation
-export const dynamic = 'auto';
-export const revalidate = 3600;
+export const dynamic = "auto";
+export const revalidate = 7200; // Revalidate component pages every 2 hours
 
 export function generateStaticParams() {
-  // Get all component IDs from navigation data
-  const componentSection = navigationData.find(
-    (section) => section.id === "components"
-  );
-  if (!componentSection) return [];
+  const filteredSlugs = getRouteSlugsByOwner("components");
 
-  return componentSection.items
-    .filter((item) => item.id !== "overview" && item.id !== "guidelines")
-    .map((item) => ({
-      componentId: item.id,
-    }));
+  return filteredSlugs.map((slug) => ({
+    componentId: slug[1],
+  }));
 }
 
 interface ComponentRouteParams {
@@ -40,12 +35,12 @@ export default async function ComponentPageRoute({
 }: ComponentRouteParams) {
   const resolvedParams = await params;
   const { componentId } = resolvedParams;
-  
+
   // Exclude routes handled by catch-all
-  if (componentId === 'overview' || componentId === 'guidelines') {
+  if (componentId === "overview" || componentId === "guidelines") {
     notFound();
   }
-  
+
   // Validate component exists
   if (!validateRoute(`/docs/components/${componentId}`)) {
     notFound();

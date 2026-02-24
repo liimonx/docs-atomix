@@ -79,12 +79,20 @@ import { NavigationItem } from '@/types';
 type ComponentMapper = (_navItem: NavigationItem, _slugParts: string[]) => ComponentType<any> | null;
 
 /**
+ * Registry entry containing a component and its default props
+ */
+interface RegistryEntry {
+  component: ComponentType<any>;
+  defaultProps?: Record<string, any>;
+}
+
+/**
  * Component registry with category-based and ID-based mappings
  */
 class PageComponentRegistry {
-  private categoryMap: Map<string, ComponentType<any>> = new Map();
+  private categoryMap: Map<string, RegistryEntry> = new Map();
   // Use composite key: "category:id" to avoid ID conflicts
-  private idMap: Map<string, ComponentType<any>> = new Map();
+  private idMap: Map<string, RegistryEntry> = new Map();
   private customMappers: ComponentMapper[] = [];
 
   constructor() {
@@ -103,99 +111,109 @@ class PageComponentRegistry {
    */
   private initializeDefaultMappings(): void {
     // API Pages
-    this.idMap.set('api:react', APIReactPage);
-    this.idMap.set('api:javascript', APIJavaScriptPage);
-    this.idMap.set('api:css', APICSSPage);
+    this.idMap.set('api:react', { component: APIReactPage });
+    this.idMap.set('api:javascript', { component: APIJavaScriptPage });
+    this.idMap.set('api:css', { component: APICSSPage });
 
     // Component Pages
-    this.idMap.set('components:overview', ComponentsOverviewPage);
-    this.idMap.set('components:guidelines', ComponentGuidelinesPage);
+    this.idMap.set('components:overview', { component: ComponentsOverviewPage });
+    this.idMap.set('components:guidelines', { component: ComponentGuidelinesPage });
     // Special case: /docs/components (index page) - when slug is just ['components']
-    this.idMap.set('components:index', ComponentsHomePage);
-    this.categoryMap.set('components', ComponentPage);
+    this.idMap.set('components:index', { component: ComponentsHomePage });
+    this.categoryMap.set('components', { component: ComponentPage });
 
     // Design Token Pages
-    this.idMap.set('design-tokens:overview', DesignTokensOverviewPage);
-    this.idMap.set('design-tokens:all-tokens', DesignTokensPage);
-    this.idMap.set('design-tokens:colors', DesignTokensPage);
-    this.idMap.set('design-tokens:spacing', DesignTokensPage);
-    this.idMap.set('design-tokens:typography', DesignTokensPage);
-    this.idMap.set('design-tokens:grid', DesignTokensGridPage);
-    this.idMap.set('design-tokens:elevation', DesignTokensPage);
-    this.categoryMap.set('design-tokens', DesignTokensOverviewPage);
+    this.idMap.set('design-tokens:overview', { component: DesignTokensOverviewPage });
+    this.idMap.set('design-tokens:all-tokens', { component: DesignTokensPage });
+    this.idMap.set('design-tokens:colors', { component: DesignTokensPage });
+    this.idMap.set('design-tokens:spacing', { component: DesignTokensPage });
+    this.idMap.set('design-tokens:typography', { component: DesignTokensPage });
+    this.idMap.set('design-tokens:grid', { component: DesignTokensGridPage });
+    this.idMap.set('design-tokens:elevation', { component: DesignTokensPage });
+    this.categoryMap.set('design-tokens', { component: DesignTokensOverviewPage });
 
     // Getting Started Pages
-    // Note: GettingStartedPage needs 'type' prop, handled in route handler
-    this.idMap.set('getting-started:installation', GettingStartedPage);
-    this.idMap.set('getting-started:quick-start', GettingStartedPage);
-    this.idMap.set('getting-started:migration', MigrationPage);
-    this.idMap.set('getting-started:cli', CLIPage);
-    this.categoryMap.set('getting-started', GettingStartedPage);
+    // Note: Prop mapping (type) is now handled here
+    this.idMap.set('getting-started:installation', { 
+      component: GettingStartedPage, 
+      defaultProps: { type: 'installation' } 
+    });
+    this.idMap.set('getting-started:quick-start', { 
+      component: GettingStartedPage, 
+      defaultProps: { type: 'quickstart' } 
+    });
+    this.idMap.set('getting-started:introduction', { 
+      component: GettingStartedPage, 
+      defaultProps: { type: 'introduction' } 
+    });
+    this.idMap.set('getting-started:migration', { component: MigrationPage });
+    this.idMap.set('getting-started:cli', { component: CLIPage });
+    this.categoryMap.set('getting-started', { component: GettingStartedPage });
 
     // CLI Pages
-    this.idMap.set('cli:overview', CLIOverviewPage);
-    this.idMap.set('cli:user-guide', CLIUserGuidePage);
-    this.idMap.set('cli:api-reference', CLIAPIReferencePage);
-    this.idMap.set('cli:migration-guide', CLIMigrationGuidePage);
-    this.idMap.set('cli:security-guide', CLISecurityGuidePage);
-    this.categoryMap.set('cli', CLIOverviewPage);
+    this.idMap.set('cli:overview', { component: CLIOverviewPage });
+    this.idMap.set('cli:user-guide', { component: CLIUserGuidePage });
+    this.idMap.set('cli:api-reference', { component: CLIAPIReferencePage });
+    this.idMap.set('cli:migration-guide', { component: CLIMigrationGuidePage });
+    this.idMap.set('cli:security-guide', { component: CLISecurityGuidePage });
+    this.categoryMap.set('cli', { component: CLIOverviewPage });
 
     // Guide Pages
-    this.idMap.set('guides:theming', GeneralThemingGuidePage);
-    this.idMap.set('guides:atomix-glass-performance', GuidesAtomixGlassPerformancePage);
-    this.idMap.set('guides:atomix-glass-theming', GuidesAtomixGlassThemingPage);
-    this.idMap.set('guides:theme-studio', ThemeStudioPage);
-    this.idMap.set('guides:devtools', DevtoolsOverviewPage);
-    this.idMap.set('guides:devtools-inspector', DevtoolsInspectorPage);
-    this.idMap.set('guides:devtools-preview', DevtoolsPreviewPage);
-    this.idMap.set('guides:devtools-comparator', DevtoolsComparatorPage);
-    this.idMap.set('guides:devtools-live-editor', DevtoolsLiveEditorPage);
-    this.idMap.set('guides:devtools-cli', DevtoolsCLIPage);
-    this.idMap.set('guides:devtools-live-editor-example', DevtoolsLiveEditorExamplePage);
-    this.idMap.set('guides:devtools-inspector-example', DevtoolsInspectorExamplePage);
-    this.idMap.set('guides:devtools-preview-example', DevtoolsPreviewExamplePage);
-    this.idMap.set('guides:devtools-comparator-example', DevtoolsComparatorExamplePage);
-    this.categoryMap.set('guides', GuidesAtomixGlassThemingPage);
+    this.idMap.set('guides:theming', { component: GeneralThemingGuidePage });
+    this.idMap.set('guides:atomix-glass-performance', { component: GuidesAtomixGlassPerformancePage });
+    this.idMap.set('guides:atomix-glass-theming', { component: GuidesAtomixGlassThemingPage });
+    this.idMap.set('guides:theme-studio', { component: ThemeStudioPage });
+    this.idMap.set('guides:devtools', { component: DevtoolsOverviewPage });
+    this.idMap.set('guides:devtools-inspector', { component: DevtoolsInspectorPage });
+    this.idMap.set('guides:devtools-preview', { component: DevtoolsPreviewPage });
+    this.idMap.set('guides:devtools-comparator', { component: DevtoolsComparatorPage });
+    this.idMap.set('guides:devtools-live-editor', { component: DevtoolsLiveEditorPage });
+    this.idMap.set('guides:devtools-cli', { component: DevtoolsCLIPage });
+    this.idMap.set('guides:devtools-live-editor-example', { component: DevtoolsLiveEditorExamplePage });
+    this.idMap.set('guides:devtools-inspector-example', { component: DevtoolsInspectorExamplePage });
+    this.idMap.set('guides:devtools-preview-example', { component: DevtoolsPreviewExamplePage });
+    this.idMap.set('guides:devtools-comparator-example', { component: DevtoolsComparatorExamplePage });
+    this.categoryMap.set('guides', { component: GuidesAtomixGlassThemingPage });
 
     // Layout Pages
-    this.idMap.set('layouts:grid', LayoutsGridPage);
-    this.idMap.set('layouts:masonry-grid', LayoutsMasonryGridPage);
-    this.idMap.set('layouts:responsive-patterns', LayoutsResponsivePatternsPage);
-    this.idMap.set('layouts:layout-customization', LayoutsCustomizationPage);
-    this.idMap.set('layouts:performance', LayoutsPerformancePage);
-    this.categoryMap.set('layouts', LayoutsOverviewPage);
+    this.idMap.set('layouts:grid', { component: LayoutsGridPage });
+    this.idMap.set('layouts:masonry-grid', { component: LayoutsMasonryGridPage });
+    this.idMap.set('layouts:responsive-patterns', { component: LayoutsResponsivePatternsPage });
+    this.idMap.set('layouts:layout-customization', { component: LayoutsCustomizationPage });
+    this.idMap.set('layouts:performance', { component: LayoutsPerformancePage });
+    this.categoryMap.set('layouts', { component: LayoutsOverviewPage });
 
     // Resource Pages
-    this.idMap.set('resources:roadmap', ResourcesRoadmapPage);
-    this.idMap.set('resources:changelog', ResourcesChangelogPage);
-    this.idMap.set('resources:contributing', ResourcesContributingPage);
-    this.categoryMap.set('resources', ResourcesRoadmapPage);
+    this.idMap.set('resources:roadmap', { component: ResourcesRoadmapPage });
+    this.idMap.set('resources:changelog', { component: ResourcesChangelogPage });
+    this.idMap.set('resources:contributing', { component: ResourcesContributingPage });
+    this.categoryMap.set('resources', { component: ResourcesRoadmapPage });
 
     // Style Pages
-    this.idMap.set('styles:architecture', StylesArchitecturePage);
-    this.idMap.set('styles:customization', StylesCustomizationPage);
-    this.idMap.set('styles:utilities', StylesUtilitiesPage);
-    this.idMap.set('styles:api-reference', StylesAPIReferencePage);
-    this.categoryMap.set('styles', StylesOverviewPage);
+    this.idMap.set('styles:architecture', { component: StylesArchitecturePage });
+    this.idMap.set('styles:customization', { component: StylesCustomizationPage });
+    this.idMap.set('styles:utilities', { component: StylesUtilitiesPage });
+    this.idMap.set('styles:api-reference', { component: StylesAPIReferencePage });
+    this.categoryMap.set('styles', { component: StylesOverviewPage });
 
     // Example Pages
-    this.idMap.set('examples:common-patterns', ExamplesCommonPatternsPage);
-    this.categoryMap.set('examples', ExamplesCommonPatternsPage);
+    this.idMap.set('examples:common-patterns', { component: ExamplesCommonPatternsPage });
+    this.categoryMap.set('examples', { component: ExamplesCommonPatternsPage });
   }
 
   /**
    * Register a component for a specific route ID (with category)
    */
-  registerById(category: string, id: string, component: ComponentType<any>): void {
+  registerById(category: string, id: string, component: ComponentType<any>, defaultProps?: Record<string, any>): void {
     const key = this.getCompositeKey(category, id);
-    this.idMap.set(key, component);
+    this.idMap.set(key, { component, defaultProps });
   }
 
   /**
    * Register a component for a category
    */
-  registerByCategory(category: string, component: ComponentType<any>): void {
-    this.categoryMap.set(category, component);
+  registerByCategory(category: string, component: ComponentType<any>, defaultProps?: Record<string, any>): void {
+    this.categoryMap.set(category, { component, defaultProps });
   }
 
   /**
@@ -206,40 +224,47 @@ class PageComponentRegistry {
   }
 
   /**
-   * Get component for a navigation item
+   * Get entry for a navigation item
    */
-  getComponent(item: NavigationItem, slug: string[]): ComponentType<any> | null {
+  getEntry(item: NavigationItem, slug: string[]): RegistryEntry | null {
     // Try custom mappers first
     for (const mapper of this.customMappers) {
       const component = mapper(item, slug);
-      if (component) return component;
+      if (component) return { component };
     }
 
     // Try ID-based mapping with composite key (category:id)
     const compositeKey = this.getCompositeKey(item.category, item.id);
-    const idComponent = this.idMap.get(compositeKey);
-    if (idComponent) return idComponent;
+    const idEntry = this.idMap.get(compositeKey);
+    if (idEntry) return idEntry;
 
     // Try category-based mapping
-    const categoryComponent = this.categoryMap.get(item.category);
-    if (categoryComponent) return categoryComponent;
+    const categoryEntry = this.categoryMap.get(item.category);
+    if (categoryEntry) return categoryEntry;
 
     return null;
   }
 
   /**
-   * Get component by category and ID
+   * Get entry by category and ID
    */
-  getComponentById(category: string, id: string): ComponentType<any> | null {
+  getEntryById(category: string, id: string): RegistryEntry | null {
     const key = this.getCompositeKey(category, id);
     return this.idMap.get(key) || null;
   }
 
   /**
-   * Get component by category only
+   * Get entry by category only
    */
-  getComponentByCategory(category: string): ComponentType<any> | null {
+  getEntryByCategory(category: string): RegistryEntry | null {
     return this.categoryMap.get(category) || null;
+  }
+
+  /**
+   * DEPRECATED: Use getEntry instead
+   */
+  getComponent(item: NavigationItem, slug: string[]): ComponentType<any> | null {
+    return this.getEntry(item, slug)?.component || null;
   }
 
   /**
@@ -268,13 +293,23 @@ export function getPageComponent(
   item: NavigationItem | null,
   slug: string[]
 ): ComponentType<any> | null {
+  return getPageEntry(item, slug)?.component || null;
+}
+
+/**
+ * Get page entry (component + props) for a navigation item
+ */
+export function getPageEntry(
+  item: NavigationItem | null,
+  slug: string[]
+): RegistryEntry | null {
   // Special case: /docs/components (index page) - handle without navigation item
   if (!item && slug.length === 1 && slug[0] === 'components') {
-    return pageComponentRegistry.getComponentById('components', 'index');
+    return pageComponentRegistry.getEntryById('components', 'index');
   }
 
   if (!item) return null;
-  return pageComponentRegistry.getComponent(item, slug);
+  return pageComponentRegistry.getEntry(item, slug);
 }
 
 /**

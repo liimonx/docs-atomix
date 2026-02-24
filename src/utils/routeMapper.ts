@@ -160,3 +160,33 @@ export function resolveRoute(slug: string[]): RouteResolution {
   };
 }
 
+/**
+ * Get route slugs filtered by their rendering owner
+ */
+export function getRouteSlugsByOwner(owner: 'catch-all' | 'components'): string[][] {
+  const allSlugs = getAllRouteSlugs();
+
+  if (owner === 'catch-all') {
+    return allSlugs.filter((slug) => {
+      // Components index, overview, and guidelines are handled by catch-all
+      if (slug.length >= 2 && slug[0] === 'components') {
+        return slug[1] === 'overview' || slug[1] === 'guidelines';
+      }
+      // Everything else EXCEPT deep component pages
+      return true;
+    });
+  }
+
+  if (owner === 'components') {
+    return allSlugs.filter((slug) => {
+      // Only deep component pages (e.g., /docs/components/button)
+      return slug.length >= 2 && 
+             slug[0] === 'components' && 
+             slug[1] !== 'overview' && 
+             slug[1] !== 'guidelines';
+    });
+  }
+
+  return [];
+}
+
