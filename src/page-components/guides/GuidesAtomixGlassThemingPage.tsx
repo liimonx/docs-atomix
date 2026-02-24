@@ -9,7 +9,6 @@ import {
   Row,
   Block,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 
 const GuidesAtomixGlassThemingPage: FC = () => {

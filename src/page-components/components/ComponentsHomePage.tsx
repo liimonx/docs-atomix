@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useEffect, FC } from "react";
+import { useMemo, FC } from "react";
 import Link from "next/link";
 
 import {
@@ -17,29 +17,9 @@ import {
 
 import { componentMetadata } from "@/data/components";
 import { BreadcrumbNavigation } from "@/components/navigation/BreadcrumbNavigation";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 
 const ComponentsHomePage: FC = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Prevent hydration mismatch by only rendering glass effect on client
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const glass: GlassProps | undefined = isMounted
-    ? {
-        displacementScale: 30,
-        blurAmount: 5,
-        elasticity: 0,
-        enableLiquidBlur: true,
-        padding: "20px",
-        cornerRadius: 30,
-        children: null,
-      }
-    : undefined;
-
   // Get component categories
   const categories = useMemo(
     () => Array.from(new Set(componentMetadata.map((c) => c.category))),

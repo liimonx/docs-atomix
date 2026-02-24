@@ -13,7 +13,6 @@ import {
   Block,
   SectionIntro,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 
 const StylesOverviewPage: FC = () => {

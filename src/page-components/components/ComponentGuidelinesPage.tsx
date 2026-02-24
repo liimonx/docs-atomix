@@ -1,8 +1,6 @@
 "use client";
 
-import { FC } from "react";
-
-import { useMemo, useState } from "react";
+import { FC, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   Button,
@@ -17,7 +15,6 @@ import {
   Tabs,
   List,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 
 const ComponentGuidelinesPage: FC = () => {

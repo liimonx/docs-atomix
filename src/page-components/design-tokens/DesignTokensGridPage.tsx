@@ -10,7 +10,6 @@ import {
   Grid,
   DataTable,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import { getTokensByCategory } from "@/data/design-tokens";
 import heroStyles from "@/styles/PageHero.module.scss";
 import styles from "./DesignTokensGridPage.module.scss";
