@@ -3,7 +3,7 @@
 import { FC } from "react";
 import Link from "next/link";
 
-import { useState, useEffect } from "react";
+// No unnecessary react hooks needed here
 import {
   Button,
   Card,
@@ -16,12 +16,7 @@ import {
 import styles from "@/styles/PageHero.module.scss";
 
 const StylesOverviewPage: FC = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Prevent hydration mismatch by only rendering glass effect on client
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  // No glass effect needed here
 
   return (
     <>

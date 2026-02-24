@@ -15,7 +15,6 @@ import {
   SectionIntro,
   Badge,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 import styles from "@/styles/PageHero.module.scss";
 
@@ -25,12 +24,7 @@ interface GettingStartedPageProps {
 
 const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
   const [copiedCode, setCopiedCode] = React.useState<string | null>(null);
-  const [isMounted, setIsMounted] = React.useState(false);
-
-  // Prevent hydration mismatch by only rendering glass effect on client
-  React.useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  // No glass effect logic needed here
 
   const copyToClipboard = async (code: string, id: string) => {
     try {
@@ -296,17 +290,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
         };
 
       case "installation":
-        const installationGlass: GlassProps | undefined = isMounted
-          ? {
-              displacementScale: 30,
-              blurAmount: 5,
-              elasticity: 0,
-              enableLiquidBlur: true,
-              padding: "20px",
-              cornerRadius: 30,
-              children: null,
-            }
-          : undefined;
+        // No glass effect logic needed here
 
         return {
           title: "Installation",

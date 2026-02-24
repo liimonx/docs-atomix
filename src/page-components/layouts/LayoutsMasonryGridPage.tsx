@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, FC } from "react";
+import { FC } from "react";
 import {
   Hero,
   SectionIntro,
@@ -11,30 +11,12 @@ import {
   Icon,
   Button,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 import pageStyles from "./LayoutsMasonryGridPage.module.scss";
 import Link from "next/link";
 
 const LayoutsMasonryGridPage: FC = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Prevent hydration mismatch by only rendering glass effect on client
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const glass: GlassProps | undefined = isMounted
-    ? {
-        displacementScale: 30,
-        blurAmount: 5,
-        elasticity: 0,
-        enableLiquidBlur: true,
-        padding: "20px",
-        cornerRadius: 30,
-        children: null,
-      }
-    : undefined;
+  // No glass effect logic needed here
 
   const features = [
     {

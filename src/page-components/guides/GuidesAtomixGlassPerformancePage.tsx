@@ -13,7 +13,6 @@ import {
   Tabs,
   Icon,
 } from "@shohojdhara/atomix";
-import { GlassProps } from "@/types/atomix-components";
 import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 import styles from "@/styles/PageHero.module.scss";
 
