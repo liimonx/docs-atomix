@@ -16,7 +16,6 @@ import {
 } from "@shohojdhara/atomix";
 
 import { componentMetadata } from "@/data/components";
-import { BreadcrumbNavigation } from "@/components/navigation/BreadcrumbNavigation";
 import styles from "@/styles/PageHero.module.scss";
 
 const ComponentsHomePage: FC = () => {
@@ -78,7 +77,6 @@ const ComponentsHomePage: FC = () => {
           </div>
         }
       />
-      <BreadcrumbNavigation />
 
       <Block spacing="sm">
         <SectionIntro

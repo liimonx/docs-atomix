@@ -20,7 +20,6 @@ import { ComponentProps } from "@/components/showcase/ComponentProps";
 import { ComponentExamples } from "@/components/showcase/ComponentExamples";
 import { ComponentAccessibility } from "@/components/showcase/ComponentAccessibility";
 import { ComponentRelated } from "@/components/showcase/ComponentRelated";
-import { BreadcrumbNavigation } from "@/components/navigation/BreadcrumbNavigation";
 import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
 
 const ComponentDetailPage: FC<{ componentId?: string }> = ({
@@ -283,8 +282,6 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
 
   return (
     <div className="u-min-h-screen u-pb-16">
-      <BreadcrumbNavigation />
-
       <Block>
         <div className="u-mb-8">
           <Link

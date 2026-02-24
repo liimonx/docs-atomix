@@ -2,13 +2,8 @@
 
 import { memo } from "react";
 import Link from "next/link";
-import {
-  Button,
-  ColorModeToggle,
-  Navbar,
-  Nav,
-  Breadcrumb,
-} from "@shohojdhara/atomix";
+import { Button, ColorModeToggle, Navbar, Nav } from "@shohojdhara/atomix";
+import { BreadcrumbNavigation } from "./BreadcrumbNavigation";
 import { GlobalSearch } from "../ui/GlobalSearch";
 
 interface DocumentationHeaderProps {
@@ -55,13 +50,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
     >
       {showSidebarToggle && (
         <Nav alignment="start" className="u-ps-2">
-          <Breadcrumb
-            className="u-mb-auto"
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Components", href: "/components" },
-            ]}
-          />
+          <BreadcrumbNavigation />
         </Nav>
       )}
 
