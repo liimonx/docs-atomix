@@ -1,11 +1,15 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback, useMemo } from "react";
+import { useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import styles from "./HeroHeadlineSlider.module.scss";
 
 gsap.registerPlugin(useGSAP);
+
+/* ═══════════════════════════════════════
+   Types & Data
+   ═══════════════════════════════════════ */
 
 interface SlideData {
   id: string;
@@ -14,7 +18,7 @@ interface SlideData {
   description: string;
 }
 
-const slidesData: SlideData[] = [
+const SLIDES: SlideData[] = [
   {
     id: "slide-1",
     headlineLine1: "The Glass-First System",
@@ -38,454 +42,508 @@ const slidesData: SlideData[] = [
   },
 ];
 
-/* ───────── Word-Split Helper ───────── */
-const SplitWords = ({
+const SLIDE_DURATION = 7; // seconds
+
+/* ═══════════════════════════════════════
+   Word & Character Split Helpers
+   ═══════════════════════════════════════ */
+
+const SplitChars = ({
   text,
   className,
-  wordClass,
+  charClass,
 }: {
   text: string;
   className?: string;
-  wordClass: string;
+  charClass: string;
 }) => (
   <span className={className}>
-    {text.split(" ").map((word, i) => (
-      <span key={i} className={styles.wordOuter}>
-        <span className={`${wordClass} ${styles.word}`}>{word}</span>
+    {text.split(" ").map((word, wordIdx) => (
+      <span key={wordIdx} className={styles.wordOuter}>
+        {word.split("").map((char, charIdx) => (
+          <span key={charIdx} className={styles.charOuter}>
+            <span className={`${charClass} ${styles.char}`}>{char}</span>
+          </span>
+        ))}
+        {/* Add a space after each word except the last one */}
+        {wordIdx < text.split(" ").length - 1 && (
+          <span className={styles.charOuter}>
+            <span className={styles.char}>&nbsp;</span>
+          </span>
+        )}
       </span>
     ))}
   </span>
 );
 
 /* ═══════════════════════════════════════
-   Individual Slide
+   Animation Helpers
    ═══════════════════════════════════════ */
-const HeroHeadlineSlide = ({
-  data,
-  isActive,
-  isFirstRender,
-  isTransitioning,
-}: {
-  data: SlideData;
-  isActive: boolean;
-  isFirstRender: boolean;
-  isTransitioning: boolean;
-}) => {
-  const container = useRef<HTMLDivElement>(null);
-  const idleAnim = useRef<gsap.core.Tween | null>(null);
-  const subtlePulse = useRef<gsap.core.Tween | null>(null);
 
-  useGSAP(
-    () => {
-      if (!container.current || isTransitioning) return;
-      const ctx = container.current;
+/** Check reduced-motion preference once */
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      // Scoped selectors — only target elements inside THIS slide
-      const wordsL1 = ctx.querySelectorAll(`.${styles.wordLine1}`);
-      const wordsL2 = ctx.querySelectorAll(`.${styles.wordLine2}`);
-      const desc = ctx.querySelector(`.${styles.description}`);
-      const shimmer = ctx.querySelector(`.${styles.shimmerOverlay}`);
+/** Animate a slide IN — cinematic reveal */
+function animateSlideIn(
+  el: HTMLElement,
+): gsap.core.Timeline {
+  const contentWrapper = el.querySelector(`.${styles.contentWrapper}`);
+  const charsL1 = el.querySelectorAll(`.${styles.charLine1}`);
+  const charsL2 = el.querySelectorAll(`.${styles.charLine2}`);
+  const desc = el.querySelector(`.${styles.description}`);
+  const reduced = prefersReducedMotion();
 
-      if (isActive) {
-        /* ─── ENTER ─── */
-        // Kill any lingering animations
-        idleAnim.current?.kill();
-        subtlePulse.current?.kill();
+  const tl = gsap.timeline();
 
-        // Ensure container is visible and on top
-        gsap.set(ctx, { zIndex: 10, visibility: "visible", opacity: 1 });
+  // Unified start for all transitions
+  tl.set(el, { zIndex: 10, visibility: "visible", opacity: 1 });
+  tl.set(contentWrapper, { visibility: "visible", opacity: 1 });
 
-        const tl = gsap.timeline();
+  if (reduced) {
+    tl.set([charsL1, charsL2], { opacity: 1, yPercent: 0 });
+    tl.set(desc, { opacity: 1, y: 0 });
+    return tl;
+  }
 
-        // ── Reset words with enhanced initial state
-        gsap.set([wordsL1, wordsL2], {
-          yPercent: 40,
-          opacity: 0,
-          rotateX: -25,
-          rotateY: 5,
-          skewY: 2,
-          scale: 0.92,
-          filter: "blur(6px)",
-          transformOrigin: "50% 100%",
-        });
+  // ── Reset chars — standardized depth
+  tl.set([charsL1, charsL2], {
+    opacity: 0,
+    filter: "blur(20px)",
+    transformOrigin: "50% 0%",
+  });
 
-        gsap.set(desc, {
-          y: 15,
-          opacity: 0,
-          filter: "blur(10px)",
-          scale: 0.98,
-          letterSpacing: "-0.02em",
-        });
+  tl.set(desc, {
+    opacity: 0,
+    filter: "blur(15px)",
+  });
 
-        if (shimmer) gsap.set(shimmer, { xPercent: -120, opacity: 0 });
+  // ── Entrance Timing ──
+  // Duration: 1.5s total for text cascade
+  tl.to(charsL1, {
+    opacity: 1,
+    filter: "blur(0px)",
+    duration: 1.5,
+    stagger: { amount: 0.7, from: "start" },
+    ease: "expo.out",
+  });
 
-        const enterDelay = isFirstRender ? 0 : 0.25;
-
-        // ── Line 1 words — refined cascade with custom ease
-        tl.to(wordsL1, {
-          yPercent: 0,
-          opacity: 1,
-          rotateX: 0,
-          rotateY: 0,
-          skewY: 0,
-          scale: 1,
-          filter: "blur(0px)",
-          duration: 1.1,
-          stagger: {
-            each: 0.04,
-            from: "start",
-            ease: "power3.out"
-          },
-          ease: "expo.out",
-          delay: enterDelay,
-        });
-
-        // ── Line 2 words — with slight delay for dramatic effect
-        tl.to(
-          wordsL2,
-          {
-            yPercent: 0,
-            opacity: 1,
-            rotateX: 0,
-            rotateY: 0,
-            skewY: 0,
-            scale: 1,
-            filter: "blur(0px)",
-            duration: 1.0,
-            stagger: {
-              each: 0.035,
-              from: "start",
-              ease: "power3.out"
-            },
-            ease: "expo.out",
-          },
-          "<0.15",
-        );
-
-        // ── Shimmer sweep with refined timing
-        if (shimmer) {
-          tl.to(
-            shimmer,
-            {
-              xPercent: 240,
-              opacity: 0.75,
-              duration: 1.6,
-              ease: "power2.inOut",
-            },
-            "<0.3",
-          );
-        }
-
-        // ── Description — smooth atmospheric reveal
-        tl.to(
-          desc,
-          {
-            y: 0,
-            opacity: 1,
-            filter: "blur(0px)",
-            scale: 1,
-            letterSpacing: "0em",
-            duration: 1.2,
-            ease: "expo.out",
-          },
-          "0.55",
-        );
-
-        // ── Subtle idle breathing animation with refined parameters
-        tl.call(() => {
-          idleAnim.current = gsap.to(ctx, {
-            y: "-=6",
-            duration: 3.8,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: -1,
-          });
-          
-          // Add subtle pulse effect to headline for premium feel
-          subtlePulse.current = gsap.to(wordsL1, {
-            scale: 1.02,
-            duration: 4,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: -1,
-            delay: 1,
-          });
-        });
-      } else {
-        /* ─── EXIT ─── */
-        idleAnim.current?.kill();
-        subtlePulse.current?.kill();
-        gsap.set(ctx, { zIndex: 1 });
-
-        const exitTl = gsap.timeline();
-
-        // Words slide up with refined motion
-        exitTl.to([wordsL1, wordsL2], {
-          yPercent: -80,
-          opacity: 0,
-          rotateX: 35,
-          rotateY: -3,
-          skewY: -3,
-          filter: "blur(10px)",
-          scale: 0.95,
-          duration: 0.7,
-          stagger: {
-            each: 0.03,
-            from: "end",
-            ease: "power3.in"
-          },
-          ease: "power3.inOut",
-        });
-
-        exitTl.to(
-          desc,
-          {
-            y: -20,
-            opacity: 0,
-            filter: "blur(12px)",
-            scale: 0.97,
-            duration: 0.55,
-            ease: "power2.in",
-          },
-          "<0.1",
-        );
-
-        // Final hide with smooth transition
-        exitTl.set(ctx, { visibility: "hidden", opacity: 0, y: 0 }, "+=0.1");
-      }
+  tl.to(
+    charsL2,
+    {
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1.4,
+      stagger: { amount: 0.6, from: "start" },
+      ease: "expo.out",
     },
-    { dependencies: [isActive, isTransitioning], scope: container },
+    "<0.08",
   );
 
-  return (
-    <div
-      ref={container}
-      className={`${styles.contentWrapper} ${
-        isActive ? styles.contentActive : ""
-      }`}
-      aria-hidden={!isActive}
-    >
-      <h1 className={`${styles.headline} u-font-black`}>
-        {/* Shimmer overlay for the headline */}
-        {/* <span className={styles.shimmerOverlay} aria-hidden="true" /> */}
-
-        <span className={styles.lineWrapper}>
-          <SplitWords
-            text={data.headlineLine1}
-            className={styles.headlineLine}
-            wordClass={styles.wordLine1}
-          />
-        </span>
-        <span className={styles.lineWrapper}>
-          <SplitWords
-            text={data.headlineLine2}
-            className={styles.headlineLineSecondary}
-            wordClass={styles.wordLine2}
-          />
-        </span>
-      </h1>
-
-      <p className={styles.description}>{data.description}</p>
-    </div>
+  tl.to(
+    desc,
+    {
+      y: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      scale: 1,
+      duration: 1.8,
+      ease: "power4.out",
+    },
+    "<0.4",
   );
-};
+
+  return tl;
+}
+
+/** Animate a slide OUT — smooth cinematic fade */
+function animateSlideOut(el: HTMLElement): gsap.core.Timeline {
+  const contentWrapper = el.querySelector(`.${styles.contentWrapper}`);
+  const charsL1 = el.querySelectorAll(`.${styles.charLine1}`);
+  const charsL2 = el.querySelectorAll(`.${styles.charLine2}`);
+  const desc = el.querySelector(`.${styles.description}`);
+  const reduced = prefersReducedMotion();
+
+  const tl = gsap.timeline();
+
+  tl.set(el, { zIndex: 1 });
+
+  if (reduced) {
+    tl.set([charsL1, charsL2], { opacity: 0 });
+    tl.set(desc, { opacity: 0 });
+    tl.set(contentWrapper, { visibility: "hidden", opacity: 0 });
+    tl.set(el, { visibility: "hidden", opacity: 0, y: 0 });
+    return tl;
+  }
+
+  // ── Exit Timing ──
+  // Duration: 1.1s total
+  tl.to(charsL1, {
+    yPercent: 0,
+    opacity: 0,
+    filter: "blur(20px)",
+    duration: 1.1,
+    stagger: { amount: 0.4, from: "start" },
+    ease: "power4.in",
+  });
+
+  tl.to(
+    charsL2,
+    {
+      opacity: 0,
+      filter: "blur(20px)",
+      duration: 1.1,
+      stagger: { amount: 0.4, from: "start" },
+      ease: "power4.in",
+    },
+    "<0.04",
+  );
+
+  tl.to(
+    desc,
+    {
+      opacity: 0,
+      filter: "blur(15px)",
+      duration: 0.9,
+      ease: "power3.in",
+    },
+    "<0.1",
+  );
+
+  tl.set([el, contentWrapper], { visibility: "hidden", opacity: 0 });
+
+  return tl;
+}
 
 /* ═══════════════════════════════════════
-   Slider Wrapper
+   Slider Component
    ═══════════════════════════════════════ */
+
 export const HeroHeadlineSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isFirstRender, setIsFirstRender] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const slideDuration = 7000;
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
+  // Refs for GSAP — avoids stale closures
+  const activeRef = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const progressRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const slideEls = useRef<(HTMLDivElement | null)[]>([]);
+  const progressEls = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Memoize slides data to prevent unnecessary re-renders
-  const memoizedSlides = useMemo(() => slidesData, []);
+  // GSAP resources we need to clean up
+  const autoAdvance = useRef<gsap.core.Tween | null>(null);
+  const progressTween = useRef<gsap.core.Tween | null>(null);
+  const idleTween = useRef<gsap.core.Tween | null>(null);
+  const transitionTl = useRef<gsap.core.Timeline | null>(null);
+  const isAnimating = useRef(false);
 
-  // Enhanced Mouse Parallax Effect with refined sensitivity
+  /* ───── Stable ref for goToSlide (avoids circular deps) ───── */
+  const goToSlideRef = useRef<(index: number) => void>(
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    () => {},
+  );
+
+  /* ───── Auto-Advance Scheduler ───── */
+
+  const scheduleAutoAdvance = useCallback(() => {
+    // Kill any existing scheduled call
+    autoAdvance.current?.kill();
+
+    autoAdvance.current = gsap.delayedCall(SLIDE_DURATION, () => {
+      const next = (activeRef.current + 1) % SLIDES.length;
+      goToSlideRef.current(next);
+    });
+  }, []);
+
+  /* ───── Progress Bar ───── */
+
+  const startProgressBar = useCallback((index: number) => {
+    // Reset all bars
+    progressEls.current.forEach((el) => {
+      if (el) {
+        gsap.to(el, {
+          scaleX: 0,
+          opacity: 0.25,
+          duration: 0.25,
+          transformOrigin: "left center",
+          ease: "power2.out",
+        });
+      }
+    });
+
+    // Animate current bar over slideDuration
+    const bar = progressEls.current[index];
+    if (bar) {
+      progressTween.current?.kill();
+      progressTween.current = gsap.fromTo(
+        bar,
+        { scaleX: 0, opacity: 1 },
+        {
+          scaleX: 1,
+          opacity: 1,
+          duration: SLIDE_DURATION,
+          ease: "none",
+          transformOrigin: "left center",
+        },
+      );
+    }
+  }, []);
+
+  /* ───── Idle Breathing ───── */
+
+  const startIdleBreathing = useCallback((el: HTMLElement) => {
+    idleTween.current?.kill();
+
+    if (prefersReducedMotion()) return;
+
+    idleTween.current = gsap.to(el, {
+      y: "-=8",
+      rotateZ: 0.5,
+      duration: 4,
+      ease: "sine.inOut",
+      yoyo: true,
+      repeat: -1,
+    });
+  }, []);
+
+  /* ───── Core Navigation ───── */
+
+  const goToSlide = useCallback(
+    (nextIndex: number) => {
+      if (isAnimating.current || nextIndex === activeRef.current) return;
+
+      const prevIndex = activeRef.current;
+      const prevEl = slideEls.current[prevIndex];
+      const nextEl = slideEls.current[nextIndex];
+
+      if (!prevEl || !nextEl) return;
+
+      isAnimating.current = true;
+      
+      // 1. Kill all potential conflicting tweens immediately
+      autoAdvance.current?.kill();
+      progressTween.current?.kill();
+      idleTween.current?.kill();
+      transitionTl.current?.kill();
+
+      // 2. Immediate state sync to prevent race conditions during the transition
+      // We update activeRef immediately, but setActiveIndex only after transition logic
+      activeRef.current = nextIndex;
+
+      // 3. Reset idle transform and add slight "push" to outgoing slide
+      gsap.to(prevEl, { y: 0, duration: 0.5, ease: "power2.inOut" });
+
+      // 4. Viewport "Camera" Zoom
+      const viewport = containerRef.current?.querySelector(`.${styles.slidesViewport}`);
+      if (viewport) {
+        gsap.fromTo(viewport, 
+          { z: 0 }, 
+          { z: 0, duration: 0.6, yoyo: true, repeat: 1, ease: "power2.inOut" }
+        );
+      }
+
+      // 5. Unified Transition Timeline
+      const master = gsap.timeline({
+        onComplete: () => {
+          isAnimating.current = false;
+          setActiveIndex(nextIndex); // Sync UI state
+          startIdleBreathing(nextEl);
+          startProgressBar(nextIndex);
+          scheduleAutoAdvance();
+        },
+      });
+
+      // Exit and Entrance with precise 0.7s overlap
+      master.add(animateSlideOut(prevEl));
+      master.add(animateSlideIn(nextEl), "-=0.7");
+
+      transitionTl.current = master;
+    },
+    [startProgressBar, startIdleBreathing, scheduleAutoAdvance],
+  );
+
+  // Keep stable ref in sync
+  goToSlideRef.current = goToSlide;
+
+  /* ───── Pause / Resume ───── */
+
+  const pause = useCallback(() => {
+    setIsPaused(true);
+    autoAdvance.current?.pause();
+    progressTween.current?.pause();
+    idleTween.current?.pause();
+  }, []);
+
+  const resume = useCallback(() => {
+    setIsPaused(false);
+    // Don't resume if we're mid-transition
+    if (!isAnimating.current) {
+      autoAdvance.current?.resume();
+      progressTween.current?.resume();
+      idleTween.current?.resume();
+    }
+  }, []);
+
+  /* ───── Bootstrap: initial slide enter + auto advance ───── */
+
   useGSAP(
     () => {
       if (!containerRef.current) return;
-      
-      const handleMouseMove = (e: MouseEvent) => {
-        const { clientX, clientY } = e;
-        const { width, height, left, top } =
-          containerRef.current!.getBoundingClientRect();
 
-        const xPos = (clientX - left) / width - 0.5;
-        const yPos = (clientY - top) / height - 0.5;
+      // Hide all slides initially
+      slideEls.current.forEach((el) => {
+        if (el) gsap.set(el, { visibility: "hidden", opacity: 0, zIndex: 1 });
+      });
 
-        // Target elements inside the active viewport
-        const activeViewport = containerRef.current!.querySelector(
-          `.${styles.slidesViewport}`,
-        );
-        if (activeViewport) {
-          // More refined parallax with reduced intensity for premium feel
-          gsap.to(activeViewport, {
-            rotateY: xPos * 4,
-            rotateX: -yPos * 4,
-            duration: 1.4,
-            ease: "power2.out",
-          });
-        }
-      };
-
-      window.addEventListener("mousemove", handleMouseMove);
-      
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-      };
+      // Enter the first slide
+      const firstEl = slideEls.current[0];
+      if (firstEl) {
+        const tl = animateSlideIn(firstEl);
+        tl.then(() => {
+          startIdleBreathing(firstEl);
+          startProgressBar(0);
+          scheduleAutoAdvance();
+        });
+      }
     },
     { scope: containerRef },
   );
 
-  // Auto-advance logic
-  useEffect(() => {
-    if (isFirstRender) return;
-    
-    const startAutoAdvance = () => {
-      const interval = setInterval(() => {
-        setActiveIndex((prev) => (prev + 1) % memoizedSlides.length);
-      }, slideDuration);
-      return interval;
-    };
-    
-    intervalRef.current = startAutoAdvance();
-    
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-    };
-  }, [isFirstRender, memoizedSlides.length, slideDuration]);
-
-  // Handle manual navigation
-  const goToSlide = useCallback((index: number) => {
-    if (index === activeIndex) return;
-    
-    // Clear any existing interval and timeout to prevent conflicts
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    
-    setIsTransitioning(true);
-    setActiveIndex(index);
-    
-    // Reset transition state after animation completes
-    // Use a more reliable timing based on actual animation duration
-    timeoutRef.current = setTimeout(() => {
-      setIsTransitioning(false);
-      // Restart auto-advance after manual navigation
-      intervalRef.current = setInterval(() => {
-        setActiveIndex((prev) => (prev + 1) % memoizedSlides.length);
-      }, slideDuration);
-    }, 1400); // Match the actual GSAP exit animation duration (~1.35s)
-  }, [activeIndex, memoizedSlides.length, slideDuration]);
-
-  // Keyboard navigation support
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        goToSlide((activeIndex + 1) % memoizedSlides.length);
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        goToSlide((activeIndex - 1 + memoizedSlides.length) % memoizedSlides.length);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activeIndex, goToSlide, memoizedSlides.length]);
-
-  // Initialize 
-  useEffect(() => {
-    setIsFirstRender(false);
-  }, []);
-
+  /* ───── Mouse Parallax ───── */
 
   useGSAP(
     () => {
-      if (isTransitioning) return;
-      
-      // Reset all progress bars with smooth transition
-      progressRefs.current.forEach((ref) => {
-        if (ref) {
-          gsap.to(ref, {
-            scaleX: 0,
-            opacity: 0.25,
-            duration: 0.3,
-            transformOrigin: "left center",
+      if (!containerRef.current) return;
+
+      const handleMouseMove = (e: MouseEvent) => {
+        if (prefersReducedMotion()) return;
+        
+        const { width, height, left, top } =
+          containerRef.current!.getBoundingClientRect();
+        const xPos = (e.clientX - left) / width - 0.5;
+        const yPos = (e.clientY - top) / height - 0.5;
+
+        // Viewport slight tilt
+        const viewport = containerRef.current!.querySelector(
+          `.${styles.slidesViewport}`,
+        );
+        if (viewport) {
+          gsap.to(viewport, {
+            rotateY: xPos * 5,
+            rotateX: -yPos * 5,
+            duration: 1.5,
             ease: "power2.out",
           });
         }
-      });
 
-      // Animate current active bar with refined timing
-      const currentRef = progressRefs.current[activeIndex];
-      if (currentRef) {
-        gsap.fromTo(
-          currentRef,
-          { scaleX: 0, opacity: 1 },
-          {
-            scaleX: 1,
-            opacity: 1,
-            duration: slideDuration / 1000,
-            ease: "none",
-            onComplete: () => {
-              // Add subtle glow effect at completion for premium touch
-              gsap.to(currentRef, {
-                boxShadow: "0 0 8px rgba(255, 255, 255, 0.3)",
-                duration: 0.2,
-                yoyo: true,
-                repeat: 1,
-              });
-            }
-          },
-        );
-      }
+        // Granular content parallax
+        const activeSlide = slideEls.current[activeRef.current];
+        if (activeSlide) {
+          const headline = activeSlide.querySelector(`.${styles.headline}`);
+          const desc = activeSlide.querySelector(`.${styles.description}`);
+
+          if (headline) {
+            gsap.to(headline, {
+              x: xPos * 25,
+              y: yPos * 15,
+              rotateY: xPos * 8,
+              rotateX: -yPos * 8,
+              duration: 1.8,
+              ease: "power3.out",
+            });
+          }
+
+          if (desc) {
+            gsap.to(desc, {
+              x: xPos * 45,
+              y: yPos * 25,
+              duration: 2.2,
+              ease: "power3.out",
+            });
+          }
+        }
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
     },
-    { dependencies: [activeIndex, isTransitioning] },
+    { scope: containerRef },
   );
 
+  /* ───── Keyboard Navigation (scoped to container) ───── */
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        goToSlide((activeRef.current + 1) % SLIDES.length);
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        goToSlide((activeRef.current - 1 + SLIDES.length) % SLIDES.length);
+      }
+    },
+    [goToSlide],
+  );
+
+  /* ───── Render ───── */
+
   return (
-    <div 
-      className={styles.sliderContainer} 
+    <div
+      className={`${styles.sliderContainer} ${
+        isPaused ? styles.sliderPaused : ""
+      }`}
       ref={containerRef}
       role="region"
+      aria-roledescription="carousel"
       aria-label="Hero headline slider"
       tabIndex={0}
+      onKeyDown={handleKeyDown}
+      onMouseEnter={pause}
+      onMouseLeave={resume}
+      onFocus={pause}
+      onBlur={resume}
     >
       {/* Slides Viewport */}
       <div className={styles.slidesViewport}>
-        {memoizedSlides.map((data, index) => {
-          const isActiveState = index === activeIndex;
+        {SLIDES.map((data, index) => {
+          const isActive = index === activeIndex;
           return (
             <div
               key={data.id}
+              ref={(el) => {
+                slideEls.current[index] = el;
+              }}
               className={`${styles.slide} ${
-                isActiveState ? styles.slideActive : ""
+                isActive ? styles.slideActive : ""
               }`}
-              role="tabpanel"
-              aria-hidden={!isActiveState}
-              aria-labelledby={`slide-tab-${index}`}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`Slide ${index + 1} of ${SLIDES.length}`}
+              aria-hidden={!isActive}
             >
-              <HeroHeadlineSlide
-                data={data}
-                isActive={isActiveState}
-                isFirstRender={isFirstRender}
-                isTransitioning={isTransitioning}
-              />
+              <div
+                className={`${styles.contentWrapper} ${
+                  isActive ? styles.contentActive : ""
+                }`}
+              >
+                <h1 className={`${styles.headline} u-font-black`}>
+                  <span className={styles.lineWrapper}>
+                    <SplitChars
+                      text={data.headlineLine1}
+                      className={styles.headlineLine}
+                      charClass={styles.charLine1}
+                    />
+                  </span>
+                  <span className={styles.lineWrapper}>
+                    <SplitChars
+                      text={data.headlineLine2}
+                      className={styles.headlineLineSecondary}
+                      charClass={styles.charLine2}
+                    />
+                  </span>
+                </h1>
+                <p className={styles.description}>{data.description}</p>
+              </div>
             </div>
           );
         })}
@@ -493,42 +551,38 @@ export const HeroHeadlineSlider = () => {
 
       {/* Progress Indicators */}
       <div className={styles.progressContainer} role="tablist">
-        {memoizedSlides.map((_, index) => (
+        {SLIDES.map((_, index) => (
           <button
             key={`progress-${index}`}
             className={`${styles.progressTrack} ${
               index === activeIndex ? styles.progressTrackActive : ""
             }`}
-            onClick={() => {
-              if (index !== activeIndex) {
-                goToSlide(index);
-              }
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                if (index !== activeIndex) {
-                  goToSlide(index);
-                }
-              }
-            }}
-            aria-label={`Go to slide ${index + 1} of ${memoizedSlides.length}`}
+            onClick={() => goToSlide(index)}
+            aria-label={`Go to slide ${index + 1} of ${SLIDES.length}`}
             aria-selected={index === activeIndex}
             role="tab"
             id={`slide-tab-${index}`}
             type="button"
-            disabled={index === activeIndex}
           >
             <div
               className={styles.progressFill}
               ref={(el) => {
-                progressRefs.current[index] = el;
+                progressEls.current[index] = el;
               }}
             />
           </button>
         ))}
       </div>
-      
+
+      {/* Pause Indicator (screen-reader + visual) */}
+      {isPaused && (
+        <div className={styles.pauseIndicatorVisible} aria-live="polite">
+          <span className={styles.pauseIcon} aria-hidden="true">
+            ❚❚
+          </span>
+          <span className="u-sr-only">Paused</span>
+        </div>
+      )}
     </div>
   );
 };

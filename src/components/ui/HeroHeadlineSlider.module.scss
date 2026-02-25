@@ -1,6 +1,8 @@
 /* ═══════════════════════════════════════
-   HeroHeadlineSlider — Pro Animation Styles
+   HeroHeadlineSlider — Robust Styles
    ═══════════════════════════════════════ */
+
+/* ── Container ── */
 
 .sliderContainer {
   width: 100%;
@@ -11,12 +13,14 @@
   flex-direction: column;
   align-items: center;
   perspective: 2000px;
+  outline: none; /* focus managed via visible indicator */
 }
+
+/* ── Slides Viewport ── */
 
 .slidesViewport {
   position: relative;
   width: 100%;
-  min-height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,6 +30,8 @@
     min-height: 480px;
   }
 }
+
+/* ── Individual Slide ── */
 
 .slide {
   position: absolute;
@@ -59,7 +65,6 @@
   padding: 1rem;
   opacity: 0;
   visibility: hidden;
-  will-change: transform, opacity;
 }
 
 .contentActive {
@@ -71,60 +76,48 @@
 .headline {
   font-size: clamp(2.8rem, 8vw, 6.5rem);
   letter-spacing: -0.05em;
-  line-height: 1;
+  line-height: 1.1;
   margin: 0;
   position: relative;
-}
-
-/* Shimmer sweep overlay */
-.shimmerOverlay {
-  position: absolute;
-  inset: 0;
-  width: 30%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.25) 50%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 10;
-  mix-blend-mode: overlay;
-  opacity: 0;
-  transform: skewX(-20deg);
+  perspective: 1000px;
 }
 
 .lineWrapper {
   display: block;
-  padding-bottom: 0.15em;
-  margin-bottom: -0.1em;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.05em;
 }
 
 /* Per-word animation wrappers */
 .wordOuter {
   display: inline-block;
   vertical-align: top;
-  perspective: 800px;
+  white-space: nowrap;
 
   &:not(:last-child) {
-    margin-right: 0.28em;
+    margin-right: 0.15em; /* Small space handled by SplitChars nbsp */
   }
 }
 
-.word {
+.charOuter {
   display: inline-block;
-  transform-style: preserve-3d;
-  will-change: transform, opacity, filter;
-  backface-visibility: hidden;
-  
+  vertical-align: top;
+  // overflow: hidden;
+  padding-bottom: 0.05em;
+}
+
+.char {
+  display: inline-block;
+
   background: linear-gradient(
     180deg,
-    var(--atomix-text-primary-emphasis, #fff) 20%,
-    var(--atomix-text-secondary, #94a3b8) 100%
+    var(--atomix-text-primary-emphasis, #fff) 0%,
+    rgba(255, 255, 255, 0.75) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  
 }
 
 .headlineLine {
@@ -133,16 +126,24 @@
 
 .headlineLineSecondary {
   display: block;
-  opacity: 0.8;
+  font-weight: 300;
+  opacity: 0.65;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Word-level class markers for GSAP targeting */
-.wordLine1 { 
-  visibility: inherit; 
+/* Character-level class markers for GSAP targeting */
+.charLine1 {
+  visibility: inherit;
 }
 
-.wordLine2 { 
-  visibility: inherit; 
+.charLine2 {
+  visibility: inherit;
 }
 
 /* ── Description ── */
@@ -152,12 +153,13 @@
   max-width: 48rem;
   margin: 0 auto;
   line-height: 1.65;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.05rem;
-  will-change: transform, opacity, filter;
+  letter-spacing: 0.01em;
+  opacity: 0.8;
 
   @media (min-width: 768px) {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     line-height: 1.6;
   }
 }
@@ -169,66 +171,134 @@
 .progressContainer {
   display: flex;
   gap: 0.75rem;
-  margin-top: 2.5rem;
   z-index: 30;
   position: relative;
   justify-content: center;
 }
 
 .progressTrack {
-  width: 48px;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.08);
+  width: 40px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 100px;
   cursor: pointer;
   overflow: hidden;
-  transition:
-    width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    background 0.3s ease,
-    box-shadow 0.4s ease;
   border: none;
   padding: 0;
   appearance: none;
   -webkit-appearance: none;
+  position: relative;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+    transform: scaleY(1.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--atomix-focus-ring, rgba(59, 130, 246, 0.6));
+    outline-offset: 4px;
   }
 
   @media (min-width: 768px) {
-    width: 56px;
+    width: 64px;
   }
 }
 
 .progressTrackActive {
-  width: 80px;
-  background: rgba(255, 255, 255, 0.15);
+  width: 100px;
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: 
-    0 0 20px rgba(59, 130, 246, 0.3),
-    0 0 40px rgba(255, 255, 255, 0.1);
+    0 0 30px rgba(59, 130, 246, 0.2),
+    0 0 60px rgba(255, 255, 255, 0.05);
+  transform: scaleY(1.2);
 
   @media (min-width: 768px) {
-    width: 100px;
+    width: 140px;
   }
 }
 
 .progressFill {
   width: 100%;
   height: 100%;
-  background: var(--atomix-text-primary-emphasis, #fff);
+  background: linear-gradient(90deg, #3b82f6, #60a5fa, #fff, #3b82f6);
+  background-size: 300% 100%;
   border-radius: 100px;
-  opacity: 0.9;
+  opacity: 1;
   transform-origin: left center;
   transform: scaleX(0);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  animation: progressGlow 3s linear infinite;
 }
 
-/* Pause indicator for accessibility */
-.pauseIndicator {
+@keyframes progressGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* ═══════════════════════════════════════
+   Pause Indicator
+   ═══════════════════════════════════════ */
+
+.pauseIndicatorVisible {
   position: absolute;
-  top: -9999px;
-  left: -9999px;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  animation: fadeInPause 0.3s ease forwards;
+  pointer-events: none;
+}
+
+.pauseIcon {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+}
+
+@keyframes fadeInPause {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ═══════════════════════════════════════
+   Paused State — subtle visual cue
+   ═══════════════════════════════════════ */
+
+// .sliderPaused {
+//   .progressFill {
+//     transition: opacity 0.3s ease;
+//   }
+// }
+
+/* ═══════════════════════════════════════
+   Reduced Motion
+   ═══════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .word,
+  .description,
+  .contentWrapper {
+    transition: opacity 0.15s ease;
+  }
+
+  .slidesViewport {
+    transform-style: flat;
+  }
+
+  .wordOuter {
+    perspective: none;
+  }
+
+  .progressTrack {
+    transition: none;
+  }
 }
