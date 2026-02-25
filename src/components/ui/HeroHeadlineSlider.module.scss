@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  perspective: 2000px; // Added for container-level 3D effects
+  perspective: 2000px;
 }
 
 .slidesViewport {
@@ -20,8 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform-style: preserve-3d; // Critical for 3D parallax
-  will-change: transform;
+  transform-style: preserve-3d;
 
   @media (min-width: 768px) {
     min-height: 480px;
@@ -39,7 +38,7 @@
   justify-content: center;
   z-index: 1;
   pointer-events: none;
-  visibility: hidden; // Default to hidden
+  visibility: hidden;
 
   &.slideActive {
     z-index: 10;
@@ -75,14 +74,13 @@
   line-height: 1;
   margin: 0;
   position: relative;
-  overflow: hidden; // Restored to contain shimmer, safe with reduced 3D rotation
 }
 
 /* Shimmer sweep overlay */
 .shimmerOverlay {
   position: absolute;
   inset: 0;
-  width: 30%; // Even more focused
+  width: 30%;
   background: linear-gradient(
     90deg,
     transparent 0%,
@@ -91,14 +89,13 @@
   );
   pointer-events: none;
   z-index: 10;
-  mix-blend-mode: overlay; // Using overlay instead of color-dodge for reliability
+  mix-blend-mode: overlay;
   opacity: 0;
   transform: skewX(-20deg);
 }
 
 .lineWrapper {
   display: block;
-  // removed overflow hidden to prevent clipping of 3D text
   padding-bottom: 0.15em;
   margin-bottom: -0.1em;
 }
@@ -106,7 +103,6 @@
 /* Per-word animation wrappers */
 .wordOuter {
   display: inline-block;
-  // removed overflow: hidden to prevent clipping of 3D transforms
   vertical-align: top;
   perspective: 800px;
 
@@ -121,11 +117,10 @@
   will-change: transform, opacity, filter;
   backface-visibility: hidden;
   
-  // Gradient moved here for better 3D transform support with background-clip: text
   background: linear-gradient(
     180deg,
-    var(--color-text-primary-emphasis, #fff) 20%,
-    var(--color-text-secondary, #94a3b8) 100%
+    var(--atomix-text-primary-emphasis, #fff) 20%,
+    var(--atomix-text-secondary, #94a3b8) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -134,7 +129,6 @@
 
 .headlineLine {
   display: block;
-  // removed gradient and clip from here to avoid 3D rendering bugs
 }
 
 .headlineLineSecondary {
@@ -143,13 +137,18 @@
 }
 
 /* Word-level class markers for GSAP targeting */
-.wordLine1 { visibility: inherit; }
-.wordLine2 { visibility: inherit; }
+.wordLine1 { 
+  visibility: inherit; 
+}
+
+.wordLine2 { 
+  visibility: inherit; 
+}
 
 /* ── Description ── */
 
 .description {
-  color: var(--atomix-secondary-text-emphasis, #94a3b8);
+  color: var(--atomix-text-secondary, #94a3b8);
   max-width: 48rem;
   margin: 0 auto;
   line-height: 1.65;
@@ -206,7 +205,7 @@
   width: 80px;
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 
-    0 0 20px rgba(59, 130, 246, 0.3), // primary glow
+    0 0 20px rgba(59, 130, 246, 0.3),
     0 0 40px rgba(255, 255, 255, 0.1);
 
   @media (min-width: 768px) {
@@ -217,9 +216,19 @@
 .progressFill {
   width: 100%;
   height: 100%;
-  background: var(--color-text-primary-emphasis, #fff);
+  background: var(--atomix-text-primary-emphasis, #fff);
   border-radius: 100px;
   opacity: 0.9;
   transform-origin: left center;
   transform: scaleX(0);
+}
+
+/* Pause indicator for accessibility */
+.pauseIndicator {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }
