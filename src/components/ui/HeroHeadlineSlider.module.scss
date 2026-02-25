@@ -1,0 +1,225 @@
+/* ═══════════════════════════════════════
+   HeroHeadlineSlider — Pro Animation Styles
+   ═══════════════════════════════════════ */
+
+.sliderContainer {
+  width: 100%;
+  position: relative;
+  z-index: 20;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 2000px; // Added for container-level 3D effects
+}
+
+.slidesViewport {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d; // Critical for 3D parallax
+  will-change: transform;
+
+  @media (min-width: 768px) {
+    min-height: 480px;
+  }
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
+  visibility: hidden; // Default to hidden
+
+  &.slideActive {
+    z-index: 10;
+    visibility: visible;
+  }
+}
+
+/* ── Content Wrapper (per slide) ── */
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.75rem;
+  width: 100%;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.contentActive {
+  pointer-events: auto;
+}
+
+/* ── Headline ── */
+
+.headline {
+  font-size: clamp(2.8rem, 8vw, 6.5rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin: 0;
+  position: relative;
+  overflow: hidden; // Restored to contain shimmer, safe with reduced 3D rotation
+}
+
+/* Shimmer sweep overlay */
+.shimmerOverlay {
+  position: absolute;
+  inset: 0;
+  width: 30%; // Even more focused
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: overlay; // Using overlay instead of color-dodge for reliability
+  opacity: 0;
+  transform: skewX(-20deg);
+}
+
+.lineWrapper {
+  display: block;
+  // removed overflow hidden to prevent clipping of 3D text
+  padding-bottom: 0.15em;
+  margin-bottom: -0.1em;
+}
+
+/* Per-word animation wrappers */
+.wordOuter {
+  display: inline-block;
+  // removed overflow: hidden to prevent clipping of 3D transforms
+  vertical-align: top;
+  perspective: 800px;
+
+  &:not(:last-child) {
+    margin-right: 0.28em;
+  }
+}
+
+.word {
+  display: inline-block;
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+  
+  // Gradient moved here for better 3D transform support with background-clip: text
+  background: linear-gradient(
+    180deg,
+    var(--color-text-primary-emphasis, #fff) 20%,
+    var(--color-text-secondary, #94a3b8) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.headlineLine {
+  display: block;
+  // removed gradient and clip from here to avoid 3D rendering bugs
+}
+
+.headlineLineSecondary {
+  display: block;
+  opacity: 0.8;
+}
+
+/* Word-level class markers for GSAP targeting */
+.wordLine1 { visibility: inherit; }
+.wordLine2 { visibility: inherit; }
+
+/* ── Description ── */
+
+.description {
+  color: var(--atomix-secondary-text-emphasis, #94a3b8);
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.65;
+  font-weight: 500;
+  font-size: 1.05rem;
+  will-change: transform, opacity, filter;
+
+  @media (min-width: 768px) {
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+}
+
+/* ═══════════════════════════════════════
+   Progress Indicators
+   ═══════════════════════════════════════ */
+
+.progressContainer {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  z-index: 30;
+  position: relative;
+  justify-content: center;
+}
+
+.progressTrack {
+  width: 48px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    box-shadow 0.4s ease;
+  border: none;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    width: 56px;
+  }
+}
+
+.progressTrackActive {
+  width: 80px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.3), // primary glow
+    0 0 40px rgba(255, 255, 255, 0.1);
+
+  @media (min-width: 768px) {
+    width: 100px;
+  }
+}
+
+.progressFill {
+  width: 100%;
+  height: 100%;
+  background: var(--color-text-primary-emphasis, #fff);
+  border-radius: 100px;
+  opacity: 0.9;
+  transform-origin: left center;
+  transform: scaleX(0);
+}

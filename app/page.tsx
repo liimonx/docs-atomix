@@ -22,6 +22,8 @@ import {
 } from "@shohojdhara/atomix";
 
 import { AmbientBackground } from "@/components/ui/AmbientBackground";
+import { HeroHeadlineSlider } from "@/components/ui/HeroHeadlineSlider";
+import styles from "./page.module.scss";
 
 export default function Page() {
   // Architecture pillars
@@ -63,41 +65,19 @@ export default function Page() {
       {/* Ambient Background Effects */}
       <AmbientBackground />
 
-      <main className="u-relative u-z-10 u-flex u-flex-column u-items-center u-pt-40 u-pb-20 u-px-4 u-min-h-100">
-        <div className="u-max-w-5xl u-mx-auto u-text-center u-flex u-flex-column u-items-center u-gap-10">
+      <main className="u-relative o-container u-z-10 u-flex u-flex-column u-items-center u-pt-40 u-pb-20 u-px-4 u-min-h-100">
+        <div className="u-w-100 u-mx-auto u-text-center u-flex u-flex-column u-items-center u-gap-10">
           {/* Badge */}
           <div className="u-inline-flex u-items-center u-gap-2 u-px-4 u-py-1-5 u-rounded-full u-border u-border-primary-subtle u-bg-primary-subtle u-text-primary u-fs-xs u-font-bold u-tracking-wide u-uppercase u-shadow-sm">
             <span className="u-relative u-flex u-h-2 u-w-2">
               <span className="u-animate-ping u-absolute u-inline-flex u-h-100 u-w-100 u-rounded-circle u-bg-primary u-opacity-75"></span>
               <span className="u-relative u-inline-flex u-rounded-circle u-h-2 u-w-2 u-bg-primary"></span>
             </span>
-            v2.0 is now live
+            v0.5.0 is now live
           </div>
 
-          {/* Headline */}
-          <div className="u-flex u-flex-column u-gap-4">
-            <h1
-              className="u-fs-5xl u-font-black u-tracking-tight u-leading-tight"
-              style={{
-                fontSize: "clamp(3.5rem, 9vw, 5.5rem)",
-                background: "linear-gradient(180deg, #fff 30%, #94a3b8 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              The Glass-First System
-              <br />
-              for Scalable Frontend.
-            </h1>
-
-            {/* Subheadline */}
-            <p className="u-fs-xl u-text-secondary u-max-w-2xl u-mx-auto u-leading-relaxed u-opacity-80">
-              Atomix provides a react-ready engine to build distinct,
-              high-performance interfaces with cinematic depth and frosted glass
-              realism.
-            </p>
-          </div>
+          {/* Headline Slider */}
+          <HeroHeadlineSlider />
 
           {/* CTAs */}
           <div className="u-flex u-flex-column u-flex-md-row u-gap-4 u-mt-4 u-w-100 u-justify-center">
@@ -128,13 +108,7 @@ export default function Page() {
           {/* Hero Visual / Interactive Playground Mockup */}
           <div className="u-mt-24 u-w-100 u-relative group">
             {/* Background glow for the mockup */}
-            <div
-              className="u-absolute u-rounded-3xl u-opacity-30 u-blur-3xl"
-              style={{
-                inset: "-2.5rem",
-                background: "linear-gradient(135deg, #13a4ec, #9333ea)",
-              }}
-            ></div>
+            <div className={styles.heroVisualMockupGlow}></div>
 
             <Card className="u-relative u-p-1 u-p-md-2 u-overflow-hidden u-rounded-3xl u-shadow-2xl">
               {/* Fake Browser Header */}
@@ -156,10 +130,7 @@ export default function Page() {
               {/* Layout Content */}
               <Grid className="u-p-6">
                 {/* Sidebar */}
-                <GridCol
-                  md={3}
-                  className="u-hidden u-flex-md u-flex-column u-gap-6 u-text-start u-border-e u-border-glass u-pe-6"
-                >
+                <GridCol md={3} className={styles.sidebarColumn}>
                   <div className="u-h-10 u-w-100 u-bg-primary u-opacity-20 u-rounded-lg u-animate-pulse"></div>
                   <div className="u-flex u-flex-column u-gap-4 u-mt-2">
                     <div className="u-flex u-items-center u-gap-3">
@@ -246,11 +217,7 @@ export default function Page() {
 
                   {/* Chart Area Placeholder */}
                   <div
-                    className="u-glass-panel u-p-8 u-rounded-2xl u-h-72 u-flex u-items-end u-justify-between u-gap-3 u-relative u-overflow-hidden u-border u-border-glass"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(19, 164, 236, 0.08), transparent)",
-                    }}
+                    className={`u-glass-panel u-p-8 u-rounded-2xl u-h-72 u-flex u-items-end u-justify-between u-gap-3 u-relative u-overflow-hidden u-border u-border-glass ${styles.chartAreaPlaceholder}`}
                   >
                     {[45, 65, 35, 90, 55, 80, 50, 70, 40, 60, 85, 45].map(
                       (h, i) => (
@@ -326,22 +293,8 @@ export default function Page() {
             <div className="u-flex u-flex-column u-gap-6 u-h-100">
               {/* Component 1: Advanced Auth Card */}
               <div className="u-relative u-overflow-hidden u-rounded-3xl u-border u-border-glass u-shadow-2xl">
-                <div
-                  className="u-absolute u-inset-0 u-opacity-30 u-blur-xl"
-                  style={{
-                    backgroundImage:
-                      "url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=1000&auto=format&fit=crop')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-                <div
-                  className="u-absolute u-inset-0"
-                  style={{
-                    background:
-                      "radial-gradient(circle at 30% 30%, rgba(19, 164, 236, 0.15) 0%, transparent 70%)",
-                  }}
-                ></div>
+                <div className={styles.authCardImageBg}></div>
+                <div className={styles.authCardGradientBg}></div>
 
                 <Card
                   className="u-w-100 u-relative u-z-10 u-p-6 u-p-md-8 u-rounded-3xl u-shadow-2xl u-border-0 u-bg-transparent"

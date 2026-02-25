@@ -45,6 +45,7 @@ export { default as DevtoolsLiveEditorExamplePage } from "./guides/DevtoolsLiveE
 export { default as DevtoolsInspectorExamplePage } from "./guides/DevtoolsInspectorExamplePage";
 export { default as DevtoolsPreviewExamplePage } from "./guides/DevtoolsPreviewExamplePage";
 export { default as DevtoolsComparatorExamplePage } from "./guides/DevtoolsComparatorExamplePage";
+export { default as AtomixGlassPlaygroundPage } from "./guides/AtomixGlassPlaygroundPage";
 
 // Layout Pages
 export { default as LayoutsOverviewPage } from "./layouts/LayoutsOverviewPage";

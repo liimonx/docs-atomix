@@ -955,6 +955,18 @@ export const navigationData: NavigationSection[] = [
         badge: createBadge('Try It', 'new'),
         isNew: true,
         priority: 14
+      },
+      {
+        id: 'atomix-glass-playground',
+        title: 'AtomixGlass Playground',
+        path: '/docs/guides/atomix-glass-playground',
+        icon: 'Drop',
+        description: 'Interactive AtomixGlass playground — tune props and theme via SCSS variable overrides in real-time',
+        category: 'guides',
+        searchTerms: ['glass', 'playground', 'interactive', 'morphism', 'theming', 'scss', 'variables', 'live', 'demo'],
+        badge: createBadge('Playground', 'new'),
+        isNew: true,
+        priority: 15
       }
     ]
   },

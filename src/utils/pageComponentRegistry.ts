@@ -39,6 +39,7 @@ import {
   DevtoolsInspectorExamplePage,
   DevtoolsPreviewExamplePage,
   DevtoolsComparatorExamplePage,
+  AtomixGlassPlaygroundPage,
 
   // CLI Pages
   CLIOverviewPage,
@@ -173,6 +174,7 @@ class PageComponentRegistry {
     this.idMap.set('guides:devtools-inspector-example', { component: DevtoolsInspectorExamplePage });
     this.idMap.set('guides:devtools-preview-example', { component: DevtoolsPreviewExamplePage });
     this.idMap.set('guides:devtools-comparator-example', { component: DevtoolsComparatorExamplePage });
+    this.idMap.set('guides:atomix-glass-playground', { component: AtomixGlassPlaygroundPage });
     this.categoryMap.set('guides', { component: GuidesAtomixGlassThemingPage });
 
     // Layout Pages

@@ -1,0 +1,913 @@
+// ============================================================================
+// AtomixGlassPlaygroundPage.module.scss
+// ============================================================================
+// Full-bleed playground layout: left control panel + right live canvas.
+// All visual theming is driven by CSS custom properties so each preset
+// can hot-swap the entire colour palette without JS-driven inline styles.
+
+// ── Root container ───────────────────────────────────────────────────────────
+.root {
+  min-height: 100vh;
+  // CSS var defaults (overridden by each preset via inline style)
+  --playground-bg-from:   #080e15;
+  --playground-bg-to:     #041d33;
+  --playground-glow-1:    rgba(14, 150, 240, 0.35);
+  --playground-glow-2:    rgba(147, 51, 234, 0.25);
+  --playground-glow-3:    rgba(6, 182, 212, 0.20);
+  --playground-accent:    #0e96f0;
+  --glass-backdrop-blur:  blur(20px);
+}
+
+// ── Split layout (panel + canvas) ────────────────────────────────────────────
+.layout {
+  display: flex;
+  min-height: calc(100vh - 64px);
+  flex-direction: column;
+
+  @media (min-width: 960px) {
+    flex-direction: row;
+  }
+}
+
+// ── LEFT: Control panel ──────────────────────────────────────────────────────
+.panel {
+  width: 100%;
+  max-width: 100%;
+  background: var(--atomix-primary-bg-subtle, rgba(8, 14, 21, 0.92));
+  border-right: 1px solid var(--atomix-border-color, rgba(255, 255, 255, 0.07));
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: sticky;
+  top: 64px;
+  max-height: calc(100vh - 64px);
+
+  @media (min-width: 960px) {
+    width: 320px;
+    min-width: 280px;
+    max-width: 340px;
+  }
+}
+
+.panelHeader {
+  padding: 1.5rem 1.25rem 1rem;
+  border-bottom: 1px solid var(--atomix-border-color, rgba(255, 255, 255, 0.06));
+}
+
+.panelHeaderInner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--atomix-body-color);
+}
+
+.panelTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.panelSubtitle {
+  font-size: 0.75rem;
+  color: var(--atomix-secondary-text-emphasis, rgba(148, 163, 184, 0.8));
+  margin-top: 0.375rem;
+  line-height: 1.5;
+}
+
+.panelSection {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--atomix-border-color, rgba(255, 255, 255, 0.06));
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectionLabel {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--atomix-tertiary-text-emphasis, rgba(100, 116, 139, 0.8));
+}
+
+// ── Slider controls ───────────────────────────────────────────────────────────
+.sliderControl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.sliderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sliderLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--atomix-body-color);
+  cursor: default;
+}
+
+.sliderValue {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--playground-accent);
+  background: color-mix(in srgb, var(--playground-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--playground-accent) 30%, transparent);
+  border-radius: 4px;
+  padding: 0.1rem 0.375rem;
+  min-width: 3.5rem;
+  text-align: center;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.sliderTrack {
+  position: relative;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: visible;
+}
+
+.sliderFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--playground-accent);
+  pointer-events: none;
+  transition: width 0.04s, background 0.3s;
+}
+
+.sliderInput {
+  position: absolute;
+  inset: -4px 0;
+  width: 100%;
+  height: calc(100% + 8px);
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+
+  &:focus-visible ~ .sliderFill {
+    outline: 2px solid var(--playground-accent);
+    outline-offset: 2px;
+  }
+}
+
+// ── Toggle chips ─────────────────────────────────────────────────────────────
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.toggleChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  padding: 0.3125rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--atomix-secondary-text-emphasis);
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+.toggleChipActive {
+  background: color-mix(in srgb, var(--playground-accent) 18%, transparent) !important;
+  border-color: var(--playground-accent) !important;
+  color: var(--playground-accent) !important;
+}
+
+.toggleChipDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+  transition: opacity 0.15s, transform 0.15s;
+
+  .toggleChipActive & {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+// ── Mode / variant selectors ──────────────────────────────────────────────────
+.modeRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.modeBtn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.4375rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--atomix-secondary-text-emphasis);
+  transition: all 0.18s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.modeBtnActive {
+  background: color-mix(in srgb, var(--playground-accent) 12%, transparent) !important;
+}
+
+.shaderVariants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
+}
+
+.variantBtn {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--atomix-secondary-text-emphasis);
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.variantBtnActive {
+  // Accent bg & border are applied via inline style from JavaScript
+  display: inline-flex;
+}
+
+// ── Generated code block ──────────────────────────────────────────────────────
+.codeBlock {
+  margin: auto 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.codeBlockHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.codeBlockTitle {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--atomix-tertiary-text-emphasis, rgba(100, 116, 139, 0.8));
+}
+
+.code {
+  padding: 0.875rem 1rem;
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.6875rem;
+  line-height: 1.65;
+  color: var(--playground-accent);
+  white-space: pre;
+  overflow-x: auto;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+// ── RIGHT: Canvas ─────────────────────────────────────────────────────────────
+.canvas {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 520px;
+  background: linear-gradient(
+    160deg,
+    var(--playground-bg-from, #080e15) 0%,
+    var(--playground-bg-to, #041d33) 100%
+  );
+  transition: background 0.5s ease;
+  padding: 2rem 1.5rem 5rem;
+}
+
+// Ambient glow layers
+.canvasBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.glow1 {
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: var(--playground-glow-1);
+  filter: blur(120px);
+  top: -140px;
+  left: -80px;
+  animation: glowPulse 12s infinite alternate ease-in-out;
+  transition: background 0.5s ease;
+}
+
+.glow2 {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: var(--playground-glow-2);
+  filter: blur(100px);
+  bottom: -100px;
+  right: -60px;
+  animation: glowPulse 15s infinite alternate-reverse ease-in-out;
+  transition: background 0.5s ease;
+}
+
+.glow3 {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: var(--playground-glow-3);
+  filter: blur(80px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: glowPulse 18s 3s infinite alternate ease-in-out;
+  transition: background 0.5s ease;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes glowPulse {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.15) translate(30px, -20px); }
+}
+
+// ── Preset pill bar ───────────────────────────────────────────────────────────
+.presetBar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.presetPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.55);
+  transition: all 0.2s;
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.presetPillActive {
+  // Inline style provides accent-specific colours
+  position: relative;
+}
+
+// ── Content selector tabs ─────────────────────────────────────────────────────
+.contentSelector {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.25rem;
+  backdrop-filter: blur(8px);
+}
+
+.contentBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3125rem 0.75rem;
+  border-radius: 7px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.15s;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.contentBtnActive {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+// ── AtomixGlass preview wrapper ────────────────────────────────────────────────
+.previewWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+}
+
+.previewInner {
+  padding: 1.75rem;
+}
+
+// ── Preview content: Card ─────────────────────────────────────────────────────
+.previewCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.previewCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.previewDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: dotBlink 2s infinite;
+}
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.previewCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.previewCardBody {
+  padding: 0.5rem 0;
+}
+
+.previewMetricLabel {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.25rem;
+}
+
+.previewMetricRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.previewMetricValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1;
+}
+
+.previewMetricUnit {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.previewMetricIcon {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.previewCardFooter {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.previewBtn {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.14);
+  }
+}
+
+.previewBtnPrimary {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: filter 0.15s;
+
+  &:hover {
+    filter: brightness(1.15);
+  }
+}
+
+// ── Preview content: Metric ───────────────────────────────────────────────────
+.previewMetric {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.25rem 0;
+}
+
+.previewMetricBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.previewMetricBig {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: -0.02em;
+}
+
+.previewMetricSmall {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.previewBadge {
+  margin-left: auto;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  border: 1px solid currentColor;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+// ── Preview content: Buttons ──────────────────────────────────────────────────
+.previewButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.previewBtnFull {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: filter 0.15s;
+
+  &:hover {
+    filter: brightness(1.15);
+  }
+}
+
+.previewBtnFullOutline {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid currentColor;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+// ── Preview content: Text ─────────────────────────────────────────────────────
+.previewText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.previewTextBody {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.previewTextTag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+// ── Canvas footer badges ──────────────────────────────────────────────────────
+.fpsBadge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 9999px;
+  padding: 0.3125rem 0.875rem;
+  backdrop-filter: blur(8px);
+}
+
+.fpsDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: dotBlink 1.5s infinite;
+}
+
+.canvasHint {
+  position: absolute;
+  bottom: 3.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.25);
+  white-space: nowrap;
+}
+
+// ── Reference section ─────────────────────────────────────────────────────────
+.referenceHeader {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 0.5rem;
+}
+
+.referenceTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--atomix-body-color);
+  margin: 0 0 0.625rem;
+}
+
+.referenceSubtitle {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--atomix-secondary-text-emphasis);
+  margin: 0;
+}
+
+// ── Preset reference cards ────────────────────────────────────────────────────
+.refCard {
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.refCardActive {
+  // Inline style provides border & glow
+  position: relative;
+}
+
+.presetIconBadge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.presetCardLabel {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--atomix-body-color);
+}
+
+.presetCardDesc {
+  font-size: 0.75rem;
+  color: var(--atomix-secondary-text-emphasis);
+  line-height: 1.5;
+  margin: 0 0 0.875rem;
+}
+
+// ── Var table (inside preset card) ───────────────────────────────────────────
+.varTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.varRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  align-items: baseline;
+  font-size: 0.6875rem;
+}
+
+.varKey {
+  color: var(--atomix-brand-text-emphasis, #0e96f0);
+  font-family: ui-monospace, monospace;
+  flex-shrink: 0;
+}
+
+.varVal {
+  color: var(--atomix-tertiary-text-emphasis);
+  font-size: 0.625rem;
+  font-family: ui-monospace, monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+// ── CSS var reference table ───────────────────────────────────────────────────
+.cssVarReference {
+  margin-top: 2.5rem;
+}
+
+.referenceSubsectionTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--atomix-body-color);
+  margin: 0 0 1rem;
+}
+
+.refTable {
+  border: 1px solid var(--atomix-border-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.refTableHeader {
+  display: grid;
+  grid-template-columns: 2fr 2fr 3fr;
+  gap: 0;
+  padding: 0.625rem 1rem;
+  background: var(--atomix-secondary-bg-subtle);
+  border-bottom: 1px solid var(--atomix-border-color);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--atomix-tertiary-text-emphasis);
+
+  @media (max-width: 640px) {
+    display: none;
+  }
+}
+
+.refTableRow {
+  display: grid;
+  grid-template-columns: 2fr 2fr 3fr;
+  gap: 0;
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid var(--atomix-border-color);
+  align-items: start;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+.refTableCode {
+  font-size: 0.6875rem;
+  color: var(--atomix-brand-text-emphasis);
+  font-family: ui-monospace, monospace;
+  word-break: break-all;
+}
+
+.refTableDefault {
+  font-size: 0.6875rem;
+  color: var(--atomix-secondary-text-emphasis);
+  font-family: ui-monospace, monospace;
+  word-break: break-all;
+}
+
+.refTableDesc {
+  font-size: 0.75rem;
+  color: var(--atomix-tertiary-text-emphasis);
+  line-height: 1.5;
+}
+
+// ── SCSS snippet ──────────────────────────────────────────────────────────────
+.scssSnippet {
+  margin-top: 1.5rem;
+  border: 1px solid var(--atomix-border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.18);
+
+  .code {
+    color: var(--atomix-brand-text-emphasis, #0e96f0);
+  }
+}
+
+// ── Reduced motion ────────────────────────────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+  .glow1,
+  .glow2,
+  .glow3,
+  .fpsDot,
+  .previewDot {
+    animation: none;
+  }
+}
