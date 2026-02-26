@@ -58,7 +58,7 @@ const ThemeStudioPage: FC = () => {
   const fontLinksRef = useRef<Map<string, HTMLLinkElement>>(new Map());
   const [showShortcutsModal, setShowShortcutsModal] = useState(false);
   const [notification, setNotification] = useState<{
-    type: 'success' | 'error' | 'info';
+    type: "success" | "error" | "info";
     message: string;
   } | null>(null);
   const [savedVersions, setSavedVersions] = useState<SavedThemeVersion[]>([]);
@@ -66,16 +66,19 @@ const ThemeStudioPage: FC = () => {
   // Create serialized versions of tokens for reliable change detection
   const lightTokensSerialized = useMemo(
     () => JSON.stringify(lightTokens),
-    [lightTokens]
+    [lightTokens],
   );
   const darkTokensSerialized = useMemo(
     () => JSON.stringify(darkTokens),
-    [darkTokens]
+    [darkTokens],
   );
 
   // Initialize store with theme data
   useEffect(() => {
-    let themeToLoad: { light: Record<string, string>; dark: Record<string, string> } | null = null;
+    let themeToLoad: {
+      light: Record<string, string>;
+      dark: Record<string, string>;
+    } | null = null;
 
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
@@ -100,7 +103,9 @@ const ThemeStudioPage: FC = () => {
           } else {
             setNotification({
               type: "error",
-              message: `Shared theme is invalid: ${validation.error || "Unknown error"}`,
+              message: `Shared theme is invalid: ${
+                validation.error || "Unknown error"
+              }`,
             });
             setTimeout(() => setNotification(null), 5000);
           }
@@ -121,14 +126,22 @@ const ThemeStudioPage: FC = () => {
       };
     }
 
-    setTheme(themeToLoad, themeToLoad === tokensData ? "Theme loaded" : "Theme loaded from shared link");
+    setTheme(
+      themeToLoad,
+      themeToLoad === tokensData
+        ? "Theme loaded"
+        : "Theme loaded from shared link",
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Apply theme to document with debounce
   useEffect(() => {
     // Skip if tokens are empty (not initialized yet)
-    if (Object.keys(lightTokens).length === 0 && Object.keys(darkTokens).length === 0) {
+    if (
+      Object.keys(lightTokens).length === 0 &&
+      Object.keys(darkTokens).length === 0
+    ) {
       return;
     }
 
@@ -148,7 +161,13 @@ const ThemeStudioPage: FC = () => {
       }
     };
     // Use serialized versions for reliable change detection, plus actual tokens for latest values
-  }, [lightTokensSerialized, darkTokensSerialized, activeMode, lightTokens, darkTokens]);
+  }, [
+    lightTokensSerialized,
+    darkTokensSerialized,
+    activeMode,
+    lightTokens,
+    darkTokens,
+  ]);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -156,7 +175,9 @@ const ThemeStudioPage: FC = () => {
     }
 
     try {
-      const stored = window.localStorage.getItem("atomix-theme-studio-versions");
+      const stored = window.localStorage.getItem(
+        "atomix-theme-studio-versions",
+      );
       if (stored) {
         const parsed = JSON.parse(stored) as SavedThemeVersion[];
         setSavedVersions(parsed);
@@ -174,7 +195,7 @@ const ThemeStudioPage: FC = () => {
     try {
       window.localStorage.setItem(
         "atomix-theme-studio-versions",
-        JSON.stringify(savedVersions)
+        JSON.stringify(savedVersions),
       );
     } catch (error) {
       void error;
@@ -234,96 +255,112 @@ const ThemeStudioPage: FC = () => {
 
   // Additional keyboard shortcuts for Theme Studio
   useKeyboardShortcuts({
-    'Cmd+k': (e) => {
+    "Cmd+k": (e) => {
       e.preventDefault();
       // Focus search input
-      const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+      const searchInput = document.querySelector(
+        'input[type="search"]',
+      ) as HTMLInputElement;
       if (searchInput) {
         searchInput.focus();
         searchInput.select();
       }
     },
-    'Ctrl+k': (e) => {
+    "Ctrl+k": (e) => {
       e.preventDefault();
       // Focus search input
-      const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+      const searchInput = document.querySelector(
+        'input[type="search"]',
+      ) as HTMLInputElement;
       if (searchInput) {
         searchInput.focus();
         searchInput.select();
       }
     },
-    'Cmd+f': (e) => {
+    "Cmd+f": (e) => {
       e.preventDefault();
       // Focus search input
-      const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+      const searchInput = document.querySelector(
+        'input[type="search"]',
+      ) as HTMLInputElement;
       if (searchInput) {
         searchInput.focus();
         searchInput.select();
       }
     },
-    'Ctrl+f': (e) => {
+    "Ctrl+f": (e) => {
       e.preventDefault();
       // Focus search input
-      const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+      const searchInput = document.querySelector(
+        'input[type="search"]',
+      ) as HTMLInputElement;
       if (searchInput) {
         searchInput.focus();
         searchInput.select();
       }
     },
-    'Cmd+p': (e) => {
+    "Cmd+p": (e) => {
       e.preventDefault();
       // Toggle split view
-      const { splitViewEnabled, setSplitViewEnabled } = useThemeStudioStore.getState();
+      const { splitViewEnabled, setSplitViewEnabled } =
+        useThemeStudioStore.getState();
       setSplitViewEnabled(!splitViewEnabled);
     },
-    'Ctrl+p': (e) => {
+    "Ctrl+p": (e) => {
       e.preventDefault();
       // Toggle split view
-      const { splitViewEnabled, setSplitViewEnabled } = useThemeStudioStore.getState();
+      const { splitViewEnabled, setSplitViewEnabled } =
+        useThemeStudioStore.getState();
       setSplitViewEnabled(!splitViewEnabled);
     },
-    'Cmd+b': (e) => {
+    "Cmd+b": (e) => {
       e.preventDefault();
       // Toggle color tools
-      const { colorToolsOpen, setColorToolsOpen } = useThemeStudioStore.getState();
+      const { colorToolsOpen, setColorToolsOpen } =
+        useThemeStudioStore.getState();
       setColorToolsOpen(!colorToolsOpen);
     },
-    'Ctrl+b': (e) => {
+    "Ctrl+b": (e) => {
       e.preventDefault();
       // Toggle color tools
-      const { colorToolsOpen, setColorToolsOpen } = useThemeStudioStore.getState();
+      const { colorToolsOpen, setColorToolsOpen } =
+        useThemeStudioStore.getState();
       setColorToolsOpen(!colorToolsOpen);
     },
-    'Cmd+/': (e) => {
+    "Cmd+/": (e) => {
       e.preventDefault();
       setShowShortcutsModal(true);
     },
-    'Ctrl+/': (e) => {
+    "Ctrl+/": (e) => {
       e.preventDefault();
       setShowShortcutsModal(true);
     },
-    'Cmd+e': (e) => {
+    "Cmd+e": (e) => {
       e.preventDefault();
       // Trigger export (focus export button)
-      const exportButton = document.querySelector('[aria-label="Export theme"]') as HTMLButtonElement;
+      const exportButton = document.querySelector(
+        '[aria-label="Export theme"]',
+      ) as HTMLButtonElement;
       if (exportButton) {
         exportButton.click();
       }
     },
-    'Ctrl+e': (e) => {
+    "Ctrl+e": (e) => {
       e.preventDefault();
       // Trigger export (focus export button)
-      const exportButton = document.querySelector('[aria-label="Export theme"]') as HTMLButtonElement;
+      const exportButton = document.querySelector(
+        '[aria-label="Export theme"]',
+      ) as HTMLButtonElement;
       if (exportButton) {
         exportButton.click();
       }
     },
-    'Cmd+i': (e) => {
+    "Cmd+i": (e) => {
       e.preventDefault();
       // Trigger import
       handleImport();
     },
-    'Ctrl+i': (e) => {
+    "Ctrl+i": (e) => {
       e.preventDefault();
       // Trigger import
       handleImport();
@@ -336,7 +373,10 @@ const ThemeStudioPage: FC = () => {
   };
 
   const saveCurrentVersion = () => {
-    if (Object.keys(lightTokens).length === 0 && Object.keys(darkTokens).length === 0) {
+    if (
+      Object.keys(lightTokens).length === 0 &&
+      Object.keys(darkTokens).length === 0
+    ) {
       setNotification({
         type: "error",
         message: "Cannot save an empty theme. Make changes before saving.",
@@ -380,7 +420,7 @@ const ThemeStudioPage: FC = () => {
         light: version.light,
         dark: version.dark,
       },
-      `Loaded version ${version.name}`
+      `Loaded version ${version.name}`,
     );
     setNotification({
       type: "info",
@@ -398,7 +438,10 @@ const ThemeStudioPage: FC = () => {
       return;
     }
 
-    if (Object.keys(lightTokens).length === 0 && Object.keys(darkTokens).length === 0) {
+    if (
+      Object.keys(lightTokens).length === 0 &&
+      Object.keys(darkTokens).length === 0
+    ) {
       setNotification({
         type: "error",
         message: "Cannot share an empty theme.",
@@ -425,7 +468,10 @@ const ThemeStudioPage: FC = () => {
     }
 
     try {
-      if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      if (
+        navigator.clipboard &&
+        typeof navigator.clipboard.writeText === "function"
+      ) {
         await navigator.clipboard.writeText(shareUrl);
         setNotification({
           type: "success",
@@ -460,8 +506,10 @@ const ThemeStudioPage: FC = () => {
         const validation = validateImportedTheme(data);
         if (!validation.valid) {
           setNotification({
-            type: 'error',
-            message: `Invalid theme file: ${validation.error || 'Unknown error'}`,
+            type: "error",
+            message: `Invalid theme file: ${
+              validation.error || "Unknown error"
+            }`,
           });
           setTimeout(() => setNotification(null), 5000);
           return;
@@ -472,25 +520,25 @@ const ThemeStudioPage: FC = () => {
             light: data.light,
             dark: data.dark,
           },
-          "Theme imported"
+          "Theme imported",
         );
         setNotification({
-          type: 'success',
-          message: 'Theme imported successfully!',
+          type: "success",
+          message: "Theme imported successfully!",
         });
         setTimeout(() => setNotification(null), 3000);
       } catch (error) {
         setNotification({
-          type: 'error',
-          message: 'Error parsing theme file. Please ensure it is valid JSON.',
+          type: "error",
+          message: "Error parsing theme file. Please ensure it is valid JSON.",
         });
         setTimeout(() => setNotification(null), 5000);
       }
     };
     reader.onerror = () => {
       setNotification({
-        type: 'error',
-        message: 'Error reading file. Please try again.',
+        type: "error",
+        message: "Error reading file. Please try again.",
       });
       setTimeout(() => setNotification(null), 5000);
     };
@@ -517,16 +565,28 @@ const ThemeStudioPage: FC = () => {
       {notification && (
         <div
           style={{
-            position: 'fixed',
-            top: '20px',
-            right: '20px',
+            position: "fixed",
+            top: "20px",
+            right: "20px",
             zIndex: 10000,
-            maxWidth: '400px',
+            maxWidth: "400px",
           }}
         >
           <Callout
-            variant={notification.type === 'error' ? 'error' : notification.type === 'success' ? 'success' : 'info'}
-            title={notification.type === 'error' ? 'Error' : notification.type === 'success' ? 'Success' : 'Info'}
+            variant={
+              notification.type === "error"
+                ? "error"
+                : notification.type === "success"
+                ? "success"
+                : "info"
+            }
+            title={
+              notification.type === "error"
+                ? "Error"
+                : notification.type === "success"
+                ? "Success"
+                : "Info"
+            }
             onClose={() => setNotification(null)}
           >
             {notification.message}
@@ -538,18 +598,18 @@ const ThemeStudioPage: FC = () => {
         isOpen={showShortcutsModal}
         onClose={() => setShowShortcutsModal(false)}
       />
+      <ThemeStudioLayout onImport={handleImport} />
 
       <Block className="u-pt-8 u-pb-4">
         <div className="u-flex u-justify-between u-items-center u-flex-wrap u-gap-4">
           <div>
-            <h1 className="u-text-2xl u-font-semibold u-mb-1">
-              Theme Studio
-            </h1>
+            <h1 className="u-text-2xl u-font-semibold u-mb-1">Theme Studio</h1>
             <p className="u-text-sm u-text-secondary-emphasis">
               Create and customize themes interactively with real-time preview.
             </p>
             <p className="u-text-sm u-text-secondary-emphasis">
-              Save snapshots, share themes with your team, and restore previous versions.
+              Save snapshots, share themes with your team, and restore previous
+              versions.
             </p>
           </div>
           <div className="u-flex u-gap-2">
@@ -612,8 +672,6 @@ const ThemeStudioPage: FC = () => {
           </div>
         )}
       </Block>
-
-      <ThemeStudioLayout onImport={handleImport} />
     </div>
   );
 };

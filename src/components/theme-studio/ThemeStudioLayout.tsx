@@ -34,7 +34,7 @@ export const ThemeStudioLayout: FC<ThemeStudioLayoutProps> = ({ onImport }) => {
       const clampedWidth = Math.max(20, Math.min(80, newWidth));
       setPanelWidth(clampedWidth);
     },
-    [isDragging, setPanelWidth]
+    [isDragging, setPanelWidth],
   );
 
   const handleMouseUp = useCallback(() => {
@@ -45,16 +45,16 @@ export const ThemeStudioLayout: FC<ThemeStudioLayoutProps> = ({ onImport }) => {
   useEffect(() => {
     if (isDragging) {
       // Prevent text selection while dragging
-      document.body.style.cursor = 'col-resize';
-      document.body.style.userSelect = 'none';
-      
+      document.body.style.cursor = "col-resize";
+      document.body.style.userSelect = "none";
+
       window.addEventListener("mousemove", handleMouseMove, { passive: false });
       window.addEventListener("mouseup", handleMouseUp);
       window.addEventListener("mouseleave", handleMouseUp); // Handle mouse leaving window
-      
+
       return () => {
-        document.body.style.cursor = '';
-        document.body.style.userSelect = '';
+        document.body.style.cursor = "";
+        document.body.style.userSelect = "";
         window.removeEventListener("mousemove", handleMouseMove);
         window.removeEventListener("mouseup", handleMouseUp);
         window.removeEventListener("mouseleave", handleMouseUp);
@@ -63,7 +63,7 @@ export const ThemeStudioLayout: FC<ThemeStudioLayoutProps> = ({ onImport }) => {
   }, [isDragging, handleMouseMove, handleMouseUp]);
 
   return (
-    <Block container={{ type: 'fluid' }}>
+    <Block container={{ type: "fluid" }} className="u-pt-1">
       <ThemeToolbar onImport={onImport} />
 
       <div ref={containerRef} className={styles.themeStudioLayout__content}>
@@ -86,12 +86,13 @@ export const ThemeStudioLayout: FC<ThemeStudioLayoutProps> = ({ onImport }) => {
               aria-valuenow={panelWidth}
               tabIndex={0}
               onKeyDown={(e) => {
-                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
                   e.preventDefault();
                   const step = e.shiftKey ? 10 : 5;
-                  const newWidth = e.key === 'ArrowLeft' 
-                    ? Math.max(20, panelWidth - step)
-                    : Math.min(80, panelWidth + step);
+                  const newWidth =
+                    e.key === "ArrowLeft"
+                      ? Math.max(20, panelWidth - step)
+                      : Math.min(80, panelWidth + step);
                   setPanelWidth(newWidth);
                 }
               }}

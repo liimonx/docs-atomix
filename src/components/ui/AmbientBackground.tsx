@@ -1,7 +1,7 @@
 "use client";
 
-import { FC, memo } from "react";
-import { usePathname } from "next/navigation";
+import { FC, memo, useMemo } from "react";
+import { useUserEmotionTracker } from "../../hooks/useUserEmotionTracker";
 import styles from "./AmbientBackground.module.scss";
 
 // ---------------------------------------------------------------------------
@@ -9,7 +9,7 @@ import styles from "./AmbientBackground.module.scss";
 // ---------------------------------------------------------------------------
 
 export type AmbientBackgroundVariant =
-  | "auto" // Intelligently chooses based on current path (default)
+  | "auto" // Let the emotion tracker decide (default)
   | "default" // Trust, Creativity (Blue & Purple)
   | "focus" // Logic, Structure (Indigo & Cyan)
   | "energy" // Vibrancy, Foundation (Orange & Rose)
@@ -25,88 +25,15 @@ interface AmbientBackgroundProps {
   className?: string;
   /**
    * Explicit psychological color variant to use.
-   * If left as "auto" (the default), it intelligently reads the current page path.
+   * If left as "auto" (the default), the emotion tracker drives the color.
    */
   variant?: AmbientBackgroundVariant;
+  /**
+   * If true, background colors dynamically adjust based on the user's implicit emotions.
+   * Tracks mouse movements, clicks, and typing speed in real time. (Default: true)
+   */
+  enableEmotionTracking?: boolean;
 }
-
-// ---------------------------------------------------------------------------
-// Theme Logic
-// ---------------------------------------------------------------------------
-
-/**
- * Determines the color theme based on the current pathname,
- * applying color psychology to the documentation pages.
- */
-const getThemeClassForPath = (path: string | null): string => {
-  if (!path) return "";
-
-  // Logic, Structure, Focus (Components) -> Indigo & Cyan
-  // Reduces anxiety, promotes concentration and technical clarity.
-  if (path.includes("/components")) {
-    return styles["theme-focus"];
-  }
-
-  // Energy, Vibrancy, Foundation (Design Tokens) -> Orange & Rose
-  // Stimulates excitement, creativity, and foundational energy.
-  if (path.includes("/design-tokens") || path.includes("/foundation")) {
-    return styles["theme-energy"];
-  }
-
-  // Growth, Harmony, Freshness (Getting Started) -> Emerald & Sky
-  // Promotes a sense of calm, freshness, and welcoming.
-  if (
-    path.includes("/getting-started") ||
-    path.includes("/installation") ||
-    path.includes("/overview")
-  ) {
-    return styles["theme-growth"];
-  }
-
-  // Joy, Optimism, Warmth (Examples, Templates)
-  if (path.includes("/examples") || path.includes("/templates")) {
-    return styles["theme-warmth"];
-  }
-
-  // Tranquility, Reliability, Depth (API, FAQ, Support)
-  if (
-    path.includes("/api") ||
-    path.includes("/faq") ||
-    path.includes("/support")
-  ) {
-    return styles["theme-calm"];
-  }
-
-  // Creativity, Wisdom, Mystery (Advanced, Architecture, Guides)
-  if (
-    path.includes("/advanced") ||
-    path.includes("/architecture") ||
-    path.includes("/guides")
-  ) {
-    return styles["theme-mystery"];
-  }
-
-  // Caution, Urgency (Migration, Deprecated)
-  if (
-    path.includes("/migration") ||
-    path.includes("/breaking-changes") ||
-    path.includes("/deprecated")
-  ) {
-    return styles["theme-alert"];
-  }
-
-  // Natural, Refreshing (Community, Blog, About)
-  if (
-    path.includes("/community") ||
-    path.includes("/blog") ||
-    path.includes("/about")
-  ) {
-    return styles["theme-nature"];
-  }
-
-  // Trust, Creativity, Luxury (Home/Default) -> Blue & Purple
-  return "";
-};
 
 // ---------------------------------------------------------------------------
 // Component
@@ -116,23 +43,31 @@ const getThemeClassForPath = (path: string | null): string => {
  * **AmbientBackground**
  *
  * A minimal, aesthetic gradient backdrop for design-system documentation.
- * It intelligently changes colors based on the current page to evoke
- * different psychological responses, or can be overridden via `variant` prop.
+ * Colors are driven entirely by the user's live emotional state (mouse speed,
+ * click patterns, typing cadence, scroll behavior) or by an explicit
+ * developer override via the `variant` prop.
  */
 const AmbientBackgroundBase: FC<AmbientBackgroundProps> = ({
   className = "",
   variant = "auto",
+  enableEmotionTracking = true,
 }) => {
-  const pathname = usePathname();
+  const trackedEmotion = useUserEmotionTracker(enableEmotionTracking);
 
-  // Resolve which theme class to apply
-  let themeClass = "";
-  if (variant === "auto") {
-    themeClass = getThemeClassForPath(pathname);
-  } else if (variant !== "default") {
-    themeClass = styles[`theme-${variant}`];
-  }
+  // Resolve Active Variant: Developer override → Emotion tracker → Default
+  const activeVariant = useMemo<AmbientBackgroundVariant>(() => {
+    if (variant && variant !== "auto") return variant;
+    if (trackedEmotion && trackedEmotion !== "auto") return trackedEmotion;
+    return "default";
+  }, [variant, trackedEmotion]);
 
+  // Map Variant to CSS Module Class
+  const themeClass =
+    activeVariant === "default" || activeVariant === "auto"
+      ? ""
+      : styles[`theme-${activeVariant}`];
+
+  // Construct final className
   const rootClasses = [styles.root, themeClass, className]
     .filter(Boolean)
     .join(" ");
