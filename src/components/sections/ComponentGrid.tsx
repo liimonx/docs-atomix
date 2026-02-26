@@ -44,7 +44,7 @@ export const ComponentGrid: FC = () => {
           className="u-text-center u-mb-12"
         />
 
-        <Row className="u-gap-6">
+        <Row>
           {featuredComponents.map((component) => (
             <GridCol key={component.id} xs={12} md={6} lg={4}>
               <Card

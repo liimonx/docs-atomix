@@ -67,7 +67,6 @@ export const CallToActionSection: FC<CallToActionSectionProps> = ({
           elasticity={0}
           mode="standard"
           className="u-my-8"
-          withBorderEffect={false}
         >
           {renderContent()}
         </AtomixGlass>

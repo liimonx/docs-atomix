@@ -266,7 +266,7 @@ export default function Page() {
       </Hero>
 
       {/* Architecture Section */}
-      <Block className="u-py-24 u-border-t u-border-glass u-bg-background-subtle u-relative u-z-10">
+      <Block>
         <SectionIntro
           title="The Architecture of Glass"
           text="Our system relies on three fundamental pillars to ensure your application is beautiful, accessible, and fast—without compromising on the glass aesthetic."
@@ -290,7 +290,7 @@ export default function Page() {
       </Block>
 
       {/* Interactive Components Section */}
-      <Block className="u-py-24 u-relative u-z-10 u-glass-clean-root">
+      <Block>
         <div className="u-flex u-flex-column u-flex-md-row u-justify-between u-items-md-end u-mb-16 u-gap-6">
           <div className="u-max-w-2xl">
             <h2 className="u-fs-5xl u-font-black u-mb-4 u-tracking-tighter">
@@ -315,14 +315,11 @@ export default function Page() {
           <GridCol lg={4} md={6} className="u-mb-8">
             <div className="u-flex u-flex-column u-gap-6 u-h-100">
               {/* Component 1: Advanced Auth Card */}
-              <div className="u-relative u-overflow-hidden u-rounded-3xl u-border u-border-glass u-shadow-2xl">
+              <div className="">
                 <div className={styles.authCardImageBg}></div>
                 <div className={styles.authCardGradientBg}></div>
 
-                <Card
-                  className="u-w-100 u-relative u-z-10 u-p-6 u-p-md-8 u-rounded-3xl u-shadow-2xl u-border-0 u-bg-transparent"
-                  glass={false}
-                >
+                <Card>
                   <div className="u-text-center u-mb-6">
                     <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary u-rounded-xl u-flex u-items-center u-justify-center u-mx-auto u-mb-3 u-shadow-sm">
                       <Icon name="LockKey" size={28} weight="duotone" />
@@ -339,7 +336,6 @@ export default function Page() {
                     <div className="u-flex u-flex-column u-gap-1-5">
                       <Input
                         placeholder="name@company.com"
-                        glass
                         {...({
                           icon: <Icon name="Envelope" weight="duotone" />,
                         } as any)}
@@ -349,7 +345,6 @@ export default function Page() {
                       <Input
                         type="password"
                         placeholder="••••••••"
-                        glass
                         {...({
                           icon: <Icon name="Key" weight="duotone" />,
                         } as any)}
@@ -360,7 +355,6 @@ export default function Page() {
                       <Checkbox
                         {...({
                           label: "Remember device",
-                          glass: true,
                           checked: true,
                         } as any)}
                       />
@@ -409,10 +403,7 @@ export default function Page() {
               </div>
 
               {/* Component 1.5: Environment Status Card */}
-              <Card
-                className="u-p-6 u-rounded-3xl u-shadow-lg u-border u-border-glass u-flex-1"
-                glass
-              >
+              <Card className="u-p-6 u-rounded-3xl u-shadow-lg u-border u-border-glass u-flex-1">
                 <div className="u-flex u-justify-between u-items-center u-mb-4">
                   <h5 className="u-fs-sm u-font-black u-uppercase u-tracking-widest u-opacity-50">
                     System Health
@@ -456,7 +447,7 @@ export default function Page() {
                   </div>
 
                   <div className="u-mt-2">
-                    <Progress value={92} variant="primary" size="sm" glass />
+                    <Progress value={92} variant="primary" size="sm" />
                     <div className="u-flex u-justify-between u-mt-1">
                       <span className="u-fs-xxs u-text-secondary">
                         Resource Usage
@@ -474,10 +465,7 @@ export default function Page() {
             <Grid>
               {/* Component 2: Project Management / Analytics */}
               <GridCol sm={12} className="u-mb-6">
-                <Card
-                  className="u-p-8 u-rounded-3xl u-shadow-lg u-border u-border-glass u-relative u-overflow-hidden"
-                  glass
-                >
+                <Card className="u-p-8 u-rounded-3xl u-shadow-lg u-border u-border-glass u-relative u-overflow-hidden">
                   <div className="u-flex u-flex-column u-flex-md-row u-justify-between u-items-start u-gap-6 u-mb-8">
                     <div>
                       <div className="u-flex u-items-center u-gap-3 u-mb-2">
@@ -533,7 +521,6 @@ export default function Page() {
                         variant="primary"
                         size="md"
                         className="u-rounded-full"
-                        glass
                       />
                     </div>
 
@@ -551,17 +538,14 @@ export default function Page() {
 
               {/* Component 3: Data Entry / Select Preview */}
               <GridCol sm={6} className="u-mb-6 u-mb-sm-0">
-                <Card
-                  className="u-p-6 u-rounded-3xl u-shadow-lg u-border u-border-glass u-h-100"
-                  glass
-                >
+                <Card>
                   <h5 className="u-fs-lg u-font-black u-tracking-tight u-mb-6">
                     Data Architecture
                   </h5>
 
                   <div className="u-flex u-flex-column u-gap-5">
                     <div className="u-flex u-flex-column u-gap-1-5">
-                      <label className="u-fs-xs u-text-secondary u-uppercase u-font-black u-tracking-widest u-opacity-50">
+                      <label className="u-fs-xs u-text-secondary u-uppercase u-font-black u-tracking-widest u-opacity-50 u-mb-2">
                         Storage Region
                       </label>
                       <Select
@@ -575,7 +559,7 @@ export default function Page() {
                             value: "eu-central-1",
                           },
                         ]}
-                        {...({ value: "eu-central-1", glass: true } as any)}
+                        {...({ value: "eu-central-1" } as any)}
                       />
                     </div>
 
@@ -583,12 +567,7 @@ export default function Page() {
                       <label className="u-fs-xs u-text-secondary u-uppercase u-font-black u-tracking-widest u-opacity-50">
                         API Throughput
                       </label>
-                      <Progress
-                        value={65}
-                        variant="primary"
-                        glass={true}
-                        size="sm"
-                      />
+                      <Progress value={65} variant="primary" size="sm" />
                       <div className="u-flex u-justify-between u-fs-xs u-text-secondary u-font-mono u-opacity-60">
                         <span>Low</span>
                         <span>Balanced</span>
@@ -605,7 +584,7 @@ export default function Page() {
                           Real-time Sync
                         </span>
                       </div>
-                      <Toggle checked glass />
+                      <Toggle checked />
                     </div>
                   </div>
                 </Card>
@@ -626,10 +605,7 @@ export default function Page() {
                     </p>
                   </Callout>
 
-                  <Card
-                    className="u-p-5 u-rounded-2xl u-shadow-lg u-border u-border-glass"
-                    glass
-                  >
+                  <Card className="u-p-5 u-rounded-2xl u-shadow-lg u-border u-border-glass">
                     <div className="u-flex u-items-center u-justify-between u-mb-3">
                       <div className="u-flex u-items-center u-gap-3">
                         <div className="u-w-2 u-h-2 u-rounded-circle u-bg-success u-animate-pulse"></div>
@@ -659,7 +635,6 @@ export default function Page() {
 
                   <Button
                     variant="primary"
-                    glass
                     fullWidth
                     icon={<Icon name="RocketLaunch" weight="duotone" />}
                     className="u-h-12 u-font-bold"
@@ -674,7 +649,7 @@ export default function Page() {
       </Block>
 
       {/* Trusted By Section */}
-      <Block className="u-py-20 u-border-y u-border-glass u-bg-background-subtle">
+      <Block>
         <div className="u-text-center">
           <p className="u-text-secondary u-fs-xs u-font-black u-uppercase u-tracking-widest u-mb-10 u-opacity-60">
             Pioneered by global engineering teams
@@ -694,7 +669,7 @@ export default function Page() {
       </Block>
 
       {/* Final CTA Section */}
-      <Block className="u-py-32 u-relative u-z-10">
+      <Block>
         <div className="u-text-center u-max-w-4xl u-mx-auto">
           <h2 className="u-fs-5xl u-font-black u-mb-6 u-tracking-tighter">
             Ready to crystallize your vision?

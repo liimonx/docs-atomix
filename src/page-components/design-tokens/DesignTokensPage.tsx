@@ -1,23 +1,20 @@
 "use client";
 
 import { useState, useMemo, FC } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   Button,
-  Input,
-  Select,
   Hero,
   GridCol,
   Grid,
   Block,
   Card,
   Badge,
-  SectionIntro,
+  Breadcrumb,
+  Icon,
 } from "@shohojdhara/atomix";
 import { designTokens, DesignToken } from "@/data/design-tokens";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
-import styles from "@/styles/PageHero.module.scss";
-import componentStyles from "./DesignTokensPage.module.scss";
 
 // Helper function to get CSS variable name from token
 const getCSSVariable = (token: DesignToken): string | null => {
@@ -26,82 +23,62 @@ const getCSSVariable = (token: DesignToken): string | null => {
 
 // Helper function to extract spacing value from strings like "0.25rem (4px)"
 const extractSpacingValue = (value: string): string => {
-  // Extract "0.25rem" from "0.25rem (4px)" or return value as-is
   const remMatch = value.match(/([\d.]+rem)/);
   if (remMatch) return remMatch[1];
-
-  // Try to extract px value if no rem found
   const pxMatch = value.match(/([\d.]+px)/);
   if (pxMatch) return pxMatch[1];
-
   return value;
 };
 
 // Helper function to extract border-radius value
 const extractRadiusValue = (value: string): string => {
-  // Handle special cases
   if (value === "0") return "0";
   if (value === "9999px") return "9999px";
-
-  // Extract rem/px value
   const match = value.match(/([\d.]+(?:rem|px))/);
   return match ? match[1] : "0";
 };
 
 // Helper function to extract font-size value
 const extractFontSizeValue = (value: string): string => {
-  // Extract "0.75rem" from "0.75rem (12px)" or return value as-is
   const remMatch = value.match(/([\d.]+rem)/);
   if (remMatch) return remMatch[1];
-
-  // Try to extract px value if no rem found
   const pxMatch = value.match(/([\d.]+px)/);
   if (pxMatch) return pxMatch[1];
-
   return value;
 };
 
 const DesignTokensPage: FC = () => {
-  const router = useRouter();
   const pathname = usePathname();
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery] = useState("");
   const [isCopied, copy] = useCopyToClipboard();
   const [copiedTokenName, setCopiedTokenName] = useState<string | null>(null);
 
-  // Extract category from URL
   const getCategoryFromUrl = () => {
     const pathParts = pathname.split("/");
     const category = pathParts[pathParts.length - 1];
-
-    // Handle "all" explicitly
-    if (category === "all") {
-      return "all";
-    }
-
-    // Check if it's a valid category
-    const validCategory = designTokens.find(
-      (tokenCategory) => tokenCategory.id === category,
-    );
+    if (category === "all") return "all";
+    const validCategory = designTokens.find((tc) => tc.id === category);
     return validCategory ? category : "all";
   };
 
   const selectedCategory = getCategoryFromUrl();
 
-  // Check if token is a color token
   const isColorToken = (token: DesignToken): boolean => {
     return (
-      token.category === "brand" ||
-      token.category === "semantic" ||
-      token.category === "neutral" ||
-      token.category === "primary-scale" ||
-      token.category === "red-scale" ||
-      token.category === "green-scale" ||
-      token.category === "blue-scale" ||
-      token.category === "yellow-scale" ||
-      token.category === "text" ||
-      token.category === "background" ||
-      token.category === "border" ||
-      token.category === "hover" ||
+      [
+        "brand",
+        "semantic",
+        "neutral",
+        "primary-scale",
+        "red-scale",
+        "green-scale",
+        "blue-scale",
+        "yellow-scale",
+        "text",
+        "background",
+        "border",
+        "hover",
+      ].includes(token.category) ||
       token.value.startsWith("#") ||
       token.value.startsWith("rgb") ||
       token.value.startsWith("rgba")
@@ -121,12 +98,9 @@ const DesignTokensPage: FC = () => {
 
   const filteredTokens = useMemo(() => {
     let tokens: DesignToken[] = [];
-
     if (selectedCategory !== "all") {
       const category = designTokens.find((cat) => cat.id === selectedCategory);
-      if (category) {
-        tokens = [...category.tokens];
-      }
+      if (category) tokens = [...category.tokens];
     } else {
       tokens = designTokens.flatMap((category) => category.tokens);
     }
@@ -141,97 +115,57 @@ const DesignTokensPage: FC = () => {
           token.category.toLowerCase().includes(query),
       );
     }
-
     return tokens;
   }, [searchQuery, selectedCategory]);
 
   const groupedTokens = useMemo(() => {
     const groups: Record<string, DesignToken[]> = {};
     filteredTokens.forEach((token) => {
-      if (!groups[token.category]) {
-        groups[token.category] = [];
-      }
+      if (!groups[token.category]) groups[token.category] = [];
       groups[token.category].push(token);
     });
     return groups;
   }, [filteredTokens]);
 
-  const categories = [
-    { value: "all", label: "All Tokens" },
-    ...designTokens.map((tokenCategory) => ({
-      value: tokenCategory.id,
-      label: tokenCategory.title,
-    })),
-  ];
-
-  // Get page title based on selected category
   const getPageTitle = () => {
-    if (selectedCategory === "all") {
-      return "All Design Tokens";
-    }
+    if (selectedCategory === "all") return "All Design Tokens";
     const category = designTokens.find((cat) => cat.id === selectedCategory);
     return category ? `${category.title} Tokens` : "Design Tokens";
   };
 
   const renderTokenPreview = (token: DesignToken) => {
     const cssVar = getCSSVariable(token);
-
-    // Check if token is a gradient
     const isGradient =
       token.category === "gradient" || token.value.includes("gradient");
 
-    // Handle colors and gradients
     if (isColorToken(token) || isGradient) {
-      // For colors, prefer actual hex/rgb value, fallback to CSS variable
-      let colorValue: string;
-      if (isGradient) {
-        colorValue = token.value;
-      } else if (token.value.startsWith("#") || token.value.startsWith("rgb")) {
-        colorValue = token.value;
-      } else if (cssVar) {
-        // Use CSS variable directly
-        colorValue = cssVar;
-      } else {
-        colorValue = token.value;
-      }
-
-      // Determine if we need a border for light colors
-      const needsBorder =
-        token.value === "#ffffff" ||
-        token.value === "#fff" ||
-        token.value === "#f9fafb" ||
-        token.value === "#f3f4f6" ||
-        token.value.toLowerCase().includes("white") ||
-        cssVar?.includes("primary-bg-subtle") ||
-        cssVar?.includes("secondary-bg-subtle") ||
-        cssVar?.includes("tertiary-bg-subtle") ||
-        cssVar?.includes("light-bg-subtle");
+      const colorValue = isGradient
+        ? token.value
+        : token.value.startsWith("#") || token.value.startsWith("rgb")
+        ? token.value
+        : cssVar || token.value;
 
       return (
         <div
-          className={`${componentStyles.designTokensPage__colorPreview} ${
-            needsBorder
-              ? componentStyles["designTokensPage__colorPreview--needsBorder"]
-              : ""
-          }`}
+          className="u-w-100 u-h-100 u-relative u-overflow-hidden"
           style={{ background: colorValue }}
         >
+          {/* Subtle noise overlay */}
           <div
-            className={componentStyles.designTokensPage__colorPreviewGradient}
+            className="u-absolute u-inset-0 u-opacity-10 u-mix-blend-overlay"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            }}
           />
-          <div className={componentStyles.designTokensPage__colorPreviewBadge}>
-            <span
-              className={`${
-                componentStyles.designTokensPage__colorPreviewText
-              } ${
-                needsBorder
-                  ? componentStyles["designTokensPage__colorPreviewText--dark"]
-                  : componentStyles["designTokensPage__colorPreviewText--light"]
-              }`}
-            >
-              PREVIEW
-            </span>
-          </div>
+
+          <div
+            className="u-absolute u-inset-0 u-opacity-0 u-hover-opacity-100 u-transition-all u-flex u-items-center u-justify-center"
+            style={{
+              backdropFilter: "blur(2px)",
+              backgroundColor: "rgba(0,0,0,0.05)",
+              cursor: "pointer",
+            }}
+          ></div>
         </div>
       );
     }
@@ -240,249 +174,223 @@ const DesignTokensPage: FC = () => {
       case "spacing": {
         const spacingValue = cssVar || extractSpacingValue(token.value);
         return (
-          <div className={componentStyles.designTokensPage__spacingPreview}>
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-overflow-hidden">
             <div
-              className={componentStyles.designTokensPage__spacingBox}
+              className="u-absolute u-inset-0 u-opacity-10"
               style={{
-                width: spacingValue,
-                height: spacingValue,
+                backgroundImage:
+                  "radial-gradient(circle at 2px 2px, var(--atomix-primary) 1px, transparent 0)",
+                backgroundSize: "16px 16px",
               }}
-            />
-            <div className={componentStyles.designTokensPage__spacingDashed} />
+            ></div>
+            <div className="u-relative u-flex u-items-center u-justify-center">
+              <div
+                className="u-absolute u-border u-border-dashed u-border-primary u-opacity-50 u-rounded-sm"
+                style={{ width: spacingValue, height: spacingValue }}
+              ></div>
+              <div
+                className="u-bg-primary-subtle u-border u-border-primary u-text-primary u-flex u-items-center u-justify-center u-rounded-sm u-shadow-primary-glow"
+                style={{
+                  width: spacingValue,
+                  height: spacingValue,
+                  minWidth: "8px",
+                  minHeight: "8px",
+                }}
+              ></div>
+            </div>
           </div>
         );
       }
       case "shadow":
         return (
-          <div
-            className={`${componentStyles.designTokensPage__shadowPreview} ${
-              token.value === "none"
-                ? componentStyles["designTokensPage__shadowPreview--none"]
-                : ""
-            }`}
-            style={{
-              boxShadow:
-                cssVar || (token.value === "none" ? "none" : token.value),
-            }}
-          >
-            <div className={componentStyles.designTokensPage__shadowGradient} />
-            {token.value === "none" && (
-              <span className={componentStyles.designTokensPage__shadowText}>
-                No shadow
-              </span>
-            )}
-            {token.value !== "none" && (
-              <div className={componentStyles.designTokensPage__shadowCard}>
-                CARD
-              </div>
-            )}
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-overflow-hidden">
+            <div className="u-absolute u-top-0 u-w-100 u-h-16 u-bg-primary u-opacity-5 u-blur-xl"></div>
+            <div
+              className={`u-w-20 u-h-20 u-bg-surface u-rounded-xl u-flex u-items-center u-justify-center u-border u-border-glass u-transition-all ${
+                token.value === "none" ? "u-border-dashed" : ""
+              }`}
+              style={{
+                boxShadow:
+                  cssVar || (token.value === "none" ? "none" : token.value),
+              }}
+            >
+              {token.value === "none" ? (
+                <Icon
+                  name="Prohibit"
+                  size={24}
+                  className="u-text-secondary u-opacity-50"
+                />
+              ) : (
+                <Icon
+                  name="Package"
+                  size={24}
+                  className="u-text-primary u-opacity-80"
+                />
+              )}
+            </div>
           </div>
         );
       case "border-radius": {
         const radiusValue = cssVar || extractRadiusValue(token.value);
         return (
-          <div className={componentStyles.designTokensPage__radiusPreview}>
-            {[1, 2, 3, 4].map((i) => (
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-overflow-hidden">
+            <div
+              className="u-w-24 u-h-24 u-bg-surface u-border-2 u-border-primary u-relative u-transition-all"
+              style={{ borderRadius: radiusValue }}
+            >
               <div
-                key={i}
-                className={`${componentStyles.designTokensPage__radiusBox} ${
-                  i === 1
-                    ? componentStyles["designTokensPage__radiusBox--none"]
-                    : ""
-                }`}
+                className="u-absolute u-top-0 u-start-0 u-w-4 u-h-4 u-translate-x-n2 u-translate-y-n2 u-opacity-50"
                 style={{
-                  borderRadius: i === 1 ? "0" : radiusValue,
+                  borderTop: "2px solid var(--atomix-primary)",
+                  borderLeft: "2px solid var(--atomix-primary)",
                 }}
-              >
-                {i === 1 && "0"}
-                {i === 2 && "SM"}
-                {i === 3 && "MD"}
-                {i === 4 && "LG"}
-              </div>
-            ))}
+              ></div>
+            </div>
           </div>
         );
       }
       case "font-family": {
         const fontFamilyValue = cssVar || token.value;
         return (
-          <div className={componentStyles.designTokensPage__typographyPreview}>
-            <span
-              className={componentStyles.designTokensPage__typographyLarge}
-              style={{
-                fontFamily: fontFamilyValue,
-                fontSize: "24px",
-              }}
+          <div className="u-w-100 u-h-100 u-relative u-flex u-flex-column u-items-center u-justify-center u-bg-surface-subtle u-gap-2 u-p-4">
+            <div
+              style={{ fontFamily: fontFamilyValue }}
+              className="u-fs-5xl u-font-black u-text-primary-emphasis u-leading-none"
             >
               Aa
-            </span>
-            <span
-              className={componentStyles.designTokensPage__typographySmall}
-              style={{
-                fontFamily: fontFamilyValue,
-              }}
+            </div>
+            <div
+              style={{ fontFamily: fontFamilyValue }}
+              className="u-fs-sm u-text-secondary-emphasis u-text-center"
             >
               The quick brown fox
-            </span>
+            </div>
           </div>
         );
       }
       case "font-size": {
         const fontSizeValue = cssVar || extractFontSizeValue(token.value);
         return (
-          <div className={componentStyles.designTokensPage__fontSizePreview}>
-            <span
-              className={componentStyles.designTokensPage__fontSizeText}
-              style={{
-                fontSize: fontSizeValue,
-              }}
-            >
-              Sample Text
-            </span>
-            <div className={componentStyles.designTokensPage__fontSizeLabels}>
-              <span className={componentStyles.designTokensPage__fontSizeLabel}>
-                Small
-              </span>
-              <span className={componentStyles.designTokensPage__fontSizeLabel}>
-                Medium
-              </span>
-              <span className={componentStyles.designTokensPage__fontSizeLabel}>
-                Large
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-overflow-hidden">
+            <div className="u-flex u-items-end u-gap-3 u-border-b u-border-dashed u-border-glass u-pb-2">
+              <span className="u-text-secondary u-fs-xs u-opacity-50">a</span>
+              <span
+                className="u-text-primary-emphasis u-leading-none u-font-medium u-whitespace-nowrap"
+                style={{ fontSize: fontSizeValue }}
+              >
+                Aa
               </span>
             </div>
           </div>
         );
       }
       case "font-weight": {
-        // Extract numeric weight value
         const weightMatch = token.value.match(/(\d+)/);
         const weightValue =
           cssVar || (weightMatch ? weightMatch[1] : token.value);
         return (
-          <div className={componentStyles.designTokensPage__fontWeightPreview}>
-            <span
-              className={componentStyles.designTokensPage__fontWeightLarge}
-              style={{
-                fontWeight: weightValue,
-              }}
+          <div className="u-w-100 u-h-100 u-relative u-flex u-flex-column u-items-center u-justify-center u-bg-surface-subtle u-overflow-hidden">
+            <div
+              className="u-fs-4xl u-text-primary-emphasis u-leading-none"
+              style={{ fontWeight: weightValue }}
             >
-              Weight
-            </span>
-            <span
-              className={componentStyles.designTokensPage__fontWeightSmall}
-              style={{
-                fontWeight: weightValue,
-              }}
-            >
-              {token.name}: {token.value}
-            </span>
+              Aa
+            </div>
+            <div className="u-fs-xs u-text-secondary-emphasis u-mt-2 u-font-mono u-opacity-70">
+              {weightValue}
+            </div>
           </div>
         );
       }
       case "line-height": {
         const lineHeightValue = cssVar || token.value;
         return (
-          <div className={componentStyles.designTokensPage__lineHeightPreview}>
-            <div
-              className={componentStyles.designTokensPage__lineHeightText}
-              style={{
-                lineHeight: lineHeightValue,
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-p-8">
+            <div className="u-w-100 u-flex u-flex-column">
+              <div
+                className="u-w-100 u-h-2 u-bg-primary u-opacity-20 u-rounded-full"
+                style={{ marginBottom: `calc(${lineHeightValue}em - 0.5em)` }}
+              ></div>
+              <div
+                className="u-w-75 u-h-2 u-bg-primary u-opacity-40 u-rounded-full"
+                style={{ marginBottom: `calc(${lineHeightValue}em - 0.5em)` }}
+              ></div>
+              <div className="u-w-50 u-h-2 u-bg-primary u-opacity-60 u-rounded-full"></div>
             </div>
           </div>
         );
       }
       case "form": {
-        // Form tokens are colors, so show as color preview
         const formColorValue = cssVar || token.value;
-        const needsBorder =
-          token.value === "#ffffff" ||
-          token.value === "#fff" ||
-          token.value === "#f9fafb" ||
-          token.value === "#f3f4f6" ||
-          token.value.toLowerCase().includes("white") ||
-          cssVar?.includes("primary-bg-subtle") ||
-          cssVar?.includes("secondary-bg-subtle") ||
-          cssVar?.includes("tertiary-bg-subtle") ||
-          cssVar?.includes("light-bg-subtle");
         return (
           <div
-            className={`${componentStyles.designTokensPage__formPreview} ${
-              needsBorder
-                ? componentStyles["designTokensPage__formPreview--needsBorder"]
-                : ""
-            }`}
-            style={{
-              backgroundColor: formColorValue,
-            }}
+            className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-overflow-hidden"
+            style={{ backgroundColor: formColorValue }}
           >
-            <div className={componentStyles.designTokensPage__formBars}>
-              <div
-                className={`${componentStyles.designTokensPage__formBar} ${componentStyles["designTokensPage__formBar--primary"]}`}
-              />
-              <div
-                className={`${componentStyles.designTokensPage__formBar} ${componentStyles["designTokensPage__formBar--secondary"]}`}
-              />
-              <div
-                className={`${componentStyles.designTokensPage__formBar} ${componentStyles["designTokensPage__formBar--tertiary"]}`}
-              />
+            <div
+              className="u-absolute u-inset-0 u-opacity-5 u-mix-blend-overlay"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              }}
+            />
+            <div className="u-w-75 u-flex u-flex-column u-gap-3 u-z-1 u-border u-border-glass u-p-3 u-rounded-xl u-bg-surface-subtle u-shadow-sm">
+              <div className="u-w-100 u-h-3 u-bg-primary u-opacity-80 u-rounded-full"></div>
+              <div className="u-w-50 u-h-3 u-bg-secondary u-opacity-50 u-rounded-full"></div>
             </div>
           </div>
         );
       }
       case "z-index": {
-        // Extract numeric z-index value
         const zIndexMatch = token.value.match(/(\d+)/);
         const zIndexValue = zIndexMatch ? zIndexMatch[1] : token.value;
-        const zIndex = cssVar || zIndexValue;
         return (
-          <div className={componentStyles.designTokensPage__zIndexPreview}>
-            <div
-              className={componentStyles.designTokensPage__zIndexLayer}
-              style={{
-                zIndex:
-                  typeof zIndex === "string" && zIndex.startsWith("var(")
-                    ? zIndex
-                    : parseInt(zIndex as string) || 0,
-              }}
-            >
-              Layer: {zIndexValue}
-            </div>
-            <div className={componentStyles.designTokensPage__zIndexBase}>
-              Base
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-overflow-hidden">
+            <div className="u-relative u-w-24 u-h-24">
+              <div className="u-absolute u-inset-0 u-bg-surface u-border u-border-glass u-rounded-xl u-shadow-sm u-translate-x-4 u-translate-y-4 u-flex u-items-end u-justify-end u-p-2 u-opacity-50">
+                <span className="u-fs-xxs u-text-secondary u-font-mono">
+                  z: 0
+                </span>
+              </div>
+              <div className="u-absolute u-inset-0 u-bg-surface u-border u-border-glass u-rounded-xl u-shadow-sm u-translate-x-2 u-translate-y-2 u-flex u-items-end u-justify-end u-p-2 u-opacity-70">
+                <span className="u-fs-xxs u-text-secondary u-font-mono">
+                  z: 1
+                </span>
+              </div>
+              <div className="u-absolute u-inset-0 u-bg-primary-subtle u-text-primary u-border u-border-primary u-rounded-xl u-shadow-lg u-flex u-items-center u-justify-center u-z-1 u-transition-transform u-hover-translate-x-n1 u-hover-translate-y-n1">
+                <span className="u-fs-sm u-font-black u-font-mono">
+                  {zIndexValue}
+                </span>
+              </div>
             </div>
           </div>
         );
       }
       case "breakpoint": {
-        // Extract breakpoint value
         const breakpointValue = cssVar || token.value;
         return (
-          <div className={componentStyles.designTokensPage__breakpointPreview}>
-            <div className={componentStyles.designTokensPage__breakpointBox}>
-              {breakpointValue === "0" ? "Mobile" : breakpointValue}
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-overflow-hidden u-p-4">
+            <div
+              className="u-w-100 u-h-100 u-opacity-30 u-relative u-flex u-items-center u-justify-center"
+              style={{
+                borderLeft: "2px solid var(--atomix-primary)",
+                borderRight: "2px solid var(--atomix-primary)",
+              }}
+            >
+              <div className="u-absolute u-w-100 u-h-px u-bg-primary u-opacity-50"></div>
+              <div className="u-bg-surface u-px-3 u-py-1 u-rounded-full u-border u-border-primary u-text-primary u-fs-xs u-font-mono u-font-bold u-z-1">
+                {breakpointValue}
+              </div>
             </div>
-            <span className={componentStyles.designTokensPage__breakpointLabel}>
-              {token.name}
-            </span>
           </div>
         );
       }
       case "transition": {
-        const transitionValue = cssVar || token.value;
         return (
-          <div className={componentStyles.designTokensPage__transitionPreview}>
-            <div
-              className={componentStyles.designTokensPage__transitionBox}
-              style={{
-                transition: transitionValue,
-              }}
-            />
-            <div className={componentStyles.designTokensPage__transitionLabel}>
-              {token.name}
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-overflow-hidden">
+            <div className="u-absolute u-w-100 u-h-100 u-flex u-items-center u-justify-center">
+              <div className="u-w-12 u-h-12 u-bg-primary-subtle u-border u-border-primary u-text-primary u-rounded-xl u-flex u-items-center u-justify-center u-shadow-primary-glow u-animate-bounce">
+                <Icon name="ArrowsLeftRight" size={20} weight="duotone" />
+              </div>
             </div>
           </div>
         );
@@ -490,34 +398,42 @@ const DesignTokensPage: FC = () => {
       case "letter-spacing": {
         const letterSpacingValue = cssVar || token.value;
         return (
-          <div
-            className={componentStyles.designTokensPage__letterSpacingPreview}
-          >
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-overflow-hidden">
             <span
-              className={componentStyles.designTokensPage__letterSpacingLarge}
-              style={{
-                letterSpacing: letterSpacingValue,
-              }}
+              className="u-fs-xl u-text-primary-emphasis u-font-bold"
+              style={{ letterSpacing: letterSpacingValue }}
             >
-              Aa
-            </span>
-            <span
-              className={componentStyles.designTokensPage__letterSpacingSmall}
-              style={{
-                letterSpacing: letterSpacingValue,
-              }}
-            >
-              {token.name}
+              SPACE
             </span>
           </div>
         );
       }
       default:
+        if (token.category === "opacity" || token.name.includes("opacity")) {
+          return (
+            <div
+              className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle"
+              style={{
+                backgroundImage:
+                  "linear-gradient(45deg, var(--atomix-primary-border-subtle) 25%, transparent 25%), linear-gradient(-45deg, var(--atomix-primary-border-subtle) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--atomix-primary-border-subtle) 75%), linear-gradient(-45deg, transparent 75%, var(--atomix-primary-border-subtle) 75%)",
+                backgroundSize: "10px 10px",
+                backgroundPosition: "0 0, 0 5px, 5px -5px, -5px 0px",
+              }}
+            >
+              <div
+                className="u-w-20 u-h-20 u-bg-primary u-rounded-xl"
+                style={{ opacity: cssVar || token.value }}
+              ></div>
+            </div>
+          );
+        }
         return (
-          <div className={componentStyles.designTokensPage__defaultPreview}>
-            <span className={componentStyles.designTokensPage__defaultText}>
-              {token.category.slice(0, 2).toUpperCase()}
-            </span>
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-p-6">
+            <div className="u-w-100 u-h-100 u-border u-border-dashed u-border-glass u-rounded-xl u-flex u-items-center u-justify-center">
+              <span className="u-fs-lg u-font-bold u-text-primary-emphasis u-opacity-30">
+                {token.category.slice(0, 2).toUpperCase()}
+              </span>
+            </div>
           </div>
         );
     }
@@ -526,74 +442,69 @@ const DesignTokensPage: FC = () => {
   return (
     <>
       <Hero
-        title={getPageTitle()}
-        text={
-          selectedCategory === "all"
-            ? "Browse all design tokens from every category in one place"
-            : "The design system's visual language, expressed through code"
-        }
-        alignment="center"
-        className={styles.pageHero}
-        actions={
-          <Grid className="u-mt-8">
-            <GridCol md={8}>
-              <Input
-                glass
-                type="search"
-                placeholder="Search tokens by name, description, or value..."
-                value={searchQuery}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setSearchQuery(e.target.value)
-                }
-                className="u-w-100"
-              />
-            </GridCol>
-            <GridCol md={4}>
-              <Select
-                className="u-w-100"
-                value={selectedCategory}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                  router.push(`/docs/design-tokens/${e.target.value}`);
-                }}
-                options={categories}
-                glass
-              />
-            </GridCol>
-          </Grid>
-        }
-      />
+        title={<></>}
+        alignment="left"
+        className="u-bg-surface-subtle u-border-b u-border-glass u-relative u-overflow-hidden"
+      >
+        {/* Ambient background glow for Hero */}
+        <div className="u-absolute u-top-0 u-start-50 u-translate-x-n50 u-w-100 u-h-100 u-max-w-4xl u-bg-primary u-opacity-5 u-blur-3xl u-rounded-circle u-pointer-events-none"></div>
+
+        <Hero.Subtitle>
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              {
+                label: "Design Tokens",
+                href: "/docs/design-tokens",
+                active: true,
+              },
+            ]}
+            className="u-relative u-z-1"
+          />
+        </Hero.Subtitle>
+        <Hero.Content className="u-w-100 u-max-w-4xl u-relative u-z-1">
+          <Hero.Title className="u-fs-5xl u-font-black u-tracking-tighter">
+            {getPageTitle()}
+          </Hero.Title>
+          <Hero.Text className="u-fs-xl u-text-secondary u-leading-relaxed">
+            {selectedCategory === "all"
+              ? "A complete showcase of all variables, sizes, and colors that power the Atomix design system."
+              : "Explore the precise CSS variables mapped to this category to build pixel-perfect UIs."}
+          </Hero.Text>
+        </Hero.Content>
+      </Hero>
 
       <Block spacing="lg">
         {/* Stats Section */}
         {selectedCategory === "all" && (
-          <div className="u-mb-8">
+          <div className="u-mb-12">
             <Grid>
               <GridCol md={4} sm={6}>
-                <Card className="u-p-6 u-text-center u-h-100">
-                  <div className="u-text-4xl u-font-bold u-mb-2 u-text-primary-emphasis">
+                <Card className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border u-border-glass u-shadow-sm u-transition-transform u-hover-translate-y-n1">
+                  <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {filteredTokens.length}
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
+                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg u-font-medium">
                     Total Tokens
                   </p>
                 </Card>
               </GridCol>
               <GridCol md={4} sm={6}>
-                <Card className="u-p-6 u-text-center u-h-100">
-                  <div className="u-text-4xl u-font-bold u-mb-2 u-text-primary-emphasis">
+                <Card className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border u-border-glass u-shadow-sm u-transition-transform u-hover-translate-y-n1">
+                  <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {Object.keys(groupedTokens).length}
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
+                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg u-font-medium">
                     Categories
                   </p>
                 </Card>
               </GridCol>
               <GridCol md={4} sm={6}>
-                <Card className="u-p-6 u-text-center u-h-100">
-                  <div className="u-text-4xl u-font-bold u-mb-2 u-text-primary-emphasis">
+                <Card className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border u-border-glass u-shadow-sm u-transition-transform u-hover-translate-y-n1">
+                  <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {designTokens.length}
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
+                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg u-font-medium">
                     Token Groups
                   </p>
                 </Card>
@@ -612,19 +523,23 @@ const DesignTokensPage: FC = () => {
           const categoryDescription = categoryInfo?.description || "";
 
           return (
-            <div key={category} className="u-mb-12">
-              <div className="u-flex u-items-center u-justify-between u-mb-6">
-                <SectionIntro
-                  title={categoryTitle}
-                  text={categoryDescription}
-                  alignment="left"
-                />
+            <div key={category} className="u-mb-16">
+              <div className="u-flex u-items-center u-justify-between u-mb-8 u-border-b u-border-glass u-pb-4">
+                <div>
+                  <h2 className="u-fs-3xl u-font-black u-tracking-tight u-mb-2">
+                    {categoryTitle}
+                  </h2>
+                  <p className="u-text-secondary u-fs-lg u-m-0">
+                    {categoryDescription}
+                  </p>
+                </div>
                 <Badge
                   variant="primary"
                   size="md"
                   label={`${tokens.length} ${
                     tokens.length === 1 ? "token" : "tokens"
                   }`}
+                  className="u-rounded-full u-px-4 u-py-2 u-fs-sm u-font-bold u-shadow-primary-glow"
                 />
               </div>
 
@@ -635,61 +550,29 @@ const DesignTokensPage: FC = () => {
                     sm={6}
                     lg={4}
                     xl={3}
-                    className="u-mb-4"
+                    className="u-mb-6"
                   >
-                    <Card className="u-h-100 u-transition-fast u-hover-transform-up u-overflow-hidden">
+                    <Card className="u-h-100 u-rounded-3xl u-shadow-md u-border u-border-glass u-relative u-overflow-hidden u-flex u-flex-column u-transition-all u-hover-shadow-lg u-hover-translate-y-n2 u-hover-border-primary-subtle">
                       {/* Preview Section */}
-                      <div
-                        className={`${
-                          componentStyles.designTokensPage__preview
-                        } ${
-                          isColorToken(token) || token.category === "gradient"
-                            ? componentStyles[
-                                "designTokensPage__preview--color"
-                              ]
-                            : componentStyles[
-                                "designTokensPage__preview--nonColor"
-                              ]
-                        }`}
-                      >
+                      <div className="u-h-40 u-w-100 u-relative u-flex u-items-center u-justify-center u-overflow-hidden u-border-b u-border-glass">
                         {renderTokenPreview(token)}
                       </div>
 
                       {/* Token Info Section */}
-                      <div
-                        className={`${componentStyles.designTokensPage__info} u-p-4`}
-                      >
-                        <div className="u-flex u-items-center u-justify-between u-mb-2">
-                          <h3
-                            className={`${componentStyles.designTokensPage__tokenName} u-m-0`}
-                          >
+                      <div className="u-flex u-flex-column u-flex-grow-1 u-p-6">
+                        <div className="u-flex u-items-start u-justify-between u-mb-3 u-gap-3">
+                          <h3 className="u-fs-lg u-font-bold u-text-primary-emphasis u-m-0 u-tracking-tight u-word-break-all">
                             {token.name}
                           </h3>
-                          <Badge
-                            variant="secondary"
-                            size="sm"
-                            label={token.category}
-                          />
                         </div>
 
-                        <p
-                          className={`${componentStyles.designTokensPage__tokenDescription} u-mb-4`}
-                        >
+                        <p className="u-fs-sm u-text-secondary u-mb-6 u-flex-grow-1 u-leading-relaxed">
                           {token.description}
                         </p>
 
                         {/* Value and Copy Section */}
-                        <div
-                          className={
-                            componentStyles.designTokensPage__valueSection
-                          }
-                        >
-                          <code
-                            className={
-                              componentStyles.designTokensPage__valueCode
-                            }
-                            title={getCSSVariable(token) || token.value}
-                          >
+                        <div className="u-flex u-items-center u-justify-between u-gap-3 u-mt-auto u-bg-surface-subtle u-p-2 u-rounded-xl u-border u-border-glass">
+                          <code className="u-fs-xs u-font-mono u-text-primary-emphasis u-truncate u-px-2">
                             {getCSSVariable(token) || token.value}
                           </code>
                           <Button
@@ -699,12 +582,20 @@ const DesignTokensPage: FC = () => {
                                 : "primary"
                             }
                             size="sm"
+                            className="u-flex-shrink-0 u-rounded-lg u-shadow-sm"
                             onClick={() => handleCopy(token)}
-                          >
-                            {isCopied && copiedTokenName === token.name
-                              ? "Copied"
-                              : "Copy"}
-                          </Button>
+                            icon={
+                              <Icon
+                                name={
+                                  isCopied && copiedTokenName === token.name
+                                    ? "CheckCircle"
+                                    : "Copy"
+                                }
+                                weight="duotone"
+                              />
+                            }
+                            iconOnly
+                          ></Button>
                         </div>
                       </div>
                     </Card>
