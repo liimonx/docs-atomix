@@ -6,36 +6,109 @@
 
 .root {
   position: fixed;
-  inset: 65px 0 0 0;
+  inset: 0px 0 0 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   z-index: 0;
 
-  // Clean, aesthetic dual-glow at the top
+  // CSS variables for themes, default to trust/creativity blue and purple
+  --bg-color-1: rgba(19, 164, 236, 0.25);
+  --bg-color-2: rgba(147, 51, 234, 0.22);
+  --bg-color-1-mobile: rgba(19, 164, 236, 0.15);
+  --bg-color-2-mobile: rgba(147, 51, 234, 0.12);
+
+  // Smoothly transition between different theme colors on client-side route changes
+  transition: --bg-color-1 1s ease-in-out, --bg-color-2 1s ease-in-out,
+    --bg-color-1-mobile 1s ease-in-out, --bg-color-2-mobile 1s ease-in-out;
+
   background-image: radial-gradient(
       circle at 30% 0%,
-      rgba(19, 164, 236, 0.25) 0%,
+      var(--bg-color-1) 0%,
       transparent 50%
     ),
-    radial-gradient(
-      circle at 70% 0%,
-      rgba(147, 51, 234, 0.22) 0%,
-      transparent 50%
-    );
+    radial-gradient(circle at 70% 0%, var(--bg-color-2) 0%, transparent 50%);
 }
 
 @media (max-width: 768px) {
   .root {
     background-image: radial-gradient(
         circle at 50% -10%,
-        rgba(19, 164, 236, 0.15) 0%,
+        var(--bg-color-1-mobile) 0%,
         transparent 60%
       ),
       radial-gradient(
         circle at 100% -10%,
-        rgba(147, 51, 234, 0.12) 0%,
+        var(--bg-color-2-mobile) 0%,
         transparent 60%
       );
   }
+}
+
+// ---------------------------------------------------------------------------
+// Variants (Psychological Impact)
+// ---------------------------------------------------------------------------
+
+// Growth, Harmony, Freshness (Getting Started)
+.theme-growth {
+  --bg-color-1: rgba(16, 185, 129, 0.25); // Emerald
+  --bg-color-2: rgba(14, 165, 233, 0.22); // Sky
+  --bg-color-1-mobile: rgba(16, 185, 129, 0.15);
+  --bg-color-2-mobile: rgba(14, 165, 233, 0.12);
+}
+
+// Energy, Vibrancy, Foundation (Design Tokens)
+.theme-energy {
+  --bg-color-1: rgba(249, 115, 22, 0.25); // Orange
+  --bg-color-2: rgba(244, 63, 94, 0.22); // Rose
+  --bg-color-1-mobile: rgba(249, 115, 22, 0.15);
+  --bg-color-2-mobile: rgba(244, 63, 94, 0.12);
+}
+
+// Logic, Structure, Focus (Components)
+.theme-focus {
+  --bg-color-1: rgba(99, 102, 241, 0.25); // Indigo
+  --bg-color-2: rgba(6, 182, 212, 0.22); // Cyan
+  --bg-color-1-mobile: rgba(99, 102, 241, 0.15);
+  --bg-color-2-mobile: rgba(6, 182, 212, 0.12);
+}
+
+// Joy, Optimism, Warmth (Examples, Templates)
+.theme-warmth {
+  --bg-color-1: rgba(245, 158, 11, 0.25); // Amber
+  --bg-color-2: rgba(253, 224, 71, 0.22); // Yellow
+  --bg-color-1-mobile: rgba(245, 158, 11, 0.15);
+  --bg-color-2-mobile: rgba(253, 224, 71, 0.12);
+}
+
+// Tranquility, Reliability, Depth (API, FAQ, Support)
+.theme-calm {
+  --bg-color-1: rgba(20, 184, 166, 0.25); // Teal
+  --bg-color-2: rgba(59, 130, 246, 0.22); // Blue
+  --bg-color-1-mobile: rgba(20, 184, 166, 0.15);
+  --bg-color-2-mobile: rgba(59, 130, 246, 0.12);
+}
+
+// Creativity, Wisdom, Mystery (Advanced, Architecture, Guides)
+.theme-mystery {
+  --bg-color-1: rgba(168, 85, 247, 0.25); // Purple
+  --bg-color-2: rgba(236, 72, 153, 0.22); // Pink
+  --bg-color-1-mobile: rgba(168, 85, 247, 0.15);
+  --bg-color-2-mobile: rgba(236, 72, 153, 0.12);
+}
+
+// Caution, Urgency (Migration, Deprecated)
+.theme-alert {
+  --bg-color-1: rgba(239, 68, 68, 0.25); // Red
+  --bg-color-2: rgba(249, 115, 22, 0.22); // Orange
+  --bg-color-1-mobile: rgba(239, 68, 68, 0.15);
+  --bg-color-2-mobile: rgba(249, 115, 22, 0.12);
+}
+
+// Natural, Refreshing (Community, Blog, About)
+.theme-nature {
+  --bg-color-1: rgba(132, 204, 22, 0.25); // Lime
+  --bg-color-2: rgba(34, 197, 94, 0.22); // Green
+  --bg-color-1-mobile: rgba(132, 204, 22, 0.15);
+  --bg-color-2-mobile: rgba(34, 197, 94, 0.12);
 }

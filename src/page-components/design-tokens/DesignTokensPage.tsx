@@ -203,7 +203,7 @@ const DesignTokensPage: FC = () => {
       }
       case "shadow":
         return (
-          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-bg-surface-subtle u-overflow-hidden">
+          <Card>
             <div className="u-absolute u-top-0 u-w-100 u-h-16 u-bg-primary u-opacity-5 u-blur-xl"></div>
             <div
               className={`u-w-20 u-h-20 u-bg-surface u-rounded-xl u-flex u-items-center u-justify-center u-border u-border-glass u-transition-all ${
@@ -228,7 +228,7 @@ const DesignTokensPage: FC = () => {
                 />
               )}
             </div>
-          </div>
+          </Card>
         );
       case "border-radius": {
         const radiusValue = cssVar || extractRadiusValue(token.value);
@@ -552,26 +552,26 @@ const DesignTokensPage: FC = () => {
                     xl={3}
                     className="u-mb-6"
                   >
-                    <Card className="u-h-100 u-rounded-3xl u-shadow-md u-border u-border-glass u-relative u-overflow-hidden u-flex u-flex-column u-transition-all u-hover-shadow-lg u-hover-translate-y-n2 u-hover-border-primary-subtle">
+                    <Card size="sm" appearance="outlined" className="u-p-1">
                       {/* Preview Section */}
-                      <div className="u-h-40 u-w-100 u-relative u-flex u-items-center u-justify-center u-overflow-hidden u-border-b u-border-glass">
+                      <div className="u-h-40 u-w-100 u-relative u-flex u-items-center u-justify-center u-overflow-hidden">
                         {renderTokenPreview(token)}
                       </div>
 
                       {/* Token Info Section */}
-                      <div className="u-flex u-flex-column u-flex-grow-1 u-p-6">
-                        <div className="u-flex u-items-start u-justify-between u-mb-3 u-gap-3">
+                      <div className="u-flex u-flex-column u-flex-grow-1 u-mt-3">
+                        <div className="u-flex u-items-start u-justify-between u-gap-2">
                           <h3 className="u-fs-lg u-font-bold u-text-primary-emphasis u-m-0 u-tracking-tight u-word-break-all">
                             {token.name}
                           </h3>
                         </div>
 
                         <p className="u-fs-sm u-text-secondary u-mb-6 u-flex-grow-1 u-leading-relaxed">
-                          {token.description}
+                          {/* {token.description} */}
                         </p>
 
                         {/* Value and Copy Section */}
-                        <div className="u-flex u-items-center u-justify-between u-gap-3 u-mt-auto u-bg-surface-subtle u-p-2 u-rounded-xl u-border u-border-glass">
+                        <div className="u-ab u-flex u-items-center u-justify-between u-gap-3 u-mt-auto u-bg-primary-subtle u-p-1 u-rounded-xl u-border u-border-glass">
                           <code className="u-fs-xs u-font-mono u-text-primary-emphasis u-truncate u-px-2">
                             {getCSSVariable(token) || token.value}
                           </code>
