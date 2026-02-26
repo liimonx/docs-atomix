@@ -88,7 +88,7 @@ export function GlobalSearch() {
         menu={
           <div className="u-w-100">
             {mappedSearchResults.length > 0 ? (
-              <ul className="u-list-none u-m-0 u-p-0">
+              <ul className="u-list-none u-m-0 u-ps-1">
                 {mappedSearchResults.map((result) => (
                   <SearchResultItem
                     key={result.id}

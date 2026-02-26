@@ -1,43 +1,60 @@
 // Loading State for Dynamic Documentation Routes
 // =============================================================================
 
-'use client';
+"use client";
 
-import { Spinner, Card, Row, GridCol } from '@shohojdhara/atomix';
-import styles from './loading.module.scss';
+import { Card, Row, GridCol } from "@shohojdhara/atomix";
+import { motion } from "framer-motion";
 
 export default function DynamicDocsLoading() {
   return (
-    <div className={`container ${styles.documentationLoading}`}>
+    <div className="container u-py-12 u-py-md-16">
       <Row justifyContent="center">
-        <GridCol xs={12} md={10}>
-          <div className={styles.documentationLoading__headerSkeleton}>
-            <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__titleSkeleton} u-mb-3`} />
-            <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__subtitleSkeleton}`} />
-          </div>
-          <Card className={styles.documentationLoading__cardSkeleton}>
-            <div className="u-mb-6">
-              <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__lineMd} u-mb-4`} style={{ width: '40%' }} />
-              <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__lineSm} u-mb-2`} style={{ width: '100%' }} />
-              <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__lineSm} u-mb-2`} style={{ width: '95%' }} />
-              <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__lineSm}`} style={{ width: '90%' }} />
+        <GridCol xs={12} md={10} lg={9}>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            {/* Header Skeleton */}
+            <div className="u-mb-10">
+              <div className="u-h-12 u-w-75 u-w-md-50 u-body-bg-subtle u-rounded-lg u-animate-pulse u-mb-4" />
+              <div className="u-h-6 u-w-100 u-w-md-75 u-body-bg-subtle u-rounded-md u-animate-pulse u-opacity-70" />
             </div>
-            <div className="u-mb-6">
-              <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__lineMd} u-mb-4`} style={{ width: '35%' }} />
-              <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__lineSm} u-mb-2`} style={{ width: '100%' }} />
-              <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__lineSm} u-mb-2`} style={{ width: '98%' }} />
-              <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__lineSm}`} style={{ width: '92%' }} />
-            </div>
-            <div className="u-mb-6">
-              <div className={`${styles.documentationLoading__line} ${styles.documentationLoading__codeSkeleton}`} style={{ width: '100%' }} />
-            </div>
-            <div className={styles.documentationLoading__center}>
-              <Spinner size="lg" />
-            </div>
-          </Card>
+
+            {/* Content Skeleton */}
+            <Card
+              glass
+              className="u-p-6 u-p-md-10 u-border u-border-glass u-rounded-3xl u-shadow-lg"
+            >
+              {/* Paragraph 1 */}
+              <div className="u-mb-10">
+                <div className="u-h-8 u-w-40 u-body-bg-subtle u-rounded-md u-animate-pulse u-mb-5" />
+                <div className="u-flex u-flex-column u-gap-3">
+                  <div className="u-h-4 u-w-100 u-body-bg-subtle u-rounded-sm u-animate-pulse u-opacity-60" />
+                  <div className="u-h-4 u-w-100 u-body-bg-subtle u-rounded-sm u-animate-pulse u-opacity-60" />
+                  <div className="u-h-4 u-w-75 u-body-bg-subtle u-rounded-sm u-animate-pulse u-opacity-60" />
+                </div>
+              </div>
+
+              {/* Paragraph 2 */}
+              <div className="u-mb-10">
+                <div className="u-h-8 u-w-25 u-body-bg-subtle u-rounded-md u-animate-pulse u-mb-5" />
+                <div className="u-flex u-flex-column u-gap-3">
+                  <div className="u-h-4 u-w-100 u-body-bg-subtle u-rounded-sm u-animate-pulse u-opacity-60" />
+                  <div className="u-h-4 u-w-100 u-body-bg-subtle u-rounded-sm u-animate-pulse u-opacity-60" />
+                  <div className="u-h-4 u-w-90 u-body-bg-subtle u-rounded-sm u-animate-pulse u-opacity-60" />
+                </div>
+              </div>
+
+              {/* Code Block Skeleton */}
+              <div className="u-mb-6">
+                <div className="u-h-72 u-w-100 u-body-bg-subtle u-rounded-xl u-animate-pulse u-opacity-80" />
+              </div>
+            </Card>
+          </motion.div>
         </GridCol>
       </Row>
     </div>
   );
 }
-
