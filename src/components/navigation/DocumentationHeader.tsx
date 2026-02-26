@@ -21,13 +21,17 @@ const DocumentationHeader = memo(function DocumentationHeader({
     <Navbar
       position={"fixed"}
       glass={{
-        blurAmount: 3,
+        blurAmount: 6,
+        displacementScale: 60,
+        aberrationIntensity: 30,
         overLight: {
           brightness: 1,
           contrast: 1,
         },
+        enableBorderEffect: false,
+        enableLiquidBlur: false,
+        shaderVariant: "appleFluid",
       }}
-      variant="primary"
       brand={
         <Link href="/">
           <div className="u-flex u-items-center u-gap-3">

@@ -86,9 +86,7 @@ const prefersReducedMotion = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /** Animate a slide IN — cinematic reveal */
-function animateSlideIn(
-  el: HTMLElement,
-): gsap.core.Timeline {
+function animateSlideIn(el: HTMLElement): gsap.core.Timeline {
   const contentWrapper = el.querySelector(`.${styles.contentWrapper}`);
   const charsL1 = el.querySelectorAll(`.${styles.charLine1}`);
   const charsL2 = el.querySelectorAll(`.${styles.charLine2}`);
@@ -319,7 +317,7 @@ export const HeroHeadlineSlider = () => {
       if (!prevEl || !nextEl) return;
 
       isAnimating.current = true;
-      
+
       // 1. Kill all potential conflicting tweens immediately
       autoAdvance.current?.kill();
       progressTween.current?.kill();
@@ -334,11 +332,14 @@ export const HeroHeadlineSlider = () => {
       gsap.to(prevEl, { y: 0, duration: 0.5, ease: "power2.inOut" });
 
       // 4. Viewport "Camera" Zoom
-      const viewport = containerRef.current?.querySelector(`.${styles.slidesViewport}`);
+      const viewport = containerRef.current?.querySelector(
+        `.${styles.slidesViewport}`,
+      );
       if (viewport) {
-        gsap.fromTo(viewport, 
-          { z: 0 }, 
-          { z: 0, duration: 0.6, yoyo: true, repeat: 1, ease: "power2.inOut" }
+        gsap.fromTo(
+          viewport,
+          { z: 0 },
+          { z: 0, duration: 0.6, yoyo: true, repeat: 1, ease: "power2.inOut" },
         );
       }
 
@@ -417,7 +418,7 @@ export const HeroHeadlineSlider = () => {
 
       const handleMouseMove = (e: MouseEvent) => {
         if (prefersReducedMotion()) return;
-        
+
         const { width, height, left, top } =
           containerRef.current!.getBoundingClientRect();
         const xPos = (e.clientX - left) / width - 0.5;
