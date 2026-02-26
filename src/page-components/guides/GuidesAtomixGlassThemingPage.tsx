@@ -314,7 +314,7 @@ function ResponsiveGlass({ children }) {
       saturation={isMobile ? 120 : 140}
       mode={isMobile ? 'standard' : 'shader'}
       elasticity={isMobile ? 0 : 0.05}
-      enableLiquidBlur={!isMobile}
+      withLiquidBlur={!isMobile}
     >
       {children}
     </AtomixGlass>

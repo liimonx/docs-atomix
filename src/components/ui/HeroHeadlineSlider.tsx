@@ -224,7 +224,7 @@ function animateSlideOut(el: HTMLElement): gsap.core.Timeline {
 
 export const HeroHeadlineSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused] = useState(false);
 
   // Refs for GSAP — avoids stale closures
   const isPausedRef = useRef(false);

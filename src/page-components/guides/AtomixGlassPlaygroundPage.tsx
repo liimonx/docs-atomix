@@ -756,8 +756,6 @@ const AtomixGlassPlaygroundPage: FC = () => {
               overLight={config.overLight}
               mode={config.mode}
               shaderVariant={config.shaderVariant}
-              withBorderEffect={config.withBorderEffect}
-              enableLiquidBlur={config.enableLiquidBlur}
               aria-label="Live AtomixGlass preview"
             >
               <div className={styles.previewInner}>

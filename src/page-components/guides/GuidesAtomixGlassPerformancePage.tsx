@@ -430,8 +430,8 @@ function AdaptiveGlassComponent() {
       saturation={isLowEndDevice ? 120 : 140}
       aberrationIntensity={isLowEndDevice ? 1.5 : 2.5}
       elasticity={isLowEndDevice ? 0 : 0.05}
-      enableLiquidBlur={!isLowEndDevice}
-      disableEffects={isLowEndDevice}
+      withLiquidBlur={!isLowEndDevice}
+      withoutEffects={isLowEndDevice}
     >
       Content
     </AtomixGlass>
@@ -511,7 +511,7 @@ function OptimizedGlassComponent() {
       aberrationIntensity={isLowEnd ? 1.5 : 2.5}
       elasticity={prefersReducedMotion ? 0 : 0.05}
       reducedMotion={prefersReducedMotion}
-      enableLiquidBlur={!isLowEnd}
+      withLiquidBlur={!isLowEnd}
     >
       Content
     </AtomixGlass>

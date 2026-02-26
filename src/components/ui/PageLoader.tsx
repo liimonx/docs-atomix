@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import { FC } from "react";
 import { motion } from "framer-motion";
 import { Spinner, AtomixLogo } from "@shohojdhara/atomix";
 import styles from "./PageLoader.module.scss";

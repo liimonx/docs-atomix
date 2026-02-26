@@ -45,7 +45,21 @@ const DocumentationSidebar = memo(function DocumentationSidebar({
     <>
       <div className="u-w-72 u-relative">
         <AtomixSideMenu
-          className="u-fixed u-w-60 u-top-5 u-hv-100 u-start-0 u-z-modal u-overflow-y-auto"
+          glass={{
+            style: {
+              position: "fixed",
+              top: "65px",
+              height: "calc(100vh - 65px)",
+              left: "0",
+              overflowY: "auto",
+            },
+            elasticity: 0,
+            borderRadius: 0,
+            displacementScale: 50,
+            withLiquidBlur: false,
+            blurAmount: 0,
+          }}
+          className=" u-w-60 u-top-5 u-vh-100 u-start-0 u-overflow-y-auto"
           title={<></>}
           menuItems={menuItems}
           LinkComponent={Link as any}
