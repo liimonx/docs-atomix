@@ -28,8 +28,6 @@ const DocumentationHeader = memo(function DocumentationHeader({
           brightness: 1,
           contrast: 1,
         },
-        enableBorderEffect: false,
-        enableLiquidBlur: false,
         shaderVariant: "appleFluid",
       }}
       brand={

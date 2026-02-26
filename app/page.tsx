@@ -94,8 +94,9 @@ export default function Page() {
           {/* CTAs */}
           <div className="u-flex u-flex-column u-flex-md-row u-gap-4 u-mt-10 u-w-100 u-justify-center">
             <Button
-              variant="primary"
+              variant="outline-primary"
               size="lg"
+              glass
               icon={<Icon name="ArrowRight" weight="duotone" />}
               iconPosition="end"
               className="u-px-8 u-h-14 u-rounded-lg u-shadow-primary-glow u-fs-lg"

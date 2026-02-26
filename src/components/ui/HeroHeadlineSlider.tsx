@@ -108,22 +108,24 @@ function animateSlideIn(el: HTMLElement): gsap.core.Timeline {
   // ── Reset chars — standardized depth
   tl.set([charsL1, charsL2], {
     opacity: 0,
-    filter: "blur(20px)",
+    yPercent: 30,
+    filter: "blur(12px)",
     transformOrigin: "50% 0%",
   });
 
   tl.set(desc, {
     opacity: 0,
-    filter: "blur(15px)",
+    y: 20,
+    filter: "blur(10px)",
   });
 
   // ── Entrance Timing ──
-  // Duration: 1.5s total for text cascade
   tl.to(charsL1, {
     opacity: 1,
+    yPercent: 0,
     filter: "blur(0px)",
-    duration: 1.5,
-    stagger: { amount: 0.7, from: "start" },
+    duration: 0.8,
+    stagger: { amount: 0.3, from: "start" },
     ease: "expo.out",
   });
 
@@ -131,12 +133,13 @@ function animateSlideIn(el: HTMLElement): gsap.core.Timeline {
     charsL2,
     {
       opacity: 1,
+      yPercent: 0,
       filter: "blur(0px)",
-      duration: 1.4,
-      stagger: { amount: 0.6, from: "start" },
+      duration: 0.8,
+      stagger: { amount: 0.3, from: "start" },
       ease: "expo.out",
     },
-    "<0.08",
+    "<0.1",
   );
 
   tl.to(
@@ -146,10 +149,10 @@ function animateSlideIn(el: HTMLElement): gsap.core.Timeline {
       opacity: 1,
       filter: "blur(0px)",
       scale: 1,
-      duration: 1.8,
-      ease: "power4.out",
+      duration: 1.0,
+      ease: "power3.out",
     },
-    "<0.4",
+    "<0.2",
   );
 
   return tl;
@@ -165,7 +168,7 @@ function animateSlideOut(el: HTMLElement): gsap.core.Timeline {
 
   const tl = gsap.timeline();
 
-  tl.set(el, { zIndex: 1 });
+  tl.set(el, { zIndex: 1, visibility: "visible" });
 
   if (reduced) {
     tl.set([charsL1, charsL2], { opacity: 0 });
@@ -176,34 +179,35 @@ function animateSlideOut(el: HTMLElement): gsap.core.Timeline {
   }
 
   // ── Exit Timing ──
-  // Duration: 1.1s total
   tl.to(charsL1, {
-    yPercent: 0,
+    yPercent: -30,
     opacity: 0,
-    filter: "blur(20px)",
-    duration: 1.1,
-    stagger: { amount: 0.4, from: "start" },
-    ease: "power4.in",
+    filter: "blur(12px)",
+    duration: 0.6,
+    stagger: { amount: 0.2, from: "start" },
+    ease: "power3.in",
   });
 
   tl.to(
     charsL2,
     {
+      yPercent: -30,
       opacity: 0,
-      filter: "blur(20px)",
-      duration: 1.1,
-      stagger: { amount: 0.4, from: "start" },
-      ease: "power4.in",
+      filter: "blur(12px)",
+      duration: 0.6,
+      stagger: { amount: 0.2, from: "start" },
+      ease: "power3.in",
     },
-    "<0.04",
+    "<0.05",
   );
 
   tl.to(
     desc,
     {
+      y: -15,
       opacity: 0,
-      filter: "blur(15px)",
-      duration: 0.9,
+      filter: "blur(10px)",
+      duration: 0.5,
       ease: "power3.in",
     },
     "<0.1",
@@ -223,6 +227,7 @@ export const HeroHeadlineSlider = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   // Refs for GSAP — avoids stale closures
+  const isPausedRef = useRef(false);
   const activeRef = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const slideEls = useRef<(HTMLDivElement | null)[]>([]);
@@ -251,14 +256,18 @@ export const HeroHeadlineSlider = () => {
       const next = (activeRef.current + 1) % SLIDES.length;
       goToSlideRef.current(next);
     });
+    if (isPausedRef.current) {
+      autoAdvance.current.pause();
+    }
   }, []);
 
   /* ───── Progress Bar ───── */
 
   const startProgressBar = useCallback((index: number) => {
-    // Reset all bars
-    progressEls.current.forEach((el) => {
-      if (el) {
+    // Reset all bars except the active one
+    progressEls.current.forEach((el, i) => {
+      if (el && i !== index) {
+        gsap.killTweensOf(el);
         gsap.to(el, {
           scaleX: 0,
           opacity: 0.25,
@@ -282,6 +291,7 @@ export const HeroHeadlineSlider = () => {
           duration: SLIDE_DURATION,
           ease: "none",
           transformOrigin: "left center",
+          paused: isPausedRef.current,
         },
       );
     }
@@ -325,38 +335,28 @@ export const HeroHeadlineSlider = () => {
       transitionTl.current?.kill();
 
       // 2. Immediate state sync to prevent race conditions during the transition
-      // We update activeRef immediately, but setActiveIndex only after transition logic
+      // Update UI state and progress indicators instantly
       activeRef.current = nextIndex;
+      setActiveIndex(nextIndex); // Sync UI state immediately
+
+      // Start the progress indicator and advance timer for the new slide immediately
+      startProgressBar(nextIndex);
+      scheduleAutoAdvance();
 
       // 3. Reset idle transform and add slight "push" to outgoing slide
       gsap.to(prevEl, { y: 0, duration: 0.5, ease: "power2.inOut" });
-
-      // 4. Viewport "Camera" Zoom
-      const viewport = containerRef.current?.querySelector(
-        `.${styles.slidesViewport}`,
-      );
-      if (viewport) {
-        gsap.fromTo(
-          viewport,
-          { z: 0 },
-          { z: 0, duration: 0.6, yoyo: true, repeat: 1, ease: "power2.inOut" },
-        );
-      }
 
       // 5. Unified Transition Timeline
       const master = gsap.timeline({
         onComplete: () => {
           isAnimating.current = false;
-          setActiveIndex(nextIndex); // Sync UI state
           startIdleBreathing(nextEl);
-          startProgressBar(nextIndex);
-          scheduleAutoAdvance();
         },
       });
 
-      // Exit and Entrance with precise 0.7s overlap
+      // Exit and Entrance with precise overlap
       master.add(animateSlideOut(prevEl));
-      master.add(animateSlideIn(nextEl), "-=0.7");
+      master.add(animateSlideIn(nextEl), "<0.3");
 
       transitionTl.current = master;
     },
@@ -365,25 +365,6 @@ export const HeroHeadlineSlider = () => {
 
   // Keep stable ref in sync
   goToSlideRef.current = goToSlide;
-
-  /* ───── Pause / Resume ───── */
-
-  const pause = useCallback(() => {
-    setIsPaused(true);
-    autoAdvance.current?.pause();
-    progressTween.current?.pause();
-    idleTween.current?.pause();
-  }, []);
-
-  const resume = useCallback(() => {
-    setIsPaused(false);
-    // Don't resume if we're mid-transition
-    if (!isAnimating.current) {
-      autoAdvance.current?.resume();
-      progressTween.current?.resume();
-      idleTween.current?.resume();
-    }
-  }, []);
 
   /* ───── Bootstrap: initial slide enter + auto advance ───── */
 
@@ -499,10 +480,6 @@ export const HeroHeadlineSlider = () => {
       aria-label="Hero headline slider"
       tabIndex={0}
       onKeyDown={handleKeyDown}
-      onMouseEnter={pause}
-      onMouseLeave={resume}
-      onFocus={pause}
-      onBlur={resume}
     >
       {/* Slides Viewport */}
       <div className={styles.slidesViewport}>
