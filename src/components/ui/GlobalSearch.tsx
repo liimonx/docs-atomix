@@ -115,7 +115,7 @@ export function GlobalSearch() {
           </div>
         }
       >
-        <div className="u-relative u-w-100">
+        <div className="u-relative u-w-100 u-pe-4 u-border-e">
           <Input
             className="u-px-4 u-py-2 u-ps-10"
             type="text"
