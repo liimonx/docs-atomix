@@ -1,6 +1,5 @@
 .heroVisualContainer {
   position: relative;
-  width: 100%;
   margin-top: 6rem;
   perspective: 1000px;
 }
@@ -19,7 +18,7 @@
     rgba(147, 51, 234, 0.15) 50%,
     transparent 80%
   );
-  
+
   .blob {
     display: none; // Removing complex blobs as requested
   }
@@ -48,18 +47,22 @@
 .authCardGradientBg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(19, 164, 236, 0.15) 0%, transparent 70%);
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(19, 164, 236, 0.15) 0%,
+    transparent 70%
+  );
 }
 
 .sidebarColumn {
   display: none;
-  
+
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     text-align: start;
-    border-right: 1px solid var(--atomix-border-color, rgba(255,255,255,0.1));
+    border-right: 1px solid var(--atomix-border-color, rgba(255, 255, 255, 0.1));
     padding-right: 1.5rem;
   }
 }

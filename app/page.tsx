@@ -125,7 +125,10 @@ export default function Page() {
         </Hero.Content>
 
         {/* Hero Visual / Interactive Playground Mockup */}
-        <div ref={container} className={`${styles.heroVisualContainer}`}>
+        <div
+          ref={container}
+          className={`${styles.heroVisualContainer} o-container-xl`}
+        >
           {/* Background glow for the mockup */}
           <div ref={glow} className={styles.heroVisualMockupGlow} />
 

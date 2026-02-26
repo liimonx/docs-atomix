@@ -111,7 +111,7 @@
 
   background: linear-gradient(
     180deg,
-    var(--atomix-text-primary-emphasis, #fff) 0%,
+    var(--atomix-primary-text-emphasis, #fff) 0%,
     rgba(255, 255, 255, 0.75) 100%
   );
   -webkit-background-clip: text;
@@ -179,7 +179,7 @@
 .progressTrack {
   width: 40px;
   height: 4px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--atomix-brand-bg-subtle);
   border-radius: 100px;
   cursor: pointer;
   overflow: hidden;
