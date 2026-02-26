@@ -16,7 +16,6 @@ import {
 } from "@shohojdhara/atomix";
 import { designTokens, DesignToken } from "@/data/design-tokens";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
-import { GlassProps } from "@/types/atomix-components";
 import styles from "@/styles/PageHero.module.scss";
 import componentStyles from "./DesignTokensPage.module.scss";
 
@@ -534,15 +533,6 @@ const DesignTokensPage: FC = () => {
             : "The design system's visual language, expressed through code"
         }
         alignment="center"
-        glass={
-          {
-            displacementScale: 30,
-            blurAmount: 5,
-            elasticity: 0,
-            padding: "20px",
-            cornerRadius: 30,
-          } as GlassProps
-        }
         className={styles.pageHero}
         actions={
           <Grid className="u-mt-8">

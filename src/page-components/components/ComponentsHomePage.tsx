@@ -60,14 +60,12 @@ const ComponentsHomePage: FC = () => {
         actions={
           <div className={styles.pageHero__actions}>
             <Button
-              glass
               icon={<Icon name="Download" size={16} />}
               label="Get Started"
               href="/docs/getting-started/installation"
               LinkComponent={Link}
             />
             <Button
-              glass
               variant="secondary"
               icon={<Icon name="GridFour" size={16} />}
               label="Browse Components"

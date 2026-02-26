@@ -72,14 +72,12 @@ const LayoutsOverviewPage: FC = () => {
         actions={
           <div className={styles.pageHero__actions}>
             <Button
-              glass
-              icon={<Icon name="GridFour" />}
-              label="Grid System"
-              href="/docs/layouts/grid"
+              icon={<Icon name="Download" size={16} />}
+              label="Quick Start"
+              href="/docs/getting-started/quick-start"
               LinkComponent={Link}
             />
             <Button
-              glass
               variant="secondary"
               label="Masonry Grid"
               icon={<Icon name="GridFour" />}

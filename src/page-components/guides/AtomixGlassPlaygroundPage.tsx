@@ -24,12 +24,12 @@ interface GlassConfig {
   aberrationIntensity: number;
   saturation: number;
   elasticity: number;
-  cornerRadius: number;
+  borderRadius: number;
   overLight: boolean;
   padding: number;
   mode: "standard" | "shader";
   shaderVariant: "liquidGlass" | "appleFluid" | "premiumGlass" | "liquidMetal";
-  enableBorderEffect: boolean;
+  withBorderEffect: boolean;
   enableLiquidBlur: boolean;
 }
 
@@ -63,10 +63,10 @@ const THEME_PRESETS: ThemePreset[] = [
       aberrationIntensity: 0.08,
       saturation: 160,
       elasticity: 0.06,
-      cornerRadius: 24,
+      borderRadius: 24,
       overLight: false,
       mode: "standard",
-      enableBorderEffect: true,
+      withBorderEffect: true,
     },
     cssVars: {
       "--glass-background": "rgba(14, 150, 240, 0.08)",
@@ -92,10 +92,10 @@ const THEME_PRESETS: ThemePreset[] = [
       aberrationIntensity: 0.04,
       saturation: 120,
       elasticity: 0.03,
-      cornerRadius: 16,
+      borderRadius: 16,
       overLight: false,
       mode: "standard",
-      enableBorderEffect: true,
+      withBorderEffect: true,
     },
     cssVars: {
       "--glass-background": "rgba(8, 14, 21, 0.55)",
@@ -121,10 +121,10 @@ const THEME_PRESETS: ThemePreset[] = [
       aberrationIntensity: 0.1,
       saturation: 170,
       elasticity: 0.08,
-      cornerRadius: 20,
+      borderRadius: 20,
       overLight: false,
       mode: "standard",
-      enableBorderEffect: true,
+      withBorderEffect: true,
     },
     cssVars: {
       "--glass-background": "rgba(213, 158, 46, 0.08)",
@@ -150,10 +150,10 @@ const THEME_PRESETS: ThemePreset[] = [
       aberrationIntensity: 0.06,
       saturation: 145,
       elasticity: 0.05,
-      cornerRadius: 28,
+      borderRadius: 28,
       overLight: false,
       mode: "standard",
-      enableBorderEffect: true,
+      withBorderEffect: true,
     },
     cssVars: {
       "--glass-background": "rgba(56, 161, 105, 0.08)",
@@ -179,10 +179,10 @@ const THEME_PRESETS: ThemePreset[] = [
       aberrationIntensity: 0.03,
       saturation: 110,
       elasticity: 0.04,
-      cornerRadius: 20,
+      borderRadius: 20,
       overLight: true,
       mode: "standard",
-      enableBorderEffect: true,
+      withBorderEffect: true,
     },
     cssVars: {
       "--glass-background": "rgba(241, 245, 249, 0.6)",
@@ -410,13 +410,13 @@ function buildCodeSnippet(cfg: GlassConfig): string {
     lines.push(`  aberrationIntensity={${cfg.aberrationIntensity}}`);
   if (cfg.saturation !== 140) lines.push(`  saturation={${cfg.saturation}}`);
   if (cfg.elasticity !== 0.05) lines.push(`  elasticity={${cfg.elasticity}}`);
-  if (cfg.cornerRadius !== 20)
-    lines.push(`  cornerRadius={${cfg.cornerRadius}}`);
+  if (cfg.borderRadius !== 20)
+    lines.push(`  borderRadius={${cfg.borderRadius}}`);
   if (cfg.overLight) lines.push(`  overLight={true}`);
   if (cfg.mode !== "standard") lines.push(`  mode="${cfg.mode}"`);
   if (cfg.mode === "shader")
     lines.push(`  shaderVariant="${cfg.shaderVariant}"`);
-  if (!cfg.enableBorderEffect) lines.push(`  enableBorderEffect={false}`);
+  if (!cfg.withBorderEffect) lines.push(`  withBorderEffect={false}`);
   if (cfg.enableLiquidBlur) lines.push(`  enableLiquidBlur={true}`);
   lines.push(">");
   lines.push("  {children}");
@@ -553,12 +553,12 @@ const AtomixGlassPlaygroundPage: FC = () => {
             <SliderControl
               id="pg-radius"
               label="Corner Radius"
-              value={config.cornerRadius}
+              value={config.borderRadius}
               min={0}
               max={48}
               step={1}
               unit="px"
-              onChange={(v) => patch("cornerRadius", v)}
+              onChange={(v) => patch("borderRadius", v)}
               accentColor={accentColor}
             />
           </div>
@@ -575,8 +575,8 @@ const AtomixGlassPlaygroundPage: FC = () => {
               </ToggleChip>
               <ToggleChip
                 id="pg-border"
-                checked={config.enableBorderEffect}
-                onChange={(v) => patch("enableBorderEffect", v)}
+                checked={config.withBorderEffect}
+                onChange={(v) => patch("withBorderEffect", v)}
               >
                 Border FX
               </ToggleChip>
@@ -752,11 +752,11 @@ const AtomixGlassPlaygroundPage: FC = () => {
               aberrationIntensity={config.aberrationIntensity}
               saturation={config.saturation}
               elasticity={config.elasticity}
-              cornerRadius={config.cornerRadius}
+              borderRadius={config.borderRadius}
               overLight={config.overLight}
               mode={config.mode}
               shaderVariant={config.shaderVariant}
-              enableBorderEffect={config.enableBorderEffect}
+              withBorderEffect={config.withBorderEffect}
               enableLiquidBlur={config.enableLiquidBlur}
               aria-label="Live AtomixGlass preview"
             >

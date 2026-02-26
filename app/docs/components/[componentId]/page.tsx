@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { ComponentPage } from "@/page-components";
 import { generateComponentMetadata, validateRoute } from "@/utils/routeConfig";
+import { PageLoader } from "@/components/ui/PageLoader";
 
 import { getRouteSlugsByOwner } from "@/utils/routeMapper";
 
@@ -47,7 +48,9 @@ export default async function ComponentPageRoute({
   }
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={<PageLoader message={`Loading ${componentId} docs...`} />}
+    >
       <ComponentPage componentId={componentId} />
     </Suspense>
   );

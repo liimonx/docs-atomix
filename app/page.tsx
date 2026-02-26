@@ -87,10 +87,7 @@ export default function Page() {
 
       {/* Hero sections */}
       <Hero title={<></>} contentWidth="90%">
-        <Hero.Content
-          glass={false}
-          className="u-w-100 u-mx-auto u-text-center u-flex u-flex-column u-items-center"
-        >
+        <Hero.Content className="u-w-100 u-mx-auto u-text-center u-flex u-flex-column u-items-center">
           <Badge label="v0.5.0 is now live" />
 
           {/* Headline Slider */}
@@ -101,7 +98,6 @@ export default function Page() {
             <Button
               variant="outline-primary"
               size="lg"
-              glass
               icon={<Icon name="ArrowRight" weight="duotone" />}
               iconPosition="end"
               className="u-px-8 u-h-14 u-rounded-lg u-shadow-primary-glow u-fs-lg"

@@ -70,14 +70,12 @@ const LayoutsMasonryGridPage: FC = () => {
         actions={
           <div className={styles.pageHero__actions}>
             <Button
-              glass
               icon={<Icon name="Lightning" size="lg" />}
               label="View Examples"
               href="/docs/examples/common-patterns"
               LinkComponent={Link}
             />
             <Button
-              glass
               variant="secondary"
               label="Performance Guide"
               icon={<Icon name="Lightning" size="lg" />}

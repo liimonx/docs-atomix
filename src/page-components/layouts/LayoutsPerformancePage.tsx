@@ -92,14 +92,12 @@ const LayoutsPerformancePage: FC = () => {
         actions={
           <div className={styles.pageHero__actions}>
             <Button
-              glass
               icon={<Icon name="GridFour" />}
               label="Grid System"
               href="/docs/layouts/grid"
               LinkComponent={Link}
             />
             <Button
-              glass
               variant="secondary"
               label="Customization"
               icon={<Icon name="Gear" />}

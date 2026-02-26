@@ -193,18 +193,6 @@ export default function ExampleLandingPage() {
         text="A powerful, customizable platform designed to help you achieve your goals faster and more efficiently. Join thousands of satisfied users who have already transformed their workflow."
         alignment="center"
         contentWidth="1200px"
-        glass={{
-          displacementScale: 320,
-          blurAmount: 10,
-          mode: "shader",
-          shaderVariant: "premiumGlass",
-          cornerRadius: 16,
-          enableLiquidBlur: false,
-          padding: "1.5rem 2.5rem",
-          saturation: 250,
-          children: <></>,
-          elasticity: 0,
-        }}
         actions={
           <div className="u-flex u-flex-wrap u-justify-center u-gap-3">
             <Button
@@ -471,8 +459,8 @@ export default function ExampleLandingPage() {
           blurAmount={1.5}
           mode="shader"
           shaderVariant="premiumGlass"
-          cornerRadius={32}
-          enableLiquidBlur={true}
+          borderRadius={32}
+          withBorder={true}
           padding="4rem 3rem"
           saturation={200}
           elasticity={0}
@@ -487,7 +475,6 @@ export default function ExampleLandingPage() {
             </p>
             <div className="u-flex u-flex-wrap u-justify-center u-gap-3 u-mt-6">
               <Button
-                glass={{ blurAmount: 0 }}
                 variant="primary"
                 icon={<Icon name="Rocket" />}
                 href="/examples/landing-page"
@@ -495,7 +482,6 @@ export default function ExampleLandingPage() {
                 Start Free Trial
               </Button>
               <Button
-                glass={{ blurAmount: 0 }}
                 variant="outline-light"
                 icon={<Icon name="ChatTeardrop" />}
                 href="/examples/landing-page"

@@ -165,11 +165,6 @@ const ComponentsOverviewPage: FC = () => {
             <Grid className="u-mb-6">
               <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
                 <Card
-                  glass={{
-                    displacementScale: 80,
-                    blurAmount: 0.8,
-                    padding: "24px",
-                  }}
                   elevation="lg"
                   variant="primary"
                   className="u-h-100"
@@ -199,11 +194,6 @@ const ComponentsOverviewPage: FC = () => {
               </GridCol>
               <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
                 <Card
-                  glass={{
-                    displacementScale: 80,
-                    blurAmount: 0.8,
-                    padding: "24px",
-                  }}
                   elevation="lg"
                   variant="success"
                   className="u-h-100"
@@ -233,11 +223,6 @@ const ComponentsOverviewPage: FC = () => {
               </GridCol>
               <GridCol md={3} sm={6} className="u-mb-3 u-mb-md-0">
                 <Card
-                  glass={{
-                    displacementScale: 80,
-                    blurAmount: 0.8,
-                    padding: "24px",
-                  }}
                   elevation="lg"
                   variant="info"
                   className="u-text-center u-h-100"
@@ -269,11 +254,6 @@ const ComponentsOverviewPage: FC = () => {
                 <Card
                   elevation="lg"
                   variant="warning"
-                  glass={{
-                    displacementScale: 80,
-                    blurAmount: 0.8,
-                    padding: "24px",
-                  }}
                   className="u-h-100"
                   header={
                     <div className="u-flex u-items-center u-justify-center u-w-100">
@@ -302,15 +282,7 @@ const ComponentsOverviewPage: FC = () => {
             </Grid>
 
             {/* Search and Filter Section */}
-            <Card
-              elevation="lg"
-              glass={{
-                blurAmount: 1.2,
-                padding: "24px",
-                mode: "shader",
-                displacementScale: 205,
-              }}
-            >
+            <Card elevation="lg">
               {/* Search and View Controls */}
               <Grid className="u-items-center u-justify-between u-mb-4">
                 <GridCol md={7} sm={12} className="u-mb-3 u-mb-md-0">

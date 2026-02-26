@@ -308,14 +308,12 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 actions={
                   <div className={styles.pageHero__actions}>
                     <Button
-                      glass
                       icon={<Icon name="Download" size={16} />}
                       label="Quick Start"
                       href="/docs/getting-started/quick-start"
                       LinkComponent={Link}
                     />
                     <Button
-                      glass
                       variant="secondary"
                       label="Browse Components"
                       icon={<Icon name="BookOpen" size={16} />}
@@ -641,7 +639,6 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 actions={
                   <>
                     <Button
-                      glass
                       icon={
                         <Icon
                           name="Download"
@@ -654,7 +651,6 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       LinkComponent={Link}
                     />
                     <Button
-                      glass
                       variant="secondary"
                       icon={
                         <Icon

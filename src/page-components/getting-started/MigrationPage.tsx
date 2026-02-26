@@ -129,14 +129,12 @@ const MigrationPage: FC = () => {
         actions={
           <div className={styles.pageHero__actions}>
             <Button
-              glass
               icon={<Icon name="Download" size="lg" />}
               label="Install Atomix"
               href="/docs/getting-started/installation"
               LinkComponent={Link}
             />
             <Button
-              glass
               variant="secondary"
               label="Quick Start"
               icon={<Icon name="Lightning" size="lg" />}

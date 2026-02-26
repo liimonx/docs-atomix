@@ -334,14 +334,8 @@ export const HeroHeadlineSlider = () => {
       idleTween.current?.kill();
       transitionTl.current?.kill();
 
-      // 2. Immediate state sync to prevent race conditions during the transition
-      // Update UI state and progress indicators instantly
+      // 2. State update for logic safety (ref-only)
       activeRef.current = nextIndex;
-      setActiveIndex(nextIndex); // Sync UI state immediately
-
-      // Start the progress indicator and advance timer for the new slide immediately
-      startProgressBar(nextIndex);
-      scheduleAutoAdvance();
 
       // 3. Reset idle transform and add slight "push" to outgoing slide
       gsap.to(prevEl, { y: 0, duration: 0.5, ease: "power2.inOut" });
@@ -356,7 +350,15 @@ export const HeroHeadlineSlider = () => {
 
       // Exit and Entrance with precise overlap
       master.add(animateSlideOut(prevEl));
-      master.add(animateSlideIn(nextEl), "<0.3");
+
+      // Sync UI state and progress bar EXACTLY when the next slide starts entering (0.3s overlap)
+      master.add(() => {
+        setActiveIndex(nextIndex);
+        startProgressBar(nextIndex);
+        scheduleAutoAdvance();
+      }, 0.3);
+
+      master.add(animateSlideIn(nextEl), 0.3);
 
       transitionTl.current = master;
     },
@@ -395,20 +397,18 @@ export const HeroHeadlineSlider = () => {
 
   useGSAP(
     () => {
-      if (!containerRef.current) return;
+      const container = containerRef.current;
+      if (!container) return;
 
       const handleMouseMove = (e: MouseEvent) => {
         if (prefersReducedMotion()) return;
 
-        const { width, height, left, top } =
-          containerRef.current!.getBoundingClientRect();
+        const { width, height, left, top } = container.getBoundingClientRect();
         const xPos = (e.clientX - left) / width - 0.5;
         const yPos = (e.clientY - top) / height - 0.5;
 
         // Viewport slight tilt
-        const viewport = containerRef.current!.querySelector(
-          `.${styles.slidesViewport}`,
-        );
+        const viewport = container.querySelector(`.${styles.slidesViewport}`);
         if (viewport) {
           gsap.to(viewport, {
             rotateY: xPos * 5,

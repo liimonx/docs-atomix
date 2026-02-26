@@ -97,7 +97,7 @@ const GuidesAtomixGlassThemingPage: FC = () => {
                     </tr>
                     <tr className="c-data-table__row">
                       <td className="c-data-table__cell">
-                        <code>cornerRadius</code>
+                        <code>borderRadius</code>
                       </td>
                       <td className="c-data-table__cell">number</td>
                       <td className="c-data-table__cell">16</td>
@@ -126,7 +126,7 @@ const GuidesAtomixGlassThemingPage: FC = () => {
   saturation={120}
   aberrationIntensity={1.5}
   elasticity={0.02}
-  cornerRadius={12}
+  borderRadius={12}
 >
   Subtle glass effect
 </AtomixGlass>`}
@@ -140,7 +140,7 @@ const GuidesAtomixGlassThemingPage: FC = () => {
   saturation={160}
   aberrationIntensity={3.5}
   elasticity={0.1}
-  cornerRadius={20}
+  borderRadius={20}
 >
   Bold glass effect
 </AtomixGlass>`}
@@ -248,7 +248,7 @@ const BrandGlass = ({ children, ...props }) => {
       saturation={145}
       aberrationIntensity={2.8}
       elasticity={0.06}
-      cornerRadius={16}
+      borderRadius={16}
       className="brand-glass"
       {...props}
     >
