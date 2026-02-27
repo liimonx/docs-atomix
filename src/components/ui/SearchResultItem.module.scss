@@ -14,7 +14,7 @@
 // =============================================================================
 .searchResultItem {
   box-sizing: border-box;
-  
+
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 
@@ -80,6 +80,15 @@
   }
 }
 
+.searchResultItem__linkSelected {
+  background-color: var(--atomix-primary-bg-subtle);
+
+  &:focus-visible {
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .searchResultItem {
     transition: none;
@@ -94,11 +103,10 @@
   .searchResultItem {
     border: 1px solid currentColor;
   }
-  
+
   .searchResultItem__link {
     &:focus-visible {
       border-width: 2px;
     }
   }
 }
-

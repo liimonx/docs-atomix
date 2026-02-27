@@ -204,14 +204,19 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
         {/* Search */}
         <div className="u-mb-6 u-px-2">
           <div className="u-relative u-mb-3" onKeyDown={handleKeyDown}>
+            <label htmlFor="mobile-search-input" className="u-sr-only">
+              Search documentation
+            </label>
             <Input
               ref={searchInputRef}
+              id="mobile-search-input"
               type="text"
               placeholder="Search documentation..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               size="md"
               className="u-w-100"
+              aria-label="Search documentation"
             />
             {searchTerm && (
               <button

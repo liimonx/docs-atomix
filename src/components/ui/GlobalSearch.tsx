@@ -86,13 +86,20 @@ export function GlobalSearch() {
         onOpenChange={setIsOpen}
         className="u-w-100"
         menu={
-          <div className="u-w-100">
+          <div
+            className="u-w-100"
+            role="listbox"
+            id="search-results"
+            aria-label="Search results"
+          >
             {mappedSearchResults.length > 0 ? (
-              <ul className="u-list-none u-m-0 u-ps-1">
-                {mappedSearchResults.map((result) => (
+              <ul className="u-list-none u-m-0 u-ps-1" role="listbox">
+                {mappedSearchResults.map((result, index) => (
                   <SearchResultItem
                     key={result.id}
                     result={result}
+                    isSelected={selectedIndex === index}
+                    itemId={`search-result-${index}`}
                     onClick={() => {
                       router.push(result.path);
                       setIsOpen(false);
@@ -104,7 +111,10 @@ export function GlobalSearch() {
                 ))}
               </ul>
             ) : searchQuery.length > 0 ? (
-              <div className="u-p-4 u-text-center u-text-secondary-emphasis">
+              <div
+                className="u-p-4 u-text-center u-text-secondary-emphasis"
+                role="status"
+              >
                 No results found.
               </div>
             ) : (
@@ -116,12 +126,23 @@ export function GlobalSearch() {
         }
       >
         <div className="u-relative u-w-100 u-pe-4 u-border-e">
+          <label htmlFor="global-search-input" className="u-sr-only">
+            Search documentation
+          </label>
           <Input
+            id="global-search-input"
             className="u-px-4 u-py-2 u-ps-10"
             type="text"
             placeholder="Search documentation..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Search documentation"
+            aria-autocomplete="list"
+            aria-expanded={isOpen}
+            aria-controls="search-results"
+            aria-activedescendant={
+              selectedIndex >= 0 ? `search-result-${selectedIndex}` : undefined
+            }
           />
           <div className="u-absolute u-top-0 u-start-0 u-pt-1 u-ps-1">
             {searchQuery ? (
