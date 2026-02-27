@@ -38,9 +38,7 @@ const CLIPage: FC = () => {
         <Row className="u-mt-6">
           <GridCol md={6}>
             <Card
-              className="u-p-6 u-h-100"
-              appearance="outlined"
-              elevation="lg"
+              className="c-card--glass c-card--interactive u-h-100"
               variant="primary"
             >
               <div className="u-flex u-items-center u-mb-4">
@@ -66,9 +64,7 @@ const CLIPage: FC = () => {
 
           <GridCol md={6}>
             <Card
-              className="u-p-6 u-h-100"
-              appearance="outlined"
-              elevation="lg"
+              className="c-card--glass c-card--interactive u-h-100"
               variant="success"
             >
               <div className="u-flex u-items-center u-mb-4">
@@ -104,9 +100,7 @@ const CLIPage: FC = () => {
         <Row className="u-mt-6">
           <GridCol md={4} className="u-mb-4">
             <Card
-              className="u-h-100"
-              appearance="outlined"
-              elevation="lg"
+              className="c-card--glass c-card--interactive u-h-100"
               variant="primary"
             >
               <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
@@ -125,9 +119,7 @@ const CLIPage: FC = () => {
 
           <GridCol md={4} className="u-mb-4">
             <Card
-              className="u-h-100"
-              appearance="outlined"
-              elevation="lg"
+              className="c-card--glass c-card--interactive u-h-100"
               variant="success"
             >
               <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
@@ -176,7 +168,7 @@ npx atomix build-theme my-theme --watch`}
         />
 
         {/* atomix init */}
-        <Card className="u-mt-6" appearance="outlined" elevation="lg">
+        <Card className="c-card--glass c-card--interactive u-mt-6">
           <div className="u-flex u-items-center u-mb-4">
             <Icon name="Rocket" size={20} className="c-card__icon u-me-2" />
             <h2 className="u-text-2xl u-font-bold u-m-0 u-text-primary-emphasis">
@@ -688,7 +680,7 @@ npx atomix tokens export --format css --output tokens.css`}
           alignment="center"
         />
 
-        <Card className="u-mt-6" appearance="outlined" elevation="lg">
+        <Card className="c-card--glass u-mt-6">
           <h3 className="u-text-xl u-font-semibold u-mb-4 u-text-primary-emphasis">
             Configuration File
           </h3>

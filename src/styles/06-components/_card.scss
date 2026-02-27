@@ -12,88 +12,94 @@
 // =============================================================================
 // Card Variable Configuration
 // =============================================================================
-@use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.card' with (
-
+@use "../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.card"
+  with (
   // ---------------------------------------------------------------------------
   // Base padding (md default)
   // ---------------------------------------------------------------------------
-  $card-spacer-y:           1.25rem,      // 20px
-  $card-spacer-x:           1.25rem,      // 20px
+  $card-spacer-y: 1.25rem,
+  // 20px
+  $card-spacer-x: 1.25rem,
 
+  // 20px
   // ---------------------------------------------------------------------------
   // Row-layout inner spacing
   // ---------------------------------------------------------------------------
-  $card-row-spacer-y:       0.875rem,     // 14px
-  $card-row-spacer-x:       0.875rem,     // 14px
+  $card-row-spacer-y: 0.875rem,
+  // 14px
+  $card-row-spacer-x: 0.875rem,
 
+  // 14px
   // ---------------------------------------------------------------------------
   // Internal vertical rhythm
   // ---------------------------------------------------------------------------
-  $card-title-spacer-y:     0.375rem,     //  6px — tighter title → text gap
-  $card-action-spacer-y:    0.875rem,     // 14px
-  $card-header-spacer-y:    0.875rem,     // 14px
+  $card-title-spacer-y: 0.375rem,
+  //  6px — tighter title → text gap
+  $card-action-spacer-y: 0.875rem,
+  // 14px
+  $card-header-spacer-y: 0.875rem,
 
+  // 14px
   // ---------------------------------------------------------------------------
   // Typography
   // ---------------------------------------------------------------------------
-  $card-title-color:        var(--atomix-body-color),
-  $card-title-font-size:    1rem,         // 16px — clear heading
-  $card-text-color:         var(--atomix-secondary-text-emphasis),
-  $card-text-font-size:     0.875rem,     // 14px
+  $card-title-color: var(--atomix-body-color),
+  $card-title-font-size: 1rem,
+  // 16px — clear heading
+  $card-text-color: var(--atomix-secondary-text-emphasis),
+  $card-text-font-size: 0.875rem,
 
+  // 14px
   // ---------------------------------------------------------------------------
   // Border
   // ---------------------------------------------------------------------------
-  $card-border-width:       1px,
-  $card-border-color:       var(--atomix-border-color),
-  $card-border-radius:      1rem,         // 16px — modern rounded card
-  $card-image-border-radius: 0.75rem,     // 12px — tighter image corners
+  $card-border-width: 1px,
+  $card-border-color: var(--atomix-border-color),
+  $card-border-radius: 1rem,
+  // 16px — modern rounded card
+  $card-image-border-radius: 0.75rem,
 
+  // 12px — tighter image corners
   // ---------------------------------------------------------------------------
   // Shadows
   // ---------------------------------------------------------------------------
-  $card-boxshadow: (
-    0 1px 3px 0 rgba(0, 0, 0, 0.06),
-    0 1px 2px -1px rgba(0, 0, 0, 0.06)
-  ),
+  $card-boxshadow:
+    (0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06)),
   $card-hover-box-shadow: (
     0 10px 20px -4px rgba(0, 0, 0, 0.1),
-    0  4px  6px -2px rgba(0, 0, 0, 0.06)
+    0 4px 6px -2px rgba(0, 0, 0, 0.06)
   ),
 
   // ---------------------------------------------------------------------------
   // Surfaces
   // ---------------------------------------------------------------------------
-  $card-bg:           var(--atomix-primary-bg-subtle),
-  $card-bg-hover:     var(--atomix-secondary-bg-subtle),
-  $card-height:       null,
-  $card-width:        100%,
+  $card-bg: var(--atomix-primary-bg-subtle),
+  $card-bg-hover: var(--atomix-secondary-bg-subtle),
+  $card-height: null,
+  $card-width: 100%,
 
   // ---------------------------------------------------------------------------
   // Icon slot
   // ---------------------------------------------------------------------------
-  $card-icon-size:      20px,
-  $card-icon-padding:   0.75rem,
-  $card-icon-bg:        var(--atomix-brand-bg-subtle),
-  $card-icon-color:     var(--atomix-brand-text-emphasis),
-
+  $card-icon-size: 20px,
+  $card-icon-padding: 0.75rem,
+  $card-icon-bg: var(--atomix-brand-bg-subtle),
+  $card-icon-color: var(--atomix-brand-text-emphasis),
   // ---------------------------------------------------------------------------
   // Enable hover background swap
   // ---------------------------------------------------------------------------
-  $card-hover:    false    // Hover handled additively below for more control
+  $card-hover: false // Hover handled additively below for more control
 );
 
 // =============================================================================
 // Additive Polish
 // =============================================================================
 .c-card {
-
   // Global transition — covers all variant interactions
-  transition:
-    background-color 0.2s  cubic-bezier(0.4, 0, 0.2, 1),
-    border-color     0.2s  cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow       0.2s  cubic-bezier(0.4, 0, 0.2, 1),
-    transform        0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 
   // --------------------------------------------------------------------------
   // Title — refined line-height and weight
@@ -135,26 +141,33 @@
 
     &:hover:not(&--disabled) {
       transform: translateY(-2px);
-      box-shadow:
-        0 10px 20px -4px rgba(0, 0, 0, 0.1),
-        0  4px  6px -2px rgba(0, 0, 0, 0.06);
+      border-color: var(--atomix-primary-border-subtle, var(--atomix-primary));
+      box-shadow: 0 10px 20px -4px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.06);
       background-color: var(--atomix-secondary-bg-subtle);
     }
 
     &:active:not(&--disabled) {
-      transform: translateY(0);
-      box-shadow:
-        0 2px 4px -1px rgba(0, 0, 0, 0.08);
+      transform: translateY(0) scale(0.995);
+      box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.08);
     }
   }
 
   // --------------------------------------------------------------------------
-  // Elevated — resting shadow (additive on top of --elevated modifier)
+  // Disabled state — reduced opacity, no pointer
+  // --------------------------------------------------------------------------
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // --------------------------------------------------------------------------
+  // Elevated — deeper layered shadow for premium feel
   // --------------------------------------------------------------------------
   &--elevated {
-    box-shadow:
-      0 10px 20px -4px rgba(0, 0, 0, 0.1),
-      0  4px  6px -2px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 10px 20px -4px rgba(0, 0, 0, 0.1);
   }
 
   // --------------------------------------------------------------------------
@@ -163,8 +176,7 @@
   &--selected {
     border-color: var(--atomix-primary) !important;
     border-width: 2px !important;
-    box-shadow:
-      0 0 0 1px var(--atomix-primary),
+    box-shadow: 0 0 0 1px var(--atomix-primary),
       0 0 0 4px rgba(var(--atomix-primary-rgb, 19, 164, 236), 0.14) !important;
   }
 
@@ -174,7 +186,8 @@
   &:focus-visible {
     outline: 2px solid var(--atomix-primary);
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgba(var(--atomix-primary-rgb, 19, 164, 236), 0.14);
+    box-shadow: 0 0 0 1px var(--atomix-primary),
+      0 0 0 4px rgba(var(--atomix-primary-rgb, 19, 164, 236), 0.14);
   }
 
   // --------------------------------------------------------------------------
@@ -190,7 +203,10 @@
   // --------------------------------------------------------------------------
   &--loading::before {
     backdrop-filter: blur(2px);
-    background-color: rgba(var(--atomix-primary-bg-rgb, 255, 255, 255), 0.6) !important;
+    background-color: rgba(
+      var(--atomix-primary-bg-rgb, 255, 255, 255),
+      0.6
+    ) !important;
   }
 
   // --------------------------------------------------------------------------
@@ -202,6 +218,253 @@
     &--interactive:hover,
     &--hoverable:hover {
       transform: none;
+    }
+  }
+
+  // =============================================================================
+  // Modern Card Variants
+  // =============================================================================
+
+  // --------------------------------------------------------------------------
+  // Glass — frosted glass effect with backdrop blur
+  // --------------------------------------------------------------------------
+  &--glass {
+    background-color: rgba(var(--atomix-primary-bg-rgb, 255, 255, 255), 0.75);
+    backdrop-filter: blur(12px);
+    border-color: rgba(var(--atomix-border-color-rgb, 226, 232, 240), 0.6);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04),
+      0 8px 16px -4px rgba(0, 0, 0, 0.08);
+
+    &.c-card--interactive,
+    &.c-card--hoverable {
+      &:hover:not(&--disabled) {
+        background-color: rgba(
+          var(--atomix-secondary-bg-rgb, 241, 245, 249),
+          0.85
+        );
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06),
+          0 12px 24px -4px rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Gradient — subtle gradient background
+  // --------------------------------------------------------------------------
+  &--gradient {
+    background: linear-gradient(
+      135deg,
+      var(--atomix-primary-bg-subtle) 0%,
+      var(--atomix-tertiary-bg-subtle) 100%
+    );
+    border-color: transparent;
+    box-shadow: none;
+
+    &.c-card--interactive,
+    &.c-card--hoverable {
+      &:hover:not(&--disabled) {
+        background: linear-gradient(
+          135deg,
+          var(--atomix-secondary-bg-subtle) 0%,
+          var(--atomix-brand-bg-subtle) 100%
+        );
+        border-color: var(--atomix-brand-border-subtle);
+      }
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Stat — for metrics/numbers with large typography
+  // --------------------------------------------------------------------------
+  &--stat {
+    text-align: center;
+    padding: var(--atomix-spacing-6);
+
+    .c-card__icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      margin: 0 auto var(--atomix-spacing-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .c-card__title {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--atomix-spacing-1);
+    }
+
+    .c-card__text {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Alert — colored left border for notifications
+  // --------------------------------------------------------------------------
+  &--alert {
+    border-left: 4px solid var(--atomix-primary);
+    border-radius: 0 var(--atomix-card-border-radius, 1rem)
+      var(--atomix-card-border-radius, 1rem) 0;
+    padding-left: calc(var(--atomix-card-spacer-x, 1.25rem) - 4px);
+
+    &--success {
+      border-left-color: var(--atomix-success);
+      background-color: var(--atomix-success-bg-subtle);
+    }
+
+    &--warning {
+      border-left-color: var(--atomix-warning);
+      background-color: var(--atomix-warning-bg-subtle);
+    }
+
+    &--error {
+      border-left-color: var(--atomix-error);
+      background-color: var(--atomix-error-bg-subtle);
+    }
+
+    &--info {
+      border-left-color: var(--atomix-info);
+      background-color: var(--atomix-info-bg-subtle);
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Image overlay — text over cover image
+  // --------------------------------------------------------------------------
+  &--overlay {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+
+    .c-card__image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .c-card__body {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+      );
+      padding-top: 60%;
+      margin-top: 0;
+    }
+
+    .c-card__title {
+      color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .c-card__text {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    &.c-card--interactive,
+    &.c-card--hoverable {
+      &:hover:not(&--disabled) .c-card__body {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.85) 0%,
+          rgba(0, 0, 0, 0.5) 50%,
+          rgba(0, 0, 0, 0.1) 100%
+        );
+      }
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Compact — tighter spacing for dense layouts
+  // --------------------------------------------------------------------------
+  &--compact {
+    padding: var(--atomix-spacing-3);
+
+    .c-card__title {
+      font-size: 0.875rem;
+    }
+
+    .c-card__text {
+      font-size: 0.8125rem;
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Dark — dark surface for contrast sections
+  // --------------------------------------------------------------------------
+  &--dark {
+    background-color: var(--atomix-secondary-bg-dark, var(--atomix-gray-9));
+    border-color: var(--atomix-border-color-dark, rgba(255, 255, 255, 0.08));
+    color: var(--atomix-body-color-dark, #f1f5f9);
+
+    .c-card__title {
+      color: var(--atomix-headings-color-dark, #f1f5f9);
+    }
+
+    .c-card__text {
+      color: var(--atomix-secondary-text-dark, #94a3b8);
+    }
+
+    .c-card__footer {
+      border-color: var(--atomix-border-color-dark, rgba(255, 255, 255, 0.08));
+    }
+
+    &.c-card--interactive,
+    &.c-card--hoverable {
+      &:hover:not(&--disabled) {
+        background-color: var(--atomix-tertiary-bg-dark, var(--atomix-gray-8));
+      }
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Borderless — clean look without borders
+  // --------------------------------------------------------------------------
+  &--borderless {
+    border-color: transparent;
+    box-shadow: none;
+
+    &.c-card--interactive,
+    &.c-card--hoverable {
+      &:hover:not(&--disabled) {
+        border-color: var(--atomix-border-color);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06),
+          0 4px 12px -2px rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // Floating — centered card with strong shadow
+  // --------------------------------------------------------------------------
+  &--floating {
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08),
+      0 12px 28px -4px rgba(0, 0, 0, 0.15);
+    max-width: 24rem;
+    margin: 0 auto;
+
+    &.c-card--interactive,
+    &.c-card--hoverable {
+      &:hover:not(&--disabled) {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px -2px rgba(0, 0, 0, 0.12),
+          0 20px 36px -6px rgba(0, 0, 0, 0.2);
+      }
     }
   }
 }

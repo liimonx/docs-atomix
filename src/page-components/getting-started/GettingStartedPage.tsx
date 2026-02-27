@@ -52,7 +52,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
         {
           duration: 3000,
           position: "bottom-right",
-        },
+        }
       );
       setTimeout(() => setCopiedCode(null), 2000);
     } catch (err) {
@@ -78,7 +78,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
         {
           duration: 4000,
           position: "bottom-right",
-        },
+        }
       );
     }
   };
@@ -212,7 +212,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                         className="u-text-decoration-none u-h-100 u-block"
                       >
                         <Card
-                          className="u-h-100"
+                          className="c-card--glass c-card--interactive u-h-100"
                           icon={card.icon}
                           title={card.title}
                           text={card.description}
@@ -349,7 +349,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                     },
                   ].map((item, index) => (
                     <GridCol key={index} md={4} className="u-mb-4">
-                      <Card className="u-h-100 u-p-8 u-rounded-xl u-bg-dark u-border-primary-subtle u-transition-fast u-hover-border-primary">
+                      <Card className="c-card--dark c-card--interactive u-h-100">
                         <div className="u-flex u-flex-column u-h-100">
                           <div
                             className="u-w-16 u-h-16 u-rounded-lg u-flex u-items-center u-justify-center u-mb-6"
@@ -413,7 +413,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               onClick={() =>
                                 copyToClipboard(
                                   "npm install @shohojdhara/atomix",
-                                  "npm-install",
+                                  "npm-install"
                                 )
                               }
                             >
@@ -463,7 +463,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               onClick={() =>
                                 copyToClipboard(
                                   "yarn add @shohojdhara/atomix",
-                                  "yarn-install",
+                                  "yarn-install"
                                 )
                               }
                             >
@@ -513,7 +513,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               onClick={() =>
                                 copyToClipboard(
                                   "pnpm add @shohojdhara/atomix",
-                                  "pnpm-install",
+                                  "pnpm-install"
                                 )
                               }
                             >
@@ -555,7 +555,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       href="/docs/getting-started/quick-start"
                       className="u-text-decoration-none u-text-inherit u-block u-h-100"
                     >
-                      <Card className="u-h-100 u-cursor-pointer u-border u-border-subtle u-transition-fast u-hover-transform-up">
+                      <Card className="c-card--glass c-card--interactive u-h-100">
                         <div className="u-p-6">
                           <div className="u-flex u-items-center u-mb-4">
                             <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-primary-emphasis">
@@ -582,7 +582,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       href="/docs/guides/theming"
                       className="u-text-decoration-none u-text-inherit u-block u-h-100"
                     >
-                      <Card className="u-h-100 u-cursor-pointer u-border u-border-subtle u-transition-fast u-hover-transform-up">
+                      <Card className="c-card--glass c-card--interactive u-h-100">
                         <div className="u-p-6">
                           <div className="u-flex u-items-center u-mb-4">
                             <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-secondary-emphasis">
@@ -658,7 +658,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
               <Block spacing="sm">
                 {/* Prerequisites */}
 
-                <Card className="u-rounded-xl u-bg-dark u-border-primary-subtle u-p-8 u-mb-8">
+                <Card className="c-card--dark u-mb-8">
                   <div className="u-flex u-items-center u-gap-6">
                     <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-lg u-flex u-items-center u-justify-center u-text-primary">
                       <Icon name="Info" size={24} />
@@ -679,7 +679,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Card>
 
                 {/* Step 1: Installation */}
-                <Card className="u-rounded-xl u-bg-dark u-border-primary-subtle u-p-8 u-mb-12">
+                <Card className="c-card--dark c-card--interactive u-mb-12">
                   <div className="u-flex u-items-start u-gap-6 u-mb-8">
                     <div
                       className="u-flex u-items-center u-justify-center u-flex-shrink-0 u-bg-primary-subtle u-rounded-xl u-text-primary u-font-bold u-fs-2xl"
@@ -714,7 +714,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                             onClick={() =>
                               copyToClipboard(
                                 "npm install @shohojdhara/atomix",
-                                "npm-quick",
+                                "npm-quick"
                               )
                             }
                           >
@@ -746,7 +746,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                             onClick={() =>
                               copyToClipboard(
                                 "yarn add @shohojdhara/atomix",
-                                "yarn-quick",
+                                "yarn-quick"
                               )
                             }
                           >
@@ -778,7 +778,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                             onClick={() =>
                               copyToClipboard(
                                 "pnpm add @shohojdhara/atomix",
-                                "pnpm-quick",
+                                "pnpm-quick"
                               )
                             }
                           >
@@ -802,7 +802,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Card>
 
                 {/* Step 2: Import Styles */}
-                <Card className="u-rounded-xl u-bg-dark u-border-primary-subtle u-p-8 u-mb-12">
+                <Card className="c-card--dark c-card--interactive u-mb-12">
                   <div className="u-flex u-items-start u-gap-6 u-mb-8">
                     <div
                       className="u-flex u-items-center u-justify-center u-flex-shrink-0 u-bg-success-subtle u-rounded-xl u-text-success u-font-bold u-fs-2xl"
@@ -857,7 +857,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Card>
 
                 {/* Step 3: Usage */}
-                <Card className="u-rounded-xl u-bg-dark u-border-primary-subtle u-p-8">
+                <Card className="c-card--dark c-card--interactive">
                   <div className="u-flex u-items-start u-gap-6 u-mb-8">
                     <div
                       className="u-flex u-items-center u-justify-center u-flex-shrink-0 u-bg-warning-subtle u-rounded-xl u-text-warning u-font-bold u-fs-2xl"
@@ -925,7 +925,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           href={step.link}
                           className="u-block u-h-100 u-text-decoration-none"
                         >
-                          <Card className="u-p-8 u-h-100 u-rounded-xl u-bg-dark u-border-primary-subtle u-transition-fast u-hover-border-primary">
+                          <Card className="c-card--dark c-card--interactive u-h-100">
                             <div
                               className={`u-w-12 u-h-12 u-rounded-lg u-flex u-items-center u-justify-center u-mb-6 u-bg-${step.color}-subtle u-text-${step.color}`}
                             >
