@@ -64,7 +64,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
           variant="ghost"
           iconName="GithubLogo"
           iconOnly
-          ariaLabel="GitHub"
+          aria-label="GitHub"
         />
         <Button
           as="a"
@@ -72,7 +72,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
           variant="ghost"
           iconName="TwitterLogo"
           iconOnly
-          ariaLabel="Twitter"
+          aria-label="Twitter"
         />
         <ColorModeToggle defaultValue="dark" />
 
@@ -81,7 +81,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
             variant="ghost"
             size="sm"
             onClick={onSidebarToggle}
-            ariaLabel={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
+            aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
             iconName={isSidebarOpen ? "X" : "List"}
             iconOnly
           />

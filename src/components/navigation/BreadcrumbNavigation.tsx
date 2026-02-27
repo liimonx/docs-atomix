@@ -4,6 +4,7 @@ import { FC } from "react";
 import { usePathname } from "next/navigation";
 import { Breadcrumb, Icon } from "@shohojdhara/atomix";
 import { navigationData } from "@/data/navigation";
+import Link from "next/link";
 
 interface BreadcrumbItem {
   label: string;
@@ -56,6 +57,7 @@ export const BreadcrumbNavigation: FC = () => {
         href: item.path,
         current: index === breadcrumbItems.length - 1,
       }))}
+      LinkComponent={Link}
       divider={<Icon name="CaretRight" size="sm" />}
     />
   );

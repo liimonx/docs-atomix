@@ -1,57 +1,110 @@
 "use client";
 
-import { FC } from "react";
-import { motion } from "framer-motion";
+import { FC, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { Spinner, AtomixLogo } from "@shohojdhara/atomix";
-import styles from "./PageLoader.module.scss";
 
 interface PageLoaderProps {
   /** Optional message to display under the loader */
   message?: string;
   /** Whether to show the logo */
   showLogo?: boolean;
+  /** Whether the loader should be full screen */
+  fullScreen?: boolean;
 }
 
 export const PageLoader: FC<PageLoaderProps> = ({
-  message = "Loading components...",
+  message = "Loading...",
   showLogo = true,
+  fullScreen = false,
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const messageRef = useRef<HTMLParagraphElement>(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline();
+
+      // Container fade in if full screen
+      if (fullScreen && containerRef.current) {
+        gsap.fromTo(
+          containerRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.5,
+            ease: "power2.out",
+          },
+        );
+      }
+
+      // Simple, elegant entrance
+      tl.fromTo(
+        contentRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+      );
+
+      if (showLogo && logoRef.current) {
+        // Subtle hover-like float
+        gsap.to(logoRef.current, {
+          y: -4,
+          duration: 2,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      }
+    },
+    { dependencies: [showLogo, message, fullScreen] },
+  );
+
   return (
-    <div className={styles.container}>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 1.05 }}
-        className={styles.content}
+    <div
+      ref={containerRef}
+      className={`u-flex u-items-center u-justify-center u-w-100 ${
+        fullScreen
+          ? "u-fixed u-top-0 u-start-0 u-h-100 u-z-modal u-backdrop-blur-sm"
+          : "u-relative"
+      }`}
+      style={
+        !fullScreen
+          ? { minHeight: "400px", height: "calc(100vh - 120px)" }
+          : { backgroundColor: "rgba(var(--atomix-background-rgb), 0.5)" }
+      }
+    >
+      <div
+        ref={contentRef}
+        className="u-flex u-items-center u-justify-center u-z-1"
       >
-        {showLogo && (
-          <motion.div
-            animate={{
-              opacity: [0.5, 1, 0.5],
-              filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"],
-            }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className={styles.logoWrapper}
-          >
-            <AtomixLogo width={64} height={64} className={styles.logo} />
-          </motion.div>
-        )}
+        <div className="u-flex u-flex-column u-items-center u-justify-center u-gap-5 u-py-10 u-px-14">
+          {showLogo && (
+            <div
+              ref={logoRef}
+              className="u-text-primary u-flex u-items-center u-justify-center"
+            >
+              <AtomixLogo width={48} height={48} />
+            </div>
+          )}
 
-        <div className={styles.visuals}>
-          <Spinner size="lg" variant="primary" />
+          <div className="u-flex u-items-center u-justify-center u-relative">
+            <Spinner size="md" variant="primary" />
+          </div>
+
+          {message && (
+            <p
+              ref={messageRef}
+              className="u-m-0 u-mt-1 u-fs-sm u-font-bold u-text-secondary u-opacity-50 u-uppercase"
+              style={{ letterSpacing: "0.2em" }}
+            >
+              {message}
+            </p>
+          )}
         </div>
-
-        {message && (
-          <motion.p
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className={styles.message}
-          >
-            {message}
-          </motion.p>
-        )}
-      </motion.div>
+      </div>
     </div>
   );
 };

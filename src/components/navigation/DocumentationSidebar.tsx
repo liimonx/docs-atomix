@@ -52,12 +52,15 @@ const DocumentationSidebar = memo(function DocumentationSidebar({
               height: "calc(100vh - 65px)",
               left: "0",
               overflowY: "auto",
+              zIndex: 999,
             },
             elasticity: 0,
             borderRadius: 0,
             displacementScale: 50,
             withLiquidBlur: false,
-            blurAmount: 0,
+            mode: "shader",
+            shaderVariant: "noise",
+            blurAmount: 10,
           }}
           className=" u-w-60 u-top-5 u-vh-100 u-start-0 u-overflow-y-auto"
           title={<></>}

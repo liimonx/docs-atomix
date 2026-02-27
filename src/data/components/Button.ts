@@ -187,7 +187,7 @@ export const buttonMetadata = {
       required: false
     },
     {
-      name: 'ariaLabel',
+      name: 'aria-label',
       type: 'string',
       description: 'ARIA label for accessibility.',
       required: false
@@ -303,7 +303,7 @@ export default function IconButtonExample() {
         variant="outline-error" 
         icon={<Icon name="Trash" />} 
         iconOnly 
-        ariaLabel="Delete" 
+        aria-label="Delete" 
       />
 
       {/* Loading State */}

@@ -117,17 +117,17 @@ export default function ToolbarExample() {
   return (
     <div className="u-flex u-gap-2 u-p-2 u-bg-subtle u-rounded">
       <ButtonGroup variant="ghost" size="sm">
-        <Button icon={<Icon name="TextBolder" />} ariaLabel="Bold" />
-        <Button icon={<Icon name="TextItalic" />} ariaLabel="Italic" />
-        <Button icon={<Icon name="TextUnderline" />} ariaLabel="Underline" />
+        <Button icon={<Icon name="TextBolder" />} aria-label="Bold" />
+        <Button icon={<Icon name="TextItalic" />} aria-label="Italic" />
+        <Button icon={<Icon name="TextUnderline" />} aria-label="Underline" />
       </ButtonGroup>
       
       <div className="u-w-px u-bg-border u-my-1" />
       
       <ButtonGroup variant="ghost" size="sm">
-        <Button icon={<Icon name="TextAlignLeft" />} ariaLabel="Align Left" />
-        <Button icon={<Icon name="TextAlignCenter" />} ariaLabel="Align Center" />
-        <Button icon={<Icon name="TextAlignRight" />} ariaLabel="Align Right" />
+        <Button icon={<Icon name="TextAlignLeft" />} aria-label="Align Left" />
+        <Button icon={<Icon name="TextAlignCenter" />} aria-label="Align Center" />
+        <Button icon={<Icon name="TextAlignRight" />} aria-label="Align Right" />
       </ButtonGroup>
     </div>
   );
@@ -161,12 +161,12 @@ export default function IconOnlyButtons() {
       <Button 
         icon={<Icon name="CaretLeft" />}
         iconOnly 
-        ariaLabel="Previous" 
+        aria-label="Previous" 
       />
       <Button 
         icon={<Icon name="CaretRight" />}
         iconOnly 
-        ariaLabel="Next" 
+        aria-label="Next" 
       />
     </ButtonGroup>
   );
