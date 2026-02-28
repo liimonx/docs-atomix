@@ -10,7 +10,6 @@ import {
   Block,
   Card,
   Badge,
-  Breadcrumb,
   Icon,
 } from "@shohojdhara/atomix";
 import { designTokens, DesignToken } from "@/data/design-tokens";
@@ -449,19 +448,6 @@ const DesignTokensPage: FC = () => {
         {/* Ambient background glow for Hero */}
         <div className="u-absolute u-top-0 u-start-50 u-translate-x-n50 u-w-100 u-h-100 u-max-w-4xl u-bg-primary u-opacity-5 u-blur-3xl u-rounded-circle u-pointer-events-none"></div>
 
-        <Hero.Subtitle>
-          <Breadcrumb
-            items={[
-              { label: "Home", href: "/" },
-              {
-                label: "Design Tokens",
-                href: "/docs/design-tokens",
-                active: true,
-              },
-            ]}
-            className="u-relative u-z-1"
-          />
-        </Hero.Subtitle>
         <Hero.Content className="u-w-100 u-max-w-4xl u-relative u-z-1">
           <Hero.Title className="u-fs-5xl u-font-black u-tracking-tighter">
             {getPageTitle()}
