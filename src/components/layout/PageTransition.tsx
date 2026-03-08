@@ -3,7 +3,6 @@
 import React, { Suspense, FC } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { PageLoader } from "@/components/ui/PageLoader";
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -37,7 +36,7 @@ function PageTransitionContent({ children }: { children: React.ReactNode }) {
 
 export const PageTransition: FC<PageTransitionProps> = ({ children }) => {
   return (
-    <Suspense fallback={<PageLoader />}>
+    <Suspense fallback={null}>
       <PageTransitionContent>{children}</PageTransitionContent>
     </Suspense>
   );

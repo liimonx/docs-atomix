@@ -8,7 +8,6 @@ import { resolveRoute, getRouteSlugsByOwner } from "@/utils/routeMapper";
 import { getPageEntry } from "@/utils/pageComponentRegistry";
 import { generateMetadataFromSlug } from "@/utils/routeConfig";
 import type { RouteParams } from "@/types/routes";
-import { PageLoader } from "@/components/ui/PageLoader";
 import DocumentationOverviewPage from "@/page-components/common/DocumentationOverviewPage";
 
 // Use 'auto' to allow both static and dynamic generation
@@ -52,7 +51,7 @@ export default async function DynamicDocsPage({ params }: DynamicPageProps) {
   // Handle empty slug - show documentation overview page
   if (slug.length === 0) {
     return (
-      <Suspense fallback={<PageLoader message="Preparing overview..." />}>
+      <Suspense fallback={null}>
         <DocumentationOverviewPage />
       </Suspense>
     );
@@ -83,7 +82,7 @@ export default async function DynamicDocsPage({ params }: DynamicPageProps) {
 
   // Wrap in Suspense to handle async boundaries properly
   return (
-    <Suspense fallback={<PageLoader />}>
+    <Suspense fallback={null}>
       <PageComponent {...defaultProps} />
     </Suspense>
   );
