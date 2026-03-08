@@ -2164,7 +2164,7 @@ export default function RootLayout({ children }) {
                     size="md"
                     className="u-flex u-items-center u-gap-2"
                   >
-                    <Icon name="Palette" size={16} />
+                    <Icon name="Palette" size={"sm"} />
                     Open Theme Studio
                   </Button>
                 </div>

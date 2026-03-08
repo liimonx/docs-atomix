@@ -285,6 +285,7 @@ function extractJSXElements(code: string): React.ReactNode[] {
         !("readOnly" in props)
       ) {
         props.readOnly = true;
+        props.onChange = () => {};
       }
       if (
         "value" in props &&
@@ -292,6 +293,7 @@ function extractJSXElements(code: string): React.ReactNode[] {
         !("readOnly" in props)
       ) {
         props.readOnly = true;
+        props.onChange = () => {};
       }
     }
 
