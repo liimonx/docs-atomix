@@ -228,7 +228,7 @@ export default function ExampleLandingPage() {
               <Card
                 title={stat.value}
                 text={stat.label}
-                icon={<Icon name={stat.icon as any} size={24} />}
+                icon={<Icon name={stat.icon as any} size={"lg"} />}
                 className="u-h-100"
                 row
               />

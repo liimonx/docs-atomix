@@ -249,7 +249,7 @@ const StylesArchitecturePage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="CheckCircle"
-                  size={24}
+                  size={"lg"}
                   className="u-text-success-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">Benefits</h3>
@@ -314,7 +314,7 @@ const StylesArchitecturePage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Code"
-                  size={24}
+                  size={"lg"}
                   className="u-text-primary-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">
@@ -389,7 +389,7 @@ const StylesArchitecturePage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="FileText"
-                  size={24}
+                  size={"lg"}
                   className="u-text-info-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">
@@ -426,7 +426,7 @@ const StylesArchitecturePage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Package"
-                  size={24}
+                  size={"lg"}
                   className="u-text-brand-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">Modern SCSS</h3>
@@ -534,7 +534,7 @@ const StylesArchitecturePage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="BookOpen"
-                  size={24}
+                  size={"lg"}
                   className="u-text-primary-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">

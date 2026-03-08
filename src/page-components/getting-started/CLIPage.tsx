@@ -46,7 +46,7 @@ const CLIPage: FC = () => {
               <div className="u-flex u-items-center u-mb-4">
                 <Icon
                   name="Download"
-                  size={24}
+                  size={"lg"}
                   className="c-card__icon u-me-2"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
@@ -74,7 +74,7 @@ const CLIPage: FC = () => {
               <div className="u-flex u-items-center u-mb-4">
                 <Icon
                   name="Terminal"
-                  size={24}
+                  size={"lg"}
                   className="c-card__icon u-me-2"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">

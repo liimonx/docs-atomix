@@ -349,7 +349,7 @@ const PreviewMetricContent: FC<{ accentColor: string }> = ({ accentColor }) => (
   <div className={styles.previewMetric}>
     <Icon
       name="ChartLineUp"
-      size={24}
+      size={"lg"}
       style={{ color: accentColor }}
       aria-hidden="true"
     />

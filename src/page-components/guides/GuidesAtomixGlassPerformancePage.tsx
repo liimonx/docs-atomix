@@ -541,7 +541,7 @@ function OptimizedGlassComponent() {
                           <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="Monitor"
-                              size={24}
+                              size={"lg"}
                               className="u-text-primary"
                             />
                             <div>
@@ -602,7 +602,7 @@ function OptimizedGlassComponent() {
                           <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="Lightning"
-                              size={24}
+                              size={"lg"}
                               className="u-text-warning"
                             />
                             <div>
@@ -801,7 +801,7 @@ function MonitoredGlassComponent() {
                           <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="Lightbulb"
-                              size={24}
+                              size={"lg"}
                               className="u-text-success"
                             />
                             <div>
@@ -854,7 +854,7 @@ function LazyGlassComponent() {
                           <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="WaveTriangle"
-                              size={24}
+                              size={"lg"}
                               className="u-text-warning"
                             />
                             <div>
@@ -901,7 +901,7 @@ function AccessibleGlassComponent() {
                           <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="Info"
-                              size={24}
+                              size={"lg"}
                               className="u-text-info"
                             />
                             <div>
@@ -951,7 +951,7 @@ function DebouncedGlassComponent() {
                           <div className="u-flex u-items-start u-gap-3 u-mb-4">
                             <Icon
                               name="Cpu"
-                              size={24}
+                              size={"lg"}
                               className="u-text-primary"
                             />
                             <div>

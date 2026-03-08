@@ -238,25 +238,25 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 <Row>
                   {[
                     {
-                      icon: <Icon name="Wheelchair" size={24} />,
+                      icon: <Icon name="Wheelchair" size={"lg"} />,
                       title: "Accessible",
                       description:
                         "WCAG 2.1 compliant out of the box with proper ARIA attributes.",
                     },
                     {
-                      icon: <Icon name="Palette" size={24} />,
+                      icon: <Icon name="Palette" size={"lg"} />,
                       title: "Themable",
                       description:
                         "Fully customizable with CSS variables and Tailwind config.",
                     },
                     {
-                      icon: <Icon name="Code" size={24} />,
+                      icon: <Icon name="Code" size={"lg"} />,
                       title: "Type-Safe",
                       description:
                         "Built with TypeScript for better DX and autocomplete.",
                     },
                     {
-                      icon: <Icon name="Moon" size={24} />,
+                      icon: <Icon name="Moon" size={"lg"} />,
                       title: "Dark Mode",
                       description:
                         "Automatic dark mode support included for all components.",
@@ -330,19 +330,19 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 <Row>
                   {[
                     {
-                      icon: <Icon name="Code" size={24} />,
+                      icon: <Icon name="Code" size={"lg"} />,
                       title: "React 18.0.0+",
                       desc: "React library for building user interfaces",
                       color: "primary",
                     },
                     {
-                      icon: <Icon name="Gear" size={24} />,
+                      icon: <Icon name="Gear" size={"lg"} />,
                       title: "Node.js 16.0.0+",
                       desc: "JavaScript runtime environment",
                       color: "success",
                     },
                     {
-                      icon: <Icon name="Download" size={24} />,
+                      icon: <Icon name="Download" size={"lg"} />,
                       title: "Package Manager",
                       desc: "npm, yarn, or pnpm",
                       color: "secondary",
@@ -390,7 +390,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <div className="u-p-8 u-border-bottom u-border-primary-subtle">
                         <div className="u-flex u-items-center u-mb-4">
                           <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-lg u-flex u-items-center u-justify-center u-me-4 u-text-primary">
-                            <Icon name="Download" size={24} />
+                            <Icon name="Download" size={"lg"} />
                           </div>
                           <h3 className="u-fs-xl u-font-bold u-m-0 u-text-white">
                             npm
@@ -440,7 +440,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <div className="u-p-8 u-border-bottom u-border-primary-subtle">
                         <div className="u-flex u-items-center u-mb-4">
                           <div className="u-w-12 u-h-12 u-bg-success-subtle u-rounded-lg u-flex u-items-center u-justify-center u-me-4 u-text-success">
-                            <Icon name="Download" size={24} />
+                            <Icon name="Download" size={"lg"} />
                           </div>
                           <h3 className="u-fs-xl u-font-bold u-m-0 u-text-white">
                             yarn
@@ -490,7 +490,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <div className="u-p-8 u-border-bottom u-border-primary-subtle">
                         <div className="u-flex u-items-center u-mb-4">
                           <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-lg u-flex u-items-center u-justify-center u-me-4 u-text-secondary">
-                            <Icon name="Download" size={24} />
+                            <Icon name="Download" size={"lg"} />
                           </div>
                           <h3 className="u-fs-xl u-font-bold u-m-0 u-text-white">
                             pnpm
@@ -559,7 +559,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                         <div className="u-p-6">
                           <div className="u-flex u-items-center u-mb-4">
                             <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-primary-emphasis">
-                              <Icon name="Lightning" size={24} />
+                              <Icon name="Lightning" size={"lg"} />
                             </div>
                             <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                               Quick Start Guide
@@ -586,7 +586,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                         <div className="u-p-6">
                           <div className="u-flex u-items-center u-mb-4">
                             <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-secondary-emphasis">
-                              <Icon name="Palette" size={24} />
+                              <Icon name="Palette" size={"lg"} />
                             </div>
                             <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                               Setup Theming
@@ -661,7 +661,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 <Card className="u-rounded-xl u-bg-dark u-border-primary-subtle u-p-8 u-mb-8">
                   <div className="u-flex u-items-center u-gap-6">
                     <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-lg u-flex u-items-center u-justify-center u-text-primary">
-                      <Icon name="Info" size={24} />
+                      <Icon name="Info" size={"lg"} />
                     </div>
                     <div className="u-flex-grow-1">
                       <h3 className="u-fs-xl u-font-bold u-m-0 u-mb-2 u-text-white">
@@ -899,21 +899,21 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   <Row className="u-gap-6">
                     {[
                       {
-                        icon: <Icon name="BookOpen" size={24} />,
+                        icon: <Icon name="BookOpen" size={"lg"} />,
                         title: "Components",
                         desc: "Browse 40+ pre-built components",
                         link: "/docs/components/overview",
                         color: "primary",
                       },
                       {
-                        icon: <Icon name="Palette" size={24} />,
+                        icon: <Icon name="Palette" size={"lg"} />,
                         title: "Theming",
                         desc: "Customize Atomix to your brand",
                         link: "/docs/guides/theming",
                         color: "success",
                       },
                       {
-                        icon: <Icon name="Code" size={24} />,
+                        icon: <Icon name="Code" size={"lg"} />,
                         title: "Examples",
                         desc: "Real-world implementation patterns",
                         link: "/docs/examples/common-patterns",

@@ -155,7 +155,7 @@ const ComponentsHomePage: FC = () => {
                 <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
                   <div className="u-flex u-flex-column u-items-center u-text-center">
                     <div className="u-w-16 u-h-16 u-bg-primary-subtle u-text-primary-emphasis u-rounded-md u-flex u-items-center u-justify-center u-mb-4">
-                      <Icon name="GridFour" size={24} />
+                      <Icon name="GridFour" size={"lg"} />
                     </div>
                     <h3 className="u-text-xl u-font-semibold u-mb-2 u-text-primary-emphasis">
                       {category}
@@ -193,7 +193,7 @@ const ComponentsHomePage: FC = () => {
                   <div className="u-flex u-flex-column u-h-100">
                     <div className="u-flex u-items-center u-mb-4">
                       <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary-emphasis u-rounded-md u-flex u-items-center u-justify-center u-me-3">
-                        <Icon name="Lightning" size={24} />
+                        <Icon name="Lightning" size={"lg"} />
                       </div>
                       <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                         {component.name}

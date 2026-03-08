@@ -184,7 +184,7 @@ const ComponentsOverviewPage: FC = () => {
                       >
                         <Icon
                           name="GridFour"
-                          size={24}
+                          size={"lg"}
                           className="u-text-brand-emphasis"
                         />
                       </div>
@@ -211,7 +211,7 @@ const ComponentsOverviewPage: FC = () => {
                       >
                         <Icon
                           name="CheckCircle"
-                          size={24}
+                          size={"lg"}
                           className="u-text-success-emphasis"
                         />
                       </div>
@@ -240,7 +240,7 @@ const ComponentsOverviewPage: FC = () => {
                       >
                         <Icon
                           name="Shield"
-                          size={24}
+                          size={"lg"}
                           className="u-text-info-emphasis"
                         />
                       </div>
@@ -269,7 +269,7 @@ const ComponentsOverviewPage: FC = () => {
                       >
                         <Icon
                           name="Lightning"
-                          size={24}
+                          size={"lg"}
                           className="u-text-warning-emphasis"
                         />
                       </div>

@@ -216,13 +216,13 @@ const DesignTokensPage: FC = () => {
               {token.value === "none" ? (
                 <Icon
                   name="Prohibit"
-                  size={24}
+                  size={"lg"}
                   className="u-text-secondary u-opacity-50"
                 />
               ) : (
                 <Icon
                   name="Package"
-                  size={24}
+                  size={"lg"}
                   className="u-text-primary u-opacity-80"
                 />
               )}

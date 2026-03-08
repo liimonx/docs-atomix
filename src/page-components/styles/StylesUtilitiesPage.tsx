@@ -51,7 +51,7 @@ const CategoryCard: FC<UtilityCategoryProps> = ({
       <div className="u-flex u-items-center u-gap-3 u-mb-3">
         <Icon
           name={icon as any}
-          size={24}
+          size={"lg"}
           className={
             pageStyles[`stylesUtilitiesPage__categoryIcon--${colorClass}`]
           }
@@ -299,7 +299,7 @@ const StylesUtilitiesPage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Monitor"
-                  size={24}
+                  size={"lg"}
                   className="u-text-info-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">
@@ -419,7 +419,7 @@ const StylesUtilitiesPage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="GridFour"
-                  size={24}
+                  size={"lg"}
                   className="u-text-primary-emphasis"
                 />
                 <h3 className="u-text-lg u-font-semibold u-m-0">
@@ -448,7 +448,7 @@ const StylesUtilitiesPage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="ArrowsOut"
-                  size={24}
+                  size={"lg"}
                   className="u-text-success-emphasis"
                 />
                 <h3 className="u-text-lg u-font-semibold u-m-0">
@@ -478,7 +478,7 @@ const StylesUtilitiesPage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Lightbulb"
-                  size={24}
+                  size={"lg"}
                   className="u-text-info-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">
@@ -552,7 +552,7 @@ const StylesUtilitiesPage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Warning"
-                  size={24}
+                  size={"lg"}
                   className="u-text-warning-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">

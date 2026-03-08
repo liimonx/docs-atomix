@@ -2145,7 +2145,7 @@ export default function RootLayout({ children }) {
               <div className="u-flex u-items-start u-gap-3">
                 <Icon
                   name="Lightbulb"
-                  size={24}
+                  size={"lg"}
                   className="u-text-primary-emphasis u-flex-shrink-0 u-mt-1"
                 />
                 <div>

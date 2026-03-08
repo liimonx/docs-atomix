@@ -98,7 +98,7 @@ function BasicGrid() {
       description: 'Grid with custom gap between columns',
       code: `function GridWithGap() {
   return (
-    <Grid gap={24}>
+    <Grid gap={'lg'}>
       <GridCol md={4}>
         <p>Column with gap</p>
       </GridCol>

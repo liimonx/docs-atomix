@@ -55,7 +55,7 @@ const MethodCard: FC<CustomizationMethodProps> = ({
       <div className="u-flex u-items-center u-gap-3 u-mb-3">
         <Icon
           name={icon as any}
-          size={24}
+          size={"lg"}
           className={
             pageStyles[`stylesCustomizationPage__methodIcon--${colorClass}`]
           }
@@ -330,7 +330,7 @@ const StylesCustomizationPage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Palette"
-                  size={24}
+                  size={"lg"}
                   className="u-text-primary-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">
@@ -360,7 +360,7 @@ const StylesCustomizationPage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="TextT"
-                  size={24}
+                  size={"lg"}
                   className="u-text-brand-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">Typography</h3>
@@ -388,7 +388,7 @@ const StylesCustomizationPage: FC = () => {
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Lightning"
-                  size={24}
+                  size={"lg"}
                   className="u-text-info-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">

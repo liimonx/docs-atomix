@@ -223,7 +223,7 @@ $button-color: var(--atomix-primary) !default;
                       >
                         <Icon
                           name={guideline.icon as any}
-                          size={24}
+                          size={"lg"}
                           className="u-text-brand-emphasis"
                         />
                       </div>

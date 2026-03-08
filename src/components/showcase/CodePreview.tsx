@@ -308,6 +308,13 @@ function extractJSXElements(code: string): React.ReactNode[] {
         "tabIndex",
         "contentEditable",
         "spellCheck",
+        "readOnly",
+        "defaultValue",
+        "defaultChecked",
+        "autoFocus",
+        "autoComplete",
+        "noValidate",
+        "formNoValidate",
         "dangerouslySetInnerHTML",
       ]);
 
@@ -379,6 +386,13 @@ function extractJSXElements(code: string): React.ReactNode[] {
         "tabIndex",
         "contentEditable",
         "spellCheck",
+        "readOnly",
+        "defaultValue",
+        "defaultChecked",
+        "autoFocus",
+        "autoComplete",
+        "noValidate",
+        "formNoValidate",
         "dangerouslySetInnerHTML",
       ]);
 

@@ -45,7 +45,7 @@ const APICard: FC<APISection> = ({ icon, title, description, code, color }) => {
       <div className="u-flex u-items-center u-gap-3 u-mb-3">
         <Icon
           name={icon as any}
-          size={24}
+          size={"lg"}
           className={
             pageStyles[`stylesAPIReferencePage__apiSectionIcon--${colorClass}`]
           }
@@ -221,7 +221,7 @@ $font-size-base: 1rem;`}
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="Palette"
-                  size={24}
+                  size={"lg"}
                   className="u-text-primary-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">
@@ -249,7 +249,11 @@ $font-size-base: 1rem;`}
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
-                <Icon name="Moon" size={24} className="u-text-brand-emphasis" />
+                <Icon
+                  name="Moon"
+                  size={"lg"}
+                  className="u-text-brand-emphasis"
+                />
                 <h3 className="u-text-xl u-font-semibold u-m-0">
                   Theme Switching
                 </h3>
@@ -277,7 +281,7 @@ document.documentElement
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <Icon
                   name="BookOpen"
-                  size={24}
+                  size={"lg"}
                   className="u-text-primary-emphasis"
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">

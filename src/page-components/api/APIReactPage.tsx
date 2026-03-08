@@ -37,7 +37,7 @@ const APIReactPage: FC = () => {
             <Card className="u-p-6">
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <div className="u-inline-flex u-items-center u-justify-center u-rounded u-bg-primary-subtle u-text-primary u-p-2">
-                  <Icon name="Code" size={24} />
+                  <Icon name="Code" size={"lg"} />
                 </div>
                 <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
                   Component Categories
@@ -139,7 +139,7 @@ const APIReactPage: FC = () => {
             <Card className="u-p-6">
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <div className="u-inline-flex u-items-center u-justify-center u-rounded u-bg-success-subtle u-text-success u-p-2">
-                  <Icon name="GridFour" size={24} />
+                  <Icon name="GridFour" size={"lg"} />
                 </div>
                 <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
                   Layout Components
@@ -226,7 +226,7 @@ interface GridColProps {
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <div className="u-inline-flex u-items-center u-justify-center u-rounded u-bg-warning-subtle u-text-warning u-p-2">
-                  <Icon name="Lightning" size={24} />
+                  <Icon name="Lightning" size={"lg"} />
                 </div>
                 <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
                   Hooks
@@ -284,7 +284,7 @@ const { isMobile, breakpoint } = useResponsive();`}
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-items-center u-gap-3 u-mb-4">
                 <div className="u-inline-flex u-items-center u-justify-center u-rounded u-bg-info-subtle u-text-info u-p-2">
-                  <Icon name="FileCode" size={24} />
+                  <Icon name="FileCode" size={"lg"} />
                 </div>
                 <h3 className="u-text-xl u-font-700 u-m-0 u-text-primary-emphasis">
                   Types

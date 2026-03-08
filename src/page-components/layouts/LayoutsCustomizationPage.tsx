@@ -317,7 +317,7 @@ $container-max-widths: (
   className="custom-container"
 >
   <Row 
-    gutter={24}
+    gutter={'lg'}
     justify="center"
     align="middle"
   >
