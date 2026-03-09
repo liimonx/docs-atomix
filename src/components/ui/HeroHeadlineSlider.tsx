@@ -40,6 +40,27 @@ const SLIDES: SlideData[] = [
     description:
       "Intelligently contrasting frosted layers ensure perfect readability while maintaining a bleeding-edge aesthetic across all devices.",
   },
+  {
+    id: "slide-4",
+    headlineLine1: "Scalable Architecture",
+    headlineLine2: "Built on Design Tokens.",
+    description:
+      "Empower your team with a centralized source of truth. Customize every aspect of your design system through flexible, versioned tokens.",
+  },
+  {
+    id: "slide-5",
+    headlineLine1: "Rapid Prototyping",
+    headlineLine2: "with Utility Power.",
+    description:
+      "Build complex layouts in minutes using a predictable and performant utility-first syntax that maps directly to the Atomix engine.",
+  },
+  {
+    id: "slide-6",
+    headlineLine1: "Production Ready",
+    headlineLine2: "Components Library.",
+    description:
+      "Access a growing suite of 40+ accessible, highly-customizable React components designed to handle the most demanding enterprise needs.",
+  },
 ];
 
 const SLIDE_DURATION = 7; // seconds
