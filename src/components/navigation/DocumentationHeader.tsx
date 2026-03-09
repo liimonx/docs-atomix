@@ -43,7 +43,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
                 Atomix
               </p>
               <p className="u-text-primary-emphasis u-fs-xs u-font-medium u-mt-1">
-                v2.0.4
+                v0.4.6
               </p>
             </div>
           </div>
