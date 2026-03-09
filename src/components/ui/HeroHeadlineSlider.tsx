@@ -21,45 +21,45 @@ interface SlideData {
 const SLIDES: SlideData[] = [
   {
     id: "slide-1",
-    headlineLine1: "The Glass-First System",
-    headlineLine2: "for Scalable Frontend.",
+    headlineLine1: "Atomix Design System",
+    headlineLine2: "One Token to Rule Them All.",
     description:
-      "Atomix provides a react-ready engine to build distinct, high-performance interfaces with cinematic depth and frosted glass realism.",
+      "Centralized design truths that scale seamlessly across your entire frontend ecosystem.",
   },
   {
     id: "slide-2",
-    headlineLine1: "Cinematic Depth",
-    headlineLine2: "with Unmatched Precision.",
+    headlineLine1: "Glassmorphism Reimagined",
+    headlineLine2: "Cinematic Depth & Precision.",
     description:
-      "Layer surfaces, blur backgrounds, and cast natural shadows with a token-driven design language that redefines premium UI.",
+      "Layer surfaces with advanced frosted effects, noise textures, and pixel-perfect realism.",
   },
   {
     id: "slide-3",
-    headlineLine1: "Accessible by Design",
-    headlineLine2: "Without Compromises.",
+    headlineLine1: "Accessibility First",
+    headlineLine2: "Inclusive by Default.",
     description:
-      "Intelligently contrasting frosted layers ensure perfect readability while maintaining a bleeding-edge aesthetic across all devices.",
+      "WCAG 2.1 AA compliance that automatically adjusts contrast without compromising aesthetics.",
   },
   {
     id: "slide-4",
-    headlineLine1: "Scalable Architecture",
-    headlineLine2: "Built on Design Tokens.",
+    headlineLine1: "Developer Experience",
+    headlineLine2: "Built for Performance & Speed.",
     description:
-      "Empower your team with a centralized source of truth. Customize every aspect of your design system through flexible, versioned tokens.",
+      "High-performance, type-safe components designed to handle the most demanding enterprise needs.",
   },
   {
     id: "slide-5",
-    headlineLine1: "Rapid Prototyping",
-    headlineLine2: "with Utility Power.",
+    headlineLine1: "Infinite Customization",
+    headlineLine2: "Your Brand, Your Vision.",
     description:
-      "Build complex layouts in minutes using a predictable and performant utility-first syntax that maps directly to the Atomix engine.",
+      "Tailor every layer, shadow, and blur strength through a flexible, versioned token engine.",
   },
   {
     id: "slide-6",
     headlineLine1: "Production Ready",
-    headlineLine2: "Components Library.",
+    headlineLine2: "Battle-Tested Architecture.",
     description:
-      "Access a growing suite of 40+ accessible, highly-customizable React components designed to handle the most demanding enterprise needs.",
+      "40+ accessible React components ready to power high-stakes applications out of the box.",
   },
 ];
 
