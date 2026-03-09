@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   Hero,
   SectionIntro,
@@ -9,12 +9,17 @@ import {
   Block,
   Grid,
   DataTable,
+  Button,
+  Icon,
+  Badge,
 } from "@shohojdhara/atomix";
-import { getTokensByCategory } from "@/data/design-tokens";
-import heroStyles from "@/styles/PageHero.module.scss";
-import styles from "./DesignTokensGridPage.module.scss";
+import { getTokensByCategory, DesignToken } from "@/data/design-tokens";
+import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 
 const DesignTokensGridPage = () => {
+  const [isCopied, copy] = useCopyToClipboard();
+  const [copiedTokenName, setCopiedTokenName] = useState<string | null>(null);
+
   // Get breakpoints tokens from design tokens
   const breakpointsCategory = useMemo(
     () => getTokensByCategory("breakpoints"),
@@ -40,16 +45,23 @@ const DesignTokensGridPage = () => {
     );
   }, [spacingCategory]);
 
+  const handleCopy = (token: DesignToken) => {
+    const cssVar = token.cssVariable || token.value;
+    copy(cssVar).then((success) => {
+      if (success) {
+        setCopiedTokenName(token.name);
+        setTimeout(() => setCopiedTokenName(null), 2000);
+      }
+    });
+  };
+
   // Format breakpoint data for DataTable
   const breakpointTableData = useMemo(() => {
     return breakpointsTokens.map((token) => ({
-      key:
-        token.cssVariable?.replace("var(--", "").replace(")", "") ||
-        token.name.toLowerCase().replace(/\s+/g, "-"),
+      key: token.name,
       value: token.value,
       description: token.description,
       cssVariable: token.cssVariable || "",
-      render: (value: string) => <code>{value}</code>,
     }));
   }, [breakpointsTokens]);
 
@@ -64,13 +76,10 @@ const DesignTokensGridPage = () => {
         : token.value;
 
       return {
-        key:
-          token.cssVariable?.replace("var(--", "").replace(")", "") ||
-          token.name.toLowerCase().replace(/\s+/g, "-"),
+        key: token.name,
         value: displayValue,
         description: token.description,
         cssVariable: token.cssVariable || "",
-        render: (value: string) => <code>{value}</code>,
       };
     });
   }, [gutterSpacingTokens]);
@@ -78,163 +87,341 @@ const DesignTokensGridPage = () => {
   return (
     <>
       <Hero
-        className={heroStyles.pageHero}
-        title="Grid System"
-        text="Responsive grid design tokens for flexible layouts"
-        alignment="center"
-        actions={
-          <div className={styles.designTokensGridPage__heroActions}>
-            <button className={styles.designTokensGridPage__heroButton}>
+        title={<></>}
+        alignment="left"
+        className="u-bg-surface-subtle u-border-b u-border-glass u-relative u-overflow-hidden"
+      >
+        {/* Ambient background glow for Hero */}
+        <div className="u-absolute u-top-0 u-start-50 u-translate-x-n50 u-w-100 u-h-100 u-max-w-4xl u-bg-primary u-opacity-5 u-blur-3xl u-rounded-circle u-pointer-events-none"></div>
+
+        <Hero.Content className="u-w-100 u-max-w-4xl u-relative u-z-1">
+          <Badge
+            variant="primary"
+            label="Design System"
+            className="u-mb-4 u-rounded-full u-px-3 u-py-1 u-font-bold u-tracking-wider"
+          />
+          <Hero.Title className="u-fs-5xl u-font-black u-tracking-tighter">
+            Grid & Breakpoints
+          </Hero.Title>
+          <Hero.Text className="u-fs-xl u-text-secondary u-leading-relaxed">
+            Responsive design tokens that power Atomix's 12-column grid system,
+            ensuring consistency across all device sizes.
+          </Hero.Text>
+          <div className="u-flex u-gap-3 u-mt-8">
+            <Button
+              variant="primary"
+              size="lg"
+              className="u-rounded-2xl u-shadow-primary-glow"
+              icon={<Icon name="Hash" weight="bold" />}
+            >
               Grid Tokens
-            </button>
-            <button
-              className={`${styles.designTokensGridPage__heroButton} ${styles["designTokensGridPage__heroButton--secondary"]}`}
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              className="u-rounded-2xl u-border-glass u-bg-glass"
+              icon={<Icon name="Layout" weight="bold" />}
+              glass
             >
               Layout Patterns
-            </button>
+            </Button>
           </div>
-        }
-      />
+        </Hero.Content>
+      </Hero>
 
-      <Block spacing="sm">
-        <SectionIntro
-          title="Grid System Design Tokens"
-          text={`Atomix uses a flexible 12-column grid system with responsive breakpoints and customizable gutters. The grid system is built on ${breakpointsTokens.length} breakpoint tokens and ${gutterSpacingTokens.length} spacing tokens that provide the foundation for creating consistent, responsive layouts across your application.`}
-          className="u-text-center"
-        />
+      <Block spacing="xl" className="u-pt-12">
+        <div className="u-mb-16">
+          <SectionIntro
+            title="Foundation of Layout"
+            text={`Atomix uses a flexible 12-column grid system with ${breakpointsTokens.length} responsive breakpoints and ${gutterSpacingTokens.length} primary gutter options. This system allows you to build complex, responsive layouts with minimal effort while maintaining visual rhythm.`}
+            className="u-text-center u-max-w-3xl u-mx-auto"
+          />
+        </div>
 
         <Grid>
           <GridCol lg={6}>
             <Card
-              variant="success"
-              className={styles.designTokensGridPage__card}
+              glass={true}
+              className="u-h-100 u-rounded-3xl u-border u-border-glass u-overflow-hidden u-flex u-flex-column"
             >
-              <h3
-                className={`${styles.designTokensGridPage__sectionHeading} ${styles["designTokensGridPage__sectionHeading--success"]}`}
-              >
-                Grid Breakpoints
-              </h3>
-              <p className="u-mb-4">
-                The grid system uses the following breakpoints for responsive
-                design:
-              </p>
+              <div className="u-p-8 u-pb-0">
+                <div className="u-flex u-items-center u-gap-3 u-mb-2">
+                  <div className="u-w-10 u-h-10 u-bg-success-subtle u-text-success u-rounded-xl u-flex u-items-center u-justify-center">
+                    <Icon name="Devices" size={24} weight="duotone" />
+                  </div>
+                  <h3 className="u-fs-2xl u-font-black u-tracking-tight u-m-0">
+                    Responsive Breakpoints
+                  </h3>
+                </div>
+                <p className="u-text-secondary u-mb-8">
+                  Control your layout transitions with standardized screen
+                  widths.
+                </p>
+              </div>
 
-              <div className={styles.designTokensGridPage__dataTable}>
-                <DataTable
-                  data={breakpointTableData}
-                  columns={[
-                    { key: "key", title: "Token Name" },
-                    { key: "value", title: "Value" },
-                    { key: "description", title: "Description" },
-                  ]}
-                  striped
-                  bordered
-                  dense
-                />
+              <div className="u-flex-grow-1 u-px-2 u-pb-2">
+                <div className="u-rounded-2xl u-border u-border-glass u-overflow-hidden">
+                  <DataTable
+                    data={breakpointTableData}
+                    columns={[
+                      {
+                        key: "key",
+                        title: "Token Name",
+                        render: (value: string) => (
+                          <span className="u-font-bold u-text-primary-emphasis">
+                            {value}
+                          </span>
+                        ),
+                      },
+                      {
+                        key: "value",
+                        title: "Value",
+                        render: (value: string) => (
+                          <code className="u-fs-xs u-bg-surface-subtle u-px-2 u-py-1 u-rounded-md">
+                            {value}
+                          </code>
+                        ),
+                      },
+                      {
+                        key: "cssVariable",
+                        title: "Variable",
+                        render: (value: string, row: { key: string }) => (
+                          <div className="u-flex u-items-center u-justify-between u-gap-2">
+                            <code className="u-fs-xs u-text-secondary u-truncate u-max-w-32">
+                              {value}
+                            </code>
+                            <Button
+                              variant={
+                                isCopied && copiedTokenName === row.key
+                                  ? "success"
+                                  : "primary"
+                              }
+                              size="sm"
+                              className="u-rounded-lg"
+                              icon={
+                                <Icon
+                                  name={
+                                    isCopied && copiedTokenName === row.key
+                                      ? "Check"
+                                      : "Copy"
+                                  }
+                                />
+                              }
+                              iconOnly
+                              onClick={() => {
+                                const token = breakpointsTokens.find(
+                                  (t) => t.name === row.key,
+                                );
+                                if (token) handleCopy(token);
+                              }}
+                            />
+                          </div>
+                        ),
+                      },
+                    ]}
+                    className="u-m-0"
+                  />
+                </div>
               </div>
             </Card>
           </GridCol>
+
           <GridCol lg={6}>
             <Card
-              variant="warning"
-              className={styles.designTokensGridPage__card}
+              glass={true}
+              className="u-h-100 u-rounded-3xl u-border u-border-glass u-overflow-hidden u-flex u-flex-column"
             >
-              <h3
-                className={`${styles.designTokensGridPage__sectionHeading} ${styles["designTokensGridPage__sectionHeading--warning"]}`}
-              >
-                Grid Gutters
-              </h3>
-              <p className="u-mb-4">
-                Gutters define the spacing between columns:
-              </p>
+              <div className="u-p-8 u-pb-0">
+                <div className="u-flex u-items-center u-gap-3 u-mb-2">
+                  <div className="u-w-10 u-h-10 u-bg-warning-subtle u-text-warning u-rounded-xl u-flex u-items-center u-justify-center">
+                    <Icon name="ArrowsHorizontal" size={24} weight="duotone" />
+                  </div>
+                  <h3 className="u-fs-2xl u-font-black u-tracking-tight u-m-0">
+                    Grid Gutters
+                  </h3>
+                </div>
+                <p className="u-text-secondary u-mb-8">
+                  Defining the white space between columns for structured
+                  rhythm.
+                </p>
+              </div>
 
-              <div className={styles.designTokensGridPage__dataTable}>
-                <DataTable
-                  data={spacingTableData}
-                  columns={[
-                    { key: "key", title: "Token Name" },
-                    { key: "value", title: "Value" },
-                    { key: "description", title: "Description" },
-                  ]}
-                  striped
-                  bordered
-                  dense
-                />
+              <div className="u-flex-grow-1 u-px-2 u-pb-2">
+                <div className="u-rounded-2xl u-border u-border-glass u-overflow-hidden">
+                  <DataTable
+                    data={spacingTableData}
+                    columns={[
+                      {
+                        key: "key",
+                        title: "Token Name",
+                        render: (value: string) => (
+                          <span className="u-font-bold u-text-primary-emphasis">
+                            {value}
+                          </span>
+                        ),
+                      },
+                      {
+                        key: "value",
+                        title: "Value",
+                        render: (value: string) => (
+                          <code className="u-fs-xs u-bg-surface-subtle u-px-2 u-py-1 u-rounded-md">
+                            {value}
+                          </code>
+                        ),
+                      },
+                      {
+                        key: "cssVariable",
+                        title: "Variable",
+                        render: (value: string, row: { key: string }) => (
+                          <div className="u-flex u-items-center u-justify-between u-gap-2">
+                            <code className="u-fs-xs u-text-secondary u-truncate u-max-w-32">
+                              {value}
+                            </code>
+                            <Button
+                              variant={
+                                isCopied && copiedTokenName === row.key
+                                  ? "success"
+                                  : "primary"
+                              }
+                              size="sm"
+                              className="u-rounded-lg"
+                              icon={
+                                <Icon
+                                  name={
+                                    isCopied && copiedTokenName === row.key
+                                      ? "Check"
+                                      : "Copy"
+                                  }
+                                />
+                              }
+                              iconOnly
+                              onClick={() => {
+                                const token = gutterSpacingTokens.find(
+                                  (t) => t.name === row.key,
+                                );
+                                if (token) handleCopy(token);
+                              }}
+                            />
+                          </div>
+                        ),
+                      },
+                    ]}
+                    className="u-m-0"
+                  />
+                </div>
               </div>
             </Card>
           </GridCol>
         </Grid>
 
-        <Grid className="u-mt-4">
-          <GridCol md={12}>
-            <Card variant="error" className={styles.designTokensGridPage__card}>
-              <h3
-                className={`${styles.designTokensGridPage__sectionHeading} ${styles["designTokensGridPage__sectionHeading--error"]}`}
-              >
-                Visual Example
-              </h3>
-              <p className="u-mb-4">
-                Here's a live example of the 12-column grid system:
-              </p>
+        <div className="u-mt-16">
+          <Card
+            glass={true}
+            variant="primary"
+            className="u-rounded-3xl u-border u-border-glass u-p-0 u-overflow-hidden"
+          >
+            <div className="u-p-8 u-border-b u-border-glass u-bg-surface-subtle">
+              <div className="u-flex u-items-center u-justify-between u-flex-wrap u-gap-4">
+                <div>
+                  <h3 className="u-fs-2xl u-font-black u-tracking-tight u-mb-1">
+                    Visual Interactive Grid
+                  </h3>
+                  <p className="u-text-secondary u-m-0">
+                    Preview how 12-column layouts respond and utilize gutters.
+                  </p>
+                </div>
+                <div className="u-flex u-gap-2">
+                  <Badge variant="success" label="12 Columns" />
+                  <Badge variant="primary" label="Fluid Gutters" />
+                </div>
+              </div>
+            </div>
 
-              <div className={styles.designTokensGridPage__visualExample}>
-                <div
-                  className={styles.designTokensGridPage__visualExampleOverlay}
-                />
-                <Grid>
-                  {[...Array(12)].map((_, i) => (
-                    <GridCol key={i} xs={1}>
-                      <div className={styles.designTokensGridPage__gridColumn}>
-                        {i + 1}
+            <div className="u-p-8 u-bg-surface u-relative u-overflow-hidden">
+              {/* Decorative grid background */}
+              <div
+                className="u-absolute u-inset-0 u-opacity-5 u-pointer-events-none"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(var(--atomix-primary) 1px, transparent 1px)",
+                  backgroundSize: "24px 24px",
+                }}
+              ></div>
+
+              <div className="u-relative u-z-1">
+                {/* 12 Columns Row */}
+                <div className="u-mb-8">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-3 u-opacity-50">
+                    <Icon name="GridNine" size={16} />
+                    <span className="u-fs-xs u-font-bold u-uppercase u-tracking-widest">
+                      Standard Grid (1x12)
+                    </span>
+                  </div>
+                  <Grid>
+                    {[...Array(12)].map((_, i) => (
+                      <GridCol key={i} xs={1}>
+                        <div className="u-h-12 u-bg-primary-subtle u-border u-border-primary u-text-primary u-flex u-items-center u-justify-center u-rounded-xl u-font-mono u-font-bold u-fs-xs u-shadow-sm u-transition-all u-hover-scale-105">
+                          {i + 1}
+                        </div>
+                      </GridCol>
+                    ))}
+                  </Grid>
+                </div>
+
+                {/* 6+6 Columns Row */}
+                <div className="u-mb-8">
+                  <div className="u-flex u-items-center u-gap-2 u-mb-3 u-opacity-50">
+                    <Icon name="Columns" size={16} />
+                    <span className="u-fs-xs u-font-bold u-uppercase u-tracking-widest">
+                      Balanced Split (6+6)
+                    </span>
+                  </div>
+                  <Grid>
+                    <GridCol xs={6}>
+                      <div className="u-h-24 u-bg-glass u-border u-border-glass u-text-primary u-flex u-items-center u-justify-center u-rounded-2xl u-font-bold u-shadow-lg u-transition-all u-hover-translate-y-n1">
+                        6 columns
                       </div>
                     </GridCol>
-                  ))}
-                </Grid>
+                    <GridCol xs={6}>
+                      <div className="u-h-24 u-bg-glass u-border u-border-glass u-text-primary u-flex u-items-center u-justify-center u-rounded-2xl u-font-bold u-shadow-lg u-transition-all u-hover-translate-y-n1">
+                        6 columns
+                      </div>
+                    </GridCol>
+                  </Grid>
+                </div>
 
-                <Grid className="u-mt-3">
-                  <GridCol xs={6}>
-                    <div
-                      className={`${styles.designTokensGridPage__gridColumn} ${styles["designTokensGridPage__gridColumn--large"]}`}
-                    >
-                      6 columns
-                    </div>
-                  </GridCol>
-                  <GridCol xs={6}>
-                    <div
-                      className={`${styles.designTokensGridPage__gridColumn} ${styles["designTokensGridPage__gridColumn--large"]}`}
-                    >
-                      6 columns
-                    </div>
-                  </GridCol>
-                </Grid>
-
-                <Grid className="u-mt-3">
-                  <GridCol xs={4}>
-                    <div
-                      className={`${styles.designTokensGridPage__gridColumn} ${styles["designTokensGridPage__gridColumn--large"]}`}
-                    >
-                      4 columns
-                    </div>
-                  </GridCol>
-                  <GridCol xs={4}>
-                    <div
-                      className={`${styles.designTokensGridPage__gridColumn} ${styles["designTokensGridPage__gridColumn--large"]}`}
-                    >
-                      4 columns
-                    </div>
-                  </GridCol>
-                  <GridCol xs={4}>
-                    <div
-                      className={`${styles.designTokensGridPage__gridColumn} ${styles["designTokensGridPage__gridColumn--large"]}`}
-                    >
-                      4 columns
-                    </div>
-                  </GridCol>
-                </Grid>
+                {/* 4+4+4 Columns Row */}
+                <div>
+                  <div className="u-flex u-items-center u-gap-2 u-mb-3 u-opacity-50">
+                    <Icon name="Rows" size={16} />
+                    <span className="u-fs-xs u-font-bold u-uppercase u-tracking-widest">
+                      Tertiary Division (4+4+4)
+                    </span>
+                  </div>
+                  <Grid>
+                    {[...Array(3)].map((_, i) => (
+                      <GridCol key={i} xs={4}>
+                        <div className="u-h-20 u-bg-surface-subtle u-border u-border-dashed u-border-primary u-text-primary u-flex u-items-center u-justify-center u-rounded-2xl u-font-bold u-opacity-80 u-transition-all u-hover-opacity-100">
+                          4 columns
+                        </div>
+                      </GridCol>
+                    ))}
+                  </Grid>
+                </div>
               </div>
-            </Card>
-          </GridCol>
-        </Grid>
+            </div>
+
+            <div className="u-p-6 u-bg-primary-subtle u-text-center u-border-t u-border-glass">
+              <p className="u-fs-sm u-text-primary-emphasis u-m-0 u-font-medium">
+                Tip: Use{" "}
+                <code className="u-bg-surface u-px-2 u-py-0.5 u-rounded u-mx-1 u-border u-border-glass">
+                  .u-gap-&#123;0-90&#125;
+                </code>{" "}
+                to customize gutter spacing dynamically.
+              </p>
+            </div>
+          </Card>
+        </div>
       </Block>
     </>
   );

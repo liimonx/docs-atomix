@@ -9,7 +9,18 @@ import {
 } from "@shohojdhara/atomix";
 
 export const FeaturesSection: FC = () => {
-  const features = [
+  const features: Array<{
+    title: string;
+    description: string;
+    icon:
+      | "Wheelchair"
+      | "Palette"
+      | "FileCode"
+      | "DeviceMobile"
+      | "Lightning"
+      | "Code";
+    color: string;
+  }> = [
     {
       title: "Accessible by Default",
       description:
@@ -63,7 +74,7 @@ export const FeaturesSection: FC = () => {
           className="u-text-center u-mb-12"
         />
 
-        <Row className="u-gap-8">
+        <Row>
           {features.map((feature, index) => (
             <GridCol key={index} xs={12} md={6} lg={4}>
               <Card className="u-h-100 u-p-8 u-transition-all u-cursor-pointer u-hover-transform-up">
@@ -72,7 +83,7 @@ export const FeaturesSection: FC = () => {
                   style={{ backgroundColor: "var(--atomix-color-bg-brand)" }}
                 >
                   <Icon
-                    name={feature.icon as any}
+                    name={feature.icon}
                     size="lg"
                     style={{ color: "var(--atomix-color-text-brand)" }}
                   />

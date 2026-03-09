@@ -615,7 +615,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
           title: "Quick Start Guide",
           description: "Get up and running with Atomix in 5 minutes",
           content: (
-            <div>
+            <div className="u-flex u-flex-column u-gap-12">
               <Hero
                 title="⚡ Quick Start Guide"
                 subtitle="5-Minute Setup"
@@ -623,51 +623,48 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 alignment="center"
                 fullViewportHeight={false}
                 contentWidth="900px"
-                className="u-pt-36 u-pb-24 u-mb-lg"
+                className="u-pt-36 u-pb-24"
                 actions={
-                  <>
+                  <div className="u-flex u-gap-4 u-justify-center">
                     <Button
-                      icon={
-                        <Icon
-                          name="Download"
-                          size={16}
-                          className="u-text-primary-emphasis"
-                        />
-                      }
+                      glass
+                      variant="primary"
+                      iconName="Download"
+                      iconSize={20}
                       label="Installation Guide"
                       href="/docs/getting-started/installation"
                       LinkComponent={Link}
                     />
                     <Button
+                      glass
                       variant="secondary"
-                      icon={
-                        <Icon
-                          name="BookOpen"
-                          size={16}
-                          className="u-text-primary-emphasis"
-                        />
-                      }
+                      iconName="BookOpen"
+                      iconSize={20}
                       label="Browse Components"
                       href="/docs/components/overview"
                       LinkComponent={Link}
                     />
-                  </>
+                  </div>
                 }
               />
 
-              <Block spacing="sm">
+              <Block spacing="md">
                 {/* Prerequisites */}
-
-                <Card className="u-rounded-xl u-bg-dark u-border-primary-subtle u-p-8 u-mb-8">
+                <Card
+                  glass
+                  variant="primary"
+                  appearance="outlined"
+                  className="u-p-8 u-mb-10 u-rounded-2xl u-border-primary-subtle"
+                >
                   <div className="u-flex u-items-center u-gap-6">
-                    <div className="u-w-12 u-h-12 u-bg-primary-subtle u-rounded-lg u-flex u-items-center u-justify-center u-text-primary">
-                      <Icon name="Info" size={"lg"} />
+                    <div className="u-w-16 u-h-16 u-bg-primary-subtle u-rounded-xl u-flex u-items-center u-justify-center u-text-primary">
+                      <Icon name="Info" size={32} />
                     </div>
                     <div className="u-flex-grow-1">
-                      <h3 className="u-fs-xl u-font-bold u-m-0 u-mb-2 u-text-white">
+                      <h3 className="u-fs-2xl u-font-bold u-m-0 u-mb-2 u-text-white">
                         Prerequisites
                       </h3>
-                      <p className="u-m-0 u-text-secondary-emphasis u-leading-relaxed">
+                      <p className="u-m-0 u-text-secondary-emphasis u-leading-relaxed u-fs-lg">
                         Make sure you have{" "}
                         <strong className="u-text-primary">React 18+</strong>{" "}
                         and{" "}
@@ -679,151 +676,97 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Card>
 
                 {/* Step 1: Installation */}
-                <Card className="u-rounded-xl u-bg-dark u-border-primary-subtle u-p-8 u-mb-12">
-                  <div className="u-flex u-items-start u-gap-6 u-mb-8">
-                    <div
-                      className="u-flex u-items-center u-justify-center u-flex-shrink-0 u-bg-primary-subtle u-rounded-xl u-text-primary u-font-bold u-fs-2xl"
-                      style={{
-                        width: "64px",
-                        height: "64px",
-                      }}
-                    >
+                <Card
+                  glass
+                  variant="secondary"
+                  appearance="outlined"
+                  className="u-p-10 u-mb-12 u-rounded-3xl u-border-primary-subtle"
+                >
+                  <div className="u-flex u-items-start u-gap-8 u-mb-10">
+                    <div className="u-flex u-items-center u-justify-center u-flex-shrink-0 u-bg-primary-subtle u-rounded-2xl u-text-primary u-font-black u-fs-4xl u-w-20 u-h-20 u-shadow-lg">
                       1
                     </div>
-                    <div className="u-flex-grow-1">
-                      <h2 className="u-fs-3xl u-font-black u-m-0 u-mb-3 u-text-white">
+                    <div className="u-flex-grow-1 u-pt-2">
+                      <h2 className="u-fs-4xl u-font-black u-m-0 u-mb-3 u-text-white u-ls-tight">
                         Install Atomix
                       </h2>
-                      <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed">
+                      <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed u-fs-lg">
                         Choose your preferred package manager and run the
                         installation command in your project directory.
                       </p>
                     </div>
                   </div>
 
-                  <Row className="u-gap-4">
-                    <GridCol md={4} className="u-mb-4">
-                      <div className="u-bg-black u-rounded-xl u-overflow-hidden u-border u-border-primary-subtle">
-                        <div className="u-flex u-items-center u-justify-between u-px-4 u-py-3 u-bg-dark u-border-bottom u-border-primary-subtle">
-                          <span className="u-fs-xs u-font-bold u-text-secondary">
-                            npm
-                          </span>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() =>
-                              copyToClipboard(
-                                "npm install @shohojdhara/atomix",
-                                "npm-quick",
-                              )
-                            }
-                          >
-                            {copiedCode === "npm-quick" ? (
-                              <Icon
-                                name="CheckCircle"
-                                size={16}
-                                color="var(--atomix-success)"
-                              />
-                            ) : (
-                              <Icon name="Copy" size={16} />
-                            )}
-                          </Button>
+                  <Row>
+                    {["npm", "yarn", "pnpm"].map((pm) => (
+                      <GridCol key={pm} md={4} className="u-mb-8">
+                        <div className="u-bg-black u-bg-opacity-50 u-rounded-2xl u-overflow-hidden u-border u-border-primary-subtle u-glass-clean-root">
+                          <div className="u-flex u-items-center u-justify-between u-px-5 u-py-4 u-bg-dark u-bg-opacity-50 u-border-bottom u-border-primary-subtle">
+                            <span className="u-fs-sm u-font-bold u-text-secondary u-text-uppercase u-ls-wider">
+                              {pm}
+                            </span>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              glass
+                              onClick={() => {
+                                const cmd =
+                                  pm === "npm"
+                                    ? "npm install @shohojdhara/atomix"
+                                    : pm === "yarn"
+                                    ? "yarn add @shohojdhara/atomix"
+                                    : "pnpm add @shohojdhara/atomix";
+                                copyToClipboard(cmd, `${pm}-quick`);
+                              }}
+                            >
+                              {copiedCode === `${pm}-quick` ? (
+                                <Icon
+                                  name="CheckCircle"
+                                  size={18}
+                                  className="u-text-success"
+                                />
+                              ) : (
+                                <Icon name="Copy" size={18} />
+                              )}
+                            </Button>
+                          </div>
+                          <pre className="u-m-0 u-p-6 u-fs-sm u-text-primary u-font-monospace u-leading-relaxed">
+                            <code>
+                              {pm === "npm"
+                                ? "npm install @shohojdhara/atomix"
+                                : pm === "yarn"
+                                ? "yarn add @shohojdhara/atomix"
+                                : "pnpm add @shohojdhara/atomix"}
+                            </code>
+                          </pre>
                         </div>
-                        <pre className="u-m-0 u-p-6 u-fs-sm u-text-primary u-font-monospace">
-                          <code>npm install @shohojdhara/atomix</code>
-                        </pre>
-                      </div>
-                    </GridCol>
-                    <GridCol md={4} className="u-mb-4">
-                      <div className="u-bg-black u-rounded-xl u-overflow-hidden u-border u-border-primary-subtle">
-                        <div className="u-flex u-items-center u-justify-between u-px-4 u-py-3 u-bg-dark u-border-bottom u-border-primary-subtle">
-                          <span className="u-fs-xs u-font-bold u-text-secondary">
-                            yarn
-                          </span>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() =>
-                              copyToClipboard(
-                                "yarn add @shohojdhara/atomix",
-                                "yarn-quick",
-                              )
-                            }
-                          >
-                            {copiedCode === "yarn-quick" ? (
-                              <Icon
-                                name="CheckCircle"
-                                size={16}
-                                color="var(--atomix-success)"
-                              />
-                            ) : (
-                              <Icon name="Copy" size={16} />
-                            )}
-                          </Button>
-                        </div>
-                        <pre className="u-m-0 u-p-6 u-fs-sm u-text-primary u-font-monospace">
-                          <code>yarn add @shohojdhara/atomix</code>
-                        </pre>
-                      </div>
-                    </GridCol>
-                    <GridCol md={4} className="u-mb-4">
-                      <div className="u-bg-black u-rounded-xl u-overflow-hidden u-border u-border-primary-subtle">
-                        <div className="u-flex u-items-center u-justify-between u-px-4 u-py-3 u-bg-dark u-border-bottom u-border-primary-subtle">
-                          <span className="u-fs-xs u-font-bold u-text-secondary">
-                            pnpm
-                          </span>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() =>
-                              copyToClipboard(
-                                "pnpm add @shohojdhara/atomix",
-                                "pnpm-quick",
-                              )
-                            }
-                          >
-                            {copiedCode === "pnpm-quick" ? (
-                              <Icon
-                                name="CheckCircle"
-                                size={16}
-                                color="var(--atomix-success)"
-                              />
-                            ) : (
-                              <Icon name="Copy" size={16} />
-                            )}
-                          </Button>
-                        </div>
-                        <pre className="u-m-0 u-p-6 u-fs-sm u-text-primary u-font-monospace">
-                          <code>pnpm add @shohojdhara/atomix</code>
-                        </pre>
-                      </div>
-                    </GridCol>
+                      </GridCol>
+                    ))}
                   </Row>
                 </Card>
 
                 {/* Step 2: Import Styles */}
-                <Card className="u-rounded-xl u-bg-dark u-border-primary-subtle u-p-8 u-mb-12">
-                  <div className="u-flex u-items-start u-gap-6 u-mb-8">
-                    <div
-                      className="u-flex u-items-center u-justify-center u-flex-shrink-0 u-bg-success-subtle u-rounded-xl u-text-success u-font-bold u-fs-2xl"
-                      style={{
-                        width: "64px",
-                        height: "64px",
-                      }}
-                    >
+                <Card
+                  glass
+                  variant="secondary"
+                  appearance="outlined"
+                  className="u-p-10 u-mb-12 u-rounded-3xl u-border-primary-subtle"
+                >
+                  <div className="u-flex u-items-start u-gap-8 u-mb-10">
+                    <div className="u-flex u-items-center u-justify-center u-flex-shrink-0 u-bg-success-subtle u-rounded-2xl u-text-success u-font-black u-fs-4xl u-w-20 u-h-20 u-shadow-lg">
                       2
                     </div>
-                    <div className="u-flex-grow-1">
-                      <h2 className="u-fs-3xl u-font-black u-m-0 u-mb-3 u-text-white">
+                    <div className="u-flex-grow-1 u-pt-2">
+                      <h2 className="u-fs-4xl u-font-black u-m-0 u-mb-3 u-text-white u-ls-tight">
                         Import CSS Styles
                       </h2>
-                      <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed">
+                      <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed u-fs-lg">
                         Import the Atomix CSS in your main entry point (e.g.,{" "}
-                        <code className="u-bg-black u-px-2 u-py-1 u-rounded u-text-primary u-fs-sm">
+                        <code className="u-bg-black u-px-2 u-py-1 u-rounded u-text-primary u-fs-sm u-font-bold">
                           main.tsx
                         </code>{" "}
                         or{" "}
-                        <code className="u-bg-black u-px-2 u-py-1 u-rounded u-text-primary u-fs-sm">
+                        <code className="u-bg-black u-px-2 u-py-1 u-rounded u-text-primary u-fs-sm u-font-bold">
                           App.tsx
                         </code>
                         ).
@@ -838,48 +781,47 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                     showLineNumbers={true}
                   />
 
-                  <div className="u-mt-6 u-p-6 u-rounded-lg u-bg-black u-border u-border-primary-subtle u-flex u-gap-4">
-                    <Icon
-                      name="Info"
-                      size={20}
-                      className="u-text-primary u-mt-1"
-                    />
+                  <div className="u-mt-8 u-p-6 u-rounded-2xl u-bg-primary-subtle u-bg-opacity-10 u-border u-border-primary-subtle u-flex u-gap-5 u-items-start">
+                    <div className="u-bg-primary u-bg-opacity-20 u-p-2 u-rounded-lg">
+                      <Icon name="Info" size={24} className="u-text-primary" />
+                    </div>
                     <div>
-                      <p className="u-m-0 u-fs-sm u-font-bold u-text-white u-mb-1">
+                      <p className="u-m-0 u-fs-lg u-font-bold u-text-white u-mb-1">
                         Optional: Theme Customization
                       </p>
-                      <p className="u-m-0 u-fs-xs u-text-secondary-emphasis">
+                      <p className="u-m-0 u-fs-base u-text-secondary-emphasis u-leading-relaxed">
                         You can also import specific theme files or configure
-                        your own using CSS variables.
+                        your own using CSS variables to match your brand
+                        perfectly.
                       </p>
                     </div>
                   </div>
                 </Card>
 
                 {/* Step 3: Usage */}
-                <Card className="u-rounded-xl u-bg-dark u-border-primary-subtle u-p-8">
-                  <div className="u-flex u-items-start u-gap-6 u-mb-8">
-                    <div
-                      className="u-flex u-items-center u-justify-center u-flex-shrink-0 u-bg-warning-subtle u-rounded-xl u-text-warning u-font-bold u-fs-2xl"
-                      style={{
-                        width: "64px",
-                        height: "64px",
-                      }}
-                    >
+                <Card
+                  glass
+                  variant="secondary"
+                  appearance="outlined"
+                  className="u-p-10 u-mb-12 u-rounded-3xl u-border-primary-subtle"
+                >
+                  <div className="u-flex u-items-start u-gap-8 u-mb-10">
+                    <div className="u-flex u-items-center u-justify-center u-flex-shrink-0 u-bg-warning-subtle u-rounded-2xl u-text-warning u-font-black u-fs-4xl u-w-20 u-h-20 u-shadow-lg">
                       3
                     </div>
-                    <div className="u-flex-grow-1">
-                      <h2 className="u-fs-3xl u-font-black u-m-0 u-mb-3 u-text-white">
+                    <div className="u-flex-grow-1 u-pt-2">
+                      <h2 className="u-fs-4xl u-font-black u-m-0 u-mb-3 u-text-white u-ls-tight">
                         Start Building
                       </h2>
-                      <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed">
-                        Import and use components anywhere in your application.
+                      <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed u-fs-lg">
+                        Import and use components anywhere in your application
+                        with full type safety and accessibility.
                       </p>
                     </div>
                   </div>
 
                   <EnhancedCodeBlock
-                    code={`import { Button, Card } from '@shohojdhara/atomix';\n\nfunction App() {\n  return (\n    <Card className="u-p-8">\n      <h1 className="u-fs-3xl u-font-bold u-mb-4">Hello Atomix!</h1>\n      <Button variant="primary">Click Me</Button>\n    </Card>\n  );\n}`}
+                    code={`import { Button, Card } from '@shohojdhara/atomix';\n\nfunction App() {\n  return (\n    <Card glass variant="primary" className="u-p-8">\n      <h1 className="u-fs-4xl u-font-bold u-mb-4">Hello Atomix!</h1>\n      <Button glass variant="primary" iconName="Sparkle">Click Me</Button>\n    </Card>\n  );\n}`}
                     language="typescript"
                     title="App.tsx"
                     showLineNumbers={true}
@@ -887,54 +829,73 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 </Card>
 
                 {/* Next Steps */}
-                <div className="u-mt-16 u-text-center">
-                  <h2 className="u-fs-3xl u-font-black u-text-white u-mb-4">
+                <div className="u-mt-24 u-text-center">
+                  <Badge
+                    variant="primary"
+                    label="What's Next?"
+                    className="u-mb-4"
+                  />
+                  <h2 className="u-fs-5xl u-font-black u-text-white u-mb-4 u-ls-tight">
                     Ready for more?
                   </h2>
-                  <p className="u-text-secondary-emphasis u-mb-12 u-max-w-75 u-mx-auto">
+                  <p className="u-text-secondary-emphasis u-mb-16 u-fs-lg u-max-w-75 u-mx-auto u-leading-relaxed">
                     Explore our comprehensive collection of components and
-                    guides to level up your development workflow.
+                    guides to level up your development workflow and build
+                    stunning interfaces.
                   </p>
 
-                  <Row className="u-gap-6">
+                  <Row>
                     {[
                       {
-                        icon: <Icon name="BookOpen" size={"lg"} />,
+                        iconName: "BookOpen",
                         title: "Components",
-                        desc: "Browse 40+ pre-built components",
+                        desc: "Browse 40+ pre-built premium components",
                         link: "/docs/components/overview",
                         color: "primary",
                       },
                       {
-                        icon: <Icon name="Palette" size={"lg"} />,
+                        iconName: "Palette",
                         title: "Theming",
-                        desc: "Customize Atomix to your brand",
+                        desc: "Customize Atomix to match your brand identity",
                         link: "/docs/guides/theming",
                         color: "success",
                       },
                       {
-                        icon: <Icon name="Code" size={"lg"} />,
+                        iconName: "Code",
                         title: "Examples",
-                        desc: "Real-world implementation patterns",
+                        desc: "Real-world implementation patterns and recipes",
                         link: "/docs/examples/common-patterns",
                         color: "warning",
                       },
                     ].map((step, idx) => (
-                      <GridCol key={idx} md={4} className="u-mb-6">
+                      <GridCol key={idx} md={4} className="u-mb-8">
                         <Link
                           href={step.link}
                           className="u-block u-h-100 u-text-decoration-none"
                         >
-                          <Card className="u-p-8 u-h-100 u-rounded-xl u-bg-dark u-border-primary-subtle u-transition-fast u-hover-border-primary">
+                          <Card
+                            glass
+                            variant="secondary"
+                            appearance="outlined"
+                            className="u-p-10 u-h-100 u-rounded-2xl u-transition-fast u-hover-transform-up u-hover-shadow-lg"
+                          >
                             <div
-                              className={`u-w-12 u-h-12 u-rounded-lg u-flex u-items-center u-justify-center u-mb-6 u-bg-${step.color}-subtle u-text-${step.color}`}
+                              className={`u-w-16 u-h-16 u-rounded-xl u-flex u-items-center u-justify-center u-mb-8 u-bg-${step.color}-subtle u-text-${step.color} u-shadow-sm`}
                             >
-                              {step.icon}
+                              <Icon
+                                name={
+                                  step.iconName as
+                                    | "BookOpen"
+                                    | "Palette"
+                                    | "Code"
+                                }
+                                size={32}
+                              />
                             </div>
-                            <h3 className="u-fs-xl u-font-bold u-text-white u-mb-2">
+                            <h3 className="u-fs-2xl u-font-bold u-text-white u-mb-3">
                               {step.title}
                             </h3>
-                            <p className="u-fs-sm u-text-secondary-emphasis u-mb-0">
+                            <p className="u-fs-base u-text-secondary-emphasis u-mb-0 u-leading-relaxed">
                               {step.desc}
                             </p>
                           </Card>

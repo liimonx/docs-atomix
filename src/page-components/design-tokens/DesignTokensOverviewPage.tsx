@@ -8,174 +8,166 @@ import {
   Block,
   SectionIntro,
   Grid,
+  Card,
+  Icon,
+  Badge,
 } from "@shohojdhara/atomix";
 import Link from "next/link";
-import styles from "@/styles/PageHero.module.scss";
 
 const DesignTokensOverviewPage: FC = () => {
+  const categories = [
+    {
+      title: "Colors",
+      desc: "Comprehensive color system with brand, semantic, and neutral palettes. Built for WCAG 2.1 AA compliance.",
+      href: "/docs/design-tokens/colors",
+      icon: "Palette",
+      variant: "primary",
+    },
+    {
+      title: "Spacing",
+      desc: "Atomic spacing scale based on a 4px grid system for consistent margins, padding, and layout rhythms.",
+      href: "/docs/design-tokens/spacing",
+      icon: "ArrowsOut",
+      variant: "secondary",
+    },
+    {
+      title: "Typography",
+      desc: "Robust typography system including font families, sizes, weights, and line heights for optimal readability.",
+      href: "/docs/design-tokens/typography",
+      icon: "TextT",
+      variant: "info",
+    },
+    {
+      title: "Grid",
+      desc: "Responsive 12-column grid system with customizable gutters and breakpoints for fluid layouts.",
+      href: "/docs/design-tokens/grid",
+      icon: "GridNine",
+      variant: "success",
+    },
+    {
+      title: "Elevation",
+      desc: "Modern depth system using layered shadows to create visual hierarchy and focus across themes.",
+      href: "/docs/design-tokens/elevation",
+      icon: "Stack",
+      variant: "warning",
+    },
+  ];
+
   return (
     <>
-      <div className="design-tokens-overview-page">
-        <Hero
-          className={styles.pageHero}
-          title="Design Tokens"
-          subtitle="Atomix Design System Foundation"
-          text="The foundational elements that define the visual properties creating consistent, cohesive user interfaces."
-          alignment="center"
-          fullViewportHeight={false}
-          contentWidth="900px"
-          actions={
-            <div className={styles.pageHero__actions}>
-              <Link href="/docs/design-tokens/colors">
-                <Button label="Colors" />
-              </Link>
-              <Link href="/docs/design-tokens/spacing">
-                <Button variant="secondary" label="Spacing" />
-              </Link>
-              <Link href="/docs/design-tokens/typography">
-                <Button variant="secondary" label="Typography" />
-              </Link>
-            </div>
-          }
-        />
+      <Hero
+        title={<></>}
+        alignment="left"
+        className="u-bg-surface-subtle u-border-b u-border-glass u-relative u-overflow-hidden"
+      >
+        <div className="u-absolute u-top-0 u-start-50 u-translate-x-n50 u-w-100 u-h-100 u-max-w-4xl u-bg-primary u-opacity-5 u-blur-3xl u-rounded-circle u-pointer-events-none"></div>
 
-        <Block spacing="sm">
-          <SectionIntro
-            title="Design System Foundations"
-            text="Explore the fundamental design values that power the Atomix design system."
-            className="u-text-center"
-            style={{
-              marginBottom: "40px",
-            }}
+        <Hero.Content className="u-w-100 u-max-w-4xl u-relative u-z-1">
+          <Badge
+            variant="primary"
+            label="Design System"
+            className="u-mb-4 u-rounded-full u-px-3 u-py-1 u-font-bold u-tracking-wider"
           />
+          <Hero.Title className="u-fs-5xl u-font-black u-tracking-tighter">
+            Design Tokens
+          </Hero.Title>
+          <Hero.Text className="u-fs-xl u-text-secondary u-leading-relaxed">
+            The fundamental design atoms that power Atomix. These variables
+            ensure every component remains consistent across the entire
+            platform.
+          </Hero.Text>
+          <div className="u-flex u-gap-3 u-mt-8">
+            <Link href="/docs/design-tokens/colors" className="u-block">
+              <Button
+                variant="primary"
+                size="lg"
+                label="Explore Colors"
+                className="u-rounded-2xl u-shadow-primary-glow"
+              />
+            </Link>
+            <Link href="/docs/design-tokens/grid" className="u-block">
+              <Button
+                variant="secondary"
+                size="lg"
+                label="Grid System"
+                className="u-rounded-2xl u-border-glass u-bg-glass"
+                glass
+              />
+            </Link>
+          </div>
+        </Hero.Content>
+      </Hero>
 
-          <Grid>
-            {[
-              {
-                title: "Colors",
-                desc: "Explore our comprehensive color system with brand colors, semantic colors, and neutral palettes. Includes 10-step color scales and WCAG 2.1 AA compliance.",
-                href: "/docs/design-tokens/colors",
-                grad1: "var(--atomix-primary)",
-                grad2: "var(--atomix-primary-3)",
-                grad3: "var(--atomix-primary-7)",
-              },
-              {
-                title: "Spacing",
-                desc: "Learn about our spacing scale based on a 4px grid system for consistent layouts. Includes margins, padding, and layout spacing tokens.",
-                href: "/docs/design-tokens/spacing",
-                grad1: "var(--atomix-gray-6)",
-                grad2: "var(--atomix-gray-4)",
-                grad3: "var(--atomix-gray-8)",
-              },
-              {
-                title: "Typography",
-                desc: "Explore our typography system including font families, sizes, weights, and line heights. Built for readability and accessibility.",
-                href: "/docs/design-tokens/typography",
-                grad1: "var(--atomix-info)",
-                grad2: "var(--atomix-info-bg-subtle)",
-                grad3: "var(--atomix-info-hover)",
-              },
-              {
-                title: "Grid",
-                desc: "Responsive grid system with 12 columns, customizable gutters, and breakpoints. Create flexible, consistent layouts across all devices.",
-                href: "/docs/design-tokens/grid",
-                grad1: "var(--atomix-success)",
-                grad2: "var(--atomix-success-bg-subtle)",
-                grad3: "var(--atomix-success-hover)",
-              },
-              {
-                title: "Elevation",
-                desc: "Shadow and depth system for creating visual hierarchy. Multiple elevation levels with consistent shadow progression for light and dark themes.",
-                href: "/docs/design-tokens/elevation",
-                grad1: "var(--atomix-warning)",
-                grad2: "var(--atomix-warning-bg-subtle)",
-                grad3: "var(--atomix-warning-hover)",
-              },
-            ].map((item, i) => (
-              <GridCol key={i} md={6} lg={4} className="u-mt-4">
-                <div
-                  className="u-h-100"
-                  style={{
-                    background: "var(--atomix-secondary-bg-subtle)",
-                    border: "1px solid var(--atomix-border-color)",
-                    borderRadius: "var(--atomix-border-radius-xl)",
-                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                    overflow: "hidden",
-                    position: "relative",
-                    padding: "var(--atomix-spacing-6)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-8px)";
-                    e.currentTarget.style.boxShadow =
-                      "var(--atomix-box-shadow)";
-                    e.currentTarget.style.borderColor =
-                      "var(--atomix-border-color-translucent)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "var(--atomix-box-shadow-xs)";
-                    e.currentTarget.style.borderColor =
-                      "var(--atomix-border-color)";
-                  }}
+      <Block spacing="xl" className="u-pt-12">
+        <div className="u-mb-16">
+          <SectionIntro
+            title="Design Foundations"
+            text="Explore the precise values that define the visual language of our products."
+            className="u-text-center u-max-w-2xl u-mx-auto"
+          />
+        </div>
+
+        <Grid>
+          {categories.map((item, i) => (
+            <GridCol key={i} md={6} lg={4}>
+              <Link
+                href={item.href}
+                className="u-text-decoration-none u-h-100 u-block"
+              >
+                <Card
+                  glass={true}
+                  className="u-h-100 u-p-8 u-rounded-3xl u-border u-border-glass u-transition-all u-hover-translate-y-n2 u-hover-shadow-lg u-flex u-flex-column u-relative u-overflow-hidden"
                 >
+                  {/* Decorative background circle */}
                   <div
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: "4px",
-                      background: `linear-gradient(90deg,${item.grad1},${item.grad2})`,
-                    }}
-                  />
-                  <h3
-                    className="u-mb-3"
-                    style={{
-                      background: `linear-gradient(135deg,${item.grad1},${item.grad3})`,
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                      fontWeight: "var(--atomix-font-weight-bold)",
-                      fontSize: "var(--atomix-font-size-2xl)",
-                      marginBottom: "var(--atomix-spacing-3)",
-                    }}
+                    className={`u-absolute u-top-n4 u-end-n4 u-w-24 u-h-24 u-rounded-circle u-opacity-5 u-bg-${item.variant}`}
+                  ></div>
+
+                  <div
+                    className={`u-w-12 u-h-12 u-rounded-2xl u-bg-${item.variant}-subtle u-text-${item.variant} u-flex u-items-center u-justify-center u-mb-6 u-shadow-sm`}
                   >
+                    <Icon name={item.icon as any} size={28} weight="duotone" />
+                  </div>
+
+                  <h3 className="u-fs-2xl u-font-black u-tracking-tight u-mb-3 u-text-primary-emphasis">
                     {item.title}
                   </h3>
-                  <p
-                    className="u-mb-4"
-                    style={{
-                      color: "var(--atomix-secondary-text-emphasis)",
-                      lineHeight: "var(--atomix-line-height-lg)",
-                      fontSize: "var(--atomix-font-size-md)",
-                      marginBottom: "var(--atomix-spacing-4)",
-                    }}
-                  >
+
+                  <p className="u-text-secondary u-fs-base u-leading-relaxed u-mb-8 u-flex-grow-1">
                     {item.desc}
                   </p>
-                  <Link href={item.href}>
-                    <Button
-                      variant="outline-primary"
-                      label={`${item.title} Tokens`}
-                      size="sm"
-                      style={{
-                        background: `linear-gradient(135deg,${item.grad1},${item.grad3})`,
-                        border: "none",
-                        color: "white",
-                        fontWeight: "var(--atomix-font-weight-semibold)",
-                        borderRadius: "var(--atomix-border-radius-md)",
-                        boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                        transition: "all 0.2s ease",
-                      }}
-                    />
-                  </Link>
-                </div>
-              </GridCol>
-            ))}
-          </Grid>
-        </Block>
-      </div>
+
+                  <div className="u-flex u-items-center u-gap-2 u-text-primary u-font-bold u-fs-sm">
+                    View Tokens
+                    <Icon name="ArrowRight" size={16} weight="bold" />
+                  </div>
+                </Card>
+              </Link>
+            </GridCol>
+          ))}
+
+          <GridCol md={6} lg={8}>
+            <Card
+              variant="primary"
+              glass
+              className="u-h-100 u-p-8 u-rounded-3xl u-border u-border-glass u-bg-primary-subtle u-flex u-items-center u-justify-between u-relative u-overflow-hidden"
+            >
+              <div className="u-relative u-z-1 u-max-w-md">
+                <h3 className="u-fs-2xl u-font-black u-tracking-tight u-mb-2">
+                  Atomic Foundations
+                </h3>
+                <p className="u-text-primary-emphasis u-opacity-80 u-mb-0">
+                  Every token is meticulously crafted to support multi-theme
+                  systems, accessibility, and high-performance rendering.
+                </p>
+              </div>
+              <div className="u-opacity-10 u-translate-x-4">
+                <Icon name="Atom" size={120} weight="thin" />
+              </div>
+            </Card>
+          </GridCol>
+        </Grid>
+      </Block>
     </>
   );
 };

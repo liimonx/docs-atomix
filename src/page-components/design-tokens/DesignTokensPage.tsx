@@ -202,7 +202,7 @@ const DesignTokensPage: FC = () => {
       }
       case "shadow":
         return (
-          <Card>
+          <div className="u-w-100 u-h-100 u-relative u-flex u-items-center u-justify-center u-overflow-hidden">
             <div className="u-absolute u-top-0 u-w-100 u-h-16 u-bg-primary u-opacity-5 u-blur-xl"></div>
             <div
               className={`u-w-20 u-h-20 u-bg-surface u-rounded-xl u-flex u-items-center u-justify-center u-border u-border-glass u-transition-all ${
@@ -227,7 +227,7 @@ const DesignTokensPage: FC = () => {
                 />
               )}
             </div>
-          </Card>
+          </div>
         );
       case "border-radius": {
         const radiusValue = cssVar || extractRadiusValue(token.value);
@@ -466,7 +466,10 @@ const DesignTokensPage: FC = () => {
           <div className="u-mb-12">
             <Grid>
               <GridCol md={4} sm={6}>
-                <Card className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border u-border-glass u-shadow-sm u-transition-transform u-hover-translate-y-n1">
+                <Card
+                  glass={true}
+                  className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border u-border-glass u-shadow-sm u-transition-transform u-hover-translate-y-n1"
+                >
                   <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {filteredTokens.length}
                   </div>
@@ -476,7 +479,10 @@ const DesignTokensPage: FC = () => {
                 </Card>
               </GridCol>
               <GridCol md={4} sm={6}>
-                <Card className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border u-border-glass u-shadow-sm u-transition-transform u-hover-translate-y-n1">
+                <Card
+                  glass={true}
+                  className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border u-border-glass u-shadow-sm u-transition-transform u-hover-translate-y-n1"
+                >
                   <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {Object.keys(groupedTokens).length}
                   </div>
@@ -486,7 +492,10 @@ const DesignTokensPage: FC = () => {
                 </Card>
               </GridCol>
               <GridCol md={4} sm={6}>
-                <Card className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border u-border-glass u-shadow-sm u-transition-transform u-hover-translate-y-n1">
+                <Card
+                  glass={true}
+                  className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border u-border-glass u-shadow-sm u-transition-transform u-hover-translate-y-n1"
+                >
                   <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {designTokens.length}
                   </div>
@@ -538,27 +547,45 @@ const DesignTokensPage: FC = () => {
                     xl={3}
                     className="u-mb-6"
                   >
-                    <Card size="sm" appearance="outlined" className="u-p-1">
+                    <Card
+                      size="sm"
+                      appearance="outlined"
+                      glass={true}
+                      className="u-p-2 u-h-100 u-flex u-flex-column u-transition-transform u-hover-translate-y-n1"
+                    >
                       {/* Preview Section */}
-                      <div className="u-h-40 u-w-100 u-relative u-flex u-items-center u-justify-center u-overflow-hidden">
+                      <div className="u-h-40 u-w-100 u-relative u-flex u-items-center u-justify-center u-overflow-hidden u-rounded-xl u-border u-border-glass u-bg-surface-subtle">
                         {renderTokenPreview(token)}
                       </div>
 
                       {/* Token Info Section */}
-                      <div className="u-flex u-flex-column u-flex-grow-1 u-mt-3">
-                        <div className="u-flex u-items-start u-justify-between u-gap-2">
-                          <h3 className="u-fs-lg u-font-bold u-text-primary-emphasis u-m-0 u-tracking-tight u-word-break-all">
+                      <div className="u-flex u-flex-column u-flex-grow-1 u-pt-4 u-px-1">
+                        <div className="u-mb-3">
+                          <h3 className="u-fs-base u-font-black u-text-primary-emphasis u-m-0 u-tracking-tight u-word-break-all">
                             {token.name}
                           </h3>
+                          <p className="u-fs-xs u-text-secondary u-mt-1 u-mb-0 u-leading-relaxed u-opacity-80">
+                            {token.description}
+                          </p>
                         </div>
 
-                        <p className="u-fs-sm u-text-secondary u-mb-6 u-flex-grow-1 u-leading-relaxed">
-                          {/* {token.description} */}
-                        </p>
+                        {token.usage && token.usage.length > 0 && (
+                          <div className="u-flex u-flex-wrap u-gap-1 u-mb-4">
+                            {token.usage.map((u) => (
+                              <Badge
+                                key={u}
+                                variant="secondary"
+                                size="sm"
+                                label={u}
+                                className="u-rounded-md u-opacity-70 u-font-medium"
+                              />
+                            ))}
+                          </div>
+                        )}
 
                         {/* Value and Copy Section */}
-                        <div className="u-ab u-flex u-items-center u-justify-between u-gap-3 u-mt-auto u-bg-primary-subtle u-p-1 u-rounded-xl u-border u-border-glass">
-                          <code className="u-fs-xs u-font-mono u-text-primary-emphasis u-truncate u-px-2">
+                        <div className="u-mt-auto u-flex u-items-center u-justify-between u-gap-2 u-p-1 u-rounded-xl u-border u-border-glass u-bg-primary-subtle">
+                          <code className="u-fs-xs u-font-mono u-text-primary-emphasis u-truncate u-px-2 u-flex-grow-1">
                             {getCSSVariable(token) || token.value}
                           </code>
                           <Button
