@@ -5,6 +5,8 @@ export const containerMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Container',
   dependencies: ['react'],
   tags: ['container', 'layout', 'responsive', 'wrapper', 'max-width'],
@@ -39,7 +41,7 @@ export const containerMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Container',
       description: 'Default container with standard max-width',
       code: `import { Container } from '@shohojdhara/atomix';
@@ -53,8 +55,11 @@ function BasicContainer() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Container Types',
       description: 'Different container sizes',
       code: `function ContainerTypes() {
@@ -79,8 +84,11 @@ function BasicContainer() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Container with Grid',
       description: 'Using Container with Grid system',
       code: `import { Grid, GridCol } from '@shohojdhara/atomix';
@@ -100,6 +108,9 @@ function ContainerWithGrid() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

@@ -5,6 +5,8 @@ export const badgeMetadata = {
   category: 'Indicators',
   status: 'stable' as const,
   version: '1.1.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Badge',
   dependencies: ['react'],
   tags: ['badge', 'status', 'notification', 'indicator', 'label', 'tag', 'counter'],
@@ -74,7 +76,7 @@ export const badgeMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Badge Variants',
       description: 'Status badges and information badges with different variants',
       code: `// Status badges
@@ -89,18 +91,24 @@ export const badgeMetadata = {
 <Badge label="Sale" variant="warning" />
 <Badge label="Featured" variant="info" />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Badge Sizes',
       description: 'Three different badge sizes for different contexts',
-      code: `<div className="badge-sizes">
+      code: `<div className="u-flex u-gap-3 u-items-center">
   <Badge label="Small" variant="primary" size="sm" />
   <Badge label="Medium" variant="primary" size="md" />
   <Badge label="Large" variant="primary" size="lg" />
 </div>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Badges with Icons',
       description: 'Notification badges and status badges with icons',
       code: `import { Icon } from '@shohojdhara/atomix';
@@ -131,22 +139,25 @@ export const badgeMetadata = {
   icon={<Icon name="Star" size="xs" />}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Notification Badges',
       description: 'Badges used for notification counts with max limit',
       code: `function NotificationBadge({ count, max = 99 }) {
   const displayCount = count > max ? \`\${max}+\` : count.toString();
 
   return (
-    <div className="notification-container">
+    <div className="u-relative u-inline-block">
       <Icon name="Bell" size="md" />
       {count > 0 && (
         <Badge
           label={displayCount}
           variant="error"
           size="sm"
-          className="notification-badge"
+          className="u-absolute u-top-0 u-end-0 u-translate-middle"
         />
       )}
     </div>
@@ -157,13 +168,16 @@ export const badgeMetadata = {
 <NotificationBadge count={5} />
 <NotificationBadge count={150} max={99} />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Tag Badges',
       description: 'Using badges as tags in a list',
       code: `function TagList({ tags }) {
   return (
-    <div className="tag-list">
+    <div className="u-flex u-flex-wrap u-gap-2">
       {tags.map(tag => (
         <Badge
           key={tag.id}
@@ -183,8 +197,11 @@ export const badgeMetadata = {
   { id: 3, name: 'CSS' }
 ]} />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Status Indicators',
       description: 'User status badges with dynamic variant selection',
       code: `function UserStatus({ user }) {
@@ -202,22 +219,26 @@ export const badgeMetadata = {
   const status = getStatusBadge(user.status);
 
   return (
-    <div className="user-status">
+    <div className="u-flex u-items-center u-gap-3">
       <Avatar src={user.avatar} circle />
-      <div className="user-info">
-        <span className="user-name">{user.name}</span>
+      <div className="u-flex u-flex-column">
+        <span className="u-font-bold u-fs-sm">{user.name}</span>
         <Badge
           label={status.label}
           variant={status.variant}
           size="sm"
+          className="u-mt-1"
         />
       </div>
     </div>
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-7',
       title: 'Interactive Badges',
       description: 'Badges can be made interactive for selection or filtering',
       code: `import { Badge } from '@shohojdhara/atomix';
@@ -236,13 +257,13 @@ function InteractiveBadges() {
   };
 
   return (
-    <div className="interactive-badges">
+    <div className="u-flex u-flex-wrap u-gap-2">
       {availableTags.map(tag => (
         <Badge
           key={tag}
           label={tag}
           variant={selectedTags.includes(tag) ? 'primary' : 'light'}
-          className="cursor-pointer"
+          className="u-cursor-pointer"
           onClick={() => toggleTag(tag)}
         />
       ))}
@@ -250,8 +271,11 @@ function InteractiveBadges() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-8',
       title: 'Product Categories',
       description: 'Using badges to display product categories and labels',
       code: `import { Badge, Card } from '@shohojdhara/atomix';
@@ -259,13 +283,13 @@ function InteractiveBadges() {
 function ProductCard({ product }) {
   return (
     <Card>
-      <div className="product-badges">
+      <div className="u-flex u-gap-2 u-mb-3">
         {product.isNew && <Badge label="New" variant="primary" size="sm" />}
         {product.onSale && <Badge label="Sale" variant="error" size="sm" />}
         {product.isFeatured && <Badge label="Featured" variant="warning" size="sm" />}
       </div>
-      <h3>{product.name}</h3>
-      <div className="product-categories">
+      <h3 className="u-mb-2">{product.name}</h3>
+      <div className="u-flex u-flex-wrap u-gap-2">
         {product.categories.map(category => (
           <Badge
             key={category}
@@ -279,6 +303,9 @@ function ProductCard({ product }) {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

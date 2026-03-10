@@ -6,6 +6,8 @@ export const heroMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Hero',
   dependencies: ['react'],
   tags: ['hero', 'banner', 'landing', 'header', 'background', 'video', 'slider'],
@@ -148,7 +150,7 @@ export const heroMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Hero',
       description: 'Simple hero section with title and subtitle',
       code: `import { Hero, Button } from '@shohojdhara/atomix';
@@ -169,8 +171,11 @@ function BasicHero() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Hero with Background Image',
       description: 'Hero section with background image and overlay',
       code: `function HeroWithBackground() {
@@ -184,8 +189,11 @@ function BasicHero() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Hero with Video Background',
       description: 'Hero section with video background',
       code: `function HeroWithVideo() {
@@ -206,8 +214,11 @@ function BasicHero() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Hero with Background Slider',
       description: 'Hero section with multiple background images/videos',
       code: `function HeroWithSlider() {
@@ -232,8 +243,11 @@ function BasicHero() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Hero with Parallax',
       description: 'Hero section with parallax scrolling effect',
       code: `function HeroWithParallax() {
@@ -248,6 +262,9 @@ function BasicHero() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

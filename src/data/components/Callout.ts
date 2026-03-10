@@ -6,6 +6,8 @@ export const calloutMetadata = {
   category: 'Feedback',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Callout',
   dependencies: ['react'],
   tags: ['callout', 'alert', 'notification', 'message', 'info', 'warning', 'error', 'success'],
@@ -95,7 +97,7 @@ export const calloutMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Callouts',
       description: 'Simple callouts with different variants',
       code: `import { Callout, Icon } from '@shohojdhara/atomix';
@@ -138,8 +140,11 @@ function BasicCallouts() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Dismissible Callouts',
       description: 'Callouts with close button',
       code: `function DismissibleCallouts() {
@@ -159,8 +164,11 @@ function BasicCallouts() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Callouts with Actions',
       description: 'Callouts with action buttons',
       code: `import { Button } from '@shohojdhara/atomix';
@@ -183,8 +191,11 @@ function CalloutsWithActions() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'One-line Callouts',
       description: 'Compact one-line callout display',
       code: `function OneLineCallouts() {
@@ -209,6 +220,9 @@ function CalloutsWithActions() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

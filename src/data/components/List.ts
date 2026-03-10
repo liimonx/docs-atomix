@@ -6,6 +6,8 @@ export const listMetadata = {
   category: 'Content',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/List',
   dependencies: ['react'],
   tags: ['list', 'ordered', 'unordered', 'items', 'content', 'collection'],
@@ -69,7 +71,7 @@ export const listMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Lists',
       description: 'Simple lists with default styling',
       code: `import { List } from '@shohojdhara/atomix';
@@ -90,8 +92,11 @@ function BasicLists() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'List Variants',
       description: 'Different list style variants',
       code: `function ListVariants() {
@@ -122,8 +127,11 @@ function BasicLists() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Ordered Lists',
       description: 'Ordered lists with numbering',
       code: `function OrderedLists() {
@@ -135,8 +143,11 @@ function BasicLists() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Inline Lists',
       description: 'Lists displayed inline',
       code: `function InlineLists() {
@@ -148,6 +159,9 @@ function BasicLists() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

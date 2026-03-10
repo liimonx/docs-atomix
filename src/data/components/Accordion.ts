@@ -5,6 +5,8 @@ export const accordionMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Accordion',
   dependencies: ['react', 'framer-motion'],
   tags: ['accordion', 'collapsible', 'expand', 'collapse', 'content', 'organization'],
@@ -67,15 +69,18 @@ export const accordionMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Accordion',
       description: 'A simple accordion with content',
       code: `<Accordion title="Accordion Title">
   <p>This is the content of the accordion. It can contain any type of content including text, images, or other components.</p>
 </Accordion>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Multiple Accordions',
       description: 'A group of accordions working together',
       code: `<Accordion title="First Accordion">
@@ -88,16 +93,22 @@ export const accordionMetadata = {
   <p>Content of the third accordion.</p>
 </Accordion>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Default Open',
       description: 'An accordion that is open by default',
       code: `<Accordion title="Default Open Accordion" defaultOpen>
   <p>This accordion is open when first rendered.</p>
 </Accordion>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Disabled Accordion',
       description: 'Accordion in disabled state',
       code: `import { Accordion } from '@shohojdhara/atomix';
@@ -106,8 +117,11 @@ export const accordionMetadata = {
   <p>This accordion cannot be opened.</p>
 </Accordion>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Icon Position',
       description: 'Accordion with icon on the left',
       code: `import { Accordion } from '@shohojdhara/atomix';
@@ -116,19 +130,22 @@ export const accordionMetadata = {
   <p>This accordion has the icon on the left side.</p>
 </Accordion>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {
     keyboardSupport: [
-      'Enter or Space - Toggle accordion',
-      'Tab - Move to next focusable element',
-      'Shift + Tab - Move to previous focusable element',
-      'Up/Down arrows - Navigate between accordion headers'
+      { key: 'Enter or Space', action: 'Toggle accordion' },
+      { key: 'Tab', action: 'Move to next focusable element' },
+      { key: 'Shift + Tab', action: 'Move to previous focusable element' },
+      { key: 'Up/Down arrows', action: 'Navigate between accordion headers' }
     ],
     ariaAttributes: [
-      'aria-expanded - Indicates if the accordion is expanded or collapsed',
-      'aria-controls - References the content element controlled by the header',
-      'aria-disabled - Set when the accordion is disabled'
+      { attribute: 'aria-expanded', description: 'Indicates if the accordion is expanded or collapsed', required: false },
+      { attribute: 'aria-controls', description: 'References the content element controlled by the header', required: false },
+      { attribute: 'aria-disabled', description: 'Set when the accordion is disabled', required: false }
     ],
     screenReaderSupport: true,
     focusManagement: [

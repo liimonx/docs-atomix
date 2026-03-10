@@ -5,6 +5,8 @@ export const rowMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Row',
   dependencies: ['react'],
   tags: ['row', 'layout', 'grid', 'horizontal', 'flexbox'],
@@ -51,7 +53,7 @@ export const rowMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Row',
       description: 'Simple row with columns',
       code: `import { Row, GridCol } from '@shohojdhara/atomix';
@@ -72,8 +74,11 @@ function BasicRow() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Row with Alignment',
       description: 'Row with custom alignment',
       code: `function RowWithAlignment() {
@@ -89,8 +94,11 @@ function BasicRow() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Row with Gap',
       description: 'Row with spacing between items',
       code: `function RowWithGap() {
@@ -109,6 +117,9 @@ function BasicRow() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

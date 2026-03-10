@@ -5,6 +5,8 @@ export const avatarMetadata = {
   category: 'Display',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Avatar',
   dependencies: ['react'],
   tags: ['avatar', 'profile', 'user', 'image', 'initials'],
@@ -90,7 +92,7 @@ export const avatarMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Image Avatar',
       description: 'Avatar with an image',
       code: `<Avatar 
@@ -99,16 +101,22 @@ export const avatarMetadata = {
   name="John Doe"
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Initials Avatar',
       description: 'Avatar displaying user initials',
       code: `<Avatar name="John Doe" />
 <Avatar name="Jane Smith" />
 <Avatar initials="AB" />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Icon Avatar',
       description: 'Avatar with icon fallback',
       code: `<Avatar 
@@ -116,8 +124,11 @@ export const avatarMetadata = {
   name="Guest User"
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Avatar Sizes',
       description: 'Different avatar sizes',
       code: `<Avatar name="Small" size="sm" />
@@ -125,8 +136,11 @@ export const avatarMetadata = {
 <Avatar name="Large" size="lg" />
 <Avatar name="Extra Large" size="xl" />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'With Status',
       description: 'Avatar with status indicator',
       code: `<Avatar 
@@ -142,27 +156,33 @@ export const avatarMetadata = {
   status="busy"
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Avatar Shapes',
       description: 'Different avatar shapes',
       code: `<Avatar name="Circle" shape="circle" />
 <Avatar name="Square" shape="square" />
 <Avatar name="Rounded" shape="rounded" />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {
     keyboardSupport: [
-      'Tab - Focus on avatar (if interactive)',
-      'Enter or Space - Activate avatar (if interactive)',
-      'Escape - Close avatar menu (if applicable)'
+      { key: 'Tab', action: 'Focus on avatar (if interactive)' },
+      { key: 'Enter or Space', action: 'Activate avatar (if interactive)' },
+      { key: 'Escape', action: 'Close avatar menu (if applicable)' }
     ],
     ariaAttributes: [
-      'aria-label - Accessible label for the avatar',
-      'aria-hidden - Hide decorative avatars from screen readers',
-      'role="img" - Image role for avatar',
-      'alt - Alternative text for avatar image'
+      { attribute: 'aria-label', description: 'Accessible label for the avatar', required: false },
+      { attribute: 'aria-hidden', description: 'Hide decorative avatars from screen readers', required: false },
+      { attribute: 'role="img"', description: 'Image role for avatar', required: false },
+      { attribute: 'alt', description: 'Alternative text for avatar image', required: false }
     ],
     screenReaderSupport: true,
     focusManagement: [

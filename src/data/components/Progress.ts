@@ -6,6 +6,8 @@ export const progressMetadata = {
   category: 'Feedback',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Progress',
   dependencies: ['react'],
   tags: ['progress', 'loading', 'indicator', 'bar', 'feedback', 'status'],
@@ -103,7 +105,7 @@ export const progressMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Progress Bars',
       description: 'Progress bars with different color variants',
       code: `import { Progress } from '@shohojdhara/atomix';
@@ -120,8 +122,11 @@ function BasicProgress() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Progress Sizes',
       description: 'Different sizes of progress bars',
       code: `function ProgressSizes() {
@@ -143,8 +148,11 @@ function BasicProgress() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Striped and Animated Progress',
       description: 'Progress bars with striped patterns and animations',
       code: `function StripedProgress() {
@@ -166,8 +174,11 @@ function BasicProgress() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'File Upload Progress',
       description: 'Using progress bars for file uploads',
       code: `import { useState } from 'react';
@@ -224,6 +235,9 @@ function FileUploadProgress() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

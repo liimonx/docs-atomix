@@ -5,6 +5,8 @@ export const gridColMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/GridCol',
   dependencies: ['react'],
   tags: ['grid', 'column', 'layout', 'responsive', 'breakpoint'],
@@ -75,7 +77,7 @@ export const gridColMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic GridCol',
       description: 'Simple column with fixed width',
       code: `import { Grid, GridCol } from '@shohojdhara/atomix';
@@ -93,8 +95,11 @@ function BasicGridCol() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Responsive Columns',
       description: 'Columns that adapt to different screen sizes',
       code: `function ResponsiveColumns() {
@@ -116,8 +121,11 @@ function BasicGridCol() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Column with Offset',
       description: 'Column with offset for spacing',
       code: `function ColumnWithOffset() {
@@ -130,6 +138,9 @@ function BasicGridCol() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

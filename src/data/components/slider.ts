@@ -6,6 +6,8 @@ export const sliderMetadata = {
   category: 'Media',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Slider',
   dependencies: ['react'],
   tags: ['slider', 'carousel', 'slideshow', 'swiper', 'media', 'gallery'],
@@ -143,7 +145,7 @@ export const sliderMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Slider',
       description: 'Simple slider with default settings',
       code: `import { Slider } from '@shohojdhara/atomix';
@@ -184,8 +186,11 @@ function MyComponent() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Multiple Slides Per View',
       description: 'Slider showing multiple slides at once',
       code: `function MultipleSlides() {
@@ -205,8 +210,11 @@ function MyComponent() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Transition Effects',
       description: 'Different transition effects for slides',
       code: `function TransitionEffects() {
@@ -246,8 +254,11 @@ function MyComponent() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Slider with Thumbnails',
       description: 'Slider with thumbnail navigation',
       code: `function SliderWithThumbnails() {
@@ -266,6 +277,9 @@ function MyComponent() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

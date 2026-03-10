@@ -5,6 +5,8 @@ export const dropdownMetadata = {
   category: 'Navigation',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Dropdown',
   dependencies: ['react'],
   tags: ['dropdown', 'menu', 'select', 'options', 'popover'],
@@ -73,7 +75,7 @@ export const dropdownMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Dropdown',
       description: 'Simple dropdown with menu items',
       code: `<Dropdown
@@ -85,8 +87,11 @@ export const dropdownMetadata = {
   ]}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'With Icons',
       description: 'Dropdown items with icons',
       code: `<Dropdown
@@ -98,8 +103,11 @@ export const dropdownMetadata = {
   ]}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Placement Options',
       description: 'Dropdown with different placements',
       code: `<Dropdown
@@ -113,8 +121,11 @@ export const dropdownMetadata = {
   items={[...]}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'With Separators',
       description: 'Dropdown with grouped items and separators',
       code: `<Dropdown
@@ -130,8 +141,11 @@ export const dropdownMetadata = {
   ]}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Hover Trigger',
       description: 'Dropdown that opens on hover',
       code: `<Dropdown
@@ -143,8 +157,11 @@ export const dropdownMetadata = {
   ]}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Controlled Dropdown',
       description: 'Dropdown with controlled open state',
       code: `import { Dropdown, Button } from '@shohojdhara/atomix';
@@ -166,24 +183,27 @@ function ControlledDropdown() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {
     keyboardSupport: [
-      'Enter or Space - Open dropdown (when trigger is focused)',
-      'Arrow Down - Open dropdown and focus first item',
-      'Arrow Up/Down - Navigate between items',
-      'Enter or Space - Activate focused item',
-      'Escape - Close dropdown',
-      'Tab - Close dropdown and move to next element',
-      'Home/End - Focus first/last item'
+      { key: 'Enter or Space', action: 'Open dropdown (when trigger is focused)' },
+      { key: 'Arrow Down', action: 'Open dropdown and focus first item' },
+      { key: 'Arrow Up/Down', action: 'Navigate between items' },
+      { key: 'Enter or Space', action: 'Activate focused item' },
+      { key: 'Escape', action: 'Close dropdown' },
+      { key: 'Tab', action: 'Close dropdown and move to next element' },
+      { key: 'Home/End', action: 'Focus first/last item' }
     ],
     ariaAttributes: [
-      'aria-haspopup - Indicates dropdown has popup',
-      'aria-expanded - Indicates if dropdown is open',
-      'aria-controls - References the dropdown menu',
-      'role="menu" - Menu role for dropdown',
-      'role="menuitem" - Menu item role'
+      { attribute: 'aria-haspopup', description: 'Indicates dropdown has popup', required: false },
+      { attribute: 'aria-expanded', description: 'Indicates if dropdown is open', required: false },
+      { attribute: 'aria-controls', description: 'References the dropdown menu', required: false },
+      { attribute: 'role="menu"', description: 'Menu role for dropdown', required: false },
+      { attribute: 'role="menuitem"', description: 'Menu item role', required: false }
     ],
     screenReaderSupport: true,
     focusManagement: [

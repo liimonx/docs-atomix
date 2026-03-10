@@ -6,6 +6,8 @@ export const popoverMetadata = {
   category: 'Overlay',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Popover',
   dependencies: ['react'],
   tags: ['popover', 'tooltip', 'overlay', 'floating', 'contextual', 'menu'],
@@ -116,7 +118,7 @@ export const popoverMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Popover',
       description: 'Simple popover with click trigger',
       code: `import { Popover } from '@shohojdhara/atomix';
@@ -137,8 +139,11 @@ function BasicPopover() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Hover Triggered Popover',
       description: 'Popover that appears on hover',
       code: `function HoverPopover() {
@@ -154,8 +159,11 @@ function BasicPopover() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Different Positions',
       description: 'Popover positioned in different directions',
       code: `function PositionExamples() {
@@ -186,8 +194,11 @@ function BasicPopover() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Controlled Popover',
       description: 'Popover with controlled open state',
       code: `import { useState } from 'react';
@@ -212,6 +223,9 @@ function ControlledPopover() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

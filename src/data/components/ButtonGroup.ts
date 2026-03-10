@@ -5,6 +5,8 @@ export const buttonGroupMetadata = {
     category: 'Actions',
     status: 'stable' as const,
     version: '1.2.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
     importPath: '@shohojdhara/atomix/ButtonGroup',
     dependencies: ['react'],
     tags: ['button', 'group', 'action', 'toolbar', 'ui'],
@@ -52,7 +54,7 @@ export const buttonGroupMetadata = {
         }
     ],
     examples: [
-        {
+    { id: 'example-1',
             title: 'Basic Usage',
             description: 'Buttons grouped horizontally by default.',
             code: `import { ButtonGroup, Button } from '@shohojdhara/atomix';
@@ -67,8 +69,11 @@ export default function BasicButtonGroup() {
   );
 }`,
             preview: true
-        },
-        {
+        ,
+      language: 'tsx',
+      category: 'basic'
+    },
+    { id: 'example-2',
             title: 'Variants & Sizes',
             description: 'Apply variants and sizes to the entire group.',
             code: `import { ButtonGroup, Button } from '@shohojdhara/atomix';
@@ -91,8 +96,11 @@ export default function VariantsExample() {
   );
 }`,
             preview: true
-        },
-        {
+        ,
+      language: 'tsx',
+      category: 'basic'
+    },
+    { id: 'example-3',
             title: 'Vertical Orientation',
             description: 'Buttons can be stacked vertically.',
             code: `import { ButtonGroup, Button, Icon } from '@shohojdhara/atomix';
@@ -107,8 +115,11 @@ export default function VerticalExample() {
   );
 }`,
             preview: true
-        },
-        {
+        ,
+      language: 'tsx',
+      category: 'basic'
+    },
+    { id: 'example-4',
             title: 'Toolbar Usage',
             description: 'Combine multiple groups to create a toolbar.',
             code: `import { ButtonGroup, Button, Icon } from '@shohojdhara/atomix';
@@ -133,8 +144,11 @@ export default function ToolbarExample() {
   );
 }`,
             preview: true
-        },
-        {
+        ,
+      language: 'tsx',
+      category: 'basic'
+    },
+    { id: 'example-5',
             title: 'Mixed Variants',
             description: 'Buttons with different variants in the same group',
             code: `import { ButtonGroup, Button } from '@shohojdhara/atomix';
@@ -149,8 +163,11 @@ export default function MixedVariants() {
   );
 }`,
             preview: true
-        },
-        {
+        ,
+      language: 'tsx',
+      category: 'basic'
+    },
+    { id: 'example-6',
             title: 'Icon-Only Buttons',
             description: 'Button group with icon-only buttons',
             code: `import { ButtonGroup, Button, Icon } from '@shohojdhara/atomix';
@@ -172,8 +189,11 @@ export default function IconOnlyButtons() {
   );
 }`,
             preview: true
-        },
-        {
+        ,
+      language: 'tsx',
+      category: 'basic'
+    },
+    { id: 'example-7',
             title: 'Disabled Buttons',
             description: 'Button group with disabled buttons',
             code: `import { ButtonGroup, Button } from '@shohojdhara/atomix';
@@ -188,8 +208,11 @@ export default function DisabledButtons() {
   );
 }`,
             preview: true
-        }
-    ],
+        ,
+      language: 'tsx',
+      category: 'basic'
+    }
+  ],
     accessibility: {
         overview: 'ButtonGroup uses role="group" to group related buttons for assistive technologies. It ensures proper keyboard navigation and ARIA relationships.',
         keyboardSupport: [

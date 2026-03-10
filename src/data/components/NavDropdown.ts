@@ -5,6 +5,8 @@ export const navDropdownMetadata = {
   category: 'Navigation',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/NavDropdown',
   dependencies: ['react'],
   tags: ['nav', 'navigation', 'dropdown', 'menu', 'submenu'],
@@ -60,7 +62,7 @@ export const navDropdownMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic NavDropdown',
       description: 'Simple dropdown in navigation',
       code: `import { Nav, NavDropdown, NavItem } from '@shohojdhara/atomix';
@@ -78,8 +80,11 @@ function BasicNavDropdown() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'NavDropdown with Icon',
       description: 'Dropdown with icon indicator',
       code: `import { Icon } from '@shohojdhara/atomix';
@@ -98,8 +103,11 @@ function NavDropdownWithIcon() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Hover Trigger NavDropdown',
       description: 'Dropdown that opens on hover',
       code: `function HoverNavDropdown() {
@@ -113,6 +121,9 @@ function NavDropdownWithIcon() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

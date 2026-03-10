@@ -6,6 +6,8 @@ export const messagesMetadata = {
   category: 'Communication',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Messages',
   dependencies: ['react'],
   tags: ['messages', 'chat', 'conversation', 'messaging', 'communication', 'ui'],
@@ -95,7 +97,7 @@ export const messagesMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Chat Interface',
       description: 'Simple chat interface with messages',
       code: `import { useState } from 'react';
@@ -149,8 +151,11 @@ function ChatInterface() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Messages with Images',
       description: 'Chat interface with image messages',
       code: `function MessagesWithImages() {
@@ -182,8 +187,11 @@ function ChatInterface() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Messages with File Attachments',
       description: 'Chat interface with file attachments',
       code: `function MessagesWithFiles() {
@@ -211,8 +219,11 @@ function ChatInterface() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Custom Sized Messages',
       description: 'Messages component with custom dimensions',
       code: `function CustomSizedMessages() {
@@ -229,6 +240,9 @@ function ChatInterface() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

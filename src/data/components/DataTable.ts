@@ -5,6 +5,8 @@ export const dataTableMetadata = {
   category: 'Data Display',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/DataTable',
   dependencies: ['react'],
   tags: ['table', 'data', 'sorting', 'filtering', 'pagination', 'grid'],
@@ -90,7 +92,7 @@ export const dataTableMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic DataTable',
       description: 'Simple table with data and columns',
       code: `import { DataTable } from '@shohojdhara/atomix';
@@ -110,8 +112,11 @@ function BasicDataTable() {
   return <DataTable data={data} columns={columns} />;
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Sortable DataTable',
       description: 'Table with sortable columns',
       code: `function SortableDataTable() {
@@ -133,8 +138,11 @@ function BasicDataTable() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'DataTable with Pagination',
       description: 'Table with pagination controls',
       code: `function DataTableWithPagination() {
@@ -148,8 +156,11 @@ function BasicDataTable() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Selectable DataTable',
       description: 'Table with row selection',
       code: `function SelectableDataTable() {
@@ -165,6 +176,9 @@ function BasicDataTable() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

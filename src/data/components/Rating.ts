@@ -6,6 +6,8 @@ export const ratingMetadata = {
   category: 'Forms',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Rating',
   dependencies: ['react'],
   tags: ['rating', 'stars', 'review', 'feedback', 'form', 'input'],
@@ -102,7 +104,7 @@ export const ratingMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Rating',
       description: 'Interactive star rating component',
       code: `import { useState } from 'react';
@@ -130,8 +132,11 @@ function ProductReview() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Read-only Rating Display',
       description: 'Displaying product ratings in read-only mode',
       code: `function ProductCard({ product }) {
@@ -163,8 +168,11 @@ function ProductReview() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Half-star Ratings',
       description: 'Rating component with half-star precision',
       code: `function HalfStarRating() {
@@ -185,8 +193,11 @@ function ProductReview() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Rating Sizes',
       description: 'Different sizes of rating components',
       code: `function RatingSizes() {
@@ -208,6 +219,9 @@ function ProductReview() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

@@ -5,6 +5,8 @@ export const navItemMetadata = {
   category: 'Navigation',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/NavItem',
   dependencies: ['react'],
   tags: ['nav', 'navigation', 'item', 'link', 'menu'],
@@ -66,7 +68,7 @@ export const navItemMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic NavItem',
       description: 'Simple navigation item',
       code: `import { Nav, NavItem } from '@shohojdhara/atomix';
@@ -81,8 +83,11 @@ function BasicNavItem() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Active NavItem',
       description: 'Navigation item with active state',
       code: `function ActiveNavItem() {
@@ -94,8 +99,11 @@ function BasicNavItem() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'NavItem with Icon',
       description: 'Navigation item with icon',
       code: `import { Icon } from '@shohojdhara/atomix';
@@ -113,8 +121,11 @@ function NavItemWithIcon() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Disabled NavItem',
       description: 'Disabled navigation item',
       code: `function DisabledNavItem() {
@@ -128,6 +139,9 @@ function NavItemWithIcon() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

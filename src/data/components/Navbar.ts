@@ -6,6 +6,8 @@ export const navbarMetadata = {
   category: 'Navigation',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Navbar',
   dependencies: ['react'],
   tags: ['navbar', 'navigation', 'header', 'menu', 'responsive', 'mobile'],
@@ -137,7 +139,7 @@ export const navbarMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Navbar',
       description: 'Simple navbar with brand and navigation items',
       code: `import { Navbar, Nav, NavItem } from '@shohojdhara/atomix';
@@ -155,8 +157,11 @@ function BasicNavbar() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Fixed Navbar',
       description: 'Navbar fixed to the top of the viewport',
       code: `function FixedNavbar() {
@@ -174,8 +179,11 @@ function BasicNavbar() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Navbar with Brand Logo',
       description: 'Navbar with custom brand logo component',
       code: `function NavbarWithLogo() {
@@ -196,8 +204,11 @@ function BasicNavbar() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Navbar Variants',
       description: 'Navbars with different color variants',
       code: `function NavbarVariants() {
@@ -224,8 +235,11 @@ function BasicNavbar() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Controlled Navbar',
       description: 'Navbar with controlled expansion state',
       code: `import { useState } from 'react';
@@ -248,6 +262,9 @@ function ControlledNavbar() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

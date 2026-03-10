@@ -6,6 +6,8 @@ export const iconMetadata = {
   category: 'Media',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Icon',
   dependencies: ['react', '@phosphor-icons/react'],
   tags: ['icon', 'phosphor', 'media', 'visual', 'symbol'],
@@ -66,7 +68,7 @@ export const iconMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Icons',
       description: 'Displaying icons with default settings',
       code: `import { Icon } from '@shohojdhara/atomix';
@@ -82,8 +84,11 @@ function BasicIcons() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Icon Sizes',
       description: 'Different icon sizes from extra small to extra large',
       code: `function IconSizes() {
@@ -99,8 +104,11 @@ function BasicIcons() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Icon Weights',
       description: 'Different icon weight variants',
       code: `function IconWeights() {
@@ -116,8 +124,11 @@ function BasicIcons() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Colored Icons',
       description: 'Icons with custom colors',
       code: `function ColoredIcons() {
@@ -134,8 +145,11 @@ function BasicIcons() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Interactive Icons',
       description: 'Icons used in interactive contexts',
       code: `import { useState } from 'react';
@@ -160,8 +174,11 @@ function InteractiveIcons() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Icons in Buttons',
       description: 'Using icons with buttons and other components',
       code: `import { Button } from '@shohojdhara/atomix';
@@ -189,6 +206,9 @@ function IconsInButtons() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

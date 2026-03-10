@@ -6,6 +6,8 @@ export const paginationMetadata = {
   category: 'Navigation',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Pagination',
   dependencies: ['react'],
   tags: ['pagination', 'navigation', 'pages', 'pager', 'controls'],
@@ -83,7 +85,7 @@ export const paginationMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Pagination',
       description: 'Simple pagination with default settings',
       code: `import { useState } from 'react';
@@ -107,8 +109,11 @@ function BasicPagination() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Pagination Sizes',
       description: 'Different sizes of pagination components',
       code: `function PaginationSizes() {
@@ -150,8 +155,11 @@ function BasicPagination() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Custom Sibling Count',
       description: 'Pagination with custom number of visible pages',
       code: `function CustomSiblingCount() {
@@ -193,8 +201,11 @@ function BasicPagination() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Without First/Last Buttons',
       description: 'Pagination without first and last page buttons',
       code: `function NoFirstLastButtons() {
@@ -211,6 +222,9 @@ function BasicPagination() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

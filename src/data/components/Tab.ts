@@ -5,6 +5,8 @@ export const tabMetadata = {
   category: 'Navigation',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Tabs',
   dependencies: ['react'],
   tags: ['tab', 'tabs', 'panel', 'content', 'navigation'],
@@ -67,7 +69,7 @@ export const tabMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Tabs',
       description: 'Simple tabbed interface',
       code: `<Tabs
@@ -90,8 +92,11 @@ export const tabMetadata = {
   ]}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Tabs with Icons',
       description: 'Tabs with icons in labels',
       code: `<Tabs
@@ -111,16 +116,22 @@ export const tabMetadata = {
   ]}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Tab Variants',
       description: 'Different tab styles',
       code: `<Tabs variant="default" items={[...]} />
 <Tabs variant="pills" items={[...]} />
 <Tabs variant="underline" items={[...]} />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Vertical Tabs',
       description: 'Tabs in vertical orientation',
       code: `<Tabs
@@ -131,8 +142,11 @@ export const tabMetadata = {
   ]}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Disabled Tabs',
       description: 'Tabs with disabled state',
       code: `<Tabs
@@ -143,24 +157,27 @@ export const tabMetadata = {
   ]}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {
     keyboardSupport: [
-      'Arrow Left/Right - Navigate between tabs (horizontal)',
-      'Arrow Up/Down - Navigate between tabs (vertical)',
-      'Home - Focus first tab',
-      'End - Focus last tab',
-      'Enter or Space - Activate focused tab',
-      'Tab - Move focus to tab panel content'
+      { key: 'Arrow Left/Right', action: 'Navigate between tabs (horizontal)' },
+      { key: 'Arrow Up/Down', action: 'Navigate between tabs (vertical)' },
+      { key: 'Home', action: 'Focus first tab' },
+      { key: 'End', action: 'Focus last tab' },
+      { key: 'Enter or Space', action: 'Activate focused tab' },
+      { key: 'Tab', action: 'Move focus to tab panel content' }
     ],
     ariaAttributes: [
-      'role="tablist" - Tab list container',
-      'role="tab" - Individual tab',
-      'role="tabpanel" - Tab panel content',
-      'aria-selected - Indicates selected tab',
-      'aria-controls - References controlled panel',
-      'aria-labelledby - References tab label'
+      { attribute: 'role="tablist"', description: 'Tab list container', required: false },
+      { attribute: 'role="tab"', description: 'Individual tab', required: false },
+      { attribute: 'role="tabpanel"', description: 'Tab panel content', required: false },
+      { attribute: 'aria-selected', description: 'Indicates selected tab', required: false },
+      { attribute: 'aria-controls', description: 'References controlled panel', required: false },
+      { attribute: 'aria-labelledby', description: 'References tab label', required: false }
     ],
     screenReaderSupport: true,
     focusManagement: [

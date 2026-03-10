@@ -5,6 +5,8 @@ export const breadcrumbMetadata = {
   category: 'Navigation',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Breadcrumb',
   dependencies: ['react'],
   tags: ['breadcrumb', 'navigation', 'path', 'hierarchy', 'location'],
@@ -46,7 +48,7 @@ export const breadcrumbMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Breadcrumb',
       description: 'Simple breadcrumb navigation',
       code: `import { Breadcrumb } from '@shohojdhara/atomix';
@@ -61,8 +63,11 @@ function BasicBreadcrumb() {
   return <Breadcrumb items={items} />;
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'With Icons',
       description: 'Breadcrumb with icons',
       code: `import { Breadcrumb, Icon } from '@shohojdhara/atomix';
@@ -77,8 +82,11 @@ function BreadcrumbWithIcons() {
   return <Breadcrumb items={items} />;
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Custom Separator',
       description: 'Breadcrumb with custom separator',
       code: `import { Breadcrumb, Icon } from '@shohojdhara/atomix';
@@ -98,8 +106,11 @@ function BreadcrumbCustomSeparator() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Current Page',
       description: 'Breadcrumb showing current page',
       code: `import { Breadcrumb } from '@shohojdhara/atomix';
@@ -114,19 +125,22 @@ function BreadcrumbCurrentPage() {
   return <Breadcrumb items={items} />;
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {
     keyboardSupport: [
-      'Tab - Navigate through breadcrumb links',
-      'Enter or Space - Activate breadcrumb link',
-      'Arrow keys - Navigate between items (if supported)'
+      { key: 'Tab', action: 'Navigate through breadcrumb links' },
+      { key: 'Enter or Space', action: 'Activate breadcrumb link' },
+      { key: 'Arrow keys', action: 'Navigate between items (if supported)' }
     ],
     ariaAttributes: [
-      'aria-label - Accessible label for breadcrumb navigation',
-      'aria-current - Indicates current page',
-      'role="navigation" - Navigation landmark',
-      'aria-label="Breadcrumb" - Breadcrumb navigation label'
+      { attribute: 'aria-label', description: 'Accessible label for breadcrumb navigation', required: false },
+      { attribute: 'aria-current', description: 'Indicates current page', required: false },
+      { attribute: 'role="navigation"', description: 'Navigation landmark', required: false },
+      { attribute: 'aria-label="Breadcrumb"', description: 'Breadcrumb navigation label', required: false }
     ],
     screenReaderSupport: true,
     focusManagement: [

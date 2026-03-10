@@ -5,6 +5,8 @@ export const formMetadata = {
   category: 'Forms',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Form',
   dependencies: ['react'],
   tags: ['form', 'validation', 'submit', 'fields', 'form-control'],
@@ -59,7 +61,7 @@ export const formMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Form',
       description: 'A simple form with input fields',
       code: `<Form onSubmit={(data) => console.log(data)}>
@@ -78,8 +80,11 @@ export const formMetadata = {
   <Button type="submit">Submit</Button>
 </Form>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Form with Validation',
       description: 'Form with validation and error handling',
       code: `<Form 
@@ -102,8 +107,11 @@ export const formMetadata = {
   <Button type="submit">Sign In</Button>
 </Form>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Complex Form',
       description: 'Form with multiple field types',
       code: `<Form onSubmit={(data) => console.log(data)}>
@@ -115,20 +123,23 @@ export const formMetadata = {
   <Button type="reset" variant="outline">Reset</Button>
 </Form>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {
     keyboardSupport: [
-      'Tab - Navigate between form fields',
-      'Shift + Tab - Navigate backwards',
-      'Enter - Submit form (when focus is on submit button)',
-      'Escape - Cancel or reset form (if supported)'
+      { key: 'Tab', action: 'Navigate between form fields' },
+      { key: 'Shift + Tab', action: 'Navigate backwards' },
+      { key: 'Enter', action: 'Submit form (when focus is on submit button)' },
+      { key: 'Escape', action: 'Cancel or reset form (if supported)' }
     ],
     ariaAttributes: [
-      'aria-label - Accessible form label',
-      'aria-describedby - References form instructions or errors',
-      'aria-invalid - Indicates form validation state',
-      'role="form" - Semantic form role'
+      { attribute: 'aria-label', description: 'Accessible form label', required: false },
+      { attribute: 'aria-describedby', description: 'References form instructions or errors', required: false },
+      { attribute: 'aria-invalid', description: 'Indicates form validation state', required: false },
+      { attribute: 'role="form"', description: 'Semantic form role', required: false }
     ],
     screenReaderSupport: true,
     focusManagement: [

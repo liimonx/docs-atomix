@@ -6,6 +6,8 @@ export const uploadMetadata = {
   category: 'Forms',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Upload',
   dependencies: ['react'],
   tags: ['upload', 'file', 'drag-drop', 'form', 'input', 'file-upload'],
@@ -118,7 +120,7 @@ export const uploadMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic File Upload',
       description: 'Simple file upload with drag-and-drop',
       code: `import { useState } from 'react';
@@ -159,8 +161,11 @@ function FileUploadForm() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Multiple File Upload',
       description: 'Upload component with multiple file support',
       code: `function MultipleFileUpload() {
@@ -181,8 +186,11 @@ function FileUploadForm() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Custom File Types',
       description: 'Upload with custom accepted file types',
       code: `function CustomFileTypes() {
@@ -202,8 +210,11 @@ function FileUploadForm() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Image Upload Only',
       description: 'Upload component restricted to images',
       code: `function ImageUploadOnly() {
@@ -218,6 +229,9 @@ function FileUploadForm() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

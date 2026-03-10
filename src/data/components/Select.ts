@@ -5,6 +5,8 @@ export const selectMetadata = {
   category: 'Forms',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Select',
   dependencies: ['react'],
   tags: ['select', 'dropdown', 'form', 'field', 'option', 'choice'],
@@ -145,7 +147,7 @@ export const selectMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Select',
       description: 'Simple dropdown selection with options',
       code: `import { Select, FormGroup } from '@shohojdhara/atomix';
@@ -171,8 +173,11 @@ function BasicSelect() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Multiple Selection',
       description: 'Select multiple options from a list',
       code: `import { Select, FormGroup } from '@shohojdhara/atomix';
@@ -207,8 +212,11 @@ function MultipleSelect() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'With Disabled Options',
       description: 'Select with some options disabled',
       code: `import { Select, FormGroup } from '@shohojdhara/atomix';
@@ -228,8 +236,11 @@ function SelectWithDisabled() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Validation States',
       description: 'Select with invalid and valid states',
       code: `function ValidationStates() {
@@ -282,8 +293,11 @@ function SelectWithDisabled() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Select Sizes',
       description: 'Different sizes for different contexts',
       code: `function SelectSizes() {
@@ -307,8 +321,11 @@ function SelectWithDisabled() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Disabled State',
       description: 'Select in disabled state',
       code: `import { Select, FormGroup } from '@shohojdhara/atomix';
@@ -331,8 +348,11 @@ function DisabledSelect() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-7',
       title: 'Glass Effect',
       description: 'Select with glass morphism effect',
       code: `function GlassSelect() {
@@ -352,8 +372,11 @@ function DisabledSelect() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-8',
       title: 'Custom Glass Configuration',
       description: 'Select with custom glass morphism settings',
       code: `import { Select, FormGroup } from '@shohojdhara/atomix';
@@ -382,6 +405,9 @@ function CustomGlassSelect() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

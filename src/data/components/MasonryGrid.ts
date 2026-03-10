@@ -5,6 +5,8 @@ export const masonryGridMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/MasonryGrid',
   dependencies: ['react'],
   tags: ['masonry', 'grid', 'layout', 'pinterest', 'dynamic', 'columns'],
@@ -47,7 +49,7 @@ export const masonryGridMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic MasonryGrid',
       description: 'Simple masonry grid with default settings',
       code: `import { MasonryGrid, MasonryGridItem } from '@shohojdhara/atomix';
@@ -68,8 +70,11 @@ function BasicMasonryGrid() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'MasonryGrid with Cards',
       description: 'Masonry grid containing card components',
       code: `import { Card } from '@shohojdhara/atomix';
@@ -94,8 +99,11 @@ function MasonryGridWithCards() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Responsive MasonryGrid',
       description: 'Masonry grid that adapts to screen size',
       code: `function ResponsiveMasonryGrid() {
@@ -108,6 +116,9 @@ function MasonryGridWithCards() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

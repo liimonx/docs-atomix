@@ -5,6 +5,8 @@ export const inputMetadata = {
   category: 'Forms',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Input',
   dependencies: ['react'],
   tags: ['input', 'text', 'form', 'field', 'validation', 'textfield'],
@@ -204,7 +206,7 @@ export const inputMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Input',
       description: 'A simple text input field with FormGroup',
       code: `import { Input, FormGroup } from '@shohojdhara/atomix';
@@ -223,8 +225,11 @@ function ContactForm() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Input Sizes',
       description: 'Three different input sizes',
       code: `import { Input, FormGroup } from '@shohojdhara/atomix';
@@ -243,8 +248,11 @@ function ContactForm() {
   </FormGroup>
 </div>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Input Types',
       description: 'Different input types for various use cases',
       code: `import { Input, FormGroup } from '@shohojdhara/atomix';
@@ -271,8 +279,11 @@ function ContactForm() {
   </FormGroup>
 </div>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Validation States',
       description: 'Input with validation feedback using invalid and valid props',
       code: `import { Input, FormGroup } from '@shohojdhara/atomix';
@@ -312,8 +323,11 @@ function ValidationExample() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Input with Icons',
       description: 'Input with left and right icons',
       code: `import { Input, FormGroup, Icon } from '@shohojdhara/atomix';
@@ -326,27 +340,28 @@ function InputWithIcons() {
     <div>
       {/* Input with left icon */}
       <FormGroup label="Search Products">
-        <div className="input-with-icon">
-          <Icon name="MagnifyingGlass" className="input-icon input-icon--left" />
+        <div className="u-flex u-items-center u-relative">
+          <Icon name="MagnifyingGlass" className="u-absolute u-ps-3 u-text-secondary" />
           <Input
             type="search"
             placeholder="Search for products..."
-            className="pl-10"
+            className="u-ps-10"
           />
         </div>
       </FormGroup>
 
       {/* Password input with toggle */}
       <FormGroup label="Password">
-        <div className="input-with-icon">
+        <div className="u-flex u-items-center u-relative">
           <Input
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
-            className="pr-10"
+            className="u-pe-10"
           />
           <button
             type="button"
-            className="input-icon input-icon--right"
+            className="u-absolute u-pe-3 u-text-secondary u-bg-transparent u-border-0"
+            style={{ insetInlineEnd: 0 }}
             onClick={() => setShowPassword(!showPassword)}
           >
             <Icon name={showPassword ? "EyeSlash" : "Eye"} />
@@ -357,8 +372,11 @@ function InputWithIcons() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Controlled vs Uncontrolled',
       description: 'Examples of controlled and uncontrolled input modes',
       code: `import { Input, FormGroup } from '@shohojdhara/atomix';
@@ -402,8 +420,11 @@ function UncontrolledInput() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-7',
       title: 'Input with Character Counter',
       description: 'Input with character limit and counter display',
       code: `import { Input, FormGroup } from '@shohojdhara/atomix';
@@ -418,9 +439,9 @@ function InputWithCounter() {
     <FormGroup
       label="Bio"
       helperText={
-        <div className="flex justify-between">
+        <div className="u-flex u-justify-between">
           <span>Tell us about yourself</span>
-          <span className={remaining < 10 ? 'text-error' : 'text-muted'}>
+          <span className={remaining < 10 ? 'u-text-error' : 'u-text-secondary'}>
             {remaining} characters remaining
           </span>
         </div>
@@ -436,8 +457,11 @@ function InputWithCounter() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-8',
       title: 'Glass Effect Input',
       description: 'Input with glass morphism effect',
       code: `import { Input, FormGroup, Button } from '@shohojdhara/atomix';
@@ -462,6 +486,9 @@ function InputWithCounter() {
   </Button>
 </form>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

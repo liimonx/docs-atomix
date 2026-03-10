@@ -5,6 +5,8 @@ export const sectionIntroMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/SectionIntro',
   dependencies: ['react'],
   tags: ['section', 'intro', 'header', 'title', 'description', 'layout'],
@@ -52,7 +54,7 @@ export const sectionIntroMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic SectionIntro',
       description: 'Simple section introduction with title and description',
       code: `import { SectionIntro } from '@shohojdhara/atomix';
@@ -66,8 +68,11 @@ function BasicSectionIntro() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'With Badge',
       description: 'Section introduction with a badge indicator',
       code: `import { SectionIntro, Badge } from '@shohojdhara/atomix';
@@ -82,8 +87,11 @@ function SectionIntroWithBadge() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Centered Alignment',
       description: 'Centered section introduction',
       code: `function CenteredSectionIntro() {
@@ -96,6 +104,9 @@ function SectionIntroWithBadge() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

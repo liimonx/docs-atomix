@@ -6,6 +6,8 @@ export const buttonMetadata = {
   category: 'Actions',
   status: 'stable' as const,
   version: '1.2.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Button',
   dependencies: ['react'],
   tags: ['button', 'action', 'ui', 'interactive', 'click', 'submit', 'form'],

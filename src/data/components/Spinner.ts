@@ -5,6 +5,8 @@ export const spinnerMetadata = {
   category: 'Feedback',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Spinner',
   dependencies: ['react'],
   tags: ['spinner', 'loading', 'indicator', 'progress', 'loader'],
@@ -70,7 +72,7 @@ export const spinnerMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Spinners',
       description: 'Color variants and sizes',
       code: `import { Spinner } from '@shohojdhara/atomix';
@@ -104,8 +106,11 @@ function BasicSpinners() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Loading Buttons',
       description: 'Spinners in buttons for loading states',
       code: `function LoadingButtons() {
@@ -130,8 +135,11 @@ function BasicSpinners() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Fullscreen Loading',
       description: 'Fullscreen overlay spinner',
       code: `function FullscreenLoading() {
@@ -157,8 +165,11 @@ function BasicSpinners() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Overlay Spinner',
       description: 'Spinner overlay on parent container',
       code: `function OverlaySpinner() {
@@ -178,8 +189,11 @@ function BasicSpinners() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Glass Effect',
       description: 'Spinner with glass morphism effect',
       code: `function GlassSpinner() {
@@ -192,6 +206,9 @@ function BasicSpinners() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

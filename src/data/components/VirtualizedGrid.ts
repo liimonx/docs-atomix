@@ -5,6 +5,8 @@ export const virtualizedGridMetadata = {
   category: 'Data Display',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/VirtualizedGrid',
   dependencies: ['react'],
   tags: ['virtualized', 'grid', 'performance', 'large-data', 'scroll', 'optimization'],
@@ -80,7 +82,7 @@ export const virtualizedGridMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic VirtualizedGrid',
       description: 'Simple virtualized grid with fixed height items',
       code: `import { VirtualizedGrid } from '@shohojdhara/atomix';
@@ -101,8 +103,11 @@ function BasicVirtualizedGrid() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'VirtualizedGrid with Dynamic Heights',
       description: 'Grid with items of varying heights',
       code: `function DynamicHeightGrid() {
@@ -122,8 +127,11 @@ function BasicVirtualizedGrid() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Multi-column VirtualizedGrid',
       description: 'Grid with multiple columns',
       code: `function MultiColumnGrid() {
@@ -139,6 +147,9 @@ function BasicVirtualizedGrid() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

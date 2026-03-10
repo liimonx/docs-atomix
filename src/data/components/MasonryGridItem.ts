@@ -5,6 +5,8 @@ export const masonryGridItemMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/MasonryGridItem',
   dependencies: ['react'],
   tags: ['masonry', 'grid', 'item', 'layout'],
@@ -31,7 +33,7 @@ export const masonryGridItemMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic MasonryGridItem',
       description: 'Simple item in a masonry grid',
       code: `import { MasonryGrid, MasonryGridItem } from '@shohojdhara/atomix';
@@ -52,8 +54,11 @@ function BasicMasonryGridItem() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'MasonryGridItem with Card',
       description: 'Item containing a card component',
       code: `import { Card } from '@shohojdhara/atomix';
@@ -71,6 +76,9 @@ function ItemWithCard() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

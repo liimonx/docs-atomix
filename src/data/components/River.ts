@@ -5,6 +5,8 @@ export const riverMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/River',
   dependencies: ['react'],
   tags: ['river', 'layout', 'cta', 'call-to-action', 'hero', 'section'],
@@ -65,7 +67,7 @@ export const riverMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic River',
       description: 'Simple river with title, text, and actions',
       code: `import { River, Button } from '@shohojdhara/atomix';
@@ -85,8 +87,11 @@ function BasicRiver() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Centered River',
       description: 'Centered river for call-to-action sections',
       code: `function CenteredRiver() {
@@ -100,8 +105,11 @@ function BasicRiver() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'River with Custom Width',
       description: 'River with controlled content width',
       code: `function RiverWithWidth() {
@@ -116,8 +124,11 @@ function BasicRiver() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'River with Glass Effect',
       description: 'River with glass morphism effect',
       code: `function RiverWithGlass() {
@@ -132,6 +143,9 @@ function BasicRiver() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

@@ -5,6 +5,8 @@ export const checkboxMetadata = {
   category: 'Forms',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Checkbox',
   dependencies: ['react'],
   tags: ['checkbox', 'form', 'input', 'boolean', 'selection', 'toggle'],
@@ -126,7 +128,7 @@ export const checkboxMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Checkbox',
       description: 'Simple checkbox with label',
       code: `import { Checkbox } from '@shohojdhara/atomix';
@@ -143,8 +145,11 @@ function BasicCheckbox() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Checkbox Group',
       description: 'Multiple checkboxes for notification preferences',
       code: `function CheckboxGroup() {
@@ -183,8 +188,11 @@ function BasicCheckbox() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Indeterminate State',
       description: 'Parent checkbox with indeterminate state for "Select All" functionality',
       code: `function IndeterminateCheckbox() {
@@ -240,8 +248,11 @@ function BasicCheckbox() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'With Description',
       description: 'Checkbox with additional description text',
       code: `function CheckboxWithDescription() {
@@ -261,8 +272,11 @@ function BasicCheckbox() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Disabled State',
       description: 'Checkboxes in disabled states',
       code: `import { Checkbox } from '@shohojdhara/atomix';
@@ -287,8 +301,11 @@ function DisabledCheckbox() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Validation States',
       description: 'Checkbox with invalid and valid states',
       code: `function ValidationStates() {
@@ -318,8 +335,11 @@ function DisabledCheckbox() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-7',
       title: 'Glass Effect',
       description: 'Checkbox with glass morphism effect',
       code: `import { Checkbox } from '@shohojdhara/atomix';
@@ -342,6 +362,9 @@ function GlassCheckbox() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

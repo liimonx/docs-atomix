@@ -5,6 +5,8 @@ export const edgePanelMetadata = {
   category: 'Overlay',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/EdgePanel',
   dependencies: ['react'],
   tags: ['panel', 'sidebar', 'overlay', 'drawer', 'navigation', 'edge'],
@@ -82,7 +84,7 @@ export const edgePanelMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic EdgePanel',
       description: 'Simple side panel from the right',
       code: `import { EdgePanel, Button } from '@shohojdhara/atomix';
@@ -105,8 +107,11 @@ function BasicEdgePanel() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Left Edge Panel',
       description: 'Panel sliding in from the left',
       code: `function LeftEdgePanel() {
@@ -125,8 +130,11 @@ function BasicEdgePanel() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'EdgePanel with SideMenu',
       description: 'Panel containing a side menu',
       code: `import { SideMenu } from '@shohojdhara/atomix';
@@ -142,6 +150,9 @@ function EdgePanelWithMenu() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

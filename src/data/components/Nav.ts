@@ -5,6 +5,8 @@ export const navMetadata = {
   category: 'Navigation',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Nav',
   dependencies: ['react'],
   tags: ['nav', 'navigation', 'menu', 'horizontal', 'vertical'],
@@ -53,7 +55,7 @@ export const navMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Nav',
       description: 'Simple horizontal navigation',
       code: `import { Nav, NavItem } from '@shohojdhara/atomix';
@@ -68,8 +70,11 @@ function BasicNav() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Nav with Alignment',
       description: 'Navigation with center alignment',
       code: `function NavWithAlignment() {
@@ -82,8 +87,11 @@ function BasicNav() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Vertical Nav',
       description: 'Vertical navigation menu',
       code: `function VerticalNav() {
@@ -96,8 +104,11 @@ function BasicNav() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Nav with Dropdown',
       description: 'Navigation with dropdown items',
       code: `import { NavDropdown } from '@shohojdhara/atomix';
@@ -114,6 +125,9 @@ function NavWithDropdown() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

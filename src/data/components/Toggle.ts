@@ -6,6 +6,8 @@ export const toggleMetadata = {
   category: 'Forms',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Toggle',
   dependencies: ['react'],
   tags: ['toggle', 'switch', 'form', 'control', 'binary', 'on-off'],
@@ -95,7 +97,7 @@ export const toggleMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Toggles',
       description: 'Simple toggle switches for settings',
       code: `import { useState } from 'react';
@@ -147,8 +149,11 @@ function BasicToggles() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Toggle Sizes and Variants',
       description: 'Different sizes and color variants',
       code: `import { Toggle } from '@shohojdhara/atomix';
@@ -214,8 +219,11 @@ function ToggleSizesVariants() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Settings Panel',
       description: 'Toggle switches in a settings panel',
       code: `function SettingsPanel() {
@@ -262,6 +270,9 @@ function ToggleSizesVariants() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

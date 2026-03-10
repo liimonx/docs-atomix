@@ -5,6 +5,8 @@ export const tooltipMetadata = {
   category: 'Overlays',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Tooltip',
   dependencies: ['react'],
   tags: ['tooltip', 'hover', 'info', 'popup', 'help'],
@@ -67,15 +69,18 @@ export const tooltipMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Tooltip',
       description: 'Simple tooltip with text',
       code: `<Tooltip content="This is a tooltip">
   <Button>Hover me</Button>
 </Tooltip>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Tooltip Placements',
       description: 'Tooltip with different placements',
       code: `<Tooltip content="Top tooltip" placement="top">
@@ -91,8 +96,11 @@ export const tooltipMetadata = {
   <Button>Right</Button>
 </Tooltip>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Rich Content Tooltip',
       description: 'Tooltip with rich content',
       code: `<Tooltip 
@@ -106,8 +114,11 @@ export const tooltipMetadata = {
   <Button>Hover for details</Button>
 </Tooltip>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Focus Trigger',
       description: 'Tooltip that appears on focus',
       code: `<Tooltip 
@@ -117,16 +128,22 @@ export const tooltipMetadata = {
   <Input placeholder="Focus me" />
 </Tooltip>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'With Icon',
       description: 'Tooltip on icon button',
       code: `<Tooltip content="Delete item">
   <Button icon={<Icon name="Trash" />} variant="ghost" />
 </Tooltip>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Custom Delay',
       description: 'Tooltip with custom delay',
       code: `<Tooltip 
@@ -136,18 +153,21 @@ export const tooltipMetadata = {
   <Button>Hover me</Button>
 </Tooltip>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {
     keyboardSupport: [
-      'Focus - Show tooltip (when trigger="focus")',
-      'Escape - Dismiss tooltip (if applicable)',
-      'Tab - Move focus away (tooltip dismisses)'
+      { key: 'Focus', action: 'Show tooltip (when trigger="focus")' },
+      { key: 'Escape', action: 'Dismiss tooltip (if applicable)' },
+      { key: 'Tab', action: 'Move focus away (tooltip dismisses)' }
     ],
     ariaAttributes: [
-      'aria-describedby - References tooltip content',
-      'role="tooltip" - Tooltip role',
-      'aria-live - Announces tooltip content to screen readers'
+      { attribute: 'aria-describedby', description: 'References tooltip content', required: false },
+      { attribute: 'role="tooltip"', description: 'Tooltip role', required: false },
+      { attribute: 'aria-live', description: 'Announces tooltip content to screen readers', required: false }
     ],
     screenReaderSupport: true,
     focusManagement: [

@@ -6,6 +6,8 @@ export const stepsMetadata = {
   category: 'Navigation',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Steps',
   dependencies: ['react'],
   tags: ['steps', 'wizard', 'progress', 'navigation', 'multi-step', 'workflow'],
@@ -56,7 +58,7 @@ export const stepsMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Steps',
       description: 'Simple horizontal steps component',
       code: `import { useState } from 'react';
@@ -81,8 +83,11 @@ function BasicSteps() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Vertical Steps',
       description: 'Steps displayed vertically',
       code: `function VerticalSteps() {
@@ -104,8 +109,11 @@ function BasicSteps() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Form Wizard with Steps',
       description: 'Using steps in a multi-step form',
       code: `function FormWizard() {
@@ -154,6 +162,9 @@ function BasicSteps() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

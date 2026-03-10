@@ -6,6 +6,8 @@ export const blockMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Block',
   dependencies: ['react'],
   tags: ['block', 'section', 'container', 'layout', 'spacing'],
@@ -74,7 +76,7 @@ export const blockMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Block',
       description: 'Simple block with default spacing',
       code: `import { Block } from '@shohojdhara/atomix';
@@ -88,8 +90,11 @@ function BasicBlock() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Spacing Options',
       description: 'Blocks with different spacing sizes',
       code: `function SpacingExample() {
@@ -122,8 +127,11 @@ function BasicBlock() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Full Width Blocks',
       description: 'Blocks that span the full width',
       code: `function FullWidthBlocks() {
@@ -135,8 +143,11 @@ function BasicBlock() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Custom HTML Elements',
       description: 'Blocks rendered as different HTML elements',
       code: `function CustomElements() {
@@ -160,6 +171,9 @@ function BasicBlock() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

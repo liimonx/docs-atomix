@@ -5,6 +5,8 @@ export const cardMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.3.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Card',
   dependencies: ['react'],
   tags: ['card', 'container', 'layout', 'content', 'panel', 'widget'],
@@ -230,7 +232,7 @@ export const cardMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Content Card',
       description: 'A simple card with title, text, and actions',
       code: `import { Card, Button } from '@shohojdhara/atomix';
@@ -241,8 +243,11 @@ export const cardMetadata = {
   actions={<Button variant="primary" label="Read Guide" />}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Image Card',
       description: 'Card with image, title, and text',
       code: `import { Card } from '@shohojdhara/atomix';
@@ -254,8 +259,11 @@ export const cardMetadata = {
   text="Explore the beauty of nature through stunning photography."
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Icon Card',
       description: 'Card with icon in header',
       code: `import { Card, Icon, Button } from '@shohojdhara/atomix';
@@ -267,8 +275,11 @@ export const cardMetadata = {
   actions={<Button variant="outline-primary" label="Learn More" />}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Row Layout Card',
       description: 'Horizontal layout with image on left',
       code: `import { Card, Button } from '@shohojdhara/atomix';
@@ -282,8 +293,11 @@ export const cardMetadata = {
   actions={<Button variant="primary" label="View Details" />}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Card Variants and Appearances',
       description: 'Different appearance styles and elevation levels',
       code: `import { Card } from '@shohojdhara/atomix';
@@ -299,8 +313,11 @@ export const cardMetadata = {
 <Card elevation="md" title="Medium Elevation" text="Moderate shadow" />
 <Card elevation="lg" title="Large Elevation" text="Prominent shadow" />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Interactive Cards',
       description: 'Cards with click handlers and state management',
       code: `import { Card } from '@shohojdhara/atomix';
@@ -330,8 +347,11 @@ function InteractiveCard() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-7',
       title: 'Card as Link',
       description: 'Card that renders as an anchor element',
       code: `import { Card } from '@shohojdhara/atomix';
@@ -345,8 +365,11 @@ function InteractiveCard() {
   text="Click to view product details"
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-8',
       title: 'Card States',
       description: 'Different card states (disabled, loading, selected)',
       code: `import { Card } from '@shohojdhara/atomix';
@@ -372,6 +395,9 @@ function InteractiveCard() {
   selected
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

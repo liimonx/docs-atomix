@@ -5,6 +5,8 @@ export const sideMenuMetadata = {
   category: 'Navigation',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/SideMenu',
   dependencies: ['react'],
   tags: ['menu', 'navigation', 'sidebar', 'vertical', 'nav'],
@@ -47,7 +49,7 @@ export const sideMenuMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic SideMenu',
       description: 'Simple side menu with items',
       code: `import { SideMenu, SideMenuItem } from '@shohojdhara/atomix';
@@ -68,8 +70,11 @@ function BasicSideMenu() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'SideMenu with Badges',
       description: 'Menu items with badge indicators',
       code: `import { Badge } from '@shohojdhara/atomix';
@@ -89,8 +94,11 @@ function SideMenuWithBadges() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Nested SideMenu',
       description: 'Menu with nested sub-items',
       code: `function NestedSideMenu() {
@@ -109,6 +117,9 @@ function SideMenuWithBadges() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

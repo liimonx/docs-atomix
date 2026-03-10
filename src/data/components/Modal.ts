@@ -5,6 +5,8 @@ export const modalMetadata = {
   category: 'Overlays',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Modal',
   dependencies: ['react'],
   tags: ['modal', 'dialog', 'popup', 'overlay', 'popover', 'alert'],
@@ -120,7 +122,7 @@ export const modalMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Modal',
       description: 'Simple modal with title, subtitle, and content',
       code: `import { Modal, Button } from '@shohojdhara/atomix';
@@ -148,8 +150,11 @@ function BasicModal() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Confirmation Modal',
       description: 'Modal for confirming actions with footer buttons',
       code: `import { Modal, Button } from '@shohojdhara/atomix';
@@ -182,8 +187,11 @@ function ConfirmationModal({ isOpen, onConfirm, onCancel, title, message }) {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Form Modal',
       description: 'Modal containing a form with validation',
       code: `import { Modal, Form, FormGroup, Input, Textarea, Button } from '@shohojdhara/atomix';
@@ -231,8 +239,11 @@ function FormModal({ isOpen, onClose, onSubmit }) {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Modal Sizes',
       description: 'Different modal sizes for various use cases',
       code: `import { Modal } from '@shohojdhara/atomix';
@@ -242,8 +253,11 @@ function FormModal({ isOpen, onClose, onSubmit }) {
 <Modal isOpen={true} size="lg" title="Large Modal">Large content</Modal>
 <Modal isOpen={true} size="xl" title="Extra Large Modal">Extra large content</Modal>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Glass Effect Modal',
       description: 'Modal with glass morphism effect',
       code: `import { Modal, Button } from '@shohojdhara/atomix';
@@ -267,8 +281,11 @@ function GlassModal() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Non-dismissible Modal',
       description: 'Modal that cannot be closed by clicking backdrop or pressing Escape',
       code: `import { Modal } from '@shohojdhara/atomix';
@@ -282,7 +299,9 @@ function GlassModal() {
 >
   <p>This modal must be explicitly closed using the close button.</p>
 </Modal>`,
-      preview: true
+      preview: true,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

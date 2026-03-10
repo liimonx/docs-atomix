@@ -5,6 +5,8 @@ export const atomixGlassMetadata = {
   category: 'Effects',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/AtomixGlass',
   dependencies: ['react'],
   tags: ['glass', 'morphism', 'effects', 'distortion', 'liquid', 'blur', 'displacement'],
@@ -69,7 +71,7 @@ export const atomixGlassMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Glass Effect',
       description: 'A simple glass effect applied to content',
       code: `<AtomixGlass>
@@ -79,8 +81,11 @@ export const atomixGlassMetadata = {
   </div>
 </AtomixGlass>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Customized Glass Effect',
       description: 'Glass effect with custom parameters',
       code: `<AtomixGlass 
@@ -95,16 +100,19 @@ export const atomixGlassMetadata = {
   </div>
 </AtomixGlass>`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {
     keyboardSupport: [
-      'Glass effects are visual enhancements and do not affect keyboard navigation',
-      'Ensure content within glass effects maintains proper focus order'
+      { key: 'Glass effects are visual enhancements and do not affect keyboard navigation', action: 'TBD' },
+      { key: 'Ensure content within glass effects maintains proper focus order', action: 'TBD' }
     ],
     ariaAttributes: [
-      'No specific ARIA attributes needed for glass effects',
-      'Maintain proper semantics of content within glass effects'
+      { attribute: 'No specific ARIA attributes needed for glass effects', description: 'TBD', required: false },
+      { attribute: 'Maintain proper semantics of content within glass effects', description: 'TBD', required: false }
     ],
     screenReaderSupport: true,
     focusManagement: [

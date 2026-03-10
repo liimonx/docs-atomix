@@ -6,6 +6,8 @@ export const countdownMetadata = {
   category: 'Display',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Countdown',
   dependencies: ['react'],
   tags: ['countdown', 'timer', 'clock', 'time', 'date', 'event'],
@@ -69,7 +71,7 @@ export const countdownMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Countdown',
       description: 'Simple countdown timer',
       code: `import { Countdown } from '@shohojdhara/atomix';
@@ -90,8 +92,11 @@ function EventCountdown() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Custom Time Units',
       description: 'Countdown showing only specific time units',
       code: `function CustomTimeUnits() {
@@ -112,8 +117,11 @@ function EventCountdown() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Focused Styling',
       description: 'Countdown with highlighted/focused styling',
       code: `function SaleCountdown() {
@@ -132,8 +140,11 @@ function EventCountdown() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Custom Separator',
       description: 'Countdown with custom separator string',
       code: `function CustomSeparator() {
@@ -156,8 +167,11 @@ function EventCountdown() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Dynamic Target Date',
       description: 'Countdown with dynamically changing target',
       code: `import { useState } from 'react';
@@ -177,6 +191,9 @@ function FlexibleCountdown() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

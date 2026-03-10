@@ -5,6 +5,8 @@ export const gridMetadata = {
   category: 'Layout',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Grid',
   dependencies: ['react'],
   tags: ['grid', 'layout', 'responsive', 'columns', '12-column'],
@@ -51,7 +53,7 @@ export const gridMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Grid',
       description: 'Simple 12-column grid layout',
       code: `import { Grid, GridCol } from '@shohojdhara/atomix';
@@ -69,8 +71,11 @@ function BasicGrid() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Responsive Grid',
       description: 'Grid with different column sizes at different breakpoints',
       code: `function ResponsiveGrid() {
@@ -92,8 +97,11 @@ function BasicGrid() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Grid with Gap',
       description: 'Grid with custom gap between columns',
       code: `function GridWithGap() {
@@ -112,6 +120,9 @@ function BasicGrid() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

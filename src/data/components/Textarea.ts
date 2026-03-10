@@ -5,6 +5,8 @@ export const textareaMetadata = {
   category: 'Forms',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Textarea',
   dependencies: ['react'],
   tags: ['textarea', 'text', 'form', 'field', 'multiline', 'input'],
@@ -177,7 +179,7 @@ export const textareaMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Textarea',
       description: 'Simple multi-line text input',
       code: `import { Textarea, FormGroup } from '@shohojdhara/atomix';
@@ -197,8 +199,11 @@ function BasicTextarea() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'With Character Count',
       description: 'Textarea with character limit and count display',
       code: `function TextareaWithCount() {
@@ -229,8 +234,11 @@ function BasicTextarea() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'Validation States',
       description: 'Textarea with invalid and valid validation states',
       code: `function ValidationStates() {
@@ -278,8 +286,11 @@ function BasicTextarea() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Textarea Sizes',
       description: 'Different sizes for different contexts',
       code: `function TextareaSizes() {
@@ -298,8 +309,11 @@ function BasicTextarea() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Glass Effect',
       description: 'Textarea with glass morphism effect',
       code: `function GlassTextarea() {
@@ -314,8 +328,11 @@ function BasicTextarea() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Disabled and Readonly',
       description: 'Textarea in disabled and readonly states',
       code: `import { Textarea, FormGroup } from '@shohojdhara/atomix';
@@ -342,6 +359,9 @@ function DisabledTextarea() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

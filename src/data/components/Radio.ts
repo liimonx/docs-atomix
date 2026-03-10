@@ -5,6 +5,8 @@ export const radioMetadata = {
   category: 'Forms',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/Radio',
   dependencies: ['react'],
   tags: ['radio', 'form', 'input', 'selection', 'choice', 'single-select'],
@@ -120,7 +122,7 @@ export const radioMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Radio Group',
       description: 'Simple radio button group for single selection',
       code: `import { Radio } from '@shohojdhara/atomix';
@@ -156,8 +158,11 @@ function RadioGroup() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Horizontal Layout',
       description: 'Radio buttons arranged horizontally',
       code: `function HorizontalRadioGroup() {
@@ -190,8 +195,11 @@ function RadioGroup() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'With Descriptions',
       description: 'Radio buttons with additional description text',
       code: `function RadioWithDescriptions() {
@@ -231,8 +239,11 @@ function RadioGroup() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Disabled Options',
       description: 'Radio group with some disabled options',
       code: `function DisabledRadioGroup() {
@@ -266,8 +277,11 @@ function RadioGroup() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Validation States',
       description: 'Radio group with validation',
       code: `function ValidationStates() {
@@ -308,8 +322,11 @@ function RadioGroup() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Glass Effect',
       description: 'Radio group with glass morphism effect',
       code: `import { Radio } from '@shohojdhara/atomix';
@@ -349,6 +366,9 @@ function GlassRadioGroup() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {

@@ -5,6 +5,8 @@ export const datePickerMetadata = {
   category: 'Forms',
   status: 'stable' as const,
   version: '1.0.0',
+  author: 'Atomix Team',
+  lastUpdated: '2026-03-10',
   importPath: '@shohojdhara/atomix/DatePicker',
   dependencies: ['react'],
   tags: ['date', 'picker', 'calendar', 'form', 'field', 'validation'],
@@ -180,7 +182,7 @@ export const datePickerMetadata = {
     }
   ],
   examples: [
-    {
+    { id: 'example-1',
       title: 'Basic Date Picker',
       description: 'A simple date picker with calendar popup',
       code: `import { DatePicker } from '@shohojdhara/atomix';
@@ -198,16 +200,22 @@ function BasicDatePicker() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-2',
       title: 'Date Picker Sizes',
       description: 'Three different date picker sizes',
       code: `<DatePicker size="sm" label="Small" />
 <DatePicker size="md" label="Medium" />
 <DatePicker size="lg" label="Large" />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-3',
       title: 'With Date Constraints',
       description: 'Date picker with min and max date limits',
       code: `function DatePickerWithConstraints() {
@@ -225,8 +233,11 @@ function BasicDatePicker() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-4',
       title: 'Validation States',
       description: 'Date picker with validation feedback',
       code: `<DatePicker 
@@ -243,8 +254,11 @@ function BasicDatePicker() {
   warning="Date is in the past"
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-5',
       title: 'Custom Date Format',
       description: 'Date picker with custom date format',
       code: `<DatePicker 
@@ -258,8 +272,11 @@ function BasicDatePicker() {
   placeholder="YYYY/MM/DD"
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-6',
       title: 'Disabled and Readonly',
       description: 'Date picker in disabled and readonly states',
       code: `<DatePicker 
@@ -273,8 +290,11 @@ function BasicDatePicker() {
   value={new Date()}
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-7',
       title: 'With Default Value',
       description: 'Date picker with pre-selected date',
       code: `function DatePickerWithDefault() {
@@ -289,8 +309,11 @@ function BasicDatePicker() {
   );
 }`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     },
-    {
+    { id: 'example-8',
       title: 'Custom Locale',
       description: 'Date picker with custom locale and first day of week',
       code: `<DatePicker 
@@ -305,6 +328,9 @@ function BasicDatePicker() {
   placeholder="Sélectionner une date"
 />`,
       preview: true
+    ,
+      language: 'tsx',
+      category: 'basic'
     }
   ],
   accessibility: {
