@@ -75,9 +75,9 @@ export default function Page() {
   const trustedCompanies = [
     { name: "Acme Corp", icon: "Diamond" },
     { name: "StarShip", icon: "RocketLaunch" },
-    { name: "Hydra", icon: "WaterDrop" },
-    { name: "Voltic", icon: "Bolt" },
-    { name: "Hexagon", icon: "Hive" },
+    { name: "Hydra", icon: "Drop" },
+    { name: "Voltic", icon: "Lightning" },
+    { name: "Hexagon", icon: "Hexagon" },
   ];
 
   return (
@@ -110,7 +110,7 @@ export default function Page() {
               variant="secondary"
               size="lg"
               icon={<Icon name="TerminalWindow" weight="duotone" />}
-              className="u-px-8 u-h-14 u-rounded-lg u-bg-surface-subtle u-fs-lg"
+              className="u-px-8 u-h-14 u-rounded-lg u-fs-lg"
               onClick={() =>
                 navigator.clipboard.writeText("npm install @shohojdhara/atomix")
               }
@@ -131,18 +131,18 @@ export default function Page() {
           <div ref={mockup} className={styles.mockupWrapper}>
             <Card className="u-relative u-p-1 u-p-md-2 u-overflow-hidden u-rounded-3xl u-shadow-2xl">
               {/* Fake Browser Header */}
-              <div className="u-flex u-items-center u-gap-3 u-px-6 u-py-4 u-border-b u-border-glass">
+              <div className="u-flex u-items-center u-gap-3 u-px-6 u-py-4 u-border-b ">
                 <div className="u-flex u-gap-2">
                   <div className="u-w-3 u-h-3 u-rounded-circle u-bg-error u-opacity-80"></div>
                   <div className="u-w-3 u-h-3 u-rounded-circle u-bg-warning u-opacity-80"></div>
                   <div className="u-w-3 u-h-3 u-rounded-circle u-bg-success u-opacity-80"></div>
                 </div>
-                <div className="u-mx-auto u-bg-surface-subtle u-px-5 u-py-1-5 u-rounded-full u-fs-xs u-text-secondary u-font-mono u-border u-border-glass">
+                <div className="u-mx-auto u-px-5 u-py-1-5 u-rounded-full u-fs-xs u-text-secondary-emphasis u-font-mono u-border ">
                   atomix-dashboard.tsx
                 </div>
                 <div className="u-flex u-gap-2">
-                  <div className="u-w-4 u-h-4 u-rounded-sm u-bg-surface-subtle"></div>
-                  <div className="u-w-4 u-h-4 u-rounded-sm u-bg-surface-subtle"></div>
+                  <div className="u-w-4 u-h-4 u-rounded-sm"></div>
+                  <div className="u-w-4 u-h-4 u-rounded-sm"></div>
                 </div>
               </div>
 
@@ -153,16 +153,16 @@ export default function Page() {
                   <div className="u-h-10 u-w-100 u-bg-primary u-opacity-20 u-rounded-lg u-animate-pulse"></div>
                   <div className="u-flex u-flex-column u-gap-4 u-mt-2">
                     <div className="u-flex u-items-center u-gap-3">
-                      <div className="u-w-6 u-h-6 u-rounded-md u-bg-surface-subtle"></div>
-                      <div className="u-h-3 u-w-60 u-bg-surface-subtle u-rounded u-opacity-50"></div>
+                      <div className="u-w-6 u-h-6 u-rounded-md"></div>
+                      <div className="u-h-3 u-w-60 u-rounded u-opacity-50"></div>
                     </div>
                     <div className="u-flex u-items-center u-gap-3">
-                      <div className="u-w-6 u-h-6 u-rounded-md u-bg-surface-subtle"></div>
-                      <div className="u-h-3 u-w-40 u-bg-surface-subtle u-rounded u-opacity-50"></div>
+                      <div className="u-w-6 u-h-6 u-rounded-md"></div>
+                      <div className="u-h-3 u-w-40 u-rounded u-opacity-50"></div>
                     </div>
                     <div className="u-flex u-items-center u-gap-3">
-                      <div className="u-w-6 u-h-6 u-rounded-md u-bg-surface-subtle"></div>
-                      <div className="u-h-3 u-w-75 u-bg-surface-subtle u-rounded u-opacity-50"></div>
+                      <div className="u-w-6 u-h-6 u-rounded-md"></div>
+                      <div className="u-h-3 u-w-75 u-rounded u-opacity-50"></div>
                     </div>
                   </div>
                   <div className="u-mt-auto u-p-4 u-rounded-xl u-bg-primary-subtle u-border u-border-primary-subtle">
@@ -179,7 +179,7 @@ export default function Page() {
                   {/* Stats Row */}
                   <Grid>
                     <GridCol sm={4} className="u-mb-4 u-mb-sm-0">
-                      <div className="u-glass-panel u-p-6 u-rounded-2xl u-hover-bg-surface-subtle u-transition-all u-text-start u-border u-border-glass">
+                      <div className="u-glass-panel u-p-6 u-rounded-2xl u-hover-bg-surface-subtle u-transition-all u-text-start u-border ">
                         <div className="u-flex u-justify-between u-items-start u-mb-4">
                           <div className="u-p-2-5 u-bg-primary-subtle u-text-primary u-rounded-xl u-shadow-sm">
                             <Icon name="Pulse" size={20} weight="duotone" />
@@ -191,13 +191,13 @@ export default function Page() {
                         <h3 className="u-fs-2xl u-font-bold u-text-primary-emphasis u-mb-1">
                           24.5k
                         </h3>
-                        <p className="u-fs-sm u-text-secondary u-font-medium">
+                        <p className="u-fs-sm u-text-secondary-emphasis u-font-medium">
                           Total Visits
                         </p>
                       </div>
                     </GridCol>
                     <GridCol sm={4} className="u-mb-4 u-mb-sm-0">
-                      <div className="u-glass-panel u-p-6 u-rounded-2xl u-hover-bg-surface-subtle u-transition-all u-text-start u-border u-border-glass">
+                      <div className="u-glass-panel u-p-6 u-rounded-2xl u-hover-bg-surface-subtle u-transition-all u-text-start u-border ">
                         <div className="u-flex u-justify-between u-items-start u-mb-4">
                           <div className="u-p-2-5 u-bg-primary-subtle u-text-primary u-rounded-xl u-shadow-sm">
                             <Icon name="Users" size={20} weight="duotone" />
@@ -209,13 +209,13 @@ export default function Page() {
                         <h3 className="u-fs-2xl u-font-bold u-text-primary-emphasis u-mb-1">
                           1,204
                         </h3>
-                        <p className="u-fs-sm u-text-secondary u-font-medium">
+                        <p className="u-fs-sm u-text-secondary-emphasis u-font-medium">
                           Active Users
                         </p>
                       </div>
                     </GridCol>
                     <GridCol sm={4}>
-                      <div className="u-glass-panel u-p-6 u-rounded-2xl u-hover-bg-surface-subtle u-transition-all u-text-start u-border u-border-glass">
+                      <div className="u-glass-panel u-p-6 u-rounded-2xl u-hover-bg-surface-subtle u-transition-all u-text-start u-border ">
                         <div className="u-flex u-justify-between u-items-start u-mb-4">
                           <div className="u-p-2-5 u-bg-success-subtle u-text-success u-rounded-xl u-shadow-sm">
                             <Icon
@@ -231,7 +231,7 @@ export default function Page() {
                         <h3 className="u-fs-2xl u-font-bold u-text-primary-emphasis u-mb-1">
                           $89k
                         </h3>
-                        <p className="u-fs-sm u-text-secondary u-font-medium">
+                        <p className="u-fs-sm u-text-secondary-emphasis u-font-medium">
                           Revenue
                         </p>
                       </div>
@@ -240,7 +240,7 @@ export default function Page() {
 
                   {/* Chart Area Placeholder */}
                   <div
-                    className={`u-glass-panel u-p-8 u-rounded-2xl u-h-72 u-flex u-items-end u-justify-between u-gap-3 u-relative u-overflow-hidden u-border u-border-glass ${styles.chartAreaPlaceholder}`}
+                    className={`u-glass-panel u-p-8 u-rounded-2xl u-h-72 u-flex u-items-end u-justify-between u-gap-3 u-relative u-overflow-hidden u-border  ${styles.chartAreaPlaceholder}`}
                   >
                     {[45, 65, 35, 90, 55, 80, 50, 70, 40, 60, 85, 45].map(
                       (h, i) => (
@@ -253,7 +253,7 @@ export default function Page() {
                     )}
                     <div className="u-absolute u-top-6 u-start-6 u-flex u-items-center u-gap-2">
                       <div className="u-w-3 u-h-3 u-rounded-circle u-bg-primary"></div>
-                      <span className="u-fs-xs u-font-bold u-text-secondary">
+                      <span className="u-fs-xs u-font-bold u-text-secondary-emphasis">
                         Network Traffic (Normalized)
                       </span>
                     </div>
@@ -296,7 +296,7 @@ export default function Page() {
             <h2 className="u-fs-5xl u-font-black u-mb-4 u-tracking-tighter">
               Interactive & Polished
             </h2>
-            <p className="u-fs-xl u-text-secondary u-leading-relaxed">
+            <p className="u-fs-xl u-text-secondary-emphasis u-leading-relaxed">
               Pre-built, accessible React components ready for production.
               Designed with cinematic depth to look stunning on any background.
             </p>
@@ -327,7 +327,7 @@ export default function Page() {
                     <h4 className="u-fs-2xl u-font-black u-tracking-tight">
                       Secure Access
                     </h4>
-                    <p className="u-fs-sm u-text-secondary u-mt-1 u-opacity-70">
+                    <p className="u-fs-sm u-text-secondary-emphasis u-mt-1 u-opacity-70">
                       Welcome back to the dashboard
                     </p>
                   </div>
@@ -377,7 +377,7 @@ export default function Page() {
 
                     <div className="u-relative u-flex u-items-center u-justify-center u-my-2">
                       <div className="u-absolute u-w-100 u-h-px u-bg-border u-opacity-30"></div>
-                      <span className="u-relative u-bg-white u-px-3 u-fs-xs u-text-secondary u-font-bold u-uppercase u-tracking-widest u-opacity-50">
+                      <span className="u-relative u-bg-white u-px-3 u-fs-xs u-text-secondary-emphasis u-font-bold u-uppercase u-tracking-widest u-opacity-50">
                         or
                       </span>
                     </div>
@@ -403,7 +403,7 @@ export default function Page() {
               </div>
 
               {/* Component 1.5: Environment Status Card */}
-              <Card className="u-p-6 u-rounded-3xl u-shadow-lg u-border u-border-glass u-flex-1">
+              <Card className="u-p-6 u-rounded-3xl u-shadow-lg u-border  u-flex-1">
                 <div className="u-flex u-justify-between u-items-center u-mb-4">
                   <h5 className="u-fs-sm u-font-black u-uppercase u-tracking-widest u-opacity-50">
                     System Health
@@ -419,7 +419,7 @@ export default function Page() {
                       </div>
                       <div>
                         <div className="u-fs-xs u-font-bold">Edge Nodes</div>
-                        <div className="u-fs-xxs u-text-secondary">
+                        <div className="u-fs-xxs u-text-secondary-emphasis">
                           24 active regions
                         </div>
                       </div>
@@ -431,12 +431,12 @@ export default function Page() {
 
                   <div className="u-flex u-items-center u-justify-between">
                     <div className="u-flex u-items-center u-gap-3">
-                      <div className="u-w-8 u-h-8 u-rounded-lg u-bg-secondary-subtle u-text-secondary u-flex u-items-center u-justify-center">
-                        <Icon name={"Activity" as any} weight="duotone" />
+                      <div className="u-w-8 u-h-8 u-rounded-lg u-bg-secondary-subtle u-text-secondary-emphasis u-flex u-items-center u-justify-center">
+                        <Icon name={"Pulse" as any} weight="duotone" />
                       </div>
                       <div>
                         <div className="u-fs-xs u-font-bold">Latency</div>
-                        <div className="u-fs-xxs u-text-secondary">
+                        <div className="u-fs-xxs u-text-secondary-emphasis">
                           Global average
                         </div>
                       </div>
@@ -449,7 +449,7 @@ export default function Page() {
                   <div className="u-mt-2">
                     <Progress value={92} variant="primary" size="sm" />
                     <div className="u-flex u-justify-between u-mt-1">
-                      <span className="u-fs-xxs u-text-secondary">
+                      <span className="u-fs-xxs u-text-secondary-emphasis">
                         Resource Usage
                       </span>
                       <span className="u-fs-xxs u-font-bold">92%</span>
@@ -465,7 +465,7 @@ export default function Page() {
             <Grid>
               {/* Component 2: Project Management / Analytics */}
               <GridCol sm={12} className="u-mb-6">
-                <Card className="u-p-8 u-rounded-3xl u-shadow-lg u-border u-border-glass u-relative u-overflow-hidden">
+                <Card className="u-p-8 u-rounded-3xl u-shadow-lg u-border  u-relative u-overflow-hidden">
                   <div className="u-flex u-flex-column u-flex-md-row u-justify-between u-items-start u-gap-6 u-mb-8">
                     <div>
                       <div className="u-flex u-items-center u-gap-3 u-mb-2">
@@ -475,7 +475,7 @@ export default function Page() {
                           glass
                           size="sm"
                         />
-                        <span className="u-fs-xs u-text-secondary u-font-mono u-opacity-60">
+                        <span className="u-fs-xs u-text-secondary-emphasis u-font-mono u-opacity-60">
                           ID: ATX-2024
                         </span>
                       </div>
@@ -500,7 +500,7 @@ export default function Page() {
                         size="md"
                         className="u-border-2 u-border-white"
                       />
-                      <div className="u-w-10 u-h-10 u-rounded-circle u-bg-surface-subtle u-flex u-items-center u-justify-center u-fs-xs u-font-bold u-border-2 u-border-white">
+                      <div className="u-w-10 u-h-10 u-rounded-circle u-flex u-items-center u-justify-center u-fs-xs u-font-bold u-border-2 u-border-white">
                         +5
                       </div>
                     </div>
@@ -509,7 +509,7 @@ export default function Page() {
                   <div className="u-flex u-flex-column u-gap-8">
                     <div className="u-flex u-flex-column u-gap-3">
                       <div className="u-flex u-justify-between u-items-end">
-                        <span className="u-fs-sm u-font-bold u-text-secondary">
+                        <span className="u-fs-sm u-font-bold u-text-secondary-emphasis">
                           Development Progress
                         </span>
                         <span className="u-fs-lg u-font-black u-text-primary">
@@ -545,7 +545,7 @@ export default function Page() {
 
                   <div className="u-flex u-flex-column u-gap-5">
                     <div className="u-flex u-flex-column u-gap-1-5">
-                      <label className="u-fs-xs u-text-secondary u-uppercase u-font-black u-tracking-widest u-opacity-50 u-mb-2">
+                      <label className="u-fs-xs u-text-secondary-emphasis u-uppercase u-font-black u-tracking-widest u-opacity-50 u-mb-2">
                         Storage Region
                       </label>
                       <Select
@@ -564,11 +564,11 @@ export default function Page() {
                     </div>
 
                     <div className="u-flex u-flex-column u-gap-1-5">
-                      <label className="u-fs-xs u-text-secondary u-uppercase u-font-black u-tracking-widest u-opacity-50">
+                      <label className="u-fs-xs u-text-secondary-emphasis u-uppercase u-font-black u-tracking-widest u-opacity-50">
                         API Throughput
                       </label>
                       <Progress value={65} variant="primary" size="sm" />
-                      <div className="u-flex u-justify-between u-fs-xs u-text-secondary u-font-mono u-opacity-60">
+                      <div className="u-flex u-justify-between u-fs-xs u-text-secondary-emphasis u-font-mono u-opacity-60">
                         <span>Low</span>
                         <span>Balanced</span>
                         <span>High</span>
@@ -577,7 +577,7 @@ export default function Page() {
 
                     <div className="u-flex u-justify-between u-items-center u-pt-2">
                       <div className="u-flex u-items-center u-gap-3">
-                        <div className="u-p-2 u-bg-surface-subtle u-text-secondary u-rounded-lg">
+                        <div className="u-p-2 u-text-secondary-emphasis u-rounded-lg">
                           <Icon name="Monitor" size={18} weight="duotone" />
                         </div>
                         <span className="u-fs-sm u-font-bold">
@@ -597,7 +597,7 @@ export default function Page() {
                     variant="info"
                     title="Optimization Required"
                     icon={<Icon name="Info" weight="duotone" size={20} />}
-                    className="u-rounded-2xl u-shadow-lg u-border-glass u-flex-1"
+                    className="u-rounded-2xl u-shadow-lg  u-flex-1"
                   >
                     <p className="u-fs-sm u-opacity-80">
                       Background blur rendering can be optimized by adjusting
@@ -605,7 +605,7 @@ export default function Page() {
                     </p>
                   </Callout>
 
-                  <Card className="u-p-5 u-rounded-2xl u-shadow-lg u-border u-border-glass">
+                  <Card className="u-p-5 u-rounded-2xl u-shadow-lg u-border ">
                     <div className="u-flex u-items-center u-justify-between u-mb-3">
                       <div className="u-flex u-items-center u-gap-3">
                         <div className="u-w-2 u-h-2 u-rounded-circle u-bg-success u-animate-pulse"></div>
@@ -651,7 +651,7 @@ export default function Page() {
       {/* Trusted By Section */}
       <Block>
         <div className="u-text-center">
-          <p className="u-text-secondary u-fs-xs u-font-black u-uppercase u-tracking-widest u-mb-10 u-opacity-60">
+          <p className="u-text-secondary-emphasis u-fs-xs u-font-black u-uppercase u-tracking-widest u-mb-10 u-opacity-60">
             Pioneered by global engineering teams
           </p>
           <div className="u-flex u-flex-wrap u-justify-center u-gap-14 u-items-center u-opacity-40 u-hover-opacity-90 u-transition-all">
@@ -674,7 +674,7 @@ export default function Page() {
           <h2 className="u-fs-5xl u-font-black u-mb-6 u-tracking-tighter">
             Ready to crystallize your vision?
           </h2>
-          <p className="u-fs-xl u-text-secondary u-mb-12 u-leading-relaxed u-opacity-80">
+          <p className="u-fs-xl u-text-secondary-emphasis u-mb-12 u-leading-relaxed u-opacity-80">
             Join thousands of developers using Atomix to create beautiful,
             accessible, and performant interfaces.
           </p>

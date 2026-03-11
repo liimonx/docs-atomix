@@ -4,12 +4,13 @@ import React, { useState, useEffect, FC } from "react";
 import { DocumentationHeader } from "@/components/navigation/DocumentationHeader";
 import { DocumentationFooter } from "./DocumentationFooter";
 import { DocumentationSidebar } from "@/components/navigation/DocumentationSidebar";
-import { SkipLinks } from "@/components/ui/SkipLinks";
+// import { SkipLinks } from "@/components/ui/SkipLinks";
 import { PageTransition } from "./PageTransition";
 import { usePathname } from "next/navigation";
 import { AmbientBackground } from "@/components/ui/AmbientBackground";
+import styles from "./AppLayout.module.scss";
 
-const MemoizedSkipLinks = React.memo(SkipLinks);
+// const MemoizedSkipLinks = React.memo(SkipLinks);
 const MemoizedDocumentationFooter = React.memo(DocumentationFooter);
 
 export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -22,9 +23,9 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
   }, [pathname]);
 
   return (
-    <div className="u-flex u-flex-column u-min-h-screen u-overflow-hidden u-relative">
+    <div className={styles.layoutWrapper}>
       <AmbientBackground />
-      <MemoizedSkipLinks />
+      {/* <MemoizedSkipLinks /> */}
 
       <DocumentationHeader
         isSidebarOpen={sidebarOpen}
@@ -32,17 +33,21 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
         showSidebarToggle={true}
       />
 
-      <div className="u-flex u-flex-1 u-overflow-hidden u-pt-16">
-        <DocumentationSidebar
-          isOpen={sidebarOpen}
-          onClose={() => setSidebarOpen(false)}
-        />
+      <div className={styles.mainContainer}>
+        <aside
+          className={`${styles.sidebarWrapper} ${
+            sidebarOpen ? styles["sidebarWrapper--mobileOpen"] : ""
+          }`}
+        >
+          <DocumentationSidebar
+            isOpen={sidebarOpen}
+            onClose={() => setSidebarOpen(false)}
+          />
+        </aside>
 
-        <main id="main-content" className="u-flex-1 u-overflow-y-auto">
+        <main className={`${styles.contentWrapper} main-content`}>
           <PageTransition>{children}</PageTransition>
-          <div className="u-px-4 u-px-md-6 u-pb-5">
-            <MemoizedDocumentationFooter />
-          </div>
+          <MemoizedDocumentationFooter />
         </main>
       </div>
     </div>

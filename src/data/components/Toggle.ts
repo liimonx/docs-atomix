@@ -241,7 +241,7 @@ function ToggleSizesVariants() {
         <div className="setting-item">
           <div>
             <label>Email Notifications</label>
-            <p className="u-text-sm u-text-secondary">
+            <p className="u-text-sm u-text-secondary-emphasis">
               Receive notifications via email
             </p>
           </div>
@@ -255,7 +255,7 @@ function ToggleSizesVariants() {
         <div className="setting-item">
           <div>
             <label>Push Notifications</label>
-            <p className="u-text-sm u-text-secondary">
+            <p className="u-text-sm u-text-secondary-emphasis">
               Receive push notifications on your device
             </p>
           </div>

@@ -22,7 +22,7 @@ export const InteractiveDemo: FC<InteractiveDemoProps> = ({
   if (!example) {
     return (
       <Card className="u-p-6 u-text-center">
-        <p className="u-text-secondary-emphasis">
+        <p className="u-text-secondary-emphasis-emphasis">
           No examples available for this component.
         </p>
       </Card>
@@ -41,7 +41,7 @@ export const InteractiveDemo: FC<InteractiveDemoProps> = ({
               example.preview
             ) : (
               <div className="u-text-center u-p-8">
-                <p className="u-text-secondary-emphasis">
+                <p className="u-text-secondary-emphasis-emphasis">
                   Preview not available
                 </p>
               </div>
@@ -71,7 +71,7 @@ export const InteractiveDemo: FC<InteractiveDemoProps> = ({
     <div className="u-mb-6">
       <div className="u-mb-6">
         <h3 className="u-text-xl u-font-bold u-mb-2">{example.title}</h3>
-        <p className="u-text-secondary-emphasis u-mb-4">
+        <p className="u-text-secondary-emphasis-emphasis u-mb-4">
           {example.description}
         </p>
 

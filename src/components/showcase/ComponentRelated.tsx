@@ -36,7 +36,7 @@ export const ComponentRelated: FC<ComponentRelatedProps> = ({
                 <Icon
                   name="ArrowRight"
                   size="sm"
-                  className="u-text-secondary"
+                  className="u-text-secondary-emphasis"
                 />
                 <span className="u-text-primary u-font-medium">
                   {navItem.title}

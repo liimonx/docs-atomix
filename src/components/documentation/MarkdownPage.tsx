@@ -76,17 +76,17 @@ const MARKDOWN_COMPONENTS = {
     </h6>
   ),
   p: ({ children }: any) => (
-    <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+    <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
       {children}
     </p>
   ),
   ul: ({ children }: any) => (
-    <ul className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed u-pl-6 u-list-disc">
+    <ul className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed u-pl-6 u-list-disc">
       {children}
     </ul>
   ),
   ol: ({ children }: any) => (
-    <ol className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed u-pl-6 u-list-decimal">
+    <ol className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed u-pl-6 u-list-decimal">
       {children}
     </ol>
   ),
@@ -110,7 +110,7 @@ const MARKDOWN_COMPONENTS = {
     </th>
   ),
   td: ({ children }: any) => (
-    <td className="u-p-3 u-border u-border-secondary u-text-secondary-emphasis u-text-sm">
+    <td className="u-p-3 u-border u-border-secondary u-text-secondary-emphasis-emphasis u-text-sm">
       {children}
     </td>
   ),
@@ -189,7 +189,7 @@ const MarkdownPage: FC<MarkdownPageProps> = ({
             >
               <span className="u-visually-hidden">Loading...</span>
             </div>
-            <p className="u-text-secondary-emphasis u-mt-4">
+            <p className="u-text-secondary-emphasis-emphasis u-mt-4">
               Loading content...
             </p>
           </div>

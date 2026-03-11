@@ -118,7 +118,7 @@ const LayoutsOverviewPage: FC = () => {
                     <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
                       {feature.title}
                     </h3>
-                    <p className="u-text-secondary-emphasis u-m-0 u-mb-4 u-flex-grow-1 u-line-height-relaxed">
+                    <p className="u-text-secondary-emphasis-emphasis u-m-0 u-mb-4 u-flex-grow-1 u-line-height-relaxed">
                       {feature.description}
                     </p>
                     <div className="u-flex u-items-center u-text-primary-emphasis u-font-medium">
@@ -176,7 +176,7 @@ const LayoutsOverviewPage: FC = () => {
                     {benefit.title}
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-m-0 u-line-height-relaxed">
                   {benefit.description}
                 </p>
               </Card>

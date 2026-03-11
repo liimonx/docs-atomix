@@ -38,7 +38,7 @@ const DocumentationSidebar = memo(function DocumentationSidebar({
         }),
         isOpen: false,
       })),
-    [pathname, onClose, isOpen],
+    [pathname, onClose],
   );
 
   return (
@@ -58,11 +58,11 @@ const DocumentationSidebar = memo(function DocumentationSidebar({
             borderRadius: 0,
             displacementScale: 50,
             withLiquidBlur: false,
+            withBorder: false,
             mode: "shader",
             shaderVariant: "noise",
             blurAmount: 10,
           }}
-          className=" u-w-60 u-top-5 u-vh-100 u-start-0 u-overflow-y-auto"
           title={<></>}
           menuItems={menuItems}
           LinkComponent={Link as any}

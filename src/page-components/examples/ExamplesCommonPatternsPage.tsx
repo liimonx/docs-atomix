@@ -35,7 +35,7 @@ const ExamplesCommonPatternsPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Navigation Patterns
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Common navigation patterns implemented with Atomix components.
               </p>
               <Button variant="primary" className="u-mt-4">
@@ -49,7 +49,7 @@ const ExamplesCommonPatternsPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Form Patterns
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Best practices for form design and implementation with Atomix.
               </p>
               <Button variant="primary" className="u-mt-4">
@@ -63,7 +63,7 @@ const ExamplesCommonPatternsPage: FC = () => {
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
               <h3 className="u-text-xl u-font-semibold u-mb-3">Card Layouts</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Different card layout patterns for various content types.
               </p>
               <Button variant="primary" className="u-mt-4">
@@ -77,7 +77,7 @@ const ExamplesCommonPatternsPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Dashboard Layouts
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Dashboard layout patterns with data visualization components.
               </p>
               <Button variant="primary" className="u-mt-4">

@@ -269,11 +269,11 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
 
       {/* Footer with line count */}
       <div className="u-flex u-items-center u-justify-between u-px-3 u-py-2 u-bg-tertiary u-border-t u-border-subtle">
-        <span className="u-text-xs u-text-secondary-emphasis">
+        <span className="u-text-xs u-text-secondary-emphasis-emphasis">
           {formattedCode.split("\n").length} line
           {formattedCode.split("\n").length !== 1 ? "s" : ""}
         </span>
-        <span className="u-text-xs u-text-secondary-emphasis">
+        <span className="u-text-xs u-text-secondary-emphasis-emphasis">
           {formattedCode.length} characters
         </span>
       </div>

@@ -15,7 +15,7 @@ export const AccessibilityGuide: FC<AccessibilityGuideProps> = ({
   if (!accessibility) {
     return (
       <Card className="u-p-6 u-text-center">
-        <p className="u-text-secondary-emphasis">
+        <p className="u-text-secondary-emphasis-emphasis">
           No accessibility information available for this component.
         </p>
       </Card>
@@ -28,7 +28,9 @@ export const AccessibilityGuide: FC<AccessibilityGuideProps> = ({
         <h2 className="u-text-2xl u-font-bold u-mb-3">
           Accessibility Overview
         </h2>
-        <p className="u-text-secondary-emphasis">{accessibility.overview}</p>
+        <p className="u-text-secondary-emphasis-emphasis">
+          {accessibility.overview}
+        </p>
       </section>
 
       {accessibility.keyboardSupport &&
@@ -48,7 +50,7 @@ export const AccessibilityGuide: FC<AccessibilityGuideProps> = ({
                       <div className="u-flex-grow-1">
                         <p className="u-m-0 u-mb-1">{item.action}</p>
                         {item.context && (
-                          <small className="u-text-sm u-text-secondary-emphasis">
+                          <small className="u-text-sm u-text-secondary-emphasis-emphasis">
                             {item.context}
                           </small>
                         )}
@@ -100,7 +102,7 @@ export const AccessibilityGuide: FC<AccessibilityGuideProps> = ({
                             {attr.defaultValue ?? "-"}
                           </code>
                         </td>
-                        <td className="u-p-3 u-text-secondary-emphasis">
+                        <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                           {attr.description}
                         </td>
                         <td className="u-p-3">
@@ -114,7 +116,7 @@ export const AccessibilityGuide: FC<AccessibilityGuideProps> = ({
                             <Icon
                               name="X"
                               size="sm"
-                              className="u-text-secondary-emphasis"
+                              className="u-text-secondary-emphasis-emphasis"
                             />
                           )}
                         </td>
@@ -137,7 +139,7 @@ export const AccessibilityGuide: FC<AccessibilityGuideProps> = ({
               <h3 className="u-text-lg u-font-semibold u-mb-2">
                 Screen Reader Support
               </h3>
-              <p className="u-text-secondary-emphasis u-m-0">
+              <p className="u-text-secondary-emphasis-emphasis u-m-0">
                 {accessibility.screenReaderSupport || "Not specified"}
               </p>
             </Card>
@@ -148,7 +150,7 @@ export const AccessibilityGuide: FC<AccessibilityGuideProps> = ({
               <h3 className="u-text-lg u-font-semibold u-mb-2">
                 Focus Management
               </h3>
-              <p className="u-text-secondary-emphasis u-m-0">
+              <p className="u-text-secondary-emphasis-emphasis u-m-0">
                 {accessibility.focusManagement || "Not specified"}
               </p>
             </Card>

@@ -34,7 +34,7 @@ export const ComponentShowcase: FC<ComponentShowcaseProps> = ({
           {/* Quick Start */}
           <section className="u-mb-8">
             <h2 className="u-text-2xl u-font-bold u-mb-3">Quick Start</h2>
-            <p className="u-text-secondary-emphasis u-mb-4">
+            <p className="u-text-secondary-emphasis-emphasis u-mb-4">
               Get started with {component.name} in just a few lines of code.
             </p>
 
@@ -74,7 +74,7 @@ function MyComponent() {
                         <h3 className="u-text-lg u-font-semibold u-m-0">
                           {feature.title}
                         </h3>
-                        <p className="u-text-secondary-emphasis u-m-0">
+                        <p className="u-text-secondary-emphasis-emphasis u-m-0">
                           {feature.description}
                         </p>
                       </div>
@@ -94,7 +94,7 @@ function MyComponent() {
       description: "Interactive examples and demos",
       content: (
         <div className="u-mt-4">
-          <p className="u-text-secondary-emphasis">
+          <p className="u-text-secondary-emphasis-emphasis">
             Examples content will be implemented here.
           </p>
         </div>
@@ -107,7 +107,7 @@ function MyComponent() {
       description: "Props, types, and API reference",
       content: (
         <div className="u-mt-4">
-          <p className="u-text-secondary-emphasis">
+          <p className="u-text-secondary-emphasis-emphasis">
             API documentation will be implemented here.
           </p>
         </div>
@@ -120,7 +120,7 @@ function MyComponent() {
       description: "A11y features and guidelines",
       content: (
         <div className="u-mt-4">
-          <p className="u-text-secondary-emphasis">
+          <p className="u-text-secondary-emphasis-emphasis">
             Accessibility guidelines will be implemented here.
           </p>
         </div>
@@ -133,7 +133,7 @@ function MyComponent() {
       description: "Design tokens and theming",
       content: (
         <div className="u-mt-4">
-          <p className="u-text-secondary-emphasis">
+          <p className="u-text-secondary-emphasis-emphasis">
             Design tokens information will be implemented here.
           </p>
         </div>
@@ -216,7 +216,7 @@ function MyComponent() {
         </div>
 
         <p
-          className="u-text-lg u-text-secondary-emphasis u-mb-4"
+          className="u-text-lg u-text-secondary-emphasis-emphasis u-mb-4"
           style={{ lineHeight: "1.6" }}
         >
           {component.description}
@@ -225,7 +225,7 @@ function MyComponent() {
         {/* Status Messages */}
         {component.status === "deprecated" && (
           <Callout variant="warning" className="u-mt-4">
-            <Icon name={"AlertTriangle" as any} size="sm" />
+            <Icon name={"Warning" as any} size="sm" />
             <div>
               <strong>Deprecated Component</strong>
               <p>

@@ -36,7 +36,7 @@ const DevtoolsComparatorPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <h2 className="u-text-2xl u-font-bold u-mb-4">Overview</h2>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 The ThemeComparator component analyzes two themes and displays
                 their differences in an easy-to-understand format. It's
                 essential for version control, A/B testing, and ensuring theme
@@ -159,18 +159,10 @@ function App() {
                 <table className="u-w-100">
                   <thead>
                     <tr>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Prop
-                      </th>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Type
-                      </th>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Default
-                      </th>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Description
-                      </th>
+                      <th className="u-text-start u-p-3">Prop</th>
+                      <th className="u-text-start u-p-3">Type</th>
+                      <th className="u-text-start u-p-3">Default</th>
+                      <th className="u-text-start u-p-3">Description</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -250,19 +242,19 @@ function App() {
                 <div className="u-mb-3">
                   <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <span className="u-badge u-badge-success">Added</span>
-                    <span className="u-text-sm u-text-secondary-emphasis">
+                    <span className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Property exists in Theme B but not in Theme A
                     </span>
                   </div>
                   <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <span className="u-badge u-badge-error">Removed</span>
-                    <span className="u-text-sm u-text-secondary-emphasis">
+                    <span className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Property exists in Theme A but not in Theme B
                     </span>
                   </div>
                   <div className="u-flex u-items-center u-gap-2">
                     <span className="u-badge u-badge-warning">Changed</span>
-                    <span className="u-text-sm u-text-secondary-emphasis">
+                    <span className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Property exists in both but with different values
                     </span>
                   </div>
@@ -273,7 +265,7 @@ function App() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Statistics Dashboard
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-2">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-2">
                   The comparator displays summary statistics:
                 </p>
                 <ul className="u-ms-4 u-text-sm">
@@ -301,7 +293,7 @@ function App() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Version Comparison Tool
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Compare theme versions before releasing updates:
                 </p>
                 <EnhancedCodeBlock
@@ -347,7 +339,7 @@ function VersionComparison() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   A/B Testing Dashboard
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Compare theme variants for A/B testing:
                 </p>
                 <EnhancedCodeBlock
@@ -388,7 +380,7 @@ function VersionComparison() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Migration Helper
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Compare old and new theme structures during migration:
                 </p>
                 <EnhancedCodeBlock
@@ -434,7 +426,7 @@ function VersionComparison() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   1. Version Control
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-2">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-2">
                   Track theme changes across versions:
                 </p>
                 <ul className="u-ms-4 u-text-sm">
@@ -448,7 +440,7 @@ function VersionComparison() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   2. Theme Variants
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-2">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-2">
                   Compare different theme variants:
                 </p>
                 <ul className="u-ms-4 u-text-sm">
@@ -462,7 +454,7 @@ function VersionComparison() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   3. Quality Assurance
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-2">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-2">
                   Ensure theme consistency:
                 </p>
                 <ul className="u-ms-4 u-text-sm">
@@ -532,7 +524,7 @@ function VersionComparison() {
           <GridCol md={12}>
             <Card className="u-p-6">
               <h2 className="u-text-2xl u-font-bold u-mb-4">Related Tools</h2>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Combine ThemeComparator with other devtools:
               </p>
               <div className="u-grid u-gap-3">

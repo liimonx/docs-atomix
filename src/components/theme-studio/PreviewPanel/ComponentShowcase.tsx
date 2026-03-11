@@ -76,15 +76,15 @@ export const ComponentShowcase: FC = () => {
                 >
                   Heading 3
                 </h3>
-                <p style={{ color: "var(--atomix-body-color)" }}>
+                <p className="u-text-text-secondary">
                   This is body text using your configured typography settings.
                   The font family is{" "}
-                  <code style={{ color: "var(--atomix-primary)" }}>
+                  <code className="u-text-primary">
                     {currentTokens["--atomix-body-font-family"] || "default"}
                   </code>
                   .
                 </p>
-                <p style={{ color: "var(--atomix-secondary-text-emphasis)" }}>
+                <p className="u-text-secondary-emphasis-emphasis">
                   This is secondary text using the secondary text color.
                 </p>
               </div>
@@ -97,36 +97,21 @@ export const ComponentShowcase: FC = () => {
               <Row>
                 <GridCol md={4}>
                   <div
-                    className={styles.componentShowcase__colorSample}
-                    style={{
-                      backgroundColor: "var(--atomix-primary-bg-subtle)",
-                      color: "var(--atomix-primary-text-emphasis)",
-                      border: "1px solid var(--atomix-primary-border-subtle)",
-                    }}
+                    className={`${styles.componentShowcase__colorSample} u-bg-primary-subtle u-text-primary-emphasis u-border-solid u-border-primary`}
                   >
                     Primary
                   </div>
                 </GridCol>
                 <GridCol md={4}>
                   <div
-                    className={styles.componentShowcase__colorSample}
-                    style={{
-                      backgroundColor: "var(--atomix-success-bg-subtle)",
-                      color: "var(--atomix-success-text-emphasis)",
-                      border: "1px solid var(--atomix-success-border-subtle)",
-                    }}
+                    className={`${styles.componentShowcase__colorSample} u-bg-success-subtle u-text-success-emphasis u-border-solid u-border-success`}
                   >
                     Success
                   </div>
                 </GridCol>
                 <GridCol md={4}>
                   <div
-                    className={styles.componentShowcase__colorSample}
-                    style={{
-                      backgroundColor: "var(--atomix-error-bg-subtle)",
-                      color: "var(--atomix-error-text-emphasis)",
-                      border: "1px solid var(--atomix-error-border-subtle)",
-                    }}
+                    className={`${styles.componentShowcase__colorSample} u-bg-error-subtle u-text-error-emphasis u-border-solid u-border-error`}
                   >
                     Error
                   </div>
@@ -320,11 +305,11 @@ export const ComponentShowcase: FC = () => {
                 <Rating value={3.5} maxValue={5} readOnly />
               ) : (
                 <div
+                  className="u-text-secondary-emphasis-emphasis"
                   style={{
                     height: "24px",
                     display: "flex",
                     alignItems: "center",
-                    color: "var(--atomix-secondary-text-emphasis)",
                   }}
                 >
                   Loading...

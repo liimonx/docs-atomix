@@ -20,8 +20,7 @@
   backdrop-filter: var(--glass-backdrop-blur) !important;
   -webkit-backdrop-filter: var(--glass-backdrop-blur) !important;
   border: 1px solid var(--glass-border) !important;
-  box-shadow: 
-    0 8px 32px 0 rgba(0, 0, 0, 0.1),
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -30,8 +29,7 @@
   backdrop-filter: var(--glass-backdrop-blur) !important;
   -webkit-backdrop-filter: var(--glass-backdrop-blur) !important;
   border: 1px solid var(--glass-border-dark) !important;
-  box-shadow: 
-    0 8px 32px 0 rgba(0, 0, 0, 0.3),
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.05) !important;
 }
 
@@ -72,7 +70,7 @@
 // Glass hover effects
 .u-glass-hover {
   transition: all 0.3s ease !important;
-  
+
   &:hover {
     background: rgba(255, 255, 255, 0.15) !important;
     border-color: rgba(255, 255, 255, 0.25) !important;
@@ -136,8 +134,14 @@
 
 // Ambient Background Effects
 @keyframes pulse-glow {
-  0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
-  100% { transform: scale(1.2) translate(50px, -50px); opacity: 0.8; }
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.2) translate(50px, -50px);
+    opacity: 0.8;
+  }
 }
 
 .u-ambient-glow {
@@ -153,7 +157,8 @@
 
 // Animation Utilities
 @keyframes u-ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(2);
     opacity: 0;
   }
@@ -164,11 +169,12 @@
 }
 
 @keyframes u-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 

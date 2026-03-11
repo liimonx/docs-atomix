@@ -58,7 +58,7 @@ const DesignTokensOverviewPage: FC = () => {
       <Hero
         title={<></>}
         alignment="left"
-        className="u-bg-surface-subtle u-border-b u-border-glass u-relative u-overflow-hidden"
+        className=" u-relative u-overflow-hidden"
       >
         <div className="u-absolute u-top-0 u-start-50 u-translate-x-n50 u-w-100 u-h-100 u-max-w-4xl u-bg-primary u-opacity-5 u-blur-3xl u-rounded-circle u-pointer-events-none"></div>
 
@@ -71,7 +71,7 @@ const DesignTokensOverviewPage: FC = () => {
           <Hero.Title className="u-fs-5xl u-font-black u-tracking-tighter">
             Design Tokens
           </Hero.Title>
-          <Hero.Text className="u-fs-xl u-text-secondary u-leading-relaxed">
+          <Hero.Text className="u-fs-xl u-text-secondary-emphasis u-leading-relaxed">
             The fundamental design atoms that power Atomix. These variables
             ensure every component remains consistent across the entire
             platform.
@@ -90,7 +90,7 @@ const DesignTokensOverviewPage: FC = () => {
                 variant="secondary"
                 size="lg"
                 label="Grid System"
-                className="u-rounded-2xl u-border-glass u-bg-glass"
+                className="u-rounded-2xl  u-bg-glass"
                 glass
               />
             </Link>
@@ -116,7 +116,7 @@ const DesignTokensOverviewPage: FC = () => {
               >
                 <Card
                   glass={true}
-                  className="u-h-100 u-p-8 u-rounded-3xl u-border u-border-glass u-transition-all u-hover-translate-y-n2 u-hover-shadow-lg u-flex u-flex-column u-relative u-overflow-hidden"
+                  className="u-h-100 u-p-8 u-rounded-3xl u-border  u-transition-all u-hover-translate-y-n2 u-hover-shadow-lg u-flex u-flex-column u-relative u-overflow-hidden"
                 >
                   {/* Decorative background circle */}
                   <div
@@ -133,7 +133,7 @@ const DesignTokensOverviewPage: FC = () => {
                     {item.title}
                   </h3>
 
-                  <p className="u-text-secondary u-fs-base u-leading-relaxed u-mb-8 u-flex-grow-1">
+                  <p className="u-text-secondary-emphasis u-fs-base u-leading-relaxed u-mb-8 u-flex-grow-1">
                     {item.desc}
                   </p>
 
@@ -150,7 +150,7 @@ const DesignTokensOverviewPage: FC = () => {
             <Card
               variant="primary"
               glass
-              className="u-h-100 u-p-8 u-rounded-3xl u-border u-border-glass u-bg-primary-subtle u-flex u-items-center u-justify-between u-relative u-overflow-hidden"
+              className="u-h-100 u-p-8 u-rounded-3xl u-border  u-bg-primary-subtle u-flex u-items-center u-justify-between u-relative u-overflow-hidden"
             >
               <div className="u-relative u-z-1 u-max-w-md">
                 <h3 className="u-fs-2xl u-font-black u-tracking-tight u-mb-2">

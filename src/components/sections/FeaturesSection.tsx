@@ -78,21 +78,18 @@ export const FeaturesSection: FC = () => {
           {features.map((feature, index) => (
             <GridCol key={index} xs={12} md={6} lg={4}>
               <Card className="u-h-100 u-p-8 u-transition-all u-cursor-pointer u-hover-transform-up">
-                <div
-                  className="u-flex u-items-center u-justify-center u-w-15 u-h-15 u-rounded-lg u-mb-6"
-                  style={{ backgroundColor: "var(--atomix-color-bg-brand)" }}
-                >
+                <div className="u-flex u-items-center u-justify-center u-w-15 u-h-15 u-rounded-lg u-mb-6 u-bg-primary-subtle">
                   <Icon
                     name={feature.icon}
                     size="lg"
-                    style={{ color: "var(--atomix-color-text-brand)" }}
+                    className="u-text-primary-emphasis"
                   />
                 </div>
                 <div>
-                  <h3 className="u-text-xl u-font-semibold u-mb-3 u-text-text-primary">
+                  <h3 className="u-text-xl u-font-semibold u-mb-3 u-text-primary-emphasis">
                     {feature.title}
                   </h3>
-                  <p className="u-text-secondary-emphasis u-line-height-relaxed">
+                  <p className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
                     {feature.description}
                   </p>
                 </div>

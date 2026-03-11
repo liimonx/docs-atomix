@@ -293,7 +293,7 @@ export default function ExampleLandingPage() {
                 title={testimonial.name}
                 text={testimonial.quote}
                 icon={
-                  <div className="u-flex u-align-items-center u-justify-center u-rounded-circle u-bg-primary u-text-white u-w-10 u-h-10 u-mb-3">
+                  <div className="u-flex u-align-items-center u-justify-center u-rounded-circle u-bg-primary  u-w-10 u-h-10 u-mb-3">
                     {testimonial.avatar}
                   </div>
                 }
@@ -316,7 +316,7 @@ export default function ExampleLandingPage() {
             <h3 className="u-text-xl u-font-bold u-mb-3 u-text-primary">
               Advanced Analytics
             </h3>
-            <p className="u-text-secondary-emphasis u-mb-4">
+            <p className="u-text-secondary-emphasis-emphasis u-mb-4">
               Monitor your business metrics in real-time with our comprehensive
               analytics suite.
             </p>
@@ -331,7 +331,7 @@ export default function ExampleLandingPage() {
             <h3 className="u-text-xl u-font-bold u-mb-3 u-text-success">
               Enterprise Security
             </h3>
-            <p className="u-text-secondary-emphasis u-mb-4">
+            <p className="u-text-secondary-emphasis-emphasis u-mb-4">
               Protect your data with military-grade encryption and advanced
               security protocols.
             </p>
@@ -347,7 +347,7 @@ export default function ExampleLandingPage() {
             <h3 className="u-text-xl u-font-bold u-mb-3 u-text-warning">
               Seamless Integrations
             </h3>
-            <p className="u-text-secondary-emphasis u-mb-4">
+            <p className="u-text-secondary-emphasis-emphasis u-mb-4">
               Connect with over 200+ popular apps and services to streamline
               your workflow.
             </p>
@@ -387,7 +387,7 @@ export default function ExampleLandingPage() {
                   <span className="u-text-4xl u-font-bold u-text-primary">
                     {plan.price}
                   </span>
-                  <span className="u-text-secondary-emphasis">
+                  <span className="u-text-secondary-emphasis-emphasis">
                     /{plan.period}
                   </span>
                 </div>
@@ -427,7 +427,7 @@ export default function ExampleLandingPage() {
               <h4 className="u-text-lg u-font-semibold u-mb-2 u-text-primary">
                 {faq.question}
               </h4>
-              <p className="u-text-secondary-emphasis">{faq.answer}</p>
+              <p className="u-text-secondary-emphasis-emphasis">{faq.answer}</p>
             </div>
           ))}
         </div>
@@ -469,7 +469,7 @@ export default function ExampleLandingPage() {
             <h2 className="u-text-3xl u-font-700 u-mb-4 u-text-primary-emphasis">
               Ready to Transform Your Business?
             </h2>
-            <p className="u-text-xl u-text-secondary-emphasis u-lh-relaxed u-mb-5 u-max-w-3xl u-mx-auto">
+            <p className="u-text-xl u-text-secondary-emphasis-emphasis u-lh-relaxed u-mb-5 u-max-w-3xl u-mx-auto">
               Join thousands of satisfied customers and experience the
               difference today.
             </p>

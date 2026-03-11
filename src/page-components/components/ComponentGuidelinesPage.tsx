@@ -231,7 +231,7 @@ $button-color: var(--atomix-primary) !default;
                         {guideline.title}
                       </h3>
                     </div>
-                    <p className="u-text-secondary-emphasis u-mb-4">
+                    <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                       {guideline.description}
                     </p>
                     <List variant="text">
@@ -255,7 +255,7 @@ $button-color: var(--atomix-primary) !default;
               <h3 className="u-text-xl u-font-bold u-mb-4">
                 React Component Structure
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 React components should follow this structure and best
                 practices:
               </p>
@@ -307,7 +307,7 @@ $button-color: var(--atomix-primary) !default;
               <h3 className="u-text-xl u-font-bold u-mb-4">
                 Vanilla JavaScript Implementation
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Every component should also provide a vanilla JavaScript
                 implementation:
               </p>
@@ -353,7 +353,7 @@ $button-color: var(--atomix-primary) !default;
               <h3 className="u-text-xl u-font-bold u-mb-4">
                 Styling Architecture
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Atomix follows the ITCSS (Inverted Triangle CSS) architecture:
               </p>
               <List variant="text">
@@ -399,7 +399,7 @@ $button-color: var(--atomix-primary) !default;
               <h3 className="u-text-xl u-font-bold u-mb-4">
                 Accessibility Checklist
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 All components must meet WCAG 2.1 AA standards:
               </p>
               <Grid>

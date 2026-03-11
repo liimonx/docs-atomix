@@ -25,7 +25,7 @@ export default function DynamicDocsLoading() {
             {/* Content Skeleton */}
             <Card
               glass
-              className="u-p-6 u-p-md-10 u-border u-border-glass u-rounded-3xl u-shadow-lg"
+              className="u-p-6 u-p-md-10 u-border  u-rounded-3xl u-shadow-lg"
             >
               {/* Paragraph 1 */}
               <div className="u-mb-10">

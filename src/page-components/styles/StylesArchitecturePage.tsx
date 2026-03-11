@@ -67,7 +67,7 @@ const LayerCard: FC<LayerCardProps> = ({
         </div>
         <h3 className="u-text-xl u-font-semibold u-m-0">{title}</h3>
       </div>
-      <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
+      <p className="u-text-secondary-emphasis-emphasis u-mb-4">{description}</p>
       <div className="u-flex u-flex-wrap u-gap-2 u-mb-3">
         <Badge variant="secondary" size="sm" label={`Output: ${output}`} />
         <Badge
@@ -77,7 +77,7 @@ const LayerCard: FC<LayerCardProps> = ({
         />
       </div>
       <div className="u-bg-tertiary-subtle u-p-3 u-rounded u-text-sm">
-        <p className="u-m-0 u-mb-2 u-font-medium u-text-secondary-emphasis">
+        <p className="u-m-0 u-mb-2 u-font-medium u-text-secondary-emphasis-emphasis">
           Examples:
         </p>
         {examples.map((example, idx) => (
@@ -198,7 +198,7 @@ const StylesArchitecturePage: FC = () => {
                 <h3 className="u-text-xl u-font-semibold u-mb-3">
                   Core Principles
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-4 u-fs-lg">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-fs-lg">
                   By organizing CSS from far-reaching, low-specificity styles to
                   specific, high-specificity utilities, we eliminate the need
                   for `!important` and reduce regression risks.
@@ -216,7 +216,7 @@ const StylesArchitecturePage: FC = () => {
                       <h4 className="u-text-md u-font-bold u-m-0">
                         Increasing Specificity
                       </h4>
-                      <p className="u-text-sm u-text-secondary-emphasis u-m-0">
+                      <p className="u-text-sm u-text-secondary-emphasis-emphasis u-m-0">
                         Styles become more targeted as you move down the layers.
                       </p>
                     </div>
@@ -233,7 +233,7 @@ const StylesArchitecturePage: FC = () => {
                       <h4 className="u-text-md u-font-bold u-m-0">
                         Decreasing Reach
                       </h4>
-                      <p className="u-text-sm u-text-secondary-emphasis u-m-0">
+                      <p className="u-text-sm u-text-secondary-emphasis-emphasis u-m-0">
                         Base styles affect many elements; utilities affect only
                         one.
                       </p>
@@ -251,7 +251,7 @@ const StylesArchitecturePage: FC = () => {
                       <h4 className="u-text-md u-font-bold u-m-0">
                         Explicit Control
                       </h4>
-                      <p className="u-text-sm u-text-secondary-emphasis u-m-0">
+                      <p className="u-text-sm u-text-secondary-emphasis-emphasis u-m-0">
                         Logic moves from abstract patterns to concrete
                         implementations.
                       </p>
@@ -267,7 +267,7 @@ const StylesArchitecturePage: FC = () => {
                   {[...layers].map((layer, i) => (
                     <div
                       key={i}
-                      className={`u-p-2 u-text-center u-rounded u-font-bold u-fs-xs u-text-white ${pageStyles.stylesArchitecturePage__triangleLayer}`}
+                      className={`u-p-2 u-text-center u-rounded u-font-bold u-fs-xs  ${pageStyles.stylesArchitecturePage__triangleLayer}`}
                       style={
                         {
                           width: `${100 - i * 12}%`,
@@ -311,19 +311,19 @@ const StylesArchitecturePage: FC = () => {
                 <Icon name="Palette" size={32} className="u-text-primary" />
               </div>
               <h4 className="u-font-bold u-m-0">1. Define</h4>
-              <p className="u-text-xs u-text-secondary-emphasis">
+              <p className="u-text-xs u-text-secondary-emphasis-emphasis">
                 Design Tokens in Figma
               </p>
             </div>
             <Icon
               name="ArrowRight"
               size={24}
-              className="u-text-secondary u-none u-block-md"
+              className="u-text-secondary-emphasis u-none u-block-md"
             />
             <Icon
               name="ArrowDown"
               size={24}
-              className="u-text-secondary u-block u-none-md"
+              className="u-text-secondary-emphasis u-block u-none-md"
             />
             <div className="u-text-center">
               <div
@@ -332,19 +332,19 @@ const StylesArchitecturePage: FC = () => {
                 <Icon name="BracketsCurly" size={32} className="u-text-info" />
               </div>
               <h4 className="u-font-bold u-m-0">2. Export</h4>
-              <p className="u-text-xs u-text-secondary-emphasis">
+              <p className="u-text-xs u-text-secondary-emphasis-emphasis">
                 Standardized JSON Data
               </p>
             </div>
             <Icon
               name="ArrowRight"
               size={24}
-              className="u-text-secondary u-none u-block-md"
+              className="u-text-secondary-emphasis u-none u-block-md"
             />
             <Icon
               name="ArrowDown"
               size={24}
-              className="u-text-secondary u-block u-none-md"
+              className="u-text-secondary-emphasis u-block u-none-md"
             />
             <div className="u-text-center">
               <div
@@ -353,19 +353,19 @@ const StylesArchitecturePage: FC = () => {
                 <Icon name="Lightning" size={32} className="u-text-warning" />
               </div>
               <h4 className="u-font-bold u-m-0">3. Transform</h4>
-              <p className="u-text-xs u-text-secondary-emphasis">
+              <p className="u-text-xs u-text-secondary-emphasis-emphasis">
                 SCSS & CSS Variables
               </p>
             </div>
             <Icon
               name="ArrowRight"
               size={24}
-              className="u-text-secondary u-none u-block-md"
+              className="u-text-secondary-emphasis u-none u-block-md"
             />
             <Icon
               name="ArrowDown"
               size={24}
-              className="u-text-secondary u-block u-none-md"
+              className="u-text-secondary-emphasis u-block u-none-md"
             />
             <div className="u-text-center">
               <div
@@ -374,7 +374,7 @@ const StylesArchitecturePage: FC = () => {
                 <Icon name="Monitor" size={32} className="u-text-success" />
               </div>
               <h4 className="u-font-bold u-m-0">4. Apply</h4>
-              <p className="u-text-xs u-text-secondary-emphasis">
+              <p className="u-text-xs u-text-secondary-emphasis-emphasis">
                 Premium UI Components
               </p>
             </div>
@@ -410,7 +410,7 @@ const StylesArchitecturePage: FC = () => {
                 <Icon name="Atom" size={32} className="u-text-primary" />
               </div>
               <h3 className="u-text-xl u-font-bold u-mb-2">Atoms</h3>
-              <p className="u-text-secondary-emphasis">
+              <p className="u-text-secondary-emphasis-emphasis">
                 Basic building blocks: Buttons, Inputs, Badges, and Icons. They
                 cannot be broken down further without losing functionality.
               </p>
@@ -424,7 +424,7 @@ const StylesArchitecturePage: FC = () => {
                 <Icon name="Tree" size={32} className="u-text-success" />
               </div>
               <h3 className="u-text-xl u-font-bold u-mb-2">Molecules</h3>
-              <p className="u-text-secondary-emphasis">
+              <p className="u-text-secondary-emphasis-emphasis">
                 Groups of atoms bonded together: Form groups, Search bars, and
                 Card headers. They perform simple, specific tasks.
               </p>
@@ -438,7 +438,7 @@ const StylesArchitecturePage: FC = () => {
                 <Icon name="Cube" size={32} className="u-text-warning" />
               </div>
               <h3 className="u-text-xl u-font-bold u-mb-2">Organisms</h3>
-              <p className="u-text-secondary-emphasis">
+              <p className="u-text-secondary-emphasis-emphasis">
                 Complex UI components: Navigation bars, Data tables, and Modals.
                 They represent distinct sections of an interface.
               </p>
@@ -464,7 +464,7 @@ const StylesArchitecturePage: FC = () => {
                   />
                   <div>
                     <strong className="u-block">Cascade Predictability</strong>
-                    <span className="u-text-sm u-text-secondary-emphasis">
+                    <span className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Styles are applied in a logical order, reducing unexpected
                       overrides.
                     </span>
@@ -478,7 +478,7 @@ const StylesArchitecturePage: FC = () => {
                   />
                   <div>
                     <strong className="u-block">Zero Specificity Wars</strong>
-                    <span className="u-text-sm u-text-secondary-emphasis">
+                    <span className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Eliminates the need for deep nesting and `!important`
                       flags.
                     </span>
@@ -492,7 +492,7 @@ const StylesArchitecturePage: FC = () => {
                   />
                   <div>
                     <strong className="u-block">Performance Optimized</strong>
-                    <span className="u-text-sm u-text-secondary-emphasis">
+                    <span className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Smaller CSS payloads and faster browser rendering times.
                     </span>
                   </div>
@@ -518,7 +518,7 @@ const StylesArchitecturePage: FC = () => {
                   />
                   <div>
                     <strong className="u-block">SCSS Module System</strong>
-                    <span className="u-text-sm u-text-secondary-emphasis">
+                    <span className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Using `@use` and `@forward` for encapsulated styling.
                     </span>
                   </div>
@@ -531,7 +531,7 @@ const StylesArchitecturePage: FC = () => {
                   />
                   <div>
                     <strong className="u-block">Dynamic Theming</strong>
-                    <span className="u-text-sm u-text-secondary-emphasis">
+                    <span className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Leveraging CSS Custom Properties for runtime theme
                       switching.
                     </span>
@@ -545,7 +545,7 @@ const StylesArchitecturePage: FC = () => {
                   />
                   <div>
                     <strong className="u-block">Native Dark Mode</strong>
-                    <span className="u-text-sm u-text-secondary-emphasis">
+                    <span className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Built-in support for light and dark color schemes.
                     </span>
                   </div>
@@ -567,7 +567,7 @@ const StylesArchitecturePage: FC = () => {
               <h3 className="u-text-lg u-font-bold u-mb-3">
                 SCSS Customization
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Override system variables at compile-time to change colors,
                 typography, or spacing globally.
               </p>
@@ -590,7 +590,7 @@ const StylesArchitecturePage: FC = () => {
               <h3 className="u-text-lg u-font-bold u-mb-3">
                 Runtime Overrides
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Use CSS variables for dynamic changes like branding or dashboard
                 colors.
               </p>
@@ -644,7 +644,7 @@ const StylesArchitecturePage: FC = () => {
                     <Icon
                       name="CaretRight"
                       size={14}
-                      className="u-text-secondary"
+                      className="u-text-secondary-emphasis"
                     />
                     <code
                       className={pageStyles.stylesArchitecturePage__codeExample}
@@ -665,32 +665,32 @@ const StylesArchitecturePage: FC = () => {
                   Naming Conventions
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-3">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                 We use strict prefixes to distinguish between architectural
                 layers:
               </p>
               <div className="u-flex u-flex-column u-gap-3">
                 <div className="u-p-2 u-border-start u-border-primary u-border-3 u-ps-3">
                   <code className="u-block u-font-bold">.o-*</code>
-                  <span className="u-text-xs u-text-secondary-emphasis">
+                  <span className="u-text-xs u-text-secondary-emphasis-emphasis">
                     Objects (e.g., .o-container)
                   </span>
                 </div>
                 <div className="u-p-2 u-border-start u-border-success u-border-3 u-ps-3">
                   <code className="u-block u-font-bold">.c-*</code>
-                  <span className="u-text-xs u-text-secondary-emphasis">
+                  <span className="u-text-xs u-text-secondary-emphasis-emphasis">
                     Components (e.g., .c-button)
                   </span>
                 </div>
                 <div className="u-p-2 u-border-start u-border-warning u-border-3 u-ps-3">
                   <code className="u-block u-font-bold">.u-*</code>
-                  <span className="u-text-xs u-text-secondary-emphasis">
+                  <span className="u-text-xs u-text-secondary-emphasis-emphasis">
                     Utilities (e.g., .u-m-4)
                   </span>
                 </div>
                 <div className="u-p-2 u-border-start u-border-danger u-border-3 u-ps-3">
                   <code className="u-block u-font-bold">.is-*, .has-*</code>
-                  <span className="u-text-xs u-text-secondary-emphasis">
+                  <span className="u-text-xs u-text-secondary-emphasis-emphasis">
                     States (e.g., .is-active)
                   </span>
                 </div>
@@ -713,7 +713,7 @@ const StylesArchitecturePage: FC = () => {
                 <div className="u-flex u-flex-column u-gap-4">
                   <div>
                     <code className="u-text-primary u-font-bold">.c-block</code>
-                    <p className="u-text-sm u-text-secondary-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis-emphasis">
                       The standalone entity (e.g., .c-card, .c-btn).
                     </p>
                   </div>
@@ -721,7 +721,7 @@ const StylesArchitecturePage: FC = () => {
                     <code className="u-text-success u-font-bold">
                       .c-block__element
                     </code>
-                    <p className="u-text-sm u-text-secondary-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Parts of a block (e.g., .c-card__title, .c-btn__icon).
                     </p>
                   </div>
@@ -729,7 +729,7 @@ const StylesArchitecturePage: FC = () => {
                     <code className="u-text-warning u-font-bold">
                       .c-block--modifier
                     </code>
-                    <p className="u-text-sm u-text-secondary-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis-emphasis">
                       Variations (e.g., .c-card--glass, .c-btn--primary).
                     </p>
                   </div>
@@ -772,7 +772,7 @@ const StylesArchitecturePage: FC = () => {
                 <h4 className="u-text-xl u-font-bold u-m-0">The "Do" List</h4>
               </div>
               <ul className="u-list-none u-flex u-flex-column u-gap-3 u-p-0">
-                <li className="u-flex u-gap-2 u-text-secondary-emphasis">
+                <li className="u-flex u-gap-2 u-text-secondary-emphasis-emphasis">
                   <Icon
                     name="Check"
                     size={18}
@@ -780,7 +780,7 @@ const StylesArchitecturePage: FC = () => {
                   />
                   <span>Always use CSS variables for colors and spacing.</span>
                 </li>
-                <li className="u-flex u-gap-2 u-text-secondary-emphasis">
+                <li className="u-flex u-gap-2 u-text-secondary-emphasis-emphasis">
                   <Icon
                     name="Check"
                     size={18}
@@ -788,7 +788,7 @@ const StylesArchitecturePage: FC = () => {
                   />
                   <span>Prefer utility classes for one-off layouts.</span>
                 </li>
-                <li className="u-flex u-gap-2 u-text-secondary-emphasis">
+                <li className="u-flex u-gap-2 u-text-secondary-emphasis-emphasis">
                   <Icon
                     name="Check"
                     size={18}
@@ -796,7 +796,7 @@ const StylesArchitecturePage: FC = () => {
                   />
                   <span>Follow BEM naming convention for components.</span>
                 </li>
-                <li className="u-flex u-gap-2 u-text-secondary-emphasis">
+                <li className="u-flex u-gap-2 u-text-secondary-emphasis-emphasis">
                   <Icon
                     name="Check"
                     size={18}
@@ -817,19 +817,19 @@ const StylesArchitecturePage: FC = () => {
                 </h4>
               </div>
               <ul className="u-list-none u-flex u-flex-column u-gap-3 u-p-0">
-                <li className="u-flex u-gap-2 u-text-secondary-emphasis">
+                <li className="u-flex u-gap-2 u-text-secondary-emphasis-emphasis">
                   <Icon name="X" size={18} className="u-text-error u-mt-1" />
                   <span>Never use IDs for styling.</span>
                 </li>
-                <li className="u-flex u-gap-2 u-text-secondary-emphasis">
+                <li className="u-flex u-gap-2 u-text-secondary-emphasis-emphasis">
                   <Icon name="X" size={18} className="u-text-error u-mt-1" />
                   <span>Avoid deep nesting (max 3 levels).</span>
                 </li>
-                <li className="u-flex u-gap-2 u-text-secondary-emphasis">
+                <li className="u-flex u-gap-2 u-text-secondary-emphasis-emphasis">
                   <Icon name="X" size={18} className="u-text-error u-mt-1" />
                   <span>Do not use `!important` unless in utilities.</span>
                 </li>
-                <li className="u-flex u-gap-2 u-text-secondary-emphasis">
+                <li className="u-flex u-gap-2 u-text-secondary-emphasis-emphasis">
                   <Icon name="X" size={18} className="u-text-error u-mt-1" />
                   <span>No hard-coded magic numbers for spacing.</span>
                 </li>

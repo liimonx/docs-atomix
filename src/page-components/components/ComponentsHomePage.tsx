@@ -92,7 +92,7 @@ const ComponentsHomePage: FC = () => {
               <h3 className="u-text-3xl u-font-bold u-mb-2 u-text-primary-emphasis">
                 {componentMetadata.length}
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-0 u-text-lg">
                 Components
               </p>
             </Card>
@@ -106,7 +106,7 @@ const ComponentsHomePage: FC = () => {
               <h3 className="u-text-3xl u-font-bold u-mb-2 u-text-primary-emphasis">
                 {stableComponentsCount}
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-0 u-text-lg">
                 Stable Components
               </p>
             </Card>
@@ -120,7 +120,7 @@ const ComponentsHomePage: FC = () => {
               <h3 className="u-text-3xl u-font-bold u-mb-2 u-text-primary-emphasis">
                 {categories.length}
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-0 u-text-lg">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-0 u-text-lg">
                 Categories
               </p>
             </Card>
@@ -160,7 +160,7 @@ const ComponentsHomePage: FC = () => {
                     <h3 className="u-text-xl u-font-semibold u-mb-2 u-text-primary-emphasis">
                       {category}
                     </h3>
-                    <p className="u-text-secondary-emphasis u-mb-0 u-text-base">
+                    <p className="u-text-secondary-emphasis-emphasis u-mb-0 u-text-base">
                       {
                         componentMetadata.filter((c) => c.category === category)
                           .length
@@ -200,7 +200,7 @@ const ComponentsHomePage: FC = () => {
                       </h3>
                     </div>
 
-                    <p className="u-text-secondary-emphasis u-flex-grow-1 u-mb-4 u-line-height-relaxed">
+                    <p className="u-text-secondary-emphasis-emphasis u-flex-grow-1 u-mb-4 u-line-height-relaxed">
                       {component.description.substring(0, 120)}...
                     </p>
 
@@ -238,7 +238,7 @@ const ComponentsHomePage: FC = () => {
           />
           <Link
             href="/docs/components/overview"
-            className="u-text-white u-text-decoration-none u-font-medium u-items-end u-pr-2"
+            className=" u-text-decoration-none u-font-medium u-items-end u-pr-2"
           >
             View All
             <Icon name="ArrowRight" size={16} />
@@ -265,7 +265,7 @@ const ComponentsHomePage: FC = () => {
                       />
                     </div>
 
-                    <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
+                    <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
                       {component.description.substring(0, 120)}...
                     </p>
 

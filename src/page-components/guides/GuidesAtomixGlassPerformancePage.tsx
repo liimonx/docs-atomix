@@ -392,7 +392,7 @@ const GuidesAtomixGlassPerformancePage: FC = () => {
                             </div>
                             <div className="u-flex-grow-1">
                               <h3>Adaptive Loading Strategy</h3>
-                              <p className="u-mt-2 u-text-secondary-emphasis">
+                              <p className="u-mt-2 u-text-secondary-emphasis-emphasis">
                                 Implement adaptive loading to provide
                                 appropriate experiences based on device
                                 capabilities. This ensures optimal performance
@@ -546,7 +546,7 @@ function OptimizedGlassComponent() {
                             />
                             <div>
                               <h3>Browser DevTools</h3>
-                              <p className="u-text-secondary-emphasis u-mt-1">
+                              <p className="u-text-secondary-emphasis-emphasis u-mt-1">
                                 Essential tools for performance monitoring
                               </p>
                             </div>
@@ -607,7 +607,7 @@ function OptimizedGlassComponent() {
                             />
                             <div>
                               <h3>Core Web Vitals</h3>
-                              <p className="u-text-sm u-text-secondary-emphasis u-mt-1">
+                              <p className="u-text-sm u-text-secondary-emphasis-emphasis u-mt-1">
                                 Key metrics for user experience
                               </p>
                             </div>
@@ -625,7 +625,7 @@ function OptimizedGlassComponent() {
                                   label="≤2.5s"
                                 />
                               </div>
-                              <p className="u-text-sm u-text-secondary-emphasis">
+                              <p className="u-text-sm u-text-secondary-emphasis-emphasis">
                                 Time until largest content element is rendered.
                                 AtomixGlass can delay LCP if used in hero
                                 sections.
@@ -643,7 +643,7 @@ function OptimizedGlassComponent() {
                                   label="≤100ms"
                                 />
                               </div>
-                              <p className="u-text-sm u-text-secondary-emphasis">
+                              <p className="u-text-sm u-text-secondary-emphasis-emphasis">
                                 Time from first interaction to browser response.
                                 Heavy shader effects can increase FID.
                               </p>
@@ -660,7 +660,7 @@ function OptimizedGlassComponent() {
                                   label="≤0.1"
                                 />
                               </div>
-                              <p className="u-text-sm u-text-secondary-emphasis">
+                              <p className="u-text-sm u-text-secondary-emphasis-emphasis">
                                 Visual stability score. Always set explicit
                                 dimensions for AtomixGlass containers.
                               </p>
@@ -677,7 +677,7 @@ function OptimizedGlassComponent() {
                                   label="≤200ms"
                                 />
                               </div>
-                              <p className="u-text-sm u-text-secondary-emphasis">
+                              <p className="u-text-sm u-text-secondary-emphasis-emphasis">
                                 Responsiveness metric. Debounce interactive
                                 glass effects to maintain good INP.
                               </p>
@@ -814,7 +814,7 @@ function MonitoredGlassComponent() {
                               />
                             </div>
                           </div>
-                          <p className="u-text-sm u-text-secondary-emphasis u-mb-4">
+                          <p className="u-text-sm u-text-secondary-emphasis-emphasis u-mb-4">
                             Only render AtomixGlass components when they're
                             visible in the viewport. This dramatically reduces
                             GPU load.
@@ -867,7 +867,7 @@ function LazyGlassComponent() {
                               />
                             </div>
                           </div>
-                          <p className="u-text-sm u-text-secondary-emphasis u-mb-4">
+                          <p className="u-text-sm u-text-secondary-emphasis-emphasis u-mb-4">
                             Respect user preferences for reduced motion. This
                             also improves performance on low-end devices.
                           </p>
@@ -914,7 +914,7 @@ function AccessibleGlassComponent() {
                               />
                             </div>
                           </div>
-                          <p className="u-text-sm u-text-secondary-emphasis u-mb-4">
+                          <p className="u-text-sm u-text-secondary-emphasis-emphasis u-mb-4">
                             Debounce mouse/touch events to reduce the frequency
                             of expensive shader updates.
                           </p>
@@ -964,7 +964,7 @@ function DebouncedGlassComponent() {
                               />
                             </div>
                           </div>
-                          <p className="u-text-sm u-text-secondary-emphasis u-mb-4">
+                          <p className="u-text-sm u-text-secondary-emphasis-emphasis u-mb-4">
                             Memoize AtomixGlass components to prevent
                             unnecessary re-renders and shader recompilation.
                           </p>

@@ -76,7 +76,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
                           className="u-text-success u-flex-shrink-0"
                           style={{ marginTop: "2px" }}
                         />
-                        <span className="u-text-secondary-emphasis">
+                        <span className="u-text-secondary-emphasis-emphasis">
                           {feature}
                         </span>
                       </li>
@@ -96,7 +96,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
                       ))}
                     </ul>
                   ) : (
-                    <p className="u-text-secondary-emphasis u-m-0">
+                    <p className="u-text-secondary-emphasis-emphasis u-m-0">
                       No external dependencies
                     </p>
                   )}
@@ -269,7 +269,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
       <Block>
         <div className="u-text-center u-py-8">
           <h1 className="u-text-3xl u-font-bold u-mb-4">Component Not Found</h1>
-          <p className="u-text-secondary-emphasis u-mb-6">
+          <p className="u-text-secondary-emphasis-emphasis u-mb-6">
             The requested component could not be found.
           </p>
           <Link href="/docs/components/overview">
@@ -286,7 +286,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
         <div className="u-mb-8">
           <Link
             href="/docs/components"
-            className="u-inline-flex u-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
+            className="u-inline-flex u-items-center u-gap-2 u-text-secondary-emphasis-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
           >
             <span>← Back to Components</span>
           </Link>
@@ -296,7 +296,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
               <h1 className="u-text-4xl u-font-bold u-mb-2">
                 {componentDoc.name}
               </h1>
-              <p className="u-text-secondary-emphasis u-m-0">
+              <p className="u-text-secondary-emphasis-emphasis u-m-0">
                 {componentDoc.description}
               </p>
             </div>

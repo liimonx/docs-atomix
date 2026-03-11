@@ -126,7 +126,7 @@ const LayoutsPerformancePage: FC = () => {
                   Performance Issues
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Layout performance is crucial for user experience. Poor layout
                 performance can cause several issues:
               </p>
@@ -151,7 +151,7 @@ const LayoutsPerformancePage: FC = () => {
                           {issue.title}
                         </h4>
                       </div>
-                      <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                      <p className="u-text-secondary-emphasis-emphasis u-m-0 u-line-height-relaxed">
                         {issue.description}
                       </p>
                     </Card>
@@ -173,7 +173,7 @@ const LayoutsPerformancePage: FC = () => {
                   Key Performance Metrics
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Monitor these Core Web Vitals to measure and improve layout
                 performance:
               </p>
@@ -197,7 +197,7 @@ const LayoutsPerformancePage: FC = () => {
                         <h4 className="u-text-lg u-font-semibold u-m-0 u-mb-2 u-text-primary-emphasis">
                           {metric.title}
                         </h4>
-                        <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-gGrid-1">
+                        <p className="u-text-secondary-emphasis-emphasis u-m-0 u-line-height-relaxed u-flex-gGrid-1">
                           {metric.description}
                         </p>
                       </div>
@@ -228,7 +228,7 @@ const LayoutsPerformancePage: FC = () => {
                   Efficient Column Calculations
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Avoid expensive calculations on every render. Use memoization to
                 optimize column size calculations.
               </p>
@@ -297,7 +297,7 @@ function OptimizedGrid({ items }) {
                   Minimizing Layout Shifts
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Strategies to reduce Cumulative Layout Shift (CLS):
               </p>
 
@@ -311,7 +311,7 @@ function OptimizedGrid({ items }) {
                 ].map((strategy, index) => (
                   <li
                     key={index}
-                    className="u-flex u-items-center u-text-secondary-emphasis"
+                    className="u-flex u-items-center u-text-secondary-emphasis-emphasis"
                   >
                     <span className="u-me-2 u-text-primary-emphasis">✓</span>
                     {strategy}
@@ -348,7 +348,7 @@ function OptimizedGrid({ items }) {
                   Virtualization
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 For large datasets, use virtualization to render only visible
                 items:
               </p>
@@ -382,7 +382,7 @@ function OptimizedGrid({ items }) {
                 ].map((benefit, index) => (
                   <li
                     key={index}
-                    className="u-flex u-items-center u-text-secondary-emphasis"
+                    className="u-flex u-items-center u-text-secondary-emphasis-emphasis"
                   >
                     <span className="u-me-2 u-text-success-emphasis">✓</span>
                     {benefit}
@@ -412,7 +412,7 @@ function OptimizedGrid({ items }) {
                   Critical CSS
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Inline critical CSS for above-the-fold content to improve First
                 Contentful Paint (FCP):
               </p>
@@ -443,14 +443,14 @@ function OptimizedGrid({ items }) {
           <GridCol md={6}>
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-secondary-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-secondary-emphasis-emphasis">
                   <Icon name="Stack" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   CSS Containment
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Use CSS containment to isolate expensive layout calculations and
                 improve rendering performance:
               </p>
@@ -531,7 +531,7 @@ function OptimizedGrid({ items }) {
                     {practice.title}
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-m-0 u-line-height-relaxed">
                   {practice.description}
                 </p>
               </Card>

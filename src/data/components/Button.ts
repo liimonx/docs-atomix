@@ -245,7 +245,7 @@ export default function BasicButtons() {
 
 export default function OutlineButtons() {
   return (
-    <div className="u-flex u-gap-3 u-flex-wrap u-p-4 u-bg-dark u-rounded">
+    <div className="u-flex u-gap-3 u-flex-wrap u-p-4  u-rounded">
       <Button variant="outline-primary">Primary</Button>
       <Button variant="outline-success">Success</Button>
       <Button variant="outline-warning">Warning</Button>

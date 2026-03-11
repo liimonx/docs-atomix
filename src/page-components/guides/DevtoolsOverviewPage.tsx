@@ -82,7 +82,7 @@ const DevtoolsOverviewPage: FC = () => {
                 <Icon name="MagnifyingGlass" size={32} />
               </div>
               <h3 className="u-text-lg u-font-bold u-mb-2">Theme Inspector</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Deep inspection and validation of theme structure, CSS
                 variables, and accessibility issues.
               </p>
@@ -101,7 +101,7 @@ const DevtoolsOverviewPage: FC = () => {
                 <Icon name="Eye" size={32} />
               </div>
               <h3 className="u-text-lg u-font-bold u-mb-2">Theme Preview</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Live preview of themes with sample components, color palettes,
                 and typography scales.
               </p>
@@ -120,7 +120,7 @@ const DevtoolsOverviewPage: FC = () => {
                 <Icon name="GithubLogo" size={32} />
               </div>
               <h3 className="u-text-lg u-font-bold u-mb-2">Theme Comparator</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Side-by-side comparison of two themes with difference
                 highlighting and statistics.
               </p>
@@ -139,7 +139,7 @@ const DevtoolsOverviewPage: FC = () => {
                 <Icon name="PencilSimple" size={32} />
               </div>
               <h3 className="u-text-lg u-font-bold u-mb-2">Live Editor</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Real-time theme editing with visual and JSON editors, instant
                 preview, and export capabilities.
               </p>
@@ -158,7 +158,7 @@ const DevtoolsOverviewPage: FC = () => {
                 <Icon name="Terminal" size={32} />
               </div>
               <h3 className="u-text-lg u-font-bold u-mb-2">CLI Tool</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Command-line interface for theme validation, inspection,
                 comparison, and export.
               </p>
@@ -253,7 +253,7 @@ const DevtoolsOverviewPage: FC = () => {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Development Dashboard
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Create a comprehensive theme development dashboard:
                 </p>
                 <EnhancedCodeBlock
@@ -318,7 +318,7 @@ function ThemeDashboard() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Storybook Integration
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Add theme preview to your Storybook:
                 </p>
                 <EnhancedCodeBlock
@@ -402,7 +402,7 @@ export const decorators = [
           <GridCol md={12}>
             <Card className="u-p-6">
               <h2 className="u-text-2xl u-font-bold u-mb-4">Next Steps</h2>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Explore each devtools component in detail:
               </p>
               <div className="u-grid u-gap-3">

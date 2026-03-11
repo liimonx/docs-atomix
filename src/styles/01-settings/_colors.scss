@@ -64,18 +64,18 @@ $blue-8: #2c5282;
 $blue-9: #2a4366;
 $blue-10: #1a2a42;
 
-// ── Gray — Neutral Surfaces (Graphite-toned, slightly blue-shifted) ───────────
-// Light end stays warm-white; dark end is true graphite-navy
-$gray-1: #f8fafc; // off-white page background
-$gray-2: #f1f5f9; // subtle section backgrounds
-$gray-3: #e2e8f0; // dividers, input borders
-$gray-4: #cbd5e1; // placeholder text, secondary borders
-$gray-5: #94a3b8; // disabled text, tertiary labels
-$gray-6: #64748b; // secondary body text
-$gray-7: #475569; // primary body text (light mode)
-$gray-8: #1e2d3d; // dark surface (cards in dark mode)
-$gray-9: #111c27; // dark page background
-$gray-10: #080e1580; // deepest background / near-black
+// ── Gray — Neutral Surfaces (Slate-toned) ─────────────────────────────────────
+// Smooth grayscale from light mode to dark mode
+$gray-1: #f8fafc; // slate-50
+$gray-2: #f1f5f9; // slate-100
+$gray-3: #e2e8f0; // slate-200
+$gray-4: #cbd5e1; // slate-300
+$gray-5: #94a3b8; // slate-400
+$gray-6: #64748b; // slate-500
+$gray-7: #475569; // slate-600
+$gray-8: #334155; // slate-700
+$gray-9: #1e293b; // slate-800
+$gray-10: #0f172a; // slate-900
 
 // =============================================================================
 // Atomix Settings Override
@@ -157,9 +157,9 @@ $gray-10: #080e1580; // deepest background / near-black
   $overlay-1: rgba(0, 0, 0, 0.04),
   $overlay-2: rgba(0, 0, 0, 0.08),
   // ── Light Mode Text ────────────────────────────────────────────────────────
-  $primary-text: $gray-9,
+  $primary-text: $gray-10,
   // rich-near-black
-  $secondary-text: $gray-7,
+  $secondary-text: $gray-8,
   // comfortable secondary
   $tertiary-text: $gray-6,
   // muted
@@ -175,14 +175,14 @@ $gray-10: #080e1580; // deepest background / near-black
   $dark-text: #ffffff,
 
   // ── Dark Mode Text ─────────────────────────────────────────────────────────
-  $primary-text-dark: #f1f5f9,
-  // slightly warm white — less harsh
-  $secondary-text-dark: #94a3b8,
+  $primary-text-dark: #f8fafc,
+  // high contrast white
+  $secondary-text-dark: #cbd5e1,
+  // gray-4
+  $tertiary-text-dark: #94a3b8,
   // gray-5
-  $tertiary-text-dark: #64748b,
+  $disabled-text-dark: #64748b,
   // gray-6
-  $disabled-text-dark: #475569,
-  // gray-7
   $invert-text-dark: $gray-9,
   $brand-text-dark: $primary-4,
   $error-text-dark: $red-4,
@@ -220,7 +220,7 @@ $gray-10: #080e1580; // deepest background / near-black
   $warning-bg-dark: rgba($yellow-5, 0.12),
   $info-bg-dark: rgba($blue-5, 0.12),
   $light-bg-dark: $gray-10,
-  $dark-bg-dark: #000000,
+  $dark-bg-dark: #020617,
 
   // ── Light Mode Borders ─────────────────────────────────────────────────────
   $primary-border: $gray-3,
@@ -248,7 +248,7 @@ $gray-10: #080e1580; // deepest background / near-black
   $primary: $primary-6,
   $secondary: $gray-1,
   $light: #ffffff,
-  $dark: $gray-9,
+  $dark: $gray-10,
   $success: $green-6,
   $info: $blue-6,
   $warning: $yellow-5,
@@ -256,9 +256,9 @@ $gray-10: #080e1580; // deepest background / near-black
 
   // Dark variants
   $primary-dark: $primary-5,
-  $secondary-dark: $gray-9,
-  $light-dark: $gray-10,
-  $dark-dark: #000000,
+  $secondary-dark: $gray-10,
+  $light-dark: #020617,
+  $dark-dark: #020617,
   $success-dark: $green-5,
   $info-dark: $blue-5,
   $warning-dark: $yellow-5,
@@ -278,7 +278,7 @@ $gray-10: #080e1580; // deepest background / near-black
   $primary-hover-dark: $primary-4,
   $secondary-hover-dark: $gray-8,
   $light-hover-dark: $gray-9,
-  $dark-hover-dark: #000000,
+  $dark-hover-dark: #020617,
   $info-hover-dark: $blue-4,
   $success-hover-dark: $green-4,
   $warning-hover-dark: $yellow-4,
@@ -289,10 +289,10 @@ $gray-10: #080e1580; // deepest background / near-black
   $color-contrast-light: #ffffff,
 
   // ── Body ───────────────────────────────────────────────────────────────────
-  $body-color: $gray-7,
-  // slightly lighter than before — easier on eyes
+  $body-color: $gray-8,
+  // high contrast body text
   $body-bg: #ffffff,
-  $headings-color: $gray-9,
+  $headings-color: $gray-10,
   $link-color: $primary-6,
   $link-decoration: none,
   $link-hover-color: $primary-7,
@@ -307,11 +307,11 @@ $gray-10: #080e1580; // deepest background / near-black
   $form-invalid-border-color: $red-6,
 
   // Dark mode body
-  $body-color-dark: #94a3b8,
-  // gray-5 — comfortable on dark surfaces
-  $body-bg-dark: #000000,
+  $body-color-dark: $gray-3,
+  // highly readable on dark surfaces
+  $body-bg-dark: $gray-10,
 
-  $headings-color-dark: #f1f5f9,
+  $headings-color-dark: #ffffff,
   $link-color-dark: $primary-4,
   $link-hover-color-dark: $primary-3,
   $code-color-dark: #f78da7,
@@ -344,7 +344,7 @@ $gray-10: #080e1580; // deepest background / near-black
     linear-gradient(135deg, $primary-4 0%, $primary-7 100%),
   $gradient-secondary-dark: linear-gradient(135deg, $gray-8 0%, $gray-9 100%),
   $gradient-light-dark: linear-gradient(135deg, $gray-8 0%, $gray-9 100%),
-  $gradient-dark-dark: linear-gradient(135deg, #000000 0%, $gray-9 100%),
+  $gradient-dark-dark: linear-gradient(135deg, #020617 0%, $gray-10 100%),
   $gradient-success-dark: linear-gradient(135deg, $green-4 0%, $green-6 100%),
   $gradient-info-dark: linear-gradient(135deg, $blue-3 0%, $blue-6 100%),
   $gradient-warning-dark: linear-gradient(135deg, $yellow-3 0%, $yellow-5 100%),

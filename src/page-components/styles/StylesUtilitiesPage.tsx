@@ -58,14 +58,14 @@ const CategoryCard: FC<UtilityCategoryProps> = ({
         />
         <h3 className="u-text-xl u-font-semibold u-m-0">{title}</h3>
       </div>
-      <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
+      <p className="u-text-secondary-emphasis-emphasis u-mb-4">{description}</p>
       <div className="u-flex u-flex-column u-gap-2">
         {examples.map((ex, idx) => (
           <div key={idx} className="u-flex u-items-center u-gap-2">
             <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
               {ex.class}
             </code>
-            <span className="u-text-sm u-text-secondary-emphasis">
+            <span className="u-text-sm u-text-secondary-emphasis-emphasis">
               {ex.description}
             </span>
           </div>
@@ -125,7 +125,10 @@ const StylesUtilitiesPage: FC = () => {
         { class: ".u-text-primary-emphasis", description: "Primary text" },
         { class: ".u-bg-success-subtle", description: "Success background" },
         { class: ".u-border-error", description: "Error border" },
-        { class: ".u-text-secondary-emphasis", description: "Secondary text" },
+        {
+          class: ".u-text-secondary-emphasis-emphasis",
+          description: "Secondary text",
+        },
       ],
       color: "var(--atomix-warning)",
     },
@@ -235,7 +238,7 @@ const StylesUtilitiesPage: FC = () => {
                   <h3 className="u-text-xl u-font-semibold u-mb-3">
                     Naming Convention
                   </h3>
-                  <p className="u-text-secondary-emphasis u-mb-4">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                     Atomix utilities follow a consistent, predictable pattern:
                   </p>
                   <div className="u-bg-tertiary-subtle u-p-4 u-rounded u-mb-4">
@@ -263,7 +266,7 @@ const StylesUtilitiesPage: FC = () => {
             <h2 className="u-text-2xl u-font-bold u-mb-4">
               Utility Categories
             </h2>
-            <p className="u-text-secondary-emphasis u-mb-4">
+            <p className="u-text-secondary-emphasis-emphasis u-mb-4">
               Explore our comprehensive collection of utility classes organized
               by category. Each category contains a set of related utilities
               that help you build consistent, responsive designs faster.
@@ -284,7 +287,7 @@ const StylesUtilitiesPage: FC = () => {
             <h2 className="u-text-2xl u-font-bold u-mb-4">
               Responsive Utilities
             </h2>
-            <p className="u-text-secondary-emphasis u-mb-4">
+            <p className="u-text-secondary-emphasis-emphasis u-mb-4">
               All utilities support responsive breakpoints, allowing you to
               create adaptive designs that work across all device sizes. Simply
               prefix any utility with a breakpoint name to apply it only at that
@@ -306,7 +309,7 @@ const StylesUtilitiesPage: FC = () => {
                   Breakpoint Prefixes
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 All utilities support responsive breakpoints:
               </p>
               <div className="u-overflow-x-auto">
@@ -333,7 +336,9 @@ const StylesUtilitiesPage: FC = () => {
                           (none)
                         </code>
                       </td>
-                      <td className="u-p-3 u-text-secondary-emphasis">0px</td>
+                      <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                        0px
+                      </td>
                       <td className="u-p-3">
                         <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-flex
@@ -346,7 +351,9 @@ const StylesUtilitiesPage: FC = () => {
                           .u-sm-
                         </code>
                       </td>
-                      <td className="u-p-3 u-text-secondary-emphasis">640px</td>
+                      <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                        640px
+                      </td>
                       <td className="u-p-3">
                         <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-sm-d-block
@@ -359,7 +366,9 @@ const StylesUtilitiesPage: FC = () => {
                           .u-md-
                         </code>
                       </td>
-                      <td className="u-p-3 u-text-secondary-emphasis">768px</td>
+                      <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                        768px
+                      </td>
                       <td className="u-p-3">
                         <code className="u-text-sm u-bg-tertiary-subtle u-p-1 u-rounded">
                           .u-md-grid-cols-2
@@ -372,7 +381,7 @@ const StylesUtilitiesPage: FC = () => {
                           .u-lg-
                         </code>
                       </td>
-                      <td className="u-p-3 u-text-secondary-emphasis">
+                      <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                         1024px
                       </td>
                       <td className="u-p-3">
@@ -387,7 +396,7 @@ const StylesUtilitiesPage: FC = () => {
                           .u-xl-
                         </code>
                       </td>
-                      <td className="u-p-3 u-text-secondary-emphasis">
+                      <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                         1280px
                       </td>
                       <td className="u-p-3">
@@ -406,7 +415,7 @@ const StylesUtilitiesPage: FC = () => {
         <Row className="u-mt-6">
           <GridCol md={12}>
             <h2 className="u-text-2xl u-font-bold u-mb-4">Usage Examples</h2>
-            <p className="u-text-secondary-emphasis u-mb-4">
+            <p className="u-text-secondary-emphasis-emphasis u-mb-4">
               See how to combine utility classes to create common UI patterns
               and layouts.
             </p>
@@ -492,7 +501,7 @@ const StylesUtilitiesPage: FC = () => {
                     size={20}
                     className="u-text-success-emphasis"
                   />
-                  <p className="u-m-0 u-text-secondary-emphasis">
+                  <p className="u-m-0 u-text-secondary-emphasis-emphasis">
                     <strong>Compose utilities</strong> - Combine multiple
                     classes for complex layouts
                   </p>
@@ -503,7 +512,7 @@ const StylesUtilitiesPage: FC = () => {
                     size={20}
                     className="u-text-success-emphasis"
                   />
-                  <p className="u-m-0 u-text-secondary-emphasis">
+                  <p className="u-m-0 u-text-secondary-emphasis-emphasis">
                     <strong>Mobile-first</strong> - Start with base classes, add
                     breakpoint modifiers
                   </p>
@@ -514,7 +523,7 @@ const StylesUtilitiesPage: FC = () => {
                     size={20}
                     className="u-text-success-emphasis"
                   />
-                  <p className="u-m-0 u-text-secondary-emphasis">
+                  <p className="u-m-0 u-text-secondary-emphasis-emphasis">
                     <strong>Semantic colors</strong> - Use emphasis variants
                     (subtle, emphasis) for consistency
                   </p>
@@ -525,7 +534,7 @@ const StylesUtilitiesPage: FC = () => {
                     size={20}
                     className="u-text-success-emphasis"
                   />
-                  <p className="u-m-0 u-text-secondary-emphasis">
+                  <p className="u-m-0 u-text-secondary-emphasis-emphasis">
                     <strong>Spacing scale</strong> - Use consistent spacing
                     values (0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 24, 32, 48, 64)
                   </p>
@@ -536,7 +545,7 @@ const StylesUtilitiesPage: FC = () => {
                     size={20}
                     className="u-text-success-emphasis"
                   />
-                  <p className="u-m-0 u-text-secondary-emphasis">
+                  <p className="u-m-0 u-text-secondary-emphasis-emphasis">
                     <strong>Performance</strong> - Avoid excessive nesting and
                     redundant classes
                   </p>
@@ -566,7 +575,7 @@ const StylesUtilitiesPage: FC = () => {
                     size={20}
                     className="u-text-info-emphasis"
                   />
-                  <p className="u-m-0 u-text-secondary-emphasis">
+                  <p className="u-m-0 u-text-secondary-emphasis-emphasis">
                     <strong>Specificity</strong> - Utility classes have high
                     specificity (0,2,0) to override component styles when needed
                   </p>
@@ -577,7 +586,7 @@ const StylesUtilitiesPage: FC = () => {
                     size={20}
                     className="u-text-info-emphasis"
                   />
-                  <p className="u-m-0 u-text-secondary-emphasis">
+                  <p className="u-m-0 u-text-secondary-emphasis-emphasis">
                     <strong>!important</strong> - Most utilities use !important
                     to ensure consistent behavior
                   </p>
@@ -588,7 +597,7 @@ const StylesUtilitiesPage: FC = () => {
                     size={20}
                     className="u-text-info-emphasis"
                   />
-                  <p className="u-m-0 u-text-secondary-emphasis">
+                  <p className="u-m-0 u-text-secondary-emphasis-emphasis">
                     <strong>Customization</strong> - Modify the utility scale in
                     your theme configuration
                   </p>

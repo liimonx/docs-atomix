@@ -33,7 +33,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
       brand={
         <Link href="/">
           <div className="u-flex u-items-center u-gap-3">
-            <div className="u-flex u-items-center u-justify-center u-bg-brand-subtle u-rounded-sm u-p-3">
+            <div className="u-flex u-items-center u-justify-center u-rounded-sm u-p-3">
               <span className="u-text-brand-emphasis u-fs-xs .material-symbols-outlined">
                 atm
               </span>

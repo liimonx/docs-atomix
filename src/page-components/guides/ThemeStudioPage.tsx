@@ -604,10 +604,10 @@ const ThemeStudioPage: FC = () => {
         <div className="u-flex u-justify-between u-items-center u-flex-wrap u-gap-4">
           <div>
             <h1 className="u-text-2xl u-font-semibold u-mb-1">Theme Studio</h1>
-            <p className="u-text-sm u-text-secondary-emphasis">
+            <p className="u-text-sm u-text-secondary-emphasis-emphasis">
               Create and customize themes interactively with real-time preview.
             </p>
-            <p className="u-text-sm u-text-secondary-emphasis">
+            <p className="u-text-sm u-text-secondary-emphasis-emphasis">
               Save snapshots, share themes with your team, and restore previous
               versions.
             </p>

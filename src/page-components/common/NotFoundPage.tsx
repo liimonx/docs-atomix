@@ -59,7 +59,7 @@ const NotFoundPage: FC = () => {
         <h2 className="u-text-3xl u-font-bold u-mb-4">Page Not Found</h2>
 
         <p
-          className="u-text-secondary-emphasis u-mb-8 u-text-lg u-mx-auto"
+          className="u-text-secondary-emphasis-emphasis u-mb-8 u-text-lg u-mx-auto"
           style={{ maxWidth: "600px" }}
         >
           The page you're looking for doesn't exist or has been moved. Don't
@@ -99,7 +99,7 @@ const NotFoundPage: FC = () => {
                       <h4 className="u-text-lg u-font-semibold u-mb-2 u-text-primary-emphasis">
                         {link.title}
                       </h4>
-                      <p className="u-text-secondary-emphasis u-m-0">
+                      <p className="u-text-secondary-emphasis-emphasis u-m-0">
                         {link.description}
                       </p>
                     </div>
@@ -116,12 +116,12 @@ const NotFoundPage: FC = () => {
             <Icon
               name="MagnifyingGlass"
               size="xl"
-              className="u-mb-4 u-text-secondary-emphasis"
+              className="u-mb-4 u-text-secondary-emphasis-emphasis"
             />
             <h3 className="u-text-xl u-font-semibold u-mb-3">
               Still can't find what you're looking for?
             </h3>
-            <p className="u-text-secondary-emphasis u-mb-6">
+            <p className="u-text-secondary-emphasis-emphasis u-mb-6">
               Try using the search bar in the sidebar or check out our
               comprehensive documentation.
             </p>

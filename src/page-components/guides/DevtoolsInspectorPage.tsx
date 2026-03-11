@@ -36,7 +36,7 @@ const DevtoolsInspectorPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <h2 className="u-text-2xl u-font-bold u-mb-4">Overview</h2>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 The ThemeInspector component is a powerful debugging tool that
                 provides detailed insights into your theme's structure,
                 validates configuration, checks for accessibility issues, and
@@ -150,18 +150,10 @@ function App() {
                 <table className="u-w-100">
                   <thead>
                     <tr>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Prop
-                      </th>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Type
-                      </th>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Default
-                      </th>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Description
-                      </th>
+                      <th className="u-text-start u-p-3">Prop</th>
+                      <th className="u-text-start u-p-3">Type</th>
+                      <th className="u-text-start u-p-3">Default</th>
+                      <th className="u-text-start u-p-3">Description</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -256,7 +248,7 @@ function App() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Development Dashboard
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Integrate inspector into a development dashboard:
                 </p>
                 <EnhancedCodeBlock
@@ -299,7 +291,7 @@ function ThemeDevelopmentDashboard() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Testing Integration
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Use inspector programmatically in tests:
                 </p>
                 <EnhancedCodeBlock
@@ -346,7 +338,7 @@ describe('Theme Validation', () => {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Storybook Addon
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Create a Storybook addon for theme inspection:
                 </p>
                 <EnhancedCodeBlock
@@ -431,7 +423,7 @@ export function ThemeInspectorAddon() {
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Errors (Red)
                   </h4>
-                  <p className="u-text-sm u-text-secondary-emphasis">
+                  <p className="u-text-sm u-text-secondary-emphasis-emphasis">
                     Critical issues that will prevent the theme from working
                     correctly. Must be fixed before using the theme in
                     production.
@@ -441,7 +433,7 @@ export function ThemeInspectorAddon() {
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Warnings (Yellow)
                   </h4>
-                  <p className="u-text-sm u-text-secondary-emphasis">
+                  <p className="u-text-sm u-text-secondary-emphasis-emphasis">
                     Non-critical issues that may cause problems or accessibility
                     concerns. Should be reviewed and addressed when possible.
                   </p>
@@ -450,7 +442,7 @@ export function ThemeInspectorAddon() {
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Info (Blue)
                   </h4>
-                  <p className="u-text-sm u-text-secondary-emphasis">
+                  <p className="u-text-sm u-text-secondary-emphasis-emphasis">
                     Suggestions for improvements or best practices. Optional but
                     recommended.
                   </p>
@@ -518,7 +510,7 @@ export function ThemeInspectorAddon() {
           <GridCol md={12}>
             <Card className="u-p-6">
               <h2 className="u-text-2xl u-font-bold u-mb-4">Related Tools</h2>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Combine ThemeInspector with other devtools for a complete
                 development workflow:
               </p>

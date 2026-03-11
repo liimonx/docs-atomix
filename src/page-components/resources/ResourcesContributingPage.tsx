@@ -34,7 +34,7 @@ const ResourcesContributingPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Getting Started
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 How to get started with contributing to Atomix.
               </p>
               <Button variant="primary" className="u-mt-4">
@@ -48,7 +48,7 @@ const ResourcesContributingPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Coding Standards
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Coding standards and best practices for Atomix contributions.
               </p>
               <Button variant="primary" className="u-mt-4">
@@ -64,7 +64,7 @@ const ResourcesContributingPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Development Setup
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Setting up your development environment for Atomix.
               </p>
               <Button variant="primary" className="u-mt-4">
@@ -78,7 +78,7 @@ const ResourcesContributingPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Reporting Issues
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 How to report bugs and request features for Atomix.
               </p>
               <Button variant="primary" className="u-mt-4">

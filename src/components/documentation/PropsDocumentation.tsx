@@ -15,7 +15,7 @@ export const PropsDocumentation: FC<PropsDocumentationProps> = ({
   if (!component.props || component.props.length === 0) {
     return (
       <Card className="u-p-6 u-text-center">
-        <p className="u-text-secondary-emphasis">
+        <p className="u-text-secondary-emphasis-emphasis">
           No props documentation available for this component.
         </p>
       </Card>
@@ -73,7 +73,7 @@ export const PropsDocumentation: FC<PropsDocumentationProps> = ({
             {prop.defaultValue}
           </code>
         ) : (
-          <span className="u-text-secondary-emphasis">-</span>
+          <span className="u-text-secondary-emphasis-emphasis">-</span>
         ),
     },
     {
@@ -87,7 +87,7 @@ export const PropsDocumentation: FC<PropsDocumentationProps> = ({
           {prop.deprecated && prop.deprecationMessage && (
             <div className="u-flex u-items-center u-gap-2 u-mt-2">
               <Icon name="Warning" size="sm" className="u-text-warning" />
-              <span className="u-text-sm u-text-secondary-emphasis">
+              <span className="u-text-sm u-text-secondary-emphasis-emphasis">
                 {prop.deprecationMessage}
               </span>
             </div>

@@ -104,11 +104,11 @@ export function GlobalSearch() {
                 ))}
               </ul>
             ) : searchQuery.length > 0 ? (
-              <div className="u-p-4 u-text-center u-text-secondary-emphasis">
+              <div className="u-p-4 u-text-center u-text-secondary-emphasis-emphasis">
                 No results found.
               </div>
             ) : (
-              <div className="u-p-4 u-text-center u-text-secondary-emphasis">
+              <div className="u-p-4 u-text-center u-text-secondary-emphasis-emphasis">
                 Start typing to search...
               </div>
             )}

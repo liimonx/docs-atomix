@@ -30,7 +30,7 @@ export default function ExamplesIndexPage() {
     <div className="u-container u-pt-10 u-pb-16">
       <div className="u-text-center u-mb-12">
         <h1 className="u-text-4xl u-font-bold u-mb-3">Example Applications</h1>
-        <p className="u-text-lg u-text-secondary-emphasis">
+        <p className="u-text-lg u-text-secondary-emphasis-emphasis">
           Browse sample applications built with Atomix to inspire your next
           project
         </p>
@@ -46,7 +46,7 @@ export default function ExamplesIndexPage() {
           >
             <div className="u-card u-h-100 u-p-5 u-rounded-lg u-border u-border-border">
               <h3 className="u-text-xl u-font-bold u-mb-2">{example.title}</h3>
-              <p className="u-text-secondary-emphasis u-mb-3">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                 {example.description}
               </p>
               <Button
@@ -63,7 +63,7 @@ export default function ExamplesIndexPage() {
       </div>
 
       <div className="u-text-center u-mt-10">
-        <p className="u-text-secondary-emphasis u-mb-4">
+        <p className="u-text-secondary-emphasis-emphasis u-mb-4">
           Don't see what you're looking for?
         </p>
         <Button

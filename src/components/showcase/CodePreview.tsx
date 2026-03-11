@@ -50,7 +50,7 @@ export const CodePreview: FC<CodePreviewProps> = ({ code, language }) => {
   if (!renderedPreview) {
     return (
       <div className="u-text-center u-p-8">
-        <p className="u-text-secondary-emphasis u-mb-0">
+        <p className="u-text-secondary-emphasis-emphasis u-mb-0">
           Live preview is not available for this example. Please refer to the
           code tab to view the source code.
         </p>

@@ -82,15 +82,9 @@ npx atomix-theme --help`}
                 <table className="u-w-100">
                   <thead>
                     <tr>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Command
-                      </th>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Description
-                      </th>
-                      <th className="u-text-start u-p-3 u-bg-surface-subtle">
-                        Options
-                      </th>
+                      <th className="u-text-start u-p-3">Command</th>
+                      <th className="u-text-start u-p-3">Description</th>
+                      <th className="u-text-start u-p-3">Options</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -163,7 +157,7 @@ npx atomix-theme --help`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Validate Theme
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Validate a theme configuration file:
                 </p>
                 <EnhancedCodeBlock
@@ -190,7 +184,7 @@ atomix-theme validate --strict`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   List Themes
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Display all available themes:
                 </p>
                 <EnhancedCodeBlock
@@ -211,7 +205,7 @@ atomix-theme list
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Inspect Theme
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Get detailed information about a theme:
                 </p>
                 <EnhancedCodeBlock
@@ -232,7 +226,7 @@ atomix-theme inspect --theme light --json > theme-info.json`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Compare Themes
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Compare two themes and show differences:
                 </p>
                 <EnhancedCodeBlock
@@ -253,7 +247,7 @@ atomix-theme compare --theme1 light --theme2 dark --diff-only`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Export Theme
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Export a theme to JSON file:
                 </p>
                 <EnhancedCodeBlock
@@ -285,7 +279,7 @@ atomix-theme export --theme light --output ./light.json --pretty`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   GitHub Actions
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Validate themes in your CI pipeline:
                 </p>
                 <EnhancedCodeBlock
@@ -326,7 +320,7 @@ jobs:
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   NPM Scripts
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Add theme validation to package.json:
                 </p>
                 <EnhancedCodeBlock
@@ -348,7 +342,7 @@ jobs:
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Pre-commit Hook
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Validate themes before committing:
                 </p>
                 <EnhancedCodeBlock
@@ -382,7 +376,7 @@ fi`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Config File
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Create <code>atomix.config.ts</code> in your project root:
                 </p>
                 <EnhancedCodeBlock
@@ -409,7 +403,7 @@ export default defineConfig({
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Environment Variables
                 </h3>
-                <p className="u-text-secondary-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                   Configure CLI behavior with environment variables:
                 </p>
                 <EnhancedCodeBlock
@@ -444,7 +438,7 @@ export ATOMIX_DEBUG=true`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Command Not Found
                   </h4>
-                  <p className="u-text-sm u-text-secondary-emphasis u-mb-2">
+                  <p className="u-text-sm u-text-secondary-emphasis-emphasis u-mb-2">
                     If <code>atomix-theme</code> command is not found:
                   </p>
                   <EnhancedCodeBlock
@@ -462,7 +456,7 @@ npm install -g @shohojdhara/atomix`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Config File Not Found
                   </h4>
-                  <p className="u-text-sm u-text-secondary-emphasis u-mb-2">
+                  <p className="u-text-sm u-text-secondary-emphasis-emphasis u-mb-2">
                     Ensure <code>atomix.config.ts</code> exists in project root:
                   </p>
                   <EnhancedCodeBlock
@@ -480,7 +474,7 @@ atomix-theme validate --config ./path/to/config.ts`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     Validation Errors
                   </h4>
-                  <p className="u-text-sm u-text-secondary-emphasis u-mb-2">
+                  <p className="u-text-sm u-text-secondary-emphasis-emphasis u-mb-2">
                     Run validation with verbose output:
                   </p>
                   <EnhancedCodeBlock
@@ -553,7 +547,7 @@ ATOMIX_DEBUG=true atomix-theme validate`}
           <GridCol md={12}>
             <Card className="u-p-6">
               <h2 className="u-text-2xl u-font-bold u-mb-4">Related Tools</h2>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 The CLI complements the React devtools components:
               </p>
               <div className="u-grid u-gap-3">

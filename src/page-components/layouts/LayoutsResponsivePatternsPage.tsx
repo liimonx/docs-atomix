@@ -135,7 +135,7 @@ const LayoutsResponsivePatternsPage: FC = () => {
                   <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
                     {principle.title}
                   </h3>
-                  <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
+                  <p className="u-text-secondary-emphasis-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
                     {principle.description}
                   </p>
                 </div>
@@ -171,7 +171,7 @@ const LayoutsResponsivePatternsPage: FC = () => {
                   <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
                     {pattern.title}
                   </h3>
-                  <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
+                  <p className="u-text-secondary-emphasis-emphasis u-m-0 u-line-height-relaxed u-flex-grow-1">
                     {pattern.description}
                   </p>
                 </div>
@@ -191,7 +191,7 @@ const LayoutsResponsivePatternsPage: FC = () => {
                   Sidebar Layout Pattern
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Perfect for blogs, documentation, and admin dashboards. The
                 sidebar is hidden on mobile and visible on desktop.
               </p>
@@ -239,7 +239,7 @@ function SidebarLayout({ children, sidebar }) {
                   Card Grid Layout Pattern
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Ideal for dashboards, galleries, and product listings. Cards
                 automatically adjust based on screen size.
               </p>
@@ -289,7 +289,7 @@ function CardGridLayout({ cards }) {
                   Breakpoint Strategy
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Atomix uses a mobile-first approach with 6 breakpoints:
               </p>
               <div className="u-flex u-flex-column u-gap-2 u-mb-4">
@@ -308,7 +308,9 @@ function CardGridLayout({ cards }) {
                     <div className="u-w-10 u-h-10 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-primary-emphasis u-font-bold">
                       {bp.name}
                     </div>
-                    <span className="u-text-secondary-emphasis">{bp.size}</span>
+                    <span className="u-text-secondary-emphasis-emphasis">
+                      {bp.size}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -337,7 +339,7 @@ function CardGridLayout({ cards }) {
                   Responsive Media
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Ensure images and media adapt to their containers:
               </p>
 
@@ -375,7 +377,7 @@ function CardGridLayout({ cards }) {
               <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-2 u-text-primary-emphasis">
                 Typography
               </h4>
-              <p className="u-text-secondary-emphasis u-mb-2">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-2">
                 Use responsive font sizes:
               </p>
               <EnhancedCodeBlock
@@ -447,7 +449,7 @@ function CardGridLayout({ cards }) {
                     {practice.title}
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-m-0 u-line-height-relaxed">
                   {practice.description}
                 </p>
               </Card>

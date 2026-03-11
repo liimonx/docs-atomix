@@ -53,17 +53,17 @@ export const ComponentGrid: FC = () => {
               >
                 <div>
                   <div className="u-mb-4">
-                    <h3 className="u-text-lg u-font-semibold u-mb-2 u-text-text-primary">
+                    <h3 className="u-text-lg u-font-semibold u-mb-2 u-text-primary-emphasis">
                       {component.name}
                     </h3>
                   </div>
 
-                  <p className="u-text-secondary-emphasis u-mb-4 u-line-height-normal">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-normal">
                     {component.description}
                   </p>
 
                   <div className="u-flex u-justify-between u-items-center">
-                    <span className="u-text-sm u-text-secondary-emphasis u-font-medium">
+                    <span className="u-text-sm u-text-secondary-emphasis-emphasis u-font-medium">
                       {component.category}
                     </span>
 

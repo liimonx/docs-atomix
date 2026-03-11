@@ -97,7 +97,7 @@ const LayoutsMasonryGridPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <p
-                className={`u-text-secondary-emphasis u-mb-6 u-text-center u-line-height-relaxed ${pageStyles.layoutsMasonryGridPage__introText}`}
+                className={`u-text-secondary-emphasis-emphasis u-mb-6 u-text-center u-line-height-relaxed ${pageStyles.layoutsMasonryGridPage__introText}`}
               >
                 The Masonry Grid uses JavaScript to calculate optimal
                 positioning for items of varying heights, creating a visually
@@ -126,7 +126,7 @@ const LayoutsMasonryGridPage: FC = () => {
                           {feature.title}
                         </h4>
                       </div>
-                      <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                      <p className="u-text-secondary-emphasis-emphasis u-m-0 u-line-height-relaxed">
                         {feature.description}
                       </p>
                     </Card>
@@ -155,13 +155,13 @@ const LayoutsMasonryGridPage: FC = () => {
                     MasonryGrid
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                   The main container that manages item positioning and
                   responsive behavior.
                 </p>
                 <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                    <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
+                    <span className="u-text-xs u-text-secondary-emphasis-emphasis u-font-medium">
                       TypeScript / React
                     </span>
                   </div>
@@ -224,7 +224,7 @@ const LayoutsMasonryGridPage: FC = () => {
                         <div className="u-w-10 u-h-10 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis u-font-bold u-text-sm">
                           {item.prop}
                         </div>
-                        <span className="u-text-secondary-emphasis">
+                        <span className="u-text-secondary-emphasis-emphasis">
                           {item.desc}
                         </span>
                       </div>
@@ -246,7 +246,7 @@ const LayoutsMasonryGridPage: FC = () => {
                         <div className="u-w-10 u-h-10 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis u-font-bold u-text-sm">
                           {item.prop}
                         </div>
-                        <span className="u-text-secondary-emphasis">
+                        <span className="u-text-secondary-emphasis-emphasis">
                           {item.desc}
                         </span>
                       </div>
@@ -266,12 +266,12 @@ const LayoutsMasonryGridPage: FC = () => {
                     Responsive Configuration
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                   Configure columns for different breakpoints:
                 </p>
                 <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle u-mb-4">
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                    <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
+                    <span className="u-text-xs u-text-secondary-emphasis-emphasis u-font-medium">
                       Responsive Example
                     </span>
                   </div>
@@ -310,7 +310,9 @@ const LayoutsMasonryGridPage: FC = () => {
                       <div className="u-w-8 u-h-8 u-bg-warning-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-warning-emphasis">
                         <Icon name="Lightning" size="lg" />
                       </div>
-                      <span className="u-text-secondary-emphasis">{tip}</span>
+                      <span className="u-text-secondary-emphasis-emphasis">
+                        {tip}
+                      </span>
                     </div>
                   ))}
                 </div>

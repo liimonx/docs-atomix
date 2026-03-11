@@ -98,7 +98,7 @@ const LayoutsGridPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <p
-                className={`u-text-secondary-emphasis u-mb-6 u-text-center u-line-height-relaxed ${pageStyles.layoutsGridPage__introText}`}
+                className={`u-text-secondary-emphasis-emphasis u-mb-6 u-text-center u-line-height-relaxed ${pageStyles.layoutsGridPage__introText}`}
               >
                 The Grid System is based on a 12-column layout with responsive
                 breakpoints and flexible alignment options. It follows the ITCSS
@@ -126,7 +126,7 @@ const LayoutsGridPage: FC = () => {
                           {feature.title}
                         </h4>
                       </div>
-                      <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                      <p className="u-text-secondary-emphasis-emphasis u-m-0 u-line-height-relaxed">
                         {feature.description}
                       </p>
                     </Card>
@@ -155,13 +155,13 @@ const LayoutsGridPage: FC = () => {
                     Container
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                   The Container component provides responsive max-widths and
                   centering for your content.
                 </p>
                 <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                    <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
+                    <span className="u-text-xs u-text-secondary-emphasis-emphasis u-font-medium">
                       TypeScript / React
                     </span>
                   </div>
@@ -193,13 +193,13 @@ const LayoutsGridPage: FC = () => {
                     Row
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                   The Row component wraps columns and provides negative margins
                   to counteract column padding.
                 </p>
                 <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                    <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
+                    <span className="u-text-xs u-text-secondary-emphasis-emphasis u-font-medium">
                       Example
                     </span>
                   </div>
@@ -226,13 +226,13 @@ const LayoutsGridPage: FC = () => {
                     GridCol
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                   The GridCol component represents individual columns within a
                   row with responsive breakpoints.
                 </p>
                 <div className="u-bg-tertiary-subtle u-rounded u-overflow-hidden u-border u-border-subtle">
                   <div className="u-px-4 u-py-3 u-border-bottom u-bg-surface">
-                    <span className="u-text-xs u-text-secondary-emphasis u-font-medium">
+                    <span className="u-text-xs u-text-secondary-emphasis-emphasis u-font-medium">
                       Responsive Example
                     </span>
                   </div>
@@ -263,7 +263,7 @@ const LayoutsGridPage: FC = () => {
                     Responsive Breakpoints
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                   Atomix grid system includes 6 responsive breakpoints for
                   mobile-first design:
                 </p>
@@ -283,7 +283,7 @@ const LayoutsGridPage: FC = () => {
                       <div className="u-w-10 u-h-10 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-primary-emphasis u-font-bold">
                         {bp.name}
                       </div>
-                      <span className="u-text-secondary-emphasis">
+                      <span className="u-text-secondary-emphasis-emphasis">
                         {bp.size}
                       </span>
                     </div>
@@ -302,7 +302,7 @@ const LayoutsGridPage: FC = () => {
                     Column Options
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                   Grid columns can be customized with various props for flexible
                   layouts:
                 </p>
@@ -320,7 +320,7 @@ const LayoutsGridPage: FC = () => {
                       <div className="u-w-10 u-h-10 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-success-emphasis u-font-bold u-text-sm">
                         {option.prop}
                       </div>
-                      <span className="u-text-secondary-emphasis">
+                      <span className="u-text-secondary-emphasis-emphasis">
                         {option.desc}
                       </span>
                     </div>

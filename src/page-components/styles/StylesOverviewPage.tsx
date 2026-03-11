@@ -55,7 +55,7 @@ const StylesOverviewPage: FC = () => {
           <GridCol md={6} lg={4}>
             <Card className="u-p-6 u-h-100 atomix-card-hover">
               <h3 className="u-text-lg u-font-semibold u-mb-3">Architecture</h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Learn about our CSS architecture based on ITCSS methodology for
                 scalable styling.
               </p>
@@ -74,7 +74,7 @@ const StylesOverviewPage: FC = () => {
               <h3 className="u-text-lg u-font-semibold u-mb-3">
                 Utility Classes
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Explore our extensive collection of utility classes for rapid UI
                 development.
               </p>
@@ -93,7 +93,7 @@ const StylesOverviewPage: FC = () => {
               <h3 className="u-text-lg u-font-semibold u-mb-3">
                 Customization
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Learn how to customize the Atomix design system to match your
                 brand.
               </p>

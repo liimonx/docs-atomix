@@ -12,7 +12,7 @@ export default function ExamplesLayout({
           <h1 className="u-text-4xl u-font-bold u-mb-3">
             Example Applications
           </h1>
-          <p className="u-text-lg u-text-secondary-emphasis">
+          <p className="u-text-lg u-text-secondary-emphasis-emphasis">
             Browse sample applications built with Atomix to inspire your next
             project
           </p>

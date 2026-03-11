@@ -53,7 +53,7 @@ const CLIPage: FC = () => {
                   Install Atomix
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Install the Atomix package to get access to the CLI
               </p>
               <EnhancedCodeBlock
@@ -81,7 +81,7 @@ const CLIPage: FC = () => {
                   Access CLI
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Use npx to run CLI commands without global installation
               </p>
               <EnhancedCodeBlock
@@ -112,7 +112,7 @@ const CLIPage: FC = () => {
               <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 Initialize Project
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Interactive setup wizard for new projects
               </p>
               <EnhancedCodeBlock
@@ -133,7 +133,7 @@ const CLIPage: FC = () => {
               <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 Create Theme
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Create and build a custom theme
               </p>
               <EnhancedCodeBlock
@@ -155,7 +155,7 @@ npx atomix build-theme my-theme --watch`}
               <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 Generate Component
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Generate a new component with boilerplate
               </p>
               <EnhancedCodeBlock
@@ -183,7 +183,7 @@ npx atomix build-theme my-theme --watch`}
               Atomix init
             </h2>
           </div>
-          <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+          <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
             Interactive setup wizard for new projects
           </p>
           <EnhancedCodeBlock
@@ -195,7 +195,7 @@ npx atomix build-theme my-theme --watch`}
             <h4 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
               Options
             </h4>
-            <ul className="u-text-secondary-emphasis u-line-height-relaxed">
+            <ul className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
               <li>
                 <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   --skip-install
@@ -206,7 +206,7 @@ npx atomix build-theme my-theme --watch`}
             <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Features
             </h4>
-            <ul className="u-text-secondary-emphasis u-line-height-relaxed">
+            <ul className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
               <li>Project type selection (React, Next.js, Vanilla)</li>
               <li>Theme configuration</li>
               <li>Feature selection (TypeScript, Storybook, Testing)</li>
@@ -229,7 +229,7 @@ npx atomix build-theme my-theme --watch`}
               atomix build-theme
             </h2>
           </div>
-          <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+          <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
             Build custom themes from SCSS
           </p>
           <EnhancedCodeBlock
@@ -241,7 +241,7 @@ npx atomix build-theme my-theme --watch`}
             <h4 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
               Arguments
             </h4>
-            <ul className="u-text-secondary-emphasis u-line-height-relaxed">
+            <ul className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
               <li>
                 <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   &lt;path&gt;
@@ -252,7 +252,7 @@ npx atomix build-theme my-theme --watch`}
             <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Options
             </h4>
-            <ul className="u-text-secondary-emphasis u-line-height-relaxed">
+            <ul className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
               <li>
                 <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -o, --output &lt;path&gt;
@@ -319,7 +319,7 @@ npx atomix build-theme themes/custom --analyze`}
               atomix generate (alias: g)
             </h2>
           </div>
-          <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+          <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
             Generate design system components
           </p>
           <EnhancedCodeBlock
@@ -331,7 +331,7 @@ npx atomix build-theme themes/custom --analyze`}
             <h4 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
               Arguments
             </h4>
-            <ul className="u-text-secondary-emphasis u-line-height-relaxed">
+            <ul className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
               <li>
                 <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   &lt;type&gt;
@@ -356,7 +356,7 @@ npx atomix build-theme themes/custom --analyze`}
             <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Options
             </h4>
-            <ul className="u-text-secondary-emphasis u-line-height-relaxed">
+            <ul className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
               <li>
                 <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -t, --typescript
@@ -431,7 +431,7 @@ npx atomix g component Header --path ./src/layouts`}
               Atomix migrate
             </h2>
           </div>
-          <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+          <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
             Migrate from other CSS frameworks
           </p>
           <EnhancedCodeBlock
@@ -443,7 +443,7 @@ npx atomix g component Header --path ./src/layouts`}
             <h4 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
               Arguments
             </h4>
-            <ul className="u-text-secondary-emphasis u-line-height-relaxed">
+            <ul className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
               <li>
                 <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   &lt;from&gt;
@@ -466,7 +466,7 @@ npx atomix g component Header --path ./src/layouts`}
             <h4 className="u-text-lg u-font-semibold u-mt-4 u-mb-3 u-text-primary-emphasis">
               Options
             </h4>
-            <ul className="u-text-secondary-emphasis u-line-height-relaxed">
+            <ul className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
               <li>
                 <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   -s, --source &lt;path&gt;
@@ -521,7 +521,7 @@ npx atomix migrate scss-variables`}
               atomix tokens
             </h2>
           </div>
-          <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+          <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
             Manage design tokens
           </p>
           <EnhancedCodeBlock
@@ -533,7 +533,7 @@ npx atomix migrate scss-variables`}
             <h4 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
               Actions
             </h4>
-            <ul className="u-text-secondary-emphasis u-line-height-relaxed">
+            <ul className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
               <li>
                 <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
                   list
@@ -602,7 +602,7 @@ npx atomix tokens export --format css --output tokens.css`}
               <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 atomix dev
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Development mode with hot reload
               </p>
               <EnhancedCodeBlock
@@ -624,7 +624,7 @@ npx atomix tokens export --format css --output tokens.css`}
               <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 atomix validate
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Validate themes and design tokens
               </p>
               <EnhancedCodeBlock
@@ -646,7 +646,7 @@ npx atomix tokens export --format css --output tokens.css`}
               <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 atomix create-theme
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Create a new theme from template
               </p>
               <EnhancedCodeBlock
@@ -668,7 +668,7 @@ npx atomix tokens export --format css --output tokens.css`}
               <h3 className="u-text-lg u-font-semibold u-mb-3 u-text-primary-emphasis">
                 atomix doctor
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-text-sm u-line-height-relaxed">
                 Diagnose common issues
               </p>
               <EnhancedCodeBlock
@@ -692,7 +692,7 @@ npx atomix tokens export --format css --output tokens.css`}
           <h3 className="u-text-xl u-font-semibold u-mb-4 u-text-primary-emphasis">
             Configuration File
           </h3>
-          <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+          <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
             Create{" "}
             <code className="u-bg-secondary-subtle u-px-2 u-py-1 u-rounded u-text-sm">
               .atomixrc.json
@@ -796,7 +796,7 @@ npx atomix tokens validate`}
               <h2 className="u-text-3xl u-font-bold u-mb-4 u-text-primary-emphasis">
                 Need Help?
               </h2>
-              <p className="u-text-secondary-emphasis u-mb-6 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-6 u-line-height-relaxed">
                 If you encounter any issues or have questions about the CLI,
                 check out our troubleshooting guide or reach out to the
                 community.

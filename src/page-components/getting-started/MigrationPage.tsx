@@ -169,7 +169,7 @@ const MigrationPage: FC = () => {
                   <h3 className="u-text-xl u-font-semibold u-mb-3 u-text-primary-emphasis">
                     {benefit.title}
                   </h3>
-                  <p className="u-text-secondary-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed">
+                  <p className="u-text-secondary-emphasis-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed">
                     {benefit.description}
                   </p>
                 </div>
@@ -211,7 +211,7 @@ const MigrationPage: FC = () => {
                   <h3 className="u-text-xl u-font-semibold u-mb-3 u-text-primary-emphasis">
                     {step.title}
                   </h3>
-                  <p className="u-text-secondary-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed">
+                  <p className="u-text-secondary-emphasis-emphasis u-m-0 u-flex-grow-1 u-line-height-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -245,7 +245,7 @@ const MigrationPage: FC = () => {
                         {tool.title}
                       </h3>
                     </div>
-                    <p className="u-text-secondary-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
+                    <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-flex-grow-1 u-line-height-relaxed">
                       {tool.description}
                     </p>
                     <div className="u-flex u-items-center u-text-primary-emphasis u-font-medium">

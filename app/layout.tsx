@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Toaster } from "react-hot-toast";
 import { ResponsiveProvider } from "@/hooks/useResponsive";
 import { SearchProvider } from "@/hooks/useSearch";
+import { Providers } from "@/components/providers/Providers";
 import "../src/styles/globals.scss";
 
 export const viewport: Viewport = {
@@ -72,9 +73,11 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
-        <ResponsiveProvider>
-          <SearchProvider>{children}</SearchProvider>
-        </ResponsiveProvider>
+        <Providers>
+          <ResponsiveProvider>
+            <SearchProvider>{children}</SearchProvider>
+          </ResponsiveProvider>
+        </Providers>
         <Toaster />
       </body>
     </html>

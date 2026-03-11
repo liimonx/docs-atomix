@@ -22,12 +22,12 @@ const EmptySearchState = ({ searchTerm }: { searchTerm: string }) => (
     <Icon
       name="MagnifyingGlass"
       size="lg"
-      className="u-mb-3 u-text-secondary"
+      className="u-mb-3 u-text-secondary-emphasis"
     />
-    <p className="u-fs-md u-text-secondary u-mb-2">
+    <p className="u-fs-md u-text-secondary-emphasis u-mb-2">
       No results found for "{searchTerm}"
     </p>
-    <p className="u-fs-sm u-text-secondary">
+    <p className="u-fs-sm u-text-secondary-emphasis">
       Try a different search term or browse the sections below.
     </p>
   </div>
@@ -234,7 +234,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
           {searchTerm && (
             <div
               id="mobile-search-results-count"
-              className="u-text-xs u-text-secondary u-mt-2"
+              className="u-text-xs u-text-secondary-emphasis u-mt-2"
               aria-live="polite"
             >
               {totalItems === 0 ? (
@@ -266,7 +266,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
         {/* Footer Stats */}
         {filteredSections.length > 0 && (
           <div
-            className="u-mt-6 u-pt-4 u-border-top u-px-3 u-text-xs u-text-secondary"
+            className="u-mt-6 u-pt-4 u-border-top u-px-3 u-text-xs u-text-secondary-emphasis"
             role="status"
           >
             <div className="u-flex u-justify-between u-mb-2">

@@ -52,7 +52,7 @@ const APICard: FC<APISection> = ({ icon, title, description, code, color }) => {
         />
         <h3 className="u-text-xl u-font-semibold u-m-0">{title}</h3>
       </div>
-      <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
+      <p className="u-text-secondary-emphasis-emphasis u-mb-4">{description}</p>
       <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
         <pre
           className={`u-m-0 u-text-sm ${pageStyles.stylesAPIReferencePage__codeBlock}`}
@@ -144,7 +144,7 @@ const StylesAPIReferencePage: FC = () => {
                   <h3 className="u-text-xl u-font-semibold u-mb-3">
                     SCSS Variables
                   </h3>
-                  <p className="u-text-secondary-emphasis u-mb-4">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                     Comprehensive set of SCSS variables for customization
                   </p>
                   <div className="u-flex u-flex-wrap u-gap-2 u-mb-4">
@@ -228,7 +228,7 @@ $font-size-base: 1rem;`}
                   Color Properties
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Runtime color customization
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
@@ -258,7 +258,7 @@ $font-size-base: 1rem;`}
                   Theme Switching
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Dynamic theme changes
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
@@ -288,7 +288,7 @@ document.documentElement
                   Usage Example
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Combining SCSS and CSS custom properties:
               </p>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">

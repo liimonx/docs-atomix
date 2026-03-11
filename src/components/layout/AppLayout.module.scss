@@ -1,0 +1,46 @@
+.layoutWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.mainContainer {
+  display: flex;
+  flex: 1 1 auto;
+  margin-top: 65px; /* Adjust based on actual Navbar height */
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.sidebarWrapper {
+  width: 280px;
+  flex-shrink: 0;
+  display: none;
+  background-color: var(--atm-bg-primary);
+
+  @media (min-width: 992px) {
+    display: block;
+    top: 65px;
+    height: calc(100vh - 65px);
+  }
+
+  &--mobileOpen {
+    display: block;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 65px);
+    z-index: 1040;
+    overflow-y: auto;
+  }
+}
+
+.contentWrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}

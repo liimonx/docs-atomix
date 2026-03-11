@@ -103,13 +103,13 @@ const HomePage: FC = () => {
           {features.map((feature, index) => (
             <GridCol key={index} md={6} lg={4} className="u-mb-6">
               <Card className="u-h-100">
-                <div className="u-inline-flex u-items-center u-justify-center u-rounded u-bg-brand-subtle u-text-brand-emphasis u-mb-4 u-p-2">
+                <div className="u-inline-flex u-items-center u-justify-center u-rounded u-text-brand-emphasis u-mb-4 u-p-2">
                   {feature.icon}
                 </div>
                 <h3 className="u-text-lg u-font-semibold u-mb-2 u-text-primary-emphasis">
                   {feature.title}
                 </h3>
-                <p className="u-text-secondary-emphasis u-leading-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-leading-relaxed">
                   {feature.description}
                 </p>
               </Card>
@@ -205,7 +205,7 @@ const LinkContent: FC<{
         <Icon name={"Link" as const} size={16} className="u-opacity-60" />
       )}
     </div>
-    <p className="u-text-secondary-emphasis u-leading-relaxed u-m-0 u-ms-10">
+    <p className="u-text-secondary-emphasis-emphasis u-leading-relaxed u-m-0 u-ms-10">
       {description}
     </p>
   </div>

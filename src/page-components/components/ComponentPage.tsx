@@ -194,7 +194,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                               <div className="u-font-semibold u-text-brand-emphasis u-mb-1">
                                 {feature.title}
                               </div>
-                              <p className="u-text-secondary-emphasis u-text-sm u-m-0">
+                              <p className="u-text-secondary-emphasis-emphasis u-text-sm u-m-0">
                                 {feature.description}
                               </p>
                             </div>
@@ -206,7 +206,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                               <div className="u-font-semibold u-text-brand-emphasis u-mb-1">
                                 {feature.title}
                               </div>
-                              <p className="u-text-secondary-emphasis u-text-sm u-m-0">
+                              <p className="u-text-secondary-emphasis-emphasis u-text-sm u-m-0">
                                 {feature.description}
                               </p>
                             </div>
@@ -275,7 +275,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                         ))}
                       </ul>
                     ) : (
-                      <p className="u-text-secondary-emphasis u-text-sm u-font-style-italic u-m-0">
+                      <p className="u-text-secondary-emphasis-emphasis u-text-sm u-font-style-italic u-m-0">
                         No external dependencies
                       </p>
                     )}
@@ -387,105 +387,89 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
   }
 
   return (
-    <div className="u-min-h-screen u-pb-xl">
-      <Hero
-        className={styles.pageHero}
-        title={componentDoc.name}
-        text={componentDoc.description}
-        alignment="center"
-      />
+    <Block>
+      <Link
+        href="/docs/components/overview"
+        className="u-inline-flex u-items-center u-gap-2 u-text-secondary-emphasis-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
+        style={{
+          transition: "var(--atomix-transition-fast)",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = "var(--atomix-color-primary)";
+          e.currentTarget.style.transform = "translateX(-4px)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = "";
+          e.currentTarget.style.transform = "";
+        }}
+      >
+        <Icon name="ArrowLeft" />
+        <span>Back to Components</span>
+      </Link>
 
-      <Block>
-        <div className="u-mb-lg">
-          <Link
-            href="/docs/components/overview"
-            className="u-inline-flex u-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
-            style={{
-              transition: "var(--atomix-transition-fast)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = "var(--atomix-color-primary)";
-              e.currentTarget.style.transform = "translateX(-4px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = "";
-              e.currentTarget.style.transform = "";
-            }}
+      <div className="u-flex u-flex-wrap u-items-start u-justify-between u-gap-4 u-mb-4">
+        <div className="u-flex-grow-1" style={{ minWidth: "300px" }}>
+          <h1 className="u-text-4xl u-font-bold u-mb-2">{componentDoc.name}</h1>
+          <p
+            className="u-text-lg u-text-secondary-emphasis-emphasis u-m-0"
+            style={{ lineHeight: "var(--atomix-line-height-relaxed)" }}
           >
-            <Icon name="ArrowLeft" />
-            <span>Back to Components</span>
-          </Link>
-
-          <div className="u-flex u-flex-wrap u-items-start u-justify-between u-gap-4 u-mb-4">
-            <div className="u-flex-grow-1" style={{ minWidth: "300px" }}>
-              <h1 className="u-text-4xl u-font-bold u-mb-2">
-                {componentDoc.name}
-              </h1>
-              <p
-                className="u-text-lg u-text-secondary-emphasis u-m-0"
-                style={{ lineHeight: "var(--atomix-line-height-relaxed)" }}
-              >
-                {componentDoc.description}
-              </p>
-            </div>
-
-            <div className="u-flex u-gap-2 u-flex-wrap">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() =>
-                  window.open(
-                    `https://github.com/shohojdhara/atomix/tree/main/src/components/${componentDoc.name}`,
-                    "_blank",
-                  )
-                }
-              >
-                <Icon name="GithubLogo" />
-                Source
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() =>
-                  window.open(`https://atomix-storybook.netlify.app`, "_blank")
-                }
-              >
-                <Icon name="BookOpen" />
-                Storybook
-              </Button>
-            </div>
-          </div>
-
-          <div className="u-flex u-flex-wrap u-gap-2">
-            <Badge
-              variant={getStatusColor(componentDoc.status) as any}
-              label={componentDoc.status as string}
-            >
-              {componentDoc.status as string}
-            </Badge>
-            <Badge variant="secondary" label={`${componentDoc.version}`} />
-            <Badge
-              variant="secondary"
-              label={`Last updated: ${componentDoc.lastUpdated}`}
-            />
-            <Badge variant="primary" label={componentDoc.author as string} />
-          </div>
+            {componentDoc.description}
+          </p>
         </div>
 
-        <div className="u-mt-4">
-          <Tabs
-            items={Array.isArray(tabItems) ? tabItems : []}
-            activeIndex={0}
-          />
+        <div className="u-flex u-gap-2 u-flex-wrap">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() =>
+              window.open(
+                `https://github.com/shohojdhara/atomix/tree/main/src/components/${componentDoc.name}`,
+                "_blank",
+              )
+            }
+          >
+            <Icon name="GithubLogo" />
+            Source
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() =>
+              window.open(`https://atomix-storybook.netlify.app`, "_blank")
+            }
+          >
+            <Icon name="BookOpen" />
+            Storybook
+          </Button>
         </div>
+      </div>
 
-        <div className="u-mt-8">
-          <ComponentRelated
-            relatedComponents={componentDoc.relatedComponents || []}
-          />
-        </div>
-      </Block>
-    </div>
+      <div className="u-flex u-flex-wrap u-gap-2">
+        <Badge
+          variant={getStatusColor(componentDoc.status) as any}
+          label={componentDoc.status as string}
+        >
+          {componentDoc.status as string}
+        </Badge>
+        <Badge variant="secondary" label={`${componentDoc.version}`} />
+        <Badge
+          variant="secondary"
+          label={`Last updated: ${componentDoc.lastUpdated}`}
+        />
+        <Badge variant="primary" label={componentDoc.author as string} />
+      </div>
+
+      <div className="u-mt-4">
+        <Tabs items={Array.isArray(tabItems) ? tabItems : []} activeIndex={0} />
+      </div>
+
+      <div className="u-mt-8">
+        <ComponentRelated
+          relatedComponents={componentDoc.relatedComponents || []}
+        />
+      </div>
+    </Block>
   );
 };
 

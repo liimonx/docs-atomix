@@ -146,7 +146,7 @@ export const ComponentExamples: FC<ComponentExamplesProps> = ({
                   )}
                 </div>
                 {example.description && (
-                  <p className="u-text-secondary-emphasis u-mb-0 u-text-sm">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-0 u-text-sm">
                     {example.description}
                   </p>
                 )}

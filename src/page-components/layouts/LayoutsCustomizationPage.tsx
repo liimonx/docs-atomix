@@ -127,14 +127,14 @@ const LayoutsCustomizationPage: FC = () => {
                   <h3 className="u-text-xl u-font-semibold u-m-0 u-mb-3 u-text-primary-emphasis">
                     {level.title}
                   </h3>
-                  <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                     {level.description}
                   </p>
                   <ul className="u-list-none u-flex u-flex-column u-gap-2 u-mt-auto">
                     {level.features.map((feature, idx) => (
                       <li
                         key={idx}
-                        className="u-flex u-items-center u-text-secondary-emphasis u-text-sm"
+                        className="u-flex u-items-center u-text-secondary-emphasis-emphasis u-text-sm"
                       >
                         <span className="u-me-2 u-text-primary-emphasis">
                           ✓
@@ -168,7 +168,7 @@ const LayoutsCustomizationPage: FC = () => {
                   Grid System Properties
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Customize the grid system using CSS custom properties. These can
                 be set globally or scoped to specific components.
               </p>
@@ -214,7 +214,7 @@ const LayoutsCustomizationPage: FC = () => {
                   Masonry Grid Properties
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Customize masonry grid spacing and animations using CSS custom
                 properties.
               </p>
@@ -256,7 +256,7 @@ const LayoutsCustomizationPage: FC = () => {
                   Build-Time Configuration
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Override SCSS variables before importing Atomix to customize the
                 entire system at build time. This approach provides maximum
                 performance and allows for complete system customization.
@@ -303,7 +303,7 @@ $container-max-widths: (
                   Container & Row
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Customize container and row components with props for dynamic
                 behavior.
               </p>
@@ -336,14 +336,14 @@ $container-max-widths: (
           <GridCol md={6} className="u-mb-6">
             <Card className="u-p-6 u-h-100">
               <div className="u-flex u-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-secondary-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-secondary-emphasis-emphasis">
                   <Icon name="Lightning" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   GridCol Options
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 GridCol supports responsive breakpoints, offsets, ordering, and
                 alignment.
               </p>
@@ -384,14 +384,14 @@ $container-max-widths: (
           <GridCol md={12} className="u-mb-6">
             <Card className="u-p-6">
               <div className="u-flex u-items-center u-mb-4">
-                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-secondary-emphasis">
+                <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-3 u-text-secondary-emphasis-emphasis">
                   <Icon name="Sparkle" size="lg" />
                 </div>
                 <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                   Extending Components
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Create custom layout components by extending Atomix components.
                 This approach allows you to build on top of Atomix while
                 maintaining full control over styling and behavior.
@@ -445,7 +445,7 @@ function MyPage() {
                   CSS Modules Approach
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
                 Alternatively, use CSS Modules to style Atomix components with
                 custom classes.
               </p>
@@ -547,7 +547,7 @@ function CustomLayout() {
                     {practice.title}
                   </h3>
                 </div>
-                <p className="u-text-secondary-emphasis u-m-0 u-line-height-relaxed">
+                <p className="u-text-secondary-emphasis-emphasis u-m-0 u-line-height-relaxed">
                   {practice.description}
                 </p>
               </Card>

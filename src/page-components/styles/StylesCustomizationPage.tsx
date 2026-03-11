@@ -74,7 +74,7 @@ const MethodCard: FC<CustomizationMethodProps> = ({
         }`}
         label={`${complexity} Complexity`}
       />
-      <p className="u-text-secondary-emphasis u-mb-4">{description}</p>
+      <p className="u-text-secondary-emphasis-emphasis u-mb-4">{description}</p>
       <EnhancedCodeBlock
         code={code}
         language={
@@ -250,49 +250,49 @@ const StylesCustomizationPage: FC = () => {
                 <tbody>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3 u-font-semibold">Configuration</td>
-                    <td className="u-p-3 u-text-secondary-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                       Variables only
                     </td>
                     <td className="u-p-3">
                       <Badge variant="success" size="sm" label="Low" />
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                       Brand colors, spacing tweaks
                     </td>
                   </tr>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3 u-font-semibold">Theming</td>
-                    <td className="u-p-3 u-text-secondary-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                       CSS custom properties
                     </td>
                     <td className="u-p-3">
                       <Badge variant="warning" size="sm" label="Medium" />
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                       Runtime theme switching
                     </td>
                   </tr>
                   <tr className="u-border-b u-border-subtle">
                     <td className="u-p-3 u-font-semibold">Extension</td>
-                    <td className="u-p-3 u-text-secondary-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                       New components/utilities
                     </td>
                     <td className="u-p-3">
                       <Badge variant="warning" size="sm" label="Medium-High" />
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                       Additional functionality
                     </td>
                   </tr>
                   <tr>
                     <td className="u-p-3 u-font-semibold">Architecture</td>
-                    <td className="u-p-3 u-text-secondary-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                       System structure
                     </td>
                     <td className="u-p-3">
                       <Badge variant="error" size="sm" label="High" />
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
                       Major modifications
                     </td>
                   </tr>
@@ -337,7 +337,7 @@ const StylesCustomizationPage: FC = () => {
                   Brand Colors
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-3">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                 Create brand color scales and override Atomix defaults:
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
@@ -365,7 +365,7 @@ const StylesCustomizationPage: FC = () => {
                 />
                 <h3 className="u-text-xl u-font-semibold u-m-0">Typography</h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-3">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                 Integrate your brand fonts and type scale:
               </p>
               <div className="u-bg-tertiary-subtle u-p-3 u-rounded">
@@ -395,7 +395,7 @@ const StylesCustomizationPage: FC = () => {
                   Runtime Theme Switching
                 </h3>
               </div>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Switch themes dynamically without rebuilding CSS:
               </p>
               <div className="u-bg-tertiary-subtle u-p-4 u-rounded">

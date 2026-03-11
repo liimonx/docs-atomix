@@ -235,7 +235,7 @@ const DocumentationOverviewPage: FC = () => {
             >
               Atomix Documentation.
             </h1>
-            <p className="u-fs-xl u-text-secondary u-max-w-2xl u-mx-auto u-leading-relaxed u-opacity-80">
+            <p className="u-fs-xl u-text-secondary-emphasis u-max-w-2xl u-mx-auto u-leading-relaxed u-opacity-80">
               Everything you need to build amazing user interfaces with Atomix.
               High-performance filters, cinematic depth, and frosted glass
               realism.
@@ -258,7 +258,7 @@ const DocumentationOverviewPage: FC = () => {
               variant="secondary"
               size="lg"
               iconName="Stack"
-              className="u-px-8 u-h-14 u-rounded-lg u-bg-surface-subtle u-fs-lg"
+              className="u-px-8 u-h-14 u-rounded-lg u-fs-lg"
               href="/docs/components/overview"
               LinkComponent={Link}
             >
@@ -271,7 +271,7 @@ const DocumentationOverviewPage: FC = () => {
       {/* Quick Stats */}
       <Block
         spacing="sm"
-        className="u-py-20 u-border-y u-border-glass u-bg-background-subtle"
+        className="u-py-20 u-border-y  u-bg-background-subtle"
       >
         <SectionIntro
           title="By the Numbers"
@@ -282,14 +282,14 @@ const DocumentationOverviewPage: FC = () => {
         <Grid>
           {quickStats.map((stat, index) => (
             <GridCol key={index} sm={6} lg={3} className="u-mb-6">
-              <Card className="u-text-center u-p-8 u-h-100 u-rounded-2xl u-border u-border-glass u-shadow-lg">
+              <Card className="u-text-center u-p-8 u-h-100 u-rounded-2xl u-border  u-shadow-lg">
                 <div className="u-inline-flex u-items-center u-justify-center u-w-16 u-h-16 u-bg-primary-subtle u-text-primary u-rounded-2xl u-mb-6 u-shadow-sm">
                   {stat.icon}
                 </div>
                 <div className="u-text-3xl u-font-black u-mb-1 u-tracking-tight">
                   {stat.value}
                 </div>
-                <div className="u-text-secondary u-fs-sm u-font-bold u-uppercase u-tracking-widest u-opacity-60">
+                <div className="u-text-secondary-emphasis u-fs-sm u-font-bold u-uppercase u-tracking-widest u-opacity-60">
                   {stat.label}
                 </div>
               </Card>
@@ -323,7 +323,7 @@ const DocumentationOverviewPage: FC = () => {
                   <h2 className="u-text-2xl u-font-bold u-m-0 u-mb-1 u-text-primary-emphasis">
                     {section.title}
                   </h2>
-                  <p className="u-m-0 u-text-secondary-emphasis">
+                  <p className="u-m-0 u-text-secondary-emphasis-emphasis">
                     {section.description}
                   </p>
                 </div>
@@ -336,12 +336,12 @@ const DocumentationOverviewPage: FC = () => {
                       href={item.path}
                       className="u-text-decoration-none u-text-inherit u-block u-h-100"
                     >
-                      <Card className="u-h-100 u-cursor-pointer u-transition-all u-hover-translate-y-n2 u-rounded-2xl u-border u-border-glass u-shadow-lg">
+                      <Card className="u-h-100 u-cursor-pointer u-transition-all u-hover-translate-y-n2 u-rounded-2xl u-border  u-shadow-lg">
                         <div className="u-p-8 u-h-100 u-flex u-flex-column">
                           <h3 className="u-text-xl u-font-black u-mb-2 u-tracking-tight">
                             {item.title}
                           </h3>
-                          <p className="u-text-secondary u-mb-6 u-flex-grow-1 u-leading-relaxed u-opacity-80">
+                          <p className="u-text-secondary-emphasis u-mb-6 u-flex-grow-1 u-leading-relaxed u-opacity-80">
                             {item.description}
                           </p>
                           <div className="u-flex u-items-center u-text-primary u-font-bold u-fs-sm">
@@ -362,7 +362,7 @@ const DocumentationOverviewPage: FC = () => {
       {/* API Reference Section */}
       <Block
         spacing="sm"
-        className="u-py-20 u-border-y u-border-glass u-bg-background-subtle"
+        className="u-py-20 u-border-y  u-bg-background-subtle"
       >
         <SectionIntro
           title="API Reference"
@@ -395,7 +395,7 @@ const DocumentationOverviewPage: FC = () => {
                 href={api.path}
                 className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
-                <Card className="u-h-100 u-cursor-pointer u-transition-all u-hover-translate-y-n2 u-rounded-2xl u-border u-border-glass u-shadow-lg">
+                <Card className="u-h-100 u-cursor-pointer u-transition-all u-hover-translate-y-n2 u-rounded-2xl u-border  u-shadow-lg">
                   <div className="u-p-8 u-h-100 u-flex u-flex-column">
                     <div className="u-flex u-items-center u-mb-6">
                       <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary u-rounded-xl u-flex u-items-center u-justify-center u-me-4 u-shadow-sm">
@@ -405,7 +405,7 @@ const DocumentationOverviewPage: FC = () => {
                         {api.title}
                       </h3>
                     </div>
-                    <p className="u-text-secondary u-mb-6 u-flex-grow-1 u-leading-relaxed u-opacity-80">
+                    <p className="u-text-secondary-emphasis u-mb-6 u-flex-grow-1 u-leading-relaxed u-opacity-80">
                       {api.description}
                     </p>
                     <div className="u-flex u-items-center u-text-primary u-font-bold u-fs-sm">
@@ -454,7 +454,7 @@ const DocumentationOverviewPage: FC = () => {
                 href={resource.path}
                 className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
-                <Card className="u-h-100 u-cursor-pointer u-transition-all u-hover-translate-y-n2 u-rounded-2xl u-border u-border-glass u-shadow-lg">
+                <Card className="u-h-100 u-cursor-pointer u-transition-all u-hover-translate-y-n2 u-rounded-2xl u-border  u-shadow-lg">
                   <div className="u-p-8 u-h-100 u-flex u-flex-column">
                     <div className="u-flex u-items-center u-mb-6">
                       <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary u-rounded-xl u-flex u-items-center u-justify-center u-me-4 u-shadow-sm">
@@ -464,7 +464,7 @@ const DocumentationOverviewPage: FC = () => {
                         {resource.title}
                       </h3>
                     </div>
-                    <p className="u-text-secondary u-mb-6 u-flex-grow-1 u-leading-relaxed u-opacity-80">
+                    <p className="u-text-secondary-emphasis u-mb-6 u-flex-grow-1 u-leading-relaxed u-opacity-80">
                       {resource.description}
                     </p>
                     <div className="u-flex u-items-center u-text-primary u-font-bold u-fs-sm">
@@ -483,11 +483,11 @@ const DocumentationOverviewPage: FC = () => {
       <Block spacing="none" className="u-py-24 u-relative u-z-10">
         <Grid>
           <GridCol lg={8} className="u-mx-auto">
-            <Card className="u-text-center u-p-12 u-rounded-3xl u-border u-border-glass u-shadow-2xl">
+            <Card className="u-text-center u-p-12 u-rounded-3xl u-border  u-shadow-2xl">
               <h2 className="u-fs-3xl u-font-black u-mb-4 u-tracking-tight">
                 Ready to Build Something Amazing?
               </h2>
-              <p className="u-fs-lg u-text-secondary u-mb-10 u-leading-relaxed u-opacity-80">
+              <p className="u-fs-lg u-text-secondary-emphasis u-mb-10 u-leading-relaxed u-opacity-80">
                 Start building with Atomix today. Install the package and
                 explore our comprehensive component library.
               </p>
@@ -506,7 +506,7 @@ const DocumentationOverviewPage: FC = () => {
                   variant="secondary"
                   size="lg"
                   iconName="Stack"
-                  className="u-h-14 u-px-8 u-rounded-xl u-bg-surface-subtle"
+                  className="u-h-14 u-px-8 u-rounded-xl"
                   href="/docs/components/overview"
                   LinkComponent={Link}
                 >

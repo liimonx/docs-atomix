@@ -60,7 +60,7 @@ const APIReactPage: FC = () => {
                   <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="primary" size="sm" label="Button" />
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                     Interactive button component with multiple variants and
                     states.
                   </p>
@@ -90,7 +90,7 @@ const APIReactPage: FC = () => {
                   <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="success" size="sm" label="Badge" />
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                     Small status indicators and labels.
                   </p>
                   <EnhancedCodeBlock
@@ -112,7 +112,7 @@ const APIReactPage: FC = () => {
                   <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="info" size="sm" label="Icon" />
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                     Icon wrapper component with consistent sizing.
                   </p>
                   <EnhancedCodeBlock
@@ -151,7 +151,7 @@ const APIReactPage: FC = () => {
                   <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="primary" size="sm" label="Container" />
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                     Responsive container component for centering content.
                   </p>
                   <EnhancedCodeBlock
@@ -179,7 +179,7 @@ const APIReactPage: FC = () => {
                       label="Grid Components"
                     />
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                     Flexible grid system with responsive columns.
                   </p>
                   <EnhancedCodeBlock
@@ -238,7 +238,7 @@ interface GridColProps {
                   <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="warning" size="sm" label="useTheme" />
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                     Hook for managing theme state and preferences.
                   </p>
                   <EnhancedCodeBlock
@@ -259,7 +259,7 @@ const { theme, setTheme } = useTheme();`}
                   <div className="u-flex u-items-center u-gap-2 u-mb-2">
                     <Badge variant="warning" size="sm" label="useResponsive" />
                   </div>
-                  <p className="u-text-secondary-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
                     Hook for responsive breakpoints and device detection.
                   </p>
                   <EnhancedCodeBlock

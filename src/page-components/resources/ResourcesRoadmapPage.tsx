@@ -34,7 +34,7 @@ const ResourcesRoadmapPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Upcoming Features
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Features planned for future releases of Atomix.
               </p>
               <Button variant="primary" className="u-mt-4">
@@ -48,7 +48,7 @@ const ResourcesRoadmapPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Release Schedule
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Planned release dates and versioning roadmap.
               </p>
               <Button variant="primary" className="u-mt-4">
@@ -64,7 +64,7 @@ const ResourcesRoadmapPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Completed Work
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 Recently completed features and improvements.
               </p>
               <Button variant="primary" className="u-mt-4">
@@ -78,7 +78,7 @@ const ResourcesRoadmapPage: FC = () => {
               <h3 className="u-text-xl u-font-semibold u-mb-3">
                 Community Feedback
               </h3>
-              <p className="u-text-secondary-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
                 How community feedback influences the Atomix roadmap.
               </p>
               <Button variant="primary" className="u-mt-4">

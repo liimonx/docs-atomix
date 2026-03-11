@@ -341,7 +341,7 @@ function InputWithIcons() {
       {/* Input with left icon */}
       <FormGroup label="Search Products">
         <div className="u-flex u-items-center u-relative">
-          <Icon name="MagnifyingGlass" className="u-absolute u-ps-3 u-text-secondary" />
+          <Icon name="MagnifyingGlass" className="u-absolute u-ps-3 u-text-secondary-emphasis" />
           <Input
             type="search"
             placeholder="Search for products..."
@@ -360,7 +360,7 @@ function InputWithIcons() {
           />
           <button
             type="button"
-            className="u-absolute u-pe-3 u-text-secondary u-bg-transparent u-border-0"
+            className="u-absolute u-pe-3 u-text-secondary-emphasis u-bg-transparent u-border-0"
             style={{ insetInlineEnd: 0 }}
             onClick={() => setShowPassword(!showPassword)}
           >
@@ -441,7 +441,7 @@ function InputWithCounter() {
       helperText={
         <div className="u-flex u-justify-between">
           <span>Tell us about yourself</span>
-          <span className={remaining < 10 ? 'u-text-error' : 'u-text-secondary'}>
+          <span className={remaining < 10 ? 'u-text-error' : 'u-text-secondary-emphasis'}>
             {remaining} characters remaining
           </span>
         </div>
