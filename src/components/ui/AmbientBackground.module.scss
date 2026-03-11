@@ -62,6 +62,12 @@
     --glass-color-2 1.5s cubic-bezier(0.4, 0, 0.2, 1),
     --glass-color-3 1.5s cubic-bezier(0.4, 0, 0.2, 1),
     --glass-accent 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  & > * {
+    position: absolute;
+    inset: 0;
+    will-change: transform, opacity;
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -69,8 +75,7 @@
 // ---------------------------------------------------------------------------
 
 .gradientBase {
-  position: absolute;
-  inset: 0;
+  z-index: 1;
   background: radial-gradient(
       ellipse 80% 60% at 10% 20%,
       var(--glass-color-1) 0%,
@@ -89,15 +94,38 @@
 }
 
 // ---------------------------------------------------------------------------
+// Grid Pattern Overlay
+// ---------------------------------------------------------------------------
+
+.gridOverlay {
+  z-index: 2;
+  opacity: var(--grid-opacity, 0.1);
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, var(--grid-line-opacity, 0.1)) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, var(--grid-line-opacity, 0.1)) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+  animation: grid-drift 60s linear infinite;
+}
+
+@keyframes grid-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(64px); }
+}
+
+// ---------------------------------------------------------------------------
 // Glass Orbs - Floating Glassmorphism Elements
 // ---------------------------------------------------------------------------
 
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  mix-blend-mode: screen;
+  filter: blur(80px);
+  mix-blend-mode: plus-lighter;
   will-change: transform;
+  z-index: 3;
+  opacity: 0.8;
 
   &::before {
     content: "";
@@ -105,8 +133,8 @@
     inset: 0;
     border-radius: inherit;
     background: inherit;
-    filter: blur(40px);
-    opacity: 0.6;
+    filter: blur(20px);
+    opacity: 0.8;
   }
 }
 
@@ -194,31 +222,29 @@
 // ---------------------------------------------------------------------------
 
 .glassOverlay {
-  position: absolute;
-  inset: 0;
+  z-index: 10;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.01) 0%,
     transparent 50%,
-    rgba(255, 255, 255, 0.01) 100%
+    rgba(255, 255, 255, 0.005) 100%
   );
 }
 
 .noiseOverlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 11;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 // Subtle vignette for depth
 .vignetteOverlay {
-  position: absolute;
-  inset: 0;
+  z-index: 12;
   background: radial-gradient(
-    ellipse 100% 100% at 50% 50%,
+    circle at 50% 50%,
     transparent 0%,
-    rgba(0, 0, 0, 0.15) 100%
+    rgba(0, 0, 0, 0.2) 100%
   );
 }
 
@@ -351,6 +377,8 @@
   --glass-color-2: rgba(139, 92, 246, 0.28);
   --glass-color-3: rgba(6, 182, 212, 0.22);
   --glass-accent: rgba(236, 72, 153, 0.18);
+  --grid-opacity: 0.1;
+  --grid-line-opacity: 0.15;
 
   .vignetteOverlay {
     background: radial-gradient(
@@ -366,17 +394,23 @@
 }
 
 .theme-dark {
-  --glass-color-1: rgba(99, 102, 241, 0.5);
-  --glass-color-2: rgba(139, 92, 246, 0.45);
-  --glass-color-3: rgba(6, 182, 212, 0.35);
-  --glass-accent: rgba(236, 72, 153, 0.25);
+  --glass-color-1: rgba(99, 102, 241, 0.6);
+  --glass-color-2: rgba(139, 92, 246, 0.55);
+  --glass-color-3: rgba(6, 182, 212, 0.45);
+  --glass-accent: rgba(236, 72, 153, 0.35);
+  --grid-opacity: 0.2;
+  --grid-line-opacity: 0.3;
 
   .glassOverlay {
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.05) 0%,
       transparent 50%,
-      rgba(255, 255, 255, 0.015) 100%
+      rgba(255, 255, 255, 0.02) 100%
     );
+  }
+
+  .noiseOverlay {
+    opacity: 0.04;
   }
 }

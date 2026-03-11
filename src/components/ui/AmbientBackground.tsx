@@ -53,6 +53,9 @@ const AmbientBackgroundBase: FC<AmbientBackgroundProps> = ({
     <div className={rootClasses} aria-hidden="true">
       {/* Base gradient layer */}
       <div className={styles.gradientBase} />
+      
+      {/* Grid Pattern overlay for glass contrast */}
+      <div className={styles.gridOverlay} />
 
       {/* Floating glass orbs */}
       <div className={`${styles.orb} ${styles.orb1}`} />

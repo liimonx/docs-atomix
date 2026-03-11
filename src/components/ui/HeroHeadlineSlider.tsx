@@ -403,9 +403,8 @@ export const HeroHeadlineSlider = () => {
       const handleMouseMove = (e: MouseEvent) => {
         if (prefersReducedMotion()) return;
 
-        const { width, height, left, top } = container.getBoundingClientRect();
-        const xPos = (e.clientX - left) / width - 0.5;
-        const yPos = (e.clientY - top) / height - 0.5;
+        const xPos = e.clientX / window.innerWidth - 0.5;
+        const yPos = e.clientY / window.innerHeight - 0.5;
 
         // Viewport slight tilt
         const viewport = container.querySelector(`.${styles.slidesViewport}`);
