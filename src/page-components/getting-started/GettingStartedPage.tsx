@@ -645,7 +645,6 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
               <Block spacing="md">
                 {/* Prerequisites */}
                 <Card
-                  glass
                   variant="primary"
                   appearance="outlined"
                   className="u-p-8 u-mb-10 u-rounded-2xl u-border-primary-subtle"
@@ -671,7 +670,6 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
 
                 {/* Step 1: Installation */}
                 <Card
-                  glass
                   variant="secondary"
                   appearance="outlined"
                   className="u-p-10 u-mb-12 u-rounded-3xl u-border-primary-subtle"
@@ -694,7 +692,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   <Row>
                     {["npm", "yarn", "pnpm"].map((pm) => (
                       <GridCol key={pm} md={4} className="u-mb-8">
-                        <div className=" u-bg-opacity-50 u-rounded-2xl u-overflow-hidden u-border u-border-primary-subtle u-glass-clean-root">
+                        <div className=" u-bg-opacity-50 u-rounded-2xl u-overflow-hidden u-border u-border-primary-subtle">
                           <div className="u-flex u-items-center u-justify-between u-px-5 u-py-4  u-bg-opacity-50 u-border-bottom u-border-primary-subtle">
                             <span className="u-fs-sm u-font-bold u-text-secondary-emphasis u-text-uppercase u-ls-wider">
                               {pm}
@@ -741,7 +739,6 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
 
                 {/* Step 2: Import Styles */}
                 <Card
-                  glass
                   variant="secondary"
                   appearance="outlined"
                   className="u-p-10 u-mb-12 u-rounded-3xl u-border-primary-subtle"
@@ -794,7 +791,6 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
 
                 {/* Step 3: Usage */}
                 <Card
-                  glass
                   variant="secondary"
                   appearance="outlined"
                   className="u-p-10 u-mb-12 u-rounded-3xl u-border-primary-subtle"
@@ -815,7 +811,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   </div>
 
                   <EnhancedCodeBlock
-                    code={`import { Button, Card } from '@shohojdhara/atomix';\n\nfunction App() {\n  return (\n    <Card glass variant="primary" className="u-p-8">\n      <h1 className="u-fs-4xl u-font-bold u-mb-4">Hello Atomix!</h1>\n      <Button glass variant="primary" iconName="Sparkle">Click Me</Button>\n    </Card>\n  );\n}`}
+                    code={`import { Button, Card } from '@shohojdhara/atomix';\n\nfunction App() {\n  return (\n    <Card variant="primary" className="u-p-8">\n      <h1 className="u-fs-4xl u-font-bold u-mb-4">Hello Atomix!</h1>\n      <Button variant="primary" iconName="Sparkle">Click Me</Button>\n    </Card>\n  );\n}`}
                     language="typescript"
                     title="App.tsx"
                     showLineNumbers={true}
@@ -868,7 +864,6 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           className="u-block u-h-100 u-text-decoration-none"
                         >
                           <Card
-                            glass
                             variant="secondary"
                             appearance="outlined"
                             className="u-p-10 u-h-100 u-rounded-2xl u-transition-fast u-hover-transform-up u-hover-shadow-lg"

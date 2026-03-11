@@ -13,8 +13,6 @@ interface DocumentationHeaderProps {
 }
 
 const DocumentationHeader = memo(function DocumentationHeader({
-  isSidebarOpen,
-  onSidebarToggle,
   showSidebarToggle = false,
 }: DocumentationHeaderProps) {
   return (
@@ -76,16 +74,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
         />
         <ColorModeToggle defaultValue="dark" />
 
-        {showSidebarToggle && (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={onSidebarToggle}
-            aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
-            iconName={isSidebarOpen ? "X" : "List"}
-            iconOnly
-          />
-        )}
+
       </Nav>
     </Navbar>
   );
