@@ -11,7 +11,6 @@ import {
   Grid,
   Icon,
   Block,
-  Hero,
   Tabs,
   Callout,
 } from "@shohojdhara/atomix";
@@ -24,7 +23,6 @@ import { ComponentProps } from "@/components/showcase/ComponentProps";
 import { ComponentExamples } from "@/components/showcase/ComponentExamples";
 import { ComponentAccessibility } from "@/components/showcase/ComponentAccessibility";
 import { ComponentRelated } from "@/components/showcase/ComponentRelated";
-import styles from "@/styles/PageHero.module.scss";
 
 const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);

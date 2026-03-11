@@ -1,8 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { HomePageLayout } from "@/components/layout/HomePageLayout";
