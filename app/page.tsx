@@ -653,6 +653,77 @@ export default function Page() {
       {/* Final CTA Section */}
       <Block>
         <div className="u-text-center u-max-w-4xl u-mx-auto">
+          {/* Key Features Summary */}
+          <div className="u-flex u-flex-wrap u-justify-center u-gap-8 u-mb-12">
+            <div className="u-flex u-flex-column u-items-center u-gap-3">
+              <div className="u-w-16 u-h-16 u-bg-primary-subtle u-text-primary u-rounded-2xl u-flex u-items-center u-justify-center u-shadow-lg">
+                <Icon name="RocketLaunch" weight="duotone" size={32} />
+              </div>
+              <div>
+                <div className="u-fs-3xl u-font-black u-text-primary-emphasis">
+                  5min
+                </div>
+                <div className="u-fs-xs u-text-secondary-emphasis u-uppercase u-font-bold u-tracking-wider">
+                  Setup Time
+                </div>
+              </div>
+            </div>
+            <div className="u-flex u-flex-column u-items-center u-gap-3">
+              <div className="u-w-16 u-h-16 u-bg-success-subtle u-text-success u-rounded-2xl u-flex u-items-center u-justify-center u-shadow-lg">
+                <Icon name="Cube" weight="duotone" size={32} />
+              </div>
+              <div>
+                <div className="u-fs-3xl u-font-black u-text-primary-emphasis">
+                  80+
+                </div>
+                <div className="u-fs-xs u-text-secondary-emphasis u-uppercase u-font-bold u-tracking-wider">
+                  Components
+                </div>
+              </div>
+            </div>
+            <div className="u-flex u-flex-column u-items-center u-gap-3">
+              <div className="u-w-16 u-h-16 u-bg-error-subtle u-text-error u-rounded-2xl u-flex u-items-center u-justify-center u-shadow-lg">
+                <Icon name="Heart" weight="duotone" size={32} />
+              </div>
+              <div>
+                <div className="u-fs-3xl u-font-black u-text-primary-emphasis">
+                  100%
+                </div>
+                <div className="u-fs-xs u-text-secondary-emphasis u-uppercase u-font-bold u-tracking-wider">
+                  Open Source
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="u-mb-10 u-py-6 u-border-y u-border-opacity-20">
+            <p className="u-fs-sm u-text-secondary-emphasis u-mb-4 u-font-bold u-uppercase u-tracking-wider">
+              Built with modern technologies
+            </p>
+            <div className="u-flex u-flex-wrap u-justify-center u-items-center u-gap-6 u-fs-md u-text-secondary-emphasis u-opacity-70">
+              <span className="u-flex u-items-center u-gap-2 u-font-bold">
+                <Icon name="Code" weight="duotone" size={20} />
+                TypeScript
+              </span>
+              <span className="u-opacity-30">•</span>
+              <span className="u-flex u-items-center u-gap-2 u-font-bold">
+                <Icon name="Atom" weight="duotone" size={20} />
+                React 18
+              </span>
+              <span className="u-opacity-30">•</span>
+              <span className="u-flex u-items-center u-gap-2 u-font-bold">
+                <Icon name="Palette" weight="duotone" size={20} />
+                CSS Tokens
+              </span>
+              <span className="u-opacity-30">•</span>
+              <span className="u-flex u-items-center u-gap-2 u-font-bold">
+                <Icon name="Lightning" weight="duotone" size={20} />
+                Zero Runtime
+              </span>
+            </div>
+          </div>
+
           <h2 className="u-fs-5xl u-font-black u-mb-6 u-tracking-tighter">
             Ready to crystallize your vision?
           </h2>
