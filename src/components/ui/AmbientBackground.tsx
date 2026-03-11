@@ -26,7 +26,8 @@ interface AmbientBackgroundProps {
 /**
  * **AmbientBackground**
  *
- * A minimal, aesthetic gradient backdrop for design-system documentation.
+ * A modern glassmorphism aesthetic with ambient background effects.
+ * Features floating glass orbs, layered gradients, and subtle depth.
  */
 const AmbientBackgroundBase: FC<AmbientBackgroundProps> = ({
   className = "",
@@ -48,7 +49,25 @@ const AmbientBackgroundBase: FC<AmbientBackgroundProps> = ({
     .filter(Boolean)
     .join(" ");
 
-  return <div className={rootClasses} aria-hidden="true" />;
+  return (
+    <div className={rootClasses} aria-hidden="true">
+      {/* Base gradient layer */}
+      <div className={styles.gradientBase} />
+
+      {/* Floating glass orbs */}
+      <div className={`${styles.orb} ${styles.orb1}`} />
+      <div className={`${styles.orb} ${styles.orb2}`} />
+      <div className={`${styles.orb} ${styles.orb3}`} />
+      <div className={`${styles.orb} ${styles.orb4}`} />
+      <div className={`${styles.orb} ${styles.orb5}`} />
+      <div className={`${styles.orb} ${styles.orb6}`} />
+
+      {/* Glassmorphism overlays */}
+      <div className={styles.glassOverlay} />
+      <div className={styles.noiseOverlay} />
+      <div className={styles.vignetteOverlay} />
+    </div>
+  );
 };
 
 export const AmbientBackground = memo(AmbientBackgroundBase);

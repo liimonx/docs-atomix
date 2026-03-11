@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import { HomePageLayout } from "@/components/layout/HomePageLayout";
 import {
   Hero,
@@ -31,20 +32,28 @@ import styles from "./page.module.scss";
 
 export default function Page() {
   const container = useRef<HTMLDivElement>(null);
-  const mockup = useRef<HTMLDivElement>(null);
   const glow = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      // Subtle entry for the mockup
-      gsap.fromTo(
-        mockup.current,
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, ease: "expo.out", delay: 0.5 },
-      );
-    },
-    { scope: container },
-  );
+  const copyInstallCommand = async () => {
+    try {
+      await navigator.clipboard.writeText("npm install @shohojdhara/atomix");
+      toast.success("Install command copied to clipboard!", {
+        duration: 3000,
+        position: "bottom-right",
+        style: {
+          background: "var(--atomix-color-success-subtle)",
+          color: "var(--atomix-color-success-emphasis)",
+          borderRadius: "8px",
+          padding: "12px 16px",
+        },
+      });
+    } catch (err) {
+      toast.error("Failed to copy command. Please try again.", {
+        duration: 4000,
+        position: "bottom-right",
+      });
+    }
+  };
 
   // Architecture pillars
   const architecturePillars = [
@@ -71,14 +80,7 @@ export default function Page() {
     },
   ];
 
-  // Trusted by companies
-  const trustedCompanies = [
-    { name: "Acme Corp", icon: "Diamond" },
-    { name: "StarShip", icon: "RocketLaunch" },
-    { name: "Hydra", icon: "Drop" },
-    { name: "Voltic", icon: "Lightning" },
-    { name: "Hexagon", icon: "Hexagon" },
-  ];
+  // Trusted companies section removed - requires real testimonials
 
   return (
     <HomePageLayout>
@@ -88,7 +90,7 @@ export default function Page() {
       {/* Hero sections */}
       <Hero title={<></>} contentWidth="90%">
         <Hero.Content className="u-w-100 u-mx-auto u-text-center u-flex u-flex-column u-items-center">
-          <Badge label="v0.5.0 is now live" />
+          <Badge label="v0.4.7 is now live" />
 
           {/* Headline Slider */}
           <HeroHeadlineSlider />
@@ -98,22 +100,22 @@ export default function Page() {
             <Button
               variant="outline-primary"
               size="lg"
+              glass
               icon={<Icon name="ArrowRight" weight="duotone" />}
               iconPosition="end"
-              className="u-px-8 u-h-14 u-rounded-lg u-shadow-primary-subtle u-fs-lg"
+              className="u-h-14 u-rounded-lg u-shadow-primary-subtle u-fs-lg"
               href="/docs/getting-started/installation"
               LinkComponent={Link}
             >
               Start Building
             </Button>
             <Button
-              variant="secondary"
+              variant="outline-error"
               size="lg"
               icon={<Icon name="TerminalWindow" weight="duotone" />}
-              className="u-px-8 u-h-14 u-rounded-lg u-fs-lg"
-              onClick={() =>
-                navigator.clipboard.writeText("npm install @shohojdhara/atomix")
-              }
+              className="u-h-14 u-rounded-lg u-fs-lg"
+              onClick={copyInstallCommand}
+              glass
             >
               npm install @shohojdhara/atomix
             </Button>
@@ -128,8 +130,12 @@ export default function Page() {
           {/* Background glow for the mockup */}
           <div ref={glow} className={styles.heroVisualMockupGlow} />
 
-          <div ref={mockup} className={styles.mockupWrapper}>
-            <Card className="u-relative u-p-1 u-p-md-2 u-overflow-hidden u-rounded-3xl u-shadow-2xl">
+          <div className={styles.mockupWrapper}>
+            <Card
+              className="u-relative u-p-1 u-p-md-2 u-overflow-hidden u-rounded-3xl u-shadow-2xl"
+              glass
+              appearance="ghost"
+            >
               {/* Fake Browser Header */}
               <div className="u-flex u-items-center u-gap-3 u-px-6 u-py-4 u-border-b ">
                 <div className="u-flex u-gap-2">
@@ -279,9 +285,19 @@ export default function Page() {
               <Card
                 title={pillar.title}
                 text={pillar.description}
-                icon={<Icon name={pillar.icon as any} weight="duotone" />}
+                icon={
+                  <Icon
+                    name={
+                      pillar.icon as
+                        | "ProjectorScreenChart"
+                        | "ShieldCheck"
+                        | "Lightning"
+                    }
+                    weight="duotone"
+                  />
+                }
                 className="u-h-100 u-rounded-2xl u-shadow-lg u-transition-transform u-hover-translate-y-n2"
-                variant={pillar.color as any}
+                variant={pillar.color as "primary" | "success"}
                 hoverable
               />
             </GridCol>
@@ -305,7 +321,7 @@ export default function Page() {
             href="/docs/components/overview"
             className="u-text-primary u-flex u-items-center u-gap-2 u-font-bold u-hover-text-primary-emphasis u-transition-all u-fs-lg"
           >
-            View all 40+ components <Icon name="ArrowRight" size={20} />
+            View all 80+ components <Icon name="ArrowRight" size={20} />
           </Link>
         </div>
 
@@ -316,7 +332,6 @@ export default function Page() {
             <div className="u-flex u-flex-column u-gap-6 u-h-100">
               {/* Component 1: Advanced Auth Card */}
               <div className="">
-                <div className={styles.authCardImageBg}></div>
                 <div className={styles.authCardGradientBg}></div>
 
                 <Card>
@@ -336,28 +351,16 @@ export default function Page() {
                     <div className="u-flex u-flex-column u-gap-1-5">
                       <Input
                         placeholder="name@company.com"
-                        {...({
-                          icon: <Icon name="Envelope" weight="duotone" />,
-                        } as any)}
+                        type="text"
+                        size="md"
                       />
                     </div>
                     <div className="u-flex u-flex-column u-gap-1-5">
-                      <Input
-                        type="password"
-                        placeholder="••••••••"
-                        {...({
-                          icon: <Icon name="Key" weight="duotone" />,
-                        } as any)}
-                      />
+                      <Input type="password" placeholder="••••••••" size="md" />
                     </div>
 
                     <div className="u-flex u-justify-between u-items-center">
-                      <Checkbox
-                        {...({
-                          label: "Remember device",
-                          checked: true,
-                        } as any)}
-                      />
+                      <Checkbox label="Remember device" checked={true} />
                       <Link
                         href="#"
                         className="u-fs-xs u-text-primary u-font-bold u-hover-underline"
@@ -415,7 +418,7 @@ export default function Page() {
                   <div className="u-flex u-items-center u-justify-between">
                     <div className="u-flex u-items-center u-gap-3">
                       <div className="u-w-8 u-h-8 u-rounded-lg u-bg-primary-subtle u-text-primary u-flex u-items-center u-justify-center">
-                        <Icon name={"Globe" as any} weight="duotone" />
+                        <Icon name="Globe" weight="duotone" />
                       </div>
                       <div>
                         <div className="u-fs-xs u-font-bold">Edge Nodes</div>
@@ -432,7 +435,7 @@ export default function Page() {
                   <div className="u-flex u-items-center u-justify-between">
                     <div className="u-flex u-items-center u-gap-3">
                       <div className="u-w-8 u-h-8 u-rounded-lg u-bg-secondary-subtle u-text-secondary-emphasis u-flex u-items-center u-justify-center">
-                        <Icon name={"Pulse" as any} weight="duotone" />
+                        <Icon name="Pulse" weight="duotone" />
                       </div>
                       <div>
                         <div className="u-fs-xs u-font-bold">Latency</div>
@@ -559,7 +562,7 @@ export default function Page() {
                             value: "eu-central-1",
                           },
                         ]}
-                        {...({ value: "eu-central-1" } as any)}
+                        value="eu-central-1"
                       />
                     </div>
 
@@ -646,26 +649,6 @@ export default function Page() {
             </Grid>
           </GridCol>
         </Grid>
-      </Block>
-
-      {/* Trusted By Section */}
-      <Block>
-        <div className="u-text-center">
-          <p className="u-text-secondary-emphasis u-fs-xs u-font-black u-uppercase u-tracking-widest u-mb-10 u-opacity-60">
-            Pioneered by global engineering teams
-          </p>
-          <div className="u-flex u-flex-wrap u-justify-center u-gap-14 u-items-center u-opacity-40 u-hover-opacity-90 u-transition-all">
-            {trustedCompanies.map((company, index) => (
-              <div
-                key={index}
-                className="u-flex u-items-center u-gap-3 u-fs-xl u-font-black u-tracking-tighter"
-              >
-                <Icon name={company.icon as any} weight="duotone" size={28} />
-                <span>{company.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </Block>
 
       {/* Final CTA Section */}

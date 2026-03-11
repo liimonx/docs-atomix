@@ -1,102 +1,382 @@
 /**
  * AmbientBackground
  * =============================================================================
- * Simple and aesthetic radial gradient backdrop for design-system documentation.
+ * Modern glassmorphism aesthetic with ambient background effects.
  *
- * Uses @property to register CSS custom properties as <color> types,
- * enabling the browser to smoothly interpolate between color values.
- * Without this, custom properties snap instantly (discrete token swap).
+ * Features:
+ * - Floating glass orbs with smooth animations
+ * - Layered gradient depth
+ * - Subtle noise texture for glass effect
+ * - Smooth theme transitions
  */
 
 // ---------------------------------------------------------------------------
 // @property Registrations — enables smooth color interpolation
 // ---------------------------------------------------------------------------
 
-@property --bg-color-1 {
+@property --glass-color-1 {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgba(19, 164, 236, 0.25);
+  initial-value: rgba(99, 102, 241, 0.4);
 }
 
-@property --bg-color-2 {
+@property --glass-color-2 {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgba(147, 51, 234, 0.22);
+  initial-value: rgba(139, 92, 246, 0.35);
 }
 
-@property --bg-color-1-mobile {
+@property --glass-color-3 {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgba(19, 164, 236, 0.15);
+  initial-value: rgba(6, 182, 212, 0.3);
 }
 
-@property --bg-color-2-mobile {
+@property --glass-accent {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgba(147, 51, 234, 0.12);
+  initial-value: rgba(236, 72, 153, 0.2);
 }
 
 // ---------------------------------------------------------------------------
-// Root
+// Root Container
 // ---------------------------------------------------------------------------
 
 .root {
   position: fixed;
-  inset: 0px 0 0 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0;
+  z-index: -100;
+  overflow: hidden;
 
-  // Default theme colors (Trust, Creativity — Blue & Purple)
-  --bg-color-1: rgba(19, 164, 236, 0.25);
-  --bg-color-2: rgba(147, 51, 234, 0.22);
-  --bg-color-1-mobile: rgba(19, 164, 236, 0.15);
-  --bg-color-2-mobile: rgba(147, 51, 234, 0.12);
+  // Glass color palette (dark theme default)
+  --glass-color-1: rgba(99, 102, 241, 0.4); // Indigo
+  --glass-color-2: rgba(139, 92, 246, 0.35); // Violet
+  --glass-color-3: rgba(6, 182, 212, 0.3); // Cyan
+  --glass-accent: rgba(236, 72, 153, 0.2); // Pink accent
 
-  // Smooth color crossfade — works because @property registers them as <color>
-  transition: --bg-color-1 2.5s cubic-bezier(0.4, 0, 0.2, 1),
-    --bg-color-2 2.5s cubic-bezier(0.4, 0, 0.2, 1),
-    --bg-color-1-mobile 2.5s cubic-bezier(0.4, 0, 0.2, 1),
-    --bg-color-2-mobile 2.5s cubic-bezier(0.4, 0, 0.2, 1);
-
-  background-image: radial-gradient(
-      circle at 30% 0%,
-      var(--bg-color-1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(circle at 70% 0%, var(--bg-color-2) 0%, transparent 50%);
+  // Smooth transitions for theme switching
+  transition: --glass-color-1 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    --glass-color-2 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    --glass-color-3 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    --glass-accent 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (max-width: 768px) {
-  .root {
-    background-image: radial-gradient(
-        circle at 50% -10%,
-        var(--bg-color-1-mobile) 0%,
-        transparent 60%
-      ),
-      radial-gradient(
-        circle at 100% -10%,
-        var(--bg-color-2-mobile) 0%,
-        transparent 60%
-      );
+// ---------------------------------------------------------------------------
+// Base Gradient Layer
+// ---------------------------------------------------------------------------
+
+.gradientBase {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 80% 60% at 10% 20%,
+      var(--glass-color-1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 60% 80% at 90% 80%,
+      var(--glass-color-2) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 50% 50% at 50% 50%,
+      var(--glass-color-3) 0%,
+      transparent 60%
+    );
+}
+
+// ---------------------------------------------------------------------------
+// Glass Orbs - Floating Glassmorphism Elements
+// ---------------------------------------------------------------------------
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  mix-blend-mode: screen;
+  will-change: transform;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    filter: blur(40px);
+    opacity: 0.6;
+  }
+}
+
+.orb1 {
+  width: 500px;
+  height: 500px;
+  top: -15%;
+  left: -5%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    var(--glass-color-1) 0%,
+    transparent 70%
+  );
+  animation: float-1 25s ease-in-out infinite;
+}
+
+.orb2 {
+  width: 400px;
+  height: 400px;
+  top: 20%;
+  right: -10%;
+  background: radial-gradient(
+    circle at 70% 30%,
+    var(--glass-color-2) 0%,
+    transparent 70%
+  );
+  animation: float-2 30s ease-in-out infinite;
+}
+
+.orb3 {
+  width: 350px;
+  height: 350px;
+  bottom: -10%;
+  left: 30%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--glass-color-3) 0%,
+    transparent 70%
+  );
+  animation: float-3 22s ease-in-out infinite;
+}
+
+.orb4 {
+  width: 250px;
+  height: 250px;
+  top: 60%;
+  left: 10%;
+  background: radial-gradient(
+    circle at 40% 40%,
+    var(--glass-accent) 0%,
+    transparent 70%
+  );
+  animation: float-4 28s ease-in-out infinite;
+}
+
+// Smaller accent orbs for depth
+.orb5 {
+  width: 180px;
+  height: 180px;
+  top: 10%;
+  right: 25%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 70%
+  );
+  animation: float-5 35s ease-in-out infinite;
+}
+
+.orb6 {
+  width: 120px;
+  height: 120px;
+  bottom: 20%;
+  right: 15%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: float-6 40s ease-in-out infinite;
+}
+
+// ---------------------------------------------------------------------------
+// Glassmorphism Overlays
+// ---------------------------------------------------------------------------
+
+.glassOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+}
+
+.noiseOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+// Subtle vignette for depth
+.vignetteOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Animations
+// ---------------------------------------------------------------------------
+
+@keyframes float-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, 40px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 60px) scale(0.95);
+  }
+  75% {
+    transform: translate(40px, 20px) scale(1.02);
+  }
+}
+
+@keyframes float-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-40px, -30px) scale(1.08);
+  }
+  50% {
+    transform: translate(20px, -50px) scale(0.92);
+  }
+  75% {
+    transform: translate(-30px, -20px) scale(1.04);
+  }
+}
+
+@keyframes float-3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(50px, -30px) scale(1.06);
+  }
+  66% {
+    transform: translate(-30px, -50px) scale(0.94);
+  }
+}
+
+@keyframes float-4 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 30px) scale(1.1);
+  }
+}
+
+@keyframes float-5 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, 40px) scale(1.05);
+  }
+  66% {
+    transform: translate(-30px, 20px) scale(0.95);
+  }
+}
+
+@keyframes float-6 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-30px, -20px) scale(1.08);
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .orb {
+    animation: none !important;
   }
 }
 
 // ---------------------------------------------------------------------------
-// Variants
+// Mobile Adjustments
+// ---------------------------------------------------------------------------
+
+@media (max-width: 768px) {
+  .orb1 {
+    width: 300px;
+    height: 300px;
+    top: -10%;
+    left: -15%;
+  }
+
+  .orb2 {
+    width: 250px;
+    height: 250px;
+    right: -15%;
+  }
+
+  .orb3 {
+    width: 200px;
+    height: 200px;
+    bottom: 5%;
+  }
+
+  .orb4,
+  .orb5,
+  .orb6 {
+    opacity: 0.5;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Theme Variants
 // ---------------------------------------------------------------------------
 
 .theme-light {
-  --bg-color-1: rgba(19, 164, 236, 0.45); // Blue
-  --bg-color-2: rgba(147, 51, 234, 0.42); // Purple
-  --bg-color-1-mobile: rgba(19, 164, 236, 0.35);
-  --bg-color-2-mobile: rgba(147, 51, 234, 0.32);
+  --glass-color-1: rgba(99, 102, 241, 0.35);
+  --glass-color-2: rgba(139, 92, 246, 0.28);
+  --glass-color-3: rgba(6, 182, 212, 0.22);
+  --glass-accent: rgba(236, 72, 153, 0.18);
+
+  .vignetteOverlay {
+    background: radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 100%
+    );
+  }
+
+  .noiseOverlay {
+    opacity: 0.02;
+  }
 }
 
 .theme-dark {
-  --bg-color-1: rgba(99, 102, 241, 0.25); // Indigo
-  --bg-color-2: rgba(6, 182, 212, 0.22); // Cyan
-  --bg-color-1-mobile: rgba(99, 102, 241, 0.15);
-  --bg-color-2-mobile: rgba(6, 182, 212, 0.12);
+  --glass-color-1: rgba(99, 102, 241, 0.5);
+  --glass-color-2: rgba(139, 92, 246, 0.45);
+  --glass-color-3: rgba(6, 182, 212, 0.35);
+  --glass-accent: rgba(236, 72, 153, 0.25);
+
+  .glassOverlay {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.015) 100%
+    );
+  }
 }

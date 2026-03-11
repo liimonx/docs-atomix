@@ -3,65 +3,15 @@
 import { useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Icon } from "@shohojdhara/atomix";
 import styles from "./HeroHeadlineSlider.module.scss";
+import { SLIDES } from "@/data/home/slider-data";
 
 gsap.registerPlugin(useGSAP);
 
 /* ═══════════════════════════════════════
-   Types & Data
+   Constants
    ═══════════════════════════════════════ */
-
-interface SlideData {
-  id: string;
-  headlineLine1: string;
-  headlineLine2: string;
-  description: string;
-}
-
-const SLIDES: SlideData[] = [
-  {
-    id: "slide-1",
-    headlineLine1: "Atomix Design System",
-    headlineLine2: "One Token to Rule Them All.",
-    description:
-      "Centralized design truths that scale seamlessly across your entire frontend ecosystem.",
-  },
-  {
-    id: "slide-2",
-    headlineLine1: "Glassmorphism Reimagined",
-    headlineLine2: "Cinematic Depth & Precision.",
-    description:
-      "Layer surfaces with advanced frosted effects, noise textures, and pixel-perfect realism.",
-  },
-  {
-    id: "slide-3",
-    headlineLine1: "Accessibility First",
-    headlineLine2: "Inclusive by Default.",
-    description:
-      "WCAG 2.1 AA compliance that automatically adjusts contrast without compromising aesthetics.",
-  },
-  {
-    id: "slide-4",
-    headlineLine1: "Developer Experience",
-    headlineLine2: "Built for Performance & Speed.",
-    description:
-      "High-performance, type-safe components designed to handle the most demanding enterprise needs.",
-  },
-  {
-    id: "slide-5",
-    headlineLine1: "Infinite Customization",
-    headlineLine2: "Your Brand, Your Vision.",
-    description:
-      "Tailor every layer, shadow, and blur strength through a flexible, versioned token engine.",
-  },
-  {
-    id: "slide-6",
-    headlineLine1: "Production Ready",
-    headlineLine2: "Battle-Tested Architecture.",
-    description:
-      "40+ accessible React components ready to power high-stakes applications out of the box.",
-  },
-];
 
 const SLIDE_DURATION = 7; // seconds
 
@@ -245,14 +195,17 @@ function animateSlideOut(el: HTMLElement): gsap.core.Timeline {
 
 export const HeroHeadlineSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Refs for GSAP — avoids stale closures
-  const isPausedRef = useRef(false);
   const activeRef = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const slideEls = useRef<(HTMLDivElement | null)[]>([]);
   const progressEls = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Sync isPaused ref with state for use in callbacks
+  const isPausedRef = useRef(false);
+  isPausedRef.current = isPaused;
 
   // GSAP resources we need to clean up
   const autoAdvance = useRef<gsap.core.Tween | null>(null);
@@ -317,6 +270,32 @@ export const HeroHeadlineSlider = () => {
       );
     }
   }, []);
+
+  /* ───── Toggle Pause/Play ───── */
+
+  const togglePause = useCallback(() => {
+    const newState = !isPaused;
+    setIsPaused(newState);
+    isPausedRef.current = newState;
+
+    // Update auto-advance timer
+    if (autoAdvance.current) {
+      if (newState) {
+        autoAdvance.current.pause();
+      } else {
+        autoAdvance.current.resume();
+      }
+    }
+
+    // Update progress bar
+    if (progressTween.current) {
+      if (newState) {
+        progressTween.current.pause();
+      } else {
+        progressTween.current.resume();
+      }
+    }
+  }, [isPaused]);
 
   /* ───── Idle Breathing ───── */
 
@@ -572,6 +551,16 @@ export const HeroHeadlineSlider = () => {
           </button>
         ))}
       </div>
+
+      {/* Pause/Play Control */}
+      <button
+        onClick={togglePause}
+        aria-label={isPaused ? "Play slideshow" : "Pause slideshow"}
+        type="button"
+        className={styles.pausePlayButton}
+      >
+        <Icon name={isPaused ? "Play" : "Pause"} size={16} weight="duotone" />
+      </button>
 
       {/* Pause Indicator (screen-reader + visual) */}
       {isPaused && (

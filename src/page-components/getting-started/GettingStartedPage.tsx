@@ -96,7 +96,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 <Row className="u-items-center">
                   <GridCol lg={6}>
                     <div className="u-flex u-flex-column u-gap-6 u-items-start">
-                      <Badge variant="primary" label="New Version 2.0" />
+                      <Badge variant="primary" label="v0.4.7" />
 
                       <h1
                         className="u-fs-5xl lg:u-fs-6xl u-font-black u-ls-tight"
@@ -839,7 +839,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       {
                         iconName: "BookOpen",
                         title: "Components",
-                        desc: "Browse 40+ pre-built premium components",
+                        desc: "Browse 80+ pre-built premium components",
                         link: "/docs/components/overview",
                         color: "primary",
                       },

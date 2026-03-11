@@ -1,7 +1,7 @@
 {
   "name": "atomix-design-system-docs",
   "version": "1.0.0",
-  "description": "Comprehensive documentation site for the Atomix Design System - 40+ components, design tokens, layouts, and AtomixGlass effects",
+  "description": "Comprehensive documentation site for the Atomix Design System - 80+ components, design tokens, layouts, and AtomixGlass effects",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
