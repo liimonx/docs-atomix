@@ -237,8 +237,6 @@ function extractJSXElements(code: string): React.ReactNode[] {
       componentName.charAt(0) === componentName.charAt(0).toLowerCase();
 
     let Component;
-    // We should filter props if it's an explicit HTML element OR if the resolved component is a string (e.g. "button")
-    let shouldFilterProps = isHTMLElement;
 
     if (isHTMLElement) {
       // For HTML elements, use the lowercase name directly
@@ -256,12 +254,6 @@ function extractJSXElements(code: string): React.ReactNode[] {
           );
         }
         continue;
-      }
-
-      // If the resolved component is a string (e.g. Atomix.Button might be "button"),
-      // treat it as an HTML element for prop filtering purposes
-      if (typeof Component === "string") {
-        shouldFilterProps = true;
       }
     }
 
@@ -299,132 +291,83 @@ function extractJSXElements(code: string): React.ReactNode[] {
 
     // For HTML elements (or string components), filter out invalid props and convert valid ones to lowercase
     // Also filter props if Component is a string (DOM element) to ensure no invalid props are passed
-    const isDOMElement = typeof Component === "string" || shouldFilterProps;
-    if (isDOMElement) {
-      const filteredProps: Record<string, any> = {};
-      const standardReactProps = new Set([
-        "key",
-        "ref",
-        "children",
-        "className",
-        "tabIndex",
-        "contentEditable",
-        "spellCheck",
-        "readOnly",
-        "defaultValue",
-        "defaultChecked",
-        "autoFocus",
-        "autoComplete",
-        "noValidate",
-        "formNoValidate",
-        "dangerouslySetInnerHTML",
-      ]);
+    // List of standard React props that should be preserved even if they are PascalCase or camelCase
+    const standardReactProps = new Set([
+      "key",
+      "ref",
+      "children",
+      "className",
+      "tabIndex",
+      "contentEditable",
+      "spellCheck",
+      "readOnly",
+      "defaultValue",
+      "defaultChecked",
+      "autoFocus",
+      "autoComplete",
+      "noValidate",
+      "formNoValidate",
+      "dangerouslySetInnerHTML",
+      "as",
+      "LinkComponent",
+    ]);
 
-      for (const [key, value] of Object.entries(props)) {
-        const lowerKey = key.toLowerCase();
-        const firstChar = key.charAt(0);
-        const isPascalCase =
-          firstChar === firstChar.toUpperCase() &&
-          firstChar !== firstChar.toLowerCase();
+    // ALWAYS filter props for both DOM elements and components to prevent
+    // invalid properties (like leftover PascalCase component names) from leaking
+    const filteredProps: Record<string, any> = {};
 
-        // CRITICAL: Filter out ALL PascalCase props that are not standard React props or event handlers
-        // (e.g., "Button", "Card", "Icon", etc.) - these are invalid for DOM elements
-        if (
-          isPascalCase &&
-          !standardReactProps.has(key) &&
-          !(
-            key.startsWith("on") &&
-            key.length > 2 &&
-            key[2] === key[2].toUpperCase()
-          )
-        ) {
-          // Skip invalid PascalCase props like "Icon", "Button", "Card", etc.
-          if (process.env.NODE_ENV === "development") {
-            console.debug(
-              `CodePreview: Filtering out invalid PascalCase prop "${key}" for ${
-                typeof Component === "string" ? "DOM element" : "component"
-              } "${componentName}"`,
-            );
-          }
-          continue;
+    for (const [key, value] of Object.entries(props)) {
+      const lowerKey = key.toLowerCase();
+      const firstChar = key.charAt(0);
+      const isPascalCase =
+        firstChar === firstChar.toUpperCase() &&
+        firstChar !== firstChar.toLowerCase();
+
+      // Skip invalid PascalCase props like "Icon", "Button", "Card", etc.
+      // unless they are standard React props or event handlers
+      if (
+        isPascalCase &&
+        !standardReactProps.has(key) &&
+        !(
+          key.startsWith("on") &&
+          key.length > 2 &&
+          key[2] === key[2].toUpperCase()
+        )
+      ) {
+        if (process.env.NODE_ENV === "development") {
+          console.debug(
+            `CodePreview: Filtering out invalid PascalCase prop "${key}" for component/element "${componentName}"`,
+          );
         }
+        continue;
+      }
 
-        // Keep valid props: lowercase, camelCase React props, data-*, aria-*, and event handlers
-        // Convert to lowercase for HTML attributes (except standard React props and event handlers)
+      // If it's a DOM element, we need to be stricter and ensure lowercase for non-standard props
+      if (typeof Component === "string") {
         if (standardReactProps.has(key)) {
-          filteredProps[key] = value; // Keep camelCase for standard React props
+          filteredProps[key] = value;
         } else if (
           key.startsWith("on") &&
           key.length > 2 &&
           key[2] === key[2].toUpperCase()
         ) {
-          // Event handlers like onClick, onMouseEnter, etc.
-          filteredProps[key] = value; // Keep camelCase for event handlers
+          filteredProps[key] = value;
         } else if (
           key.startsWith("data-") ||
           key.startsWith("aria-") ||
-          key === lowerKey // Already lowercase
+          key === lowerKey
         ) {
-          filteredProps[lowerKey] = value; // Convert to lowercase for HTML attributes
+          filteredProps[lowerKey] = value;
         } else if (!isPascalCase) {
-          // Allow other lowercase/camelCase props that aren't PascalCase
-          // Convert camelCase to lowercase for HTML attributes
           filteredProps[lowerKey] = value;
         }
-        // All other props (including any remaining PascalCase props) are filtered out
+      } else {
+        // For React components, keep original keys except the filtered PascalCase ones
+        filteredProps[key] = value;
       }
-      props = filteredProps;
     }
+    props = filteredProps;
 
-    // Final safety check: Remove any remaining PascalCase props for DOM elements
-    // This is a safeguard in case the filtering above missed something
-    if (typeof Component === "string") {
-      const safeProps: Record<string, any> = {};
-      const standardReactProps = new Set([
-        "key",
-        "ref",
-        "children",
-        "className",
-        "tabIndex",
-        "contentEditable",
-        "spellCheck",
-        "readOnly",
-        "defaultValue",
-        "defaultChecked",
-        "autoFocus",
-        "autoComplete",
-        "noValidate",
-        "formNoValidate",
-        "dangerouslySetInnerHTML",
-      ]);
-
-      for (const [key, value] of Object.entries(props)) {
-        const firstChar = key.charAt(0);
-        const isPascalCase =
-          firstChar === firstChar.toUpperCase() &&
-          firstChar !== firstChar.toLowerCase();
-
-        // Skip PascalCase props that aren't standard React props or event handlers
-        if (
-          isPascalCase &&
-          !standardReactProps.has(key) &&
-          !(
-            key.startsWith("on") &&
-            key.length > 2 &&
-            key[2] === key[2].toUpperCase()
-          )
-        ) {
-          if (process.env.NODE_ENV === "development") {
-            console.warn(
-              `CodePreview: Removing invalid PascalCase prop "${key}" from DOM element "${Component}"`,
-            );
-          }
-          continue;
-        }
-        safeProps[key] = value;
-      }
-      props = safeProps;
-    }
 
     // Render the component
     try {

@@ -100,7 +100,7 @@ export default function Page() {
               size="lg"
               icon={<Icon name="ArrowRight" weight="duotone" />}
               iconPosition="end"
-              className="u-px-8 u-h-14 u-rounded-lg u-shadow-primary-glow u-fs-lg"
+              className="u-px-8 u-h-14 u-rounded-lg u-shadow-primary-subtle u-fs-lg"
               href="/docs/getting-started/installation"
               LinkComponent={Link}
             >

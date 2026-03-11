@@ -161,16 +161,16 @@ $gray-10: #0f172a; // slate-900
   // rich-near-black
   $secondary-text: $gray-8,
   // comfortable secondary
-  $tertiary-text: $gray-6,
+  $tertiary-text: $gray-7,
   // muted
-  $disabled-text: $gray-5,
+  $disabled-text: $gray-6,
   // disabled / placeholder
   $invert-text: #ffffff,
-  $brand-text: $primary-6,
-  $error-text: $red-7,
-  $success-text: $green-7,
-  $warning-text: $yellow-7,
-  $info-text: $blue-7,
+  $brand-text: $primary-8,
+  $error-text: $red-8,
+  $success-text: $green-8,
+  $warning-text: $yellow-9,
+  $info-text: $blue-8,
   $light-text: $gray-9,
   $dark-text: #ffffff,
 
@@ -246,9 +246,9 @@ $gray-10: #0f172a; // slate-900
   $dark-border-dark: rgba(255, 255, 255, 0.04),
   // ── Brand Colors (semantic tokens) ────────────────────────────────────────
   $primary: $primary-6,
-  $secondary: $gray-1,
-  $light: #ffffff,
-  $dark: $gray-10,
+  $secondary: $gray-6, // Darkened for text accessibility and to differentiate from $secondary-bg
+  $light: $gray-2,     // Distinct from $primary-bg (#ffffff)
+  $dark: $gray-9,
   $success: $green-6,
   $info: $blue-6,
   $warning: $yellow-5,
@@ -256,8 +256,8 @@ $gray-10: #0f172a; // slate-900
 
   // Dark variants
   $primary-dark: $primary-5,
-  $secondary-dark: $gray-10,
-  $light-dark: #020617,
+  $secondary-dark: $gray-4,
+  $light-dark: $gray-7,
   $dark-dark: #020617,
   $success-dark: $green-5,
   $info-dark: $blue-5,
@@ -266,9 +266,9 @@ $gray-10: #0f172a; // slate-900
 
   // Hover states (light)
   $primary-hover: $primary-7,
-  $secondary-hover: $gray-2,
-  $light-hover: $gray-1,
-  $dark-hover: $gray-8,
+  $secondary-hover: $gray-7,
+  $light-hover: $gray-3,
+  $dark-hover: $gray-10,
   $success-hover: $green-7,
   $info-hover: $blue-7,
   $warning-hover: $yellow-6,
@@ -276,8 +276,8 @@ $gray-10: #0f172a; // slate-900
 
   // Hover states (dark)
   $primary-hover-dark: $primary-4,
-  $secondary-hover-dark: $gray-8,
-  $light-hover-dark: $gray-9,
+  $secondary-hover-dark: $gray-3,
+  $light-hover-dark: $gray-6,
   $dark-hover-dark: #020617,
   $info-hover-dark: $blue-4,
   $success-hover-dark: $green-4,
@@ -293,18 +293,18 @@ $gray-10: #0f172a; // slate-900
   // high contrast body text
   $body-bg: #ffffff,
   $headings-color: $gray-10,
-  $link-color: $primary-6,
+  $link-color: $primary-8,
   $link-decoration: none,
-  $link-hover-color: $primary-7,
+  $link-hover-color: $primary-9,
   $link-hover-decoration: underline,
   $code-color: #d63384,
   // vibrant pink — visually distinct from brand blue
   $mark-bg: $yellow-2,
 
-  $form-valid-color: $green-6,
-  $form-valid-border-color: $green-6,
-  $form-invalid-color: $red-6,
-  $form-invalid-border-color: $red-6,
+  $form-valid-color: $green-7,
+  $form-valid-border-color: $green-7,
+  $form-invalid-color: $red-7,
+  $form-invalid-border-color: $red-7,
 
   // Dark mode body
   $body-color-dark: $gray-3,
