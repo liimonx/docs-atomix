@@ -7,8 +7,6 @@ import { Icon } from "@shohojdhara/atomix";
 import styles from "./HeroHeadlineSlider.module.scss";
 import { SLIDES } from "@/data/home/slider-data";
 
-gsap.registerPlugin(useGSAP);
-
 /* ═══════════════════════════════════════
    Constants
    ═══════════════════════════════════════ */
