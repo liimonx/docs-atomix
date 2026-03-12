@@ -132,7 +132,13 @@ export default function Page() {
           <div className={styles.mockupWrapper}>
             <Card
               className="u-relative u-p-1 u-p-md-2 u-overflow-hidden u-rounded-3xl u-shadow-2xl"
-              glass
+              glass={{
+                blurAmount: 3,
+                displacementScale: 100,
+                aberrationIntensity: 20,
+                shaderVariant: "plasma",
+                mode: "shader",
+              }}
               appearance="ghost"
             >
               {/* Fake Browser Header */}
