@@ -57,7 +57,7 @@ export const BreadcrumbNavigation: FC = () => {
         href: item.path,
         current: index === breadcrumbItems.length - 1,
       }))}
-      LinkComponent={Link}
+      linkComponent={Link}
       divider={<Icon name="CaretRight" size="sm" />}
     />
   );

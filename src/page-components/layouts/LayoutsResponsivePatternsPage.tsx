@@ -96,14 +96,14 @@ const LayoutsResponsivePatternsPage: FC = () => {
               icon={<Icon name="GridFour" />}
               label="Grid System"
               href="/docs/layouts/grid"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
             <Button
               variant="secondary"
               label="Masonry Grid"
               icon={<Icon name="GridFour" />}
               href="/docs/layouts/masonry-grid"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
           </div>
         }

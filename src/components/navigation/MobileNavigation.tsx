@@ -254,7 +254,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
             <AtomixSideMenu
               title={panelTitle}
               menuItems={menuItems}
-              LinkComponent={Link as any}
+              linkComponent={Link as any}
             >
               {null}
             </AtomixSideMenu>

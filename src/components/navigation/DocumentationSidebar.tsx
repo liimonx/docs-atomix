@@ -65,7 +65,7 @@ const DocumentationSidebar = memo(function DocumentationSidebar({
           }}
           title={<></>}
           menuItems={menuItems}
-          LinkComponent={Link as any}
+          linkComponent={Link as any}
           isOpen={isOpen}
         >
           {null}

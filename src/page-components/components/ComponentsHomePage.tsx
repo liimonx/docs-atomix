@@ -63,14 +63,14 @@ const ComponentsHomePage: FC = () => {
               icon={<Icon name="Download" size={16} />}
               label="Get Started"
               href="/docs/getting-started/installation"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
             <Button
               variant="secondary"
               icon={<Icon name="GridFour" size={16} />}
               label="Browse Components"
               href="/docs/components/overview"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
           </div>
         }

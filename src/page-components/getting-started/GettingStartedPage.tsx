@@ -124,7 +124,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           icon={<Icon name="Code" size={20} />}
                           label="View Components"
                           href="/docs/components/overview"
-                          LinkComponent={Link}
+                          linkComponent={Link}
                         />
                       </div>
                     </div>
@@ -299,14 +299,14 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       icon={<Icon name="Download" size={16} />}
                       label="Quick Start"
                       href="/docs/getting-started/quick-start"
-                      LinkComponent={Link}
+                      linkComponent={Link}
                     />
                     <Button
                       variant="secondary"
                       label="Browse Components"
                       icon={<Icon name="BookOpen" size={16} />}
                       href="/docs/components/overview"
-                      LinkComponent={Link}
+                      linkComponent={Link}
                     />
                   </div>
                 }
@@ -627,7 +627,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       iconSize={20}
                       label="Installation Guide"
                       href="/docs/getting-started/installation"
-                      LinkComponent={Link}
+                      linkComponent={Link}
                     />
                     <Button
                       glass
@@ -636,7 +636,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       iconSize={20}
                       label="Browse Components"
                       href="/docs/components/overview"
-                      LinkComponent={Link}
+                      linkComponent={Link}
                     />
                   </div>
                 }

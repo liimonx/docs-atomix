@@ -75,14 +75,14 @@ const LayoutsOverviewPage: FC = () => {
               icon={<Icon name="Download" size={16} />}
               label="Quick Start"
               href="/docs/getting-started/quick-start"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
             <Button
               variant="secondary"
               label="Masonry Grid"
               icon={<Icon name="GridFour" />}
               href="/docs/layouts/masonry-grid"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
           </div>
         }

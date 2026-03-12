@@ -2158,7 +2158,7 @@ export default function RootLayout({ children }) {
                     it for use in your application.
                   </p>
                   <Button
-                    LinkComponent={Link}
+                    linkComponent={Link}
                     href="/docs/guides/theme-studio"
                     variant="primary"
                     size="md"

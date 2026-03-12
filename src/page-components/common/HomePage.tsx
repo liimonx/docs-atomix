@@ -172,7 +172,7 @@ const HomePage: FC = () => {
         secondaryAction={
           <Button
             href="/docs/getting-started/installation"
-            LinkComponent={Link}
+            linkComponent={Link}
             iconName="ArrowRight"
             iconPosition="end"
             iconSize={16}

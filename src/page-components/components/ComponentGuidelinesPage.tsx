@@ -466,13 +466,13 @@ $button-color: var(--atomix-primary) !default;
             <Button
               label="Browse Components"
               href="/docs/components/overview"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
             <Button
               variant="secondary"
               label="Quick Start"
               href="/docs/getting-started/quick-start"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
           </>
         }
@@ -516,7 +516,7 @@ $button-color: var(--atomix-primary) !default;
             <Button
               variant="primary"
               href="/docs/components/overview"
-              LinkComponent={Link}
+              linkComponent={Link}
             >
               <Icon name="GridFour" size={16} className="u-me-2" />
               Browse Components
@@ -524,7 +524,7 @@ $button-color: var(--atomix-primary) !default;
             <Button
               variant="outline"
               href="/docs/getting-started/quick-start"
-              LinkComponent={Link}
+              linkComponent={Link}
             >
               <Icon name="Rocket" size={16} className="u-me-2" />
               Quick Start Guide
@@ -532,7 +532,7 @@ $button-color: var(--atomix-primary) !default;
             <Button
               variant="outline"
               href="/docs/resources/contributing"
-              LinkComponent={Link}
+              linkComponent={Link}
             >
               <Icon name="Code" size={16} className="u-me-2" />
               Contributing Guide

@@ -95,14 +95,14 @@ const LayoutsPerformancePage: FC = () => {
               icon={<Icon name="GridFour" />}
               label="Grid System"
               href="/docs/layouts/grid"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
             <Button
               variant="secondary"
               label="Customization"
               icon={<Icon name="Gear" />}
               href="/docs/layouts/customization"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
           </div>
         }

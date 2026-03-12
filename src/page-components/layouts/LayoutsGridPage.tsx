@@ -74,14 +74,14 @@ const LayoutsGridPage: FC = () => {
               icon={<Icon name="Lightning" size={16} />}
               label="View Examples"
               href="/docs/examples/common-patterns"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
             <Button
               variant="secondary"
               label="Customization Guide"
               icon={<Icon name="Gear" size={16} />}
               href="/docs/layouts/customization"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
           </div>
         }

@@ -132,14 +132,14 @@ const MigrationPage: FC = () => {
               icon={<Icon name="Download" size="lg" />}
               label="Install Atomix"
               href="/docs/getting-started/installation"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
             <Button
               variant="secondary"
               label="Quick Start"
               icon={<Icon name="Lightning" size="lg" />}
               href="/docs/getting-started/quick-start"
-              LinkComponent={Link}
+              linkComponent={Link}
             />
           </div>
         }

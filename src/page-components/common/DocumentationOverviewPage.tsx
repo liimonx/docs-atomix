@@ -250,7 +250,7 @@ const DocumentationOverviewPage: FC = () => {
               iconPosition="end"
               className="u-px-8 u-h-14 u-rounded-lg u-shadow-primary-glow u-fs-lg"
               href="/docs/getting-started/installation"
-              LinkComponent={Link}
+              linkComponent={Link}
             >
               Get Started
             </Button>
@@ -260,7 +260,7 @@ const DocumentationOverviewPage: FC = () => {
               iconName="Stack"
               className="u-px-8 u-h-14 u-rounded-lg u-fs-lg"
               href="/docs/components/overview"
-              LinkComponent={Link}
+              linkComponent={Link}
             >
               Browse Components
             </Button>
@@ -498,7 +498,7 @@ const DocumentationOverviewPage: FC = () => {
                   iconName="Download"
                   className="u-h-14 u-px-8 u-rounded-xl u-shadow-primary-glow"
                   href="/docs/getting-started/installation"
-                  LinkComponent={Link}
+                  linkComponent={Link}
                 >
                   Get Started
                 </Button>
@@ -508,7 +508,7 @@ const DocumentationOverviewPage: FC = () => {
                   iconName="Stack"
                   className="u-h-14 u-px-8 u-rounded-xl"
                   href="/docs/components/overview"
-                  LinkComponent={Link}
+                  linkComponent={Link}
                 >
                   Browse Components
                 </Button>
