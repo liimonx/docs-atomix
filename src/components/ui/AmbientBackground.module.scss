@@ -2,28 +2,25 @@
  * AmbientBackground
  * =============================================================================
  * Modern glassmorphism aesthetic with ambient background effects.
- *
- * Features:
- * - Floating glass orbs with smooth animations
- * - Layered gradient depth
- * - Subtle noise texture for glass effect
- * - Smooth theme transitions
+ * Uses theme-aware CSS custom properties for consistent branding.
  */
 
+@use "../../styles/01-settings/index" as *;
+
 // ---------------------------------------------------------------------------
-// @property Registrations — enables smooth color interpolation
+// CSS Custom Property Definitions — enables smooth color interpolation
 // ---------------------------------------------------------------------------
 
 @property --glass-color-1 {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgba(99, 102, 241, 0.4);
+  initial-value: rgba(139, 92, 246, 0.4);
 }
 
 @property --glass-color-2 {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgba(139, 92, 246, 0.35);
+  initial-value: rgba(99, 102, 241, 0.35);
 }
 
 @property --glass-color-3 {
@@ -39,100 +36,45 @@
 }
 
 // ---------------------------------------------------------------------------
-// Root Container
+// Variables & Design Tokens
 // ---------------------------------------------------------------------------
 
-.root {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -100;
-  overflow: hidden;
+$z-index-background: -1;
+$z-index-gradient: 1;
+$z-index-grid: 2;
+$z-index-orbs: 3;
+$z-index-glass: 10;
+$z-index-noise: 13;
+$z-index-vignette: 12;
 
-  // Glass color palette (dark theme default)
-  --glass-color-1: rgba(99, 102, 241, 0.4); // Indigo
-  --glass-color-2: rgba(139, 92, 246, 0.35); // Violet
-  --glass-color-3: rgba(6, 182, 212, 0.3); // Cyan
-  --glass-accent: rgba(236, 72, 153, 0.2); // Pink accent
+$transition-duration: 1.5s;
+$transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
 
-  // Smooth transitions for theme switching
-  transition: --glass-color-1 1.5s cubic-bezier(0.4, 0, 0.2, 1),
-    --glass-color-2 1.5s cubic-bezier(0.4, 0, 0.2, 1),
-    --glass-color-3 1.5s cubic-bezier(0.4, 0, 0.2, 1),
-    --glass-accent 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+// ---------------------------------------------------------------------------
+// Mixins
+// ---------------------------------------------------------------------------
 
-  & > * {
-    position: absolute;
-    inset: 0;
-    will-change: transform, opacity;
+@mixin scale-float-animation($name, $scale-variants) {
+  @keyframes #{$name} {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    @each $percent, $scale in $scale-variants {
+      #{$percent} {
+        transform: scale($scale);
+      }
+    }
   }
 }
 
-// ---------------------------------------------------------------------------
-// Base Gradient Layer
-// ---------------------------------------------------------------------------
-
-.gradientBase {
-  z-index: 1;
-  background: radial-gradient(
-      ellipse 80% 60% at 10% 20%,
-      var(--glass-color-1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      ellipse 60% 80% at 90% 80%,
-      var(--glass-color-2) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      ellipse 50% 50% at 50% 50%,
-      var(--glass-color-3) 0%,
-      transparent 60%
-    );
-}
-
-// ---------------------------------------------------------------------------
-// Grid Pattern Overlay
-// ---------------------------------------------------------------------------
-
-.gridOverlay {
-  z-index: 2;
-  opacity: var(--grid-opacity, 0.1);
-  background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, var(--grid-line-opacity, 0.1)) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, var(--grid-line-opacity, 0.1)) 1px,
-      transparent 1px
-    );
-  background-size: 64px 64px;
-  mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
-  -webkit-mask-image: radial-gradient(
-    circle at 50% 50%,
-    black,
-    transparent 80%
-  );
-  // GSAP parallax handles movement
-}
-
-// ---------------------------------------------------------------------------
-// Glass Orbs - Floating Glassmorphism Elements
-// ---------------------------------------------------------------------------
-
-.orb {
+@mixin orb-base {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  mix-blend-mode: plus-lighter;
-  will-change: transform;
-  z-index: 3;
+  z-index: $z-index-orbs;
   opacity: 1;
-  // Note: x/y transforms handled by GSAP parallax, scale by CSS keyframes
+  mix-blend-mode: var(--orb-blend-mode, plus-lighter);
 
   &::before {
     content: "";
@@ -145,127 +87,159 @@
   }
 }
 
-.orb1 {
-  width: 500px;
-  height: 500px;
-  top: -15%;
-  left: -5%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    var(--glass-color-1) 0%,
-    transparent 70%
+@mixin orb-style(
+  $size,
+  $top: auto,
+  $left: auto,
+  $right: auto,
+  $bottom: auto,
+  $bg: inherit,
+  $animation: scale-float-slow 20s infinite both
+) {
+  width: $size;
+  height: $size;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+  background: $bg;
+  animation: $animation;
+}
+
+// ---------------------------------------------------------------------------
+// Animations
+// ---------------------------------------------------------------------------
+
+@include scale-float-animation("scale-float-slow", (25%: 1.05, 50%: 0.95, 75%: 1.03));
+@include scale-float-animation("scale-float-fast", (25%: 1.1, 50%: 0.9, 75%: 1.08));
+
+// ---------------------------------------------------------------------------
+// Root Container
+// ---------------------------------------------------------------------------
+
+.root {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: $z-index-background;
+  overflow: hidden;
+
+  // Default glass colors (uses primary brand palette)
+  --glass-color-1: rgba(139, 92, 246, 0.4);
+  --glass-color-2: rgba(99, 102, 241, 0.35);
+  --glass-color-3: rgba(6, 182, 212, 0.3);
+  --glass-accent: rgba(236, 72, 153, 0.2);
+
+  transition: --glass-color-1 $transition-duration $transition-ease,
+    --glass-color-2 $transition-duration $transition-ease,
+    --glass-color-3 $transition-duration $transition-ease,
+    --glass-accent $transition-duration $transition-ease;
+
+  & > * {
+    position: absolute;
+    inset: 0;
+    will-change: transform, opacity;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Layer Components
+// ---------------------------------------------------------------------------
+
+.gradientBase {
+  z-index: $z-index-gradient;
+}
+
+.gridOverlay {
+  z-index: $z-index-grid;
+  opacity: var(--grid-opacity, 0.1);
+  background-image: linear-gradient(
+      to right,
+      var(--grid-line-color, rgba(255, 255, 255, var(--grid-line-opacity, 0.1))) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      var(--grid-line-color, rgba(255, 255, 255, var(--grid-line-opacity, 0.1))) 1px,
+      transparent 1px
+    );
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    black,
+    transparent 80%
   );
-  animation-name: scale-float-1;
-  animation-duration: 25s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-  animation-play-state: running;
-  animation-delay: 0s;
+}
+
+.orb {
+  @include orb-base;
+}
+
+.orb1 {
+  @include orb-style(
+    $size: 500px,
+    $top: -15%,
+    $left: -5%,
+    $bg: radial-gradient(circle at 30% 30%, var(--glass-color-1) 0%, transparent 70%),
+    $animation: scale-float-slow 25s $transition-ease infinite both
+  );
 }
 
 .orb2 {
-  width: 400px;
-  height: 400px;
-  top: 20%;
-  right: -10%;
-  background: radial-gradient(
-    circle at 70% 30%,
-    var(--glass-color-2) 0%,
-    transparent 70%
+  @include orb-style(
+    $size: 400px,
+    $top: 20%,
+    $right: -10%,
+    $bg: radial-gradient(circle at 70% 30%, var(--glass-color-2) 0%, transparent 70%),
+    $animation: scale-float-slow 30s $transition-ease infinite both -5s
   );
-  animation-name: scale-float-2;
-  animation-duration: 30s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-  animation-play-state: running;
-  animation-delay: -5s;
 }
 
 .orb3 {
-  width: 350px;
-  height: 350px;
-  bottom: -10%;
-  left: 30%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    var(--glass-color-3) 0%,
-    transparent 70%
+  @include orb-style(
+    $size: 350px,
+    $left: 30%,
+    $bottom: -10%,
+    $bg: radial-gradient(circle at 50% 50%, var(--glass-color-3) 0%, transparent 70%),
+    $animation: scale-float-slow 22s $transition-ease infinite both -10s
   );
-  animation-name: scale-float-3;
-  animation-duration: 22s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-  animation-play-state: running;
-  animation-delay: -10s;
 }
 
 .orb4 {
-  width: 250px;
-  height: 250px;
-  top: 60%;
-  left: 10%;
-  background: radial-gradient(
-    circle at 40% 40%,
-    var(--glass-accent) 0%,
-    transparent 70%
+  @include orb-style(
+    $size: 250px,
+    $top: 60%,
+    $left: 10%,
+    $bg: radial-gradient(circle at 40% 40%, var(--glass-accent) 0%, transparent 70%),
+    $animation: scale-float-fast 28s $transition-ease infinite both -15s
   );
-  animation-name: scale-float-4;
-  animation-duration: 28s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-  animation-play-state: running;
-  animation-delay: -15s;
 }
 
-// Smaller accent orbs for depth
 .orb5 {
-  width: 180px;
-  height: 180px;
-  top: 10%;
-  right: 25%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255, 255, 255, 0.15) 0%,
-    transparent 70%
+  @include orb-style(
+    $size: 180px,
+    $top: 10%,
+    $right: 25%,
+    $bg: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    $animation: scale-float-slow 35s $transition-ease infinite both -20s
   );
-  animation-name: scale-float-5;
-  animation-duration: 35s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-  animation-play-state: running;
-  animation-delay: -20s;
 }
 
 .orb6 {
-  width: 120px;
-  height: 120px;
-  bottom: 20%;
-  right: 15%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255, 255, 255, 0.1) 0%,
-    transparent 70%
+  @include orb-style(
+    $size: 120px,
+    $right: 15%,
+    $bottom: 20%,
+    $bg: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
+    $animation: scale-float-fast 40s $transition-ease infinite both -25s
   );
-  animation-name: scale-float-6;
-  animation-duration: 40s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-  animation-play-state: running;
-  animation-delay: -25s;
 }
 
-// ---------------------------------------------------------------------------
-// Glassmorphism Overlays
-// ---------------------------------------------------------------------------
-
 .glassOverlay {
-  z-index: 10;
+  z-index: $z-index-glass;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.01) 0%,
@@ -275,15 +249,14 @@
 }
 
 .noiseOverlay {
-  z-index: 11;
-  opacity: 0.03;
+  z-index: $z-index-noise;
+  opacity: 1;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-// Subtle vignette for depth
 .vignetteOverlay {
-  z-index: 12;
+  z-index: $z-index-vignette;
   background: radial-gradient(
     circle at 50% 50%,
     transparent 0%,
@@ -292,118 +265,65 @@
 }
 
 // ---------------------------------------------------------------------------
-// Animations (Scale-only - x/y transforms handled by GSAP parallax)
+// Theme Variants
 // ---------------------------------------------------------------------------
 
-@keyframes scale-float-1 {
-  0%,
-  100% {
-    transform: scale(1);
+.theme-light {
+  --glass-color-1: rgba(139, 92, 246, 0.55);
+  --glass-color-2: rgba(99, 102, 241, 0.48);
+  --glass-color-3: rgba(6, 182, 212, 0.42);
+  --glass-accent: rgba(236, 72, 153, 0.35);
+  --grid-opacity: 0.6;
+  --grid-line-opacity: 0.2;
+  --grid-line-color: rgba(15, 23, 42, 0.08); // Dark lines in light mode
+  --orb-blend-mode: multiply; // Multiply looks better on light backgrounds to show color
+
+  background-color: $gray-1;
+
+  .vignetteOverlay {
+    background: radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      transparent 0%,
+      rgba($gray-10, 0.04) 100%
+    );
   }
-  20% {
-    transform: scale(1.06);
-  }
-  40% {
-    transform: scale(0.94);
-  }
-  60% {
-    transform: scale(1.04);
-  }
-  80% {
-    transform: scale(0.98);
+
+  .noiseOverlay {
+    opacity: 0.02;
   }
 }
 
-@keyframes scale-float-2 {
-  0%,
-  100% {
-    transform: scale(1);
+.theme-dark {
+  --glass-color-1: rgba(167, 139, 250, 0.7);
+  --glass-color-2: rgba(129, 140, 248, 0.65);
+  --glass-color-3: rgba(34, 211, 238, 0.55);
+  --glass-accent: rgba(251, 113, 133, 0.45);
+  --grid-opacity: 1;
+  --grid-line-opacity: 0.1;
+
+  .glassOverlay {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
   }
-  20% {
-    transform: scale(1.08);
-  }
-  40% {
-    transform: scale(0.92);
-  }
-  60% {
-    transform: scale(1.05);
-  }
-  80% {
-    transform: scale(0.97);
+
+  .noiseOverlay {
+    opacity: 0.025;
   }
 }
 
-@keyframes scale-float-3 {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.07);
-  }
-  50% {
-    transform: scale(0.93);
-  }
-  75% {
-    transform: scale(1.04);
-  }
-}
+// ---------------------------------------------------------------------------
+// Responsive & Accessibility
+// ---------------------------------------------------------------------------
 
-@keyframes scale-float-4 {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(0.9);
-  }
-  75% {
-    transform: scale(1.08);
-  }
-}
-
-@keyframes scale-float-5 {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  33% {
-    transform: scale(1.08);
-  }
-  66% {
-    transform: scale(0.92);
-  }
-}
-
-@keyframes scale-float-6 {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(0.92);
-  }
-  75% {
-    transform: scale(1.06);
-  }
-}
-
-// Reduced motion support
 @media (prefers-reduced-motion: reduce) {
   .orb {
     animation: none !important;
   }
 }
-
-// ---------------------------------------------------------------------------
-// Mobile Adjustments
-// ---------------------------------------------------------------------------
 
 @media (max-width: 768px) {
   .orb1 {
@@ -429,52 +349,5 @@
   .orb5,
   .orb6 {
     opacity: 0.5;
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Theme Variants
-// ---------------------------------------------------------------------------
-
-.theme-light {
-  --glass-color-1: rgba(99, 102, 241, 0.5);
-  --glass-color-2: rgba(139, 92, 246, 0.42);
-  --glass-color-3: rgba(6, 182, 212, 0.35);
-  --glass-accent: rgba(236, 72, 153, 0.3);
-  --grid-opacity: 1;
-  --grid-line-opacity: 0.12;
-
-  .vignetteOverlay {
-    background: radial-gradient(
-      ellipse 100% 100% at 50% 50%,
-      transparent 0%,
-      rgba(255, 255, 255, 0.25) 100%
-    );
-  }
-
-  .noiseOverlay {
-    opacity: 0.015;
-  }
-}
-
-.theme-dark {
-  --glass-color-1: rgba(99, 102, 241, 0.7);
-  --glass-color-2: rgba(139, 92, 246, 0.65);
-  --glass-color-3: rgba(6, 182, 212, 0.55);
-  --glass-accent: rgba(236, 72, 153, 0.45);
-  --grid-opacity: 1;
-  --grid-line-opacity: 0.1;
-
-  .glassOverlay {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.06) 0%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.03) 100%
-    );
-  }
-
-  .noiseOverlay {
-    opacity: 0.025;
   }
 }

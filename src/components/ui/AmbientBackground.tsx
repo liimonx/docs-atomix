@@ -1,13 +1,12 @@
 "use client";
 
-import { FC, memo, useRef } from "react";
-import { useTheme } from "@shohojdhara/atomix";
+import { FC, memo, useRef, useCallback, useState, useEffect } from "react";
+import { } from "@shohojdhara/atomix";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "./AmbientBackground.module.scss";
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 // ---------------------------------------------------------------------------
@@ -16,253 +15,299 @@ gsap.registerPlugin(ScrollTrigger);
 
 export type AmbientBackgroundVariant = "light" | "dark";
 
+interface ParallaxConfig {
+  mouseSpeed: { x: number; y: number };
+  mouseDuration: number;
+  scrollSpeed: number;
+}
+
+interface OrbConfig extends ParallaxConfig {
+  id: number;
+  className: string;
+}
+
+interface OverlayConfig extends ParallaxConfig {
+  name: string;
+  className: string;
+}
+
 interface AmbientBackgroundProps {
   /** Optional extra class names appended to the root element. */
   className?: string;
-  /**
-   * Explicit variant to override automatic theme detection.
-   */
+  /** Explicit variant to override automatic theme detection. */
   variant?: AmbientBackgroundVariant;
-  /**
-   * Enable mouse-based parallax effects (similar to hero headings).
-   * @default true
-   */
+  /** Enable mouse-based parallax effects. @default true */
   enableMouseParallax?: boolean;
-  /**
-   * Enable scroll-based parallax effects using ScrollTrigger.
-   * @default true
-   */
+  /** Enable scroll-based parallax effects using ScrollTrigger. @default true */
   enableScrollParallax?: boolean;
 }
+
+// ---------------------------------------------------------------------------
+// Configuration
+// ---------------------------------------------------------------------------
+
+const ORBS_CONFIG: OrbConfig[] = [
+  {
+    id: 1,
+    className: styles.orb1,
+    mouseSpeed: { x: 30, y: 20 },
+    mouseDuration: 2.0,
+    scrollSpeed: 0.1,
+  },
+  {
+    id: 2,
+    className: styles.orb2,
+    mouseSpeed: { x: 35, y: 25 },
+    mouseDuration: 1.9,
+    scrollSpeed: 0.15,
+  },
+  {
+    id: 3,
+    className: styles.orb3,
+    mouseSpeed: { x: 40, y: 30 },
+    mouseDuration: 1.8,
+    scrollSpeed: 0.2,
+  },
+  {
+    id: 4,
+    className: styles.orb4,
+    mouseSpeed: { x: 50, y: 35 },
+    mouseDuration: 1.7,
+    scrollSpeed: 0.25,
+  },
+  {
+    id: 5,
+    className: styles.orb5,
+    mouseSpeed: { x: 60, y: 40 },
+    mouseDuration: 1.6,
+    scrollSpeed: 0.3,
+  },
+  {
+    id: 6,
+    className: styles.orb6,
+    mouseSpeed: { x: 70, y: 45 },
+    mouseDuration: 1.5,
+    scrollSpeed: 0.35,
+  },
+];
+
+const OVERLAYS_CONFIG: OverlayConfig[] = [
+  {
+    name: "gradient",
+    className: styles.gradientBase,
+    mouseSpeed: { x: 15, y: 10 },
+    mouseDuration: 2.2,
+    scrollSpeed: 0.05,
+  },
+  {
+    name: "grid",
+    className: styles.gridOverlay,
+    mouseSpeed: { x: 20, y: 15 },
+    mouseDuration: 2.0,
+    scrollSpeed: 0.08,
+  },
+  {
+    name: "glass",
+    className: styles.glassOverlay,
+    mouseSpeed: { x: 10, y: 8 },
+    mouseDuration: 2.5,
+    scrollSpeed: 0.03,
+  },
+  {
+    name: "noise",
+    className: styles.noiseOverlay,
+    mouseSpeed: { x: 12, y: 10 },
+    mouseDuration: 2.3,
+    scrollSpeed: 0.04,
+  },
+  {
+    name: "vignette",
+    className: styles.vignetteOverlay,
+    mouseSpeed: { x: 5, y: 3 },
+    mouseDuration: 2.8,
+    scrollSpeed: 0.02,
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+const prefersReducedMotion = (): boolean =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ---------------------------------------------------------------------------
+// Hooks
+// ---------------------------------------------------------------------------
+
+const useAmbientParallax = ({
+  enableMouseParallax,
+  enableScrollParallax,
+  scope,
+}: {
+  enableMouseParallax: boolean;
+  enableScrollParallax: boolean;
+  scope: React.RefObject<HTMLDivElement | null>;
+}) => {
+  const orbRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const overlayRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) return;
+
+      const cleanupFns: (() => void)[] = [];
+
+      // Mouse Parallax
+      if (enableMouseParallax) {
+        const handleMouseMove = (e: MouseEvent) => {
+          const xPos = e.clientX / window.innerWidth - 0.5;
+          const yPos = e.clientY / window.innerHeight - 0.5;
+
+          // Animate orbs
+          orbRefs.current.forEach((el, i) => {
+            if (el && ORBS_CONFIG[i]) {
+              gsap.to(el, {
+                x: xPos * ORBS_CONFIG[i].mouseSpeed.x,
+                y: yPos * ORBS_CONFIG[i].mouseSpeed.y,
+                duration: ORBS_CONFIG[i].mouseDuration,
+                ease: "power3.out",
+                overwrite: "auto",
+              });
+            }
+          });
+
+          // Animate overlays
+          OVERLAYS_CONFIG.forEach((config) => {
+            const el = overlayRefs.current.get(config.name);
+            if (el) {
+              gsap.to(el, {
+                x: xPos * config.mouseSpeed.x,
+                y: yPos * config.mouseSpeed.y,
+                duration: config.mouseDuration,
+                ease: "power3.out",
+                overwrite: "auto",
+              });
+            }
+          });
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+        cleanupFns.push(() => window.removeEventListener("mousemove", handleMouseMove));
+      }
+
+      // Scroll Parallax
+      if (enableScrollParallax) {
+        // Shared scroll trigger config
+        const getScrollConfig = (el: HTMLElement, speed: number) => ({
+          y: -window.innerHeight * speed,
+          ease: "none",
+          scrollTrigger: {
+            trigger: el,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        orbRefs.current.forEach((el, i) => {
+          if (el && ORBS_CONFIG[i]) {
+            gsap.to(el, getScrollConfig(el, ORBS_CONFIG[i].scrollSpeed));
+          }
+        });
+
+        OVERLAYS_CONFIG.forEach((config) => {
+          const el = overlayRefs.current.get(config.name);
+          if (el) {
+            gsap.to(el, getScrollConfig(el, config.scrollSpeed));
+          }
+        });
+
+        cleanupFns.push(() => {
+          ScrollTrigger.getAll().forEach((t) => t.kill());
+        });
+      }
+
+      return () => cleanupFns.forEach((fn) => fn());
+    },
+    {
+      scope,
+      dependencies: [enableMouseParallax, enableScrollParallax, orbRefs.current.length],
+    },
+  );
+
+  const setOrbRef = useCallback((index: number) => (el: HTMLDivElement | null) => {
+    orbRefs.current[index] = el;
+  }, []);
+
+  const setOverlayRef = useCallback((name: string) => (el: HTMLDivElement | null) => {
+    if (el) overlayRefs.current.set(name, el);
+    else overlayRefs.current.delete(name);
+  }, []);
+
+  return { setOrbRef, setOverlayRef };
+};
 
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
 
-/**
- * **AmbientBackground**
- *
- * A modern glassmorphism aesthetic with ambient background effects.
- * Features floating glass orbs, layered gradients, and subtle depth.
- * Includes both mouse-based and scroll-based parallax effects.
- */
 const AmbientBackgroundBase: FC<AmbientBackgroundProps> = ({
   className = "",
   variant,
   enableMouseParallax = true,
   enableScrollParallax = true,
 }) => {
-  const { theme } = useTheme();
-
-  // References for orb elements
-  const orb1Ref = useRef<HTMLDivElement>(null);
-  const orb2Ref = useRef<HTMLDivElement>(null);
-  const orb3Ref = useRef<HTMLDivElement>(null);
-  const orb4Ref = useRef<HTMLDivElement>(null);
-  const orb5Ref = useRef<HTMLDivElement>(null);
-  const orb6Ref = useRef<HTMLDivElement>(null);
-
-  // References for overlay elements
-  const gradientBaseRef = useRef<HTMLDivElement>(null);
-  const gridOverlayRef = useRef<HTMLDivElement>(null);
-  const glassOverlayRef = useRef<HTMLDivElement>(null);
-  const noiseOverlayRef = useRef<HTMLDivElement>(null);
-  const vignetteOverlayRef = useRef<HTMLDivElement>(null);
-
+  const [internalTheme, setInternalTheme] = useState<string>("light");
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Use explicit variant or fallback to current theme
-  const activeVariant =
-    variant ||
-    (theme === "dark" || theme === "high-contrast" ? "dark" : "light");
+  // Sync with body attribute since useTheme might not be reactive to external toggles
+  useEffect(() => {
+    if (typeof document === "undefined") return;
 
-  // Map Variant to CSS Module Class
-  const themeClass =
-    activeVariant === "dark" ? styles["theme-dark"] : styles["theme-light"];
+    const getThemeFromDOM = () => {
+      return document.body.getAttribute("data-atomix-color-mode") || "light";
+    };
 
-  // Construct final className
-  const rootClasses = [styles.root, themeClass, className]
-    .filter(Boolean)
-    .join(" ");
+    setInternalTheme(getThemeFromDOM());
 
-  // Helper function to check for reduced motion preference
-  const prefersReducedMotion = () => {
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  };
+    const observer = new MutationObserver(() => {
+      setInternalTheme(getThemeFromDOM());
+    });
 
-  // Mouse-based parallax effect (similar to hero headings)
-  useGSAP(
-    () => {
-      if (!enableMouseParallax || prefersReducedMotion()) return;
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-atomix-color-mode"],
+    });
 
-      const handleMouseMove = (e: MouseEvent) => {
-        const xPos = e.clientX / window.innerWidth - 0.5;
-        const yPos = e.clientY / window.innerHeight - 0.5;
+    return () => observer.disconnect();
+  }, []);
 
-        // Orbs: Different parallax speeds for each orb to create depth
-        // Larger orbs move slower, smaller orbs move faster
-        const orbs = [
-          { ref: orb1Ref, x: xPos * 30, y: yPos * 20, duration: 2.0 }, // Slowest (largest)
-          { ref: orb2Ref, x: xPos * 35, y: yPos * 25, duration: 1.9 },
-          { ref: orb3Ref, x: xPos * 40, y: yPos * 30, duration: 1.8 },
-          { ref: orb4Ref, x: xPos * 50, y: yPos * 35, duration: 1.7 },
-          { ref: orb5Ref, x: xPos * 60, y: yPos * 40, duration: 1.6 },
-          { ref: orb6Ref, x: xPos * 70, y: yPos * 45, duration: 1.5 }, // Fastest (smallest)
-        ];
+  const theme = variant ?? internalTheme;
+  const activeVariant = theme.includes("dark") || theme === "high-contrast" ? "dark" : "light";
+  const themeClass = activeVariant === "dark" ? styles["theme-dark"] : styles["theme-light"];
 
-        // Overlay elements: Subtle movement for depth
-        const overlays = [
-          { ref: gradientBaseRef, x: xPos * 15, y: yPos * 10, duration: 2.2 }, // Slowest (background)
-          { ref: gridOverlayRef, x: xPos * 20, y: yPos * 15, duration: 2.0 },
-          { ref: glassOverlayRef, x: xPos * 10, y: yPos * 8, duration: 2.5 },
-          { ref: noiseOverlayRef, x: xPos * 12, y: yPos * 10, duration: 2.3 },
-          { ref: vignetteOverlayRef, x: xPos * 5, y: yPos * 3, duration: 2.8 }, // Slowest (foreground)
-        ];
+  const { setOrbRef, setOverlayRef } = useAmbientParallax({
+    enableMouseParallax,
+    enableScrollParallax,
+    scope: containerRef,
+  });
 
-        orbs.forEach((orb) => {
-          if (orb.ref.current) {
-            gsap.to(orb.ref.current, {
-              x: orb.x,
-              y: orb.y,
-              duration: orb.duration,
-              ease: "power3.out",
-            });
-          }
-        });
-
-        overlays.forEach((overlay) => {
-          if (overlay.ref.current) {
-            gsap.to(overlay.ref.current, {
-              x: overlay.x,
-              y: overlay.y,
-              duration: overlay.duration,
-              ease: "power3.out",
-            });
-          }
-        });
-      };
-
-      window.addEventListener("mousemove", handleMouseMove);
-      return () => window.removeEventListener("mousemove", handleMouseMove);
-    },
-    { scope: containerRef },
-  );
-
-  // Scroll-based parallax effect using ScrollTrigger
-  useGSAP(
-    () => {
-      if (!enableScrollParallax || prefersReducedMotion()) return;
-
-      const orbs = [
-        { ref: orb1Ref, speed: 0.1 }, // Slowest (largest orb)
-        { ref: orb2Ref, speed: 0.15 },
-        { ref: orb3Ref, speed: 0.2 },
-        { ref: orb4Ref, speed: 0.25 },
-        { ref: orb5Ref, speed: 0.3 },
-        { ref: orb6Ref, speed: 0.35 }, // Fastest (smallest orb)
-      ];
-
-      // Overlay elements: Subtle scroll movement
-      const overlays = [
-        { ref: gradientBaseRef, speed: 0.05 }, // Slowest (background)
-        { ref: gridOverlayRef, speed: 0.08 },
-        { ref: glassOverlayRef, speed: 0.03 },
-        { ref: noiseOverlayRef, speed: 0.04 },
-        { ref: vignetteOverlayRef, speed: 0.02 }, // Slowest (foreground)
-      ];
-
-      orbs.forEach((orb) => {
-        if (orb.ref.current) {
-          gsap.fromTo(
-            orb.ref.current,
-            {
-              y: 0,
-            },
-            {
-              y: -window.innerHeight * orb.speed,
-              ease: "none",
-              scrollTrigger: {
-                trigger: orb.ref.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1, // Smooth scrubbing
-              },
-            },
-          );
-        }
-      });
-
-      overlays.forEach((overlay) => {
-        if (overlay.ref.current) {
-          gsap.fromTo(
-            overlay.ref.current,
-            { y: 0 },
-            {
-              y: -window.innerHeight * overlay.speed,
-              ease: "none",
-              scrollTrigger: {
-                trigger: overlay.ref.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1,
-              },
-            },
-          );
-        }
-      });
-
-      // Cleanup ScrollTrigger instances on unmount
-      return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
-    },
-    { scope: containerRef },
-  );
+  const rootClasses = [styles.root, themeClass, className].filter(Boolean).join(" ");
 
   return (
     <div className={rootClasses} aria-hidden="true" ref={containerRef}>
-      {/* Base gradient layer */}
-      <div ref={gradientBaseRef} className={styles.gradientBase} />
+      {/* Overlay layers */}
+      {OVERLAYS_CONFIG.map((config) => (
+        <div key={config.name} ref={setOverlayRef(config.name)} className={config.className} />
+      ))}
 
-      {/* Grid Pattern overlay for glass contrast */}
-      <div ref={gridOverlayRef} className={styles.gridOverlay} />
-
-      {/* Floating glass orbs with parallax */}
-      <div
-        ref={orb1Ref}
-        className={`${styles.orb} ${styles.orb1}`}
-        data-parallax="mouse"
-      />
-      <div
-        ref={orb2Ref}
-        className={`${styles.orb} ${styles.orb2}`}
-        data-parallax="mouse"
-      />
-      <div
-        ref={orb3Ref}
-        className={`${styles.orb} ${styles.orb3}`}
-        data-parallax="mouse"
-      />
-      <div
-        ref={orb4Ref}
-        className={`${styles.orb} ${styles.orb4}`}
-        data-parallax="mouse"
-      />
-      <div
-        ref={orb5Ref}
-        className={`${styles.orb} ${styles.orb5}`}
-        data-parallax="mouse"
-      />
-      <div
-        ref={orb6Ref}
-        className={`${styles.orb} ${styles.orb6}`}
-        data-parallax="mouse"
-      />
-
-      {/* Glassmorphism overlays */}
-      <div ref={glassOverlayRef} className={styles.glassOverlay} />
-      <div ref={noiseOverlayRef} className={styles.noiseOverlay} />
-      <div ref={vignetteOverlayRef} className={styles.vignetteOverlay} />
+      {/* Orb elements */}
+      {ORBS_CONFIG.map((config, i) => (
+        <div key={config.id} ref={setOrbRef(i)} className={`${styles.orb} ${config.className}`} />
+      ))}
     </div>
   );
 };

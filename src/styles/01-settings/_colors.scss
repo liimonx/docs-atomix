@@ -163,7 +163,7 @@ $gray-10: #0f172a; // slate-900
   // comfortable secondary
   $tertiary-text: $gray-7,
   // muted
-  $disabled-text: $gray-6,
+  $disabled-text: $gray-7,
   // disabled / placeholder
   $invert-text: #ffffff,
   $brand-text: $primary-8,
@@ -181,7 +181,8 @@ $gray-10: #0f172a; // slate-900
   // gray-4
   $tertiary-text-dark: #94a3b8,
   // gray-5
-  $disabled-text-dark: #64748b,
+  $disabled-text-dark: #a1a1aa,
+  // gray-5 — better contrast on dark bg
   // gray-6
   $invert-text-dark: $gray-9,
   $brand-text-dark: $primary-4,
@@ -246,8 +247,10 @@ $gray-10: #0f172a; // slate-900
   $dark-border-dark: rgba(255, 255, 255, 0.04),
   // ── Brand Colors (semantic tokens) ────────────────────────────────────────
   $primary: $primary-6,
-  $secondary: $gray-6, // Darkened for text accessibility and to differentiate from $secondary-bg
-  $light: $gray-2,     // Distinct from $primary-bg (#ffffff)
+  $secondary: $gray-6,
+  // Darkened for text accessibility and to differentiate from $secondary-bg
+  $light: $gray-2,
+  // Distinct from $primary-bg (#ffffff)
   $dark: $gray-9,
   $success: $green-6,
   $info: $blue-6,
