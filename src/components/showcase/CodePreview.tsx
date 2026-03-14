@@ -82,9 +82,7 @@ function extractJSXElements(code: string): React.ReactNode[] {
 
   // Remove comments and import statements
   let cleanCode = code
-    .replace(/\/\*[\s\S]*?\*\//g, "")
-    .replace(/\/\/.*$/gm, "")
-    .replace(/^import\s+.*?from\s+['"].*?['"];?\s*/gm, "")
+    .replace(/\/\*[\s\S]*?\*\/|\/\/.*$|^import\s+.*?from\s+['"].*?['"];?\s*/gm, "")
     .trim();
 
   // Extract JSX from return statements - improved pattern
