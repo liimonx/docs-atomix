@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, afterEach } from 'vitest';
 import { isClient, isServer } from '../performance';
 
 describe('Performance Utilities - Environment Checks', () => {
@@ -18,8 +18,7 @@ describe('Performance Utilities - Environment Checks', () => {
 
     it('should return false when window is undefined', () => {
       // Simulate server environment
-      // @ts-ignore - we are deliberately removing window for testing
-      delete global.window;
+      delete (global as any).window;
       expect(isClient()).toBe(false);
     });
   });
@@ -33,8 +32,7 @@ describe('Performance Utilities - Environment Checks', () => {
 
     it('should return true when window is undefined', () => {
       // Simulate server environment
-      // @ts-ignore - we are deliberately removing window for testing
-      delete global.window;
+      delete (global as any).window;
       expect(isServer()).toBe(true);
     });
   });
