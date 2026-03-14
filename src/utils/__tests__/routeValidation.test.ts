@@ -23,7 +23,7 @@ describe('routeValidation', () => {
     });
 
     it('returns true when findNavigationItemByPath finds an item', () => {
-      vi.mocked(routeMapper.findNavigationItemByPath).mockReturnValue({ id: 'test', title: 'Test', path: '/docs/test' });
+      vi.mocked(routeMapper.findNavigationItemByPath).mockReturnValue({ id: 'test', title: 'Test', path: '/docs/test', category: 'General' });
       expect(isValidRoute('/docs/test')).toBe(true);
       expect(routeMapper.findNavigationItemByPath).toHaveBeenCalledWith('/docs/test');
     });
@@ -73,7 +73,7 @@ describe('routeValidation', () => {
 
   describe('isValidComponent', () => {
     it('returns true when the constructed route is valid', () => {
-      vi.mocked(routeMapper.findNavigationItemByPath).mockReturnValue({ id: 'button', title: 'Button', path: '/docs/components/button' });
+      vi.mocked(routeMapper.findNavigationItemByPath).mockReturnValue({ id: 'button', title: 'Button', path: '/docs/components/button', category: 'components' });
       expect(isValidComponent('button')).toBe(true);
       expect(routeMapper.findNavigationItemByPath).toHaveBeenCalledWith('/docs/components/button');
     });
