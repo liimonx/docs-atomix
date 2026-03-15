@@ -1,27 +1,19 @@
-import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { isClient, isServer } from '../performance';
 
 describe('Performance Utils - isClient / isServer', () => {
-  const originalWindow = global.window;
-
   afterEach(() => {
-    if (originalWindow === undefined) {
-      // @ts-ignore
-      delete global.window;
-    } else {
-      global.window = originalWindow;
-    }
+    vi.unstubAllGlobals();
   });
 
   it('should detect server environment', () => {
-    // @ts-ignore
-    delete global.window;
+    vi.stubGlobal('window', undefined);
     expect(isClient()).toBe(false);
     expect(isServer()).toBe(true);
   });
 
   it('should detect client environment', () => {
-    global.window = {} as any;
+    vi.stubGlobal('window', {});
     expect(isClient()).toBe(true);
     expect(isServer()).toBe(false);
   });

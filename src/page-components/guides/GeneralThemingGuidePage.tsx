@@ -680,6 +680,7 @@ const theme = createTheme({
   themes={themes}
   basePath="/themes"
   enablePersistence={true}
+  onThemeChange={(theme) => console.log('Theme changed:', theme)}
 >
   {children}
 </ThemeProvider>`}
