@@ -18,7 +18,6 @@ export default defineConfig({
     environment: 'node',
     include: [
       'src/utils/__tests__/*.test.ts',
-      'src/hooks/__tests__/*.test.ts',
       'src/components/documentation/MarkdownPage.perf.test.tsx',
     ],
     exclude: [

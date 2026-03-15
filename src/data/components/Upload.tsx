@@ -143,8 +143,7 @@ function FileUploadForm() {
   };
 
   const handleUploadError = (file, error) => {
-    // Show error notification to the user
-    // e.g., toast.error(\`Upload failed: \${file.name} - \${error}\`);
+    console.error('Upload failed:', file.name, error);
   };
 
   return (

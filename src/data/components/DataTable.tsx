@@ -132,7 +132,7 @@ function BasicDataTable() {
       columns={columns}
       sortable
       onSort={(column, direction) => {
-        // Handle sorting
+        console.log(\`Sorting by \${column} in \${direction} order\`);
       }}
     />
   );
