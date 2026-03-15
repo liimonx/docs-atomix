@@ -755,10 +755,10 @@ function MonitoredGlassComponent() {
   usePerformanceMonitor((m) => {
     setMetrics(m);
     
-    // Log warning if FPS drops below 30
-    if (m.fps < 30) {
-      console.warn('Low FPS detected:', m.fps);
-    }
+    // Optional: Log warning if FPS drops below 30
+    // if (m.fps < 30) {
+    //   console.warn('Low FPS detected:', m.fps);
+    // }
   });
 
   return (
