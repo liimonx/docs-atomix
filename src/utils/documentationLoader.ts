@@ -314,7 +314,7 @@ const mockComponentData: Record<string, ComponentDocumentation> = {
         code: `import { Button } from '@shohojdhara/atomix';
 
 function MyComponent() {
-  return <Button onClick={() => console.log('Clicked!')}>Click me</Button>;
+  return <Button>Click me</Button>;
 }`,
         language: 'tsx'
       },
