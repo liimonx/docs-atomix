@@ -65,6 +65,10 @@ export const CodePreview: FC<CodePreviewProps> = ({ code, language }) => {
   );
 };
 
+// Precompiled regex for removing comments and imports
+// Matches: 1) Block comments, 2) Line comments, 3) Import statements
+const CLEANUP_REGEX = /\/\*[\s\S]*?\*\/|\/\/.*$|^import\s+.*?from\s+['"].*?['"];?\s*/gm;
+
 /**
  * Extracts JSX elements from code string and renders them
  */
@@ -81,9 +85,7 @@ function extractJSXElements(code: string): React.ReactNode[] {
   }
 
   // Remove comments and import statements
-  let cleanCode = code
-    .replace(/\/\*[\s\S]*?\*\/|\/\/.*$|^import\s+.*?from\s+['"].*?['"];?\s*/gm, "")
-    .trim();
+  let cleanCode = code.replace(CLEANUP_REGEX, "").trim();
 
   // Extract JSX from return statements - improved pattern
   // Pattern 1: return (<JSX>); or return <JSX>;
