@@ -1,32 +1,28 @@
-import { describe, it, expect, vi, afterEach } from 'vitest';
+import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest';
 import { isClient, isServer } from '../performance';
 
-describe('performance utils', () => {
+describe('Performance Utils - isClient / isServer', () => {
+  const originalWindow = global.window;
+
   afterEach(() => {
-    vi.unstubAllGlobals();
+    if (originalWindow === undefined) {
+      // @ts-ignore
+      delete global.window;
+    } else {
+      global.window = originalWindow;
+    }
   });
 
-  describe('isClient', () => {
-    it('returns true when window is defined', () => {
-      vi.stubGlobal('window', {});
-      expect(isClient()).toBe(true);
-    });
-
-    it('returns false when window is undefined', () => {
-      vi.stubGlobal('window', undefined);
-      expect(isClient()).toBe(false);
-    });
+  it('should detect server environment', () => {
+    // @ts-ignore
+    delete global.window;
+    expect(isClient()).toBe(false);
+    expect(isServer()).toBe(true);
   });
 
-  describe('isServer', () => {
-    it('returns false when window is defined', () => {
-      vi.stubGlobal('window', {});
-      expect(isServer()).toBe(false);
-    });
-
-    it('returns true when window is undefined', () => {
-      vi.stubGlobal('window', undefined);
-      expect(isServer()).toBe(true);
-    });
+  it('should detect client environment', () => {
+    global.window = {} as any;
+    expect(isClient()).toBe(true);
+    expect(isServer()).toBe(false);
   });
 });
