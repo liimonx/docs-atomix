@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 200",
     "type-check": "tsc --noEmit",
-    "test": "vitest run src/utils/__tests__/routeMapper.test.ts src/utils/__tests__/breadcrumbs.test.ts",
+    "test": "vitest run src/utils/__tests__/routeMapper.test.ts src/utils/__tests__/breadcrumbs.test.ts src/utils/__tests__/routeValidation.test.ts",
     "test:all": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
