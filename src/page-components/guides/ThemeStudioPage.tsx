@@ -2,6 +2,7 @@
 
 import { FC, useEffect, useRef, useMemo, useState } from "react";
 import { Callout, Block, Button, Icon } from "@shohojdhara/atomix";
+import { z } from "zod";
 import { ThemeStudioLayout } from "@/components/theme-studio/ThemeStudioLayout";
 import { KeyboardShortcutsModal } from "@/components/theme-studio/KeyboardShortcutsModal";
 import { useThemeStudioStore } from "@/stores/themeStudioStore";
@@ -87,7 +88,24 @@ const ThemeStudioPage: FC = () => {
       if (sharedThemeParam) {
         try {
           const decoded = decodeURIComponent(sharedThemeParam);
-          const sharedTheme = JSON.parse(atob(decoded));
+          const parsedData = JSON.parse(atob(decoded));
+
+          const themeSchema = z.object({
+            light: z.record(z.string(), z.string()),
+            dark: z.record(z.string(), z.string()),
+          }).passthrough();
+
+          const parseResult = themeSchema.safeParse(parsedData);
+          if (!parseResult.success) {
+            setNotification({
+              type: "error",
+              message: "Shared theme data is invalid or corrupted.",
+            });
+            setTimeout(() => setNotification(null), 5000);
+            return;
+          }
+
+          const sharedTheme = parseResult.data;
           const validation = validateImportedTheme(sharedTheme);
 
           if (validation.valid) {
@@ -501,8 +519,24 @@ const ThemeStudioPage: FC = () => {
     reader.onload = (e) => {
       try {
         const content = e.target?.result as string;
-        const data = JSON.parse(content);
+        const parsedData = JSON.parse(content);
 
+        const themeSchema = z.object({
+          light: z.record(z.string(), z.string()),
+          dark: z.record(z.string(), z.string()),
+        }).passthrough();
+
+        const parseResult = themeSchema.safeParse(parsedData);
+        if (!parseResult.success) {
+          setNotification({
+            type: "error",
+            message: "Invalid theme file structure.",
+          });
+          setTimeout(() => setNotification(null), 5000);
+          return;
+        }
+
+        const data = parseResult.data;
         const validation = validateImportedTheme(data);
         if (!validation.valid) {
           setNotification({
