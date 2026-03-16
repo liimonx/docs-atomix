@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { produce, enableMapSet } from 'immer';
+import toast from 'react-hot-toast';
 
 // Enable Immer MapSet plugin for Set/Map support
 enableMapSet();
@@ -452,6 +453,7 @@ export const useThemeStudioStore = create<ThemeStudioState>((set, get) => {
           localStorage.setItem('atomix-custom-presets', JSON.stringify(allPresets));
         } catch (error) {
           console.error('Failed to save custom preset to localStorage:', error);
+          toast.error('Failed to save custom preset. Your browser may be blocking local storage.');
         }
       }
     },
@@ -470,6 +472,7 @@ export const useThemeStudioStore = create<ThemeStudioState>((set, get) => {
           localStorage.setItem('atomix-custom-presets', JSON.stringify(state.customPresets));
         } catch (error) {
           console.error('Failed to update localStorage:', error);
+          toast.error('Failed to delete custom preset. Your browser may be blocking local storage.');
         }
       }
     },
@@ -485,6 +488,7 @@ export const useThemeStudioStore = create<ThemeStudioState>((set, get) => {
         }
       } catch (error) {
         console.error('Failed to load custom presets from localStorage:', error);
+        toast.error('Failed to load custom presets. Your browser may be blocking local storage.');
       }
     },
 
