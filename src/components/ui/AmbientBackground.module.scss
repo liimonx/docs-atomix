@@ -71,10 +71,10 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
 @mixin orb-base {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(140px);
   z-index: $z-index-orbs;
-  opacity: 1;
-  mix-blend-mode: var(--orb-blend-mode, plus-lighter);
+  opacity: 0.8;
+  mix-blend-mode: var(--orb-blend-mode, screen);
 
   &::before {
     content: "";
@@ -82,8 +82,8 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
     inset: 0;
     border-radius: inherit;
     background: inherit;
-    filter: blur(20px);
-    opacity: 1;
+    filter: blur(40px);
+    opacity: 0.6;
   }
 }
 
@@ -94,7 +94,7 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   $right: auto,
   $bottom: auto,
   $bg: inherit,
-  $animation: scale-float-slow 20s infinite both
+  $animation: scale-float-slow 40s infinite both
 ) {
   width: $size;
   height: $size;
@@ -110,8 +110,8 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
 // Animations
 // ---------------------------------------------------------------------------
 
-@include scale-float-animation("scale-float-slow", (25%: 1.05, 50%: 0.95, 75%: 1.03));
-@include scale-float-animation("scale-float-fast", (25%: 1.1, 50%: 0.9, 75%: 1.08));
+@include scale-float-animation("scale-float-slow", (25%: 1.03, 50%: 0.97, 75%: 1.02));
+@include scale-float-animation("scale-float-fast", (25%: 1.05, 50%: 0.95, 75%: 1.04));
 
 // ---------------------------------------------------------------------------
 // Root Container
@@ -127,10 +127,10 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 
   // Default glass colors (uses primary brand palette)
-  --glass-color-1: rgba(139, 92, 246, 0.4);
-  --glass-color-2: rgba(99, 102, 241, 0.35);
-  --glass-color-3: rgba(6, 182, 212, 0.3);
-  --glass-accent: rgba(236, 72, 153, 0.2);
+  --glass-color-1: rgba(139, 92, 246, 0.3);
+  --glass-color-2: rgba(99, 102, 241, 0.25);
+  --glass-color-3: rgba(6, 182, 212, 0.2);
+  --glass-accent: rgba(236, 72, 153, 0.15);
 
   transition: --glass-color-1 $transition-duration $transition-ease,
     --glass-color-2 $transition-duration $transition-ease,
@@ -150,27 +150,28 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
 
 .gradientBase {
   z-index: $z-index-gradient;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
 }
 
 .gridOverlay {
   z-index: $z-index-grid;
-  opacity: var(--grid-opacity, 0.1);
+  opacity: var(--grid-opacity, 0.05);
   background-image: linear-gradient(
       to right,
-      var(--grid-line-color, rgba(255, 255, 255, var(--grid-line-opacity, 0.1))) 1px,
+      var(--grid-line-color, rgba(255, 255, 255, var(--grid-line-opacity, 0.05))) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      var(--grid-line-color, rgba(255, 255, 255, var(--grid-line-opacity, 0.1))) 1px,
+      var(--grid-line-color, rgba(255, 255, 255, var(--grid-line-opacity, 0.05))) 1px,
       transparent 1px
     );
-  background-size: 64px 64px;
-  mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 90%);
   -webkit-mask-image: radial-gradient(
     circle at 50% 50%,
     black,
-    transparent 80%
+    transparent 90%
   );
 }
 
@@ -180,61 +181,61 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
 
 .orb1 {
   @include orb-style(
-    $size: 500px,
-    $top: -15%,
-    $left: -5%,
+    $size: 800px,
+    $top: -20%,
+    $left: -10%,
     $bg: radial-gradient(circle at 30% 30%, var(--glass-color-1) 0%, transparent 70%),
-    $animation: scale-float-slow 25s $transition-ease infinite both
+    $animation: scale-float-slow 60s $transition-ease infinite both
   );
 }
 
 .orb2 {
   @include orb-style(
-    $size: 400px,
-    $top: 20%,
-    $right: -10%,
+    $size: 700px,
+    $top: 10%,
+    $right: -15%,
     $bg: radial-gradient(circle at 70% 30%, var(--glass-color-2) 0%, transparent 70%),
-    $animation: scale-float-slow 30s $transition-ease infinite both -5s
+    $animation: scale-float-slow 70s $transition-ease infinite both -10s
   );
 }
 
 .orb3 {
   @include orb-style(
-    $size: 350px,
-    $left: 30%,
-    $bottom: -10%,
+    $size: 600px,
+    $left: 20%,
+    $bottom: -15%,
     $bg: radial-gradient(circle at 50% 50%, var(--glass-color-3) 0%, transparent 70%),
-    $animation: scale-float-slow 22s $transition-ease infinite both -10s
+    $animation: scale-float-slow 55s $transition-ease infinite both -20s
   );
 }
 
 .orb4 {
   @include orb-style(
-    $size: 250px,
-    $top: 60%,
-    $left: 10%,
+    $size: 500px,
+    $top: 50%,
+    $left: 5%,
     $bg: radial-gradient(circle at 40% 40%, var(--glass-accent) 0%, transparent 70%),
-    $animation: scale-float-fast 28s $transition-ease infinite both -15s
+    $animation: scale-float-fast 65s $transition-ease infinite both -30s
   );
 }
 
 .orb5 {
   @include orb-style(
-    $size: 180px,
-    $top: 10%,
-    $right: 25%,
-    $bg: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
-    $animation: scale-float-slow 35s $transition-ease infinite both -20s
+    $size: 400px,
+    $top: 5%,
+    $right: 20%,
+    $bg: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 70%),
+    $animation: scale-float-slow 80s $transition-ease infinite both -40s
   );
 }
 
 .orb6 {
   @include orb-style(
-    $size: 120px,
-    $right: 15%,
-    $bottom: 20%,
-    $bg: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
-    $animation: scale-float-fast 40s $transition-ease infinite both -25s
+    $size: 300px,
+    $right: 10%,
+    $bottom: 15%,
+    $bg: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%),
+    $animation: scale-float-fast 90s $transition-ease infinite both -50s
   );
 }
 
@@ -242,15 +243,15 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   z-index: $z-index-glass;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.01) 0%,
+    rgba(255, 255, 255, 0.005) 0%,
     transparent 50%,
-    rgba(255, 255, 255, 0.005) 100%
+    rgba(255, 255, 255, 0.002) 100%
   );
 }
 
 .noiseOverlay {
   z-index: $z-index-noise;
-  opacity: 1;
+  opacity: 0.015;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
@@ -259,8 +260,8 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   z-index: $z-index-vignette;
   background: radial-gradient(
     circle at 50% 50%,
-    transparent 0%,
-    rgba(0, 0, 0, 0.2) 100%
+    transparent 20%,
+    rgba(0, 0, 0, 0.1) 100%
   );
 }
 
@@ -269,49 +270,52 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
 // ---------------------------------------------------------------------------
 
 .theme-light {
-  --glass-color-1: rgba(139, 92, 246, 0.55);
-  --glass-color-2: rgba(99, 102, 241, 0.48);
-  --glass-color-3: rgba(6, 182, 212, 0.42);
-  --glass-accent: rgba(236, 72, 153, 0.35);
-  --grid-opacity: 0.6;
-  --grid-line-opacity: 0.2;
-  --grid-line-color: rgba(15, 23, 42, 0.08); // Dark lines in light mode
+  --glass-color-1: rgba(139, 92, 246, 0.25);
+  --glass-color-2: rgba(99, 102, 241, 0.22);
+  --glass-color-3: rgba(6, 182, 212, 0.18);
+  --glass-accent: rgba(236, 72, 153, 0.15);
+  --grid-opacity: 0.3;
+  --grid-line-opacity: 0.1;
+  --grid-line-color: rgba(15, 23, 42, 0.04); // Dark lines in light mode
   --orb-blend-mode: multiply; // Multiply looks better on light backgrounds to show color
 
-  background-color: $gray-1;
+  background-color: #ffffff;
 
   .vignetteOverlay {
     background: radial-gradient(
       ellipse 100% 100% at 50% 50%,
-      transparent 0%,
-      rgba($gray-10, 0.04) 100%
+      transparent 40%,
+      rgba($gray-10, 0.02) 100%
     );
   }
 
   .noiseOverlay {
-    opacity: 0.02;
+    opacity: 0.01;
   }
 }
 
 .theme-dark {
-  --glass-color-1: rgba(167, 139, 250, 0.7);
-  --glass-color-2: rgba(129, 140, 248, 0.65);
-  --glass-color-3: rgba(34, 211, 238, 0.55);
-  --glass-accent: rgba(251, 113, 133, 0.45);
-  --grid-opacity: 1;
-  --grid-line-opacity: 0.1;
+  --glass-color-1: rgba(167, 139, 250, 0.4);
+  --glass-color-2: rgba(129, 140, 248, 0.35);
+  --glass-color-3: rgba(34, 211, 238, 0.3);
+  --glass-accent: rgba(251, 113, 133, 0.25);
+  --grid-opacity: 0.5;
+  --grid-line-opacity: 0.05;
+  --orb-blend-mode: screen;
+
+  background-color: #020617; // Slate 950 for deeper look
 
   .glassOverlay {
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.02) 0%,
       transparent 50%,
-      rgba(255, 255, 255, 0.03) 100%
+      rgba(255, 255, 255, 0.01) 100%
     );
   }
 
   .noiseOverlay {
-    opacity: 0.025;
+    opacity: 0.015;
   }
 }
 
