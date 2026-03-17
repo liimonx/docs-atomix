@@ -8,3 +8,11 @@
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.messages';
+
+.c-messages {
+  --messages-padding: 1rem;
+  --messages-gap: 0.75rem;
+  --messages-border-radius: 0.75rem;
+}
+
+

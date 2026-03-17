@@ -16,19 +16,19 @@
   // ---------------------------------------------------------------------------
   // Typography
   // ---------------------------------------------------------------------------
-  $breadcrumb-font-size:      0.8125rem,    // 13px — compact trail label
+  $breadcrumb-font-size:      0.875rem,     // 14px — clear trail label
 
   // ---------------------------------------------------------------------------
   // Link geometry
   // ---------------------------------------------------------------------------
-  $breadcrumb-link-padding-y:     2px,
+  $breadcrumb-link-padding-y:     4px,
   $breadcrumb-link-padding-x:     0px,
   $breadcrumb-link-border-width:  0px,      // no underline until hover
 
   // ---------------------------------------------------------------------------
   // Spacing
   // ---------------------------------------------------------------------------
-  $breadcrumb-items-gap:      8px,
+  $breadcrumb-items-gap:      10px,         // 10px — more breathing room
   $breadcrumb-margin-bottom: 0px,
 
   // ---------------------------------------------------------------------------

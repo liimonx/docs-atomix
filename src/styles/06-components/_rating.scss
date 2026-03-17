@@ -8,3 +8,11 @@
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.rating';
+
+.c-rating {
+  --rating-size: 20px;
+  --rating-gap: 4px;
+  --rating-color-active: #ffc107;
+  --rating-color-inactive: var(--atomix-secondary-bg-subtle);
+}
+

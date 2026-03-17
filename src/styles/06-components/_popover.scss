@@ -16,11 +16,11 @@
   // ---------------------------------------------------------------------------
   // Geometry
   // ---------------------------------------------------------------------------
-  $popover-max-width:     320px,
-  $popover-padding-x:     16px,
-  $popover-padding-y:     14px,
-  $popover-inner-gap-x:  12px,
-  $popover-inner-gap-y:  10px,
+  $popover-max-width:     340px,        // slightly wider
+  $popover-padding-x:     1.25rem,      // 20px
+  $popover-padding-y:     1.125rem,     // 18px
+  $popover-inner-gap-x:  14px,
+  $popover-inner-gap-y:  12px,
   $popover-arrow-size:    10px,
   $popover-arrow-offset:   8px,
 
@@ -28,10 +28,10 @@
   // Surface
   // ---------------------------------------------------------------------------
   $popover-bg:            var(--atomix-primary-bg-subtle),
-  $popover-border-radius: 1rem,
+  $popover-border-radius: 1.25rem,      // 20px — more modern rounding
   $popover-box-shadow: (
-    0 20px 40px -6px rgba(0, 0, 0, 0.16),
-    0  6px 12px -3px rgba(0, 0, 0, 0.1)
+    0 25px 50px -12px rgba(0, 0, 0, 0.2),
+    0 10px 20px -5px rgba(0, 0, 0, 0.1)
   )
 );
 

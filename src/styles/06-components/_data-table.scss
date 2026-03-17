@@ -22,34 +22,34 @@
   $data-table-border-color:   var(--atomix-border-color),
   $data-table-border-width:   1px,
   $data-table-border-style:   solid,
-  $data-table-border-radius:  0.875rem,
+  $data-table-border-radius:  1.25rem,      // 20px — match cards
 
   // ---------------------------------------------------------------------------
   // Header
   // ---------------------------------------------------------------------------
   $data-table-header-bg:          var(--atomix-secondary-bg-subtle),
   $data-table-header-color:       var(--atomix-body-color),
-  $data-table-header-font-weight: 600,
+  $data-table-header-font-weight: 700,      // bolder header
 
   // ---------------------------------------------------------------------------
   // Cell padding — base / dense
   // ---------------------------------------------------------------------------
-  $data-table-cell-padding-y:     0.75rem,
-  $data-table-cell-padding-x:     1rem,
-  $data-table-cell-padding-y-sm:  0.4375rem,   // 7px
-  $data-table-cell-padding-x-sm:  0.75rem,
+  $data-table-cell-padding-y:     1rem,         // 16px — more breathing room
+  $data-table-cell-padding-x:     1.25rem,      // 20px
+  $data-table-cell-padding-y-sm:  0.5rem,       // 8px
+  $data-table-cell-padding-x-sm:  0.875rem,
 
   // ---------------------------------------------------------------------------
   // Row states
   // ---------------------------------------------------------------------------
-  $data-table-striped-bg:   rgba(0, 0, 0, 0.025),
+  $data-table-striped-bg:   rgba(0, 0, 0, 0.02),
   $data-table-hover-bg:     var(--atomix-secondary-bg-subtle),
 
   // ---------------------------------------------------------------------------
   // Pagination zone
   // ---------------------------------------------------------------------------
-  $data-table-pagination-padding-y:       0.5rem,
-  $data-table-pagination-padding-x:       0.75rem,
+  $data-table-pagination-padding-y:       0.75rem,      // 12px
+  $data-table-pagination-padding-x:       1rem,         // 16px
   $data-table-pagination-bg:              var(--atomix-primary-bg-subtle),
   $data-table-pagination-border-color:    var(--atomix-border-color),
   $data-table-pagination-hover-bg:        var(--atomix-secondary-bg-subtle),
@@ -63,9 +63,9 @@
   $data-table-search-bg:                var(--atomix-primary-bg-subtle),
   $data-table-search-border-color:      var(--atomix-border-color),
   $data-table-search-focus-border-color: var(--atomix-primary),
-  $data-table-search-padding-y:         0.5rem,
-  $data-table-search-padding-x:         0.75rem,
-  $data-table-search-border-radius:     0.625rem,
+  $data-table-search-padding-y:         0.625rem,     // 10px — match btn
+  $data-table-search-padding-x:         1rem,
+  $data-table-search-border-radius:     0.75rem,      // 12px — match btn
 
   // ---------------------------------------------------------------------------
   // Sort icon
@@ -81,12 +81,12 @@
 
 // Container — card-like shell
 .c-data-table-container {
-  border-radius: 0.875rem;
+  border-radius: 1.25rem;
   border: 1px solid var(--atomix-border-color);
   overflow: hidden;
   box-shadow:
-    0 1px 3px 0 rgba(0, 0, 0, 0.06),
-    0 1px 2px -1px rgba(0, 0, 0, 0.06);
+    0 10px 15px -3px rgba(0, 0, 0, 0.05),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
 }
 
 // Scrollable wrapper

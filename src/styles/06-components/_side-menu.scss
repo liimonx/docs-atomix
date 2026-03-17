@@ -16,36 +16,36 @@
   // ---------------------------------------------------------------------------
   // Container
   // ---------------------------------------------------------------------------
-  $side-menu-padding-x: 20px,
-  $side-menu-padding-y: 20px,
+  $side-menu-padding-x: 24px,         // 24px
+  $side-menu-padding-y: 24px,         // 24px
   $side-menu-bg: var(--atomix-primary-bg-subtle),
-  $side-menu-border-radius: 0,
+  $side-menu-border-radius: 1rem,     // 16px — soft rounding
   $side-menu-border-width: 1px,
   $side-menu-border-color: var(--atomix-border-color),
-  $side-menu-box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.06),
+  $side-menu-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
   // ---------------------------------------------------------------------------
   // Title
   // ---------------------------------------------------------------------------
-  $side-menu-title-font-size: 0.6875rem,
-  // 11px – subtle label size
+  $side-menu-title-font-size: 0.75rem,
+  // 12px – clear label size
   $side-menu-title-font-weight: 700,
   $side-menu-title-color: var(--atomix-tertiary-text-emphasis),
-  $side-menu-title-spacer-y: 6px,
+  $side-menu-title-spacer-y: 8px,
 
   // ---------------------------------------------------------------------------
   // Toggler (collapsible section header)
   // ---------------------------------------------------------------------------
-  $side-menu-toggler-padding-x: 10px,
-  $side-menu-toggler-padding-y: 8px,
+  $side-menu-toggler-padding-x: 12px,
+  $side-menu-toggler-padding-y: 10px,
   $side-menu-toggler-bg: transparent,
   $side-menu-toggler-hover-bg: var(--atomix-secondary-bg-subtle),
-  $side-menu-toggler-border-radius: 0.625rem,
+  $side-menu-toggler-border-radius: 0.75rem,
   $side-menu-toggler-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
   // ---------------------------------------------------------------------------
   // Items / Links
   // ---------------------------------------------------------------------------
-  $side-menu-item-padding-x: 10px,
-  $side-menu-item-padding-y: 8px,
+  $side-menu-item-padding-x: 12px,
+  $side-menu-item-padding-y: 10px,
   $side-menu-item-font-size: 0.875rem,
   // 14px
   $side-menu-item-font-weight: 450,
@@ -57,9 +57,9 @@
   $side-menu-item-hover-bg: var(--atomix-secondary-bg-subtle),
   $side-menu-item-active-bg: var(--atomix-brand-bg-subtle),
   $side-menu-item-disabled-bg: transparent,
-  $side-menu-item-border-radius: 0.625rem,
+  $side-menu-item-border-radius: 0.75rem,
   $side-menu-item-transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1),
-  $side-menu-item-gap: 8px,
+  $side-menu-item-gap: 10px,
 
   // ---------------------------------------------------------------------------
   // List

@@ -28,11 +28,11 @@
   // Border radius map — same keys
   // ---------------------------------------------------------------------------
   $avatar-border-radius: (
-    xs:     4px,
-    sm:     6px,
-    md:     8px,
-    lg:    10px,
-    xl:    12px,
+    xs:     6px,
+    sm:     8px,
+    md:     10px,
+    lg:    12px,
+    xl:    16px,
     circle: 50%,
   ),
 
@@ -41,7 +41,7 @@
   // ---------------------------------------------------------------------------
   $avatar-color:        var(--atomix-body-color),
   $avatar-bg:           var(--atomix-secondary-bg-subtle),
-  $avatar-border-width: 2px,
+  $avatar-border-width: 1.5px,          // refined border width
   $avatar-border-color: var(--atomix-border-color),
 
   // ---------------------------------------------------------------------------

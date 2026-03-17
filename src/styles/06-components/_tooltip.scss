@@ -16,16 +16,16 @@
   // ---------------------------------------------------------------------------
   // Geometry
   // ---------------------------------------------------------------------------
-  $tooltip-max-width:     220px,
-  $tooltip-padding-x:     10px,
-  $tooltip-padding-y:      6px,
+  $tooltip-max-width:     240px,        // slightly wider
+  $tooltip-padding-x:     12px,
+  $tooltip-padding-y:      8px,
   $tooltip-arrow-size:    10px,
 
   // ---------------------------------------------------------------------------
   // Surface
   // ---------------------------------------------------------------------------
   $tooltip-bg:            var(--atomix-invert-bg-subtle),
-  $tooltip-border-radius: 0.5rem,
+  $tooltip-border-radius: 0.625rem,     // 10px — softer rounding
   $tooltip-border-width:  null,
   $tooltip-border-color:  null,
   $tooltip-box-shadow: (

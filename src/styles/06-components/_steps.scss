@@ -33,22 +33,22 @@
   $steps-item-number-bg:              var(--atomix-secondary-bg-subtle),
   $steps-item-number-color:           var(--atomix-tertiary-text-emphasis),
   $steps-item-number-active-color:    #ffffff,
-  $steps-item-number-size:            28px,
-  $steps-item-number-font-size:       0.8125rem,    // 13px
+  $steps-item-number-size:            32px,         // 32px — slightly larger
+  $steps-item-number-font-size:       0.875rem,     // 14px
   $steps-item-number-border-radius:   9999px,
 
   // ---------------------------------------------------------------------------
   // Item label typography
   // ---------------------------------------------------------------------------
-  $steps-item-font-size:        0.875rem,    // 14px
-  $steps-item-content-gap:      8px,
+  $steps-item-font-size:        0.9375rem,    // 15px
+  $steps-item-content-gap:      10px,         // 10px
 
   // ---------------------------------------------------------------------------
   // Connector line — horizontal
   // ---------------------------------------------------------------------------
   $steps-line-height:  2px,
-  $steps-line-width:   40px,
-  $steps-gap:          12px,
+  $steps-line-width:   48px,         // slightly wider
+  $steps-gap:          16px,         // 16px
 
   // ---------------------------------------------------------------------------
   // Connector line — vertical

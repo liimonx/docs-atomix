@@ -68,34 +68,34 @@
   // ---------------------------------------------------------------------------
   // 5. Social Icons
   // ---------------------------------------------------------------------------
-  $footer-social-gap:                     0.625rem,
-  $footer-social-margin-top:              1.25rem,
-  $footer-social-link-size:              2.25rem,         // 36px — neat grid
-  $footer-social-link-size-sm:           1.875rem,        // 30px
-  $footer-social-link-size-lg:           2.75rem,         // 44px
+  $footer-social-gap:                     0.75rem,
+  $footer-social-margin-top:              1.5rem,
+  $footer-social-link-size:              2.5rem,         // 40px — neat grid
+  $footer-social-link-size-sm:           2rem,           // 32px
+  $footer-social-link-size-lg:           3rem,           // 48px
   $footer-social-link-bg:               var(--atomix-secondary-bg-subtle),
   $footer-social-link-color:            var(--atomix-secondary-text-emphasis),
   $footer-social-link-hover-bg:         var(--atomix-primary),
   $footer-social-link-hover-color:      #fff,
-  $footer-social-link-border-radius:    0.5rem,           // square-ish with soft corners
+  $footer-social-link-border-radius:    0.75rem,          // more modern rounding
   $footer-social-link-transition:       all 0.22s cubic-bezier(0.4, 0, 0.2, 1),
 
   // ---------------------------------------------------------------------------
   // 6. Newsletter
   // ---------------------------------------------------------------------------
   $footer-newsletter-bg:                          var(--atomix-secondary-bg-subtle),
-  $footer-newsletter-padding:                     2rem,
-  $footer-newsletter-border-radius:               1rem,
-  $footer-newsletter-title-font-size:             1.125rem,
+  $footer-newsletter-padding:                     2.5rem,
+  $footer-newsletter-border-radius:               1.25rem,        // 20px
+  $footer-newsletter-title-font-size:             1.25rem,
   $footer-newsletter-title-font-weight:           700,
   $footer-newsletter-title-color:                 var(--atomix-body-color),
-  $footer-newsletter-title-margin-bottom:         0.5rem,
+  $footer-newsletter-title-margin-bottom:         0.75rem,
   $footer-newsletter-description-font-size:       0.875rem,
   $footer-newsletter-description-color:           var(--atomix-secondary-text-emphasis),
-  $footer-newsletter-description-margin-bottom:   1rem,
+  $footer-newsletter-description-margin-bottom:   1.25rem,
   $footer-newsletter-input-border:                1px solid var(--atomix-border-color),
-  $footer-newsletter-input-border-radius:         0.5rem,
-  $footer-newsletter-input-padding:               0.75rem 1rem,
+  $footer-newsletter-input-border-radius:         0.75rem,
+  $footer-newsletter-input-padding:               0.875rem 1.25rem,
   $footer-newsletter-input-font-size:             0.875rem,
   $footer-newsletter-input-bg:                    var(--atomix-body-bg),
   $footer-newsletter-input-color:                 var(--atomix-body-color),

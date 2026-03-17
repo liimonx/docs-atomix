@@ -17,15 +17,15 @@
   // Container
   // ---------------------------------------------------------------------------
   $callout-width:           100%,
-  $callout-padding-x:       16px,
-  $callout-padding-y:       14px,
+  $callout-padding-x:       1.25rem,      // 20px
+  $callout-padding-y:       1rem,         // 16px
   $callout-bg:              var(--atomix-primary-bg-subtle),
-  $callout-border-radius:   0.875rem,
+  $callout-border-radius:   1rem,         // 16px — more modern rounding
   $callout-border-color:    var(--atomix-border-color),
   $callout-border-width:    1px,
   $callout-box-shadow: (
-    0 4px 12px -2px rgba(0, 0, 0, 0.08),
-    0 2px 4px  -1px rgba(0, 0, 0, 0.06)
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05)
   ),
 
   // ---------------------------------------------------------------------------

@@ -17,35 +17,35 @@
   // ---------------------------------------------------------------------------
   // Base padding (md default)
   // ---------------------------------------------------------------------------
-  $card-spacer-y: 1.25rem,
-  // 20px
-  $card-spacer-x: 1.25rem,
+  $card-spacer-y: 1.5rem,
+  // 24px
+  $card-spacer-x: 1.5rem,
 
-  // 20px
+  // 24px
   // ---------------------------------------------------------------------------
   // Row-layout inner spacing
   // ---------------------------------------------------------------------------
-  $card-row-spacer-y: 0.875rem,
-  // 14px
-  $card-row-spacer-x: 0.875rem,
+  $card-row-spacer-y: 1rem,
+  // 16px
+  $card-row-spacer-x: 1rem,
 
-  // 14px
+  // 16px
   // ---------------------------------------------------------------------------
   // Internal vertical rhythm
   // ---------------------------------------------------------------------------
-  $card-title-spacer-y: 0.375rem,
-  //  6px — tighter title → text gap
-  $card-action-spacer-y: 0.875rem,
-  // 14px
-  $card-header-spacer-y: 0.875rem,
+  $card-title-spacer-y: 0.5rem,
+  //  8px — tighter title → text gap
+  $card-action-spacer-y: 1rem,
+  // 16px
+  $card-header-spacer-y: 1rem,
 
-  // 14px
+  // 16px
   // ---------------------------------------------------------------------------
   // Typography
   // ---------------------------------------------------------------------------
   $card-title-color: var(--atomix-body-color),
-  $card-title-font-size: 1rem,
-  // 16px — clear heading
+  $card-title-font-size: 1.125rem,
+  // 18px — clearer heading
   $card-text-color: var(--atomix-secondary-text-emphasis),
   $card-text-font-size: 0.875rem,
 
@@ -55,11 +55,11 @@
   // ---------------------------------------------------------------------------
   $card-border-width: 1px,
   $card-border-color: var(--atomix-border-color),
-  $card-border-radius: 1rem,
-  // 16px — modern rounded card
-  $card-image-border-radius: 0.75rem,
+  $card-border-radius: 1.25rem,
+  // 20px — modern rounded card
+  $card-image-border-radius: 1rem,
 
-  // 12px — tighter image corners
+  // 16px — tighter image corners
   // ---------------------------------------------------------------------------
   // Shadows
   // ---------------------------------------------------------------------------

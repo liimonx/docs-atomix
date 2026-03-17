@@ -16,10 +16,10 @@
   // ---------------------------------------------------------------------------
   // Link geometry
   // ---------------------------------------------------------------------------
-  $nav-link-padding-x:    12px,
-  $nav-link-padding-y:     8px,
-  $nav-item-gap-x:         4px,
-  $nav-link-inner-gap:     6px,
+  $nav-link-padding-x:    14px,         // 14px
+  $nav-link-padding-y:     10px,        // 10px — more breathing room
+  $nav-item-gap-x:         6px,         // 6px
+  $nav-link-inner-gap:     8px,
 
   // ---------------------------------------------------------------------------
   // Typography
@@ -48,7 +48,7 @@
 
   // Link — transitions + rounded
   &__link {
-    border-radius: 0.5rem;
+    border-radius: 0.625rem;      // 10px — softer rounding
     transition:
       color            0.16s cubic-bezier(0.4, 0, 0.2, 1),
       background-color 0.16s cubic-bezier(0.4, 0, 0.2, 1);

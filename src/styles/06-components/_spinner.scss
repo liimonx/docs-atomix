@@ -8,3 +8,11 @@
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.spinner';
+
+.c-spinner {
+  --spinner-size: 2rem;
+  --spinner-border-width: 0.2rem;
+  --spinner-color: var(--atomix-primary);
+}
+
+

@@ -16,21 +16,21 @@
   // ---------------------------------------------------------------------------
   // Container
   // ---------------------------------------------------------------------------
-  $menu-min-width:            180px,
+  $menu-min-width:            200px,        // slightly wider
   $menu-container-width:      1600px,
-  $menu-padding-x:            8px,
-  $menu-padding-y:            8px,
+  $menu-padding-x:            10px,         // more padding
+  $menu-padding-y:            10px,
   $menu-bg:                   var(--atomix-primary-bg-subtle),
-  $menu-border-radius:        1rem,
-  $menu-box-shadow:           (0 8px 24px -4px rgba(0, 0, 0, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.08)),
-  $menu-items-gap:            2px,
+  $menu-border-radius:        1.25rem,      // 20px — match cards
+  $menu-box-shadow:           (0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.1)),
+  $menu-items-gap:            4px,          // more gap between items
 
   // ---------------------------------------------------------------------------
   // Items
   // ---------------------------------------------------------------------------
-  $menu-item-padding-x:         10px,
-  $menu-item-padding-y:         8px,
-  $menu-item-inner-gap:         8px,
+  $menu-item-padding-x:         12px,
+  $menu-item-padding-y:         10px,       // more generous hit area
+  $menu-item-inner-gap:         10px,
   $menu-item-color:             var(--atomix-body-color),
   $menu-item-font-size:         0.875rem,     // 14px
   $menu-item-font-weight:       500,
@@ -65,7 +65,7 @@
   // Item — smooth transition + rounded corners on all sides
   &__item-link,
   &__link {
-    border-radius: 0.625rem;
+    border-radius: 0.75rem;       // 12px — softer rounding
     transition:
       background-color 0.16s cubic-bezier(0.4, 0, 0.2, 1),
       color            0.16s cubic-bezier(0.4, 0, 0.2, 1);

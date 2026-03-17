@@ -18,41 +18,43 @@
   // ---------------------------------------------------------------------------
   // Container & Layout
   // ---------------------------------------------------------------------------
-  $navbar-padding-x: 1.5rem,
-  // 24px — tighter responsive rail
-  $navbar-padding-y: 0.75rem,
+  $navbar-padding-x: 2rem,         // 32px — more breathing room
+  $navbar-padding-y: 1rem,         // 16px
   // vertical rhythm controlled by height
   $navbar-container-max-width: 1440px,
   // cap at wide viewports
-  $navbar-height: 60px,
+  $navbar-height: 68px,
 
-  // slightly taller for breathing room
+  // 68px — taller for more breathing room
   // ---------------------------------------------------------------------------
   // Appearance
   // ---------------------------------------------------------------------------
   $navbar-bg: transparent,
   $navbar-border-width: 1px,
   $navbar-border-color: var(--atomix-border-color),
-  $navbar-box-shadow: null,
+  $navbar-box-shadow: (
+    0 10px 15px -3px rgba(0, 0, 0, 0.05),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02)
+  ),
 
   // ---------------------------------------------------------------------------
   // Brand / Logo
   // ---------------------------------------------------------------------------
-  $navbar-brand-margin-end: 2rem,
-  // 32px — space before nav links
-  $navbar-brand-font-size: 1.0625rem,
-  // 17px — confident but not heavy
+  $navbar-brand-margin-end: 2.5rem,
+  // 40px — space before nav links
+  $navbar-brand-font-size: 1.125rem,
+  // 18px — confident but not heavy
   $navbar-brand-font-weight: 700,
   $navbar-brand-color: var(--atomix-body-color),
   // ---------------------------------------------------------------------------
   // Mobile Toggler
   // ---------------------------------------------------------------------------
-  $navbar-toggler-size: 2.25rem,
-  // 36px — generous touch target
+  $navbar-toggler-size: 2.5rem,
+  // 40px — generous touch target
   $navbar-toggler-color: var(--atomix-body-color),
   $navbar-toggler-bg: transparent,
   $navbar-toggler-border: 0,
-  $navbar-toggler-border-radius: 0.5rem,
+  $navbar-toggler-border-radius: 0.75rem,
   $navbar-toggler-focus-shadow: 0 0 0 3px
     rgba(var(--atomix-primary-rgb, 19, 164, 236), 0.25),
   // ---------------------------------------------------------------------------

@@ -16,26 +16,26 @@
   // ---------------------------------------------------------------------------
   // Container
   // ---------------------------------------------------------------------------
-  $dropdown-min-width:        200px,
+  $dropdown-min-width:        220px,        // slightly wider for better readability
   $dropdown-font-size:        0.875rem,    // 14px
   $dropdown-color:            var(--atomix-body-color),
   $dropdown-bg:               var(--atomix-primary-bg-subtle),
   $dropdown-border-color:     var(--atomix-border-color),
-  $dropdown-border-radius:    0.875rem,    // 14px — rounder than buttons
+  $dropdown-border-radius:    1rem,         // 16px — more modern rounding
   $dropdown-border-width:     1px,
-  $dropdown-padding-x:        6px,
-  $dropdown-padding-y:        6px,
-  $dropdown-spacer:           4px,
+  $dropdown-padding-x:        8px,          // 8px — more breathing room
+  $dropdown-padding-y:        8px,          // 8px — more breathing room
+  $dropdown-spacer:           6px,          // slightly more gap from trigger
   $dropdown-box-shadow: (
-    0 16px 32px -4px rgba(0, 0, 0, 0.14),
-    0 4px 8px  -2px rgba(0, 0, 0, 0.08)
+    0 20px 40px -4px rgba(0, 0, 0, 0.16),
+    0 8px 16px -4px rgba(0, 0, 0, 0.1)
   ),
 
   // ---------------------------------------------------------------------------
   // Items
   // ---------------------------------------------------------------------------
-  $dropdown-item-padding-x:     10px,
-  $dropdown-item-padding-y:      8px,
+  $dropdown-item-padding-x:     12px,
+  $dropdown-item-padding-y:     10px,       // 10px — more generous hit area
   $dropdown-item-hover-color:   var(--atomix-body-color),
   $dropdown-item-hover-bg:      var(--atomix-secondary-bg-subtle),
 

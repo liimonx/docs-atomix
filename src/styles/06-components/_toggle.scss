@@ -40,17 +40,17 @@
   // ---------------------------------------------------------------------------
   // Track sizes — md (default)
   // ---------------------------------------------------------------------------
-  $toggle-switch-width-md:   36px,
-  $toggle-switch-height-md:  20px,
-  $toggle-switch-width:      36px,
-  $toggle-switch-height:     20px,
+  $toggle-switch-width-md:   40px,         // 40px
+  $toggle-switch-height-md:  22px,         // 22px
+  $toggle-switch-width:      40px,
+  $toggle-switch-height:     22px,
 
   // ---------------------------------------------------------------------------
   // Handle
   // ---------------------------------------------------------------------------
   $toggle-switch-handle-bg:            #ffffff,
   $toggle-switch-handle-border-radius: 9999px,
-  $toggle-switch-handle-margin:         2px,
+  $toggle-switch-handle-margin:         3px,         // 3px margin for better framing
 
   // ---------------------------------------------------------------------------
   // Handle sizes — sm

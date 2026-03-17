@@ -8,3 +8,15 @@
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.slider';
+
+.c-slider {
+  --slider-height: 6px;
+  --slider-handle-size: 20px;
+  --slider-handle-bg: #fff;
+  --slider-handle-border-color: var(--atomix-primary);
+  --slider-handle-border-width: 2px;
+  --slider-track-bg: var(--atomix-secondary-bg-subtle);
+  --slider-fill-bg: var(--atomix-primary);
+}
+
+

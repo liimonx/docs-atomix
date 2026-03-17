@@ -8,3 +8,13 @@
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.list';
+
+.c-list {
+  --list-padding-y: 0.5rem;
+  --list-padding-x: 0;
+  --list-item-padding-y: 0.375rem;
+  --list-item-padding-x: 0;
+  --list-item-spacer: 0.5rem;
+}
+
+

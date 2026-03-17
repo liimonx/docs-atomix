@@ -8,6 +8,8 @@
  */
 
 @use '../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.progress' with (
-  $progress-height: 8px,
-  $progress-border-radius: 1rem
+  $progress-height: 10px,       // 10px — slightly taller
+  $progress-border-radius: 1.25rem,   // 20px
+  $progress-bg: var(--atomix-secondary-bg-subtle),
+  $progress-bar-bg: var(--atomix-primary)
 );

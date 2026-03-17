@@ -16,9 +16,9 @@
   // ---------------------------------------------------------------------------
   // Geometry
   // ---------------------------------------------------------------------------
-  $checkbox-width:  18px,
-  $checkbox-height: 18px,
-  $checkbox-spacer:  8px,
+  $checkbox-width:  20px,         // slightly larger for better touch/click
+  $checkbox-height: 20px,
+  $checkbox-spacer:  10px,        // 10px gap
 
   // ---------------------------------------------------------------------------
   // Typography
@@ -44,7 +44,7 @@
   // ---------------------------------------------------------------------------
   // Border
   // ---------------------------------------------------------------------------
-  $checkbox-border-width:             1px,
+  $checkbox-border-width:             1.5px,      // slightly thicker for better definition
   $checkbox-border-color:             var(--atomix-border-color),
   $checkbox-border-color-hover:       var(--atomix-primary),
   $checkbox-border-color-disabled:    var(--atomix-disabled-text-emphasis),
@@ -56,14 +56,14 @@
 // =============================================================================
 .c-checkbox {
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
 
   // Box — border + background transition
   &__box,
   &__input {
     flex-shrink: 0;
-    border-radius: 4px;
+    border-radius: 6px;           // 6px — softer rounding
     transition:
       border-color     0.16s cubic-bezier(0.4, 0, 0.2, 1),
       background-color 0.16s cubic-bezier(0.4, 0, 0.2, 1),

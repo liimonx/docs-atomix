@@ -17,29 +17,29 @@
   // Dimensions
   // ---------------------------------------------------------------------------
   $accordion-width:         100%,
-  $accordion-padding-x:     20px,
-  $accordion-padding-y:     16px,
+  $accordion-padding-x:     24px,         // 24px — more breathing room
+  $accordion-padding-y:     18px,         // 18px — more breathing room
 
   // ---------------------------------------------------------------------------
   // Border
   // ---------------------------------------------------------------------------
   $accordion-border-width:  1px,
   $accordion-border-color:  var(--atomix-border-color),
-  $accordion-border-radius: 1rem,
+  $accordion-border-radius: 1.25rem,      // 20px — more modern rounding
 
   // ---------------------------------------------------------------------------
   // Body
   // ---------------------------------------------------------------------------
-  $accordion-body-padding-x:  20px,
-  $accordion-body-padding-y:   8px,
+  $accordion-body-padding-x:  24px,         // matches header
+  $accordion-body-padding-y:   10px,
   $accordion-body-color:       var(--atomix-body-color),
   $accordion-body-bg:          var(--atomix-primary-bg-subtle),
 
   // ---------------------------------------------------------------------------
   // Header
   // ---------------------------------------------------------------------------
-  $accordion-header-padding-x:      20px,
-  $accordion-header-padding-y:      16px,
+  $accordion-header-padding-x:      24px,         // 24px
+  $accordion-header-padding-y:      18px,         // 18px
   $accordion-header-color:          var(--atomix-body-color),
   $accordion-header-bg:             var(--atomix-primary-bg-subtle),
   $accordion-header-bg-hover:       var(--atomix-secondary-bg-subtle),
