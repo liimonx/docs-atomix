@@ -73,7 +73,7 @@ const CallToActionSectionDocumentation: FC = () => {
               title="Install Atomix"
               text="Get access to 40+ components, comprehensive layouts, design tokens, and advanced effects."
               primaryAction={
-                <Card className="u-bg-tertiary-subtle u-rounded-md u-p-4 u-mb-4">
+                <Card className="u-mb-4">
                   <code
                     className="u-text-primary-emphasis u-text-sm"
                     style={{ fontFamily: "var(--atomix-font-family-mono)" }}

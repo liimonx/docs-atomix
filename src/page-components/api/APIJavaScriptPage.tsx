@@ -30,7 +30,7 @@ const APIJavaScriptPage: FC = () => {
 
         <Row className="u-mt-8">
           <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
+            <Card className="u-h-100">
               <h3>Core Classes</h3>
               <p>
                 Documentation for core JavaScript classes in the Atomix library.
@@ -42,7 +42,7 @@ const APIJavaScriptPage: FC = () => {
           </GridCol>
 
           <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
+            <Card className="u-h-100">
               <h3>Utility Functions</h3>
               <p>Reference for utility functions provided by Atomix.</p>
               <Button variant="primary" className="u-mt-4">
@@ -54,7 +54,7 @@ const APIJavaScriptPage: FC = () => {
 
         <Row className="u-mt-4">
           <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
+            <Card className="u-h-100">
               <h3>Event System</h3>
               <p>
                 Documentation for the Atomix event system and custom events.
@@ -66,7 +66,7 @@ const APIJavaScriptPage: FC = () => {
           </GridCol>
 
           <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
+            <Card className="u-h-100">
               <h3>Configuration</h3>
               <p>
                 Options and methods for configuring Atomix JavaScript

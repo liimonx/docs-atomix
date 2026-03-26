@@ -30,7 +30,7 @@ const APICSSPage: FC = () => {
 
         <Row className="u-mt-8">
           <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
+            <Card className="u-h-100">
               <h3>CSS Classes</h3>
               <p>Complete reference for all CSS classes available in Atomix.</p>
               <Button variant="primary" className="u-mt-4">
@@ -40,7 +40,7 @@ const APICSSPage: FC = () => {
           </GridCol>
 
           <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
+            <Card className="u-h-100">
               <h3>Custom Properties</h3>
               <p>
                 Reference for all CSS custom properties (CSS variables) used in
@@ -55,7 +55,7 @@ const APICSSPage: FC = () => {
 
         <Row className="u-mt-4">
           <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
+            <Card className="u-h-100">
               <h3>Mixins & Functions</h3>
               <p>
                 SCSS mixins and functions available for extending Atomix styles.
@@ -67,7 +67,7 @@ const APICSSPage: FC = () => {
           </GridCol>
 
           <GridCol md={6}>
-            <Card className="u-p-6 u-h-100">
+            <Card className="u-h-100">
               <h3>Media Queries</h3>
               <p>
                 Breakpoints and responsive utilities for creating adaptive

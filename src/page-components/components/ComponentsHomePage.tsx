@@ -85,7 +85,7 @@ const ComponentsHomePage: FC = () => {
         {/* Stats Section */}
         <Grid>
           <GridCol md={4} sm={6} className="u-mb-4">
-            <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
+            <Card className="u-h-100">
               <div className="u-w-16 u-h-16 u-bg-primary-subtle u-rounded-md u-flex u-items-center u-justify-center u-mx-auto u-mb-4 u-text-primary-emphasis">
                 <Icon name="Stack" size={32} />
               </div>
@@ -99,7 +99,7 @@ const ComponentsHomePage: FC = () => {
           </GridCol>
 
           <GridCol md={4} sm={6} className="u-mb-4">
-            <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
+            <Card className="u-h-100">
               <div className="u-w-16 u-h-16 u-bg-success-subtle u-rounded-md u-flex u-items-center u-justify-center u-mx-auto u-mb-4 u-text-success-emphasis">
                 <Icon name="ShieldCheck" size={32} />
               </div>
@@ -113,7 +113,7 @@ const ComponentsHomePage: FC = () => {
           </GridCol>
 
           <GridCol md={4} sm={6} className="u-mb-4">
-            <Card className="u-h-100 u-p-6 u-text-center u-transition-fast u-hover-transform-up">
+            <Card className="u-h-100">
               <div className="u-w-16 u-h-16 u-bg-warning-subtle u-rounded-md u-flex u-items-center u-justify-center u-mx-auto u-mb-4 u-text-warning-emphasis">
                 <Icon name="StarFour" size={32} />
               </div>
@@ -152,7 +152,7 @@ const ComponentsHomePage: FC = () => {
                 href="/docs/components/overview"
                 className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
-                <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
+                <Card className="u-h-100">
                   <div className="u-flex u-flex-column u-items-center u-text-center">
                     <div className="u-w-16 u-h-16 u-bg-primary-subtle u-text-primary-emphasis u-rounded-md u-flex u-items-center u-justify-center u-mb-4">
                       <Icon name="GridFour" size={"lg"} />
@@ -189,7 +189,7 @@ const ComponentsHomePage: FC = () => {
                 href={`/docs/components/${component.id}`}
                 className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
-                <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
+                <Card className="u-h-100">
                   <div className="u-flex u-flex-column u-h-100">
                     <div className="u-flex u-items-center u-mb-4">
                       <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary-emphasis u-rounded-md u-flex u-items-center u-justify-center u-me-3">
@@ -252,7 +252,7 @@ const ComponentsHomePage: FC = () => {
                 href={`/docs/components/${component.id}`}
                 className="u-text-decoration-none u-text-inherit u-block u-h-100"
               >
-                <Card className="u-h-100 u-p-6 u-cursor-pointer u-transition-fast u-border u-border-subtle u-hover-transform-up">
+                <Card className="u-h-100">
                   <div className="u-flex u-flex-column u-h-100">
                     <div className="u-flex u-items-center u-justify-between u-mb-3">
                       <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">

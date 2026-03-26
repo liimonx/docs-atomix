@@ -470,7 +470,6 @@ const DesignTokensPage: FC = () => {
               <GridCol md={4} sm={6}>
                 <Card
                   glass={true}
-                  className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border  u-shadow-sm u-transition-transform u-hover-translate-y-n1"
                 >
                   <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {filteredTokens.length}
@@ -483,7 +482,6 @@ const DesignTokensPage: FC = () => {
               <GridCol md={4} sm={6}>
                 <Card
                   glass={true}
-                  className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border  u-shadow-sm u-transition-transform u-hover-translate-y-n1"
                 >
                   <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {Object.keys(groupedTokens).length}
@@ -496,7 +494,6 @@ const DesignTokensPage: FC = () => {
               <GridCol md={4} sm={6}>
                 <Card
                   glass={true}
-                  className="u-p-8 u-text-center u-h-100 u-rounded-3xl u-border  u-shadow-sm u-transition-transform u-hover-translate-y-n1"
                 >
                   <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {designTokens.length}

@@ -72,7 +72,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning data-atomix-color-mode="dark">
         <Providers>
           <ResponsiveProvider>
             <SearchProvider>{children}</SearchProvider>

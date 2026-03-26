@@ -1,8 +1,8 @@
 "use client";
 
-import React, { Suspense, FC } from "react";
+import React, { Suspense, FC, useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -11,26 +11,27 @@ interface PageTransitionProps {
 function PageTransitionContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Create a url string from pathname and searchParams
   const url =
     pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
 
+  useEffect(() => {
+    if (containerRef.current) {
+      // Fade in animation on route change
+      gsap.fromTo(
+        containerRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.32, ease: "easeInOut" }
+      );
+    }
+  }, [url]);
+
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={url}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{
-          duration: 0.32,
-          ease: "easeInOut",
-        }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div ref={containerRef} key={url}>
+      {children}
+    </div>
   );
 }
 

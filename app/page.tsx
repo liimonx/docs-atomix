@@ -473,7 +473,7 @@ export default function Page() {
               </div>
 
               {/* Component 1.5: Environment Status Card */}
-              <Card className="u-p-6 u-rounded-3xl u-shadow-lg u-border u-flex-1">
+              <Card>
                 <div className="u-flex u-justify-between u-items-center u-mb-4">
                   <h5 className="u-fs-sm u-font-black u-uppercase u-tracking-widest u-opacity-50">
                     System Health
@@ -535,7 +535,7 @@ export default function Page() {
             <Grid>
               {/* Component 2: Project Management / Analytics */}
               <GridCol sm={12} className="u-mb-6">
-                <Card className="u-shadow-lg u-border u-relative u-overflow-hidden">
+                <Card>
                   <div className="u-flex u-flex-column u-flex-md-row u-justify-between u-items-start u-gap-6 u-mb-8">
                     <div>
                       <div className="u-flex u-items-center u-gap-3 u-mb-2">
@@ -675,7 +675,7 @@ export default function Page() {
                     </p>
                   </Callout>
 
-                  <Card className="u-p-5 u-rounded-2xl u-shadow-lg u-border">
+                  <Card >
                     <div className="u-flex u-items-center u-justify-between u-mb-3">
                       <div className="u-flex u-items-center u-gap-3">
                         <div className="u-w-2 u-h-2 u-rounded-circle u-bg-success u-animate-pulse"></div>
@@ -993,8 +993,6 @@ export default function Page() {
               <div className="u-flex u-flex-column u-gap-4">
                 <Card
                   glass
-                  appearance="ghost"
-                  className="u-p-5 u-rounded-2xl u-border u-hover-bg-surface-subtle u-transition-colors"
                 >
                   <div className="u-flex u-items-center u-gap-5">
                     <div className="u-w-12 u-h-12 u-bg-info-subtle u-text-info u-rounded-xl u-flex u-items-center u-justify-center u-flex-shrink-0 u-shadow-sm">
@@ -1013,8 +1011,6 @@ export default function Page() {
                 </Card>
                 <Card
                   glass
-                  appearance="ghost"
-                  className="u-p-5 u-rounded-2xl u-border u-hover-bg-surface-subtle u-transition-colors"
                 >
                   <div className="u-flex u-items-center u-gap-5">
                     <div className="u-w-12 u-h-12 u-bg-warning-subtle u-text-warning u-rounded-xl u-flex u-items-center u-justify-center u-flex-shrink-0 u-shadow-sm">
@@ -1033,8 +1029,6 @@ export default function Page() {
                 </Card>
                 <Card
                   glass
-                  appearance="ghost"
-                  className="u-p-5 u-rounded-2xl u-border u-hover-bg-surface-subtle u-transition-colors"
                 >
                   <div className="u-flex u-items-center u-gap-5">
                     <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary u-rounded-xl u-flex u-items-center u-justify-center u-flex-shrink-0 u-shadow-sm">

@@ -131,7 +131,7 @@ const HomePage: FC = () => {
                   rel="noopener noreferrer"
                   className="u-text-decoration-none u-text-inherit u-block u-h-100"
                 >
-                  <Card className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast u-hover-transform-up u-h-100">
+                  <Card>
                     <LinkContent
                       title={link.title}
                       description={link.description}
@@ -144,7 +144,7 @@ const HomePage: FC = () => {
                   href={link.path}
                   className="u-text-decoration-none u-text-inherit u-block u-h-100"
                 >
-                  <Card className="u-p-6 u-border u-border-subtle u-cursor-pointer u-bg-primary-subtle u-transition-fast u-hover-transform-up u-h-100">
+                  <Card>
                     <LinkContent
                       title={link.title}
                       description={link.description}
