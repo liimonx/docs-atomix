@@ -9,8 +9,40 @@
 
 @use "../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.background"
   with (
+  // Global effect toggles
   $background-enable-gradient-overlay: false,
   $background-transparency-enable: false,
   $background-enable-with-shadow: false,
-  $background-transparency: 0.5
+  $background-enable-mesh-gradient: false,
+  $background-enable-noise-texture: false,
+  $background-enable-shimmer: false,
+
+  // Core transparency levels
+  $background-transparency: 0.65,
+  $background-transparency-hover: 0.8,
+  $background-transparency-active: 0.9,
+
+  // Gradient configuration
+  $background-gradient-angle: 135deg,
+  $background-gradient-stops: 4,
+  $background-gradient-intensity: 1.2,
+
+  // Shadow configuration
+  $background-shadow-layers: 3,
+  $background-shadow-intensity: 0.2,
+  $background-shadow-blur-base: 8px,
+  $background-shadow-spread: 2px,
+
+  // Border configuration
+  $background-border-width: 1px,
+  $background-border-opacity: 0.2,
+  $background-border-gradient-enable: true,
+
+  // Noise texture (for glass-like grain)
+  $background-noise-opacity: 0.03,
+  $background-noise-scale: 200,
+
+  // Shimmer effect
+  $background-shimmer-duration: 3s,
+  $background-shimmer-intensity: 0.15
 );
