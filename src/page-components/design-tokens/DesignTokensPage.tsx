@@ -14,6 +14,7 @@ import {
 } from "@shohojdhara/atomix";
 import { designTokens, DesignToken } from "@/data/design-tokens";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
+import ColorTokenCard from "./ColorTokenCard";
 
 // Helper function to get CSS variable name from token
 const getCSSVariable = (token: DesignToken): string | null => {
@@ -542,75 +543,80 @@ const DesignTokensPage: FC = () => {
                   <GridCol
                     key={token.name}
                     sm={6}
-                    lg={4}
-                    xl={3}
-                    className="u-mb-6"
+                    md={4}
+                    lg={3}
+                    xl={2}
+                    className="u-mb-4"
                   >
-                    <Card
-                      size="sm"
-                      appearance="outlined"
-                      glass={true}
-                      className="u-p-2 u-h-100 u-flex u-flex-column u-transition-transform u-hover-translate-y-n1"
-                    >
-                      {/* Preview Section */}
-                      <div className="u-h-40 u-w-100 u-relative u-flex u-items-center u-justify-center u-overflow-hidden u-rounded-xl u-border ">
-                        {renderTokenPreview(token)}
-                      </div>
-
-                      {/* Token Info Section */}
-                      <div className="u-flex u-flex-column u-flex-grow-1 u-pt-4 u-px-1">
-                        <div className="u-mb-3">
-                          <h3 className="u-fs-base u-font-black u-text-primary-emphasis u-m-0 u-tracking-tight u-word-break-all">
-                            {token.name}
-                          </h3>
-                          <p className="u-fs-xs u-text-secondary-emphasis u-mt-1 u-mb-0 u-leading-relaxed u-opacity-80">
-                            {token.description}
-                          </p>
+                    {isColorToken(token) ? (
+                      <ColorTokenCard token={token} />
+                    ) : (
+                      <Card
+                        size="sm"
+                        appearance="outlined"
+                        glass={true}
+                        className="u-p-2 u-h-100 u-flex u-flex-column u-transition-transform u-hover-translate-y-n1"
+                      >
+                        {/* Preview Section */}
+                        <div className="u-h-40 u-w-100 u-relative u-flex u-items-center u-justify-center u-overflow-hidden u-rounded-xl u-border ">
+                          {renderTokenPreview(token)}
                         </div>
 
-                        {token.usage && token.usage.length > 0 && (
-                          <div className="u-flex u-flex-wrap u-gap-1 u-mb-4">
-                            {token.usage.map((u) => (
-                              <Badge
-                                key={u}
-                                variant="secondary"
-                                size="sm"
-                                label={u}
-                                className="u-rounded-md u-opacity-70 u-font-medium"
-                              />
-                            ))}
+                        {/* Token Info Section */}
+                        <div className="u-flex u-flex-column u-flex-grow-1 u-pt-4 u-px-1">
+                          <div className="u-mb-3">
+                            <h3 className="u-fs-base u-font-black u-text-primary-emphasis u-m-0 u-tracking-tight u-word-break-all">
+                              {token.name}
+                            </h3>
+                            <p className="u-fs-xs u-text-secondary-emphasis u-mt-1 u-mb-0 u-leading-relaxed u-opacity-80">
+                              {token.description}
+                            </p>
                           </div>
-                        )}
 
-                        {/* Value and Copy Section */}
-                        <div className="u-mt-auto u-flex u-items-center u-justify-between u-gap-2 u-p-1 u-rounded-xl u-border  u-bg-primary-subtle">
-                          <code className="u-fs-xs u-font-mono u-text-primary-emphasis u-truncate u-px-2 u-flex-grow-1">
-                            {getCSSVariable(token) || token.value}
-                          </code>
-                          <Button
-                            variant={
-                              isCopied && copiedTokenName === token.name
-                                ? "success"
-                                : "primary"
-                            }
-                            size="sm"
-                            className="u-flex-shrink-0 u-rounded-lg u-shadow-sm"
-                            onClick={() => handleCopy(token)}
-                            icon={
-                              <Icon
-                                name={
-                                  isCopied && copiedTokenName === token.name
-                                    ? "CheckCircle"
-                                    : "Copy"
-                                }
-                                weight="duotone"
-                              />
-                            }
-                            iconOnly
-                          ></Button>
+                          {token.usage && token.usage.length > 0 && (
+                            <div className="u-flex u-flex-wrap u-gap-1 u-mb-4">
+                              {token.usage.map((u) => (
+                                <Badge
+                                  key={u}
+                                  variant="secondary"
+                                  size="sm"
+                                  label={u}
+                                  className="u-rounded-md u-opacity-70 u-font-medium"
+                                />
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Value and Copy Section */}
+                          <div className="u-mt-auto u-flex u-items-center u-justify-between u-gap-2 u-p-1 u-rounded-xl u-border  u-bg-primary-subtle">
+                            <code className="u-fs-xs u-font-mono u-text-primary-emphasis u-truncate u-px-2 u-flex-grow-1">
+                              {getCSSVariable(token) || token.value}
+                            </code>
+                            <Button
+                              variant={
+                                isCopied && copiedTokenName === token.name
+                                  ? "success"
+                                  : "primary"
+                              }
+                              size="sm"
+                              className="u-flex-shrink-0 u-rounded-lg u-shadow-sm"
+                              onClick={() => handleCopy(token)}
+                              icon={
+                                <Icon
+                                  name={
+                                    isCopied && copiedTokenName === token.name
+                                      ? "CheckCircle"
+                                      : "Copy"
+                                  }
+                                  weight="duotone"
+                                />
+                              }
+                              iconOnly
+                            ></Button>
+                          </div>
                         </div>
-                      </div>
-                    </Card>
+                      </Card>
+                    )}
                   </GridCol>
                 ))}
               </Grid>
