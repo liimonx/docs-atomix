@@ -538,16 +538,9 @@ export default function Page() {
                 <Card>
                   <div className="u-flex u-flex-column u-flex-md-row u-justify-between u-items-start u-gap-6 u-mb-8">
                     <div>
-                      <div className="u-flex u-items-center u-gap-3 u-mb-2">
-                        <Badge
-                          label="Active Project"
-                          variant="success"
-                          glass
-                          size="sm"
-                        />
-                        <span className="u-fs-xs u-text-secondary-emphasis u-font-mono u-opacity-60">
-                          ID: ATX-2024
-                        </span>
+                      <div className="u-flex u-items-center u-gap-3">
+                        <Badge label="Active Project" variant="success" />
+                        ID: ATX-2024
                       </div>
                       <h4 className="u-fs-2xl u-font-black u-tracking-tight">
                         Atmospheric Dashboard
@@ -675,7 +668,7 @@ export default function Page() {
                     </p>
                   </Callout>
 
-                  <Card >
+                  <Card>
                     <div className="u-flex u-items-center u-justify-between u-mb-3">
                       <div className="u-flex u-items-center u-gap-3">
                         <div className="u-w-2 u-h-2 u-rounded-circle u-bg-success u-animate-pulse"></div>
@@ -991,9 +984,7 @@ export default function Page() {
               </p>
 
               <div className="u-flex u-flex-column u-gap-4">
-                <Card
-                  glass
-                >
+                <Card glass>
                   <div className="u-flex u-items-center u-gap-5">
                     <div className="u-w-12 u-h-12 u-bg-info-subtle u-text-info u-rounded-xl u-flex u-items-center u-justify-center u-flex-shrink-0 u-shadow-sm">
                       <Icon name="Code" weight="duotone" size={24} />
@@ -1009,9 +1000,7 @@ export default function Page() {
                     </div>
                   </div>
                 </Card>
-                <Card
-                  glass
-                >
+                <Card glass>
                   <div className="u-flex u-items-center u-gap-5">
                     <div className="u-w-12 u-h-12 u-bg-warning-subtle u-text-warning u-rounded-xl u-flex u-items-center u-justify-center u-flex-shrink-0 u-shadow-sm">
                       <Icon name="TreeStructure" weight="duotone" size={24} />
@@ -1027,9 +1016,7 @@ export default function Page() {
                     </div>
                   </div>
                 </Card>
-                <Card
-                  glass
-                >
+                <Card glass>
                   <div className="u-flex u-items-center u-gap-5">
                     <div className="u-w-12 u-h-12 u-bg-primary-subtle u-text-primary u-rounded-xl u-flex u-items-center u-justify-center u-flex-shrink-0 u-shadow-sm">
                       <Icon name="PuzzlePiece" weight="duotone" size={24} />
