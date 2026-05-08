@@ -117,7 +117,6 @@ export const ExportMenu: FC = () => {
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label="Export theme"
-        title="Export theme"
       >
         <Icon name="Download" size={14} />
         <span className={styles.exportMenu__text}>Export</span>

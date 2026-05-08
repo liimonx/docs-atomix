@@ -18,8 +18,10 @@
   // ---------------------------------------------------------------------------
   // Container & Layout
   // ---------------------------------------------------------------------------
-  $navbar-padding-x: 2rem,         // 32px — more breathing room
-  $navbar-padding-y: 1rem,         // 16px
+  $navbar-padding-x: 0rem,
+  // 32px — more breathing room
+  $navbar-padding-y: 0rem,
+  // 16px
   // vertical rhythm controlled by height
   $navbar-container-max-width: 1440px,
   // cap at wide viewports
@@ -31,7 +33,7 @@
   // ---------------------------------------------------------------------------
   $navbar-bg: transparent,
   $navbar-border-width: 1px,
-  $navbar-border-color: var(--atomix-border-color),
+  $navbar-border-color: transparent,
   $navbar-box-shadow: (
     0 10px 15px -3px rgba(0, 0, 0, 0.05),
     0 4px 6px -2px rgba(0, 0, 0, 0.02)

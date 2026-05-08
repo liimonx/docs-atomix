@@ -74,7 +74,7 @@ const NotFoundPage: FC = () => {
           </Button>
 
           <Button
-            variant="outline"
+            variant="outline-primary"
             size="lg"
             onClick={() => window.history.back()}
           >
@@ -126,7 +126,7 @@ const NotFoundPage: FC = () => {
               comprehensive documentation.
             </p>
             <Button
-              variant="outline"
+              variant="outline-primary"
               href="/docs/introduction"
               linkComponent={Link}
             >

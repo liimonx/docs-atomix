@@ -104,7 +104,7 @@ export default function Page() {
               iconPosition="end"
               className="u-h-14 u-rounded-lg u-shadow-primary-subtle u-fs-lg"
               href="/docs/getting-started/installation"
-              LinkComponent={Link}
+              linkComponent={Link}
             >
               Start Building
             </Button>
@@ -1178,7 +1178,7 @@ export default function Page() {
             icon={<Icon name="ArrowRight" weight="duotone" />}
             iconPosition="end"
             href="/docs/getting-started/installation"
-            LinkComponent={Link}
+            linkComponent={Link}
             className="u-shadow-primary-glow"
           >
             Read the Full Guide
@@ -1203,7 +1203,7 @@ export default function Page() {
               size="lg"
               icon={<Icon name="RocketLaunch" weight="duotone" />}
               href="/docs/getting-started/installation"
-              LinkComponent={Link}
+              linkComponent={Link}
               className="u-px-8 u-h-14 u-rounded-xl u-fs-base u-font-bold u-shadow-none"
             >
               Get Started Free

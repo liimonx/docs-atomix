@@ -95,12 +95,6 @@
 // Additive Polish
 // =============================================================================
 .c-card {
-  // Global transition — covers all variant interactions
-  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
-
   // --------------------------------------------------------------------------
   // Title — refined line-height and weight
   // --------------------------------------------------------------------------

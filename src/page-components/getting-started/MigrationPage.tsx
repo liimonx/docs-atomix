@@ -289,7 +289,7 @@ const MigrationPage: FC = () => {
               View Quick Start Guide
             </Button>
             <Button
-              variant="outline"
+              variant="outline-primary"
               href="/docs/getting-started/installation"
               icon={<Icon name="Download" size="lg" />}
             >

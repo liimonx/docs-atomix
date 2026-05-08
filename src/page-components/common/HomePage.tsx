@@ -175,7 +175,7 @@ const HomePage: FC = () => {
             linkComponent={Link}
             iconName="ArrowRight"
             iconPosition="end"
-            iconSize={16}
+            iconSize="sm"
           >
             View Installation Guide
           </Button>

@@ -658,8 +658,8 @@ const AtomixGlassPlaygroundPage: FC = () => {
             <div className={styles.codeBlockHeader}>
               <span className={styles.codeBlockTitle}>GENERATED CODE</span>
               <Button
-                variant="ghost"
-                size="xs"
+                variant="link"
+                size="sm"
                 onClick={handleCopyCode}
                 aria-label="Copy generated JSX"
               >

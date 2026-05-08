@@ -303,7 +303,7 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
 
             <div className="u-flex u-gap-2">
               <Button
-                variant="outline"
+                variant="outline-primary"
                 size="sm"
                 onClick={() =>
                   window.open(
@@ -317,8 +317,8 @@ const ComponentDetailPage: FC<{ componentId?: string }> = ({
               </Button>
               <Button
                 iconName="BookOpen"
-                iconSize={16}
-                variant="outline"
+                iconSize="sm"
+                variant="outline-primary"
                 label="Storybook"
                 size="sm"
                 onClick={() =>

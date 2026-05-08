@@ -321,7 +321,7 @@ const ComponentsOverviewPage: FC = () => {
                   <div className="u-flex u-justify-end u-gap-2">
                     <Button
                       variant={
-                        viewMode === "grid" ? "primary" : "outline-error "
+                        viewMode === "grid" ? "primary" : "outline-primary"
                       }
                       size="sm"
                       onClick={() => handleViewModeChange("grid")}
@@ -333,7 +333,7 @@ const ComponentsOverviewPage: FC = () => {
                     </Button>
                     <Button
                       variant={
-                        viewMode === "list" ? "primary" : "outline-error"
+                        viewMode === "list" ? "primary" : "outline-primary"
                       }
                       size="sm"
                       onClick={() => handleViewModeChange("list")}

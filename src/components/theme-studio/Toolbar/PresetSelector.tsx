@@ -97,12 +97,11 @@ export const PresetSelector: FC = () => {
     return (
       <div className={styles.presetSelector}>
         <Button
-          variant="ghost"
+          variant="link"
           size="sm"
           aria-label="Select theme preset"
           className={styles.presetSelector__button}
           disabled
-          title="Theme presets"
         >
           <Icon name="Palette" size={14} aria-hidden="true" />
           <span className={styles.presetSelector__text}>Presets</span>
@@ -129,11 +128,10 @@ export const PresetSelector: FC = () => {
         placement="bottom-start"
       >
         <Button
-          variant="ghost"
+          variant="link"
           size="sm"
           aria-label="Select theme preset"
           className={styles.presetSelector__button}
-          title="Theme presets"
         >
           <Icon name="Palette" size={14} aria-hidden="true" />
           <span className={styles.presetSelector__text}>Presets</span>

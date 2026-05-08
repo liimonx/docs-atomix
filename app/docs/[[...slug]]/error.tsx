@@ -67,12 +67,12 @@ export default function DynamicDocsError({ error, reset }: ErrorProps) {
                   Try Again
                 </Button>
                 <Link href="/docs">
-                  <Button variant="outline" icon={<Icon name="House" />}>
+                  <Button variant="outline-primary" icon={<Icon name="House" />}>
                     Go to Documentation
                   </Button>
                 </Link>
                 <Link href="/docs">
-                  <Button variant="ghost" icon={<Icon name="BookOpen" />}>
+                  <Button variant="link" icon={<Icon name="BookOpen" />}>
                     Browse All Docs
                   </Button>
                 </Link>

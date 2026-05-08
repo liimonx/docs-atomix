@@ -38,7 +38,7 @@ export const BulkOperations: FC = () => {
         <div className={styles.bulkOperations__info}>
           <Badge variant="primary" size="sm" label={`${selectedCount} selected`} />
           <Button
-            variant="ghost"
+            variant="link"
             size="sm"
             onClick={() => setBulkEditMode(false)}
             className={styles.bulkOperations__close}

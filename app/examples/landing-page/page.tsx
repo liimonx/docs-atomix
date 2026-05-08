@@ -199,7 +199,7 @@ export default function ExampleLandingPage() {
               variant="primary"
               icon={<Icon name="Rocket" />}
               href="#features"
-              LinkComponent={Link}
+              linkComponent={Link}
             >
               Explore Features
             </Button>

@@ -86,7 +86,7 @@ export const TokenItem: FC<TokenItemProps> = ({ token, value }) => {
           <Badge size="sm" label={token.type} />
           <Button
             iconOnly={true}
-            variant="ghost"
+            variant="link"
             size="sm"
             icon={
               <Icon

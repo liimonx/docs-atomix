@@ -119,7 +119,6 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       </p>
                       <div className="u-flex u-flex-wrap u-gap-4 u-pt-2">
                         <Button
-                          radius="md"
                           variant="primary"
                           icon={<Icon name="Code" size={20} />}
                           label="View Components"
@@ -406,7 +405,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               bash
                             </span>
                             <Button
-                              variant="ghost"
+                              variant="link"
                               size="sm"
                               onClick={() =>
                                 copyToClipboard(
@@ -454,7 +453,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               bash
                             </span>
                             <Button
-                              variant="ghost"
+                              variant="link"
                               size="sm"
                               onClick={() =>
                                 copyToClipboard(
@@ -502,7 +501,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               bash
                             </span>
                             <Button
-                              variant="ghost"
+                              variant="link"
                               size="sm"
                               onClick={() =>
                                 copyToClipboard(
@@ -624,7 +623,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       glass
                       variant="primary"
                       iconName="Download"
-                      iconSize={20}
+                      iconSize="sm"
                       label="Installation Guide"
                       href="/docs/getting-started/installation"
                       linkComponent={Link}
@@ -633,7 +632,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       glass
                       variant="secondary"
                       iconName="BookOpen"
-                      iconSize={20}
+                      iconSize="sm"
                       label="Browse Components"
                       href="/docs/components/overview"
                       linkComponent={Link}
@@ -698,7 +697,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               {pm}
                             </span>
                             <Button
-                              variant="ghost"
+                              variant="link"
                               size="sm"
                               glass
                               onClick={() => {

@@ -90,7 +90,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, State> {
                 Try Again
               </Button>
               <Button
-                variant="outline"
+                variant="outline-primary"
                 href="/"
                 icon={<Icon name="House" />}
               >

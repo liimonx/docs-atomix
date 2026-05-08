@@ -48,7 +48,7 @@ export default function ComponentError({
             Try Again
           </Button>
           <Button
-            variant="outline"
+            variant="outline-primary"
             href="/docs/components/overview"
             icon={<Icon name="ArrowLeft" />}
           >

@@ -60,7 +60,7 @@ const StylesOverviewPage: FC = () => {
                 scalable styling.
               </p>
               <Button
-                variant="outline"
+                variant="outline-primary"
                 label="Architecture Guide"
                 size="sm"
                 href="/docs/styles/architecture"
@@ -79,7 +79,7 @@ const StylesOverviewPage: FC = () => {
                 development.
               </p>
               <Button
-                variant="outline"
+                variant="outline-primary"
                 label="Utility Classes"
                 size="sm"
                 href="/docs/styles/utilities"
@@ -98,7 +98,7 @@ const StylesOverviewPage: FC = () => {
                 brand.
               </p>
               <Button
-                variant="outline"
+                variant="outline-primary"
                 label="Customization Guide"
                 size="sm"
                 href="/docs/styles/customization"

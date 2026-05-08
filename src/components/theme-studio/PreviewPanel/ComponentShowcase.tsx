@@ -515,7 +515,7 @@ export const ComponentShowcase: FC = () => {
               />
               {componentSearch && (
                 <Button
-                  variant="ghost"
+                  variant="link"
                   size="sm"
                   onClick={clearSearch}
                   className={styles.componentShowcase__clearFilter}

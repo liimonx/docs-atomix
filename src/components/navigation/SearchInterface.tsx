@@ -104,7 +104,7 @@ export const SearchInterface: FC = () => {
               }}
             />
             <Button
-              variant="ghost"
+              variant="link"
               size="sm"
               onClick={() => {
                 setIsOpen(false);

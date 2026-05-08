@@ -29,12 +29,11 @@ export const ThemeToolbar: FC<ThemeToolbarProps> = ({ onImport }) => {
       <div className={styles.themeToolbar__right} role="group" aria-label="Import and export">
         {onImport && (
           <Button
-            variant="ghost"
+            variant="link"
             size="sm"
             onClick={onImport}
             className={styles.themeToolbar__button}
             aria-label="Import theme from file (Cmd/Ctrl+I)"
-            title="Import theme (Cmd/Ctrl+I)"
           >
             <Icon name="Upload" size={14} aria-hidden="true" />
             <span>Import</span>

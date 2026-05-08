@@ -132,7 +132,7 @@ export function GlobalSearch() {
                 }}
                 aria-label="Clear search"
                 iconOnly
-                variant="ghost"
+                variant="link"
                 iconName="X"
                 iconSize="sm"
                 size="sm"
@@ -145,7 +145,7 @@ export function GlobalSearch() {
                 }}
                 aria-label="Search"
                 iconOnly
-                variant="ghost"
+                variant="link"
                 size="sm"
                 iconName="MagnifyingGlass"
                 iconSize="sm"

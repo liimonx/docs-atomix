@@ -51,7 +51,7 @@ export default function ExamplesIndexPage() {
               </p>
               <Button
                 variant="primary"
-                LinkComponent={Link}
+                linkComponent={Link}
                 href={example.path}
                 className="u-mt-2"
               >

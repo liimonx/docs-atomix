@@ -17,13 +17,13 @@ const DocumentationHeader = memo(function DocumentationHeader({
 }: DocumentationHeaderProps) {
   return (
     <Navbar
-      position={"fixed"}
+      position="fixed"
       glass={{
         blurAmount: 6,
         displacementScale: 60,
         aberrationIntensity: 30,
         overLight: {
-          brightness: 1,
+          brightness: 1.3,
           contrast: 1,
         },
         shaderVariant: "appleFluid",
@@ -59,7 +59,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
         <Button
           as="a"
           href="https://github.com/shohojdhara/atomix"
-          variant="ghost"
+          variant="link"
           iconName="GithubLogo"
           iconOnly
           aria-label="GitHub"
@@ -67,14 +67,12 @@ const DocumentationHeader = memo(function DocumentationHeader({
         <Button
           as="a"
           href="https://twitter.com/shohojdhara"
-          variant="ghost"
+          variant="link"
           iconName="TwitterLogo"
           iconOnly
           aria-label="Twitter"
         />
-        <ColorModeToggle defaultValue="dark" />
-
-
+        <ColorModeToggle />
       </Nav>
     </Navbar>
   );

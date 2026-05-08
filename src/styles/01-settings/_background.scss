@@ -9,7 +9,7 @@
 
 @use "../../../node_modules/@shohojdhara/atomix/src/styles/01-settings/settings.background"
   with (
-  $background-enable-gradient-overlay: true,
-  $background-transparency-enable: true,
+  $background-enable-gradient-overlay: false,
+  $background-transparency-enable: false,
   $background-enable-with-shadow: false
 );

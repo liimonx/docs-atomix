@@ -163,7 +163,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
         case "deprecated":
           return "error";
         default:
-          return "default";
+          return "secondary";
       }
     },
     [],
@@ -418,7 +418,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
 
         <div className="u-flex u-gap-2 u-flex-wrap">
           <Button
-            variant="outline"
+            variant="outline-primary"
             size="sm"
             onClick={() =>
               window.open(
@@ -431,7 +431,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
             Source
           </Button>
           <Button
-            variant="outline"
+            variant="outline-primary"
             size="sm"
             onClick={() =>
               window.open(`https://atomix-storybook.netlify.app`, "_blank")

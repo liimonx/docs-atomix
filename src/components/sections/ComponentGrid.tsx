@@ -84,7 +84,7 @@ export const ComponentGrid: FC = () => {
             variant="primary"
             onClick={() => router.push("/docs/components/overview")}
             icon={<Icon name="ArrowRight" size="sm" />}
-            iconPosition="right"
+            iconPosition="end"
           >
             View all components
           </Button>

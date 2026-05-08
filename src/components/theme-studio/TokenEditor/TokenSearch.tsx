@@ -25,7 +25,7 @@ export const TokenSearch: FC = () => {
         />
         {searchQuery && (
           <Button
-            variant="ghost"
+            variant="link"
             size="sm"
             onClick={clearFilters}
             className={styles.tokenSearch__clear}

@@ -657,7 +657,7 @@ const ThemeStudioPage: FC = () => {
               <span>Save version</span>
             </Button>
             <Button
-              variant="ghost"
+              variant="link"
               size="sm"
               onClick={handleShareLink}
               aria-label="Copy shareable theme link"
@@ -678,8 +678,8 @@ const ThemeStudioPage: FC = () => {
                   role="listitem"
                 >
                   <Button
-                    variant="ghost"
-                    size="xs"
+                    variant="link"
+                    size="sm"
                     onClick={() => loadVersion(version.id)}
                     aria-label={`Load theme version from ${version.name}`}
                   >
@@ -693,8 +693,8 @@ const ThemeStudioPage: FC = () => {
                     </span>
                   </Button>
                   <Button
-                    variant="ghost"
-                    size="xs"
+                    variant="link"
+                    size="sm"
                     onClick={() => deleteVersion(version.id)}
                     aria-label={`Delete theme version from ${version.name}`}
                   >

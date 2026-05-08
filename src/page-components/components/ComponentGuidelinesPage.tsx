@@ -522,7 +522,7 @@ $button-color: var(--atomix-primary) !default;
               Browse Components
             </Button>
             <Button
-              variant="outline"
+              variant="outline-primary"
               href="/docs/getting-started/quick-start"
               linkComponent={Link}
             >
@@ -530,7 +530,7 @@ $button-color: var(--atomix-primary) !default;
               Quick Start Guide
             </Button>
             <Button
-              variant="outline"
+              variant="outline-primary"
               href="/docs/resources/contributing"
               linkComponent={Link}
             >
