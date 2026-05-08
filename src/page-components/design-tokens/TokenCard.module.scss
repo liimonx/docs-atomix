@@ -1,19 +1,18 @@
-.colorTokenCard {
+.tokenCard {
   --card-radius: var(--atomix-border-radius-xl);
-  --swatch-size: 48px;
   
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: var(--atomix-spacing-3);
   background: var(--atomix-bg-glass);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--atomix-primary-border-subtle);
   border-radius: var(--card-radius);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
   height: 100%;
-  min-height: 160px;
+  min-height: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
   &:hover {
     transform: translateY(-4px);
@@ -22,45 +21,92 @@
       0 12px 24px -8px rgba(0, 0, 0, 0.15),
       0 0 0 1px var(--atomix-primary-border-subtle);
     
-    .colorTokenCard__swatch {
-      transform: scale(1.1);
+    .tokenCard__preview {
+      transform: scale(1.02);
+      border-bottom-color: var(--atomix-primary-border-subtle-hover);
     }
 
-    .colorTokenCard__variableWrapper {
+    .tokenCard__footer {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .colorTokenCard__glow {
+    .tokenCard__glow {
       opacity: 0.2;
     }
   }
 }
 
-.colorTokenCard__glow {
+.tokenCard__glow {
   position: absolute;
-  top: -20%;
-  left: -20%;
-  width: 140%;
-  height: 140%;
-  filter: blur(40px);
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle, var(--atomix-primary) 0%, transparent 70%);
+  filter: blur(50px);
   border-radius: 50%;
   z-index: -1;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   pointer-events: none;
+  transform: scale(0.8);
 }
 
-.colorTokenCard__header {
+.tokenCard:hover .tokenCard__glow {
+  opacity: 0.25;
+  transform: scale(1);
+}
+
+.tokenCard__preview {
+  height: 140px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--atomix-primary-border-subtle);
+  transition: all 0.4s ease;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+    pointer-events: none;
+  }
+}
+
+.tokenCard__content {
+  padding: var(--atomix-spacing-3);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  z-index: 2;
+}
+
+.tokenCard__header {
   display: flex;
   align-items: center;
   gap: var(--atomix-spacing-3);
-  margin-bottom: var(--atomix-spacing-3);
+  margin-bottom: var(--atomix-spacing-2);
 }
 
-.colorTokenCard__swatch {
-  width: var(--swatch-size);
-  height: var(--swatch-size);
+.tokenCard__swatch {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   flex-shrink: 0;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -78,11 +124,12 @@
   }
 }
 
-.colorTokenCard__titleGroup {
+.tokenCard__titleGroup {
   overflow: hidden;
+  flex-grow: 1;
 }
 
-.colorTokenCard__name {
+.tokenCard__name {
   font-size: var(--atomix-font-size-sm);
   font-weight: var(--atomix-font-weight-bold);
   color: var(--atomix-primary-text-emphasis);
@@ -92,19 +139,21 @@
   text-overflow: ellipsis;
 }
 
-.colorTokenCard__value {
+.tokenCard__value {
   font-family: var(--atomix-font-family-mono);
   font-size: 10px;
   color: var(--atomix-tertiary-text-emphasis);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  display: block;
+  opacity: 0.8;
 }
 
-.colorTokenCard__description {
+.tokenCard__description {
   font-size: 11px;
   color: var(--atomix-secondary-text-emphasis);
   line-height: 1.4;
-  margin: 0;
+  margin: 0 0 var(--atomix-spacing-3) 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -112,9 +161,22 @@
   opacity: 0.7;
 }
 
-.colorTokenCard__variableWrapper {
+.tokenCard__usage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: var(--atomix-spacing-3);
+}
+
+.tokenCard__badge {
+  font-size: 9px !important;
+  padding: 1px 6px !important;
+  opacity: 0.6;
+}
+
+.tokenCard__footer {
   margin-top: auto;
-  padding-top: var(--atomix-spacing-3);
+  padding-top: var(--atomix-spacing-2);
   opacity: 0.6;
   transform: translateY(4px);
   transition: all 0.3s ease;
@@ -124,7 +186,7 @@
   gap: var(--atomix-spacing-2);
 }
 
-.colorTokenCard__variable {
+.tokenCard__variable {
   font-family: var(--atomix-font-family-mono);
   font-size: 10px;
   color: var(--atomix-primary);
@@ -144,7 +206,7 @@
   }
 }
 
-.colorTokenCard__copyBtn {
+.tokenCard__copyBtn {
   flex-shrink: 0;
   opacity: 0.5;
   transition: opacity 0.2s ease;
