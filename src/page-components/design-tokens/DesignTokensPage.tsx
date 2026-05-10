@@ -3,7 +3,6 @@
 import { useState, useMemo, FC } from "react";
 import { usePathname } from "next/navigation";
 import {
-  Button,
   Hero,
   GridCol,
   Grid,
