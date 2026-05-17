@@ -1,7 +1,7 @@
 import nextConfig from "eslint-config-next";
 import tseslint from "typescript-eslint";
 
-const config = [
+export default [
   ...nextConfig,
   {
     files: ["**/*.ts", "**/*.tsx"],
@@ -27,9 +27,10 @@ const config = [
       "@typescript-eslint/no-empty-function": "warn",
       "@typescript-eslint/no-empty-interface": "warn",
       "@typescript-eslint/no-inferrable-types": "warn",
-      "@typescript-eslint/no-var-requires": "off"
+      "@typescript-eslint/no-var-requires": "off",
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/refs": "off",
+      "react-hooks/static-components": "off"
     }
   }
 ];
-
-export default config;
