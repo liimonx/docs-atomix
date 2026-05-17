@@ -2089,31 +2089,12 @@ export const getAllTokens = () => {
   return designTokens.flatMap(category => category.tokens);
 };
 
-interface TokenSearchCache {
-  token: DesignToken;
-  searchString: string;
-}
-
-let searchCache: TokenSearchCache[] | null = null;
-
 export const searchTokens = (query: string) => {
-  if (!searchCache) {
-    searchCache = getAllTokens().map(token => {
-      const parts = [
-        token.name,
-        token.description,
-        token.category,
-        ...(token.usage || [])
-      ];
-      return {
-        token,
-        searchString: parts.join('\n').toLowerCase()
-      };
-    });
-  }
-
   const lowercaseQuery = query.toLowerCase();
-  return searchCache.filter(item =>
-    item.searchString.includes(lowercaseQuery)
-  ).map(item => item.token);
+  return getAllTokens().filter(token =>
+    token.name.toLowerCase().includes(lowercaseQuery) ||
+    token.description.toLowerCase().includes(lowercaseQuery) ||
+    token.category.toLowerCase().includes(lowercaseQuery) ||
+    token.usage?.some(usage => usage.toLowerCase().includes(lowercaseQuery))
+  );
 };

@@ -117,11 +117,7 @@ export const PresetSelector: FC = () => {
         menu={
           <Menu className={styles.presetSelector__menu}>
             {dropdownItems.map((item) => (
-              <MenuItem
-                key={item.label}
-                children={item.label}
-                onClick={item.onClick}
-              />
+              <MenuItem key={item.label} onClick={item.onClick}>{item.label}</MenuItem>
             ))}
           </Menu>
         }
