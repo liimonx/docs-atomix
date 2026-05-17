@@ -20,6 +20,7 @@ export default defineConfig({
       'src/utils/__tests__/*.test.ts',
       'src/hooks/__tests__/*.test.ts',
       'src/components/documentation/MarkdownPage.perf.test.tsx',
+      'src/components/theme-studio/Toolbar/__tests__/PresetSelector.perf.test.tsx',
     ],
     exclude: [
       'node_modules/**',
