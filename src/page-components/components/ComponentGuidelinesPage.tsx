@@ -6,6 +6,10 @@ const ListItem = ({ children }: { children: React.ReactNode }) => {
 
 import { FC, useMemo, useState } from "react";
 import Link from "next/link";
+
+const ListItem = ({ children }: { children: React.ReactNode }) => {
+  return <span>{children}</span>;
+};
 import {
   Button,
   Card,
