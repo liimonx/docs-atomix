@@ -1,7 +1,3 @@
-const ListItem = ({ children }: { children: React.ReactNode }) => {
-  return <span>{children}</span>;
-};
-
 "use client";
 
 import { FC, useMemo, useState } from "react";
@@ -20,6 +16,10 @@ import {
   List,
 } from "@shohojdhara/atomix";
 import styles from "@/styles/PageHero.module.scss";
+
+const ListItem = ({ children }: { children: React.ReactNode }) => {
+  return <span>{children}</span>;
+};
 
 const ComponentGuidelinesPage: FC = () => {
   const [activeTab, setActiveTab] = useState(0);
