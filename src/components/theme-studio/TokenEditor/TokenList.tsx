@@ -84,6 +84,16 @@ export const TokenList: FC = () => {
     return grouped;
   }, [filteredTokens]);
 
+  const categoriesToRender = useMemo(() => {
+    return Object.entries(tokensByCategory).map(([categoryId, tokens]) => {
+      const category = tokensData.metadata.categories.find((c) => c.id === categoryId);
+      return {
+        categoryId,
+        title: category?.title || categoryId,
+        tokens,
+      };
+    });
+  }, [tokensByCategory, tokensData.metadata.categories]);
 
   if (filteredTokens.length === 0) {
     return (
@@ -95,12 +105,11 @@ export const TokenList: FC = () => {
 
   return (
     <div className={styles.tokenList} role="list">
-      {Object.entries(tokensByCategory).map(([categoryId, tokens]) => {
-        const category = tokensData.metadata.categories.find((c) => c.id === categoryId);
+      {categoriesToRender.map(({ categoryId, title, tokens }) => {
         return (
           <section key={categoryId} className={styles.tokenList__category} aria-labelledby={`category-${categoryId}`}>
             <h2 id={`category-${categoryId}`} className={styles.tokenList__categoryTitle}>
-              {category?.title || categoryId}
+              {title}
               <Badge variant="secondary" size="sm" label={tokens.length.toString()} className={styles.tokenList__count} />
             </h2>
             <div className={styles.tokenList__items} role="list">
