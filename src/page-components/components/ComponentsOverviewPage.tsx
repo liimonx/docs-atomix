@@ -33,6 +33,7 @@ interface ComponentItem {
   sectionId: string;
   isNew?: boolean;
   isUpdated?: boolean;
+  _searchableText?: string;
 }
 
 type ViewMode = "grid" | "list";
@@ -62,9 +63,23 @@ const ComponentsOverviewPage: FC = () => {
     });
 
     // Sort components by priority (add priority property to NavigationItem interface)
-    return components.sort(
+    const sortedComponents = components.sort(
       (a, b) => ((a as any).priority || 999) - ((b as any).priority || 999),
     );
+
+    // Pre-calculate searchable text for better filter performance
+    return sortedComponents.map((component) => ({
+      ...component,
+      _searchableText: [
+        component.id,
+        component.title,
+        component.description,
+        component.section,
+        ...(component.searchTerms || []),
+      ]
+        .join(" ")
+        .toLowerCase(),
+    }));
   }, []);
 
   // Filter components based on search query and category
@@ -81,18 +96,9 @@ const ComponentsOverviewPage: FC = () => {
     // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter((component) => {
-        const searchableText = [
-          component.title,
-          component.description,
-          component.section,
-          ...(component.searchTerms || []),
-        ]
-          .join(" ")
-          .toLowerCase();
-
-        return searchableText.includes(query);
-      });
+      filtered = filtered.filter((component) =>
+        component._searchableText?.includes(query) ?? false
+      );
     }
 
     return filtered;

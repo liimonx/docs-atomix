@@ -750,7 +750,7 @@ export function exportAsDesignTokens(
 export function downloadFile(
   content: string,
   filename: string,
-  mimeType: string = "text/plain"
+  mimeType = "text/plain"
 ): void {
   if (typeof window === "undefined") {
     return;
