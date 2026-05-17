@@ -73,7 +73,7 @@ export const PresetSelector: FC = () => {
     setPresetDescription("");
   };
 
-  const dropdownItems = useMemo(() => {
+  const presetItems = useMemo(() => {
     const builtInItems = Object.entries(themePresets).map(([id, preset]) => ({
       label: preset.name,
       onClick: () => handlePresetSelect(id),
@@ -84,18 +84,19 @@ export const PresetSelector: FC = () => {
       onClick: () => handlePresetSelect(id),
     }));
 
-    return [
-      ...builtInItems,
-      ...customItems,
-      {
-        label: "💾 Save Current Theme",
-        onClick: () => {
-          setShowSaveModal(true);
-          setTimeout(() => nameInputRef.current?.focus(), 100);
-        },
-      },
-    ];
+    return [...builtInItems, ...customItems];
   }, [customPresets, handlePresetSelect]);
+
+  const dropdownItems = [
+    ...presetItems,
+    {
+      label: "💾 Save Current Theme",
+      onClick: () => {
+        setShowSaveModal(true);
+        setTimeout(() => nameInputRef.current?.focus(), 100);
+      },
+    },
+  ];
 
   // Prevent hydration mismatch by only rendering Dropdown on client
   if (!mounted) {
