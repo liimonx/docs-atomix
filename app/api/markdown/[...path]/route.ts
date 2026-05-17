@@ -91,8 +91,8 @@ export async function GET(
         'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
       },
     });
-  } catch (error: any) {
-    console.error('Error reading markdown file:', error);
+  } catch (error: unknown) {
+    // console.error('Error reading markdown file:', error);
     
     if (error.code === 'ENOENT') {
       return NextResponse.json(

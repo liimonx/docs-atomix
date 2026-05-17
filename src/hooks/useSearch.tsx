@@ -68,9 +68,10 @@ export const SearchProvider: FC<{ children: React.ReactNode }> = ({ children }) 
   }, [searchableItems]);
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
     if (searchQuery.trim().length < 2) {
-      setSearchResults([]);
-      return;
+      timeoutId = setTimeout(() => setSearchResults([]), 0);
+      return () => clearTimeout(timeoutId);
     }
 
     const timer = setTimeout(() => {
