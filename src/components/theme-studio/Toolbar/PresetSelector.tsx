@@ -80,15 +80,17 @@ export const PresetSelector: FC = () => {
     onClick: () => handlePresetSelect(id),
   }));
 
+  const handleOpenSaveModal = () => {
+    setShowSaveModal(true);
+    setTimeout(() => nameInputRef.current?.focus(), 100);
+  };
+
   const dropdownItems = [
     ...builtInItems,
     ...customItems,
     {
       label: "💾 Save Current Theme",
-      onClick: () => {
-        setShowSaveModal(true);
-        setTimeout(() => nameInputRef.current?.focus(), 100);
-      },
+      onClick: handleOpenSaveModal,
     },
   ];
 
