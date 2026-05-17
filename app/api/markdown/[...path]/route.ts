@@ -91,10 +91,11 @@ export async function GET(
         'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const err = error as { code?: string };
     console.error('Error reading markdown file:', error);
     
-    if (error.code === 'ENOENT') {
+    if (err.code === 'ENOENT') {
       return NextResponse.json(
         { error: 'File not found' },
         { status: 404 }
