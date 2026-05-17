@@ -1,3 +1,7 @@
+const ListItem = ({ children }: { children: React.ReactNode }) => {
+  return <span>{children}</span>;
+};
+
 "use client";
 
 import { FC, useMemo, useState } from "react";
@@ -195,9 +199,6 @@ $button-color: var(--atomix-primary) !default;
     [],
   );
 
-  const ListItem = ({ children }: { children: React.ReactNode }) => {
-    return <span>{children}</span>;
-  };
 
   const tabItems = useMemo(
     () => [
