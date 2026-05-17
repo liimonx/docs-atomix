@@ -1168,14 +1168,22 @@ export const getNavigationByCategory = (category: string): NavigationItem[] => {
     .filter(item => item.category === category);
 };
 
+// Pre-computed searchable navigation items for O(1) string allocations during search
+const searchableNavigationItems = navigationData.flatMap(section =>
+  section.items.map(item => ({
+    item,
+    searchString: [
+      item.title.toLowerCase(),
+      item.description?.toLowerCase() || '',
+      ...(item.searchTerms?.map(term => term.toLowerCase()) || [])
+    ].join(' ')
+  }))
+);
+
 export const searchNavigation = (query: string): NavigationItem[] => {
   const lowercaseQuery = query.toLowerCase();
-  return navigationData
-    .flatMap(section => section.items)
-    .filter(item =>
-      item.title.toLowerCase().includes(lowercaseQuery) ||
-      item.description?.toLowerCase().includes(lowercaseQuery) ||
-      item.searchTerms?.some(term => term.toLowerCase().includes(lowercaseQuery))
-    )
+  return searchableNavigationItems
+    .filter(({ searchString }) => searchString.includes(lowercaseQuery))
+    .map(({ item }) => item)
     .sort((a, b) => (a.priority || 999) - (b.priority || 999));
 };
