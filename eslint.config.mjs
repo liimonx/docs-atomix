@@ -22,18 +22,14 @@ const config = [
       "react/no-unescaped-entities": "off",
       "react/no-children-prop": "off",
       "no-case-declarations": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-non-null-assertion": "off",
-      "@typescript-eslint/no-empty-function": "off",
-      "@typescript-eslint/no-empty-interface": "off",
-      "@typescript-eslint/no-inferrable-types": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-non-null-assertion": "warn",
+      "@typescript-eslint/no-empty-function": "warn",
+      "@typescript-eslint/no-empty-interface": "warn",
+      "@typescript-eslint/no-inferrable-types": "warn",
       "@typescript-eslint/no-var-requires": "off",
-      "react-hooks/set-state-in-effect": "off",
-      "react-hooks/refs": "off",
-      "react-hooks/exhaustive-deps": "off",
-      "react-hooks/static-components": "off",
-      "@next/next/no-page-custom-font": "off",
-      "@typescript-eslint/no-var-requires": "off"
+      "react-hooks/set-state-in-effect": "warn",
+      "react-hooks/refs": "warn"
     }
   }
 ];
