@@ -84,6 +84,10 @@ export const TokenList: FC = () => {
     return grouped;
   }, [filteredTokens]);
 
+  // Pre-compute category map for O(1) lookups during render
+  const categoryMap = useMemo(() => {
+    return new Map(tokensData.metadata.categories.map((c) => [c.id, c]));
+  }, [tokensData.metadata.categories]);
 
   if (filteredTokens.length === 0) {
     return (
@@ -96,7 +100,7 @@ export const TokenList: FC = () => {
   return (
     <div className={styles.tokenList} role="list">
       {Object.entries(tokensByCategory).map(([categoryId, tokens]) => {
-        const category = tokensData.metadata.categories.find((c) => c.id === categoryId);
+        const category = categoryMap.get(categoryId);
         return (
           <section key={categoryId} className={styles.tokenList__category} aria-labelledby={`category-${categoryId}`}>
             <h2 id={`category-${categoryId}`} className={styles.tokenList__categoryTitle}>
