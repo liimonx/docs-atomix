@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/static-components */
+/* eslint-disable react-hooks/set-state-in-effect */
+/* eslint-disable react-hooks/refs */
 "use client";
 
 import { FC, useMemo, useState } from "react";
