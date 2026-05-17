@@ -46,7 +46,7 @@ export default function Page() {
           padding: "12px 16px",
         },
       });
-    } catch (err) {
+    } catch {
       toast.error("Failed to copy command. Please try again.", {
         duration: 4000,
         position: "bottom-right",
