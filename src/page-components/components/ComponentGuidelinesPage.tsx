@@ -1,6 +1,4 @@
-const ListItem = ({ children }: { children: React.ReactNode }) => {
-  return <span>{children}</span>;
-};
+const ListItem = ({ children }: { children: React.ReactNode }) => { return <span>{children}</span>; };
 
 "use client";
 
