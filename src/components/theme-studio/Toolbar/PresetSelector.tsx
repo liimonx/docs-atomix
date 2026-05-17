@@ -87,16 +87,23 @@ export const PresetSelector: FC = () => {
     return [...builtInItems, ...customItems];
   }, [customPresets, handlePresetSelect]);
 
-  const dropdownItems = [
-    ...presetItems,
-    {
-      label: "💾 Save Current Theme",
-      onClick: () => {
-        setShowSaveModal(true);
-        setTimeout(() => nameInputRef.current?.focus(), 100);
+  const dropdownItems = useMemo(
+    () => [
+      ...presetItems,
+      {
+        label: "💾 Save Current Theme",
+        onClick: () => {
+          setShowSaveModal(true);
+          setTimeout(() => {
+            if (nameInputRef.current) {
+              nameInputRef.current.focus();
+            }
+          }, 100);
+        },
       },
-    },
-  ];
+    ],
+    [presetItems]
+  );
 
   // Prevent hydration mismatch by only rendering Dropdown on client
   if (!mounted) {
