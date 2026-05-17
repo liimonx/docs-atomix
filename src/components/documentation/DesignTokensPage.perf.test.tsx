@@ -13,9 +13,9 @@ vi.mock("next/navigation", () => ({
 // Mock @shohojdhara/atomix components to focus on logic
 vi.mock("@shohojdhara/atomix", () => {
   const Hero = ({ children, title }: any) => <div>{title}{children}</div>;
-  Hero.Content = ({ children }: any) => <div>{children}</div>;
-  Hero.Title = ({ children }: any) => <div>{children}</div>;
-  Hero.Text = ({ children }: any) => <div>{children}</div>;
+  Hero.Content = function HeroContent({ children }: any) { return <div>{children}</div>; };
+  Hero.Title = function HeroTitle({ children }: any) { return <div>{children}</div>; };
+  Hero.Text = function HeroText({ children }: any) { return <div>{children}</div>; };
   return {
     Hero,
     GridCol: ({ children }: any) => <div>{children}</div>,
