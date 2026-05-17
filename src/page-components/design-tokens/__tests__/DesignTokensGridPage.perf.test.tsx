@@ -71,7 +71,7 @@ describe("DesignTokensGridPage Performance", () => {
   });
 
   it("measures time to click copy buttons", () => {
-    const { container } = render(<DesignTokensGridPage />);
+    render(<DesignTokensGridPage />);
     const buttons = screen.getAllByTestId("copy-button");
 
     // We expect some buttons to be rendered
