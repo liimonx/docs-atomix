@@ -1,7 +1,7 @@
 import nextConfig from "eslint-config-next";
 import tseslint from "typescript-eslint";
 
-export default [
+const config = [
   ...nextConfig,
   {
     files: ["**/*.ts", "**/*.tsx"],
@@ -34,3 +34,5 @@ export default [
     }
   }
 ];
+
+export default config;
