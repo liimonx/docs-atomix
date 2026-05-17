@@ -125,13 +125,14 @@ const nextConfig = {
         util: false,
         buffer: false,
         process: false,
+        child_process: false,
       };
 
       // Ignore require() calls for Node.js modules in the atomix package
       // This prevents webpack from trying to resolve these modules
       config.plugins.push(
         new webpack.IgnorePlugin({
-          resourceRegExp: /^(fs|fs\/promises|path|os|crypto|stream|util|buffer|process)$/,
+          resourceRegExp: /^(fs|fs\/promises|path|os|crypto|stream|util|buffer|process|child_process)$/,
           contextRegExp: /node_modules\/@shohojdhara\/atomix/,
         })
       );
