@@ -30,11 +30,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
 
   // Prevent hydration mismatch by only rendering glass effect on client
   useEffect(() => {
-    let mounted = true;
-    if (mounted) {
-      setIsMounted(true);
-    }
-    return () => { mounted = false; };
+    setIsMounted(true);
   }, []);
 
   // Find navigation item for the component

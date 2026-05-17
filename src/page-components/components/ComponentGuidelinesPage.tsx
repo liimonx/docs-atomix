@@ -17,10 +17,6 @@ import {
 } from "@shohojdhara/atomix";
 import styles from "@/styles/PageHero.module.scss";
 
-const ListItem = ({ children }: { children: React.ReactNode }) => {
-  return <span>{children}</span>;
-};
-
 const ComponentGuidelinesPage: FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -198,6 +194,10 @@ $button-color: var(--atomix-primary) !default;
 }`,
     [],
   );
+
+  const ListItem = ({ children }: { children: React.ReactNode }) => {
+    return <span>{children}</span>;
+  };
 
   const tabItems = useMemo(
     () => [
