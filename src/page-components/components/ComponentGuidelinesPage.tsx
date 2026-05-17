@@ -1,3 +1,7 @@
+const ListItem = ({ children }: { children: React.ReactNode }) => {
+  return <span>{children}</span>;
+};
+
 "use client";
 
 import { FC, useMemo, useState } from "react";

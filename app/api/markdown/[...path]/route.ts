@@ -92,8 +92,7 @@ export async function GET(
       },
     });
   } catch (error: unknown) {
-    // eslint-disable-next-line no-console
-    console.error('Error reading markdown file:', error);
+    // console.error('Error reading markdown file:', error);
     
     if ((error as { code?: string }).code === 'ENOENT') {
       return NextResponse.json(
