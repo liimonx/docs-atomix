@@ -1,8 +1,10 @@
+"use client";
+
 const ListItem = ({ children }: { children: React.ReactNode }) => {
-  return <span>{children}</span>;
+  return <li>{children}</li>;
 };
 
-"use client";
+
 
 import { FC, useMemo, useState } from "react";
 import Link from "next/link";
