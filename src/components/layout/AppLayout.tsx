@@ -19,7 +19,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
 
   // Close sidebar on route change (mobile)
   useEffect(() => {
-    setSidebarOpen(false);
+    setTimeout(() => setSidebarOpen(false), 0);
   }, [pathname]);
 
   return (
@@ -41,7 +41,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
         >
           <DocumentationSidebar
             isOpen={sidebarOpen}
-            onClose={() => setSidebarOpen(false)}
+            onClose={() => setTimeout(() => setSidebarOpen(false), 0)}
           />
         </aside>
 

@@ -25,7 +25,7 @@ export const PresetSelector: FC = () => {
 
   // Ensure component only renders on client to avoid hydration mismatches
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => setMounted(true), 0);
     loadCustomPresets();
   }, [loadCustomPresets]);
 
@@ -80,18 +80,6 @@ export const PresetSelector: FC = () => {
     onClick: () => handlePresetSelect(id),
   }));
 
-  const dropdownItems = [
-    ...builtInItems,
-    ...customItems,
-    {
-      label: "💾 Save Current Theme",
-      onClick: () => {
-        setShowSaveModal(true);
-        setTimeout(() => nameInputRef.current?.focus(), 100);
-      },
-    },
-  ];
-
   // Prevent hydration mismatch by only rendering Dropdown on client
   if (!mounted) {
     return (
@@ -110,19 +98,38 @@ export const PresetSelector: FC = () => {
     );
   }
 
+  const focusNameInput = () => {
+    nameInputRef.current?.focus();
+  };
+
   return (
     <div className={styles.presetSelector}>
       <Dropdown
         trigger="click"
         menu={
           <Menu className={styles.presetSelector__menu}>
-            {dropdownItems.map((item) => (
+            {builtInItems.map((item) => (
               <MenuItem
                 key={item.label}
                 children={item.label}
                 onClick={item.onClick}
               />
             ))}
+            {customItems.map((item) => (
+              <MenuItem
+                key={item.label}
+                children={item.label}
+                onClick={item.onClick}
+              />
+            ))}
+            <MenuItem
+              key="💾 Save Current Theme"
+              children="💾 Save Current Theme"
+              onClick={() => {
+                setShowSaveModal(true);
+                setTimeout(focusNameInput, 100);
+              }}
+            />
           </Menu>
         }
         placement="bottom-start"
