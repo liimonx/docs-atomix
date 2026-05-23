@@ -94,7 +94,7 @@ export async function GET(
   } catch (error: unknown) {
     // console.error('Error reading markdown file:', error);
     
-    if (error instanceof Error && (error as any).code === 'ENOENT') {
+    if (error && typeof error === 'object' && 'code' in error && (error as any).code === 'ENOENT') {
       return NextResponse.json(
         { error: 'File not found' },
         { status: 404 }
