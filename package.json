@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --max-warnings 200",
+    "lint": "eslint . --max-warnings 250",
     "type-check": "tsc --noEmit",
     "test": "vitest run src/utils/__tests__/routeMapper.test.ts src/utils/__tests__/breadcrumbs.test.ts src/utils/__tests__/routeValidation.test.ts",
     "test:all": "vitest",

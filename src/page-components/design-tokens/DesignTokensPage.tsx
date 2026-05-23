@@ -11,7 +11,7 @@ import {
   Badge,
   Icon,
 } from "@shohojdhara/atomix";
-import { designTokens, DesignToken } from "@/data/design-tokens";
+import { designTokens, DesignToken, TokenCategory } from "@/data/design-tokens";
 import TokenCard from "./TokenCard";
 
 // Helper function to get CSS variable name from token
@@ -111,6 +111,15 @@ const DesignTokensPage: FC = () => {
     });
     return groups;
   }, [filteredTokens]);
+
+  const categoryInfoMap = useMemo(() => {
+    const map: Record<string, TokenCategory> = {};
+    designTokens.forEach((cat) => {
+      map[cat.id] = cat;
+      map[cat.title.toLowerCase()] = cat;
+    });
+    return map;
+  }, []);
 
   const getPageTitle = () => {
     if (!activeCategory) return "All Design Tokens";
@@ -459,11 +468,7 @@ const DesignTokensPage: FC = () => {
         )}
 
         {Object.entries(groupedTokens).map(([category, tokens]) => {
-          const categoryInfo = designTokens.find(
-            (cat) =>
-              cat.id === category ||
-              cat.title.toLowerCase() === category.toLowerCase(),
-          );
+          const categoryInfo = categoryInfoMap[category] || categoryInfoMap[category.toLowerCase()];
           const categoryTitle = categoryInfo?.title || category;
           const categoryDescription = categoryInfo?.description || "";
 
