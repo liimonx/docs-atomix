@@ -426,7 +426,7 @@ export default function Page() {
                       <Checkbox
                         label="Remember device"
                         checked={true}
-                        onChange={() => {}}
+                        onChange={() => undefined}
                       />
                       <Link
                         href="#"
@@ -647,7 +647,7 @@ export default function Page() {
                           Real-time Sync
                         </span>
                       </div>
-                      <Toggle checked={true} onChange={() => {}} />
+                      <Toggle checked={true} onChange={() => undefined} />
                     </div>
                   </div>
                 </Card>

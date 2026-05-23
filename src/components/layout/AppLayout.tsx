@@ -4,13 +4,11 @@ import React, { useState, useEffect, FC } from "react";
 import { DocumentationHeader } from "@/components/navigation/DocumentationHeader";
 import { DocumentationFooter } from "./DocumentationFooter";
 import { DocumentationSidebar } from "@/components/navigation/DocumentationSidebar";
-// import { SkipLinks } from "@/components/ui/SkipLinks";
 import { PageTransition } from "./PageTransition";
 import { usePathname } from "next/navigation";
 import { AmbientBackground } from "@/components/ui/AmbientBackground";
 import styles from "./AppLayout.module.scss";
 
-// const MemoizedSkipLinks = React.memo(SkipLinks);
 const MemoizedDocumentationFooter = React.memo(DocumentationFooter);
 
 export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -19,13 +17,13 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
 
   // Close sidebar on route change (mobile)
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSidebarOpen(false);
   }, [pathname]);
 
   return (
     <div className={styles.layoutWrapper}>
       <AmbientBackground />
-      {/* <MemoizedSkipLinks /> */}
 
       <DocumentationHeader
         isSidebarOpen={sidebarOpen}
