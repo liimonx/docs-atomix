@@ -14,20 +14,23 @@ interface BreadcrumbItem {
 export const BreadcrumbNavigation: FC = () => {
   const pathname = usePathname();
 
-  // Find the current navigation item
-  const currentItem = navigationData
-    .flatMap((section) => section.items)
-    .find((item) => item.path === pathname);
+  // Find the current navigation item and its section in a single pass
+  let currentItem;
+  let section;
+
+  for (const sec of navigationData) {
+    const item = sec.items.find((i) => i.path === pathname);
+    if (item) {
+      currentItem = item;
+      section = sec;
+      break;
+    }
+  }
 
   // Build breadcrumb items
   const breadcrumbItems: BreadcrumbItem[] = [{ label: "Home", path: "/" }];
 
   if (currentItem) {
-    // Find the section this item belongs to
-    const section = navigationData.find((sec) =>
-      sec.items.some((item) => item.path === currentItem.path),
-    );
-
     if (section) {
       breadcrumbItems.push({
         label: section.title,

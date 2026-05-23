@@ -317,13 +317,12 @@ export function getPageEntry(
 /**
  * Get page component by route path
  */
-export function getPageComponentByPath(path: string): ComponentType<any> | null {
+export async function getPageComponentByPath(path: string): Promise<ComponentType<any> | null> {
   // Use dynamic import to avoid circular dependency
-  const routeMapper = require('./routeMapper');
+  const routeMapper = await import('./routeMapper');
   const item = routeMapper.findNavigationItemByPath(path);
   if (!item) return null;
 
   const slug = routeMapper.pathToSlug(path);
   return getPageComponent(item, slug);
 }
-
