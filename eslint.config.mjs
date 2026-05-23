@@ -17,8 +17,8 @@ const config = [
     rules: {
       "no-unused-vars": "off",
       "no-undef": "off",
-      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-      "no-console": "warn",
+      "@typescript-eslint/no-unused-vars": "off",
+      "no-console": "off",
       "react/no-unescaped-entities": "off",
       "react/no-children-prop": "off",
       "no-case-declarations": "off",
