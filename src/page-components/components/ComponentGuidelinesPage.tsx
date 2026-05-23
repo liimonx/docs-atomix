@@ -1,7 +1,3 @@
-const ListItem = ({ children }: { children: React.ReactNode }) => {
-  return <span>{children}</span>;
-};
-
 "use client";
 
 const ListItem = ({ children }: { children: React.ReactNode }) => {
@@ -30,9 +26,7 @@ import {
 } from "@shohojdhara/atomix";
 import styles from "@/styles/PageHero.module.scss";
 
-const ListItem = ({ children }: { children: React.ReactNode }) => {
-  return <span>{children}</span>;
-};
+const ListItem = List.Item;
 
 const ComponentGuidelinesPage: FC = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -249,7 +243,7 @@ $button-color: var(--atomix-primary) !default;
                     </p>
                     <List variant="text">
                       {guideline.items.map((item, itemIndex) => (
-                        <ListItem key={itemIndex}>{item}</ListItem>
+                        <ComponentGuidelinesListItem key={itemIndex}>{item}</ComponentGuidelinesListItem>
                       ))}
                     </List>
                   </Card>
@@ -273,25 +267,25 @@ $button-color: var(--atomix-primary) !default;
                 practices:
               </p>
               <List variant="text">
-                <ListItem>
+                <ComponentGuidelinesListItem>
                   Use <code className="u-text-sm">forwardRef</code> for
                   components that need ref forwarding
-                </ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   Define clear props interfaces with JSDoc comments
-                </ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   Support both controlled and uncontrolled modes
-                </ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   Use composable hooks for logic and state management
-                </ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   Include proper ARIA attributes for accessibility
-                </ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   Implement clear return statements with proper JSX structure
-                </ListItem>
+                </ComponentGuidelinesListItem>
               </List>
             </Card>
 
@@ -325,19 +319,19 @@ $button-color: var(--atomix-primary) !default;
                 implementation:
               </p>
               <List variant="text">
-                <ListItem>
+                <ComponentGuidelinesListItem>
                   Create a main class with clear constructor and public API
-                </ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   Use proper event delegation for better performance
-                </ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   Implement initialization, event binding, and cleanup methods
-                </ListItem>
-                <ListItem>Support data attribute initialization</ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>Support data attribute initialization</ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   Clean up all event listeners in destroy method
-                </ListItem>
+                </ComponentGuidelinesListItem>
               </List>
             </Card>
 
@@ -370,20 +364,20 @@ $button-color: var(--atomix-primary) !default;
                 Atomix follows the ITCSS (Inverted Triangle CSS) architecture:
               </p>
               <List variant="text">
-                <ListItem>
+                <ComponentGuidelinesListItem>
                   <strong>01-settings/</strong> - Variables and configuration
-                </ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   <strong>02-tools/</strong> - Mixins and functions
-                </ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   <strong>06-components/</strong> - UI component styles
-                </ListItem>
-                <ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>
                   Follow BEM methodology with{" "}
                   <code className="u-text-sm">c-</code> prefix
-                </ListItem>
-                <ListItem>Use CSS custom properties for theming</ListItem>
+                </ComponentGuidelinesListItem>
+                <ComponentGuidelinesListItem>Use CSS custom properties for theming</ComponentGuidelinesListItem>
               </List>
             </Card>
 
@@ -418,19 +412,19 @@ $button-color: var(--atomix-primary) !default;
               <Grid>
                 <GridCol md={6}>
                   <List variant="number">
-                    <ListItem>Keyboard navigation support</ListItem>
-                    <ListItem>Proper focus management</ListItem>
-                    <ListItem>ARIA roles and attributes</ListItem>
-                    <ListItem>Color contrast compliance</ListItem>
-                    <ListItem>Screen reader compatibility</ListItem>
-                    <ListItem>Reduced motion support</ListItem>
+                    <ComponentGuidelinesListItem>Keyboard navigation support</ComponentGuidelinesListItem>
+                    <ComponentGuidelinesListItem>Proper focus management</ComponentGuidelinesListItem>
+                    <ComponentGuidelinesListItem>ARIA roles and attributes</ComponentGuidelinesListItem>
+                    <ComponentGuidelinesListItem>Color contrast compliance</ComponentGuidelinesListItem>
+                    <ComponentGuidelinesListItem>Screen reader compatibility</ComponentGuidelinesListItem>
+                    <ComponentGuidelinesListItem>Reduced motion support</ComponentGuidelinesListItem>
                   </List>
                 </GridCol>
                 <GridCol md={6}>
                   <List variant="number">
-                    <ListItem>Color contrast compliance</ListItem>
-                    <ListItem>Screen reader compatibility</ListItem>
-                    <ListItem>Reduced motion support</ListItem>
+                    <ComponentGuidelinesListItem>Color contrast compliance</ComponentGuidelinesListItem>
+                    <ComponentGuidelinesListItem>Screen reader compatibility</ComponentGuidelinesListItem>
+                    <ComponentGuidelinesListItem>Reduced motion support</ComponentGuidelinesListItem>
                   </List>
                 </GridCol>
               </Grid>

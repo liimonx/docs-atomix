@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState, useEffect, useRef } from "react";
+import { FC, useState, useEffect, useRef, useMemo, useCallback } from "react";
 import {
   Button,
   Icon,
@@ -29,32 +29,35 @@ export const PresetSelector: FC = () => {
     loadCustomPresets();
   }, [loadCustomPresets]);
 
-  const handlePresetSelect = (presetId: string) => {
-    // Check if it's a custom preset
-    if (customPresets[presetId]) {
-      const preset = customPresets[presetId];
-      setTheme(
-        {
-          light: preset.light,
-          dark: preset.dark,
-        },
-        `Applied ${preset.name} preset`,
-      );
-      return;
-    }
+  const handlePresetSelect = useCallback(
+    (presetId: string) => {
+      // Check if it's a custom preset
+      if (customPresets[presetId]) {
+        const preset = customPresets[presetId];
+        setTheme(
+          {
+            light: preset.light,
+            dark: preset.dark,
+          },
+          `Applied ${preset.name} preset`,
+        );
+        return;
+      }
 
-    // Check built-in presets
-    const preset = themePresets[presetId];
-    if (preset) {
-      setTheme(
-        {
-          light: preset.light,
-          dark: preset.dark,
-        },
-        `Applied ${preset.name} preset`,
-      );
-    }
-  };
+      // Check built-in presets
+      const preset = themePresets[presetId];
+      if (preset) {
+        setTheme(
+          {
+            light: preset.light,
+            dark: preset.dark,
+          },
+          `Applied ${preset.name} preset`,
+        );
+      }
+    },
+    [customPresets, setTheme],
+  );
 
   const handleSavePreset = () => {
     if (!presetName.trim()) return;
