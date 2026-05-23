@@ -69,7 +69,6 @@ export const CodePreview: FC<CodePreviewProps> = ({ code, language }) => {
 // Matches: 1) Block comments, 2) Line comments, 3) Import statements
 const CLEANUP_REGEX = /\/\*[\s\S]*?\*\/|\/\/.*$|^import\s+.*?from\s+['"].*?['"];?\s*/gm;
 
-// Form elements that need special handling for controlled inputs
 const FORM_ELEMENTS = new Set([
   "input",
   "textarea",
