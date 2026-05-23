@@ -16,6 +16,8 @@ import {
 import { getTokensByCategory, DesignToken } from "@/data/design-tokens";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 
+const gutterSpacingRegex = /Spacing (2|3|4|6|8)(?!.*PX)/;
+
 const DesignTokensGridPage = () => {
   const [isCopied, copy] = useCopyToClipboard();
   const [copiedTokenName, setCopiedTokenName] = useState<string | null>(null);
@@ -35,14 +37,7 @@ const DesignTokensGridPage = () => {
   const gutterSpacingTokens = useMemo(() => {
     if (!spacingCategory) return [];
     // Filter for commonly used gutter spacing values
-    const gutterSpacings = ["2", "3", "4", "6", "8"];
-    return spacingCategory.tokens.filter((token) =>
-      gutterSpacings.some(
-        (spacing) =>
-          token.name.includes(`Spacing ${spacing}`) &&
-          !token.name.includes("PX"),
-      ),
-    );
+    return spacingCategory.tokens.filter((token) => gutterSpacingRegex.test(token.name));
   }, [spacingCategory]);
 
   const handleCopy = (token: DesignToken) => {
