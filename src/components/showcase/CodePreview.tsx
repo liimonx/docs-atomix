@@ -165,10 +165,10 @@ function extractJSXElements(code: string): React.ReactNode[] {
       let depth = 1;
       let searchPos = tagEnd;
       let found = false;
+      const nextOpenPattern = new RegExp(`<${componentName}(?:\\s|>)`, "g");
 
       while (searchPos < cleanCode.length && depth > 0) {
         // Look for opening tags of the same component
-        const nextOpenPattern = new RegExp(`<${componentName}(?:\\s|>)`, "g");
         nextOpenPattern.lastIndex = searchPos;
         const nextOpenMatch = nextOpenPattern.exec(cleanCode);
         const nextOpen = nextOpenMatch ? nextOpenMatch.index : -1;
@@ -309,7 +309,6 @@ function extractJSXElements(code: string): React.ReactNode[] {
       "autoComplete",
       "noValidate",
       "formNoValidate",
-      "dangerouslySetInnerHTML",
       "as",
       "LinkComponent",
     ]);
