@@ -25,7 +25,7 @@ export const PresetSelector: FC = () => {
 
   // Ensure component only renders on client to avoid hydration mismatches
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => setMounted(true), 0);
     loadCustomPresets();
   }, [loadCustomPresets]);
 
@@ -73,37 +73,15 @@ export const PresetSelector: FC = () => {
     setPresetDescription("");
   };
 
-  const presetItems = useMemo(() => {
-    const builtInItems = Object.entries(themePresets).map(([id, preset]) => ({
-      label: preset.name,
-      onClick: () => handlePresetSelect(id),
-    }));
+  const builtInItems = Object.entries(themePresets).map(([id, preset]) => ({
+    label: preset.name,
+    onClick: () => handlePresetSelect(id),
+  }));
 
-    const customItems = Object.entries(customPresets).map(([id, preset]) => ({
-      label: `${preset.name} (Custom)`,
-      onClick: () => handlePresetSelect(id),
-    }));
-
-    return [...builtInItems, ...customItems];
-  }, [customPresets, handlePresetSelect]);
-
-  const dropdownItems = useMemo(
-    () => [
-      ...presetItems,
-      {
-        label: "💾 Save Current Theme",
-        onClick: () => {
-          setShowSaveModal(true);
-          setTimeout(() => {
-            if (nameInputRef.current) {
-              nameInputRef.current.focus();
-            }
-          }, 100);
-        },
-      },
-    ],
-    [presetItems]
-  );
+  const customItems = Object.entries(customPresets).map(([id, preset]) => ({
+    label: `${preset.name} (Custom)`,
+    onClick: () => handlePresetSelect(id),
+  }));
 
   // Prevent hydration mismatch by only rendering Dropdown on client
   if (!mounted) {
@@ -123,24 +101,40 @@ export const PresetSelector: FC = () => {
     );
   }
 
-  const menuElement = (
-    <Menu className={styles.presetSelector__menu}>
-      {/* eslint-disable-next-line react-hooks/refs */}
-      {dropdownItems.map((item) => (
-        <MenuItem
-          key={item.label}
-          children={item.label}
-          onClick={item.onClick}
-        />
-      ))}
-    </Menu>
-  );
+  const focusNameInput = () => {
+    nameInputRef.current?.focus();
+  };
 
   return (
     <div className={styles.presetSelector}>
       <Dropdown
         trigger="click"
-        menu={menuElement}
+        menu={
+          <Menu className={styles.presetSelector__menu}>
+            {builtInItems.map((item) => (
+              <MenuItem
+                key={item.label}
+                children={item.label}
+                onClick={item.onClick}
+              />
+            ))}
+            {customItems.map((item) => (
+              <MenuItem
+                key={item.label}
+                children={item.label}
+                onClick={item.onClick}
+              />
+            ))}
+            <MenuItem
+              key="💾 Save Current Theme"
+              children="💾 Save Current Theme"
+              onClick={() => {
+                setShowSaveModal(true);
+                setTimeout(focusNameInput, 100);
+              }}
+            />
+          </Menu>
+        }
         placement="bottom-start"
       >
         <Button
