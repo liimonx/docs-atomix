@@ -57,7 +57,7 @@ const DesignTokensGridPage = () => {
       value: token.value,
       description: token.description,
       cssVariable: token.cssVariable || "",
-      token: token,
+      token,
     }));
   }, [breakpointsTokens]);
 
@@ -76,7 +76,7 @@ const DesignTokensGridPage = () => {
         value: displayValue,
         description: token.description,
         cssVariable: token.cssVariable || "",
-        token: token,
+        token,
       };
     });
   }, [gutterSpacingTokens]);
@@ -182,7 +182,7 @@ const DesignTokensGridPage = () => {
                       {
                         key: "cssVariable",
                         title: "Variable",
-                        render: (value: string, row: { key: string; token?: DesignToken }) => (
+                        render: (value: string, row: { key: string; token: DesignToken }) => (
                           <div className="u-flex u-items-center u-justify-between u-gap-2">
                             <code className="u-fs-xs u-text-secondary-emphasis u-truncate u-max-w-32">
                               {value}
@@ -205,9 +205,7 @@ const DesignTokensGridPage = () => {
                                 />
                               }
                               iconOnly
-                              onClick={() => {
-                                if (row.token) handleCopy(row.token);
-                              }}
+                              onClick={() => handleCopy(row.token)}
                             />
                           </div>
                         ),
@@ -266,7 +264,7 @@ const DesignTokensGridPage = () => {
                       {
                         key: "cssVariable",
                         title: "Variable",
-                        render: (value: string, row: { key: string; token?: DesignToken }) => (
+                        render: (value: string, row: { key: string; token: DesignToken }) => (
                           <div className="u-flex u-items-center u-justify-between u-gap-2">
                             <code className="u-fs-xs u-text-secondary-emphasis u-truncate u-max-w-32">
                               {value}
@@ -289,9 +287,7 @@ const DesignTokensGridPage = () => {
                                 />
                               }
                               iconOnly
-                              onClick={() => {
-                                if (row.token) handleCopy(row.token);
-                              }}
+                              onClick={() => handleCopy(row.token)}
                             />
                           </div>
                         ),

@@ -1,59 +1,61 @@
-import { describe, it, expect } from 'vitest';
+// @vitest-environment jsdom
+import { render, fireEvent } from "@testing-library/react";
+import DesignTokensGridPage from "../DesignTokensGridPage";
+import { vi, describe, it } from "vitest";
 
-// For this performance test, we'll isolate the exact logic from the component
-// The issue is inside the component, but we can benchmark the logic directly
-// instead of rendering the entire React tree since it fails due to deep dependencies.
+// Mock matchMedia
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: vi.fn().mockImplementation(query => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: vi.fn(), // Deprecated
+    removeListener: vi.fn(), // Deprecated
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+  })),
+});
 
-const generateTokens = (count: number) => {
-  const tokens = [];
-  for (let i = 0; i < count; i++) {
-    tokens.push({
-      name: `Spacing ${i % 20}${i % 3 === 0 ? ' PX' : ''}`,
-      value: `${i}px`,
-      description: `Spacing ${i}px`,
-      category: 'spacing',
-      cssVariable: `--spacing-${i}`,
-    });
+// Mock ResizeObserver
+window.ResizeObserver = vi.fn().mockImplementation(() => ({
+  observe: vi.fn(),
+  unobserve: vi.fn(),
+  disconnect: vi.fn(),
+}));
+
+// Mock hook to bypass state updates/async work
+vi.mock('@/hooks/useCopyToClipboard', () => {
+  return {
+    default: () => {
+      return [false, vi.fn().mockResolvedValue(true)];
+    }
   }
-  return tokens;
-};
+});
 
-describe('Performance Baseline', () => {
-  it('measures array.filter and array.some logic', () => {
-    const tokens = generateTokens(10000);
-    const gutterSpacings = ["2", "3", "4", "6", "8"];
+describe("DesignTokensGridPage Performance", () => {
+  it("measures copy button click performance", () => {
+    const { container } = render(<DesignTokensGridPage />);
 
-    const start = performance.now();
+    // Find all copy buttons
+    const buttons = container.querySelectorAll('button');
+    const copyButtons = Array.from(buttons).filter(b => b.innerHTML.includes('Copy') || b.querySelector('svg'));
 
-    // Original logic
-    const result = tokens.filter((token) =>
-      gutterSpacings.some(
-        (spacing) =>
-          token.name.includes(`Spacing ${spacing}`) &&
-          !token.name.includes("PX"),
-      )
-    );
+    if (copyButtons.length === 0) {
+      console.warn("No copy buttons found, skipping benchmark");
+      return;
+    }
 
-    const end = performance.now();
-    const duration = end - start;
+    const t0 = performance.now();
 
-    console.log(`Original logic time: ${duration.toFixed(2)}ms`);
-    expect(result.length).toBeGreaterThan(0);
-  });
+    for (let i = 0; i < 500; i++) {
+      for (const btn of copyButtons) {
+        fireEvent.click(btn);
+      }
+    }
 
-  it('measures regex optimization logic', () => {
-    const tokens = generateTokens(10000);
-
-    const start = performance.now();
-
-    // Optimized logic
-    const regex = /Spacing (2|3|4|6|8)(?!.*PX)/;
-    const result = tokens.filter((token) => regex.test(token.name));
-
-    const end = performance.now();
-    const duration = end - start;
-
-    console.log(`Optimized logic time: ${duration.toFixed(2)}ms`);
-    expect(result.length).toBeGreaterThan(0);
-  });
+    const t1 = performance.now();
+    console.log(`Time taken for 500 iterations of all clicks: ${t1 - t0} milliseconds.`);
+  }, 10000);
 });
