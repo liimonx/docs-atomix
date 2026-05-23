@@ -1,0 +1,849 @@
+
+> atomix-design-system-docs@1.0.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 534ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+- Experiments (use with caution):
+  · optimizePackageImports
+  ✓ scrollRestoration
+
+○ Compiling /_not-found/page ...
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: 35 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 16, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss:16:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($return == null): 0; else: $return)
+
+More info: https://sass-lang.com/d/if-function
+
+16 |   @return if($return == null, 0, $return);
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss 17:11  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 3:1                  @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                            @use
+src/styles/globals.scss 20:1                                                          root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 21, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss:21:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($weight > 0): tint-color($color, $weight); else: shade-color($color, -$weight))
+
+More info: https://sass-lang.com/d/if-function
+
+21 |   @return if($weight > 0, tint-color($color, $weight), shade-color($color, -$weight));
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss 22:11  @use
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.colors.scss 4:1       @use
+src/styles/01-settings/_colors.scss 84:1                                                @forward
+src/styles/01-settings/_index.scss 7:1                                                  @use
+src/styles/globals.scss 14:1                                                            root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 67, column 20 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:67:20:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($color-hover): var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}); else: var(--#{config.$prefix}white, #{colors.$white}))
+
+More info: https://sass-lang.com/d/if-function
+
+67 |   $btn-hover-color: if(
+    $color-hover,
+    var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}),
+    var(--#{config.$prefix}white, #{colors.$white})
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 68:21  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 72, column 17 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:72:17:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($hover-background): var(--#{config.$prefix}#{$hover-background}, #{map.get(tokens.$theme-colors, $hover-background)}); else: var(--#{config.$prefix}#{$color}-hover, #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}))
+
+More info: https://sass-lang.com/d/if-function
+
+72 |   $btn-hover-bg: if(
+    $hover-background,
+    var(
+      --#{config.$prefix}#{$hover-background},
+      #{map.get(tokens.$theme-colors, $hover-background)}
+    ),
+    var(
+      --#{config.$prefix}#{$color}-hover,
+      #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}
+    )
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 73:18  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 79, column 19 of file:///app/node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss:79:19:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($enable-negative-margins): negativify-map($spacing-sizes))
+
+More info: https://sass-lang.com/d/if-function
+
+79 | $negative-spacers: if($enable-negative-margins, negativify-map($spacing-sizes), null) !default;
+
+
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss 80:20  @use
+src/styles/01-settings/_spacing.scss 10:1                                             @forward
+src/styles/01-settings/_index.scss 13:1                                               @use
+src/styles/globals.scss 14:1                                                          root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: 35 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 16, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss:16:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($return == null): 0; else: $return)
+
+More info: https://sass-lang.com/d/if-function
+
+16 |   @return if($return == null, 0, $return);
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss 17:11  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 3:1                  @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                            @use
+src/styles/globals.scss 20:1                                                          root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 21, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss:21:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($weight > 0): tint-color($color, $weight); else: shade-color($color, -$weight))
+
+More info: https://sass-lang.com/d/if-function
+
+21 |   @return if($weight > 0, tint-color($color, $weight), shade-color($color, -$weight));
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss 22:11  @use
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.colors.scss 4:1       @use
+src/styles/01-settings/_colors.scss 84:1                                                @forward
+src/styles/01-settings/_index.scss 7:1                                                  @use
+src/styles/globals.scss 14:1                                                            root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 67, column 20 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:67:20:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($color-hover): var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}); else: var(--#{config.$prefix}white, #{colors.$white}))
+
+More info: https://sass-lang.com/d/if-function
+
+67 |   $btn-hover-color: if(
+    $color-hover,
+    var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}),
+    var(--#{config.$prefix}white, #{colors.$white})
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 68:21  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 72, column 17 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:72:17:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($hover-background): var(--#{config.$prefix}#{$hover-background}, #{map.get(tokens.$theme-colors, $hover-background)}); else: var(--#{config.$prefix}#{$color}-hover, #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}))
+
+More info: https://sass-lang.com/d/if-function
+
+72 |   $btn-hover-bg: if(
+    $hover-background,
+    var(
+      --#{config.$prefix}#{$hover-background},
+      #{map.get(tokens.$theme-colors, $hover-background)}
+    ),
+    var(
+      --#{config.$prefix}#{$color}-hover,
+      #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}
+    )
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 73:18  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 79, column 19 of file:///app/node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss:79:19:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($enable-negative-margins): negativify-map($spacing-sizes))
+
+More info: https://sass-lang.com/d/if-function
+
+79 | $negative-spacers: if($enable-negative-margins, negativify-map($spacing-sizes), null) !default;
+
+
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss 80:20  @use
+src/styles/01-settings/_spacing.scss 10:1                                             @forward
+src/styles/01-settings/_index.scss 13:1                                               @use
+src/styles/globals.scss 14:1                                                          root stylesheet
+
+
+
+ GET /components 404 in 120ms (next.js: 15ms, application-code: 105ms)
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: 35 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 16, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss:16:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($return == null): 0; else: $return)
+
+More info: https://sass-lang.com/d/if-function
+
+16 |   @return if($return == null, 0, $return);
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss 17:11  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 3:1                  @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                            @use
+src/styles/globals.scss 20:1                                                          root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 21, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss:21:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($weight > 0): tint-color($color, $weight); else: shade-color($color, -$weight))
+
+More info: https://sass-lang.com/d/if-function
+
+21 |   @return if($weight > 0, tint-color($color, $weight), shade-color($color, -$weight));
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss 22:11  @use
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.colors.scss 4:1       @use
+src/styles/01-settings/_colors.scss 84:1                                                @forward
+src/styles/01-settings/_index.scss 7:1                                                  @use
+src/styles/globals.scss 14:1                                                            root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 67, column 20 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:67:20:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($color-hover): var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}); else: var(--#{config.$prefix}white, #{colors.$white}))
+
+More info: https://sass-lang.com/d/if-function
+
+67 |   $btn-hover-color: if(
+    $color-hover,
+    var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}),
+    var(--#{config.$prefix}white, #{colors.$white})
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 68:21  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 72, column 17 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:72:17:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($hover-background): var(--#{config.$prefix}#{$hover-background}, #{map.get(tokens.$theme-colors, $hover-background)}); else: var(--#{config.$prefix}#{$color}-hover, #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}))
+
+More info: https://sass-lang.com/d/if-function
+
+72 |   $btn-hover-bg: if(
+    $hover-background,
+    var(
+      --#{config.$prefix}#{$hover-background},
+      #{map.get(tokens.$theme-colors, $hover-background)}
+    ),
+    var(
+      --#{config.$prefix}#{$color}-hover,
+      #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}
+    )
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 73:18  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 79, column 19 of file:///app/node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss:79:19:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($enable-negative-margins): negativify-map($spacing-sizes))
+
+More info: https://sass-lang.com/d/if-function
+
+79 | $negative-spacers: if($enable-negative-margins, negativify-map($spacing-sizes), null) !default;
+
+
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss 80:20  @use
+src/styles/01-settings/_spacing.scss 10:1                                             @forward
+src/styles/01-settings/_index.scss 13:1                                               @use
+src/styles/globals.scss 14:1                                                          root stylesheet
+
+
+
+○ Compiling / ...
+⚠ ./src/components/ui/AmbientBackground.module.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 21, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss:21:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($weight > 0): tint-color($color, $weight); else: shade-color($color, -$weight))
+
+More info: https://sass-lang.com/d/if-function
+
+21 |   @return if($weight > 0, tint-color($color, $weight), shade-color($color, -$weight));
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss 22:11  @use
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.colors.scss 4:1       @use
+src/styles/01-settings/_colors.scss 84:1                                                @forward
+src/styles/01-settings/_index.scss 7:1                                                  @use
+src/components/ui/AmbientBackground.module.scss 8:1                                     root stylesheet
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/AmbientBackground.module.scss [Client Component Browser]
+    ./src/components/ui/AmbientBackground.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/AmbientBackground.module.scss [Client Component SSR]
+    ./src/components/ui/AmbientBackground.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+⚠ ./src/components/ui/AmbientBackground.module.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 79, column 19 of file:///app/node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss:79:19:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($enable-negative-margins): negativify-map($spacing-sizes))
+
+More info: https://sass-lang.com/d/if-function
+
+79 | $negative-spacers: if($enable-negative-margins, negativify-map($spacing-sizes), null) !default;
+
+
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss 80:20  @use
+src/styles/01-settings/_spacing.scss 10:1                                             @forward
+src/styles/01-settings/_index.scss 13:1                                               @use
+src/components/ui/AmbientBackground.module.scss 8:1                                   root stylesheet
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/AmbientBackground.module.scss [Client Component Browser]
+    ./src/components/ui/AmbientBackground.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/AmbientBackground.module.scss [Client Component SSR]
+    ./src/components/ui/AmbientBackground.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: 35 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 16, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss:16:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($return == null): 0; else: $return)
+
+More info: https://sass-lang.com/d/if-function
+
+16 |   @return if($return == null, 0, $return);
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss 17:11  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 3:1                  @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                            @use
+src/styles/globals.scss 20:1                                                          root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 21, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss:21:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($weight > 0): tint-color($color, $weight); else: shade-color($color, -$weight))
+
+More info: https://sass-lang.com/d/if-function
+
+21 |   @return if($weight > 0, tint-color($color, $weight), shade-color($color, -$weight));
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss 22:11  @use
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.colors.scss 4:1       @use
+src/styles/01-settings/_colors.scss 84:1                                                @forward
+src/styles/01-settings/_index.scss 7:1                                                  @use
+src/styles/globals.scss 14:1                                                            root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 67, column 20 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:67:20:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($color-hover): var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}); else: var(--#{config.$prefix}white, #{colors.$white}))
+
+More info: https://sass-lang.com/d/if-function
+
+67 |   $btn-hover-color: if(
+    $color-hover,
+    var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}),
+    var(--#{config.$prefix}white, #{colors.$white})
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 68:21  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 72, column 17 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:72:17:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($hover-background): var(--#{config.$prefix}#{$hover-background}, #{map.get(tokens.$theme-colors, $hover-background)}); else: var(--#{config.$prefix}#{$color}-hover, #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}))
+
+More info: https://sass-lang.com/d/if-function
+
+72 |   $btn-hover-bg: if(
+    $hover-background,
+    var(
+      --#{config.$prefix}#{$hover-background},
+      #{map.get(tokens.$theme-colors, $hover-background)}
+    ),
+    var(
+      --#{config.$prefix}#{$color}-hover,
+      #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}
+    )
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 73:18  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 79, column 19 of file:///app/node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss:79:19:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($enable-negative-margins): negativify-map($spacing-sizes))
+
+More info: https://sass-lang.com/d/if-function
+
+79 | $negative-spacers: if($enable-negative-margins, negativify-map($spacing-sizes), null) !default;
+
+
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss 80:20  @use
+src/styles/01-settings/_spacing.scss 10:1                                             @forward
+src/styles/01-settings/_index.scss 13:1                                               @use
+src/styles/globals.scss 14:1                                                          root stylesheet
+
+
+
+You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set `onChange`.
+ GET / 200 in 5.1s (next.js: 4.7s, application-code: 437ms)
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: 35 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 16, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss:16:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($return == null): 0; else: $return)
+
+More info: https://sass-lang.com/d/if-function
+
+16 |   @return if($return == null, 0, $return);
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss 17:11  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 3:1                  @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                            @use
+src/styles/globals.scss 20:1                                                          root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 21, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss:21:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($weight > 0): tint-color($color, $weight); else: shade-color($color, -$weight))
+
+More info: https://sass-lang.com/d/if-function
+
+21 |   @return if($weight > 0, tint-color($color, $weight), shade-color($color, -$weight));
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss 22:11  @use
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.colors.scss 4:1       @use
+src/styles/01-settings/_colors.scss 84:1                                                @forward
+src/styles/01-settings/_index.scss 7:1                                                  @use
+src/styles/globals.scss 14:1                                                            root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 67, column 20 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:67:20:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($color-hover): var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}); else: var(--#{config.$prefix}white, #{colors.$white}))
+
+More info: https://sass-lang.com/d/if-function
+
+67 |   $btn-hover-color: if(
+    $color-hover,
+    var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}),
+    var(--#{config.$prefix}white, #{colors.$white})
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 68:21  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 72, column 17 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:72:17:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($hover-background): var(--#{config.$prefix}#{$hover-background}, #{map.get(tokens.$theme-colors, $hover-background)}); else: var(--#{config.$prefix}#{$color}-hover, #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}))
+
+More info: https://sass-lang.com/d/if-function
+
+72 |   $btn-hover-bg: if(
+    $hover-background,
+    var(
+      --#{config.$prefix}#{$hover-background},
+      #{map.get(tokens.$theme-colors, $hover-background)}
+    ),
+    var(
+      --#{config.$prefix}#{$color}-hover,
+      #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}
+    )
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 73:18  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 79, column 19 of file:///app/node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss:79:19:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($enable-negative-margins): negativify-map($spacing-sizes))
+
+More info: https://sass-lang.com/d/if-function
+
+79 | $negative-spacers: if($enable-negative-margins, negativify-map($spacing-sizes), null) !default;
+
+
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss 80:20  @use
+src/styles/01-settings/_spacing.scss 10:1                                             @forward
+src/styles/01-settings/_index.scss 13:1                                               @use
+src/styles/globals.scss 14:1                                                          root stylesheet
+
+
+
+⚠ ./src/components/ui/AmbientBackground.module.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 21, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss:21:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($weight > 0): tint-color($color, $weight); else: shade-color($color, -$weight))
+
+More info: https://sass-lang.com/d/if-function
+
+21 |   @return if($weight > 0, tint-color($color, $weight), shade-color($color, -$weight));
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss 22:11  @use
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.colors.scss 4:1       @use
+src/styles/01-settings/_colors.scss 84:1                                                @forward
+src/styles/01-settings/_index.scss 7:1                                                  @use
+src/components/ui/AmbientBackground.module.scss 8:1                                     root stylesheet
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/AmbientBackground.module.scss [Client Component Browser]
+    ./src/components/ui/AmbientBackground.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/AmbientBackground.module.scss [Client Component SSR]
+    ./src/components/ui/AmbientBackground.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+⚠ ./src/components/ui/AmbientBackground.module.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 79, column 19 of file:///app/node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss:79:19:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($enable-negative-margins): negativify-map($spacing-sizes))
+
+More info: https://sass-lang.com/d/if-function
+
+79 | $negative-spacers: if($enable-negative-margins, negativify-map($spacing-sizes), null) !default;
+
+
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss 80:20  @use
+src/styles/01-settings/_spacing.scss 10:1                                             @forward
+src/styles/01-settings/_index.scss 13:1                                               @use
+src/components/ui/AmbientBackground.module.scss 8:1                                   root stylesheet
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/ui/AmbientBackground.module.scss [Client Component Browser]
+    ./src/components/ui/AmbientBackground.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/ui/AmbientBackground.module.scss [Client Component SSR]
+    ./src/components/ui/AmbientBackground.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: 35 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 16, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss:16:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($return == null): 0; else: $return)
+
+More info: https://sass-lang.com/d/if-function
+
+16 |   @return if($return == null, 0, $return);
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.border-radius.scss 17:11  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 3:1                  @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                            @use
+src/styles/globals.scss 20:1                                                          root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 21, column 10 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss:21:10:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($weight > 0): tint-color($color, $weight); else: shade-color($color, -$weight))
+
+More info: https://sass-lang.com/d/if-function
+
+21 |   @return if($weight > 0, tint-color($color, $weight), shade-color($color, -$weight));
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.color-functions.scss 22:11  @use
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.colors.scss 4:1       @use
+src/styles/01-settings/_colors.scss 84:1                                                @forward
+src/styles/01-settings/_index.scss 7:1                                                  @use
+src/styles/globals.scss 14:1                                                            root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 67, column 20 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:67:20:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($color-hover): var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}); else: var(--#{config.$prefix}white, #{colors.$white}))
+
+More info: https://sass-lang.com/d/if-function
+
+67 |   $btn-hover-color: if(
+    $color-hover,
+    var(--#{config.$prefix}#{$color-hover}, #{map.get(tokens.$theme-colors, $color-hover)}),
+    var(--#{config.$prefix}white, #{colors.$white})
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 68:21  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 72, column 17 of file:///app/node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss:72:17:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($hover-background): var(--#{config.$prefix}#{$hover-background}, #{map.get(tokens.$theme-colors, $hover-background)}); else: var(--#{config.$prefix}#{$color}-hover, #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}))
+
+More info: https://sass-lang.com/d/if-function
+
+72 |   $btn-hover-bg: if(
+    $hover-background,
+    var(
+      --#{config.$prefix}#{$hover-background},
+      #{map.get(tokens.$theme-colors, $hover-background)}
+    ),
+    var(
+      --#{config.$prefix}#{$color}-hover,
+      #{color.scale(map.get(tokens.$theme-colors, $color), $lightness: -15%)}
+    )
+  );
+
+
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_tools.button.scss 73:18  @forward
+node_modules/@shohojdhara/atomix/src/styles/02-tools/_index.scss 4:1           @use
+node_modules/@shohojdhara/atomix/src/styles/index.scss 7:1                     @use
+src/styles/globals.scss 20:1                                                   root stylesheet
+
+
+
+⚠ ./src/styles/globals.scss
+Issue while running loader
+SassWarning: Deprecation Warning on line 79, column 19 of file:///app/node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss:79:19:
+The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+
+Suggestion: if(sass($enable-negative-margins): negativify-map($spacing-sizes))
+
+More info: https://sass-lang.com/d/if-function
+
+79 | $negative-spacers: if($enable-negative-margins, negativify-map($spacing-sizes), null) !default;
+
+
+node_modules/@shohojdhara/atomix/src/styles/01-settings/_settings.spacing.scss 80:20  @use
+src/styles/01-settings/_spacing.scss 10:1                                             @forward
+src/styles/01-settings/_index.scss 13:1                                               @use
+src/styles/globals.scss 14:1                                                          root stylesheet
+
+
+
+[browser] You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set `onChange`.
