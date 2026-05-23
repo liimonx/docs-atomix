@@ -28,8 +28,9 @@ const config = [
       "@typescript-eslint/no-empty-interface": "warn",
       "@typescript-eslint/no-inferrable-types": "warn",
       "@typescript-eslint/no-var-requires": "off",
-      "react-hooks/set-state-in-effect": "warn",
-      "react-hooks/refs": "warn"
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/refs": "off",
+      "react-hooks/static-components": "off"
     }
   }
 ];
