@@ -137,7 +137,7 @@ export function validateTokenValue(
       }
     }
     // Validate named colors
-    else if (!/^[a-z]+$/.test(trimmedValue.toLowerCase())) {
+    else if (/^[a-z]+$/.test(trimmedValue.toLowerCase())) {
       const validNamedColors = [
         "red", "blue", "green", "yellow", "white", "black", "transparent",
         "currentcolor", "inherit", "initial", "unset"
@@ -183,7 +183,7 @@ export function validateTokenValue(
     warnings.push("Multiple consecutive spaces detected. Consider using a single space");
   }
 
-  if (trimmedValue.endsWith(" ") || trimmedValue.startsWith(" ")) {
+  if (value.endsWith(" ") || value.startsWith(" ")) {
     warnings.push("Value has leading or trailing spaces");
   }
 

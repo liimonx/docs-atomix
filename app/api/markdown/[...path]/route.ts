@@ -50,7 +50,7 @@ export async function GET(
     
     // Try to read the file, restricting to allowed extensions
     let content: string | null = null;
-    let lastError: any = null;
+    let lastError: unknown = null;
 
     const hasAllowedExt = ALLOWED_EXTENSIONS.some(ext => filePath.endsWith(ext));
 

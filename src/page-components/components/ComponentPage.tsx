@@ -30,7 +30,9 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
 
   // Prevent hydration mismatch by only rendering glass effect on client
   useEffect(() => {
-    setIsMounted(true);
+    // Small timeout to avoid state update immediately inside effect
+    const timer = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   // Find navigation item for the component
