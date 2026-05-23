@@ -203,9 +203,7 @@ export const HeroHeadlineSlider = () => {
 
   // Sync isPaused ref with state for use in callbacks
   const isPausedRef = useRef(false);
-  useEffect(() => {
-    isPausedRef.current = isPaused;
-  }, [isPaused]);
+  useEffect(() => { isPausedRef.current = isPaused; }, [isPaused]);
 
   // GSAP resources we need to clean up
   const autoAdvance = useRef<gsap.core.Tween | null>(null);
@@ -366,9 +364,7 @@ export const HeroHeadlineSlider = () => {
   );
 
   // Keep stable ref in sync
-  useEffect(() => {
-    goToSlideRef.current = goToSlide;
-  }, [goToSlide]);
+  useEffect(() => { goToSlideRef.current = goToSlide; }, [goToSlide]);
 
   /* ───── Bootstrap: initial slide enter + auto advance ───── */
 
