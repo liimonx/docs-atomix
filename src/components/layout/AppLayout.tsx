@@ -17,8 +17,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
 
   // Close sidebar on route change (mobile)
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setSidebarOpen(false);
+    setTimeout(() => setSidebarOpen(false), 0);
   }, [pathname]);
 
   return (
@@ -39,7 +38,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
         >
           <DocumentationSidebar
             isOpen={sidebarOpen}
-            onClose={() => setSidebarOpen(false)}
+            onClose={() => setTimeout(() => setSidebarOpen(false), 0)}
           />
         </aside>
 

@@ -83,15 +83,21 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
     const lines = code.split("\n");
 
     // Find minimum indentation (excluding empty lines)
-    const nonEmptyLines = lines.filter((line) => line.trim().length > 0);
-    if (nonEmptyLines.length === 0) return code;
+    let minIndent = Infinity;
+    let hasNonEmptyLines = false;
 
-    const minIndent = Math.min(
-      ...nonEmptyLines.map((line) => {
-        const match = line.match(/^(\s*)/);
-        return match ? match[1].length : 0;
-      }),
-    );
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const firstNonSpace = line.search(/\S/);
+      if (firstNonSpace !== -1) {
+        hasNonEmptyLines = true;
+        if (firstNonSpace < minIndent) {
+          minIndent = firstNonSpace;
+        }
+      }
+    }
+
+    if (!hasNonEmptyLines) return code;
 
     // Remove common indentation
     if (minIndent > 0) {
@@ -157,27 +163,6 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
       );
     }
   };
-
-  // Custom line number renderer with highlighting support
-  // const customLineNumberRenderer = (lineNumber: number) => {
-  //   const isHighlighted = highlightLines.includes(lineNumber);
-  //   return (
-  //     <span
-  //       style={{
-  //         display: "inline-block",
-  //         width: "3em",
-  //         paddingRight: "1em",
-  //         textAlign: "right",
-  //         userSelect: "none",
-  //         opacity: 0.5,
-  //         color: isHighlighted ? "var(--atomix-primary)" : "inherit",
-  //         fontWeight: isHighlighted ? "bold" : "normal",
-  //       }}
-  //     >
-  //       {lineNumber}
-  //     </span>
-  //   );
-  // };
 
   // Custom line renderer for highlighting
   const customLineRenderer = (lineNumber: number) => {
