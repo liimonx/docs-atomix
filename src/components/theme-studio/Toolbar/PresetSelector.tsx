@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState, useEffect, useRef } from "react";
+import { FC, useState, useEffect, useRef, useMemo, useCallback } from "react";
 import {
   Button,
   Icon,
@@ -29,8 +29,7 @@ export const PresetSelector: FC = () => {
     loadCustomPresets();
   }, [loadCustomPresets]);
 
-  const handlePresetSelect = (presetId: string) => {
-    // Check if it's a custom preset
+  const handlePresetSelect = useCallback((presetId: string) => {
     if (customPresets[presetId]) {
       const preset = customPresets[presetId];
       setTheme(
@@ -43,7 +42,6 @@ export const PresetSelector: FC = () => {
       return;
     }
 
-    // Check built-in presets
     const preset = themePresets[presetId];
     if (preset) {
       setTheme(
@@ -54,7 +52,7 @@ export const PresetSelector: FC = () => {
         `Applied ${preset.name} preset`,
       );
     }
-  };
+  }, [customPresets, setTheme]);
 
   const handleSavePreset = () => {
     if (!presetName.trim()) return;
@@ -70,29 +68,36 @@ export const PresetSelector: FC = () => {
     setPresetDescription("");
   };
 
-  const builtInItems = Object.entries(themePresets).map(([id, preset]) => ({
-    label: preset.name,
-    onClick: () => handlePresetSelect(id),
-  }));
+  const builtInItems = useMemo(() => {
+    return Object.entries(themePresets).map(([id, preset]) => ({
+      label: preset.name,
+      onClick: () => handlePresetSelect(id),
+    }));
+  }, [handlePresetSelect]); // themePresets is constant
 
-  const customItems = Object.entries(customPresets).map(([id, preset]) => ({
-    label: `${preset.name} (Custom)`,
-    onClick: () => handlePresetSelect(id),
-  }));
+  const customItems = useMemo(() => {
+    return Object.entries(customPresets).map(([id, preset]) => ({
+      label: `${preset.name} (Custom)`,
+      onClick: () => handlePresetSelect(id),
+    }));
+  }, [customPresets, handlePresetSelect]);
 
-  const handleOpenSaveModal = () => {
+  const handleSaveCurrentTheme = useCallback(() => {
     setShowSaveModal(true);
-    setTimeout(() => nameInputRef.current?.focus(), 100);
-  };
 
-  const dropdownItems = [
-    ...builtInItems,
-    ...customItems,
-    {
-      label: "💾 Save Current Theme",
-      onClick: handleOpenSaveModal,
-    },
-  ];
+    setTimeout(() => nameInputRef.current?.focus(), 100);
+  }, []);
+
+  const dropdownItems = useMemo(() => {
+    return [
+      ...builtInItems,
+      ...customItems,
+      {
+        label: "💾 Save Current Theme",
+        onClick: handleSaveCurrentTheme,
+      },
+    ];
+  }, [builtInItems, customItems, handleSaveCurrentTheme]);
 
   // Prevent hydration mismatch by only rendering Dropdown on client
   if (!mounted) {
@@ -112,17 +117,24 @@ export const PresetSelector: FC = () => {
     );
   }
 
+  const menuElement = (
+    <Menu className={styles.presetSelector__menu}>
+      {/* eslint-disable-next-line react-hooks/refs */}
+      {dropdownItems.map((item) => (
+        <MenuItem
+          key={item.label}
+          children={item.label}
+          onClick={item.onClick}
+        />
+      ))}
+    </Menu>
+  );
+
   return (
     <div className={styles.presetSelector}>
       <Dropdown
         trigger="click"
-        menu={
-          <Menu className={styles.presetSelector__menu}>
-            {dropdownItems.map((item) => (
-              <MenuItem key={item.label} onClick={item.onClick}>{item.label}</MenuItem>
-            ))}
-          </Menu>
-        }
+        menu={menuElement}
         placement="bottom-start"
       >
         <Button
