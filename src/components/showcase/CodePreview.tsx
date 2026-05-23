@@ -307,7 +307,6 @@ function extractJSXElements(code: string): React.ReactNode[] {
       "autoComplete",
       "noValidate",
       "formNoValidate",
-      "dangerouslySetInnerHTML",
       "as",
       "LinkComponent",
     ]);
