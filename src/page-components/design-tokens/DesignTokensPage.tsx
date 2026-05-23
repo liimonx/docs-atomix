@@ -49,15 +49,14 @@ const DesignTokensPage: FC = () => {
   const pathname = usePathname();
   const [searchQuery] = useState("");
 
-  const getCategoryFromUrl = () => {
+  const activeCategory = useMemo(() => {
     const pathParts = pathname.split("/");
     const category = pathParts[pathParts.length - 1];
-    if (category === "all") return "all";
-    const validCategory = designTokens.find((tc) => tc.id === category);
-    return validCategory ? category : "all";
-  };
+    if (category === "all") return null;
+    return designTokens.find((cat) => cat.id === category) || null;
+  }, [pathname]);
 
-  const selectedCategory = getCategoryFromUrl();
+  const selectedCategory = activeCategory ? activeCategory.id : "all";
 
   const isColorToken = (token: DesignToken): boolean => {
     return (
@@ -85,9 +84,8 @@ const DesignTokensPage: FC = () => {
 
   const filteredTokens = useMemo(() => {
     let tokens: DesignToken[] = [];
-    if (selectedCategory !== "all") {
-      const category = designTokens.find((cat) => cat.id === selectedCategory);
-      if (category) tokens = [...category.tokens];
+    if (activeCategory) {
+      tokens = [...activeCategory.tokens];
     } else {
       tokens = designTokens.flatMap((category) => category.tokens);
     }
@@ -103,7 +101,7 @@ const DesignTokensPage: FC = () => {
       );
     }
     return tokens;
-  }, [searchQuery, selectedCategory]);
+  }, [searchQuery, activeCategory]);
 
   const groupedTokens = useMemo(() => {
     const groups: Record<string, DesignToken[]> = {};
@@ -124,9 +122,8 @@ const DesignTokensPage: FC = () => {
   }, []);
 
   const getPageTitle = () => {
-    if (selectedCategory === "all") return "All Design Tokens";
-    const category = designTokens.find((cat) => cat.id === selectedCategory);
-    return category ? `${category.title} Tokens` : "Design Tokens";
+    if (!activeCategory) return "All Design Tokens";
+    return `${activeCategory.title} Tokens`;
   };
 
   const renderTokenPreview = (token: DesignToken) => {

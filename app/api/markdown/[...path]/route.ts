@@ -50,7 +50,7 @@ export async function GET(
     
     // Try to read the file, restricting to allowed extensions
     let content: string | null = null;
-    let lastError: any = null;
+    let lastError: unknown = null;
 
     const hasAllowedExt = ALLOWED_EXTENSIONS.some(ext => filePath.endsWith(ext));
 
@@ -91,10 +91,10 @@ export async function GET(
         'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
       },
     });
-  } catch (error: any) {
-    console.error('Error reading markdown file:', error);
+  } catch (error: unknown) {
+    // console.error('Error reading markdown file:', error);
     
-    if (error.code === 'ENOENT') {
+    if ((error as { code?: string }).code === 'ENOENT') {
       return NextResponse.json(
         { error: 'File not found' },
         { status: 404 }

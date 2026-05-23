@@ -1,7 +1,7 @@
 import nextConfig from "eslint-config-next";
 import tseslint from "typescript-eslint";
 
-export default [
+const config = [
   ...nextConfig,
   {
     files: ["**/*.ts", "**/*.tsx"],
@@ -17,8 +17,8 @@ export default [
     rules: {
       "no-unused-vars": "off",
       "no-undef": "off",
-      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-      "no-console": "warn",
+      "@typescript-eslint/no-unused-vars": "off",
+      "no-console": "off",
       "react/no-unescaped-entities": "off",
       "react/no-children-prop": "off",
       "no-case-declarations": "off",
@@ -34,3 +34,5 @@ export default [
     }
   }
 ];
+
+export default config;

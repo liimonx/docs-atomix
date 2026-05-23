@@ -228,7 +228,7 @@ export default function ExampleLandingPage() {
               <Card
                 title={stat.value}
                 text={stat.label}
-                icon={<Icon name={stat.icon as any} size={"lg"} />}
+                icon={<Icon name={stat.icon as React.ComponentProps<typeof Icon>['name']} size={"lg"} />}
                 className="u-h-100"
                 row
               />
