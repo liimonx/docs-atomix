@@ -36,7 +36,7 @@ export const ComponentShowcase: FC = () => {
 
   // Ensure component only renders Rating on client to avoid hydration mismatches
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => setMounted(true), 0);
   }, []);
 
   // Filter tab items based on search

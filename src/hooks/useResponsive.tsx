@@ -29,7 +29,7 @@ export const ResponsiveProvider: FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     setTimeout(() => setMounted(true), 0);
-    checkResponsive();
+    setTimeout(checkResponsive, 0);
     window.addEventListener('resize', checkResponsive);
     return () => window.removeEventListener('resize', checkResponsive);
   }, []);

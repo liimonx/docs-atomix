@@ -41,7 +41,7 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
         >
           <DocumentationSidebar
             isOpen={sidebarOpen}
-            onClose={() => setSidebarOpen(false)}
+            onClose={() => setTimeout(() => setSidebarOpen(false), 0)}
           />
         </aside>
 

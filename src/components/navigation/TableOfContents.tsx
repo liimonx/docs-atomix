@@ -35,7 +35,7 @@ export const TableOfContents: FC<TableOfContentsProps> = ({
           text: heading.textContent || '',
           level: parseInt(heading.tagName.charAt(1))
         }));
-        setTocItems(extractedItems);
+        setTimeout(() => setTocItems(extractedItems), 0);
       }
     }
   }, [items, contentSelector]);
