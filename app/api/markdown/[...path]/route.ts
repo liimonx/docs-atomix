@@ -92,10 +92,9 @@ export async function GET(
       },
     });
   } catch (error: unknown) {
-    const err = error as { code?: string };
     console.error('Error reading markdown file:', error);
     
-    if (err.code === 'ENOENT') {
+    if (error instanceof Error && (error as any).code === 'ENOENT') {
       return NextResponse.json(
         { error: 'File not found' },
         { status: 404 }
