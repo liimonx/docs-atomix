@@ -46,16 +46,6 @@ const ComponentsHomePage: FC = () => {
     [],
   );
 
-  // Precompute category counts
-  const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
-    for (let i = 0; i < componentMetadata.length; i++) {
-      const category = componentMetadata[i].category;
-      counts[category] = (counts[category] || 0) + 1;
-    }
-    return counts;
-  }, []);
-
   return (
     <>
       <Hero
@@ -171,7 +161,11 @@ const ComponentsHomePage: FC = () => {
                       {category}
                     </h3>
                     <p className="u-text-secondary-emphasis-emphasis u-mb-0 u-text-base">
-                      {categoryCounts[category] || 0} components
+                      {
+                        componentMetadata.filter((c) => c.category === category)
+                          .length
+                      }{" "}
+                      components
                     </p>
                   </div>
                 </Card>

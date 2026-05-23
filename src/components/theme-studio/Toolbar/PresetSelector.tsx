@@ -80,17 +80,15 @@ export const PresetSelector: FC = () => {
     onClick: () => handlePresetSelect(id),
   }));
 
-  const handleOpenSaveModal = () => {
-    setShowSaveModal(true);
-    setTimeout(() => nameInputRef.current?.focus(), 100);
-  };
-
   const dropdownItems = [
     ...builtInItems,
     ...customItems,
     {
       label: "💾 Save Current Theme",
-      onClick: handleOpenSaveModal,
+      onClick: () => {
+        setShowSaveModal(true);
+        setTimeout(() => nameInputRef.current?.focus(), 100);
+      },
     },
   ];
 
@@ -119,7 +117,11 @@ export const PresetSelector: FC = () => {
         menu={
           <Menu className={styles.presetSelector__menu}>
             {dropdownItems.map((item) => (
-              <MenuItem key={item.label} onClick={item.onClick}>{item.label}</MenuItem>
+              <MenuItem
+                key={item.label}
+                children={item.label}
+                onClick={item.onClick}
+              />
             ))}
           </Menu>
         }

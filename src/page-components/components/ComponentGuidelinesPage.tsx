@@ -1,15 +1,7 @@
 "use client";
 
-const ComponentGuidelinesListItem = ({ children }: { children: React.ReactNode }) => {
-  return <span>{children}</span>;
-};
-
 import { FC, useMemo, useState } from "react";
 import Link from "next/link";
-
-const ListItem = ({ children }: { children: React.ReactNode }) => {
-  return <span>{children}</span>;
-};
 import {
   Button,
   Card,
@@ -25,7 +17,9 @@ import {
 } from "@shohojdhara/atomix";
 import styles from "@/styles/PageHero.module.scss";
 
-const ListItem = List.Item;
+const ListItem = ({ children }: { children: React.ReactNode }) => {
+  return <li>{children}</li>;
+};
 
 const ComponentGuidelinesPage: FC = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -205,6 +199,7 @@ $button-color: var(--atomix-primary) !default;
     [],
   );
 
+
   const tabItems = useMemo(
     () => [
       {
@@ -242,7 +237,7 @@ $button-color: var(--atomix-primary) !default;
                     </p>
                     <List variant="text">
                       {guideline.items.map((item, itemIndex) => (
-                        <ComponentGuidelinesListItem key={itemIndex}>{item}</ComponentGuidelinesListItem>
+                        <ListItem key={itemIndex}>{item}</ListItem>
                       ))}
                     </List>
                   </Card>
@@ -266,25 +261,25 @@ $button-color: var(--atomix-primary) !default;
                 practices:
               </p>
               <List variant="text">
-                <ComponentGuidelinesListItem>
+                <ListItem>
                   Use <code className="u-text-sm">forwardRef</code> for
                   components that need ref forwarding
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>
                   Define clear props interfaces with JSDoc comments
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>
                   Support both controlled and uncontrolled modes
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>
                   Use composable hooks for logic and state management
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>
                   Include proper ARIA attributes for accessibility
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>
                   Implement clear return statements with proper JSX structure
-                </ComponentGuidelinesListItem>
+                </ListItem>
               </List>
             </Card>
 
@@ -318,19 +313,19 @@ $button-color: var(--atomix-primary) !default;
                 implementation:
               </p>
               <List variant="text">
-                <ComponentGuidelinesListItem>
+                <ListItem>
                   Create a main class with clear constructor and public API
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>
                   Use proper event delegation for better performance
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>
                   Implement initialization, event binding, and cleanup methods
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>Support data attribute initialization</ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>Support data attribute initialization</ListItem>
+                <ListItem>
                   Clean up all event listeners in destroy method
-                </ComponentGuidelinesListItem>
+                </ListItem>
               </List>
             </Card>
 
@@ -363,20 +358,20 @@ $button-color: var(--atomix-primary) !default;
                 Atomix follows the ITCSS (Inverted Triangle CSS) architecture:
               </p>
               <List variant="text">
-                <ComponentGuidelinesListItem>
+                <ListItem>
                   <strong>01-settings/</strong> - Variables and configuration
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>
                   <strong>02-tools/</strong> - Mixins and functions
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>
                   <strong>06-components/</strong> - UI component styles
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>
                   Follow BEM methodology with{" "}
                   <code className="u-text-sm">c-</code> prefix
-                </ComponentGuidelinesListItem>
-                <ComponentGuidelinesListItem>Use CSS custom properties for theming</ComponentGuidelinesListItem>
+                </ListItem>
+                <ListItem>Use CSS custom properties for theming</ListItem>
               </List>
             </Card>
 
@@ -411,19 +406,19 @@ $button-color: var(--atomix-primary) !default;
               <Grid>
                 <GridCol md={6}>
                   <List variant="number">
-                    <ComponentGuidelinesListItem>Keyboard navigation support</ComponentGuidelinesListItem>
-                    <ComponentGuidelinesListItem>Proper focus management</ComponentGuidelinesListItem>
-                    <ComponentGuidelinesListItem>ARIA roles and attributes</ComponentGuidelinesListItem>
-                    <ComponentGuidelinesListItem>Color contrast compliance</ComponentGuidelinesListItem>
-                    <ComponentGuidelinesListItem>Screen reader compatibility</ComponentGuidelinesListItem>
-                    <ComponentGuidelinesListItem>Reduced motion support</ComponentGuidelinesListItem>
+                    <ListItem>Keyboard navigation support</ListItem>
+                    <ListItem>Proper focus management</ListItem>
+                    <ListItem>ARIA roles and attributes</ListItem>
+                    <ListItem>Color contrast compliance</ListItem>
+                    <ListItem>Screen reader compatibility</ListItem>
+                    <ListItem>Reduced motion support</ListItem>
                   </List>
                 </GridCol>
                 <GridCol md={6}>
                   <List variant="number">
-                    <ComponentGuidelinesListItem>Color contrast compliance</ComponentGuidelinesListItem>
-                    <ComponentGuidelinesListItem>Screen reader compatibility</ComponentGuidelinesListItem>
-                    <ComponentGuidelinesListItem>Reduced motion support</ComponentGuidelinesListItem>
+                    <ListItem>Color contrast compliance</ListItem>
+                    <ListItem>Screen reader compatibility</ListItem>
+                    <ListItem>Reduced motion support</ListItem>
                   </List>
                 </GridCol>
               </Grid>

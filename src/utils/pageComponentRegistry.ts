@@ -317,9 +317,9 @@ export function getPageEntry(
 /**
  * Get page component by route path
  */
-export async function getPageComponentByPath(path: string): Promise<ComponentType<any> | null> {
+export function getPageComponentByPath(path: string): ComponentType<any> | null {
   // Use dynamic import to avoid circular dependency
-  const routeMapper = await import('./routeMapper');
+  const routeMapper = require('./routeMapper');
   const item = routeMapper.findNavigationItemByPath(path);
   if (!item) return null;
 
