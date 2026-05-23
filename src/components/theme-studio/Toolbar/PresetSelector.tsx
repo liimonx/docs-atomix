@@ -123,17 +123,24 @@ export const PresetSelector: FC = () => {
     );
   }
 
+  const menuElement = (
+    <Menu className={styles.presetSelector__menu}>
+      {/* eslint-disable-next-line react-hooks/refs */}
+      {dropdownItems.map((item) => (
+        <MenuItem
+          key={item.label}
+          children={item.label}
+          onClick={item.onClick}
+        />
+      ))}
+    </Menu>
+  );
+
   return (
     <div className={styles.presetSelector}>
       <Dropdown
         trigger="click"
-        menu={
-          <Menu className={styles.presetSelector__menu}>
-            {dropdownItems.map((item) => (
-              <MenuItem key={item.label} onClick={item.onClick}>{item.label}</MenuItem>
-            ))}
-          </Menu>
-        }
+        menu={menuElement}
         placement="bottom-start"
       >
         <Button
