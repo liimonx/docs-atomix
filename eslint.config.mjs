@@ -17,8 +17,12 @@ const config = [
     rules: {
       "no-unused-vars": "off",
       "no-undef": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-      "no-console": "off",
+      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+      "no-console": "warn",
+      "react-hooks/exhaustive-deps": "warn",
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/refs": "off",
+      "react-hooks/static-components": "off",
       "react/no-unescaped-entities": "off",
       "react/no-children-prop": "off",
       "no-case-declarations": "off",
@@ -28,8 +32,9 @@ const config = [
       "@typescript-eslint/no-empty-interface": "warn",
       "@typescript-eslint/no-inferrable-types": "warn",
       "@typescript-eslint/no-var-requires": "off",
-      "react-hooks/set-state-in-effect": "warn",
-      "react-hooks/refs": "warn"
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/static-components": "off",
+      "react-hooks/refs": "off"
     }
   }
 ];
