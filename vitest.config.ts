@@ -20,7 +20,7 @@ export default defineConfig({
       'src/utils/__tests__/*.test.ts',
       'src/hooks/__tests__/*.test.ts',
       'src/components/documentation/MarkdownPage.perf.test.tsx',
-      'src/utils/routeHelpers.perf.test.ts',
+      'src/page-components/design-tokens/__tests__/*.test.tsx'
     ],
     exclude: [
       'node_modules/**',
