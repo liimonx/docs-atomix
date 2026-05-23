@@ -2,7 +2,7 @@
 // =============================================================================
 
 import { NavigationItem } from '@/types';
-import { navigationData, itemToSectionMap } from '@/data/navigation';
+import { navigationData } from '@/data/navigation';
 import { findNavigationItemByPath } from './routeMapper';
 
 /**
@@ -30,7 +30,9 @@ export function getActiveNavigationItem(path: string): NavigationItem | null {
  * Get all sibling routes for a navigation item
  */
 export function getSiblingRoutes(item: NavigationItem): NavigationItem[] {
-  const section = itemToSectionMap.get(item.id);
+  const section = navigationData.find(s =>
+    s.items.some(i => i.id === item.id)
+  );
 
   if (!section) return [];
 
@@ -41,7 +43,9 @@ export function getSiblingRoutes(item: NavigationItem): NavigationItem[] {
  * Get the next route in sequence
  */
 export function getNextRoute(item: NavigationItem): NavigationItem | null {
-  const section = itemToSectionMap.get(item.id);
+  const section = navigationData.find(s =>
+    s.items.some(i => i.id === item.id)
+  );
 
   if (!section) return null;
 
@@ -57,7 +61,9 @@ export function getNextRoute(item: NavigationItem): NavigationItem | null {
  * Get the previous route in sequence
  */
 export function getPreviousRoute(item: NavigationItem): NavigationItem | null {
-  const section = itemToSectionMap.get(item.id);
+  const section = navigationData.find(s =>
+    s.items.some(i => i.id === item.id)
+  );
 
   if (!section) return null;
 
@@ -81,7 +87,9 @@ export function getRouteHierarchy(path: string): {
     return { section: null, item: null };
   }
 
-  const section = itemToSectionMap.get(item.id);
+  const section = navigationData.find(s =>
+    s.items.some(i => i.id === item.id)
+  );
 
   return {
     section: section
@@ -111,7 +119,9 @@ export function getSectionForRoute(path: string): {
   const item = findNavigationItemByPath(path);
   if (!item) return null;
 
-  const section = itemToSectionMap.get(item.id);
+  const section = navigationData.find(s =>
+    s.items.some(i => i.id === item.id)
+  );
 
   return section
     ? {

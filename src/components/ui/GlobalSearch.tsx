@@ -18,7 +18,7 @@ export function GlobalSearch() {
 
   // Ensure component only renders on client to avoid hydration mismatch
   useEffect(() => {
-    setTimeout(() => setMounted(true), 0);
+    setMounted(true);
   }, []);
 
   // Map the search results to match the expected type
@@ -35,12 +35,10 @@ export function GlobalSearch() {
 
   useEffect(() => {
     if (searchQuery.length > 0 && mappedSearchResults.length > 0) {
-      setTimeout(() => setIsOpen(true), 0);
+      setIsOpen(true);
     } else {
-      setTimeout(() => {
-        setIsOpen(false);
-        setSelectedIndex(-1);
-      }, 0);
+      setIsOpen(false);
+      setSelectedIndex(-1);
     }
   }, [searchQuery, mappedSearchResults]);
 

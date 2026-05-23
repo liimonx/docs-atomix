@@ -66,7 +66,7 @@ const AmbientBackgroundBase: FC<AmbientBackgroundProps> = ({
       return document.body.getAttribute("data-atomix-color-mode") || "light";
     };
 
-    setTimeout(() => setInternalTheme(getThemeFromDOM()), 0);
+    setInternalTheme(getThemeFromDOM());
 
     const observer = new MutationObserver(() => {
       setInternalTheme(getThemeFromDOM());
