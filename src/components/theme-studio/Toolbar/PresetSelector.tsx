@@ -29,30 +29,35 @@ export const PresetSelector: FC = () => {
     loadCustomPresets();
   }, [loadCustomPresets]);
 
-  const handlePresetSelect = useCallback((presetId: string) => {
-    if (customPresets[presetId]) {
-      const preset = customPresets[presetId];
-      setTheme(
-        {
-          light: preset.light,
-          dark: preset.dark,
-        },
-        `Applied ${preset.name} preset`,
-      );
-      return;
-    }
+  const handlePresetSelect = useCallback(
+    (presetId: string) => {
+      // Check if it's a custom preset
+      if (customPresets[presetId]) {
+        const preset = customPresets[presetId];
+        setTheme(
+          {
+            light: preset.light,
+            dark: preset.dark,
+          },
+          `Applied ${preset.name} preset`,
+        );
+        return;
+      }
 
-    const preset = themePresets[presetId];
-    if (preset) {
-      setTheme(
-        {
-          light: preset.light,
-          dark: preset.dark,
-        },
-        `Applied ${preset.name} preset`,
-      );
-    }
-  }, [customPresets, setTheme]);
+      // Check built-in presets
+      const preset = themePresets[presetId];
+      if (preset) {
+        setTheme(
+          {
+            light: preset.light,
+            dark: preset.dark,
+          },
+          `Applied ${preset.name} preset`,
+        );
+      }
+    },
+    [customPresets, setTheme],
+  );
 
   const handleSavePreset = () => {
     if (!presetName.trim()) return;
@@ -68,36 +73,37 @@ export const PresetSelector: FC = () => {
     setPresetDescription("");
   };
 
-  const builtInItems = useMemo(() => {
-    return Object.entries(themePresets).map(([id, preset]) => ({
+  const presetItems = useMemo(() => {
+    const builtInItems = Object.entries(themePresets).map(([id, preset]) => ({
       label: preset.name,
       onClick: () => handlePresetSelect(id),
     }));
-  }, [handlePresetSelect]); // themePresets is constant
 
-  const customItems = useMemo(() => {
-    return Object.entries(customPresets).map(([id, preset]) => ({
+    const customItems = Object.entries(customPresets).map(([id, preset]) => ({
       label: `${preset.name} (Custom)`,
       onClick: () => handlePresetSelect(id),
     }));
+
+    return [...builtInItems, ...customItems];
   }, [customPresets, handlePresetSelect]);
 
-  const handleSaveCurrentTheme = useCallback(() => {
-    setShowSaveModal(true);
-
-    setTimeout(() => nameInputRef.current?.focus(), 100);
-  }, []);
-
-  const dropdownItems = useMemo(() => {
-    return [
-      ...builtInItems,
-      ...customItems,
+  const dropdownItems = useMemo(
+    () => [
+      ...presetItems,
       {
         label: "💾 Save Current Theme",
-        onClick: handleSaveCurrentTheme,
+        onClick: () => {
+          setShowSaveModal(true);
+          setTimeout(() => {
+            if (nameInputRef.current) {
+              nameInputRef.current.focus();
+            }
+          }, 100);
+        },
       },
-    ];
-  }, [builtInItems, customItems, handleSaveCurrentTheme]);
+    ],
+    [presetItems]
+  );
 
   // Prevent hydration mismatch by only rendering Dropdown on client
   if (!mounted) {
