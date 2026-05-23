@@ -83,6 +83,18 @@ export const PresetSelector: FC = () => {
     onClick: () => handlePresetSelect(id),
   }));
 
+  const dropdownItems = [
+    ...builtInItems,
+    ...customItems,
+    {
+      label: "💾 Save Current Theme",
+      onClick: () => {
+        setShowSaveModal(true);
+        setTimeout(() => nameInputRef.current?.focus(), 100);
+      },
+    },
+  ];
+
   // Prevent hydration mismatch by only rendering Dropdown on client
   if (!mounted) {
     return (
@@ -111,7 +123,7 @@ export const PresetSelector: FC = () => {
         trigger="click"
         menu={
           <Menu className={styles.presetSelector__menu}>
-            {builtInItems.map((item) => (
+            {dropdownItems.map((item) => (
               <MenuItem
                 key={item.label}
                 children={item.label}

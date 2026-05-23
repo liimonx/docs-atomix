@@ -137,7 +137,7 @@ export function validateTokenValue(
       }
     }
     // Validate named colors
-    else if (/^[a-z]+$/.test(trimmedValue.toLowerCase())) {
+    else if (!/^[a-z]+$/.test(trimmedValue.toLowerCase())) {
       const validNamedColors = [
         "red", "blue", "green", "yellow", "white", "black", "transparent",
         "currentcolor", "inherit", "initial", "unset"
@@ -183,7 +183,7 @@ export function validateTokenValue(
     warnings.push("Multiple consecutive spaces detected. Consider using a single space");
   }
 
-  if (value.endsWith(" ") || value.startsWith(" ")) {
+  if (trimmedValue.endsWith(" ") || trimmedValue.startsWith(" ")) {
     warnings.push("Value has leading or trailing spaces");
   }
 
@@ -581,50 +581,58 @@ function hexToRgbForFigma(hex: string): { r: number; g: number; b: number } | nu
 export function exportAsTailwindConfig(
   lightTokens: Record<string, string>
 ): string {
-  let colorsStr = '';
-  let spacingStr = '';
-  let fontSizeStr = '';
-  let borderRadiusStr = '';
-
-  Object.entries(lightTokens).forEach(([name, value]) => {
-    const key = name.replace(/^--atomix-/, '').replace(/-/g, '_');
-
-    // Extract color tokens
-    if (name.includes('color') || name.includes('bg') || name.includes('border') || name.includes('text')) {
-      colorsStr += `        '${key}': '${value}',\n`;
-    }
-
-    // Extract spacing tokens
-    if (name.includes('space') || name.includes('padding') || name.includes('margin')) {
-      spacingStr += `        '${key}': '${value}',\n`;
-    }
-
-    // Extract font size tokens
-    if (name.includes('font-size')) {
-      fontSizeStr += `        '${key}': '${value}',\n`;
-    }
-
-    // Extract border radius tokens
-    if (name.includes('radius') || name.includes('rounded')) {
-      borderRadiusStr += `        '${key}': '${value}',\n`;
-    }
-  });
-
   let config = `/** @type {import('tailwindcss').Config} */\n`;
   config += `module.exports = {\n`;
   config += `  theme: {\n`;
   config += `    extend: {\n`;
   config += `      colors: {\n`;
-  config += colorsStr;
+
+  // Extract color tokens
+  const colorTokens: Record<string, string> = {};
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    if (name.includes('color') || name.includes('bg') || name.includes('border') || name.includes('text')) {
+      const key = name.replace(/^--atomix-/, '').replace(/-/g, '_');
+      colorTokens[key] = value;
+    }
+  });
+
+  Object.entries(colorTokens).forEach(([key, value]) => {
+    config += `        '${key}': '${value}',\n`;
+  });
+
   config += `      },\n`;
   config += `      spacing: {\n`;
-  config += spacingStr;
+
+  // Extract spacing tokens
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    if (name.includes('space') || name.includes('padding') || name.includes('margin')) {
+      const key = name.replace(/^--atomix-/, '').replace(/-/g, '_');
+      config += `        '${key}': '${value}',\n`;
+    }
+  });
+
   config += `      },\n`;
   config += `      fontSize: {\n`;
-  config += fontSizeStr;
+
+  // Extract font size tokens
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    if (name.includes('font-size')) {
+      const key = name.replace(/^--atomix-/, '').replace(/-/g, '_');
+      config += `        '${key}': '${value}',\n`;
+    }
+  });
+
   config += `      },\n`;
   config += `      borderRadius: {\n`;
-  config += borderRadiusStr;
+
+  // Extract border radius tokens
+  Object.entries(lightTokens).forEach(([name, value]) => {
+    if (name.includes('radius') || name.includes('rounded')) {
+      const key = name.replace(/^--atomix-/, '').replace(/-/g, '_');
+      config += `        '${key}': '${value}',\n`;
+    }
+  });
+
   config += `      },\n`;
   config += `    },\n`;
   config += `  },\n`;

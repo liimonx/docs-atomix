@@ -15,12 +15,12 @@ export default defineConfig({
     },
   },
   test: {
-    environment: 'jsdom',
+    environment: 'node',
     include: [
       'src/utils/__tests__/*.test.ts',
       'src/hooks/__tests__/*.test.ts',
       'src/components/documentation/MarkdownPage.perf.test.tsx',
-      'src/page-components/design-tokens/__tests__/*.test.tsx',
+      'src/page-components/components/__tests__/*.perf.test.tsx',
     ],
     exclude: [
       'node_modules/**',
