@@ -15,7 +15,7 @@ export default defineConfig({
     },
   },
   test: {
-    environment: 'node',
+    environment: 'jsdom',
     include: [
       'src/utils/__tests__/*.test.ts',
       'src/hooks/__tests__/*.test.ts',
