@@ -77,7 +77,7 @@ function detectTokenType(varName: string, value: string): Token['type'] {
   }
 
   // Z-index
-  if (name.includes('-z-')) {
+  if (name.startsWith('z-')) {
     return 'z-index';
   }
 
@@ -160,7 +160,7 @@ function getCategory(varName: string): string {
   }
 
   // Z-Index
-  if (name.includes('-z-')) {
+  if (name.startsWith('z-')) {
     return 'z-index';
   }
 
