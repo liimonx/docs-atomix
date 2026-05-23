@@ -46,7 +46,7 @@ export default function Page() {
           padding: "12px 16px",
         },
       });
-    } catch {
+    } catch (err) {
       toast.error("Failed to copy command. Please try again.", {
         duration: 4000,
         position: "bottom-right",
@@ -426,7 +426,7 @@ export default function Page() {
                       <Checkbox
                         label="Remember device"
                         checked={true}
-                        onChange={() => undefined}
+                        onChange={() => {}}
                       />
                       <Link
                         href="#"
@@ -647,7 +647,7 @@ export default function Page() {
                           Real-time Sync
                         </span>
                       </div>
-                      <Toggle checked={true} onChange={() => undefined} />
+                      <Toggle checked={true} onChange={() => {}} />
                     </div>
                   </div>
                 </Card>

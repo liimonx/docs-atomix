@@ -80,7 +80,7 @@ function hexToRgb(hex: string): string {
 /**
  * Helper function to lighten a color (for bg-subtle tokens)
  */
-function lightenColor(hex: string, amount = 0.95): string {
+function lightenColor(hex: string, amount: number = 0.95): string {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (!result) return hex;
   
@@ -94,7 +94,7 @@ function lightenColor(hex: string, amount = 0.95): string {
 /**
  * Helper function to darken a color (for dark mode bg-subtle tokens)
  */
-function darkenColor(hex: string, amount = 0.2): string {
+function darkenColor(hex: string, amount: number = 0.2): string {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   if (!result) return hex;
   
@@ -111,7 +111,7 @@ function darkenColor(hex: string, amount = 0.2): string {
 function createPresetTokens(
   baseTokens: Record<string, string>,
   colors: PresetColors,
-  isDark = false
+  isDark: boolean = false
 ): Record<string, string> {
   // Generate RGB values if not provided
   const successRgb = colors.successRgb || hexToRgb(colors.success);

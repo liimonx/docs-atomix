@@ -11,7 +11,7 @@ import {
   Badge,
   Icon,
 } from "@shohojdhara/atomix";
-import { designTokens, DesignToken, TokenCategory } from "@/data/design-tokens";
+import { designTokens, DesignToken } from "@/data/design-tokens";
 import TokenCard from "./TokenCard";
 
 // Helper function to get CSS variable name from token
@@ -49,14 +49,15 @@ const DesignTokensPage: FC = () => {
   const pathname = usePathname();
   const [searchQuery] = useState("");
 
-  const activeCategory = useMemo(() => {
+  const getCategoryFromUrl = () => {
     const pathParts = pathname.split("/");
     const category = pathParts[pathParts.length - 1];
-    if (category === "all") return null;
-    return designTokens.find((cat) => cat.id === category) || null;
-  }, [pathname]);
+    if (category === "all") return "all";
+    const validCategory = designTokens.find((tc) => tc.id === category);
+    return validCategory ? category : "all";
+  };
 
-  const selectedCategory = activeCategory ? activeCategory.id : "all";
+  const selectedCategory = getCategoryFromUrl();
 
   const isColorToken = (token: DesignToken): boolean => {
     return (
@@ -84,8 +85,9 @@ const DesignTokensPage: FC = () => {
 
   const filteredTokens = useMemo(() => {
     let tokens: DesignToken[] = [];
-    if (activeCategory) {
-      tokens = [...activeCategory.tokens];
+    if (selectedCategory !== "all") {
+      const category = designTokens.find((cat) => cat.id === selectedCategory);
+      if (category) tokens = [...category.tokens];
     } else {
       tokens = designTokens.flatMap((category) => category.tokens);
     }
@@ -101,7 +103,7 @@ const DesignTokensPage: FC = () => {
       );
     }
     return tokens;
-  }, [searchQuery, activeCategory]);
+  }, [searchQuery, selectedCategory]);
 
   const groupedTokens = useMemo(() => {
     const groups: Record<string, DesignToken[]> = {};
@@ -112,18 +114,10 @@ const DesignTokensPage: FC = () => {
     return groups;
   }, [filteredTokens]);
 
-  const categoryInfoMap = useMemo(() => {
-    const map: Record<string, TokenCategory> = {};
-    designTokens.forEach((cat) => {
-      map[cat.id] = cat;
-      map[cat.title.toLowerCase()] = cat;
-    });
-    return map;
-  }, []);
-
   const getPageTitle = () => {
-    if (!activeCategory) return "All Design Tokens";
-    return `${activeCategory.title} Tokens`;
+    if (selectedCategory === "all") return "All Design Tokens";
+    const category = designTokens.find((cat) => cat.id === selectedCategory);
+    return category ? `${category.title} Tokens` : "Design Tokens";
   };
 
   const renderTokenPreview = (token: DesignToken) => {
@@ -468,7 +462,11 @@ const DesignTokensPage: FC = () => {
         )}
 
         {Object.entries(groupedTokens).map(([category, tokens]) => {
-          const categoryInfo = categoryInfoMap[category] || categoryInfoMap[category.toLowerCase()];
+          const categoryInfo = designTokens.find(
+            (cat) =>
+              cat.id === category ||
+              cat.title.toLowerCase() === category.toLowerCase(),
+          );
           const categoryTitle = categoryInfo?.title || category;
           const categoryDescription = categoryInfo?.description || "";
 
