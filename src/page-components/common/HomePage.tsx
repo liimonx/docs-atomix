@@ -2,7 +2,6 @@
 
 import React, { FC } from "react";
 import Link from "next/link";
-// import { useRouter } from 'next/navigation';
 import {
   Button,
   Block,
@@ -10,8 +9,8 @@ import {
   Grid,
   Card,
   GridCol,
+  Icon,
 } from "@shohojdhara/atomix";
-import { Icon } from "@shohojdhara/atomix";
 import CallToActionSection from "@/components/sections/CallToActionSection";
 
 const HomePage: FC = () => {

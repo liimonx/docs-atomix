@@ -7,6 +7,10 @@ const CustomListItem = ({ children }: { children: React.ReactNode }) => {
 
 import { FC, useMemo, useState } from "react";
 import Link from "next/link";
+
+const ListItem = ({ children }: { children: React.ReactNode }) => {
+  return <span>{children}</span>;
+};
 import {
   Button,
   Card,
@@ -21,6 +25,8 @@ import {
   List,
 } from "@shohojdhara/atomix";
 import styles from "@/styles/PageHero.module.scss";
+
+const ListItem = List.Item;
 
 const ComponentGuidelinesPage: FC = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -199,7 +205,6 @@ $button-color: var(--atomix-primary) !default;
 }`,
     [],
   );
-
 
   const tabItems = useMemo(
     () => [
