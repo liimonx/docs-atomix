@@ -21,9 +21,7 @@ import {
 } from "@shohojdhara/atomix";
 import styles from "@/styles/PageHero.module.scss";
 
-const ListItem = ({ children }: { children: React.ReactNode }) => {
-  return <span>{children}</span>;
-};
+const ListItem = List.Item;
 
 const ComponentGuidelinesPage: FC = () => {
   const [activeTab, setActiveTab] = useState(0);
