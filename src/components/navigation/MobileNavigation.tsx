@@ -84,7 +84,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
 
   // Handle client-side mounting to prevent hydration mismatch
   useEffect(() => {
-    setTimeout(() => setMounted(true), 0);
+    setMounted(true);
   }, []);
 
   // Focus management: trap focus when open, focus search input
@@ -156,7 +156,7 @@ export const MobileNavigation: FC<MobileNavigationProps> = ({
     if (mounted && isOpen && pathname !== prevPathnameRef.current) {
       prevPathnameRef.current = pathname;
       onClose();
-      setTimeout(() => setSearchTerm(""), 0); // Clear search on navigation
+      setSearchTerm(""); // Clear search on navigation
     } else if (mounted) {
       // Update ref even if we don't close
       prevPathnameRef.current = pathname;

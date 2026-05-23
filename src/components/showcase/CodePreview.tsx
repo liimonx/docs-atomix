@@ -69,16 +69,6 @@ export const CodePreview: FC<CodePreviewProps> = ({ code, language }) => {
 // Matches: 1) Block comments, 2) Line comments, 3) Import statements
 const CLEANUP_REGEX = /\/\*[\s\S]*?\*\/|\/\/.*$|^import\s+.*?from\s+['"].*?['"];?\s*/gm;
 
-const FORM_ELEMENTS = new Set([
-  "input",
-  "textarea",
-  "select",
-  "Checkbox",
-  "Radio",
-  "Switch",
-  "Toggle",
-]);
-
 /**
  * Extracts JSX elements from code string and renders them
  */
@@ -271,7 +261,16 @@ function extractJSXElements(code: string): React.ReactNode[] {
     let props = parseProps(propsString);
 
     // Special handling for controlled form inputs - convert to uncontrolled
-    if (FORM_ELEMENTS.has(componentName)) {
+    const formElements = [
+      "input",
+      "textarea",
+      "select",
+      "Checkbox",
+      "Radio",
+      "Switch",
+      "Toggle",
+    ];
+    if (formElements.includes(componentName)) {
       if (
         "checked" in props &&
         !("onChange" in props) &&

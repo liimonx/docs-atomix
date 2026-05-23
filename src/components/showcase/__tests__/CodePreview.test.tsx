@@ -1,4 +1,3 @@
-import React from 'react';
 import { render } from '@testing-library/react';
 import { CodePreview } from '../CodePreview';
 import { describe, it, expect } from 'vitest';
@@ -15,7 +14,7 @@ describe('CodePreview', () => {
 
   it('should render standard props', () => {
     const code = `<div className="test-class" id="test-id">Content</div>`;
-    const { container } = render(<CodePreview code={code} language="tsx" />);
+    render(<CodePreview code={code} language="tsx" />);
 
     // The current simple JSX parser in CodePreview has a bug where it only
     // works with self-closing tags or correctly parses some limited forms.

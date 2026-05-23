@@ -1,9 +1,7 @@
 // @vitest-environment jsdom
-import React from "react";
 import { render } from "@testing-library/react";
 import DesignTokensPage from "@/page-components/design-tokens/DesignTokensPage";
 import { vi, describe, it, expect } from "vitest";
-import { designTokens } from "@/data/design-tokens";
 
 // Mock next/navigation
 vi.mock("next/navigation", () => ({
