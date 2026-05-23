@@ -164,27 +164,6 @@ export const EnhancedCodeBlock: FC<EnhancedCodeBlockProps> = ({
     }
   };
 
-  // Custom line number renderer with highlighting support
-  // const customLineNumberRenderer = (lineNumber: number) => {
-  //   const isHighlighted = highlightLines.includes(lineNumber);
-  //   return (
-  //     <span
-  //       style={{
-  //         display: "inline-block",
-  //         width: "3em",
-  //         paddingRight: "1em",
-  //         textAlign: "right",
-  //         userSelect: "none",
-  //         opacity: 0.5,
-  //         color: isHighlighted ? "var(--atomix-primary)" : "inherit",
-  //         fontWeight: isHighlighted ? "bold" : "normal",
-  //       }}
-  //     >
-  //       {lineNumber}
-  //     </span>
-  //   );
-  // };
-
   // Custom line renderer for highlighting
   const customLineRenderer = (lineNumber: number) => {
     const isHighlighted = highlightLines.includes(lineNumber);

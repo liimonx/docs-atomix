@@ -69,6 +69,16 @@ export const CodePreview: FC<CodePreviewProps> = ({ code, language }) => {
 // Matches: 1) Block comments, 2) Line comments, 3) Import statements
 const CLEANUP_REGEX = /\/\*[\s\S]*?\*\/|\/\/.*$|^import\s+.*?from\s+['"].*?['"];?\s*/gm;
 
+const FORM_ELEMENTS = new Set([
+  "input",
+  "textarea",
+  "select",
+  "Checkbox",
+  "Radio",
+  "Switch",
+  "Toggle",
+]);
+
 /**
  * Extracts JSX elements from code string and renders them
  */
@@ -154,10 +164,10 @@ function extractJSXElements(code: string): React.ReactNode[] {
       let depth = 1;
       let searchPos = tagEnd;
       let found = false;
+      const nextOpenPattern = new RegExp(`<${componentName}(?:\\s|>)`, "g");
 
       while (searchPos < cleanCode.length && depth > 0) {
         // Look for opening tags of the same component
-        const nextOpenPattern = new RegExp(`<${componentName}(?:\\s|>)`, "g");
         nextOpenPattern.lastIndex = searchPos;
         const nextOpenMatch = nextOpenPattern.exec(cleanCode);
         const nextOpen = nextOpenMatch ? nextOpenMatch.index : -1;
@@ -261,16 +271,7 @@ function extractJSXElements(code: string): React.ReactNode[] {
     let props = parseProps(propsString);
 
     // Special handling for controlled form inputs - convert to uncontrolled
-    const formElements = [
-      "input",
-      "textarea",
-      "select",
-      "Checkbox",
-      "Radio",
-      "Switch",
-      "Toggle",
-    ];
-    if (formElements.includes(componentName)) {
+    if (FORM_ELEMENTS.has(componentName)) {
       if (
         "checked" in props &&
         !("onChange" in props) &&
@@ -307,7 +308,6 @@ function extractJSXElements(code: string): React.ReactNode[] {
       "autoComplete",
       "noValidate",
       "formNoValidate",
-      "dangerouslySetInnerHTML",
       "as",
       "LinkComponent",
     ]);
