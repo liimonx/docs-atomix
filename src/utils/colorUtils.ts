@@ -183,7 +183,7 @@ export function checkContrast(
 /**
  * Generate color scale from base color
  */
-export function generateColorScale(baseColor: string, steps: number = 10): string[] {
+export function generateColorScale(baseColor: string, steps = 10): string[] {
   const parsed = parseColor(baseColor);
   if (!parsed) return [];
   
@@ -247,7 +247,7 @@ export function getComplementary(color: string): string {
 /**
  * Get analogous colors (colors next to each other on color wheel)
  */
-export function getAnalogous(color: string, count: number = 3): string[] {
+export function getAnalogous(color: string, count = 3): string[] {
   const parsed = parseColor(color);
   if (!parsed) return [color];
   
