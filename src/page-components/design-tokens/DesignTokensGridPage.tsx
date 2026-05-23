@@ -16,6 +16,8 @@ import {
 import { getTokensByCategory, DesignToken } from "@/data/design-tokens";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 
+const gutterSpacingRegex = /Spacing (2|3|4|6|8)(?!.*PX)/;
+
 const DesignTokensGridPage = () => {
   const [isCopied, copy] = useCopyToClipboard();
   const [copiedTokenName, setCopiedTokenName] = useState<string | null>(null);
@@ -35,14 +37,7 @@ const DesignTokensGridPage = () => {
   const gutterSpacingTokens = useMemo(() => {
     if (!spacingCategory) return [];
     // Filter for commonly used gutter spacing values
-    const gutterSpacings = ["2", "3", "4", "6", "8"];
-    return spacingCategory.tokens.filter((token) =>
-      gutterSpacings.some(
-        (spacing) =>
-          token.name.includes(`Spacing ${spacing}`) &&
-          !token.name.includes("PX"),
-      ),
-    );
+    return spacingCategory.tokens.filter((token) => gutterSpacingRegex.test(token.name));
   }, [spacingCategory]);
 
   const handleCopy = (token: DesignToken) => {
@@ -62,6 +57,7 @@ const DesignTokensGridPage = () => {
       value: token.value,
       description: token.description,
       cssVariable: token.cssVariable || "",
+      token,
     }));
   }, [breakpointsTokens]);
 
@@ -80,6 +76,7 @@ const DesignTokensGridPage = () => {
         value: displayValue,
         description: token.description,
         cssVariable: token.cssVariable || "",
+        token,
       };
     });
   }, [gutterSpacingTokens]);
@@ -185,7 +182,7 @@ const DesignTokensGridPage = () => {
                       {
                         key: "cssVariable",
                         title: "Variable",
-                        render: (value: string, row: { key: string }) => (
+                        render: (value: string, row: { key: string; token: DesignToken }) => (
                           <div className="u-flex u-items-center u-justify-between u-gap-2">
                             <code className="u-fs-xs u-text-secondary-emphasis u-truncate u-max-w-32">
                               {value}
@@ -208,12 +205,7 @@ const DesignTokensGridPage = () => {
                                 />
                               }
                               iconOnly
-                              onClick={() => {
-                                const token = breakpointsTokens.find(
-                                  (t) => t.name === row.key,
-                                );
-                                if (token) handleCopy(token);
-                              }}
+                              onClick={() => handleCopy(row.token)}
                             />
                           </div>
                         ),
@@ -272,7 +264,7 @@ const DesignTokensGridPage = () => {
                       {
                         key: "cssVariable",
                         title: "Variable",
-                        render: (value: string, row: { key: string }) => (
+                        render: (value: string, row: { key: string; token: DesignToken }) => (
                           <div className="u-flex u-items-center u-justify-between u-gap-2">
                             <code className="u-fs-xs u-text-secondary-emphasis u-truncate u-max-w-32">
                               {value}
@@ -295,12 +287,7 @@ const DesignTokensGridPage = () => {
                                 />
                               }
                               iconOnly
-                              onClick={() => {
-                                const token = gutterSpacingTokens.find(
-                                  (t) => t.name === row.key,
-                                );
-                                if (token) handleCopy(token);
-                              }}
+                              onClick={() => handleCopy(row.token)}
                             />
                           </div>
                         ),
