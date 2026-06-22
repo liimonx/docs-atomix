@@ -1978,11 +1978,17 @@ const darkTheme = createTheme({
 
 function ThemeSelector() {
   const { theme, setTheme } = useTheme();
+  
+  // Determine the current theme name for the select value
+  const currentThemeName = theme?.name === 'Dark' ? 'dark' : 'light';
 
   return (
-    <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-      <option value={lightTheme}>Light</option>
-      <option value={darkTheme}>Dark</option>
+    <select value={currentThemeName} onChange={(e) => {
+      const selectedTheme = e.target.value === 'dark' ? darkTheme : lightTheme;
+      setTheme(selectedTheme);
+    }}>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
     </select>
   );
 }

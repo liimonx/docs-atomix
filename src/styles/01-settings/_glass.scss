@@ -10,8 +10,8 @@
   --glass-background-dark: rgba(0, 0, 0, 0.2);
   --glass-border: rgba(255, 255, 255, 0.15);
   --glass-border-dark: rgba(0, 0, 0, 0.3);
-  --glass-blur: blur(16px);
-  --glass-backdrop-blur: blur(20px);
+  --glass-blur: blur(5px);
+  --glass-backdrop-blur: blur(4px);
 }
 
 // Glass utility classes
@@ -80,18 +80,18 @@
 
 // Glass backdrop utilities
 .u-backdrop-blur-sm {
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
 }
 
 .u-backdrop-blur-md {
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
 }
 
 .u-backdrop-blur-lg {
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
 }
 
 // Standard Blur Utilities
@@ -100,11 +100,11 @@
 }
 
 .u-blur {
-  filter: blur(8px) !important;
+  filter: blur(5px) !important;
 }
 
 .u-blur-md {
-  filter: blur(16px) !important;
+  filter: blur(6px) !important;
 }
 
 .u-blur-lg {
