@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/dom";
 import DesignTokensGridPage from "../DesignTokensGridPage";
 import { vi, describe, it } from "vitest";
 
@@ -40,7 +41,11 @@ describe("DesignTokensGridPage Performance", () => {
 
     // Find all copy buttons
     const buttons = container.querySelectorAll('button');
-    const copyButtons = Array.from(buttons).filter(b => b.innerHTML.includes('Copy') || b.querySelector('svg'));
+    const copyButtons = Array.from(buttons).filter(
+      (b) =>
+        b instanceof HTMLButtonElement &&
+        (b.innerHTML.includes("Copy") || b.querySelector("svg")),
+    );
 
     if (copyButtons.length === 0) {
       console.warn("No copy buttons found, skipping benchmark");

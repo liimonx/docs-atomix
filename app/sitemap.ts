@@ -3,8 +3,7 @@
 
 import { MetadataRoute } from 'next';
 import { getAllRoutePaths } from '@/utils/routeMapper';
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://atomix-docs.vercel.app';
+import { BASE_URL } from '@/utils/siteConfig';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Get all routes from navigation data

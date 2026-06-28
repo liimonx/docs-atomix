@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState, useEffect, useRef, useMemo, useCallback } from "react";
+import { FC, useState, useEffect, useRef, useCallback, useMemo } from "react";
 import {
   Button,
   Icon,
@@ -23,15 +23,20 @@ export const PresetSelector: FC = () => {
   const [mounted, setMounted] = useState(false);
   const nameInputRef = useRef<HTMLInputElement>(null);
 
-  // Ensure component only renders on client to avoid hydration mismatches
   useEffect(() => {
     setTimeout(() => setMounted(true), 0);
     loadCustomPresets();
   }, [loadCustomPresets]);
 
+  useEffect(() => {
+    if (showSaveModal) {
+      const timer = setTimeout(() => nameInputRef.current?.focus(), 100);
+      return () => clearTimeout(timer);
+    }
+  }, [showSaveModal]);
+
   const handlePresetSelect = useCallback(
     (presetId: string) => {
-      // Check if it's a custom preset
       if (customPresets[presetId]) {
         const preset = customPresets[presetId];
         setTheme(
@@ -44,7 +49,6 @@ export const PresetSelector: FC = () => {
         return;
       }
 
-      // Check built-in presets
       const preset = themePresets[presetId];
       if (preset) {
         setTheme(
@@ -73,29 +77,28 @@ export const PresetSelector: FC = () => {
     setPresetDescription("");
   };
 
-  const builtInItems = Object.entries(themePresets).map(([id, preset]) => ({
-    label: preset.name,
-    onClick: () => handlePresetSelect(id),
-  }));
+  const openSaveModal = useCallback(() => {
+    setShowSaveModal(true);
+  }, []);
 
-  const customItems = Object.entries(customPresets).map(([id, preset]) => ({
-    label: `${preset.name} (Custom)`,
-    onClick: () => handlePresetSelect(id),
-  }));
-
-  const dropdownItems = [
-    ...builtInItems,
-    ...customItems,
-    {
-      label: "💾 Save Current Theme",
-      onClick: () => {
-        setShowSaveModal(true);
-        setTimeout(() => nameInputRef.current?.focus(), 100);
+  const dropdownItems = useMemo(
+    () => [
+      ...Object.entries(themePresets).map(([id, preset]) => ({
+        label: preset.name,
+        onClick: () => handlePresetSelect(id),
+      })),
+      ...Object.entries(customPresets).map(([id, preset]) => ({
+        label: `${preset.name} (Custom)`,
+        onClick: () => handlePresetSelect(id),
+      })),
+      {
+        label: "💾 Save Current Theme",
+        onClick: openSaveModal,
       },
-    },
-  ];
+    ],
+    [customPresets, handlePresetSelect, openSaveModal],
+  );
 
-  // Prevent hydration mismatch by only rendering Dropdown on client
   if (!mounted) {
     return (
       <div className={styles.presetSelector}>
@@ -113,10 +116,6 @@ export const PresetSelector: FC = () => {
     );
   }
 
-  const focusNameInput = () => {
-    nameInputRef.current?.focus();
-  };
-
   return (
     <div className={styles.presetSelector}>
       <Dropdown
@@ -130,21 +129,6 @@ export const PresetSelector: FC = () => {
                 onClick={item.onClick}
               />
             ))}
-            {customItems.map((item) => (
-              <MenuItem
-                key={item.label}
-                children={item.label}
-                onClick={item.onClick}
-              />
-            ))}
-            <MenuItem
-              key="💾 Save Current Theme"
-              children="💾 Save Current Theme"
-              onClick={() => {
-                setShowSaveModal(true);
-                setTimeout(focusNameInput, 100);
-              }}
-            />
           </Menu>
         }
         placement="bottom-start"

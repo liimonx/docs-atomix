@@ -62,11 +62,16 @@ const REQUIRED_ACCESSIBILITY_FIELDS = [
   'focusManagement'
 ];
 
+function getExpectedExportName(fileName: string): string {
+  const camelCase = fileName.charAt(0).toLowerCase() + fileName.slice(1);
+  return `${camelCase}Metadata`;
+}
+
 /**
  * Validate a single component metadata file
  */
 function validateComponentMetadata(filePath: string): ValidationResult {
-  const fileName = path.basename(filePath, '.ts');
+  const fileName = path.basename(filePath, path.extname(filePath));
   const issues: ValidationIssue[] = [];
 
   try {
@@ -83,9 +88,9 @@ function validateComponentMetadata(filePath: string): ValidationResult {
       return { component: fileName, isValid: false, issues };
     }
 
-    // Check for required export name pattern
-    const expectedExportName = `${fileName.replace(/-/g, '')}Metadata`;
-    if (!content.includes(`export const ${expectedExportName}`)) {
+    const expectedExportName = getExpectedExportName(fileName);
+    const exportPattern = new RegExp(`export const ${expectedExportName}\\b`);
+    if (!exportPattern.test(content)) {
       issues.push({
         component: fileName,
         severity: 'warning',
@@ -191,7 +196,7 @@ function validateComponentMetadata(filePath: string): ValidationResult {
 function main() {
   const componentsDir = path.join(__dirname, '../src/data/components');
   const files = fs.readdirSync(componentsDir)
-    .filter(file => file.endsWith('.ts') && file !== 'index.ts');
+    .filter(file => (file.endsWith('.ts') || file.endsWith('.tsx')) && file !== 'index.ts');
 
   console.log('🔍 Validating Component Metadata Files\n');
   console.log(`Found ${files.length} component files to validate\n`);

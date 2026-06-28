@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { readFile } from 'fs/promises';
-import { join, normalize, resolve } from 'path';
+import { join, normalize } from 'path';
+import {
+  getMarkdownDocsBasePath,
+  isMarkdownDocsAvailable,
+  MARKDOWN_SETUP_HINT,
+} from '@/utils/markdownDocsPath';
 
 const ALLOWED_EXTENSIONS = ['.md', '.mdx'];
 
@@ -8,6 +13,16 @@ export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ path: string[] }> }
 ) {
+  if (!isMarkdownDocsAvailable()) {
+    return NextResponse.json(
+      {
+        error: 'Markdown documentation source is not configured',
+        hint: MARKDOWN_SETUP_HINT,
+      },
+      { status: 503 }
+    );
+  }
+
   try {
     const resolvedParams = await params;
     const { path: pathSegments } = resolvedParams;
@@ -31,8 +46,7 @@ export async function GET(
       );
     }
     
-    // Construct base path
-    const basePath = resolve(process.cwd(), 'atomix-doc-in-md', 'docs');
+    const basePath = getMarkdownDocsBasePath();
     
     // Join path segments and construct file path
     let filePath = join(basePath, ...safeSegments);
@@ -40,7 +54,7 @@ export async function GET(
     // Normalize the path to resolve any remaining issues
     filePath = normalize(filePath);
     
-    // Security: Ensure the path is within the atomix-doc-in-md/docs directory
+    // Security: Ensure the path is within the configured docs directory
     if (!filePath.startsWith(basePath)) {
       return NextResponse.json(
         { error: 'Path traversal detected' },
@@ -50,7 +64,7 @@ export async function GET(
     
     // Try to read the file, restricting to allowed extensions
     let content: string | null = null;
-    let lastError: any = null;
+    let lastError: unknown = null;
 
     const hasAllowedExt = ALLOWED_EXTENSIONS.some(ext => filePath.endsWith(ext));
 
@@ -92,9 +106,7 @@ export async function GET(
       },
     });
   } catch (error: unknown) {
-    // console.error('Error reading markdown file:', error);
-    
-    if (error && typeof error === 'object' && 'code' in error && (error as any).code === 'ENOENT') {
+    if (error && typeof error === 'object' && 'code' in error && (error as NodeJS.ErrnoException).code === 'ENOENT') {
       return NextResponse.json(
         { error: 'File not found' },
         { status: 404 }

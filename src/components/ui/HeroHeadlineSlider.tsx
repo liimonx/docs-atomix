@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Icon } from "@shohojdhara/atomix";
@@ -203,7 +203,10 @@ export const HeroHeadlineSlider = () => {
 
   // Sync isPaused ref with state for use in callbacks
   const isPausedRef = useRef(false);
-  isPausedRef.current = isPaused;
+
+  useEffect(() => {
+    isPausedRef.current = isPaused;
+  }, [isPaused]);
 
   // GSAP resources we need to clean up
   const autoAdvance = useRef<gsap.core.Tween | null>(null);
@@ -364,7 +367,9 @@ export const HeroHeadlineSlider = () => {
   );
 
   // Keep stable ref in sync
-  goToSlideRef.current = goToSlide;
+  useEffect(() => {
+    goToSlideRef.current = goToSlide;
+  }, [goToSlide]);
 
   /* ───── Bootstrap: initial slide enter + auto advance ───── */
 

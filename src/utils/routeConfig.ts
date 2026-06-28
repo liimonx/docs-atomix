@@ -4,9 +4,7 @@
 import type { Metadata } from 'next';
 import { NavigationItem } from '@/types';
 import { findNavigationItemByPath, slugToPath } from './routeMapper';
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://atomix-docs.vercel.app';
-const SITE_NAME = 'Atomix Documentation';
+import { BASE_URL, SITE_NAME, OG_IMAGE_URL, OG_IMAGE_SIZE } from './siteConfig';
 
 /**
  * Generate metadata from navigation item
@@ -64,9 +62,9 @@ export function generateMetadataFromNavigation(
       locale: 'en_US',
       images: [
         {
-          url: `${BASE_URL}/og-image.png`,
-          width: 1200,
-          height: 630,
+          url: OG_IMAGE_URL,
+          width: OG_IMAGE_SIZE.width,
+          height: OG_IMAGE_SIZE.height,
           alt: title,
         },
       ],
@@ -76,7 +74,7 @@ export function generateMetadataFromNavigation(
       title,
       description,
       creator: '@atomix',
-      images: [`${BASE_URL}/og-image.png`],
+      images: [OG_IMAGE_URL],
     },
     alternates: {
       canonical: url,
@@ -214,9 +212,9 @@ export function generateComponentMetadata(componentId: string): Metadata {
       locale: 'en_US',
       images: [
         {
-          url: `${BASE_URL}/og-image.png`,
-          width: 1200,
-          height: 630,
+          url: OG_IMAGE_URL,
+          width: OG_IMAGE_SIZE.width,
+          height: OG_IMAGE_SIZE.height,
           alt: title,
         },
       ],
@@ -226,7 +224,7 @@ export function generateComponentMetadata(componentId: string): Metadata {
       title,
       description,
       creator: '@atomix',
-      images: [`${BASE_URL}/og-image.png`],
+      images: [OG_IMAGE_URL],
     },
     alternates: {
       canonical: url,

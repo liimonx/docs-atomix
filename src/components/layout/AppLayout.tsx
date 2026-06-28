@@ -1,31 +1,32 @@
 "use client";
 
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, FC } from "react";
 import { DocumentationHeader } from "@/components/navigation/DocumentationHeader";
 import { DocumentationFooter } from "./DocumentationFooter";
 import { DocumentationSidebar } from "@/components/navigation/DocumentationSidebar";
-// import { SkipLinks } from "@/components/ui/SkipLinks";
+import { SkipLinks } from "@/components/ui/SkipLinks";
 import { PageTransition } from "./PageTransition";
 import { usePathname } from "next/navigation";
 import { AmbientBackground } from "@/components/ui/AmbientBackground";
 import styles from "./AppLayout.module.scss";
 
-// const MemoizedSkipLinks = React.memo(SkipLinks);
+const MemoizedSkipLinks = React.memo(SkipLinks);
 const MemoizedDocumentationFooter = React.memo(DocumentationFooter);
 
 export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
+  const [sidebarState, setSidebarState] = useState({ open: false, path: pathname });
 
-  // Close sidebar on route change (mobile)
-  useEffect(() => {
-    setSidebarOpen(false);
-  }, [pathname]);
+  const sidebarOpen =
+    sidebarState.path === pathname ? sidebarState.open : false;
+  const setSidebarOpen = (open: boolean) => {
+    setSidebarState({ open, path: pathname });
+  };
 
   return (
     <div className={styles.layoutWrapper}>
       <AmbientBackground />
-      {/* <MemoizedSkipLinks /> */}
+      <MemoizedSkipLinks />
 
       <DocumentationHeader
         isSidebarOpen={sidebarOpen}
@@ -35,17 +36,21 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
 
       <div className={styles.mainContainer}>
         <aside
+          id="navigation"
           className={`${styles.sidebarWrapper} ${
             sidebarOpen ? styles["sidebarWrapper--mobileOpen"] : ""
           }`}
         >
           <DocumentationSidebar
             isOpen={sidebarOpen}
-            onClose={() => setTimeout(() => setSidebarOpen(false), 0)}
+            onClose={() => setSidebarOpen(false)}
           />
         </aside>
 
-        <main className={`${styles.contentWrapper} main-content`}>
+        <main
+          id="main-content"
+          className={`${styles.contentWrapper} main-content`}
+        >
           <PageTransition>{children}</PageTransition>
           <MemoizedDocumentationFooter />
         </main>

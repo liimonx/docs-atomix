@@ -1,6 +1,21 @@
 /** @type {import('next').NextConfig} */
 const path = require('path');
 
+/** Content-Security-Policy tuned for the Atomix docs site (Next.js, Google Fonts, WebGL). */
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com data:",
+  "img-src 'self' data: blob: https://images.unsplash.com",
+  "media-src 'self' blob:",
+  "connect-src 'self'",
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+].join('; ');
+
 const nextConfig = {
   // Remove output: 'export' for development, only use for static export builds
   // output: 'export',
@@ -37,6 +52,10 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: contentSecurityPolicy,
           }
         ],
       },
@@ -148,6 +167,17 @@ const nextConfig = {
   },
   
   // URL redirects
+  async redirects() {
+    return [
+      {
+        source: '/og-image.png',
+        destination: '/opengraph-image',
+        permanent: true,
+      },
+    ];
+  },
+  
+  // Legacy redirects (uncomment when routes are finalized)
   // async redirects() {
   //   return [
   //     {

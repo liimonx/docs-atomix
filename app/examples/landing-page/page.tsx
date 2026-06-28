@@ -461,11 +461,10 @@ export default function ExampleLandingPage() {
           shaderVariant="premiumGlass"
           borderRadius={32}
           withBorder={true}
-          padding="4rem 3rem"
           saturation={200}
           elasticity={0}
         >
-          <div className="u-text-center">
+          <div className="u-text-center" style={{ padding: "4rem 3rem" }}>
             <h2 className="u-text-3xl u-font-700 u-mb-4 u-text-primary-emphasis">
               Ready to Transform Your Business?
             </h2>

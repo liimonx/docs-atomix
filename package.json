@@ -1,18 +1,22 @@
 {
   "name": "atomix-design-system-docs",
   "version": "1.0.0",
-  "description": "Comprehensive documentation site for the Atomix Design System - 80+ components, design tokens, layouts, and AtomixGlass effects",
+  "description": "Documentation site for the Atomix Design System — components, design tokens, layouts, Theme Studio, and AtomixGlass",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings 200",
     "type-check": "tsc --noEmit",
-    "test": "vitest run src/utils/__tests__/routeMapper.test.ts src/utils/__tests__/breadcrumbs.test.ts src/utils/__tests__/routeValidation.test.ts",
-    "test:all": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "validate:components": "ts-node scripts/validate-component-metadata.ts",
+    "setup:markdown": "node scripts/setup-markdown-docs.mjs",
     "generate:tokens": "ts-node --esm scripts/generateTokens.ts"
   },
   "keywords": [
@@ -30,12 +34,10 @@
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@phosphor-icons/react": "^2.1.10",
-    "@playwright/test": "^1.56.1",
-    "@shohojdhara/atomix": "^0.6.8",
+    "@shohojdhara/atomix": "^0.6.9",
     "culori": "^4.0.2",
     "date-fns": "^2.29.3",
     "framer-motion": "^12.38.0",
-    "fs": "^0.0.1-security",
     "fuse.js": "^6.6.2",
     "gray-matter": "^4.0.3",
     "gsap": "^3.14.2",
@@ -55,7 +57,6 @@
     "rehype-slug": "^5.0.1",
     "remark-frontmatter": "^4.0.1",
     "remark-gfm": "^4.0.1",
-    "sass-embedded": "^1.93.3",
     "zod": "^4.3.6",
     "zustand": "^5.0.9"
   },
@@ -63,6 +64,8 @@
     "@eslint/compat": "^1.4.1",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^9.39.4",
+    "@playwright/test": "^1.56.1",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^16.1.0",
     "@types/culori": "^4.0.1",
@@ -81,6 +84,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "jsdom": "^21.1.0",
     "prettier": "^2.8.4",
+    "sass-embedded": "^1.93.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"

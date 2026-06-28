@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
-import { render, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import { waitFor } from "@testing-library/dom";
 import MarkdownPage from "./MarkdownPage";
 import { vi, describe, it, expect, beforeEach } from "vitest";
 

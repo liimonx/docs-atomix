@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast";
 import { ResponsiveProvider } from "@/hooks/useResponsive";
 import { SearchProvider } from "@/hooks/useSearch";
 import { Providers } from "@/components/providers/Providers";
+import { BASE_URL, OG_IMAGE_URL, OG_IMAGE_SIZE, OG_IMAGE_ALT } from "@/utils/siteConfig";
 import "../src/styles/globals.scss";
 
 export const viewport: Viewport = {
@@ -10,6 +11,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: {
     default: "Atomix Documentation",
     template: "%s | Atomix Documentation",
@@ -23,16 +25,16 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://atomix-docs.vercel.app/",
+    url: `${BASE_URL}/`,
     title: "Atomix - Modern React Component Library",
     description:
       "A comprehensive, accessible React component library built with TypeScript. Fast, customizable, and developer-friendly.",
     images: [
       {
-        url: "https://atomix-docs.vercel.app/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Atomix Design System",
+        url: OG_IMAGE_URL,
+        width: OG_IMAGE_SIZE.width,
+        height: OG_IMAGE_SIZE.height,
+        alt: OG_IMAGE_ALT,
       },
     ],
   },
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
     title: "Atomix - Modern React Component Library",
     description:
       "A comprehensive, accessible React component library built with TypeScript. Fast, customizable, and developer-friendly.",
-    images: ["https://atomix-docs.vercel.app/og-image.png"],
+    images: [OG_IMAGE_URL],
   },
 };
 

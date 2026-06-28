@@ -401,7 +401,6 @@ export const ComponentShowcase: FC = () => {
                     displacementScale={20}
                     blurAmount={3}
                     elasticity={0.3}
-                    padding="20px"
                     borderRadius={16}
                   >
                     <div style={{ padding: "1.5rem" }}>
@@ -429,7 +428,6 @@ export const ComponentShowcase: FC = () => {
                     displacementScale={30}
                     blurAmount={5}
                     elasticity={0.5}
-                    padding="20px"
                     borderRadius={16}
                   >
                     <div style={{ padding: "1.5rem" }}>
