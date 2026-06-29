@@ -1,0 +1,14 @@
+.searchPlaceholder {
+  width: 180px;
+  height: 36px;
+  border-radius: var(--atomix-border-radius, 8px);
+  border: 1px solid var(--atomix-border-color, rgba(255, 255, 255, 0.1));
+  background: var(--atm-bg-secondary, rgba(255, 255, 255, 0.05));
+  opacity: 0.6;
+}
+
+@media (min-width: 768px) {
+  .searchPlaceholder {
+    width: 220px;
+  }
+}

@@ -6,6 +6,7 @@ import { Dropdown, Input, Button } from "@shohojdhara/atomix";
 import { useSearch } from "../../hooks/useSearch";
 import { SearchResultItem } from "./SearchResultItem";
 import { SearchResult as TypedSearchResult } from "../../types";
+import styles from "./GlobalSearch.module.scss";
 
 export function GlobalSearch() {
   const { searchQuery, setSearchQuery, searchResults, clearSearch } =
@@ -16,12 +17,10 @@ export function GlobalSearch() {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Ensure component only renders on client to avoid hydration mismatch
   useEffect(() => {
     setTimeout(() => setMounted(true), 0);
   }, []);
 
-  // Map the search results to match the expected type
   const mappedSearchResults: TypedSearchResult[] = searchResults.map(
     (result) => ({
       id: result.id,
@@ -76,9 +75,14 @@ export function GlobalSearch() {
     }
   };
 
-  // Render null during SSR to avoid hydration mismatch
   if (!mounted) {
-    return null;
+    return (
+      <div
+        className={styles.searchPlaceholder}
+        aria-hidden="true"
+        role="presentation"
+      />
+    );
   }
 
   return (
@@ -90,11 +94,12 @@ export function GlobalSearch() {
         menu={
           <div className="u-w-100">
             {mappedSearchResults.length > 0 ? (
-              <ul className="u-list-none u-m-0 u-ps-1">
-                {mappedSearchResults.map((result) => (
+              <ul className="u-list-none u-m-0 u-ps-1" role="listbox">
+                {mappedSearchResults.map((result, index) => (
                   <SearchResultItem
                     key={result.id}
                     result={result}
+                    isSelected={index === selectedIndex}
                     onClick={() => {
                       router.push(result.path);
                       setIsOpen(false);
@@ -106,11 +111,11 @@ export function GlobalSearch() {
                 ))}
               </ul>
             ) : searchQuery.length > 0 ? (
-              <div className="u-p-4 u-text-center u-text-secondary-emphasis-emphasis">
+              <div className="u-p-4 u-text-center u-text-secondary-emphasis">
                 No results found.
               </div>
             ) : (
-              <div className="u-p-4 u-text-center u-text-secondary-emphasis-emphasis">
+              <div className="u-p-4 u-text-center u-text-secondary-emphasis">
                 Start typing to search...
               </div>
             )}
@@ -119,11 +124,16 @@ export function GlobalSearch() {
       >
         <div className="u-relative u-w-100 u-pe-4 u-border-e">
           <Input
+            ref={inputRef}
             className="u-px-4 u-py-2 u-ps-10"
             type="text"
             placeholder="Search documentation..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Search documentation"
+            aria-autocomplete="list"
+            aria-controls={isOpen ? "global-search-results" : undefined}
+            aria-expanded={isOpen}
           />
           <div className="u-absolute u-top-0 u-start-0 u-pt-1 u-ps-1">
             {searchQuery ? (
@@ -141,10 +151,7 @@ export function GlobalSearch() {
               />
             ) : (
               <Button
-                onClick={() => {
-                  clearSearch();
-                  inputRef.current?.focus();
-                }}
+                onClick={() => inputRef.current?.focus()}
                 aria-label="Search"
                 iconOnly
                 variant="link"

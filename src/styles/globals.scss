@@ -16,5 +16,8 @@
 // 2. Component Overrides (Variables for specific components)
 @use "./06-components/index" as *;
 
-// 3. Atomix Design System (Core styles)
+// 3. Site layout tokens (navbar height, sidebar width)
+@use "./site-layout";
+
+// 4. Atomix Design System (Core styles)
 @use "../../node_modules/@shohojdhara/atomix/src/styles/index.scss" as *;

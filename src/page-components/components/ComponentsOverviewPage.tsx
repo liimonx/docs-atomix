@@ -318,7 +318,7 @@ const ComponentsOverviewPage: FC = () => {
                       <Icon
                         name="MagnifyingGlass"
                         size={20}
-                        className="u-text-secondary-emphasis-emphasis"
+                        className="u-text-secondary-emphasis"
                       />
                     </div>
                   </div>
@@ -411,7 +411,7 @@ const ComponentsOverviewPage: FC = () => {
                 <Icon
                   name="MagnifyingGlass"
                   size={48}
-                  className="u-mb-4 u-text-secondary-emphasis-emphasis"
+                  className="u-mb-4 u-text-secondary-emphasis"
                 />
               }
               children={
@@ -419,7 +419,7 @@ const ComponentsOverviewPage: FC = () => {
                   <h3 className="u-text-2xl u-font-bold u-mb-3">
                     No items found
                   </h3>
-                  <p className="u-text-secondary-emphasis-emphasis u-mb-6">
+                  <p className="u-text-secondary-emphasis u-mb-6">
                     No items match your search "{searchQuery}". Try a different
                     search term or filter.
                   </p>

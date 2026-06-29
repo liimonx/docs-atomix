@@ -13,6 +13,7 @@ import {
 
 import { AmbientBackground } from "@/components/ui/AmbientBackground";
 import { HeroHeadlineSlider } from "@/components/ui/HeroHeadlineSlider";
+import { ATOMIX_VERSION_LABEL } from "@/utils/siteConfig";
 import styles from "./Home.module.scss";
 
 export const HeroSection = () => {
@@ -47,7 +48,7 @@ export const HeroSection = () => {
 
       <Hero title={<></>} contentWidth="90%">
         <Hero.Content className="u-w-100 u-mx-auto u-text-center u-flex u-flex-column u-items-center">
-          <Badge label="v0.4.7 is now live" />
+          <Badge label={`${ATOMIX_VERSION_LABEL} is now live`} />
 
           {/* Headline Slider */}
           <HeroHeadlineSlider />

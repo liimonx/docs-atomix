@@ -320,12 +320,17 @@ $z-index-vignette: 12;
 // Responsive & Accessibility
 // ---------------------------------------------------------------------------
 
-// Removed prefers-reduced-motion media query since there are no animations to disable
-// @media (prefers-reduced-motion: reduce) {
-//   .orb {
-//     animation: none !important;
-//   }
-// }
+@media (prefers-reduced-motion: reduce) {
+  .orb1,
+  .orb2,
+  .orb3,
+  .orb4,
+  .orb5,
+  .orb6 {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 
 @media (max-width: 768px) {
   .orb1 {

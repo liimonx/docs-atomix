@@ -16,6 +16,7 @@ import {
   Badge,
 } from "@shohojdhara/atomix";
 import { EnhancedCodeBlock } from "@/components/showcase/EnhancedCodeBlock";
+import { ATOMIX_VERSION_LABEL } from "@/utils/siteConfig";
 import styles from "@/styles/PageHero.module.scss";
 
 interface GettingStartedPageProps {
@@ -96,7 +97,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                 <Row className="u-items-center">
                   <GridCol lg={6}>
                     <div className="u-flex u-flex-column u-gap-6 u-items-start">
-                      <Badge variant="primary" label="v0.4.7" />
+                      <Badge variant="primary" label={ATOMIX_VERSION_LABEL} />
 
                       <h1
                         className="u-fs-5xl lg:u-fs-6xl u-font-black u-ls-tight"
@@ -112,7 +113,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                         Build faster with{" "}
                         <span className="u-text-primary">Atomix.</span>
                       </h1>
-                      <p className="u-fs-lg u-text-secondary-emphasis-emphasis u-max-w-100 u-leading-relaxed">
+                      <p className="u-fs-lg u-text-secondary-emphasis u-max-w-100 u-leading-relaxed">
                         The comprehensive React UI kit for modern web
                         applications. Accessible, customizable, and atomic. Stop
                         reinventing the wheel and start shipping.
@@ -161,7 +162,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                             @shohojdhara/icons
                           </span>
                         </div>
-                        <div className="u-text-secondary-emphasis-emphasis u-mt-4">
+                        <div className="u-text-secondary-emphasis u-mt-4">
                           # Ready to build!
                         </div>
                         <div className="u-flex u-opacity-50">
@@ -316,7 +317,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   Prerequisites
                 </h2>
                 <p
-                  className="u-text-secondary-emphasis-emphasis u-mb-6 u-text-center"
+                  className="u-text-secondary-emphasis u-mb-6 u-text-center"
                   style={{
                     lineHeight: "var(--atomix-line-height-relaxed)",
                     maxWidth: "600px",
@@ -362,7 +363,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           <h3 className="u-fs-xl u-font-bold u-m-0 u-mb-3 ">
                             {item.title}
                           </h3>
-                          <p className="u-text-secondary-emphasis-emphasis u-m-0 u-leading-relaxed">
+                          <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed">
                             {item.desc}
                           </p>
                         </div>
@@ -377,7 +378,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   Installation Methods
                 </h2>
                 <p
-                  className="u-text-secondary-emphasis-emphasis u-mb-6 u-text-center"
+                  className="u-text-secondary-emphasis u-mb-6 u-text-center"
                   style={{ maxWidth: "600px", margin: "0 auto 2rem" }}
                 >
                   Choose the installation method that best fits your project
@@ -393,7 +394,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           </div>
                           <h3 className="u-fs-xl u-font-bold u-m-0 ">npm</h3>
                         </div>
-                        <p className="u-text-secondary-emphasis-emphasis u-m-0 u-leading-relaxed">
+                        <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed">
                           Install via npm package manager. Recommended for most
                           projects.
                         </p>
@@ -441,7 +442,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           </div>
                           <h3 className="u-fs-xl u-font-bold u-m-0 ">yarn</h3>
                         </div>
-                        <p className="u-text-secondary-emphasis-emphasis u-m-0 u-leading-relaxed">
+                        <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed">
                           Install via yarn package manager. Great for monorepos
                           and workspaces.
                         </p>
@@ -489,7 +490,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                           </div>
                           <h3 className="u-fs-xl u-font-bold u-m-0 ">pnpm</h3>
                         </div>
-                        <p className="u-text-secondary-emphasis-emphasis u-m-0 u-leading-relaxed">
+                        <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed">
                           Install via pnpm package manager. Fast and efficient
                           disk space usage.
                         </p>
@@ -536,7 +537,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   Next Steps
                 </h2>
                 <p
-                  className="u-text-secondary-emphasis-emphasis u-mb-6 u-text-center"
+                  className="u-text-secondary-emphasis u-mb-6 u-text-center"
                   style={{ maxWidth: "600px", margin: "0 auto 2rem" }}
                 >
                   Once installed, explore these resources to get the most out of
@@ -558,7 +559,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                               Quick Start Guide
                             </h3>
                           </div>
-                          <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
+                          <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
                             Learn how to build your first application with
                             Atomix components in just 5 minutes
                           </p>
@@ -578,14 +579,14 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <Card className="u-h-100 u-cursor-pointer u-border u-border-subtle u-transition-fast u-hover-transform-up">
                         <div className="u-p-6">
                           <div className="u-flex u-items-center u-mb-4">
-                            <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-secondary-emphasis-emphasis">
+                            <div className="u-w-12 u-h-12 u-bg-secondary-subtle u-rounded-md u-flex u-items-center u-justify-center u-me-4 u-text-secondary-emphasis">
                               <Icon name="Palette" size={"lg"} />
                             </div>
                             <h3 className="u-text-xl u-font-semibold u-m-0 u-text-primary-emphasis">
                               Setup Theming
                             </h3>
                           </div>
-                          <p className="u-text-secondary-emphasis-emphasis u-mb-4 u-line-height-relaxed">
+                          <p className="u-text-secondary-emphasis u-mb-4 u-line-height-relaxed">
                             Customize Atomix to match your brand with our
                             comprehensive theming system
                           </p>
@@ -656,7 +657,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <h3 className="u-fs-2xl u-font-bold u-m-0 u-mb-2 ">
                         Prerequisites
                       </h3>
-                      <p className="u-m-0 u-text-secondary-emphasis-emphasis u-leading-relaxed u-fs-lg">
+                      <p className="u-m-0 u-text-secondary-emphasis u-leading-relaxed u-fs-lg">
                         Make sure you have{" "}
                         <strong className="u-text-primary">React 18+</strong>{" "}
                         and{" "}
@@ -681,7 +682,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <h2 className="u-fs-4xl u-font-black u-m-0 u-mb-3  u-ls-tight">
                         Install Atomix
                       </h2>
-                      <p className="u-text-secondary-emphasis-emphasis u-m-0 u-leading-relaxed u-fs-lg">
+                      <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed u-fs-lg">
                         Choose your preferred package manager and run the
                         installation command in your project directory.
                       </p>
@@ -750,7 +751,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <h2 className="u-fs-4xl u-font-black u-m-0 u-mb-3  u-ls-tight">
                         Import CSS Styles
                       </h2>
-                      <p className="u-text-secondary-emphasis-emphasis u-m-0 u-leading-relaxed u-fs-lg">
+                      <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed u-fs-lg">
                         Import the Atomix CSS in your main entry point (e.g.,{" "}
                         <code className=" u-px-2 u-py-1 u-rounded u-text-primary u-fs-sm u-font-bold">
                           main.tsx
@@ -779,7 +780,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <p className="u-m-0 u-fs-lg u-font-bold  u-mb-1">
                         Optional: Theme Customization
                       </p>
-                      <p className="u-m-0 u-fs-base u-text-secondary-emphasis-emphasis u-leading-relaxed">
+                      <p className="u-m-0 u-fs-base u-text-secondary-emphasis u-leading-relaxed">
                         You can also import specific theme files or configure
                         your own using CSS variables to match your brand
                         perfectly.
@@ -802,7 +803,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                       <h2 className="u-fs-4xl u-font-black u-m-0 u-mb-3  u-ls-tight">
                         Start Building
                       </h2>
-                      <p className="u-text-secondary-emphasis-emphasis u-m-0 u-leading-relaxed u-fs-lg">
+                      <p className="u-text-secondary-emphasis u-m-0 u-leading-relaxed u-fs-lg">
                         Import and use components anywhere in your application
                         with full type safety and accessibility.
                       </p>
@@ -827,7 +828,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                   <h2 className="u-fs-5xl u-font-black  u-mb-4 u-ls-tight">
                     Ready for more?
                   </h2>
-                  <p className="u-text-secondary-emphasis-emphasis u-mb-16 u-fs-lg u-max-w-75 u-mx-auto u-leading-relaxed">
+                  <p className="u-text-secondary-emphasis u-mb-16 u-fs-lg u-max-w-75 u-mx-auto u-leading-relaxed">
                     Explore our comprehensive collection of components and
                     guides to level up your development workflow and build
                     stunning interfaces.
@@ -883,7 +884,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
                             <h3 className="u-fs-2xl u-font-bold  u-mb-3">
                               {step.title}
                             </h3>
-                            <p className="u-fs-base u-text-secondary-emphasis-emphasis u-mb-0 u-leading-relaxed">
+                            <p className="u-fs-base u-text-secondary-emphasis u-mb-0 u-leading-relaxed">
                               {step.desc}
                             </p>
                           </Card>
@@ -904,7 +905,7 @@ const GettingStartedPage: FC<GettingStartedPageProps> = ({ type }) => {
           content: (
             <div>
               <h1 className="u-text-4xl u-font-bold u-mb-4">Getting Started</h1>
-              <p className="u-text-secondary-emphasis-emphasis">
+              <p className="u-text-secondary-emphasis">
                 Welcome to Atomix documentation!
               </p>
             </div>

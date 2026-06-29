@@ -84,7 +84,7 @@ export const ComponentShowcase: FC = () => {
                   </code>
                   .
                 </p>
-                <p className="u-text-secondary-emphasis-emphasis">
+                <p className="u-text-secondary-emphasis">
                   This is secondary text using the secondary text color.
                 </p>
               </div>
@@ -305,7 +305,7 @@ export const ComponentShowcase: FC = () => {
                 <Rating value={3.5} maxValue={5} readOnly />
               ) : (
                 <div
-                  className="u-text-secondary-emphasis-emphasis"
+                  className="u-text-secondary-emphasis"
                   style={{
                     height: "24px",
                     display: "flex",

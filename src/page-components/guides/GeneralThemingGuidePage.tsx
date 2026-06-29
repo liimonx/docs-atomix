@@ -125,7 +125,7 @@ await themeManager.setTheme('dark');`}
               <h2 className="u-text-2xl u-font-bold u-mb-4">
                 For External Developers
               </h2>
-              <p className="u-text-secondary-emphasis-emphasis u-mb-6">
+              <p className="u-text-secondary-emphasis u-mb-6">
                 This section is for developers using Atomix in their own
                 projects.
               </p>
@@ -139,7 +139,7 @@ await themeManager.setTheme('dark');`}
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     1. JavaScript Themes (Recommended)
                   </h4>
-                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis u-mb-3">
                     The easiest way to create themes - no build step required:
                   </p>
                   <EnhancedCodeBlock
@@ -167,7 +167,7 @@ function App() {
                     showLineNumbers={true}
                   />
                   <div className="u-mt-3">
-                    <p className="u-text-sm u-text-secondary-emphasis-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis">
                       <strong>Why this is great:</strong>
                     </p>
                     <ul className="u-text-sm u-ms-4">
@@ -183,7 +183,7 @@ function App() {
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     2. Quick Theme Helper
                   </h4>
-                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis u-mb-3">
                     Fastest way to get started:
                   </p>
                   <EnhancedCodeBlock
@@ -208,7 +208,7 @@ function App() {
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     3. CSS Theme Loading
                   </h4>
-                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis u-mb-3">
                     Use your existing CSS files:
                   </p>
                   <EnhancedCodeBlock
@@ -239,7 +239,7 @@ function App() {
                   <h4 className="u-text-md u-font-semibold u-mb-2">
                     4. Customize Design Tokens via Config (New!)
                   </h4>
-                  <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                  <p className="u-text-secondary-emphasis u-mb-3">
                     You can now customize design tokens using{" "}
                     <code>atomix.config.ts</code>:
                   </p>
@@ -450,7 +450,7 @@ function App() {
               <h2 className="u-text-2xl u-font-bold u-mb-4">
                 For Library Developers
               </h2>
-              <p className="u-text-secondary-emphasis-emphasis u-mb-6">
+              <p className="u-text-secondary-emphasis u-mb-6">
                 This section is for developers contributing themes to the Atomix
                 library.
               </p>
@@ -459,7 +459,7 @@ function App() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Configuration File
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Create <code>atomix.config.ts</code> in the project root:
                 </p>
                 <EnhancedCodeBlock
@@ -539,7 +539,7 @@ npm run build:themes`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   SCSS Theme Structure
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   For library developers creating SCSS themes:
                 </p>
                 <EnhancedCodeBlock
@@ -553,7 +553,7 @@ npm run build:themes`}
 └── 99-utilities/`}
                   showLineNumbers={true}
                 />
-                <p className="u-text-secondary-emphasis-emphasis u-mt-3 u-mb-2">
+                <p className="u-text-secondary-emphasis u-mt-3 u-mb-2">
                   <strong>
                     Create <code>index.scss</code>:
                   </strong>
@@ -569,7 +569,7 @@ npm run build:themes`}
 @use '../../styles/99-utilities/index' as utilities;`}
                   showLineNumbers={true}
                 />
-                <p className="u-text-secondary-emphasis-emphasis u-mt-3 u-mb-2">
+                <p className="u-text-secondary-emphasis u-mt-3 u-mb-2">
                   <strong>Override settings:</strong>
                 </p>
                 <EnhancedCodeBlock
@@ -594,7 +594,7 @@ npm run build:themes`}
 
               <div className="u-mb-6">
                 <h3 className="u-text-lg u-font-semibold u-mb-3">CSS Themes</h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Themes loaded from CSS files, applied via CSS classes:
                 </p>
                 <EnhancedCodeBlock
@@ -620,7 +620,7 @@ export default defineConfig({
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   JavaScript Themes
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Themes created programmatically using{" "}
                   <code>createTheme()</code>:
                 </p>
@@ -670,7 +670,7 @@ const theme = createTheme({
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   ThemeProvider
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   React context provider for theme state:
                 </p>
                 <EnhancedCodeBlock
@@ -691,7 +691,7 @@ const theme = createTheme({
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   useTheme Hook
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   React hook for accessing theme context:
                 </p>
                 <EnhancedCodeBlock
@@ -714,7 +714,7 @@ const theme = createTheme({
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   ThemeManager
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   High-level API for theme management (vanilla JS):
                 </p>
                 <EnhancedCodeBlock
@@ -747,7 +747,7 @@ const themes = themeManager.getAvailableThemes();`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   createTheme
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Create a JavaScript theme:
                 </p>
                 <EnhancedCodeBlock
@@ -796,7 +796,7 @@ const theme = createTheme({
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Composition
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Combine and extend themes:
                 </p>
                 <EnhancedCodeBlock
@@ -826,7 +826,7 @@ const composed = composeThemes(theme1, theme2, theme3);`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Utilities
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Helper functions for theme management:
                 </p>
                 <EnhancedCodeBlock
@@ -863,7 +863,7 @@ const css = generateCSSVariables(theme, {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   ThemeErrorBoundary
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   React error boundary for theme errors:
                 </p>
                 <EnhancedCodeBlock
@@ -888,7 +888,7 @@ const css = generateCSSVariables(theme, {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   RTL Support
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Enable RTL for right-to-left languages:
                 </p>
                 <EnhancedCodeBlock
@@ -908,7 +908,7 @@ rtlManager.setDirection('rtl');
 const margin = rtlManager.getValue('margin-left', 'margin-right');`}
                   showLineNumbers={true}
                 />
-                <p className="u-text-secondary-emphasis-emphasis u-mt-3">
+                <p className="u-text-secondary-emphasis u-mt-3">
                   Or with ThemeProvider:
                 </p>
                 <EnhancedCodeBlock
@@ -938,7 +938,7 @@ const margin = rtlManager.getValue('margin-left', 'margin-right');`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   atomix.config.ts
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   The central configuration file for customizing design tokens
                   and registering themes:
                 </p>
@@ -1053,7 +1053,7 @@ export default defineConfig({
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Auto-Generated Files
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   From <code>atomix.config.ts</code>, these files are
                   automatically generated:
                 </p>
@@ -1113,11 +1113,11 @@ export default defineConfig({
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Token Generation Details
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   When you customize colors in <code>theme.extend.colors</code>,
                   the sync script automatically generates:
                 </p>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>
                     For each color (e.g.,{" "}
                     <code>primary: &#123; main: '#3b82f6' &#125;</code>):
@@ -1156,7 +1156,7 @@ export default defineConfig({
                     </ul>
                   </li>
                 </ul>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-2">
+                <p className="u-text-secondary-emphasis u-mb-2">
                   <strong>Example Output:</strong>
                 </p>
                 <EnhancedCodeBlock
@@ -1203,7 +1203,7 @@ npm run validate:config
 npm run prebuild`}
                   showLineNumbers={true}
                 />
-                <p className="u-text-secondary-emphasis-emphasis u-mt-3">
+                <p className="u-text-secondary-emphasis u-mt-3">
                   <strong>
                     What <code>sync:config</code> does:
                   </strong>
@@ -1241,7 +1241,7 @@ npm run prebuild`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Using CSS Variables
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   The theme system generates CSS variables you can use in your
                   styles:
                 </p>
@@ -1441,7 +1441,7 @@ npm run prebuild`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Importing Theme CSS Files
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Individual theme CSS files can be imported separately:
                 </p>
                 <EnhancedCodeBlock
@@ -1452,7 +1452,7 @@ import '@shohojdhara/atomix/themes/light';
 import '@shohojdhara/atomix/themes/light.min';`}
                   showLineNumbers={true}
                 />
-                <p className="u-text-secondary-emphasis-emphasis u-mt-3 u-mb-2">
+                <p className="u-text-secondary-emphasis u-mt-3 u-mb-2">
                   <strong>Available Theme Imports:</strong>
                 </p>
                 <ul className="u-text-sm u-ms-4">
@@ -1482,7 +1482,7 @@ import '@shohojdhara/atomix/themes/light.min';`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Using Generated Tokens
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   If you've customized tokens via <code>atomix.config.ts</code>,
                   import the generated CSS:
                 </p>
@@ -1492,7 +1492,7 @@ import '@shohojdhara/atomix/themes/light.min';`}
 import '@shohojdhara/atomix/styles/03-generic/_generated-root.css';`}
                   showLineNumbers={true}
                 />
-                <p className="u-text-secondary-emphasis-emphasis u-mt-3">
+                <p className="u-text-secondary-emphasis u-mt-3">
                   Or if using SCSS:
                 </p>
                 <EnhancedCodeBlock
@@ -1500,7 +1500,7 @@ import '@shohojdhara/atomix/styles/03-generic/_generated-root.css';`}
                   code={`@import '@shohojdhara/atomix/scss/generic';`}
                   showLineNumbers={true}
                 />
-                <p className="u-text-secondary-emphasis-emphasis u-mt-3">
+                <p className="u-text-secondary-emphasis u-mt-3">
                   The generated tokens will be available as CSS custom
                   properties in your application.
                 </p>
@@ -1519,7 +1519,7 @@ import '@shohojdhara/atomix/styles/03-generic/_generated-root.css';`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Composition
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Combine and extend themes to create variations:
                 </p>
                 <EnhancedCodeBlock
@@ -1543,7 +1543,7 @@ const extended = extendTheme(baseTheme, {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Component Overrides
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Customize component styles per theme:
                 </p>
                 <EnhancedCodeBlock
@@ -1580,7 +1580,7 @@ const extended = extendTheme(baseTheme, {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   RTL Support
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Enable RTL for right-to-left languages:
                 </p>
                 <EnhancedCodeBlock
@@ -1603,7 +1603,7 @@ rtlManager.setDirection('rtl');`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   CSS Variable Generation
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Generate CSS variables programmatically:
                 </p>
                 <EnhancedCodeBlock
@@ -1629,7 +1629,7 @@ document.head.appendChild(
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Validation
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Validate themes during development:
                 </p>
                 <EnhancedCodeBlock
@@ -1649,7 +1649,7 @@ if (!result.valid) {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Development Tools
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Preview and inspect themes:
                 </p>
                 <EnhancedCodeBlock
@@ -1686,10 +1686,10 @@ if (!result.valid) {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Not Loading
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Problem:</strong> Theme fails to load
                 </p>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
                 <ol className="u-text-sm u-ms-4">
@@ -1720,10 +1720,10 @@ console.log(themes);`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   CSS Variables Not Working
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Problem:</strong> CSS variables not found
                 </p>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
                 <ul className="u-text-sm u-ms-4">
@@ -1742,10 +1742,10 @@ console.log(themes);`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Token Generation Issues
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Problem:</strong> Generated tokens don't match config
                 </p>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
                 <ul className="u-text-sm u-ms-4">
@@ -1765,11 +1765,11 @@ console.log(themes);`}
                     styles
                   </li>
                 </ul>
-                <p className="u-text-secondary-emphasis-emphasis u-mt-3 u-mb-2">
+                <p className="u-text-secondary-emphasis u-mt-3 u-mb-2">
                   <strong>Problem:</strong> Only 1 CSS variable generated
                   instead of full scale
                 </p>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-2">
+                <p className="u-text-secondary-emphasis u-mb-2">
                   <strong>Solutions:</strong>
                 </p>
                 <ul className="u-text-sm u-ms-4">
@@ -1793,10 +1793,10 @@ console.log(themes);`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme CSS Import Issues
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Problem:</strong> Cannot import theme CSS files
                 </p>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
                 <ul className="u-text-sm u-ms-4">
@@ -1821,10 +1821,10 @@ console.log(themes);`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   TypeScript Errors
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Problem:</strong> TypeScript errors with theme types
                 </p>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solutions:</strong>
                 </p>
                 <ol className="u-text-sm u-ms-4">
@@ -1853,11 +1853,11 @@ console.log(themes);`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Configuration Not Syncing
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Problem:</strong> Generated files don't match{" "}
                   <code>atomix.config.ts</code>
                 </p>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solution:</strong>
                 </p>
                 <EnhancedCodeBlock
@@ -1873,11 +1873,11 @@ npm run validate:config`}
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Prefix Not Updating
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Problem:</strong> Prefix changes in config but not in
                   generated files
                 </p>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   <strong>Solution:</strong>
                 </p>
                 <ol className="u-text-sm u-ms-4">
@@ -2053,7 +2053,7 @@ export default function RootLayout({ children }) {
                     <h4 className="u-text-md u-font-semibold u-mb-2">
                       1. Always Use CSS Variables
                     </h4>
-                    <p className="u-text-sm u-text-secondary-emphasis-emphasis u-mb-2">
+                    <p className="u-text-sm u-text-secondary-emphasis u-mb-2">
                       ✅ <strong>Good:</strong>
                     </p>
                     <EnhancedCodeBlock
@@ -2064,7 +2064,7 @@ export default function RootLayout({ children }) {
 }`}
                       showLineNumbers={true}
                     />
-                    <p className="u-text-sm u-text-secondary-emphasis-emphasis u-mt-2">
+                    <p className="u-text-sm u-text-secondary-emphasis u-mt-2">
                       ❌ <strong>Bad:</strong> Hardcoded values like{" "}
                       <code>color: #3b82f6;</code> or{" "}
                       <code>padding: 16px;</code>
@@ -2075,7 +2075,7 @@ export default function RootLayout({ children }) {
                     <h4 className="u-text-md u-font-semibold u-mb-2">
                       2. Use ThemeProvider for React Apps
                     </h4>
-                    <p className="u-text-sm u-text-secondary-emphasis-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis">
                       Always use ThemeProvider for React applications instead of
                       direct ThemeManager usage.
                     </p>
@@ -2085,7 +2085,7 @@ export default function RootLayout({ children }) {
                     <h4 className="u-text-md u-font-semibold u-mb-2">
                       3. Error Boundaries
                     </h4>
-                    <p className="u-text-sm u-text-secondary-emphasis-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis">
                       Always wrap ThemeProvider with error boundary:
                     </p>
                     <EnhancedCodeBlock
@@ -2105,7 +2105,7 @@ export default function RootLayout({ children }) {
                     <h4 className="u-text-md u-font-semibold u-mb-2">
                       4. Type Safety
                     </h4>
-                    <p className="u-text-sm u-text-secondary-emphasis-emphasis">
+                    <p className="u-text-sm u-text-secondary-emphasis">
                       Use TypeScript types:
                     </p>
                     <EnhancedCodeBlock

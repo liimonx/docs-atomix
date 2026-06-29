@@ -214,7 +214,7 @@ const DesignTokensPage: FC = () => {
             </div>
             <div
               style={{ fontFamily: fontFamilyValue }}
-              className="u-fs-sm u-text-secondary-emphasis-emphasis u-text-center"
+              className="u-fs-sm u-text-secondary-emphasis u-text-center"
             >
               The quick brown fox
             </div>
@@ -251,7 +251,7 @@ const DesignTokensPage: FC = () => {
             >
               Aa
             </div>
-            <div className="u-fs-xs u-text-secondary-emphasis-emphasis u-mt-2 u-font-mono u-opacity-70">
+            <div className="u-fs-xs u-text-secondary-emphasis u-mt-2 u-font-mono u-opacity-70">
               {weightValue}
             </div>
           </div>
@@ -428,7 +428,7 @@ const DesignTokensPage: FC = () => {
                   <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {filteredTokens.length}
                   </div>
-                  <p className="u-text-secondary-emphasis-emphasis u-mb-0 u-text-lg u-font-medium">
+                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg u-font-medium">
                     Total Tokens
                   </p>
                 </Card>
@@ -440,7 +440,7 @@ const DesignTokensPage: FC = () => {
                   <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {Object.keys(groupedTokens).length}
                   </div>
-                  <p className="u-text-secondary-emphasis-emphasis u-mb-0 u-text-lg u-font-medium">
+                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg u-font-medium">
                     Categories
                   </p>
                 </Card>
@@ -452,7 +452,7 @@ const DesignTokensPage: FC = () => {
                   <div className="u-text-5xl u-font-black u-mb-3 u-text-primary u-tracking-tighter u-drop-shadow-sm">
                     {designTokens.length}
                   </div>
-                  <p className="u-text-secondary-emphasis-emphasis u-mb-0 u-text-lg u-font-medium">
+                  <p className="u-text-secondary-emphasis u-mb-0 u-text-lg u-font-medium">
                     Token Groups
                   </p>
                 </Card>

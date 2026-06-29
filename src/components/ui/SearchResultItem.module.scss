@@ -8,6 +8,13 @@
   text-decoration: none;
   color: inherit;
   margin-bottom: var(--atomix-spacing-2);
+
+  &--selected {
+    outline: 2px solid var(--atomix-focus-border-color);
+    outline-offset: 2px;
+    border-radius: var(--atomix-border-radius);
+    background-color: var(--atomix-primary-bg-subtle);
+  }
 }
 
 // Block: Base search result item card

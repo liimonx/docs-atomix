@@ -1952,7 +1952,7 @@ export const designTokens: TokenCategory[] = [
       },
       {
         name: 'Breakpoint LG',
-        value: '992px',
+        value: '1024px',
         description: 'Large breakpoint (desktop)',
         category: 'breakpoint',
         usage: ['desktops', 'large tablets'],

@@ -323,7 +323,7 @@ const DocumentationOverviewPage: FC = () => {
                   <h2 className="u-text-2xl u-font-bold u-m-0 u-mb-1 u-text-primary-emphasis">
                     {section.title}
                   </h2>
-                  <p className="u-m-0 u-text-secondary-emphasis-emphasis">
+                  <p className="u-m-0 u-text-secondary-emphasis">
                     {section.description}
                   </p>
                 </div>

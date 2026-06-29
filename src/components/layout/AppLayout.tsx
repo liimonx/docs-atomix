@@ -34,6 +34,15 @@ export const AppLayout: FC<{ children: React.ReactNode }> = ({ children }) => {
         showSidebarToggle={true}
       />
 
+      {sidebarOpen && (
+        <button
+          type="button"
+          className={styles.backdrop}
+          aria-label="Close navigation menu"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       <div className={styles.mainContainer}>
         <aside
           id="navigation"

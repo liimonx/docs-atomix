@@ -5,6 +5,11 @@ import Link from "next/link";
 import { Button, ColorModeToggle, Navbar, Nav } from "@shohojdhara/atomix";
 import { BreadcrumbNavigation } from "./BreadcrumbNavigation";
 import { GlobalSearch } from "../ui/GlobalSearch";
+import {
+  ATOMIX_VERSION_LABEL,
+  SOCIAL_LINKS,
+} from "@/utils/siteConfig";
+import styles from "./DocumentationHeader.module.scss";
 
 interface DocumentationHeaderProps {
   isSidebarOpen?: boolean;
@@ -13,6 +18,8 @@ interface DocumentationHeaderProps {
 }
 
 const DocumentationHeader = memo(function DocumentationHeader({
+  isSidebarOpen = false,
+  onSidebarToggle,
   showSidebarToggle = false,
 }: DocumentationHeaderProps) {
   return (
@@ -32,7 +39,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
         <Link href="/">
           <div className="u-flex u-items-center u-gap-3">
             <div className="u-flex u-items-center u-justify-center u-rounded-sm u-p-3">
-              <span className="u-text-brand-emphasis u-fs-xs .material-symbols-outlined">
+              <span className="material-symbols-outlined u-text-brand-emphasis u-fs-xs">
                 atm
               </span>
             </div>
@@ -41,7 +48,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
                 Atomix
               </p>
               <p className="u-text-primary-emphasis u-fs-xs u-font-medium u-mt-1">
-                v0.4.6
+                {ATOMIX_VERSION_LABEL}
               </p>
             </div>
           </div>
@@ -50,7 +57,21 @@ const DocumentationHeader = memo(function DocumentationHeader({
     >
       {showSidebarToggle && (
         <Nav alignment="start" className="u-ps-2">
-          <BreadcrumbNavigation />
+          <Button
+            className={styles.menuButton}
+            variant="link"
+            iconOnly
+            iconName={isSidebarOpen ? "X" : "List"}
+            aria-label={
+              isSidebarOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={isSidebarOpen}
+            aria-controls="navigation"
+            onClick={onSidebarToggle}
+          />
+          <div className={styles.breadcrumbs}>
+            <BreadcrumbNavigation />
+          </div>
         </Nav>
       )}
 
@@ -58,7 +79,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
         <GlobalSearch />
         <Button
           as="a"
-          href="https://github.com/shohojdhara/atomix"
+          href={SOCIAL_LINKS.github}
           variant="link"
           iconName="GithubLogo"
           iconOnly
@@ -66,7 +87,7 @@ const DocumentationHeader = memo(function DocumentationHeader({
         />
         <Button
           as="a"
-          href="https://twitter.com/shohojdhara"
+          href={SOCIAL_LINKS.twitter}
           variant="link"
           iconName="TwitterLogo"
           iconOnly

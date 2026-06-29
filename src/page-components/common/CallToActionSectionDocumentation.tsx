@@ -20,7 +20,7 @@ const CallToActionSectionDocumentation: FC = () => {
             <Icon
               name="CaretRight"
               size={14}
-              className="u-mx-2 u-text-secondary-emphasis-emphasis"
+              className="u-mx-2 u-text-secondary-emphasis"
             />
             <Link
               href="/docs/components"
@@ -31,9 +31,9 @@ const CallToActionSectionDocumentation: FC = () => {
             <Icon
               name="CaretRight"
               size={14}
-              className="u-mx-2 u-text-secondary-emphasis-emphasis"
+              className="u-mx-2 u-text-secondary-emphasis"
             />
-            <span className="u-text-secondary-emphasis-emphasis">
+            <span className="u-text-secondary-emphasis">
               Call to Action Section
             </span>
           </nav>
@@ -41,7 +41,7 @@ const CallToActionSectionDocumentation: FC = () => {
           <h1 className="u-text-4xl u-font-bold u-mb-4">
             Call to Action Section
           </h1>
-          <p className="u-text-secondary-emphasis-emphasis u-mb-6">
+          <p className="u-text-secondary-emphasis u-mb-6">
             A component for creating prominent call-to-action sections using the
             River component.
           </p>
@@ -124,13 +124,13 @@ const CallToActionSectionDocumentation: FC = () => {
                         title
                       </code>
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       ReactNode
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       -
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       The section title
                     </td>
                   </tr>
@@ -140,13 +140,13 @@ const CallToActionSectionDocumentation: FC = () => {
                         text
                       </code>
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       string | string[]
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       -
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       The section text content
                     </td>
                   </tr>
@@ -156,13 +156,13 @@ const CallToActionSectionDocumentation: FC = () => {
                         primaryAction
                       </code>
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       ReactNode
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       -
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       Primary action element (button, link, etc.)
                     </td>
                   </tr>
@@ -172,13 +172,13 @@ const CallToActionSectionDocumentation: FC = () => {
                         secondaryAction
                       </code>
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       ReactNode
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       -
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       Secondary action element (button, link, etc.)
                     </td>
                   </tr>
@@ -188,13 +188,13 @@ const CallToActionSectionDocumentation: FC = () => {
                         center
                       </code>
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       boolean
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       true
                     </td>
-                    <td className="u-p-3 u-text-secondary-emphasis-emphasis">
+                    <td className="u-p-3 u-text-secondary-emphasis">
                       Whether to center the content
                     </td>
                   </tr>
@@ -206,7 +206,7 @@ const CallToActionSectionDocumentation: FC = () => {
 
         <div className="u-mb-8">
           <h2 className="u-text-2xl u-font-bold u-mb-4">Implementation</h2>
-          <p className="u-text-secondary-emphasis-emphasis">
+          <p className="u-text-secondary-emphasis">
             The CallToActionSection component is a wrapper around the River
             component, providing a consistent way to create call-to-action
             sections across the site.

@@ -20,7 +20,6 @@ export * from './layout/AppLayout';
 export * from './layout/DocumentationFooter';
 
 // Section components
-export * from './sections/HeroSection';
 export * from './sections/ComponentGrid';
 export * from './sections/FeaturesSection';
 export * from './sections/QuickStartGuide';

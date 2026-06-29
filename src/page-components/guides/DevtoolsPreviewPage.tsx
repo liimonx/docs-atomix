@@ -36,7 +36,7 @@ const DevtoolsPreviewPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <h2 className="u-text-2xl u-font-bold u-mb-4">Overview</h2>
-              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis u-mb-4">
                 The ThemePreview component creates a visual testing environment
                 where you can see how your theme looks with real components. It
                 displays color palettes, typography samples, spacing scales, and
@@ -278,7 +278,7 @@ function App() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Testing Suite
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Create a comprehensive testing environment:
                 </p>
                 <EnhancedCodeBlock
@@ -333,7 +333,7 @@ function ThemeTestingSuite({ theme }) {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Storybook Integration
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Add theme preview to Storybook stories:
                 </p>
                 <EnhancedCodeBlock
@@ -375,7 +375,7 @@ export const WithTheme = {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Multi-Theme Comparison
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Preview multiple themes side by side:
                 </p>
                 <EnhancedCodeBlock
@@ -420,7 +420,7 @@ export const WithTheme = {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   1. Theme Development
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-2">
+                <p className="u-text-secondary-emphasis u-mb-2">
                   Use ThemePreview during theme creation to see changes in
                   real-time:
                 </p>
@@ -435,7 +435,7 @@ export const WithTheme = {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   2. Client Presentations
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-2">
+                <p className="u-text-secondary-emphasis u-mb-2">
                   Show theme options to clients or stakeholders:
                 </p>
                 <ul className="u-ms-4 u-text-sm">
@@ -449,7 +449,7 @@ export const WithTheme = {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   3. Documentation
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-2">
+                <p className="u-text-secondary-emphasis u-mb-2">
                   Include in theme documentation:
                 </p>
                 <ul className="u-ms-4 u-text-sm">
@@ -518,7 +518,7 @@ export const WithTheme = {
           <GridCol md={12}>
             <Card className="u-p-6">
               <h2 className="u-text-2xl u-font-bold u-mb-4">Related Tools</h2>
-              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis u-mb-4">
                 Combine ThemePreview with other devtools:
               </p>
               <div className="u-grid u-gap-3">

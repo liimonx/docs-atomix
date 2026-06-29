@@ -109,7 +109,7 @@ const HomePage: FC = () => {
                 <h3 className="u-text-lg u-font-semibold u-mb-2 u-text-primary-emphasis">
                   {feature.title}
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-leading-relaxed">
+                <p className="u-text-secondary-emphasis u-leading-relaxed">
                   {feature.description}
                 </p>
               </Card>
@@ -205,7 +205,7 @@ const LinkContent: FC<{
         <Icon name={"Link" as const} size={16} className="u-opacity-60" />
       )}
     </div>
-    <p className="u-text-secondary-emphasis-emphasis u-leading-relaxed u-m-0 u-ms-10">
+    <p className="u-text-secondary-emphasis u-leading-relaxed u-m-0 u-ms-10">
       {description}
     </p>
   </div>

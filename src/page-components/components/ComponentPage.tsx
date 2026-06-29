@@ -193,7 +193,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                               <div className="u-font-semibold u-text-brand-emphasis u-mb-1">
                                 {feature.title}
                               </div>
-                              <p className="u-text-secondary-emphasis-emphasis u-text-sm u-m-0">
+                              <p className="u-text-secondary-emphasis u-text-sm u-m-0">
                                 {feature.description}
                               </p>
                             </div>
@@ -205,7 +205,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                               <div className="u-font-semibold u-text-brand-emphasis u-mb-1">
                                 {feature.title}
                               </div>
-                              <p className="u-text-secondary-emphasis-emphasis u-text-sm u-m-0">
+                              <p className="u-text-secondary-emphasis u-text-sm u-m-0">
                                 {feature.description}
                               </p>
                             </div>
@@ -274,7 +274,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
                         ))}
                       </ul>
                     ) : (
-                      <p className="u-text-secondary-emphasis-emphasis u-text-sm u-font-style-italic u-m-0">
+                      <p className="u-text-secondary-emphasis u-text-sm u-font-style-italic u-m-0">
                         No external dependencies
                       </p>
                     )}
@@ -389,7 +389,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
     <Block>
       <Link
         href="/docs/components/overview"
-        className="u-inline-flex u-items-center u-gap-2 u-text-secondary-emphasis-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
+        className="u-inline-flex u-items-center u-gap-2 u-text-secondary-emphasis u-text-decoration-none u-text-sm u-mb-4 u-transition-fast u-focus-visible-ring"
         style={{
           transition: "var(--atomix-transition-fast)",
         }}
@@ -410,7 +410,7 @@ const ComponentPage: FC<{ componentId: string }> = ({ componentId }) => {
         <div className="u-flex-grow-1" style={{ minWidth: "300px" }}>
           <h1 className="u-text-4xl u-font-bold u-mb-2">{componentDoc.name}</h1>
           <p
-            className="u-text-lg u-text-secondary-emphasis-emphasis u-m-0"
+            className="u-text-lg u-text-secondary-emphasis u-m-0"
             style={{ lineHeight: "var(--atomix-line-height-relaxed)" }}
           >
             {componentDoc.description}

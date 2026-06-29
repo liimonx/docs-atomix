@@ -89,7 +89,7 @@ export const FeaturesSection: FC = () => {
                   <h3 className="u-text-xl u-font-semibold u-mb-3 u-text-primary-emphasis">
                     {feature.title}
                   </h3>
-                  <p className="u-text-secondary-emphasis-emphasis u-line-height-relaxed">
+                  <p className="u-text-secondary-emphasis u-line-height-relaxed">
                     {feature.description}
                   </p>
                 </div>

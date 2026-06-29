@@ -3,17 +3,21 @@
 import { FC } from "react";
 import { Footer, FooterSection, FooterLink } from "@shohojdhara/atomix";
 import toast from "react-hot-toast";
+import { SOCIAL_LINKS } from "@/utils/siteConfig";
+import { prefersReducedMotion } from "@/utils/accessibility";
 
 export const DocumentationFooter: FC = () => {
   const currentYear = new Date().getFullYear();
 
   const handleNewsletterSubmit = (email: string) => {
-    // Simulate newsletter subscription
     toast.success(`Thanks for subscribing with ${email}!`);
   };
 
   const handleBackToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion() ? "auto" : "smooth",
+    });
   };
 
   return (
@@ -36,26 +40,25 @@ export const DocumentationFooter: FC = () => {
       socialLinks={[
         {
           platform: "github",
-          url: "https://github.com/shohojdhara/atomix",
+          url: SOCIAL_LINKS.github,
           label: "GitHub",
         },
         {
           platform: "twitter",
-          url: "https://twitter.com/atomix",
+          url: SOCIAL_LINKS.twitter,
           label: "Twitter",
         },
         {
           platform: "discord",
-          url: "https://discord.gg/atomix",
+          url: SOCIAL_LINKS.discord,
           label: "Discord",
         },
         {
           platform: "github",
-          url: "https://www.npmjs.com/package/@shohojdhara/atomix",
+          url: SOCIAL_LINKS.npm,
           label: "NPM",
         },
       ]}
-
     >
       <FooterSection title="Getting Started">
         <FooterLink href="/docs/introduction">Introduction</FooterLink>
@@ -76,16 +79,13 @@ export const DocumentationFooter: FC = () => {
       </FooterSection>
 
       <FooterSection title="Resources">
-        <FooterLink href="https://github.com/shohojdhara/atomix" external>
+        <FooterLink href={SOCIAL_LINKS.github} external>
           GitHub Repository
         </FooterLink>
-        <FooterLink
-          href="https://www.npmjs.com/package/@shohojdhara/atomix"
-          external
-        >
+        <FooterLink href={SOCIAL_LINKS.npm} external>
           NPM Package
         </FooterLink>
-        <FooterLink href="https://atomix-storybook.netlify.app" external>
+        <FooterLink href={SOCIAL_LINKS.storybook} external>
           Storybook
         </FooterLink>
         <FooterLink href="/docs/api/react">API Reference</FooterLink>
@@ -97,10 +97,7 @@ export const DocumentationFooter: FC = () => {
         </FooterLink>
         <FooterLink href="/docs/resources/roadmap">Roadmap</FooterLink>
         <FooterLink href="/docs/resources/changelog">Changelog</FooterLink>
-        <FooterLink
-          href="https://github.com/shohojdhara/atomix/issues"
-          external
-        >
+        <FooterLink href={`${SOCIAL_LINKS.github}/issues`} external>
           Report Issue
         </FooterLink>
       </FooterSection>

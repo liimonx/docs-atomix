@@ -36,7 +36,7 @@ const DevtoolsLiveEditorPage: FC = () => {
           <GridCol md={12}>
             <Card className="u-p-6">
               <h2 className="u-text-2xl u-font-bold u-mb-4">Overview</h2>
-              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis u-mb-4">
                 The ThemeLiveEditor component combines visual editing tools with
                 a JSON editor to provide a flexible theme creation experience.
                 Changes are reflected instantly in the preview, making it easy
@@ -219,7 +219,7 @@ function ThemeBuilder() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Visual Editor
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   The visual editor provides intuitive controls for common theme
                   properties:
                 </p>
@@ -247,7 +247,7 @@ function ThemeBuilder() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   JSON Editor
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   For advanced editing, switch to JSON mode:
                 </p>
                 <ul className="u-ms-4 u-mb-4">
@@ -274,7 +274,7 @@ function ThemeBuilder() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Export Options
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Export your theme in multiple ways:
                 </p>
                 <ul className="u-ms-4 u-mb-4">
@@ -307,7 +307,7 @@ function ThemeBuilder() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Theme Builder Application
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Create a complete theme builder with save/load functionality:
                 </p>
                 <EnhancedCodeBlock
@@ -369,7 +369,7 @@ function ThemeBuilderApp() {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Collaborative Editing
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Sync theme changes across multiple users:
                 </p>
                 <EnhancedCodeBlock
@@ -411,7 +411,7 @@ function CollaborativeThemeEditor({ roomId }) {
                 <h3 className="u-text-lg u-font-semibold u-mb-3">
                   Undo/Redo Support
                 </h3>
-                <p className="u-text-secondary-emphasis-emphasis u-mb-3">
+                <p className="u-text-secondary-emphasis u-mb-3">
                   Add undo/redo functionality to the editor:
                 </p>
                 <EnhancedCodeBlock
@@ -577,7 +577,7 @@ function CollaborativeThemeEditor({ roomId }) {
           <GridCol md={12}>
             <Card className="u-p-6">
               <h2 className="u-text-2xl u-font-bold u-mb-4">Related Tools</h2>
-              <p className="u-text-secondary-emphasis-emphasis u-mb-4">
+              <p className="u-text-secondary-emphasis u-mb-4">
                 Combine ThemeLiveEditor with other devtools:
               </p>
               <div className="u-grid u-gap-3">
